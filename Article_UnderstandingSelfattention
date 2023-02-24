@@ -1,1 +1,779 @@
-https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="author" content="Sebastian Raschka">
+    <meta property="og:title" content="
+      Understanding and Coding the Self-Attention Mechanism of Large Language Models From Scratch
+    ">
+    <meta property="og:description" content="
+        In this article, we are going to understand how self-attention works from scratch. This means we will code it ourselves one step at a time. Since its introdu...
+      ">
+    <meta property="og:url"
+        content="https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html" />
+    <meta property="og:site_name" content="Sebastian Raschka, PhD" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:site" content="@rasbt" />
+    <meta name="twitter:description"
+        content="In this article, we are going to understand how self-attention works from scratch. This means we will code it ourselves one step at a time. Since its introdu..." />
+
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2023-02-09 08:00:00 +0000" />
+    
+    <meta property="article:tag" content="Deep" />
+    
+    <meta property="article:tag" content="Learning," />
+    
+    <meta property="article:tag" content="Machine" />
+    
+    <meta property="article:tag" content="Data" />
+    
+    <meta property="article:tag" content="Science" />
+    
+    <meta name="twitter:creator" content="@rasbt" />
+    <meta name="twitter:title" content="Understanding and Coding the Self-Attention Mechanism of Large Language Models From Scratch" />
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://sebastianraschka.com/images/blog/2023/self-attention-from-scratch/hero.jpg">
+    
+
+
+    <title>Understanding and Coding the Self-Attention Mechanism of Large Language Models From Scratch</title>
+    <meta name="description" content="My name is Sebastian, and I am a machine learning and AI researcher with a  strong passion for education. As Lead AI Educator at Grid.ai, I am excited  about making AI & deep learning more accessible and teaching people how to  utilize AI & deep learning at scale. I am also an Assistant Professor of Statistics  at the University of Wisconsin-Madison  and author of the bestselling book Python Machine Learning.
+">
+    <link rel="stylesheet" href=" /css/main.css">
+    <link rel="stylesheet" href=" /css/signup-form.css">
+    <link rel="stylesheet" href=" /css/fork-awesome.min.css">
+    <!--<link rel="stylesheet" href=" /css/academicons.min.css">-->
+    <meta property='og:title' content="Understanding and Coding the Self-Attention Mechanism of Large Language Models From Scratch">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html">
+
+
+  <meta property="og:image" content="">
+
+
+<meta property="og:description" content="In this article, we are going to understand how self-attention works from scratch. This means we will code it ourselves one step at a time. Since its introdu...">
+<meta property="og:site_name" content="Sebastian Raschka, PhD">
+<meta property="og:locale" content="en_US">
+
+    <meta property="article:published_time" content="2023-02-09T08:00:00+00:00">
+    <meta property="article:author" content="">
+    
+        <meta property="og:see_also" content="https://sebastianraschka.com/blog/2023/pytorch-faster.html">
+    
+        <meta property="og:see_also" content="https://sebastianraschka.com/blog/2023/llm-reading-list.html">
+    
+        <meta property="og:see_also" content="https://sebastianraschka.com/blog/2023/detect-ai.html">
+    
+
+
+<meta property="fb:admins" content="">
+<meta property="fb:app_id" content="">
+
+    <link rel="canonical" href="https://sebastianraschka.com/blog/2023/self-attention-from-scratch.html">
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+  <body>
+    <img src="/images/logos/ahead-of-ai-icon.png" alt="Ahead of AI logo" style="display: none;"> 
+
+<header class="site-header">
+  
+      <div class="site-title" style="text-decoration: none; margin-top: 2em;">
+        <a href="/"><span style="color:black">Sebastian</span> <span style="color:#c5050c">Raschka</span> </a>
+        <a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20" style="padding-left:20px;" alt="Twitter icon"></a>
+        <a href="https://www.linkedin.com/in/sebastianraschka/"><img src="/images/logos/linkedin-bw.jpg" height="20" style="padding-left:5px;" alt="LinkedIn Icon"></a>
+      </div>
+
+
+
+     <!--  <div style="width:100%;height:50;float:left;margin-bottom:10px;">
+        &nbsp;<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-bw.jpg" height="20"></a>-->
+        <!-- &nbsp;<a href="https://www.buymeacoffee.com/rasbt"><img src="/images/logos/coffee-bw.jpg" height="20"></a>-->
+        <!--&nbsp;<a href="https://mastodon.social/@SebRaschka"><img src="/images/logos/mastodon-bw.jpg" height="20"></a>-->
+        
+     <!-- </div>-->
+  
+
+  <div class="wrapper">
+  
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+
+
+      
+      <div class="trigger">
+
+
+
+        <!--<script type="text/javascript">
+          var total_images = 2;
+          var random_number = Math.floor((Math.random()*total_images));
+          var random_img = new Array();
+          random_img[0] = '<a href="https://twitter.com/rasbt"><img src="/images/logos/twitter-1.jpg" height="20"></a>';
+          random_img[1] = '<a href="https://linkedin.com/in/sebastianraschka"><img src="/images/logos/linkedin-1.jpg" height="20"></a>';
+          document.write(random_img[random_number]);
+          </script>-->
+
+        <span style="padding-left:0px;margin-left:0px;"></span>
+        <a class="page-link" href="https://magazine.sebastianraschka.com"><span style="color:#c5050c;"><img src="/images/logos/ahead-of-ai-icon.png" alt="Ahead of AI Logo" height="20"> AI Magazine</span></a>
+        <a class="page-link" href="/blog/index.html">Blog</a>
+        <a class="page-link" href="/books">Books</a>
+        <!--<a class="page-link" href="/newsletter">AI Newsletter</a>-->
+        <a class="page-link" href="/teaching">Courses</a>
+        <a class="page-link" href="/publications">Research</a>
+        <a class="page-link" href="/elsewhere">Talks</a>
+        <a class="page-link" href="/contact">Contact</a>
+        <a class="page-link" href="/resources">Resources</a>
+        
+
+      </div>  
+
+
+    </nav>
+
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+  type="text/javascript"></script>
+
+
+
+
+<div class="post">
+  <header class="post-header">
+
+
+
+    <div class="rss">
+
+     
+     &nbsp;&nbsp;<a href="/rss_feed.xml"><span><i class="fa fa-rss fa-2x"></i><br>RSS</a></span>
+
+     
+
+</div>
+
+
+    <h1 class="post-title">Understanding and Coding the Self-Attention Mechanism of Large Language Models From Scratch</h1>
+    <h2 class="post-title"></h2>
+
+
+
+
+
+
+    <div style='height: 15px;'></div>
+    <p class="post-meta">Feb 9, 2023 <br>by Sebastian Raschka</p>
+  </header>
+
+  <article class="post-content">
+    <p>In this article, we are going to understand how self-attention works from scratch. This means we will code it ourselves one step at a time.</p>
+
+<p>Since its introduction via the original transformer paper (<a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a>), self-attention has become a cornerstone of many state-of-the-art deep learning models, particularly in the field of Natural Language Processing (NLP). Since self-attention is now everywhere, it’s important to understand how it works.</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/transformer.png" alt="" class="center-image image-70" /></p>
+      <h2 id="self-attention">
+        
+        
+          Self-Attention <a href="#self-attention">#</a>
+        
+        
+      </h2>
+    
+
+<p>The concept of “attention” in deep learning <a href="https://arxiv.org/abs/1409.0473">has its roots in the effort to improve Recurrent Neural Networks (RNNs)</a> for handling longer sequences or sentences. For instance, consider translating a sentence from one language to another. Translating a sentence word-by-word does not work effectively.</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/sentence.png" alt="" class="center-image image-50" /></p>
+
+<p>To overcome this issue, attention mechanisms were introduced to give access to all sequence elements at each time step. The key is to be selective and determine which words are most important in a specific context. In 2017, the transformer architecture introduced a standalone self-attention mechanism, eliminating the need for RNNs altogether.</p>
+
+<p>(For brevity, and to keep the article focused on the technical self-attention details, and I am skipping parts of the motivation, but my <a href="https://sebastianraschka.com/books/">Machine Learning with PyTorch and Scikit-Learn book</a> has some additional details in Chapter 16 if you are interested.)</p>
+
+<p><a href="https://arxiv.org/abs/1706.03762"><img src="/images/blog/2023/self-attention-from-scratch/paper.png" alt="" class="center-image image-70" /></a></p>
+
+<p>We can think of self-attention as a mechanism that enhances the information content of an input embedding by including information about the input’s context. In other words, the self-attention mechanism enables the model to weigh the importance of different elements in an input sequence and dynamically adjust their influence on the output. This is especially important for language processing tasks, where the meaning of a word can change based on its context within a sentence or document.</p>
+
+<p>Note that there are many variants of self-attention. A particular focus has been on making self-attention more efficient. However, most papers still implement the original scaled-dot product attention mechanism discussed in this paper since it usually results in superior accuracy and because self-attention is rarely a computational bottleneck for most companies training large-scale transformers.</p>
+
+<p>In this article, we focus on the original scaled-dot product attention mechanism (referred to as self-attention), which remains the most popular and most widely used attention mechanism in practice. However, if you are interested in other types of attention mechanisms, check out the <a href="https://arxiv.org/abs/2009.06732">2020 <em>Efficient Transformers: A Survey</em></a> and the <a href="https://arxiv.org/abs/2302.01107">2023 <em>A Survey on Efficient Training of Transformers</em></a> review and the recent <a href="https://arxiv.org/abs/2205.14135">FlashAttention</a> paper.</p>
+      <h2 id="embedding-an-input-sentence">
+        
+        
+          Embedding an Input Sentence <a href="#embedding-an-input-sentence">#</a>
+        
+        
+      </h2>
+    
+
+<p>Before we begin, let’s consider an input sentence <em>“Life is short, eat dessert first”</em> that we want to put through the self-attention mechanism. Similar to other types of modeling approaches fpr processing text (e.g., using recurrent neural networks or convolutional neural networks), we create a sentence embedding first.</p>
+
+<p>For simplicity, here our dictionary <code class="language-plaintext highlighter-rouge">dc</code> is restricted to the words that occur in the input sentence. In a real-world application, we would consider all words in the training dataset (typical vocabulary sizes range between 30k to 50k).</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sentence</span> <span class="o">=</span> <span class="s">'Life is short, eat dessert first'</span>
+
+<span class="n">dc</span> <span class="o">=</span> <span class="p">{</span><span class="n">s</span><span class="p">:</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">sentence</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span> <span class="s">''</span><span class="p">).</span><span class="n">split</span><span class="p">()))}</span>
+<span class="k">print</span><span class="p">(</span><span class="n">dc</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">'Life'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s">'dessert'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">'eat'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">'first'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s">'is'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">'short'</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Next, we use this dictionary to assign an integer index to each word:</p>
+
+<p><strong>In:</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">torch</span>
+
+<span class="n">sentence_int</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">tensor</span><span class="p">([</span><span class="n">dc</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">','</span><span class="p">,</span> <span class="s">''</span><span class="p">).</span><span class="n">split</span><span class="p">()])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sentence_int</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Now, using the integer-vector representation of the input sentence, we can use an embedding layer to encode the inputs into a real-vector embedding. Here, we will use a 16-dimensional embedding such that each input word is represented by a 16-dimensional vector. Since the sentence consists of 6 words, this will result in a \(6 \times 16\)-dimensional embedding:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">torch</span><span class="p">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">embed</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">nn</span><span class="p">.</span><span class="n">Embedding</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="n">embedded_sentence</span> <span class="o">=</span> <span class="n">embed</span><span class="p">(</span><span class="n">sentence_int</span><span class="p">).</span><span class="n">detach</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">embedded_sentence</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">embedded_sentence</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tensor</span><span class="p">([[</span> <span class="mf">0.3374</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1778</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3035</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5880</span><span class="p">,</span>  <span class="mf">0.3486</span><span class="p">,</span>  <span class="mf">0.6603</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2196</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3792</span><span class="p">,</span>
+          <span class="mf">0.7671</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1925</span><span class="p">,</span>  <span class="mf">0.6984</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4097</span><span class="p">,</span>  <span class="mf">0.1794</span><span class="p">,</span>  <span class="mf">1.8951</span><span class="p">,</span>  <span class="mf">0.4954</span><span class="p">,</span>  <span class="mf">0.2692</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.5146</span><span class="p">,</span>  <span class="mf">0.9938</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2587</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0826</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0444</span><span class="p">,</span>  <span class="mf">1.6236</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.3229</span><span class="p">,</span>  <span class="mf">1.0878</span><span class="p">,</span>
+          <span class="mf">0.6716</span><span class="p">,</span>  <span class="mf">0.6933</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9487</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0765</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1526</span><span class="p">,</span>  <span class="mf">0.1167</span><span class="p">,</span>  <span class="mf">0.4403</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4465</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.2553</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5496</span><span class="p">,</span>  <span class="mf">1.0042</span><span class="p">,</span>  <span class="mf">0.8272</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3948</span><span class="p">,</span>  <span class="mf">0.4892</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2168</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.7472</span><span class="p">,</span>
+         <span class="o">-</span><span class="mf">1.6025</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0764</span><span class="p">,</span>  <span class="mf">0.9031</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7218</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5951</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7112</span><span class="p">,</span>  <span class="mf">0.6230</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3729</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">1.3250</span><span class="p">,</span>  <span class="mf">0.1784</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1338</span><span class="p">,</span>  <span class="mf">1.0524</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3885</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.9343</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4991</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0867</span><span class="p">,</span>
+          <span class="mf">0.8805</span><span class="p">,</span>  <span class="mf">1.5542</span><span class="p">,</span>  <span class="mf">0.6266</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1755</span><span class="p">,</span>  <span class="mf">0.0983</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0935</span><span class="p">,</span>  <span class="mf">0.2662</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5850</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.0770</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0205</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1690</span><span class="p">,</span>  <span class="mf">0.9178</span><span class="p">,</span>  <span class="mf">1.5810</span><span class="p">,</span>  <span class="mf">1.3010</span><span class="p">,</span>  <span class="mf">1.2753</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2010</span><span class="p">,</span>
+          <span class="mf">0.4965</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5723</span><span class="p">,</span>  <span class="mf">0.9666</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1481</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1589</span><span class="p">,</span>  <span class="mf">0.3255</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6315</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.8400</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.8768</span><span class="p">,</span>  <span class="mf">1.6221</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4779</span><span class="p">,</span>  <span class="mf">1.1331</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2203</span><span class="p">,</span>  <span class="mf">1.3139</span><span class="p">,</span>  <span class="mf">1.0533</span><span class="p">,</span>  <span class="mf">0.1388</span><span class="p">,</span>
+          <span class="mf">2.2473</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8036</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2808</span><span class="p">,</span>  <span class="mf">0.7697</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6596</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7979</span><span class="p">,</span>  <span class="mf">0.1838</span><span class="p">,</span>  <span class="mf">0.2293</span><span class="p">]])</span>
+<span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+</code></pre></div></div>
+      <h2 id="defining-the-weight-matrices">
+        
+        
+          Defining the Weight Matrices <a href="#defining-the-weight-matrices">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now, let’s discuss the widely utilized self-attention mechanism known as the scaled dot-product attention, which is integrated into the transformer architecture.</p>
+
+<p>Self-attention utilizes three weight matrices, referred to as \(\mathbf{W}_q\), \(\mathbf{W}_k\), and \(\mathbf{W}_v\), which are adjusted as model parameters during training. These matrices serve to project the inputs into query, key, and value components of the sequence, respectively.</p>
+
+<p>The respective query, key and value sequences are obtained via matrix multiplication between the weight matrices \(\mathbf{W}\) and the embedded inputs \(\mathbf{x}\):</p>
+
+<ul>
+  <li>Query sequence: \(\mathbf{q}^{(i)}=\mathbf{W}_q \mathbf{x}^{(i)}\) for \(i \in[1, T]\)</li>
+  <li>Key sequence: \(\mathbf{k}^{(i)}=\mathbf{W}_k \mathbf{x}^{(i)}\) for \(i \in[1, T]\)</li>
+  <li>Value sequence: \(\mathbf{v}^{(i)}=\mathbf{W}_v \mathbf{x}^{(i)}\) for \(i \in[1, T]\)</li>
+</ul>
+
+<p>The index \(i\) refers to the token index position in the input sequence, which has length \(T\).</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/attention-matrices.png" alt="attention-matrices" class="center-image image-30" /></p>
+
+<p>Here, both \(\mathbf{q}^{(i)}\) and \(\mathbf{k}^{(i)}\) are vectors of dimension \(d_k\). The projection matrices \(\mathbf{W}_{q}\) and \(\mathbf{W}_{k}\) have a shape of \(d_k \times d\), while  \(\mathbf{W}_{v}\) has the shape  \(d_v \times d\).</p>
+
+<p>(It’s important to note that \(d\) represents the size of each word vector, \(\mathbf{x}\).)</p>
+
+<p>Since we are computing the dot-product between the query and key vectors, these two vectors have to contain the same number of elements (\(d_q = d_k\)). However, the number of elements in the value vector \(\mathbf{v}^{(i)}\), which determines the size of the resulting context vector, is arbitrary.</p>
+
+<p>So, for the following code walkthrough, we will set \(d_q = d_k = 24\) and use \(d_v = 28\),  initializing the projection matrices as follows:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">torch</span><span class="p">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">embedded_sentence</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">d_q</span><span class="p">,</span> <span class="n">d_k</span><span class="p">,</span> <span class="n">d_v</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">28</span>
+
+<span class="n">W_query</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d_q</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">W_key</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d_k</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">W_value</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d_v</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</code></pre></div></div>
+      <h2 id="computing-the-unnormalized-attention-weights">
+        
+        
+          Computing the Unnormalized Attention Weights <a href="#computing-the-unnormalized-attention-weights">#</a>
+        
+        
+      </h2>
+    
+
+<p>Now, let’s suppose we are interested in computing the attention-vector for the second input element – the second input element acts as the query here:</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/query.png" alt="query" class="center-image image-30" /></p>
+
+<p>In code, this looks like as follows:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x_2</span> <span class="o">=</span> <span class="n">embedded_sentence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">query_2</span> <span class="o">=</span> <span class="n">W_query</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_2</span><span class="p">)</span>
+<span class="n">key_2</span> <span class="o">=</span> <span class="n">W_key</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_2</span><span class="p">)</span>
+<span class="n">value_2</span> <span class="o">=</span> <span class="n">W_value</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_2</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">query_2</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">key_2</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">value_2</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">24</span><span class="p">])</span>
+<span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">24</span><span class="p">])</span>
+<span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">28</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>We can then generalize this to compute th remaining key, and value elements for all inputs as well, since we will need them in the next step when we compute the unnormalized attention weights \(\omega\):</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">keys</span> <span class="o">=</span> <span class="n">W_key</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">embedded_sentence</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">T</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">W_value</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">embedded_sentence</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">T</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"keys.shape:"</span><span class="p">,</span> <span class="n">keys</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"values.shape:"</span><span class="p">,</span> <span class="n">values</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">keys</span><span class="p">.</span><span class="n">shape</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">])</span>
+<span class="n">values</span><span class="p">.</span><span class="n">shape</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span> <span class="mi">28</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Now that we have all the required keys and values, we can proceed to the next step and compute the unnormalized attention weights \(\omega\) , which are illustrated in the figure below:</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/omega.png" alt="omega" class="center-image image-50" /></p>
+
+<p>As illustrated in the figure above,  we compute \(\omega_{i, j}\) as the dot product between the query and key sequences, \(\omega_{i j}=\mathbf{q}^{(i)^{\top}} \mathbf{k}^{(j)}\).</p>
+
+<p>For example, we can compute the unnormalized attention weight for the query and 5th input element (corresponding to index position 4) as follows:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">omega_24</span> <span class="o">=</span> <span class="n">query_2</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">keys</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">omega_24</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tensor</span><span class="p">(</span><span class="mf">11.1466</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Since we will need those to compute the attention scores later, let’s compute the \(\omega\) values for all input tokens as illustrated in the previous figure:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">omega_2</span> <span class="o">=</span> <span class="n">query_2</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">keys</span><span class="p">.</span><span class="n">T</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">omega_2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tensor</span><span class="p">([</span> <span class="mf">8.5808</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.6597</span><span class="p">,</span>  <span class="mf">3.2558</span><span class="p">,</span>  <span class="mf">1.0395</span><span class="p">,</span> <span class="mf">11.1466</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4800</span><span class="p">])</span>
+</code></pre></div></div>
+      <h2 id="computing-the-attention-scores">
+        
+        
+          Computing the Attention Scores <a href="#computing-the-attention-scores">#</a>
+        
+        
+      </h2>
+    
+
+<p>The subsequent step in self-attention is to normalize the unnormalized attention weights, \(\omega\), to obtain the normalized attention weights, \(\alpha\), by applying the softmax function. Additionally, \(1/\sqrt{d_k}\) is used to scale \(\omega\) before normalizing it through the softmax function, as shown below:</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/attention-scores.png" alt="attention-scores" class="center-image image-80" /></p>
+
+<p>The scaling by \(d_k\) ensures that the Euclidean length of the weight vectors will be approximately in the same magnitude. This helps prevent the attention weights from becoming too small or too large, which could lead to numerical instability or affect the model’s ability to converge during training.</p>
+
+<p>In code, we can implement the computation of the attention weights as follows:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="n">F</span>
+
+<span class="n">attention_weights_2</span> <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">omega_2</span> <span class="o">/</span> <span class="n">d_k</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">attention_weights_2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tensor</span><span class="p">([</span><span class="mf">0.2910</span><span class="p">,</span> <span class="mf">0.0050</span><span class="p">,</span> <span class="mf">0.0769</span><span class="p">,</span> <span class="mf">0.0442</span><span class="p">,</span> <span class="mf">0.5527</span><span class="p">,</span> <span class="mf">0.0302</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Finally, the last step is to compute the context vector \(\mathbf{z}^{(2)}\), which is an attention-weighted version of our original query input \(\mathbf{x}^{(2)}\), including all the other input elements as its context via the attention weights:</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/context-vector.png" alt="context-vector" class="center-image image-80" /></p>
+
+<p>In code, this looks like as follows:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">context_vector_2</span> <span class="o">=</span> <span class="n">attention_weights_2</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">context_vector_2</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">context_vector_2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">28</span><span class="p">])</span>
+<span class="n">tensor</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">28</span><span class="p">])</span>
+<span class="n">tensor</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5993</span><span class="p">,</span>  <span class="mf">0.0156</span><span class="p">,</span>  <span class="mf">1.2670</span><span class="p">,</span>  <span class="mf">0.0032</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6460</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.1407</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4908</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4632</span><span class="p">,</span>
+         <span class="mf">0.4747</span><span class="p">,</span>  <span class="mf">1.1926</span><span class="p">,</span>  <span class="mf">0.4506</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7110</span><span class="p">,</span>  <span class="mf">0.0602</span><span class="p">,</span>  <span class="mf">0.7125</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1628</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0184</span><span class="p">,</span>
+         <span class="mf">0.3838</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.1188</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8136</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5694</span><span class="p">,</span>  <span class="mf">0.7934</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2911</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3640</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2366</span><span class="p">,</span>
+        <span class="o">-</span><span class="mf">0.9564</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5265</span><span class="p">,</span>  <span class="mf">0.0624</span><span class="p">,</span>  <span class="mf">1.7084</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Note that this output vector has more dimensions (\(d_v=28\)) than the original input vector (\(d=16\)) since we specified \(d_v &gt; d\) earlier; however, the embedding size choice is arbitrary.</p>
+      <h2 id="multi-head-attention">
+        
+        
+          Multi-Head Attention <a href="#multi-head-attention">#</a>
+        
+        
+      </h2>
+    
+
+<p>In the very first figure, at the top of this article, we saw that transformers use a module called <em>multi-head attention</em>. How does that relate to the self-attention mechanism (scaled-dot product attention) we walked through above?</p>
+
+<p>In the scaled dot-product attention, the input sequence was transformed using three matrices representing the query, key, and value. These three matrices can be considered as a single attention head in the context of multi-head attention. The figure below summarizes this single attention head we covered previously:</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/single-head.png" alt="single-head" class="center-image image-60" /></p>
+
+<p>As its name implies, multi-head attention involves multiple such heads, each consisting of query, key, and value matrices. This concept is similar to the use of multiple kernels in convolutional neural networks.</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/multi-head.png" alt="multi-head" class="center-image image-60" /></p>
+
+<p>To illustrate this in code, suppose we have 3 attention heads, so we now extend the \(d' \times d\) dimensional weight matrices so \(3 \times d' \times d\):</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">h</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">multihead_W_query</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">d_q</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">multihead_W_key</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">d_k</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">multihead_W_value</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">d_v</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Consequently, each query element is now \(3 \times d_q\) dimensional, where \(d_q=24\) (here, let’s keep the focus on the 3rd element corresponding to index position 2):</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">multihead_query_2</span> <span class="o">=</span> <span class="n">multihead_W_query</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">multihead_query_2</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">24</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>We can then obtain the keys and values in a similar fashion:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">multihead_key_2</span> <span class="o">=</span> <span class="n">multihead_W_key</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_2</span><span class="p">)</span>
+<span class="n">multihead_value_2</span> <span class="o">=</span> <span class="n">multihead_W_value</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_2</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now, these key and value elements are specific to the query element. But, similar to earlier, we will also need the value and keys for the other sequence elements in order to compute the attention scores for the query. We can do this is by expanding the input sequence embeddings to size 3, i.e., the number of attention heads:</p>
+
+<p><strong>In:</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">stacked_inputs</span> <span class="o">=</span> <span class="n">embedded_sentence</span><span class="p">.</span><span class="n">T</span><span class="p">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">stacked_inputs</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+<p><strong>Out:</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Now, we can compute compute all the keys and values using <code class="language-plaintext highlighter-rouge">via torch.bmm()</code> ( batch matrix multiplication):</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">multihead_keys</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">multihead_W_key</span><span class="p">,</span> <span class="n">stacked_inputs</span><span class="p">)</span>
+<span class="n">multihead_values</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">bmm</span><span class="p">(</span><span class="n">multihead_W_value</span><span class="p">,</span> <span class="n">stacked_inputs</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"multihead_keys.shape:"</span><span class="p">,</span> <span class="n">multihead_keys</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"multihead_values.shape:"</span><span class="p">,</span> <span class="n">multihead_values</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+<p><strong>Out:</strong></p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">multihead_keys</span><span class="p">.</span><span class="n">shape</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">multihead_values</span><span class="p">.</span><span class="n">shape</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>We now have tensors that represent the eight attention heads in their first dimension. The third and second dimensions refer to the number of words and the embedding size, respectively. To make the values and keys more intuitive to interpret, we will swap the second and third dimensions, resulting in tensors with the same dimensional structure as the original input sequence, <code class="language-plaintext highlighter-rouge">embedded_sentence</code>:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">multihead_keys</span> <span class="o">=</span> <span class="n">multihead_keys</span><span class="p">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">multihead_values</span> <span class="o">=</span> <span class="n">multihead_values</span><span class="p">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"multihead_keys.shape:"</span><span class="p">,</span> <span class="n">multihead_keys</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"multihead_values.shape:"</span><span class="p">,</span> <span class="n">multihead_values</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">multihead_keys</span><span class="p">.</span><span class="n">shape</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">])</span>
+<span class="n">multihead_values</span><span class="p">.</span><span class="n">shape</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">28</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Then, we follow the same steps as previously to compute the unscaled attention weights \(\omega\) and attention weights \(\alpha\), followed by the scaled-softmax computation to obtain an \(h \times d_v\) (here: \(3 \times d_v\)) dimensional context vector \(\mathbf{z}\) for the input element \(\mathbf{x}^{(2)}\).</p>
+      <h2 id="cross-attention">
+        
+        
+          Cross-Attention <a href="#cross-attention">#</a>
+        
+        
+      </h2>
+    
+
+<p>In the code walkthrough above, we set \(d_q = d_k = 24\) and \(d_v=28\). Or in other words, we used the same dimensions for query and key sequences. While the  value matrix \(\mathbf{W}_v\) is often chosen to have the same dimension as the query and key matrices (such as in PyTorch’s <a href="https://pytorch.org/docs/stable/generated/torch.nn.MultiheadAttention.html">MultiHeadAttention</a> class), we can select an arbitrary number size for the value dimensions.</p>
+
+<p>Since the dimensions are sometimes a bit tricky to keep track of, let’s summarize everything we have covered so far in the figure below, which depicts the various tensor sizes for a single attention head.</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/summary.png" alt="smmary" class="center-image image-80" /></p>
+
+<p>Now, the illustration above corresponds to the <em>self</em>-attention mechanism used in transformers. One particular flavor of this attention mechanism we have yet to discuss is <em>cross</em>-attention.</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/cross-attention.png" alt="smmary" class="center-image image-40" /></p>
+
+<p>What is cross-attention, and how does it differ from self-attention?</p>
+
+<p>In self-attention, we work with the same input sequence. In cross-attention, we mix or combine two <em>different</em> input sequences. In the case of the original transformer architecture above, that’s the sequence returned by the decoder module on the left and the input sequence being processed by the encoder part on the right.</p>
+
+<p>Note that in cross-attention, the two input sequences \(\mathbf{x}_1\) and \(\mathbf{x}_2\) can have different numbers of elements. However, their embedding dimensions must match.</p>
+
+<p>The figure below illustrates the concept of cross-attention. If we set \(\mathbf{x}_1 = \mathbf{x}_2\), this is equivalent to self-attention.</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/cross-attention-summary.png" alt="smmary" class="center-image image-80" /></p>
+
+<p>How does that work in code? Previously, when we implemented the self-attention mechanism at the beginning of this article, we used the following code to compute the query of the second input element along with all the keys and values as follows:</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">torch</span><span class="p">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">embedded_sentence</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"embedded_sentence.shape:"</span><span class="p">,</span> <span class="n">embedded_sentence</span><span class="p">.</span><span class="n">shape</span><span class="p">:)</span>
+
+<span class="n">d_q</span><span class="p">,</span> <span class="n">d_k</span><span class="p">,</span> <span class="n">d_v</span> <span class="o">=</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">28</span>
+
+<span class="n">W_query</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d_q</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">W_key</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d_k</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="n">W_value</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="n">d_v</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="n">x_2</span> <span class="o">=</span> <span class="n">embedded_sentence</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">query_2</span> <span class="o">=</span> <span class="n">W_query</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x_2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"query.shape"</span><span class="p">,</span> <span class="n">query_2</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">keys</span> <span class="o">=</span> <span class="n">W_key</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">embedded_sentence</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">T</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">W_value</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">embedded_sentence</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">T</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"keys.shape:"</span><span class="p">,</span> <span class="n">keys</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"values.shape:"</span><span class="p">,</span> <span class="n">values</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>embedded_sentence.shape: torch.Size([6, 16])
+queries.shape: torch.Size([24])
+keys.shape: torch.Size([6, 24])
+values.shape: torch.Size([6, 28])
+</code></pre></div></div>
+
+<p>The only part that changes in cross attention is that we now have a second input sequence, for example, a second sentence with 8 instead of 6 input elements. Here, suppose this is a sentence with 8 tokens.</p>
+
+<p><strong>In:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">embedded_sentence_2</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="c1"># 2nd input sequence
+</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="n">W_key</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">embedded_sentence_2</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">T</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">W_value</span><span class="p">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">embedded_sentence_2</span><span class="p">.</span><span class="n">T</span><span class="p">).</span><span class="n">T</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"keys.shape:"</span><span class="p">,</span> <span class="n">keys</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"values.shape:"</span><span class="p">,</span> <span class="n">values</span><span class="p">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><strong>Out:</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">keys</span><span class="p">.</span><span class="n">shape</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">24</span><span class="p">])</span>
+<span class="n">values</span><span class="p">.</span><span class="n">shape</span><span class="p">:</span> <span class="n">torch</span><span class="p">.</span><span class="n">Size</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">28</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>Notice that compared to self-attention, the keys and values now have 8 instead of 6 rows. Everything else stays the same.</p>
+
+<p>We talked a lot about language transformers above. In the original transformer architecture, cross-attention is useful when we go from an input sentence to an output sentence in the context of language translation. The input sentence represents one input sequence, and the translation represent the second input sequence (the two sentences can different numbers of words).</p>
+
+<p>Another popular model where cross-attention is used is Stable Diffusion. Stable Diffusion uses cross-attention between the generated image in the U-Net model and the text prompts used for conditioning as described in <a href="https://arxiv.org/abs/2112.10752">High-Resolution Image Synthesis with Latent Diffusion Models</a> – the original paper that describes the Stable Diffusion model that was later adopted by Stability AI to implement the popular Stable Diffusion model.</p>
+
+<p><img src="/images/blog/2023/self-attention-from-scratch/diffusion.png" alt="stable diffusion" class="center-image image-80" /></p>
+      <h2 id="conclusion">
+        
+        
+          Conclusion <a href="#conclusion">#</a>
+        
+        
+      </h2>
+    
+
+<p>In this article, we saw how self-attention works using a step-by-step coding approach. We then extended this concept to multi-head attention, the widely used component of large-language transformers. After discussing self-attention and multi-head attention, we introduced yet another concept: cross-attention, which is a flavor of self-attention that we can apply between two different sequences.
+This is already a lot of information to take in. Let’s leave the training of a neural network using this multi-head attention block to a future article.</p>
+
+    <br>
+    <br>
+    
+    <hr>
+    
+    
+    <br>
+    
+    If you liked this article, you can also find me on 
+    <a href="https://twitter.com/rasbt">Twitter</a> and <a href="https://www.linkedin.com/in/sebastianraschka/">LinkedIn</a> where I share more content related to machine learning and AI.
+    <br> 
+    If you are looking for a way to support me and my work, consider purchasing <a href="/books">one of my books</a> or subscribing to the paid version of my free <a href="https://magazine.sebastianraschka.com/">machine learning newsletter</a>. If you find it valuable, please spread the word and recommend it to others.
+    
+    <p style="clear: both;"></p>
+    <a href="https://www.amazon.com/Machine-Learning-PyTorch-Scikit-Learn-scikit-learn-ebook-dp-B09NW48MR1/dp/B09NW48MR1/"><img src="/images/books/pyml4-cover.jpg" height=100 style="padding-right:25px"></a>
+    <a href="https://leanpub.com/machine-learning-q-and-ai/"><img src="/images/books/2023-ml-qai-cover.jpg"  height=100></a>
+    <p style="clear: both;"></p>
+
+  </article>
+
+
+  <!--<strong>Have feedback on this post? I would love to hear it. Let me know and send me a <a href="https://twitter.com/intent/tweet?text=. @rasbt http://sebastianraschka.com/blog/2023/self-attention-from-scratch.html">tweet</a> or <a href="http://sebastianraschka.com/email.html">email</a>.</strong>-->
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+
+
+    <div class="footer-col-wrapper">
+
+
+    <div class="footer-col  social-col">
+
+
+      
+      <a href="https://magazine.sebastianraschka.com"><span><i class="fa fa-rss fa-2x"></i></span> </a>
+      
+
+      
+          <a href="/contact"><span><i class="fa fa-envelope fa-2x"></i></span> </a>
+      
+
+      
+        <a href="https://twitter.com/rasbt"> <span><i class="fa fa-twitter fa-2x"></i></span> </a>
+      
+
+      
+        <a href="https://mastodon.social/@SebRaschka"> <span><i class="fa fa-mastodon fa-2x"></i></span> </a>
+      
+
+      
+            <a href="https://youtube.com/c/SebastianRaschka"><span><i class="fa fa-youtube fa-2x"></i></span> </a>
+      
+
+      
+            <a href="https://github.com/rasbt"><span><i class="fa fa-github fa-2x"></i> </span></a>
+      
+
+      
+          <a href="https://scholar.google.com/citations?user=X4RCC0IAAAAJ&hl=enrasbt"><span><i class="fa fa-google fa-2x"></i> </span></a>
+      
+
+      
+          <a href="https://linkedin.com/in/sebastianraschka"><span><i class="fa fa-linkedin fa-2x"></i> </span></a>
+      
+
+      
+        <a href="https://www.quora.com/profile/Sebastian-Raschka-1"><span class="fa fa-2x" style="font-family: Georgia, serif; margin-left:5px;"><strong>Q</strong></span></a>
+      
+
+  </div>
+
+    <div class="footer-col  copyright-col">
+      <p>&copy; 2013-2023 Sebastian Raschka</p>
+    </div>
+
+
+
+  </div>
+</div>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BYQXBRPK81"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BYQXBRPK81');
+</script>
+</footer>
+</div>
+  
+
+  <script src="/js/anchor.min.js" type="text/javascript"></script>
+  <script>
+    var selector = 'h2, h3, h4, h5, h6';
+    /*
+    anchors.options = {
+      icon: '#',
+      visible: 'always',
+      placement: 'left',
+      class: 'bb-anchor'
+    }
+    */
+    anchors.add(selector);
+  </script>
+
+</body>
+</html>
