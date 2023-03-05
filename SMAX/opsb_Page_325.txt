@@ -1,0 +1,67 @@
+For the body of the request, select the ‘form-data’ option. Create an entry with a key of ‘files[]’, then select ‘File’ from the
+dropdown to the right of the value field. Now you may use the ‘Choose Files’ button to select the file that you wish to add as an
+attachment.
+Once you have selected the file you may send the request. Postman automatically handles the settings for the ‘Content-
+Disposition’ and ‘Content-Type’ keys that were used in the earlier example.
+Step #2 — Adding the Attachment to an Incident
+After the attachment has been successfully added, it must be attached to the proper Incident. To perform this operation, the
+IncidentAttachments entry must be updated with information from the attachment response. This property contains a special
+‘complexTypeProperties’ array in which the specific attachment properties are added. The properties that make up one entry
+in the complexTypeProperties include:
+properties - this is the top level attribute that contains all other attributes
+id - the 
+guid
+ returned in the attachment response
+file_name - the 
+name
+ returned in the attachment response
+file_extension - the extension from the 
+name
+ property above (.txt for example)
+size - the 
+contentLength
+ from the attachment response
+mime_type - the 
+contentType
+ from the attachment response
+Creator - the user that added the attachment, this should be the current login id/email
+The Incident is then updated using the standard REST request (this can be the EMS REST API or the Case Exchange API). In our
+example above, the request body for updating the incident with id ‘27496’ would look like:
+{  
+   "entities":[  
+      {  
+         "entity_type":"Incident",
+         "properties":{  
+            "Id":"27496",       
+            "IncidentAttachments":"{
+                 \"complexTypeProperties\":[
+                      {
+                        \"properties\":{ 
+                            \"id\":\"eac57a20-76e5-4318-842e-e46d3b6269c5\",
+                            \"file_name\":\"test.txt\",
+                            \"file_extension\":\"txt\",
+                            \"size\":\"36\",
+                            \"mime_type\":\"text/plain\",
+                            \"Creator\":\"my.email@mf.com\"
+                                       }
+                      }
+                  ]
+             }"
+         }
+      }
+   ],
+   "operation":"UPDATE"
+}
+Once the request updates the Incident, the attachment will be linked to the Incident. However, this will replace any other
+attachments that had been previously linked.
+Adding attachments to an Incident
+In order to add an attachment to an Incident rather than overwrite any existing attachments, an extra REST Request is
+required to get the existing IncidentAttachments attribute. This can be done with the standard GET REST Request.
+When creating the Request Body to update the Incident with the new attachment, the existing ‘complexTypeProperties’ array
+should be updated with a new array entry that contains the properties of the new attachment (as seen in the above example).
+SMAX 2022.11
+Page 
+325
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

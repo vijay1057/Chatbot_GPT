@@ -1,0 +1,33 @@
+fields are the same value. This check needs to be done before the values entered can be passed to the OO Flow. This requires
+creating a Before Change Rule like shown below:
+Set Rule type
+Validate expression
+If expression
+${entity.UserOptions.NewPassword_c != entity.UserOptions.NewPasswordConfirmed_c}
+Validate
+${substring(entity.UserOptions.NewPassword_c, 0) == (entity.UserOptions.NewPasswordConfirmed_c)}
+Display
+The password entered does not match. Please re-enter your password!!
+Incident Model
+In Agent view click on the Main Menu and go to Incident. Then click on Models.
+Click on New, then enter the relevant information that will help support deal with the Incident.
+Click on Default Values and supply the relevant details for the Incident.
+Click 
+Save
+ to create this Incident Model.
+Next, click on 
+Active
+ to activate the model so OO now can use this Incident Model. Then click 
+Save
+.
+The incident model is now all set up, and you can return to the Offering you were configuring earlier. Just before leaving the
+Incident Model, make a note of the ID number of the model like 11847. This will be required for the default value in the
+Offering.
+Service Request
+Open the Password Reset offering, then click on Default Values.
+SMAX 2022.11
+Page 
+352
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

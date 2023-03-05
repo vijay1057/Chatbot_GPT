@@ -1,0 +1,26 @@
+Enter a name for the Credentials and provide the username and password the OPB will use to connect to the UCMDB. Once all
+details are completed, click 
+Save
+.
+If the OPB Agent isn’t running, bring up the Services on the OPB server and start the On-Premises Bridge Agent service.  
+Creating an Endpoint
+Login to the Service Portal with an Admin User and again open the Agent Interface. Once the Dashboard has opened, go to the
+main menu and select 
+Administration -> Utilities -> Integration
+.
+Note:
+ This assumes all previous steps to install OPB Agent have already been completed on an appropriate server.
+Click on the 
+Endpoints
+ section in the header menu. Within the Endpoints screen, click on 
+Add
+. A new window will appear
+asking for the Endpoint Type, Endpoint name and Running on agent. Fill in the details and click 
+Add
+.
+SMAX 2022.11
+Page 
+364
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,21 @@
+Once all permissions have been added click 
+Save
+.
+The Integration user is now set up.
+Install the OPB Agent
+Login to the Service Management Automation X tenant with a Tenant Admin User.  
+Go to Agent Interface.
+From the main menu, navigate to the Integration area under 
+Administration
+ and 
+Utilities
+.
+From the Agent screen, click on 
+Download agent
+ to download a copy of the Agent install file locally on your computer.
+SMAX 2022.11
+Page 
+330
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

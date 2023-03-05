@@ -1,0 +1,47 @@
+Using Offerings to Update People
+Introduction
+In Service Management Automation-X it is not possible for an agent to create or modify person information without the having
+the tenant admin role. In some cases, system administrators do not want agents to have the tenant admin role but they still
+want the agent to create or modify a Person. By using offerings, it is also possible to allow self-service users themselves to
+update profile information not otherwise available. Using offerings is an option that would allow a non-tenant admin user to be
+able to perform these actions.
+Use Case
+Company ABC wants to allow agents who do not possess the tenant admin role to create or modify contact information.
+Company ABC wants self-service users to modify a few fields on their own profiles. The company plans to use two offerings in
+order to satisfy the requirement. Company ABC will use an audience to limit users who can create accounts, while all self-
+service users can update their own profile information.
+Configuration Steps - Summary
+1
+. 
+Create an offering to create contacts
+2
+. 
+Create user options to define the fields to be populated
+3
+. 
+Create a task plan to use the user options to populate the contact information
+4
+. 
+Assign entitlement rules to the offering.
+5
+. 
+Create an offering to modify users
+6
+. 
+Create user options to define the fields to be updated
+7
+. 
+Create a task plan to use the user options to modify the information
+Configuration Steps - Detail
+1. Create an offering to create contacts
+In the Service Catalog, create a new offering named “Create new Contact.” The offering will be a service offering.
+2. Create user options to define the fields to be populated
+Click on the User options tab of the offering created in the previous step. Create a user option for each of the fields that need
+to be populated for the contact in the Person record. Note that Service Management Automation-X has several required fields
+when creating a contact (Name, Email and User principal name). Check the required attribute when the field is mandatory.
+SMAX 2022.11
+Page 
+274
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

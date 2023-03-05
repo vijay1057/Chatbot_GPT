@@ -1,0 +1,9 @@
+Click on the plus icon to import your new content pack.
+The Deploy New Content window will appear. Click on the plus icon to navigate to where you saved your content pack.
+Select the appropriate CP and click Open.
+SMAX 2022.11
+Page 
+343
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

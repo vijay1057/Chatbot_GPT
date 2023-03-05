@@ -1,0 +1,19 @@
+Click save.
+2. Execute the REST call in order to generate and download the data
+While logged into SMA-X, open a new tab in the browser and launch the Postman Chrome extension. Execute the REST call to
+run the BI sync job:
+Using the SyncId from the above call, execute the REST call to get the status and the file names created by BI Sync:
+There will be a number of files, record the names of all of the files, open another tab in the browser and enter the
+URL: 
+https://<hostname/rest/
+<TenantID>/frs/file-list/<FILEID>
+A file download will start and a file in the format <Entity_type>.zip, repeat for each of the FileID values obtained in the status
+REST call.
+3. Load the data into Microsoft Excel
+There should be at least 3 files in total after downloading all the files: ​
+SMAX 2022.11
+Page 
+290
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

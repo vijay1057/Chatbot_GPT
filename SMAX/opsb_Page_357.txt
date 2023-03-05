@@ -1,0 +1,12 @@
+Now using the Agent view you can check how this request is getting on:
+Click on Service Request.
+From here you should see the new request that has just been generated.
+Click on the request ID number to see the details of the request
+If the additional steps have been carried out when configuring the Password Reset Offering then you will also notice the
+Request has been resolved and is waiting on the user to accept the solution provided.
+SMAX 2022.11
+Page 
+357
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

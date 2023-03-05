@@ -1,0 +1,16 @@
+Select the Integration user that is required for the OPB to use and then under the System use definitions assign the
+appropriate rights to allow Incident creation. In this example Tenant Admin role has been assigned but if you need to limit the
+permissions assigned IT User could be used.
+Now create the Offering
+From the Agent view within SMAX go to Service Catalogue. In here either use an existing Category or create a new one. For
+this scenario, we’ll use the Business Application category with a Business Application of eExpense which has already been
+defined. It is here that an Offering of Password Reset will be created.
+Within Offerings Click New. Then enter in the relevant details about the Offering like shown below.
+Next is to define the User Options. These are important as this is what will be passed from SMAX to OO for the flow to use to
+reset the password. Information passed back from OO will be stored here also.
+SMAX 2022.11
+Page 
+346
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

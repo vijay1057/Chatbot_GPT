@@ -1,0 +1,14 @@
+Sending a REST command to create an entity using the EMS API
+Click on the “+” to add a new REST configuration. Enter the URL for the EMS API. For example:
+https://smaxswinfra.net/rest/484980393/ems/bulk. Select the Post option, set the Authorization to “no auth”. In the Headers
+section add the Content-Type of application/json and set the User-Agent to Apache-HttpClient/4.1. Copy the string retrieved in
+the authentication step and then add a Cookie Key and set it to be SMAX_AUTH_TOKEN=<String from the authentication>
+The Body will consist of the REST payload that needs to be sent to create something in SMAX. The body needs to be in json
+format and contain all the required fields that the workflow will need.
+Assuming all the required fields are present, the EMS API will return the ID of the entity that was created.
+SMAX 2022.11
+Page 
+307
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

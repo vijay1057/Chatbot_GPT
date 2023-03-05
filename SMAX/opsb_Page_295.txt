@@ -1,0 +1,9 @@
+Navigate back to the field view. In the main view, the DisplayLabel of the service will now appear in the list.
+Repeat the same procedure to make the offering DisplayLabel appear.
+Select Request from top dropdown and the RequestsOffering column. On the bottom this time, select the Offering Id column.
+SMAX 2022.11
+Page 
+295
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,45 @@
+If expression
+${entity.SmaxIncidentID_c != null}
+Relationship type
+Incident caused by request
+From record
+${entity.SmaxIncidentID_c}
+To record
+${entity.Id}
+Another rule that could be added is to inform the Requester by email that their password has now been reset. To do this, you
+could create a new Notification template or use an existing one.
+To create one, go to Studio and then select Request.
+Under Notification templates, click Add.
+In the blank form, give the Notification a name and display name along with a subject line for the email.
+Here is a table showing what can be entered as a Notification for the eExpense Application:
+Name
+PasswordResetNotification
+Display
+Name
+Notification of eExpense Temporary Password
+Enabled
+Yes
+Subject
+IMPORTANT - Temporary eExpense information for ${:entity.id}
+Email
+Body
+Hi ${:current_recipient.FirstName},
+Your eExpense User Password for your Request ${:entity.Id} has now been updated based upon what you
+entered. You should now be able to access the eExpense Application
+Thanks,
+eExpense Application Management Team
+Click Save to add this new Notification Template.
+Go back to the Offering for Password Reset and then go to Rules. Now add a new After Change Rule so you can send a
+Notification to user that their Password has been reset.
+Set Rule type
+Send Notification
+If expression
+${entity.UserOptions.OOcompletionResult_c == 'Command completed successfully'}
+Send notification
+${entity.RequestedByPerson.Email}
+SMAX 2022.11
+Page 
+354
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

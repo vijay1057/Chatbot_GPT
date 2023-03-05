@@ -1,0 +1,30 @@
+Sending and receiving the login token
+To run a REST call on a SMAX tenant, an LWSSO_Cookie_Key must be provided.  To obtain this key requires users to first run a
+REST call that authorizes the session.
+Select the POST option and then add the URL and the tenant ID. For example: “
+https://<HOSTNAME>/auth/authentication-
+endpoint/authenticate/token?TENANTID=484980393”
+Set the Authorization to “
+No Auth”
+In the Headers section, set the Content-Type to “
+application/json
+”.
+Select raw for the Body type and then add the user that will be used to authenticate. The content must be in json format. For
+example: 
+“
+{
+"Login"
+:
+"A-login"
+,
+"Password"
+:
+"ThePassword"
+}”
+Click on the send button and a large string of characters will be returned from the authentication service.
+SMAX 2022.11
+Page 
+306
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

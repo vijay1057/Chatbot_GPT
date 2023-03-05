@@ -1,0 +1,67 @@
+(servers, databases, etc.), but the guests don’t need to know the details about what they are using. In fact, they might change
+out the equipment at any time, and the guests wouldn’t even know about it.
+When something breaks in the kitchen, the Incident Management process comes into play. If one of the ovens is
+malfunctioning, an Incident would be opened (because the goal is to restore normal operation of the cooking service).
+Up front, one or more of the customers may have been affected by the problems in the back. Perhaps one of their steaks was
+overdone due to the oven cooking at too high of a temperature. When the customer complains, a Support Request would be
+opened. This Request would eventually be linked to the Incident related above and would be resolved automatically once the
+Incident was closed but is handled as a separate process. In this way the customer has the ability to verify their issue is
+actually solved, as well as allowing the process to have its own SLA targets.
+While this example might be a bit of a stretch, hopefully it gets the point across. A more detailed explanation of when to use
+Request or Incident (and how the two work together) can be found here:  
+Request vs. Incident
+ 
+Request and Incident Together
+Although Request and Incident are separate processes, SMAX ties them together in numerous ways to allow the IT department
+to handle both processes at the same time. This lowers the overall effort needed for every Incident, yet still allows tracking
+from both the provider (Incident) and consumer (Request) sides.
+With the check of a box, a SMAX agent can automatically create an Incident from a Request. They also have the ability to link
+multiple Requests to a single Incident. All of the Requests receive updates based on those made on the Incident, and are
+automatically resolved when a solution is given to the Incident. Every end user that reported a problem consuming the service
+has the option to accept or reject the solution as well -- all with a single agent working the Incident.
+More information on how Request and Incident work well together can be found in 
+this chapter
+ of the Key Concepts guide.
+ 
+Do not reopen records
+The SMAX flows have been designed to guide a process from beginning to end, but you will notice that there are no transitions
+to "reopen" a process after it has reached the final phase of the workflow. The final phase of any process should not be
+reached until it's clear that the process is completed. Some processes, like the Request process, even have a "User
+Acceptance" phase where the end user can confirm whether or not the issue has been taken care of to their satisfaction.
+Incidents are "Resolved" and then the solution is affirmed before the process is closed. There should not be any reason to
+reopen a process as they should not be "closed" until it's verified that the work is done completely.
+There are many sub-process related to the original process -- such as Service Level Agreements, related records, alerts,
+notifications, and more -- that would be thrown off by starting the same process over again. Furthermore, reopening a process
+can camouflage the true nature of an issue. If an intermittent network issue causes loss of service for an application, but an
+Incident is simply reopened every time the issue appears, several problems are caused:
+The multiple outage times can't be tracked
+The SLA is incorrectly tracked, since the application was not actually down the entire time
+The Problem process may not be triggered (where finding multiple Incidents with the same description on the same
+service would do so)
+To minimize the chances of these problems occurring, the best practice in SMAX is to not restart or reopen processes after
+they have been marked as completed. An agent should always start a new process, linking the two processes as related if
+necessary.
+Configuration
+Services and Designing the Service Catalog
+One of the primary differences between SMAX and other solutions is that it was designed around services. The most important
+step of a successful SMAX implementation is defining the business and infrastructure services that make up your company's IT
+portfolio.
+The ITIL process documentation defines an IT Service as "a service provided to one or more customers by an IT service
+provider." In the real world, it means that any subject of a call, email, or portal request from an end user that IT supports is
+part of a IT Service. By clearly defining these services, the IT department can accurately and succinctly define the supported
+processes around these services. This will result in a much higher (and faster) return on the investment made in implementing
+SMAX.
+By creating the list of supported IT Services, the amount of calls or emails pertaining to issues that the Service Desk has no
+control over is lowered. This still leaves those requests that might be related to a IT Service that are simply not under the
+control of IT. In order to inform the end users about what's available through the Service Desk, as well as to better control and
+categorize incoming requests, SMAX allows the definition of specific Offerings under an IT Service. These Offerings make up
+what's known as the Service Catalog -- literally a listing of everything the IT Service Desk supports.
+The Service Catalog is designed around the service definitions (as the name would suggest). Think about the catalog as the
+menu that end users use to "consume" the defined services. And if the users are ordering from a menu, the IT agents are in
+the kitchen working to fulfill these requests.
+SMAX 2022.11
+Page 
+271
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

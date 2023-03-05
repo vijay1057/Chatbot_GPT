@@ -1,0 +1,10 @@
+Under Business Rule click on + Set rule. A new window will appear for what type of rule you’ll want to set. Scroll down to the
+Integration Actions and Select Execute Operations Orchestration (OO) flow. Then click on 
+OK
+.
+SMAX 2022.11
+Page 
+348
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

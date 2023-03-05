@@ -1,0 +1,35 @@
+The PG Password Reset flow that was created earlier within OO should be returned. On the right-hand side, the mandatory
+fields are shown which should match up to the User Options that were created earlier. Click OK to add this flow.
+The next part that must be entered are the flow parameters. This is how SMAX knows what fields to map across to OO.
+Rather than just type in the relevant values of what should be supplied, functions need to be used as some data needs
+supplying by the end user. There is other information which will not be supplied by the end user but will be set by the agent as
+a default value. Make sure you click on the fx button, it is then highlighted blue and then entity the function.
+The Table below shows the values entered above for each field
+Field Name
+Value
+DBServerName
+${entity.UserOptions.DBServerName_c}
+DBType
+${entity.UserOptions.DBType_c}
+DBPort
+${entity.UserOptions.DBPort_c}
+Database
+${entity.UserOptions.Database_c}
+userPassword
+${entity.UserOptions.NewPassword_c}
+SMAXLoginURL
+${entity.UserOptions.SMAXLoginUrl_c}
+smaxIncidentModelID
+${entity.UserOptions.SmaxIncidentModelID_c}
+smaxTenantID
+${entity.UserOptions.SmaxTenantID_c}
+Once all values have been entered, click 
+OK
+.
+Next, enter the Output fields using Add user Option.
+SMAX 2022.11
+Page 
+350
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

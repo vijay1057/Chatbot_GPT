@@ -1,0 +1,11 @@
+Click on the column header, then select the Data Type dropdown. Select Date/Time, then save the window.
+The newly created readable time field is now selectable and will show the date in readable format.
+Filters can now be applied to display the results required. As an example, a filter on the offering “Demo Repair my PC
+hardware” will only show those requests, including the next target time (if exists) and status (which would indicate achieved or
+breached). Similar filters can be applied to the service or assignment group.
+SMAX 2022.11
+Page 
+299
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

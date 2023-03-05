@@ -1,0 +1,53 @@
+This successfully shows the OO flow created an incident due to the fact the details entered into the Service Request weren’t
+correct, so it was unable to connect to the DB. So, an incident has been raised by the cmdbopb user.
+Again if the additional steps were undertaken what you’ll see is that the Incident is now linked to the request.
+The SmaxIncidentID contains the created incident number and the OO Completion Result also gives some error information.
+If you click on Related Records, you’ll see the Incident that is linked to the Request.
+Troubleshooting
+When troubleshooting the Integration between Service Management Automation X and OO there are several places to look.
+The first place is within Service Management Automation X portal specifically looking at the Integration to check that no errors
+are being reported either with the Agent or on the actual OO Endpoint. If there are errors being shown here, it’s possible there
+is a problem with the OPB. In which case log on to the OPB Server and check the following log locations:
+<OPB Install location>\On-Premise Bridge Agent\product\log\OperationOrchestrationDomain-1.0
+In here check the following logs which should help to show if there is a communication problem from the OPB to OO:
+OperationOrchestrationDomain-1.0.log.0
+error.log
+output.log
+If the integration was successful but there are problems when trying to run an OO flow through SMAX the following log files
+which are stored in /var/vols/itom/itsma/global-volume/logs/xservices/platform/ look for the latest platform pod and then go to
+the maas folder. Inside you should look for the following logs:
+Maas_error.log
+Maas_workflow.log
+Maas_oo_integration.log
+Maas_unhandled_exceptions.log
+Sometimes when using OO there may be a problem showing output from an OO flow within a User Option created in SMAX. If
+this problem occurs follow this procedure:
+The rule of Property AITOOResultMessage is disabled is created by below request rule
+"Disable all fields on the request tracking page in the Self-Service portal"
+Follow below steps to add allow rule.
+1
+. 
+Click Rendering form and click “Add a rule to run before request record rules”
+2
+. 
+Choose Restrict/allow editing of fields in pop window and click ok button.
+3
+. 
+Choose “Allow” in field “Restrict/allow”
+4
+. 
+Click “all fields/ specific fields(optional)” and click Specific fields
+5
+. 
+Click Add item and choose <Field Name>
+6
+. 
+Select <Field Name> from dropdown and click ok and save button
+If the integration still doesn’t work, contact the Service Management Automation X Support team and create a ticket. Be sure
+that all the OPB logs and configuration files are included.
+SMAX 2022.11
+Page 
+360
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

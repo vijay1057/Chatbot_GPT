@@ -1,0 +1,47 @@
+Attachments
+Introduction
+Service Management Automation X provides 
+REST
+ APIs that can be used to execute a variety of commands. This chapter
+describes using the Add Attachment API that is part of the Case Exchange integration to add an attachment to a record.
+This process is comprised of two separate actions that must be performed. The first is to add the attachment into the Service
+Management Automation X system. The second is to take the result of the first step and use that information to update the
+actual record with the attachment information, which adds the attachment to that record.
+Before reading this chapter you should review the following:
+Configuring and Using the Postman REST Client
+Importing Users into Service Management Automation X
+This chapter will cover:
+The Case Exchange Attachments API URL
+Setting the Request Headers
+Creating the Request Body
+Reviewing the Results
+Replacing the attachments of an Incident
+Adding an attachment to an Incident
+Adding a file as an attachment
+Creating the REST body using JAVA
+Step #1 — Adding the Attachment to Service Management Automation X
+The Case Exchange API URL uses the format https://<MasterNode>/rest/<tenantId>/ces/attachment. To access the API using
+the PostmanREST client, set the action to “POST” and enter the URL, then add the relevant information to the body of the
+request.
+Setting the Request Headers
+The ‘Headers’ section must contain two specific headers. The ‘Content-Type’ will be set to ‘multipart/form-
+data;boundary=YYYY’. The boundary in this example is set to “YYYY”, but any unique boundary may be used. Any change to
+this boundary must be reflected in the body of the request (see section below).
+The ‘User-Agent’ will be set to ‘Apache-HttpClient/4.4.1’. This allows Postman to pass the authorization to Service Management
+Automation X based on a logged in UI session. There must be a logged in SMA-X session (to the same tenant as the REST
+request is targeted) for the Postman request to work successfully.
+Creating the Request Body
+To create the body of the request, select the ‘Body’ tab and choose the ’raw’ option within the Postman interface. The Body of
+the Request must contain:
+The filename of the attachment
+The type of the attachment
+The attachment contents
+The body is enclosed by the boundary specified in the Content-Type of the request, with two dashes before the first instance of
+the boundary, and two dashes before and after the second instance. If a different boundary token was used in the previous
+step, the ‘YYYY’ boundary must be replaced with that token in the example below.
+SMAX 2022.11
+Page 
+323
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

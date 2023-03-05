@@ -1,0 +1,22 @@
+It is also important to note the logical type of the field in question. There are certain types of fields that need special
+consideration. These types (and how to use them correctly in the API) are defined below.
+Enumerations
+If the field in question has a Logical type of ‘ENUM’, which is an enumeration, you must pass the internal name of the
+enumeration value rather than the display name. To find the name, open the list in the List management interface, which will
+display both the internal name and display name of each list value. For example, in the list shown in the image below, the
+status value for ‘Ready’ would be ‘RequestStatusReady’.
+The body of a REST request that would update the request with a status of ‘Ready’ is shown in the following image: 
+Entity links
+If the field type is an entity_link (a link to a related entity/record) type field you must specify the unique id of the related record
+in the REST API (rather than any display name or value). Therefore you must determine what the id is and incorporating that
+value into the REST call. In the example below, the user wants to set the assignment group in a request to ‘Accounting’. To do
+this the user will first find the id of the accounting group and then set the ‘AssignedToGroup’ field in the request to the Id of
+the accounting group in the rest payload. The id may be found by viewing the related record directly or viewing a list that
+includes the related record.
+Then the id is entered for the ‘AssignedToGroup’ attribute in the body of the REST request.
+SMAX 2022.11
+Page 
+310
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

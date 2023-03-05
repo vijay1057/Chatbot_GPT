@@ -1,0 +1,15 @@
+The devices and relationships added to Service Management Automation X are then available to view.
+Within Service Management Automation X, it’s possible to check exactly what has been added to the SACM module. From the
+main menu click on 
+Build -> Service Asset & Configuration
+You can then search for the devices that were synchronized from UCMDB.
+After clicking the 
+Edit
+ button, you can see exactly what properties have been passed to Service Management Automation X
+from UCMDB
+SMAX 2022.11
+Page 
+368
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

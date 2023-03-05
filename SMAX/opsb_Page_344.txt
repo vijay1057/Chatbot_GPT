@@ -1,0 +1,10 @@
+The CP will be checked to make sure it can be imported. Content and any dependencies will be checked at this stage. If there
+are any errors, they would need correcting before the CP can be deployed. If everything is fine. Click on Deploy.
+The CP has now successfully been deployed into OO Central.
+If you check the Content Packs page in OO Central, you will see the version of the CP and also the time it was uploaded.
+SMAX 2022.11
+Page 
+344
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,25 @@
+From the top of the device screen, click on 
+Show Impact
+. You can then see the relationships from the UCMDB Service Model
+have been passed to Service Management Automation X.
+Copy
+  
+Troubleshooting
+When troubleshooting the Integration between Service Management Automation X and UCMDB there are a number of places to
+look for issues.
+The first is within Service Management Automation X. Specifically, looking at the Integration to check for any errors reported
+either with the Agent or on the actual UCMDB Endpoint. If there are errors being shown here, most likely there is a problem
+with the OPB. In this case, log on to the OPB Server and check the following log locations:
+<OPB Install location>\On-Premises Bridge Agent\product\log\ucmdb-10.20
+From this location, check the following logs which should help to show if there is a communication problem from the OPB to
+UCMDB:
+ucmdb-10.20.log.0
+error.log
+output.log
+If there is a problem with UCMDB, it is worth checking the probe\integration Service that is used for the integration. If the
+SMAX 2022.11
+Page 
+369
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

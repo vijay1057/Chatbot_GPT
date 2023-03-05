@@ -1,0 +1,57 @@
+Adding a User
+Adding a user is very similar to adding a contact. However, as discussed in the import person document, users also get an
+account created in the SMA Suite Administration portal so that they can login to Service Management Automation X. To create
+a user that can login to Service Management Automation X, add all the required attributes but do not include the 
+IsMaasUser
+field. If a record with the same unique identifier (UPN) exists, Service Management Automation X updates the record. If a
+contact exists then it is converted into a user. If no record exists, a new user record is added.
+{
+ "operation": "CREATE_OR_UPDATE",
+ "users": [{
+  "properties": {
+   "Upn": "MyNewUser@microfocus.com",
+   "upnDataType":"Customer_UID", #(only if custom Upn and not Email)
+   "Email":"MyNewUser@microfocus.com",
+   "FirstName":"My First Name",
+   "LastName":"My Last Name",
+   "Location":"London", 
+   "OfficePhoneNumber":"867-5309",
+   "EmployeeNumber": "4815162342"
+  }
+ }]
+}
+Updating a User
+Similar to updating contacts, the UPN field is used to search for an existing user. If one is found that record is updated,
+otherwise a new record is added. Using the body shown below would update the phone number of a user in Service
+Management Automation X and also in the Service Management Automation Portal.
+{
+ "operation": "CREATE_OR_UPDATE",
+ "users": [{
+  "properties": {
+   "Upn": MyNewUser@microfocus.com,
+   "upnDataType":"Customer_UID", #(only if custom Upn)
+   "EmployeeNumber": "4456234"
+  }
+ }]
+}
+Adding Groups to Users
+The Manage Person API provides a way to update the groups that users belong to. Adding an additional parameter to the JSON
+payload allows groups to be added, replaced or removed. The group can be added when users are created or when they are
+updated. The syntax below would add a group to an existing user. The Manage Person API uses the group’s UPN when adding a
+person to it. If one of the groups is an organizational group then the users organization will be automatically set.
+{
+ "operation": "CREATE_OR_UPDATE",
+ "users": [{
+  "properties": {
+   "Upn": "MyNewUser@microfocus.com"
+  },
+  "groups":{"ADD":["CAB_Group","Problem_Manager_Group"]} 
+ }]
+}
+Using the Postman client, adding groups to a user would look like:
+SMAX 2022.11
+Page 
+318
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

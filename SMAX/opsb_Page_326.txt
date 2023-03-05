@@ -1,0 +1,63 @@
+Creating the REST body using JAVA
+The same concepts used with Postman may be used to create requests using a script or application. The same multi-part/form
+data approach may be used. The file content must be extracted and placed into the body fo the request. The below code
+shows one example of how the body may be constructed from a Java File object. The File object is referenced as “fi” in the
+code example. Note that the Content-Type must also be specified, and the code below only supports files of type .jpg, .pdf, or
+.txt, but could be extended to support other types.
+Important note:
+ 
+the following code is presented as an example of one way to create the request body. It should not be
+interpreted as the best or only way to perform this function and is not officially supported in any way by 
+Micro Focus
+.
+// Attachment file
+File fi = new File(…);
+// Get file extension
+String extension = "";
+ int i = fi.toString().lastIndexOf('.'); 
+if (i > 0) { 
+    extension = fi.toString().substring(i+1);
+ } 
+String contentType = "text/plain"; 
+if ( extension.equals("jpg"))
+     contentType = "image/jpeg";
+ if ( extension.equals("pdf")) 
+    contentType = "application/pdf";
+ if ( extension.equals("png"))
+     contentType = "image/png";
+// Generate prefix and suffix 
+String prefix = "--YYYY\n" + 
+        "Content-Disposition: form-data; name=\"files[]\"; filename=\""+ fi.getName()
+         +"\"\n" + 
+        "Content-Type: "+ contentType + "\n" +
+         "\n";  String suffix = "\n" + "--YYYY--\n";
+// Calculate total payload length 
+long payloadLength = prefix.length() + fi.length() + suffix.length();
+// Setup connection
+HttpsURLConnection con = …
+con.setRequestMethod("POST");
+// Other headers
+…
+// Set HTTP connection output stream for POST body as non-cached fixed length
+// The full content of the body is not stored in memory 
+con.setDoOutput(true);
+ con.setFixedLengthStreamingMode(payloadLength);
+ OutputStream os = con.getOutputStream(); 
+DataOutputStream ds = new DataOutputStream(os);
+// Write prefix to stream (as ASCII) 
+ds.writeBytes(prefix);  
+// Write file content to stream (as binary 8-bit octets)
+ InputStream is = new FileInputStream(fi); 
+byte[] buffer = new byte[1024]; 
+int bytesRead; 
+while ((bytesRead = is.read(buffer)) != -1 ) {
+     ds.write(buffer, 0 , bytesRead); 
+}  
+// Write suffix to stream (as ASCII) ds.writeBytes(suffix);  ds.close();
+// Handle HTTP response …
+SMAX 2022.11
+Page 
+326
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

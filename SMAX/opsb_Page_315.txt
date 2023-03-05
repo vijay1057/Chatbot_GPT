@@ -1,0 +1,14 @@
+The syntax to add this through the REST API can be seen in the example below.  The name is the type of relationship that is to
+be added, in this example we are making a Request depend on an Incident so we use "IncidentCausedByRequest" as the type. 
+We enter Incident and the Incident Id as the firstEndpoint.  The secondEndpoint is the Request and the Request Id and in the
+case we are creating the relationship so the operation is CREATE.
+Adding a user to a group is another common operation run through the REST API. To add 2 users to the "Administrative
+Services" we would create a PersonToGroup relationship and make the firstEndpoint the Person and their Id.  The
+secondEndpoint is the Id of the group.  In this example two users are added to the group, notice the Id for the Person changes
+but the Id group stays the same:
+SMAX 2022.11
+Page 
+315
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

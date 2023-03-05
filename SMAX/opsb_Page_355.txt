@@ -1,0 +1,19 @@
+Using
+Notification of eExpense Temporary Password
+Parameters
+None
+Run through the Password Reset Scenario
+A user of the eExpenseDB can no longer access the database and needs to get their password reset.
+Log in to SMAX with the user who would like to reset their password for the eExpenseDB system.
+From the main portal page, click on Business Applications.
+Click on Request Support for the Password reset offering for eExpense.
+Fill in the form describing the problem and then click on 
+Submit
+. The key values have already been populated based on what
+was entered for the Default Values within the Offering.
+SMAX 2022.11
+Page 
+355
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

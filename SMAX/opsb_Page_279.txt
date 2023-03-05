@@ -1,0 +1,13 @@
+Under the “yes” side of the decision add a new automatic task. Select the “set field on related record rule” type and then set
+the record type to “Person” with Ids of “entity.RequestForPerson.Id”. The flow of the offering will be that whoever is selected in
+Requested For Person will be the user who gets the information updated(other person fields could be used).
+In the “set” section, add the first field that needs to be updated with the user options created in the previous step. A separate
+task needs to be added for every field to see if they are empty or not.
+Use the “Path to” option to then join the “no” path onto the next field check because no operation is needed when the
+decisions moves through no.
+SMAX 2022.11
+Page 
+279
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

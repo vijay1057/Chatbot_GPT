@@ -1,0 +1,20 @@
+Open each of the files and save them as Excel files. Open the file that stores the relationships between the people and groups,
+the file is named ‘PersonToGroup’. Add two new columns Group Name and Person Name after the SecondEntity_PersonGroup
+column. In the Group Name field paste the formula 
+=VLOOKUP(D2,PersonGroup_0!C$2:D$800,2,FALSE)
+ when you save
+the formula a file selector will open. Select the Person_group_0.xlsx file created above.
+In the Person Name field paste the formula 
+=VLOOKUP(C2, Person_0!C$2:D$800,2,FALSE)
+ into the field and select the
+Person_0.xlsx file when the file selector window opens.
+Note that the “800” in the above formulas can be replaced with the total number of rows in the referenced spreadsheet. In
+excel it should look like the following: 
+Copy the formula for the columns E and F for all entries and add a filter to the top row. It is now possible to filter on group or
+person and see all of the associated values. ​
+SMAX 2022.11
+Page 
+291
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

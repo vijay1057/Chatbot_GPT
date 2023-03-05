@@ -1,0 +1,11 @@
+When the editor opens, select the add column menu and select the custom column.
+Create the new column. Add the formula 
+“if[TargetDate]=null then null else #datetime(1970, 1, 1, 0, 0, 0) +
+#duration(0, 0, 0, [TargetDate]/1000)”
+. This formula creates a readable date format.
+SMAX 2022.11
+Page 
+298
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

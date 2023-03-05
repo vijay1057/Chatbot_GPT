@@ -1,0 +1,23 @@
+The final aspect to set up for the flow to work is the Configuration Items.
+The key fields that need updating are below:
+Name
+Deployed Value
+Central Value
+DB Account
+postgres
+postgres
+SMAX Account
+cmdbopb
+cmdbopb
+Now all the OO work is complete.
+Create SMAX Offering
+Prerequisite work
+For the OO Flow to create an incident the Integration account needs to be given appropriate rights to be allowed to create an
+incident.
+From the Agent view click on the Main Menu and go to Administration then People.
+SMAX 2022.11
+Page 
+345
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,37 @@
+From here, click on 
+Users
+ so the integration user can be linked to this tenant.
+Click on 
+Attach 
+and then choose your Integration user.
+Click 
+Attach 
+and then 
+Save
+.
+Now within the Tenant this user will need to be synced. In order to do this, log in with a Tenant Admin user. From the Main
+Menu, click on 
+Administration
+ and then 
+People
+.
+Click on 
+Sync
+ if the new Integration User is not listed.
+Once the Integration user appears within the tenant, assign the appropriate rights.
+Open the Integration user and scroll down to the section 
+System use definitions
+. At present only the Self-Service Portal
+User will exist. Type 'OPB ' and you should see the role 
+OPB Remote Agent
+. Click on this to add the role. Do the same
+for 
+Tenant Admin Role
+ if required. In the following example, either Tenant Admin or IT User can be used. If you want to limit
+the permissions that the Integration user can use, do not assign the Tenant Admin role.
+SMAX 2022.11
+Page 
+329
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

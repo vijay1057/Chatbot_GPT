@@ -1,0 +1,15 @@
+Downloading the Data
+Run the REST call https://<FarmName>/rest/<tenantId>/bi/status/<syncId> in order to see if the Job has completed.
+The result of the REST call will include "Status": "COMPLETE", if the job has completed. When complete there will be a “files”
+section that lists all of the Ids of the files that were created during the export. There may be multiple files for a specific entity
+type depending on the number of records exported. The files are compressed in Zip format. You will need to download all of
+these files. In some situations creating an automated script may be the most efficient means of downloading all files.
+Files are named in the format "FileId": "4743431f-6c4b-4f24-87b8-bfe15721da97". To download the file from the browser,
+ensure you are currently logged into the Service Management Automation X system, then type the following URL into the
+browser: https:/<FarmName>/rest/<tenantId>/frs/file-list/<FileID>
+SMAX 2022.11
+Page 
+284
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

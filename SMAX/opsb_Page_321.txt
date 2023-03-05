@@ -1,0 +1,35 @@
+Updates to multiple persons
+One advantage to the Manage Persons API is that you can run updates on multiple records at the same time. When updating a
+large number of persons, using a script is often the best method for generating the JSON payload. In the example below,
+multiple contacts are being added to the system.
+{
+    "operation": "CREATE_OR_UPDATE",
+    "users": [{
+        "properties": {
+            "Upn": "Steve.Austin@microfocus.com",
+            "Email": "Steve.Austin@microfocus.com",
+            "FirstName": "Steve",
+            "LastName": "Austin",
+            "OfficePhoneNumber": "5557788",
+            "Location": "London",
+            "IsMaasUser":"false"    
+            
+        }
+    }, {
+        "properties": {
+            "Upn": "Mike.Bossy@microfocus.com",
+            "Email": "Mike.Bossy@microfocus.com",
+            "FirstName": "Mike",
+            "LastName": "Bossy",
+            "OfficePhoneNumber": "5557788",
+            "Location": "New York",
+            "IsMaasUser":"false"
+        }
+    }]
+}
+SMAX 2022.11
+Page 
+321
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

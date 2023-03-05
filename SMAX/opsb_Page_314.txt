@@ -1,0 +1,12 @@
+To update an existing record the same process is used, but the Id of the entity is required and the operation would be
+‘UPDATE’.
+To update an existing record by adding information to a field that is not currently populated just add the name of the field and
+value. Also note that multiple entities can be updated at the same time, as shown in the following example.
+In some cases links between entities may be required for example adding a related record. In this example we are adding an
+Incident that the Request depends on.  In the UI it would appear like the example below:
+SMAX 2022.11
+Page 
+314
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

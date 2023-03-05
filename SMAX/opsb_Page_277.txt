@@ -1,0 +1,18 @@
+4. Assigning entitlement rules to the offering
+The last step of the creation is to use the audience field in the offering to add an entitlement for only those users who are
+agents. This stops self-service portal users from being able to see the offering. The audience can be assigned based on roles so
+that only some self-service portal users can see the offerings. A new role name “Contact Creators” would be created and only
+select users will be added to it.
+5. Create an offering to modify contact\user information
+Create an offering that will allow the agent to modify an existing contact or user. The offering will be a service offering and will
+use user options and a task plan to do the updates. In this offering, people who are contacts OR users can be updated. A
+person is only considered a user if they have an account in the System Administration portal and are able to login to Service
+Management Automation-X.
+6. Create user options in the offering
+Click on the user options tab and add the user options that the request will update.
+SMAX 2022.11
+Page 
+277
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

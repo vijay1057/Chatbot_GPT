@@ -1,0 +1,49 @@
+User Option
+Value
+DB Server Name
+<DB Server Name>
+DB Type
+<DB Type> e.g. PostgreSQL
+DB Port
+<DB Port> e.g. 5432
+Database
+<database> e.g. postgres
+SMAX Login Url
+<SMAX LOGIN URL> e.g 
+https://FQDN_servername/auth/authentication-
+endpoint/authenticate/login
+Smax Url
+<SMAX URL> e.g. 
+https://FQDN_servername
+Smax Incident Model
+ID
+<incident_Model_ID> e.g. 11847
+Smax Tenenat ID
+<SMAX Tenant ID> e.g. 829249256
+Enter the appropriate values for your own environment. Please pay particular attention to SMAX user options as they need to
+match your own system.
+Once all values are entered, click on 
+Save
+.
+Additional Tasks if Required
+Now that the Password reset can be run automatically and either a successful result will be reported or an incident created. It
+is possible to use these outcomes to move the request along or link it to the incident that was generated. The following steps
+will show how this can be done.
+Within the Password Reset offering, go to Rules.
+Then in the After Change rule, create a new “If…Then” rule as shown below:
+Set Rule type
+Set Multiple fields
+If expression
+${entity.UserOptions.OOcompletionResult_c == 'Command completed successfully'}
+CompletionCode
+Fulfilled offline
+Solution
+Automated password reset completed
+Set Rule type
+Create relationship
+SMAX 2022.11
+Page 
+353
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,15 @@
+The User can now Accept or Reject the solution that has been provided within the Service Portal.
+Run through the same scenario – This time to show Incident Creation
+Go to the same Password Reset offering within the Service Portal. This time change the default value for the DBPort from 5432
+to say 3452 for example. All other values can be left the same or can be altered but it’s just to prove that the connection can’t
+be made using the settings provided and hence the Password Reset Task should fail.
+Change the DB Port value and click on Submit.
+Like before, a new Request will be created.
+Go to the agent view the see the newly created Request.
+Here are the details of the new request:
+SMAX 2022.11
+Page 
+358
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

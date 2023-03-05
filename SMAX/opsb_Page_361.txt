@@ -1,0 +1,67 @@
+OPB Certificates
+Introduction 
+When creating an integration to Service Management Automation X with a remote system that has an SSL address, it is possible that
+the certificate of the remote server must be imported into the trusted keystore file of the On-Premises Bridge (OPB). The cacerts file
+stores public certificates of root Certificate Authority (CA). If there is a problem with the connection between the OPB and the remote
+system, check the controller.log file of the OPB for the error defined below. If the error exists, then you may be required to follow the
+procedure described in this document.
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed:
+sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+This chapter will include:
+Finding the location of the Service Management Automation X OPB controller log
+Finding the location of the Service Management Automation X OPB trusted keystore
+Obtaining the certificate of the remote server
+Adding the certificate to the trusted keystore
+How to identify if the certificate is present
+Finding the location of the Service Management Automation X OPB controller
+log
+The default location of the controller.log file is in the 
+C:\Program Files\HP\On-Premises Bridge Agent\product\log\controller
+ directory.
+Once the log file is located, search the log file for the HandshakeException error. If the error appears, the Fully Qualified Domain
+Name (FQDN) will be logged, which will allow you to verify that the endpoint in question was indeed the one that is giving the error.
+Finding the location of the Service Management Automation X OPB trusted
+keystore
+The default OPB trusted keystore file is named 
+cacerts
+ and is located in the 
+C:\Program Files\HP\On-Premises Bridge
+Agent\product\util\3rd-party\jre\lib\security
+ directory. The OPB has its own file and should not be confused with any other Java
+installation on the machine.
+Obtaining the certificate of the remote server
+In most cases there is a company created certificate available and the server administrator will be able to send it to you. In cases
+where this is not available, it is also possible to use a browser (Firefox, for example) to export the certificate so that it can be
+imported into the OPB’s trusted keystore.
+Adding the certificate to the trusted keystore
+The java keytool utility is used to import certificates into the trusted keystore. To run the utility, open a command window and
+navigate to C:\Program Files\HP\On-Premises Bridge Agent\product\util\3rd-party\jre\bin directory. The format of the necessary
+command is as follows:
+keytool -import -keystore ..\lib\security\cacerts -alias "new Alias" –file myCert.crt .
+In this example the 
+myCert.crt
+ file is the certificate of the remote server, 
+cacerts
+ is the trusted keystore, and the alias is a label set
+for the certificate. When prompted for a password, “changeit” is the default.
+C:\Program Files\Micro Focus\On-Premises Bridge Agent\product\util\3rd-party\jre\bin>keytool -import -keystore ..\lib\security\cacerts -alias "new Alias" -file
+c:\myCert.crt
+How to identify if the certificate is present
+Java uses a tool named keytool to list or import any certificates in the trusted keystore file. Using this tool allows you to list all the
+certificates that were imported into the keystore. Open a command window and navigate to the 
+C:\Program Files\HP\On-Premises
+Bridge Agent\product\util\3rd-party\jre\bin
+ directory. Run the keytool while pointing to the cacerts file. Syntax for the command
+is: 
+keytool –list –v –keystore ..\lib\security\cacerts > c:\contents.txt
+C:\Program Files\Micro Focus\On-Premises Bridge Agent\product\util\3rd-party\jre\bin>keytool -list -v -keystore ..\lib\security\cacerts > c:\contents.txt
+Enter keystore password:  changeit
+The default password for the keystore is “changeit”. Once executed, a file named c:\contents.txt will list the entire content of the
+keystore. It is possible to search through this file in notepad or a similar text editor to confirm that the certificate for the remote
+server to confirm was loaded correctly.
+SMAX 2022.11
+Page 
+361
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

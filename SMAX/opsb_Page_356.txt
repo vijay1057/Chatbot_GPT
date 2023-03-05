@@ -1,0 +1,11 @@
+If the Password fields do not match, you’ll see the below notification until you correct the password fields:
+This will also stop the user from being able to submit their new password till the two password boxes match each other.
+After submitting the request, you should see the following screen to say a request has successfully been created.
+Once the request has been completed, you should receive a Notification by email that your request has been completed. Now
+the user can access the eExpense Application with their new Password.
+SMAX 2022.11
+Page 
+356
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

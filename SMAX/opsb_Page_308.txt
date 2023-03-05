@@ -1,0 +1,61 @@
+EMS REST API
+Introduction
+Service Management Automation X includes multiple 
+REST
+ APIs that may be used to execute a variety of commands. This
+document describes using the Postman client to access the EMS REST API. EMS stands for Entity Management System, and is
+used to access and modify information for most record types in SMA-X, such as incidents, requests, services, and configuration
+items.
+Before using the information in this chapter it will be necessary to review the information found in the ‘Configuring Postman’
+chapter of this guide. This chapter explains how to install the Postman client as well as how to find the master node and tenant
+Id for a specific Service Management Automation X instance.
+This chapter will cover:
+Understanding the data structure of the API
+Determining the entity type and field names
+Handling specific field types
+Locking system - service behavior
+Special considerations of the EMS API
+Retrieving information from Service Management Automation X
+Posting information to Service Management Automation X
+Determining entity type and field names
+Understanding the data structure of the API
+The Service Management Automation X EMS REST API uses the JSON data format to exchange data with a client. Information
+on the JSON format may be found 
+here
+.
+If your intent is to use a tool such as Microsoft Excel to view the information returned from the REST API, you will need to
+convert the data returned from Service Management Automation X using some type of scripting or other data conversion
+process. There are a variety of conversion tools on the web that will transform JSON into CSV (or vice versa). You could use
+one of these tools to convert information in a spreadsheet to the JSON format required by the Service Management Automation
+X REST API.
+An example of the JSON returned from the Service Management Automation X EMS REST API can be seen in the image below
+(please note that the image does not show the entire result returned by the API). The returned result is made up of multiple
+entities (records) from Service Management Automation X. In each returned record, the 
+entity_type
+ value specifies the type
+of record (in this example each entity is a ‘Request’). The 
+properties
+ section contains the attributes of the entity. The exact
+attributes returned are dependent on the query used to request the information. Finally, the 
+related_properties
+ shows
+information from other records that are linked to the requested entity. Again, the information included here is dependent on
+the initial request.
+When sending (posting) information to Service Management Automation X, the data format needs to be in the same JSON
+format. The following image is an example of how to update a Request in Service Management Automation X using the EMS
+REST API. The entity_type needs to be set to the desired record type, and when posting information you must also specify the
+type of operation (such as CREATE or UPDATE). In this example, we set the 
+operation
+ to ‘UPDATE’ in order to update an
+existing request. Attributes for our  Request are set in the 
+properties
+ section. To add more fields to the request, simply add
+the field name in quotes, a colon, and the value for the field (again in quotes). For example, to set a status you would add
+‘Status’, the ‘:’, and the value ‘RequestStatusSuspended’. Each attribute must be separated with a comma, but there is no
+comma after the last specified attribute.  The Id field is mandatory and is the Id of the Request that is being updated.
+SMAX 2022.11
+Page 
+308
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

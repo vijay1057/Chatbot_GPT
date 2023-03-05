@@ -1,0 +1,12 @@
+When the request is created, select the offering and populate the fields with the contact details. When the solution and
+completion code are populated, the Request moves into the fulfill phase and the task plan will run and create the contact.
+** Optionally, if it’s required that no manual intervention should occur when an end user creates a contact, a rule can be added
+to populate the solution and completion code fields. When these fields are automatically populated the Request will move
+straight from the log phase to accept phase after the contact is added. This would be the same for the updated user
+information offering.
+SMAX 2022.11
+Page 
+276
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

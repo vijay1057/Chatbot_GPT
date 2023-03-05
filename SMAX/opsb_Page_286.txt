@@ -1,0 +1,14 @@
+Click on the join between the IncidentCausedByRequest_0.csv and Request_0.csv. In the Data Source select the secondEntity
+Request, and in the Request_0.csv select the Id (Request_0.csv).
+In the worksheet view, drag the Display Label field from Incident, the Id(Request_0.csv) and the DisplayLabel for the request.
+The report will now list the Title of the Incidents in Column 1 and the titles of the related requests in Column 3.
+Report 2
+Data required selecting in BI sync for the Group Report that includes the people in each:
+Person-> Id, Name, Group Members (See screenshot below)
+Groups->Id, Name
+SMAX 2022.11
+Page 
+286
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

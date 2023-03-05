@@ -1,0 +1,43 @@
+Configuring Business Intelligence Synchronization
+Introduction
+The Business Intelligence (BI Sync) Integration module enables you to define the fields and relationships that are synced for a
+record type when integrating with an external business intelligence system. This can help you export your data to a third party
+system with different reporting tools. BI Sync exports additional information not currently available in the SMA-X reporting
+framework. 
+IMPORTANT NOTE:
+ 
+Business Intelligence Synchronization is a resource-intensive feature. This document describes the
+specific use case of exporting people and groups to excel using BI Sync so they can be grouped and reported on. BI Sync does
+not have the ability to have two sets of configuration. While it might be acceptable to run an initial sync more than once with
+low volume entities like people/groups, it would not be a good idea with large volume entities like request/incident. There is
+also a monthly quota per tenant that will get used rapidly if a large number of entities are exported consistently.
+Use Case
+A company named ABC Reporting wants a report that lists all the users and all of the groups they belong to using Microsoft
+Excel. Data required selecting in BI Sync to report on groups and group membership:
+Person-> Id, Name, Group members.
+Group->Id, Name.
+Configuration Steps - Summary
+1
+. 
+Add the record types and fields required to generate the desired reports
+2
+. 
+Execute the REST call in order to generate and download the data
+3
+. 
+Load the data into Microsoft Excel
+Configuration Steps - Detail
+1. Add the record types and fields required to generate the desired reports
+BI Sync allows users to export all transactional data available in Service Management Automation X. Select an entity type from
+the record type list. Select all the fields that are required, note when the fields are dependent on other entity types an
+indicator is next to the field name. All of these entity types will also need selecting. If related records are required these also
+need to be included.
+Fields required for Groups entity:
+Fields required for Person entity:
+ 
+SMAX 2022.11
+Page 
+289
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

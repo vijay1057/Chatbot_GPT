@@ -1,0 +1,129 @@
+resultSetConcurrency
+Single
+Value
+<not
+assigned>
+Use constant:
+CONCUR_UPDATABLE
+<not
+assigned>
+Input
+Sensitive
+Required
+Type
+Assign From
+Otherwise
+Assign To
+To use a system account this needs to be configured first. In the Projects pane expand Configuration and select System
+Accounts. Right-click and select New System Account.
+Enter the name that best describes this account.
+Enter the details of the account and click 
+Save
+.
+Now for the rows above highlighted in Yellow the newly created Service Account can be used.
+The row above highlighted in Green is to show that the variable <userPassword> is passed into the SQL command to update
+the password based upon what the user wants to set the password to.
+Back at the Inspector pane for SQL Command, click on the 
+Results
+ tab.
+Then Click on the Plus button and leave the default values as shown below:
+Name
+Sensitive Data
+From
+Assign To
+Assignment Action
+Filters
+completionResult
+ResultField: result
+Flow Variable
+OVERWRITE
+No Filters
+The SQL Command is now fully configured.
+The next step is the Get SSO Token, double-click this object so that its attributes are displayed within the Inspector pane.
+Input
+Sensitive
+Required
+Type
+Assign From
+Otherwise
+Assign To
+sawUrl
+Yes
+Single value
+SMAXLoginUrl
+<not assigned>
+Username
+Yes
+Single value
+Username
+System Account
+<not assigned>
+Password
+Yes
+Yes
+Single value
+password
+System Account
+<not assigned>
+proxyHost
+Single value
+Use constant:
+<not assigned>
+proxyPort
+Single value
+<not assigned>
+Use constant: 8080
+<not assigned>
+proxyUsername
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+proxyPassword
+Yes
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+trustAllRoots
+Single value
+<not assigned>
+Use constant: false
+<not assigned>
+X509HostnameVerifier
+Single value
+<not assigned>
+Use constant: allow_all
+<not assigned>
+trustKeystore
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+trustPassword
+Yes
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+connectTimeout
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+socketTimeout
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+useCookies
+Single value
+<not assigned>
+Use constant: true
+<not assigned>
+SMAX 2022.11
+Page 
+338
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

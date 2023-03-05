@@ -1,0 +1,11 @@
+Confirming results
+After any operation is run using the manage person API is run a JobId is provided as the response.  This JobId is used to confirm
+the results of the aciton sent to the manage person api.
+Using the JobId value and switching to a "get' instead of post it is possible to see the result of the action.  Any problems will be
+displayed in the body of the returned payload.
+SMAX 2022.11
+Page 
+322
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

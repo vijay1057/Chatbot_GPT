@@ -1,0 +1,33 @@
+Integration with Operations Orchestration
+Introduction
+Service Management Automation X provides an Operations Orchestration (OO) integration that allows you to automate tasks or
+integrate with other products. The integration uses the On-Premises Bridge to connect SMAX to an Operations Orchestration
+installation. This document describes how to configure the OO integration with Service Management Automation X and
+provides an example of how to use SMAX with OO.
+This chapter will include instructions to:
+Create the OPB Integration User
+Install the OPB Agent
+Configure SSL for OPB
+Create the Endpoint
+Configure an OO Endpoint
+Use SMAX with OO
+Troubleshoot the integration 
+Create the OPB Integration User
+A suite admin user needs to create an Integration User within the Suite Administration before it can be used within the Tenant.
+To do this, access the Suite Administration URL. The URL resembles the following example:
+https://smademovm07.swinfra.net/BO
+  
+Once logged in go to the Users section.
+Click New to add an Integration user.
+Enter all relevant user details, paying key attention to the Role value, where the account must be set to 
+Integration
+user
+ and not 
+Account user
+.  
+SMAX 2022.11
+Page 
+327
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

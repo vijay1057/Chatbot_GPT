@@ -1,0 +1,39 @@
+Business Intelligence Synchronization
+Introduction
+The Business Intelligence (BI Sync) Integration module enables you to define the fields and relationships that are available for
+a specific record type when exporting data for use with an external business intelligence system. BI Sync can be used to export
+information not currently available in the SMA-X reporting framework 
+This chapter will include:
+Enabling BI Sync on your Service Management Automation X tenant
+Adding the required record types and fields necessary for generating the desired reports
+Executing the REST call that generates the data
+Downloading the data
+Enabling BI Sync on your Service Management Automation X Tenant
+BI Sync is a resource intensive feature, and is disabled by default when a new Service Management Automation X tenant is
+created. To determine if BI Sync is enabled on your tenant, navigate to 
+Administration->Integrations
+ and then select “
+BI
+Integration
+”. The system will display a message on the screen if the feature is disabled. You must create a ticket with the
+Service Management Automation X support team in order to enable the BI Sync feature.
+Adding the required record types and fields necessary for generating the desired
+reports
+BI Sync allows users to export all desired transactional data available in Service Management Automation X. The first step is
+configuring the entity types that you wish to export. From the BI Sync menu, select an entity type from the Record type list.
+Then select all fields from that entity that you wish to export. It is important to note that when specific fields are dependent on
+other entity type, an indicator is seen next to the field name. You will need to export each of these entity types as well. For
+example, if you are exporting the requested by person of an Incident, both the incident and person entities must be exported.
+Executing the REST call that generates the data
+After selecting the entity types and fields that are required, you must execute a REST call to schedule a job which prepares the
+data. In systems with a large amount of data, it may take several hours until the data is ready for download.
+To start the job, execute the following REST call: https://<MasterNode>/rest/<tenantId>/bi/initial . This will perform a FULL
+synchronization of the data. If you have already downloaded data it is possible to generate a second download that only
+includes the differences in the data since the last initial synchronization was run. When the REST call is run, it will provide a
+SyncId. The Sync Id is required to be able to tell when the job is done and where the resulting files are stored.
+SMAX 2022.11
+Page 
+283
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

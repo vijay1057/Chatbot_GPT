@@ -1,0 +1,10 @@
+The following shows how to add the service level target information. In this example, the status and the target time fields are
+used.
+When the target date time has been added, it will appear in a Unix timestamp format. To change this into a readable date
+format, there are a few steps involved. Select ‘edit queries’ from the edit queries dropdown in the menu bar.
+SMAX 2022.11
+Page 
+297
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

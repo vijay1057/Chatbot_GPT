@@ -1,0 +1,39 @@
+Configure SSL for OPB
+Before the OPB and OO can communicate, SSL certificates need to be added to the Java keystores. Without this, errors will be
+reported when trying to test the connection between the Service Management Automation X Endpoint and OO.
+Export OO Server Certificate
+On the OO Server, go to the OO installation location. If you installed OO into the default folder paths it should be something
+like:
+C:\Program Files\Micro Focus\Operations Orchestration or C:\Program Files\Hewlett-Packard\HP Operations Orchestration
+In <OO-Installation-Folder>\central\var\security there are two certificate stores, the key one is:
+key.store
+From the <OO-Installation-Folder>, go to <OO installation dir>\java\bin
+Run the following command to see what alias exists in the key.store:
+keytool -list -keystore “C:\Program Files\Micro Focus\Operations Orchestration\central\var\security\key.store”
+To export the certificate run the following command:
+keytool -export -alias tomcat -keystore "c:\Program Files\Micro Focus\Operations Orchestration\central\var\security\key.store" -file " c:\Program Files\
+Micro Focus\Operations Orchestration\central\var\security \OOserver.cert"
+Copy the OOserver.cert file from the 
+C:\ Program Files\Micro Focus\Operations Orchestration\ central\var\security
+ folder to the relevant
+folder on the OPB server.
+For OPB, place in the following location:
+C:\ProgramData\MicroFocus\On-Premise Bridge Agent\product\util\3rd-party\jre\lib\security
+Import SSL Certificates into OPB
+This certificate file must be loaded into the OPB server for it to talk to the OO Server by SSL over port 8443. This is done by
+running the following command:
+keytool.exe -import -keystore "C:\ProgramData\MicroFocus\On-Premise Bridge Agent\product\util\3rd-party\jre\lib\security\cacerts" -alias OOServer -f
+ile "C:\ProgramData\MicroFocus\On-Premise Bridge Agent\product\util\3rd-party\jre\lib\security\OOserver.cert"
+When prompted for the password enter 'changeit'
+Once the SSL certificates have been uploaded to the OPB, restart the On-Premises Bridge Agent Service. 
+Create the Endpoint
+Log into the Service Portal with an Admin User.
+From the Main menu, click on 
+Agent Interface
+.
+SMAX 2022.11
+Page 
+332
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

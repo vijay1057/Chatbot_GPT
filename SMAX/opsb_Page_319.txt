@@ -1,0 +1,21 @@
+ Another option available is to replace all groups the user has with a new (or multiple) group:
+ It’s also possible to remove any group or groups from a user (any groups not included would remain a group of the user) :
+Adding roles to users
+Similar to adding groups, roles can be added to users in the same manner using ADD, REPLACE or REMOVE. The JSON syntax is
+identical, with the exception of the “roles” attribute name.
+{
+ "operation": "CREATE_OR_UPDATE",
+ "users": [{
+  "properties": {
+   "Upn": "MyNewUser@microfocus.com"
+  },
+  "roles":{"ADD":["Self-Service Portal User","Knowledge Publisher"]} 
+ }]
+}
+When adding a role(s), existing roles remaining in place: 
+SMAX 2022.11
+Page 
+319
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

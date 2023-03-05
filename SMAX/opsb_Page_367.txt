@@ -1,0 +1,21 @@
+Once the Integration Point has been deployed, the sync will take place, running the TQL queries that comprise the Integration
+Job within the Integration Point. When all jobs have finished successfully, the output from these jobs will be sent to OPB and
+stored in the following location:
+<On_Premise Bridge Folder>\Product\Util\Repository\
+When a Sync takes place it pulls in the data held in the 
+task_input_data
+ and sends it across to the 
+task_output_data
+. Once
+all data has been loaded into Service Management Automation X, these folder locations should be empty.
+ 
+ 
+Verifying Data Synchronization
+To determine what data has been imported into Service Management Automation X, go to the UCMDB Endpoint.
+Open one of the Sync tasks to see exactly what has been added to Service Management Automation X
+SMAX 2022.11
+Page 
+367
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

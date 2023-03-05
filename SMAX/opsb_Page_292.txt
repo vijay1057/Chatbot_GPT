@@ -1,0 +1,62 @@
+Using Power BI to Create Reports
+Introduction
+Service Management Automation-X includes a BI sync feature that allows users to download entity data and relationships in
+order to create reports in external tools. Microsoft Power BI is able to use the data exported from Service Management
+Automation-X to generate customized reports. This document describes how to use the data created by the sync process to
+create reports in Power BI.
+Use Case
+Company ABC wants to create a report that will list Requests with their SLT next target time as well as the target status. The
+report must allow the ability to filter by offering, service or assignment group.
+Configuration Steps - Summary
+1
+. 
+Add the record types and fields required to be able to generate the desired reports
+2
+. 
+Execute the REST call to generate data
+3
+. 
+Download the data
+4
+. 
+Import the data into Power BI
+5
+. 
+Add display names for the service, group and offering
+6
+. 
+Refresh the data
+7
+. 
+Load and combine multiple files
+Configuration Steps - Detail
+1. Add the record types and fields required to be able to generate the desired reports
+BI Sync allows users to export all transactional data available in Service Management Automation-X. In the BI interface select
+the Actual Service, Agreement, Group, Offering, Record Target Status and Request.
+To include the offering, group, and service, the record types need to be selected. Inside most types, select the id and
+displaylabel fields. For the group type, select the Id and name field.
+The record target status requires a number of fields.
+Any additional fields that are needed for the reports can be added to the Request export. In this case not all are selected, but
+the id is required.
+2. Execute the REST call to generate data
+After selecting the entity types and fields that are required, the administrator must execute the REST call to run a scheduled
+job that prepares the data. It may take several hours before the data is ready for download. To start the job, execute the
+following REST call: 
+https://$testmachineandport/rest/$tenantId/bi/initial
+. This will perform a full synchronization of the data. If
+you have already downloaded a full sync of data, it is possible to run a job that will only generate the differences (changes)
+since running the last initial sync. When the REST call is run, it will provide a Sync Id. The Sync Id is used to identify when the
+job is done and where the resulting files are stored. This document only examines the full sync process.
+3. Download the data
+Run the REST call: 
+https://$testmachineandport/rest/$tenantId/bi/status/
+<syncId> in order to see if the job has completed.
+If the job has completed, the result of the REST call will include "Status": "COMPLETE". When complete, there will be a ‘files’
+section in the result that lists all the Ids of the files that were created during the export. The files are compressed in Zip
+format. All files must be downloaded. If this process will be run often, it is suggested to create an automated script to run the
+SMAX 2022.11
+Page 
+292
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

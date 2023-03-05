@@ -1,0 +1,13 @@
+6. Refresh the data
+When using the full sync option in BI sync, it is possible to use the same Power BI configuration and load new data when it is
+available. You must use the same directory and naming convention used when the Power Bi configuration and import was
+initially performed. After the new data is copied into the folder the data was loaded into, import it into Power BI by right
+clicking on each of the csv files and clicking ‘refresh’ to get the updates.
+From inside Power BI, click on every file and select refresh.
+7. Load and combine multiple files
+SMAX 2022.11
+Page 
+300
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,44 @@
+Date/time
+If the field is a date or date_time you must specify the value using a 
+Unix timestamp
+. Most scripting tools are capable of
+converting user-friendly date/times to Unix timestamps. Additionally, there are a number of online tools that can create these
+timestamps, including the one found 
+here
+. Service Management Automation X requires that you define the timestamp down to
+the millisecond.  In this example a field named InitialTime_c was created and the unix timestamp was used when the update
+was made.
+When the Requests history is viewed it will appear as a humain readable date:
+Special considerations of the EMS REST API
+The EMS REST API has a few special considerations that must be followed:
+A query will fail if the result returns more than 4K records, unless the default maximum number of results is increased.
+Results are returned in batches of 250 records at a time by default, which can be modified using the “size” parameter.
+Information on the skip parameter below.
+When querying for fields that are entity links, the id of the related record is returned (rather than the display label).
+The maximum size of a request body is 1 MB. If the body size is larger than 1 MB, a "413 Request Entity Too Large" error
+will occur.
+Locking system – service behavior
+The EMS data engine implements an optimistic locking system to prevent clients from accidentally overwriting each other’s
+data. Without appropriate validation, two clients can retrieve the same record, edit it and send it to the server for update. One
+of the changes is committed first and the second one overwrites the record. The optimistic locking approach checks the
+version or timestamp of the record when it arrives and only allows updates on it if the incoming version isn't lower than the
+version currently stored in the database.
+When a record is received for update, if it doesn't pass the optimistic locking version validation, the transaction fails. In such
+cases, the REST API returns HTTP status code 409. In case of a bulk API, the 409 status is returned in the body of the response,
+inside the JSON which represents the corresponding record result.
+Note  
+To use this locking system, the incoming record must include the 
+LastUpdateTime
+ property with the value assigned to it
+when it was retrieved from the server.
+The locking system isn't relevant to the Analytics REST API.
+Retrieving information from Service Management Automation X
+The EMS API can retrieve any information available to the entity grid (list of records) in the Service Management Automation X
+user interface. Parameters are available to the REST request that allow you to apply specific Filters to the query, as well as
+specify which fields should be included in the returned result. Results are returned in the JSON data format, so you may need
+SMAX 2022.11
+Page 
+311
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

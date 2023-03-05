@@ -1,0 +1,83 @@
+The following table breaks down exactly what fields need creating with the appropriate values.
+Name
+Display name
+Field type
+Field size
+Required
+Visibility
+DBServerName_c
+DB Server Name
+String
+MEDIUM
+Yes
+User
+DBType_c
+DB Type
+String
+MEDIUM
+Yes
+User
+DBPort_c
+DB Port
+String
+MEDIUM
+Yes
+User
+Database_c
+Database
+String
+MEDIUM
+Yes
+User
+NewPassword_c
+New Password
+String
+MEDIUM
+Yes
+User
+NewPasswordConfirmed_c
+Re-enter New Password
+String
+MEDIUM
+Yes
+User
+SMAXLoginUrl_c
+SMAX Login Url
+String
+MEDIUM
+Agent
+SmaxUrl_c
+Smax Url
+String
+MEDIUM
+Agent
+SmaxIncidentModelID_c
+Smax Incident Model ID
+String
+MEDIUM
+Agent
+SmaxTenantID_c
+Smax Tenant ID
+String
+MEDIUM
+Agent
+OOcompletionResult_c
+OO completion Result
+String
+MEDIUM
+Agent
+SmaxIncidentID_c
+Smax Incident ID
+String
+MEDIUM
+Agent
+Next is to create the Task Plan. It’s this that allows SMAX to take the values from the above user options and send them across
+to the OO Workflow to Reset the Password.
+Within Task Plan go to the First line Support and click on the Pencil icon at the bottom of Start.
+Select Automated Task from the menu of options. A new screen will appear. Give the Task a name.
+SMAX 2022.11
+Page 
+347
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

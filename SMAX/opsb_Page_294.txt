@@ -1,0 +1,13 @@
+When the value in the field is an Id, make sure that the field is not being counted. Otherwise, the value ‘1’ will appear in all
+rows. To correct this behavior, select the field from under ‘values’ and change ‘count’ to ‘Don’t summarize’.
+5. Add display names for the service, group, and offering
+Select the Actual Service_0 file and expand the list of fields. Select the DisplayLabel field, and the ‘fix this’ dialog will appear.
+Click on ‘Fix this’ and select ‘create relationship’.
+Select Request from the dropdown, then select the RegisteredForActualService column. On the bottom dropdown select
+ActualService, then select the Id column and click ‘ok’.
+SMAX 2022.11
+Page 
+294
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

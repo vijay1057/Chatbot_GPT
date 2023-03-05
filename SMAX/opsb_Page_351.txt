@@ -1,0 +1,22 @@
+Field Name
+Value
+SmaxIncidentID_c
+Incident
+OOcompletionResult_c
+completionResult
+Then Click OK to finish setting up the Automated Task.
+It should look something like this:
+Now that the Service Request has been created if a user enters values into the request but is unable to get their password
+reset the OO flow will try to create an Incident. To do this an Incident Model needs to be created within SMAX. Once this Model
+has been created the ModelID will then be set as a Default Value in the newly created Offering that was just created. Before
+we can continue to enter the Default Values for the Service Request we must first create the Incident Model.
+Please note, for the OO output to be entered into SMAX fields a rule needs to be added to allow both User
+Options SmaxIncidentID_c and OOcompletionResult_c. This needs to be set within the Rendering Forms for
+Request in the Rules.
+When the user is entering their new password, a check needs to be done that the passwords entered into the two password
+SMAX 2022.11
+Page 
+351
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,11 @@
+3. Create task plan in the offering to populate the new contact fields with user options
+Click on the task plan tab, then create a new automated task in the fulfill phase (assuming no approvals are needed).
+Add a business rule to the task that will create a record and set the record type to “Person”.
+Add the fields in the Person record that need populated (click fx button to add expression) and add the names of the matching
+user options created in the previous steps.
+SMAX 2022.11
+Page 
+275
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

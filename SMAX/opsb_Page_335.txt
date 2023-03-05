@@ -1,0 +1,14 @@
+Then drag the SQL Command onto the canvas.
+Next is to find the SMAX Create Incident and Get Token objects.
+Now drag Get SSO Token and Create Incident objects on to the canvas.
+So far, the canvas should look a bit like this:
+Now we need to join the objects together to create the flow. To do this, two more objects need to be added to the flow. From
+the top bar of the Canvas area click on the following icon.
+Drag both the green tick and the red cross onto the canvas.
+The screen should now look like this:
+SMAX 2022.11
+Page 
+335
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

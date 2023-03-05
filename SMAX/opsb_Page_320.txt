@@ -1,0 +1,24 @@
+When replacing roles, any existing roles are removed and the new ones added: 
+When removing a role, existing ones remain: 
+Adding licenses to users
+The Manage Persons API can also be used to set the license information for a specific user.
+{
+ "operation": "CREATE_OR_UPDATE",
+ "users": [{
+  "properties": {
+   "Upn": "MyNewUser@microfocus.com"
+  },
+  "licenses":{
+   "ADD":[{
+            "type": "Named Users",
+            "capacity": "5"
+          }]
+        } 
+     }]
+}
+SMAX 2022.11
+Page 
+320
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

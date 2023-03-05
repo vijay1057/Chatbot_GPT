@@ -1,0 +1,16 @@
+Filtering can be applied to any query sent through the REST API. The filter is specified as a parameter in the REST URL. In the
+example below, the results will be filtered based on the creation time of the entity using the parameter
+‘filter=CreateTime+btw+(1466406000000,1466492399999)’ (note the use of the Unix timestamp).
+https://myhost.domain.com/rest/484980393/ems/Request?filter=CreateTime+btw+
+(1650085453000,1650344653000)&layout=Id,DisplayLabel,Priority
+Posting information to Service Management Automation X
+Any type of standard entity can be created or updated in Service Management Automation X using the EMS REST API. The URL
+to post data for all entity types is https://<master node>/rest/<tenantid>/ems/bulk. The type of entity being sent is defined in
+the entity_type field. In the example below a request will be created.
+To create an Incident the following payload would be used:
+SMAX 2022.11
+Page 
+313
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

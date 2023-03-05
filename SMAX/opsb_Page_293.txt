@@ -1,0 +1,18 @@
+procedure.
+The files are named using the format: "FileId": "4743431f-6c4b-4f24-87b8-bfe15721da97". To download the file from the
+browser, assuming you are logged into the Service Management Automation-X UI, use the
+URL: 
+https://$testmachineandport/rest/$tenantId/frs/file-list/
+<FileID>.
+4. Import the data into Power BI
+From the ‘Get data’ button select the ‘text\CSV’ option.
+The files will appear similar to the list below. Select each file one by one. If prompted, accept any default value and click the
+‘load’ button.
+Once all the data is loaded the various files should appear along the side panel.
+Once loaded, select the ‘Request’ file. Then select all of the fields needed in the report.
+SMAX 2022.11
+Page 
+293
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

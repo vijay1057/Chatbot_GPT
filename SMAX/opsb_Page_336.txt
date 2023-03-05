@@ -1,0 +1,54 @@
+Now the flow can be fully joined up. The key here is to understand what you expect to happen as this flow runs through. The
+flow starts at the SQL command. If the command can be actioned correctly then a success outcome is returned. If the SQL
+Command fails, then an incident needs to be created within SMAX. For OO to create an incident in SMAX, first it must log in
+and acquire SSO Token as the user is then authorized to log in. Then using the account details provided via the SMAX
+integration user, it will then create an incident in SMAX based upon the fact that the SQL Command failed.
+The flow will now look like this:
+Now the flow has been designed, the next part required is all the inputs to allow the flow to work.
+At the bottom of the screen click on Properties
+Here all the required inputs that need to be supplied from SMAX need to be entered.
+The Table below shows what must be entered.
+Input
+Sensitive
+Data
+Required
+Assign From
+Otherwise
+DBServerName
+Unticked
+Yes
+DBServerName
+Prompt user
+DBType
+Unticked
+Yes
+DBType
+Prompt user
+DBPort
+Unticked
+Yes
+DBPort
+Prompt user
+Database
+Unticked
+Yes
+Database
+Prompt user
+userPassword
+ticked
+Yes
+userPassword
+Prompt user
+SMAXLoginURL
+Unticked
+Yes
+SMAXLoginURL
+Use the constant:
+https://<YOURSERVER_FQDN>/auth/authentication-
+endpoint/authenticate/login
+SMAX 2022.11
+Page 
+336
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

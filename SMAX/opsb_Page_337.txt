@@ -1,0 +1,157 @@
+smaxUrl
+Unticked
+Yes
+<not assigned>
+Use the constant:
+https://<YOURSERVER_FQDN>
+smaxIncidentModelID
+Unticked
+Yes
+smaxIncidentModelID
+Use constant
+smaxTenantID
+Unticked
+Yes
+smaxTenantID
+Use constant
+Input
+Sensitive
+Data
+Required
+Assign From
+Otherwise
+Click back on the Design tab and then double-click on the SQL Command. This will open the Inspector pane so that all the
+relevant inputs for the SQL command can be set.
+The Table below shows what must be set.
+Input
+Sensitive
+Required
+Type
+Assign From
+Otherwise
+Assign To
+DBServerName
+Yes
+Single
+Value
+DBServerName
+Prompt use
+<not
+assigned>
+DBType
+Yes
+Single
+Value
+DBType
+Prompt user
+<not
+assigned>
+Username
+Yes
+Single
+Value
+<not
+assigned>
+System account
+<not
+assigned>
+Password
+Yes
+Yes
+Single
+Value
+<not
+assigned>
+System account
+<not
+assigned>
+Instance
+Single
+Value
+<not
+assigned>
+Use constant
+<not
+assigned>
+DBPort
+Single
+Value
+DBPort
+Prompt user
+<not
+assigned>
+Database
+Yes
+Single
+Value
+Database
+Prompt user
+<not
+assigned>
+authenticationType
+Single
+Value
+<not
+assigned>
+Use constant
+<not
+assigned>
+dbClass
+Single
+Value
+<not
+assigned>
+Use constant
+<not
+assigned>
+dbURL
+Single
+Value
+<not
+assigned>
+Use constant
+<not
+assigned>
+Command
+Yes
+Single
+Value
+<not
+assigned>
+Use constant:
+ALTER USER "eExpenseAdmin" WITH
+ENCRYPTED PASSWORD
+'”${userPassword}”';
+<not
+assigned>
+Timeout
+Single
+Value
+<not
+assigned>
+Use constant
+<not
+assigned>
+databasePoolingProperties
+Single
+Value
+<not
+assigned>
+Use constant
+<not
+assigned>
+resultSetType
+Single
+Value
+<not
+assigned>
+Use constant:
+TYPE_SCROLL_INSENSITIVE
+<not
+assigned>
+SMAX 2022.11
+Page 
+337
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

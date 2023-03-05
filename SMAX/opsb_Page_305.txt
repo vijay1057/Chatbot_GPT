@@ -1,0 +1,28 @@
+Configuring Postman
+Introduction
+Service Management Automation X allows users to access and modify data using a REST API. In order to use the REST API a
+REST tool needs to be configured. A commonly used tool available is Postman.
+This chapter will cover:
+Installing Postman
+Creating a Workspace and Collection
+Sending and receiving back the login token
+Sending a REST command to create an entity using the EMS API
+Sending a REST command to get an entity using the EMS API
+Installing Postman
+Postman is a free application available on the Postman website. The instructions below are for the downloaded application and
+not the web version of the utility. To download access 
+https://www.postman.com/downloads/
+ and select the Windows 64-bit
+download.
+Double click on the Postman-win64-<version>.exe to launch the installation.
+Creating a Workspace and Collection
+On first launch, Postman will require a user to create a login and password. After logging in, add a new workspace that will
+contain all the REST collections.
+After selecting the Workspace, add a new Collection so that the REST configurations can be saved and reused.
+Once the collection has been created, the “add a request” option becomes available.
+SMAX 2022.11
+Page 
+305
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

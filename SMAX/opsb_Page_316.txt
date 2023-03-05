@@ -1,0 +1,50 @@
+Manage Persons API
+Introduction
+Service Management Automation X provides 
+REST
+ APIs that can be used to execute a variety of commands. This chapter
+describes using the Manage Persons API, which allows you to create and update users in both Service Management
+Automation X and the Service Management Automation Service Portal.
+Before reading this chapter you should review the following documents:
+REST API section:
+Configuring Postmam
+System Administration section:
+Importing Users
+This chapter will cover:
+The Manage Person API URL
+Configuring the upnDataType field
+Adding a Contact
+Updating a Contact
+Adding a User
+Updating a User
+Adding Groups to Users
+Adding Roles to Users
+Adding Licenses to Users
+Updating multiple Persons
+Confirming results using the Job Id
+Manage Person API URL
+The Manage Person API URL uses the format https://<MasterNode>/rest/<tenantId>/ums/managePersons. To access the API
+using the Postman REST client, set the action to ‘POST’ and enter the URL, then add the relevant information to the body of
+the request. 
+Configuring the upnDataType field
+The Manage Person API uses the UPN field to identify person records. The UPN field is a unique identifier and is by default the
+email address of the person. In some cases, this is not the desired behavior. If the email is not going to be the UPN then on
+every use of the Manage Person API to post data the upnDataType needs to be used. In the JSON payload the field name
+should appear as: "upnDataType":"Customer_UID" (see examples below)
+Adding a Contact
+When adding a person to Service Management Automation X, it is important to determine whether they should be added as a
+contact or a user. The difference is that a user has the right to log in to the system whereas a contact does not.
+To add a contact, enter all desired attributes and then add the “IsMaasUser”: “false” flag. If IsMaasUser is not set to false the
+system will create a user instead of a contact.
+{
+ "operation": "CREATE_OR_UPDATE",
+ "users": [{
+  "properties": {
+   "Upn": "MyNewUser@microfocus.com",
+   "Email":"MyNewUser@microfocus.com",
+SMAX 2022.11
+Page 
+316
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

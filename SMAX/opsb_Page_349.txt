@@ -1,0 +1,12 @@
+Now the Task will give you several selections to make to configure the Business rule.
+Enter the details as requested for your environment. First, you’ll be asked for the OO Endpoint. Then the flow name that you
+want to run. Here a new screen will appear allowing you to search OO for the relevant flow. In the search box, type 
+PG
+ and
+click on search.
+SMAX 2022.11
+Page 
+349
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

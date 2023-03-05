@@ -1,0 +1,8 @@
+Finish by using the join option to create an end node for the task plan to finish on.
+Use entitlements to allow self-service users to see the offering when they update the fields. Their own profiles will be updated.
+SMAX 2022.11
+Page 
+280
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

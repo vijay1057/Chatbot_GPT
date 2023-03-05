@@ -1,0 +1,30 @@
+to use scripting or some data conversion process in order to get the data in the desired format.
+The following is an example of a ‘Get’ request that will retrieve results from Service Management Automation X. In the
+example the Id, DisplayLabel and Priority fields are being returned for request entities.
+The request URL is created as follows:
+https://myhost.domain.com/rest/844143557/ems/Request?layout=Id,DisplayLabel,Priority
+The URL is created with the following information:
+https:// — specifies the protocol to use
+myhost.domain.com — the domain of the Service Management Automation X server master node which hosts the specific
+tenant
+rest — specifies the use of the REST API
+844143557 — the tenant ID of the desired Service Management Automation X instance
+ems — specifies the use of the EMS REST API
+Request — The entity type
+?layout=Id,DisplayLabel,Priority — specifies the comma delimited list of fields from the entity that should be included in
+the response (note that the LastUpdateTime field is always returned)
+The end of the query result will also return the number of records that matched the query, if the total count is more than 250,
+the skip command is required to display additional records after the first 250. In the example below the ‘&skip=250’
+parameter is added to retrieve the additional records. In cases where you expect more than 250 records to be returned,
+writing a script or code to process the queries and results is recommended.
+ 
+​
+The URL to skip the first 250 records of the query is: 
+https://myhost.domain.com/rest/844143557/ems/Request?
+layout=Id,DisplayLabel,Priority&skip=250
+SMAX 2022.11
+Page 
+312
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

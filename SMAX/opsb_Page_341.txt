@@ -1,0 +1,44 @@
+entityID
+IncidentID
+Use constant:
+<not assigned>
+completedOK
+completionResult
+Use constant
+<not assigned>
+Name
+Sensitive Data
+Required
+From
+Otherwise
+Assigned To
+Name
+Sensitive Data
+From
+Assign To
+Assignment Action
+Filters
+completedResult
+Input: completedOK
+Flow Output Field
+OVERWRITE
+No Filters
+Incident
+Input: entityID
+Flow Output Field
+OVERWRITE
+No Filters
+Save the flow as it’s now complete.
+Create Content Pack
+From the Projects Pane, right-click on the DB Flow folder and select 
+Create Content Pack
+.
+Select the location where you want the content pack to be saved and check the version number is what you want to use and
+click Next
+Check all the Dependencies are correct as these will need to have been loaded into OO central before this flow can be loaded.
+SMAX 2022.11
+Page 
+341
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

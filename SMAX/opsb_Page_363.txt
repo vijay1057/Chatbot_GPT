@@ -1,0 +1,23 @@
+Copy the Agent configuration file to the server running the On-Premises Bridge software. Perform the install process which is
+described in this link specifically the section on Installing the OPB:
+Installing the OPB
+On the OPB server, go to the following location: 
+C:\ProgramData\MicroFocus\On-Premise Bridge Agent\product\util\opb
+Double click the 
+credential_mng_ui
+ file.
+The Credentials Manager will open, allowing you to create Endpoint credentials for Service Management Automation X. Click
+the 
+New
+ button.
+Select the type of Endpoint being created, for this it would be 
+UCMDB 10.20
+. Click 
+OK
+.
+SMAX 2022.11
+Page 
+363
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,13 @@
+Launch Tableau and from the connect menu select the Text file option. Navigate and select the PersonGroup_0.csv file, when it
+loads the other files in the same directory will be loaded. The table editor view will open, drag the PersonGroup_0.csv,
+Person_0.csv and PersonToGroup_0.csv files into the work area.
+Click on the join between the PersonGroup_0.csv and PersonToGroup_0.csv, in the Data Source select the Id, and select the
+SecondEntity PersonGroup in PersonToGroup_0.csv.
+Click on the join between the PersonToGroup_0.csv and Person_0.csv, in the Data Source select the FirstEntity Person, and
+select the Id(Person 0,csv) under Person_0.csv.
+SMAX 2022.11
+Page 
+287
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

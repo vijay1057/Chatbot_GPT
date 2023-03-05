@@ -1,0 +1,13 @@
+Click 
+Create CP
+.
+Now the Content Pack has been successfully created.
+Next is to import the Content Pack into OO central.
+Log in to OO Central
+From the main screen, click on Content Management and then click on Content Packs.
+SMAX 2022.11
+Page 
+342
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

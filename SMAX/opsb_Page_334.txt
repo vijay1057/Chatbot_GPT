@@ -1,0 +1,31 @@
+Click Save to keep the configuration settings. The OPB will then connect to OO and run a Sync Task. This will allow SMAX to see
+all the OO flows that are configured within OO. When creating an Automated Task within SMAX it will be able to search OO for
+the correct flow which will be required.
+Using SMAX with OO
+In this example, we’ll set up a simple OO flow and then create an Offering in SMAX to allow a user to request a Password
+Reset. This will then trigger the OO flow that has been created and show the time that can be saved using automation within
+the ITOM tools. The scenario will also capture if the request is unsuccessful and generate an incident within SMAX.
+To create this scenario, these instructions assume you have access to the Postgres Database server that is used for SMAX. If
+not, then it might be worth creating a PostgreSQL DB to follow this example through.
+Create OO Flow
+Within OO Studio make sure the following Content Packs have been installed:
+OO Service Management Automation – X Content 3.2.0 to deploy this you also need the below CPs
+CSA integrations content pack 4.70 or higher
+OO 10-base-cp-1.16.0
+These can be downloaded from the 
+Micro Focus
+ MarketPlace website: 
+https://marketplace.microfocus.com/itom/category/operations-orchestration
+For this example, the flow will only use 3 steps and have error and success options. The flow will look like below.
+In order to create this flow, create a new project and give it a name for example DB Flow. Right Click on Library and create a
+new folder called postGres. Right Click on the postGres folder and then click New Flow. Give the flow a name: PG Password
+Reset.
+A blank workspace will appear.
+The first object that needs adding to the flow is SQL Command as this will be the starting point for the flow. In the
+Dependencies pane in the bottom left of Studio, expand out the Base 1.16.0 Content pack as shown below.
+SMAX 2022.11
+Page 
+334
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,16 @@
+7. Create task plan in the offering to update the fields
+The System Administration portal runs a sync every night that will update any changes to the Phone Number or Name of users,
+so these fields shouldn’t be modified. Contacts are not updated by the sync so most fields can be updated. Also note that the
+UPN field cannot be changed after the contact or user is created. The task plan needs to use a decision to see if the user
+option has been populated so it does not save an empty value into the person record overwriting what is already there. Once
+completed the task plan will look similar to the example below. Add the task plan to the fulfill tab (unless an approval is
+desired). The decision tree examples are below.
+Create a new decision for First name, and add the check to see if the user option is populated, the expression is
+${entity.UserOptions.FirstName_c!=null}. If the field is populated then it will proceed through the Yes path onto the
+automated task to populate the field in the person record.
+SMAX 2022.11
+Page 
+278
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

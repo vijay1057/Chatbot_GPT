@@ -1,0 +1,46 @@
+Creating a complete service catalog can be one of the more time-consuming parts of a SMAX implementation. And as the IT
+department changes and takes on more responsibilities, the number of service definitions and associated offerings will
+continue to grow. The Service Catalog should be thought of as a living thing, and change should be expected (and even
+embraced).
+Specific guidance and tips for building up your Service Portfolio and the corresponding Service Catalog can be found
+here: 
+Services and the Service Catalog
+ 
+Workflows
+Processes within SMAX use a pre-defined workflow or set of workflows to create and track records using that specific process.
+You can configure these workflows to fit specific requirements not included in the out-of-box definitions, but you can't add new
+workflows within the processes.
+The use of only the existing workflows enforces commonality to the records within a process. This results in easier integrations,
+consistency in reporting, the ability to use a common set of performance indicators, and allows the use of common views.
+You can modify existing workflows by adding new phases within the defined set of steps (also called meta-phases). Those
+phases will be used by every record within the associated process.
+If you need unique flow and/or functionality within a specific process, SMAX provides models (called Offerings inside the
+Service Request process). These models allow you to extend the process in a number of ways, including:
+adding additional information for the user or agent to provide, called “User options” to the process
+adding rules that apply to the process using the model
+adding approvals (to applicable processes)
+setting default values
+adding tasks (in series or parallel) to one or more phases of the process
+Further information around workflows and models may be found in the following document: 
+Enhancing Workflow with Models
+ 
+Using and modifying forms
+Each record type in SMAX has a pre-defined set of forms associated with it. The system uses these forms when displaying
+records, selecting the correct form based on how the record is being viewed or what action is being taken. While you can't
+define new forms, SMAX contains several methods to modify how a specific form is displayed based on the information being
+viewed. 
+Workflow rules may be used to modify a form by displaying or hiding entire sections or specific fields on a form. Alternatively
+these rules can disable certain fields on a form based on other criteria, making it impossible for a user to modify the data it
+contains. Furthermore, other business rules can change the possible values allowed in specific fields (both for entity links and
+lists).
+If a specific type of process requires unique information, additional fields may be added using the User options definitions in a
+specific model. These fields are displayed in their own section on the process forms.
+Further examples of how forms are used and may be found in 
+"Working with Forms"
+.
+SMAX 2022.11
+Page 
+272
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

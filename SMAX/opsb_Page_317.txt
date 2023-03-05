@@ -1,0 +1,50 @@
+   "FirstName":"My First Name",
+   "LastName":"My Last Name",
+   "Location":"London",
+   "IsMaasUser":"false",  
+   "OfficePhoneNumber":"867-5309",
+   "EmployeeNumber": "4815162342"
+  }
+ }]
+}
+The following image shows how the REST call to add a contact would be performed in the Postman client: 
+If you are using a custom UPN instead of the email address, the upnDataType information also needs to be sent:
+{
+ "operation": "CREATE_OR_UPDATE",
+ "users": [{
+  "properties": {
+  "upnDataType":"Customer_UID",  
+  "Upn": "MyLoginId",
+   "Email":"MyNewUser@microfocus.com",
+   "FirstName":"My First Name",
+   "LastName":"My Last Name",
+   "Location":"London",
+   "IsMaasUser":"false",  
+   "OfficePhoneNumber":"867-5309",
+   "EmployeeNumber": "4815162342"
+  }
+ }]
+}
+Updating a Contact
+To update a contact using the Manage Person API, simply create a REST payload with the desired attributes that also includes
+the UPN associated with the person. It is important to always include the "
+IsMaasUser
+":"false” flag when updating a contact
+or Service Management Automation X will attempt to convert the contact into a user.
+{
+"operation": "CREATE_OR_UPDATE",
+ "users": [{
+  "properties": {
+   "Upn": "MyNewUser@microfocus.com",
+   "IsMaasUser":"false", 
+   "EmployeeNumber": "45555555"
+  }
+ }]
+}
+The following image shows how the REST call to update a contact would be performed in the Postman client: 
+SMAX 2022.11
+Page 
+317
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

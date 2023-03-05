@@ -1,0 +1,52 @@
+This will create the Endpoint for UCMDB on the OPB.
+If UCMDB isn’t using SSL then skip the next section and go straight to Configuring the UCMDB Endpoint.
+Configuring SSL for OPB
+Before the OPB and UCMDB can communicate, SSL certificates need to be added to the Java keystores of the respective
+servers. Otherwise, errors will be reported when trying to test the connection between the Service Management Automation X
+Endpoint and UCMDB.
+Export UCMDB Server Certificate
+Run the following command on the UCMDB Server by opening a command prompt. If a server.keystore file already exists, then
+remove it before running this command:
+From 
+<UCMDB-Installation-Folder>\bin\jre\bin
+, run the following command:
+keytool.exe -genkey -alias hpcert -validity 365 -keyalg RSA -keysize 2048 -keystore
+C:\UCMDB\UCMDBServer\conf\security\server.keystore
+Export the keystore file to be used by the Probe and OPB using the following command (when running this command, the
+UCMDB Keystore password will be required based upon what was used during install):
+keytool.exe -export -alias hpcert -keystore C:\UCMDB\UCMDBServer\conf\security\server.keystore -storepass <Password> -file
+C:\UCMDB\UCMDBServer\conf\security\ucmdbserver.cert
+Copy the ucmdbserver.cert file from the 
+C:\UCMDB\UCMDBServer\conf\security
+ folder to relevant folders on the Probe and OPB
+servers.
+If using the Integration Service on UCMDB Server, it would be as follows:
+C:\UCMDB\UCMDBServer\integrations\conf\security
+Probe Server it would be:
+C:\UCMDB\dataflowprobe\conf\security
+For OPB place in the following location:
+C:\ProgramData\MicroFocus\On-Premise Bridge Agent\product\util\3rd-party\jre\lib\security
+Import UCMDB Server Certificate
+The certificate file needs to be loaded into the probe server(s) for them to communicate to the UCMDB Server via SSL over port
+8443. This is done by running the following command:
+From 
+<UCMDBProbe-Installation-Folder>\bin\jre\bin
+, run the following commands:
+keytool.exe -import -trustcacerts –keystore C:\UCMDB\UCMDBServer\integrations\conf\security\server.truststore -storepass
+<password> -alias hpcert -file C:\UCMDB\UCMDBServer\integrations\conf\security\ucmdbserver.cert
+keytool -import -file <Certificate-File-Name> -keystore -Alias <Probe-Installation-Folder>\conf\security\HPProbeTrustStore.jks
+When prompted for the password enter 
+logomania
+Finally the UCMDB Server Certificate needs to be loaded into the OPB truststore. This is done running the following command:
+keytool.exe -import -keystore "
+C:\ProgramData\MicroFocus\On-Premise Bridge Agent\product\util\3rd-party\jre\lib\security\cacerts
+" -alias
+hpcert -file "
+C:\ProgramData\MicroFocus\On-Premise Bridge Agent\product\util\3rd-party\jre\lib\security\ucmdbserver.cert
+"
+SMAX 2022.11
+Page 
+365
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

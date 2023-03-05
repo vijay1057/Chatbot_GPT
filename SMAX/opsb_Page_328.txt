@@ -1,0 +1,19 @@
+Once all details are entered click on Save.
+Once the Integration user has been created, the next step is to activate the account. Click on the created account to access
+the details.
+Click 
+Activate
+ and then 
+Save
+.
+The system will send an activation email to the email address provided in the details of the account. The link in this activation
+email will allow you to set the password for this Integration account. This password will be required later when entering the
+details into the OPB.
+Next, assign the user to a Tenant. Click on the Tenant tab on the top of the screen.
+Choose the relevant tenant that the Integration user will access.
+SMAX 2022.11
+Page 
+328
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

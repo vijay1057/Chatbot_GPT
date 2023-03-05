@@ -1,0 +1,33 @@
+UCMDB Integration
+Introduction
+Service Management Automation X provides an integration with the UCMDB that synchronizes Service Asset & Configuration
+Management (SACM) information. The UCMDB integration uses the On-Premises Bridge (OPB) to connect to an external UCMDB
+to synchronize Actual Services, Service Components, System Elements and Assets to the Service Management Automation X
+repository. This document provides detailed information regarding the configuration of this integration.
+This information includes:
+Installing the OPB Agent
+Creating an Endpoint
+Configuring SSL for OPB
+Configuring the UCMDB Endpoint
+Verifying Data Synchronization
+Troubleshooting 
+Installing the OPB Agent
+Login to the desired tenant within Service Management Automation X with a user that has 
+Tenant Admin 
+privileges. If you
+login to the Service Portal, switch to the Agent Interface.
+From the main menu, navigate to the 
+Integration
+ area under 
+Administration > Utilities
+.
+Ensure the Agents section is selected (from the header menu bar) and click on 
+Download agent
+ to copy the agent
+configuration to a local location on your computer.
+SMAX 2022.11
+Page 
+362
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

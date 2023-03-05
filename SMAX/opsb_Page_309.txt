@@ -1,0 +1,20 @@
+If the desired action is to create a Request then the payload would appear like the example below, note the Id number used for
+the "RequestedForPerson" and not the actual name:
+Determining the entity type and field names
+All entity types can be updated using the EMS API (as long as you have a role that allows updating that specific entity type). In
+order to create or modify a specific field in an entity, you must know both the entity type and the field name. This information
+can be found in the Service Management Automation X interface. Navigate to the ‘Records’ utility (select 
+Administration >
+Records
+ from the main menu) and find the correct entity type using the field in the top left section of the form. The entity
+name displayed here is the correct entity type that is used in the REST request.
+The field name can be found in the ‘Fields’ tab of the entity definition. It is important to use the value in the “Name” column of
+the fields list and not the ‘Multilingual label’ column.  Below the entity type "Request" and the field name "Status" are
+highlighted.
+Handling specific field types
+SMAX 2022.11
+Page 
+309
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

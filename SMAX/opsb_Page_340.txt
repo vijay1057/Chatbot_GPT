@@ -1,0 +1,131 @@
+proxyPassword
+Yes
+Single
+value
+<not
+assigned>
+Use constant:
+trustAllRoots
+Single
+value
+<not
+assigned>
+Use constant: false
+X509HostnameVerifier
+Single
+value
+<not
+assigned>
+Use constant: allow_all
+trustKeystore
+Single
+value
+<not
+assigned>
+Use constant:
+trustPassword
+Yes
+Single
+value
+<not
+assigned>
+Use constant:
+connectTimeout
+Single
+value
+<not
+assigned>
+Use constant:
+socketTimeout
+Single
+value
+<not
+assigned>
+Use constant:
+useCookies
+Single
+value
+<not
+assigned>
+Use constant: true
+keepAlive
+Single
+value
+<not
+assigned>
+Use constant: true
+connectionsMaxPerRoute
+Single
+value
+<not
+assigned>
+Use constant: 2
+connectionsMaxTotal
+Single
+value
+<not
+assigned>
+Use constant: 20
+headers
+Yes
+Single
+value
+<not
+assigned>
+Use constant:
+contentType
+Single
+value
+<not
+assigned>
+Use constant:
+requestCharacterSet
+Single
+value
+<not
+assigned>
+Use constant: ISO-8859-1
+responseCharacterSet
+Single
+value
+<not
+assigned>
+Use constant:
+Input
+Sensitive
+Required
+Type
+Assign From
+Otherwise
+The most important row is the properties row to create the incident. There are key bits of information required from SMAX to
+do this. Most notably what is the user ID that is creating the incident, what service is affected by this incident and where
+should this incident be assigned to. All these values need the IDs providing, so you’ll need to check within your own SMAX
+environment in order to provide these details.
+For the Results tab, enter the details below:
+Name
+Sensitive Data
+From
+Assign To
+Assignment Action
+Filters
+IncidentID
+ResultField: entityId
+Flow Variable
+OVERWRITE
+No Filters
+For the outputs from OO to be sent to SMAX the Resolved Success object needs updating so that it can handle a couple of the
+inputs and provide output to SMAX.
+These two input fields need configuring as well as two output fields like so
+:
+Name
+Sensitive Data
+Required
+From
+Otherwise
+Assigned To
+SMAX 2022.11
+Page 
+340
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

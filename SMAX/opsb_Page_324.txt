@@ -1,0 +1,25 @@
+The filename is specified within the ‘Content-Disposition’ line. The line should read: 
+Content-Disposition:form-data;
+name="files[]"; filename="test.txt"
+, where “test.txt” is replaced with whatever the attachment filename should be inside
+of Service Management Automation X.
+The type of the attachment is specified as the ‘Content-Type’ tag. This value should contain the media type and subtype that
+matches the attachment’s MIME type. You can find a list of these MIME types 
+here
+.
+Finally, the contents of the attachment are listed. In the example below, the content is a simple string. This will result in a text
+file created in Service Management Automation X containing this string, with a filename of “test.txt”.
+Once all of the information is entered into the request, press the “Send” button to send it to Service Management Automation
+X.
+Reviewing the Results
+After a successful request, the response contains the information that is needed to connect the attachment with a specific
+record inside of Service Management Automation X.
+Adding a file as an attachment
+In order to add a binary file as an attachment, there are a few changes to the procedures listed in Step #1 above. First, the
+‘Content-Type’ should not be specified in the headers of the request.
+SMAX 2022.11
+Page 
+324
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

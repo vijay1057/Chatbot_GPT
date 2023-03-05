@@ -1,0 +1,16 @@
+On systems that have a large amount of data, BI sync will create files in the format Request_0.csv, Request_1.csv,
+Request_2.csv etc. Power BI is able to combine the data into a single table using a few extra steps. Power BI is able to combine
+files located in the same directory. Create a directory named “Request” (for this example) and put the files into this folder.
+In this example, there are 3 Request files that need to be combined.
+Click on the ‘get data’ button, then click ‘connect’. Select the folder that has the Request files in it and click ok.
+Select the folder that contains the files and click ok.
+Click the ‘combine’ button and select the ‘combine and load’ option.
+Click on the ok button, and the files will be loaded.
+When the files load, the Requests panel on the side will contain information from all of the files. The links between the entities
+are handled the same way as they are with a single file.
+SMAX 2022.11
+Page 
+301
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

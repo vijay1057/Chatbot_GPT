@@ -1,0 +1,38 @@
+Once the Dashboard has opened, go to the Large Menu and Select 
+Administration
+ -> 
+Utilities
+ -> 
+Integration
+.
+Note: This assumes all previous steps to install OPB Agent have already been completed on an appropriate server.
+Click on 
+Endpoints
+.
+Within the Endpoints screen click on 
+Add
+. Here a new Windows will appear asking for
+ Endpoint type
+, 
+Endpoint name
+ and
+Running on agent
+. Fill in the details like so and click 
+Add
+.
+This has now created an Endpoint for OO on the OPB.
+Configure the OO Endpoint
+Once the OPB is configured and the OO certificate uploaded into the Java Keystores, one final configuration is required. The
+Endpoint that was created earlier needs to be configured. Go to the Endpoint and click on 
+Configure.
+ Enter the OO URL
+details as shown below.
+Click on 
+Test connection
+. If everything is configured correctly then you should see the below response.
+SMAX 2022.11
+Page 
+333
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

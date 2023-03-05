@@ -1,0 +1,8 @@
+If you click on Task Plan, you will see the Automated Task completed successfully.
+If you go to Incident Management, you’ll see a new incident has been created.
+SMAX 2022.11
+Page 
+359
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,122 @@
+keepAlive
+Single value
+<not assigned>
+Use constant: true
+<not assigned>
+connectionsMaxPerRoute
+Single value
+<not assigned>
+Use constant: 2
+<not assigned>
+connectionsMaxTotal
+Single value
+<not assigned>
+Use constant: 20
+<not assigned>
+headers
+Yes
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+contentType
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+requestCharacterSet
+Single value
+<not assigned>
+Use constant: ISO-8859-1
+<not assigned>
+responseCharacterSet
+Single value
+<not assigned>
+Use constant:
+<not assigned>
+Input
+Sensitive
+Required
+Type
+Assign From
+Otherwise
+Assign To
+Just like with the DB System Account, create a System Account for SMAX. This is for the OPB user account to login to SMAX and
+create an incident.
+Click on Result Tab and click Add to enter the data as below:
+Name
+Sensitive Data
+From
+Assign To
+Assignment Action
+Filters
+ssoToken
+ResultField: ssoToken
+Flow Variable
+OVERWRITE
+No Filters
+Now double-click on the Create Incident object.
+Input
+Sensitive
+Required
+Type
+Assign From
+Otherwise
+sawUrl
+Yes
+Single
+value
+SMAXLoginUrl
+Use constant:
+tenantId
+Yes
+Single
+value
+smaxTenantID
+Use constant:
+modelID
+Yes
+Single
+value
+smaxIncidentID
+Use constant:
+ssoToken
+Yes
+Single
+value
+ssoToken
+Use constant:
+Properties
+Yes
+Single
+value
+properties
+Use constant:
+{"ImpactScope": "SingleUser", "Active": true, "RequestedByPerson": "10015",
+"PhaseId": "Log",ProcessId": "normal","FirstTouch": true,"Urgency": "SlightDisruption",
+       "RegisteredForActualService": "11852", "ServiceDeskGroup": "11738", "CompletionCode": null,
+       "DisplayLabel": "Failed Password Reset", "Priority": "LowPriority",                               "IncidentAttachments": "{\"complexTypeProperties\":[]}", 
+       "Description": "Failed to reset users DB Password"}
+proxyHost
+Single
+value
+Use constant:
+Use constant:
+proxyPort
+Single
+value
+<not
+assigned>
+Use constant: 8080
+proxyUsername
+Single
+value
+<not
+assigned>
+Use constant:
+SMAX 2022.11
+Page 
+339
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

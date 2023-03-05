@@ -1,0 +1,8 @@
+Click on Sheet 1 to open the worksheet. Drag in the PersonGroup_0.csv -> Name field into the row and then the Person_0.csv -
+> Name field. The report will now lists the Groups with the people that are members.
+SMAX 2022.11
+Page 
+288
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

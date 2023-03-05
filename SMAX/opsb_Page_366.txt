@@ -1,0 +1,29 @@
+When prompted for the password enter 
+changeit
+Once the UCMDB certificate has been uploaded to the OPB, restart the On-Premises Bridge Agent Service.  
+Configuring the UCMDB Endpoint
+Once the OPB is configured and the UCMDB certificate uploaded into the Java keystores, one final configuration is required.
+The Endpoint created earlier needs to be configured. Go to the Endpoint and click on 
+Configure
+. Enter the environment
+details for the external UCMDB similar to the example below:
+Click on 
+Test Connection
+. If everything is configured correctly then you should see a success message:
+Click 
+Save
+ to keep the configuration settings. The OPB will then deploy a package to the UCMDB Server. This will configure an
+Integration Point within UCMDB along with the adapter that will be used to map data from UCMDB to Service Management
+Automation X.
+To see the Integration Point in UCMDB, go to 
+Data Flow Management -> Integration Studio
+. You should see an
+Integration Point with the name of the OPB Agent and the Tenant ID for Service Management Automation X. From there you
+can view the jobs that will run under the Integration Point and see the CIs that are passed from UCMDB to Service Management
+Automation X.
+SMAX 2022.11
+Page 
+366
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

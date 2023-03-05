@@ -1,0 +1,11 @@
+Configuration Examples
+This section will include information and step-by-step instructions that will allow administrators and developers to perform
+specific actions and implement specific use cases within their Service Management Automation X environment. For more
+general information on the general concepts regarding Service Management Automation X, please see the companion “Key
+Concepts” for Service Management Automation X.
+SMAX 2022.11
+Page 
+273
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
