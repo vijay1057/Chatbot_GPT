@@ -1,0 +1,92 @@
+Then, run the following command on the bastion to create ECR repositories in a preferred region:
+python3 create_aws_repositories.py -r <ecr_region> -o hpeswitom -i <path_to_specified_image_download>/offline-download/image-set.json
+Where:
+<ecr_region>
+ is the region where you will put your ECR repositories and it can be different from the region you selected to place
+all the prepared AWS resources. 
+You will receive the following message indicating that you have successfully created the repository.
+INFO     create repository done!!!
+Download and upload images
+1
+. 
+Copy the 
+smax-image-transfer.py
+ file from the 
+Cloud Deployment x.x.x/byok
+ directory to 
+OMT_External_K8s_202x.xx-xxx/scripts. 
+( see
+Download Cloud Package
+ for more details on how to download the package )
+2
+. 
+Run the following command to navigate to the correct directory:
+cd OMT_External_K8s_202x.xx-xxx/scripts
+3
+. 
+Run the following command to transfer images from the source registry to your own registry. 
+python3 smax-image-transfer.py -su <source_username> -sp <source_password> -sr <source_registry> -so <source_orgname> -tu <ecrUserName> -tp <ecrUserPassword> -tr <ecrURL> -to <target_orgname> -p <path_to_image-set.json>
+Where:
+<source_username>
+ is the user name of the source docker registry. Obtain it from the Support team if you use Docker
+Hub, or contact the admin of the registry.
+<source_password>
+ is the password of the source docker registry. Obtain it from the Support team if you use Docker
+Hub, or contact the admin of the registry.
+<source_registry>
+ is the URL of the source registry. For example, 
+registry.hub.docker.com
+.
+<source_orgname>
+ is the organization name in the source docker registry. It's 
+hpeswitom
+ if you use Docker Hub, or
+contact the admin of the registry
+<ecrUserName>
+ is the username of the ECR - see below on how to get the value (for example,  
+ecrUserName = AWS
+)
+<ecrUserPassword>
+ is the password of the ECR user - see below on how to get the value (for example, 
+ecrUserPassword 
+= aws ecr get-login-password
+)
+<ecrURL>
+ is the URL of the ECR - see below on how to get the value (for example, 
+ecrURL=<aws_account_id>.dkr.ecr.<reg
+ion>.amazonaws.com
+)
+<target_orgname>
+ is the organization name in the target docker registry, obtain it from the admin of the registry.
+    else: 
+         logging.info ("repository" + repositoryName + " already existed !!!")
+def main(argv):
+    parser = argparse.ArgumentParser(prog='create aws ecr repository for single image or images listed in image-set file.')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-i', '--imageSetPath', type=str, default='./image-set.json', help='The images set json file path.')
+    group.add_argument('-n', '--imageName', type=str, default='', help='The single image name.')
+    parser.add_argument('-r', '--region', type=str, default='us-west-2', help='The code of the region in which the aws ECR locate, e.g us-west-2.')
+    parser.add_argument('-o', '--orgName', type=str, default='hpeswitomsandbox', help='The hostname of the repository that you want to pull suite images from.')
+    parsed = parser.parse_args()
+    try:
+        if parsed.imageName:
+            createAWSrepository(parsed.region, parsed.orgName, parsed.imageName)
+        else:
+            suiteImagesSet = generateImageList(parsed.imageSetPath)
+            for item in suiteImagesSet:
+                createAWSrepository(parsed.region, parsed.orgName, item)
+    except Exception as e:
+        logging.error ("execute create repository exception." + str(e))
+    logging.info ("create repository done!!!")
+if __name__ == "__main__":
+    main(sys.argv[1:])
+Note
+: You need Python 3 to run the following scripts. Make sure you install Python 3 on the bastion.
+
+
+SMAX 2022.11
+Page 
+927
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

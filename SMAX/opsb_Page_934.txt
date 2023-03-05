@@ -1,0 +1,101 @@
+            "AllowedValues": [
+                "db.m5.large",
+                "db.m5.xlarge",
+                "db.m5.2xlarge",
+                "db.m5.4xlarge",
+                "db.r5.large",
+                "db.r5.xlarge",
+                "db.r5.2xlarge",
+                "db.m6g.large",
+                "db.m6g.xlarge",
+                "db.m6g.2xlarge",
+                "db.m6g.4xlarge"
+            ],
+            "Type": "String"
+        },
+        "RDSEngineVersion":{
+            "Description": "The version number of the database engine to use. Please refer to 
+Additional hardware requirements for OO
+",
+            "Default": "12.9",
+            "Type": "String"
+        },
+        "ClusterSecurityGroup": {
+            "Description": "Allow EKS cluster to communicate with RDS.",
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "BastionSecurityGroup":  {
+            "Description": "Allow bastion to communicate with RDS.",
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "VpcId": {
+            "Description": "The VPC of the worker instances",
+            "Type": "AWS::EC2::VPC::Id"
+        }
+    },
+    "Metadata": {
+        "AWS::CloudFormation::Interface": {
+            "ParameterGroups": [
+                {
+                    "Label": {
+                        "default": "RDS Config"
+                    },
+                    "Description": {
+                        "default": "RDS Config Parameters for OO deployment"
+                    },
+                    "Parameters": [
+                        "VpcId",
+                        "DBSubnet1",
+                        "DBSubnet2",
+                        "RDSInstanceType",
+                        "RDSSecurityGroup",
+                        "DBInstanceIdentifier",
+                        "DBUser",
+                        "DBPassword",
+                        "DBAllocatedStorage",
+                        "RDSEngineVersion",
+                        "MultiAZDatabase"
+                    ]
+                }
+            ],
+            "ParameterLabels": {
+                "DBInstanceIdentifier": {
+                    "default": "RDS instance identifier: "
+                },
+                "DBUser": {
+                    "default": "User name: "
+                },
+                "DBPassword": {
+                    "default": "Password: "
+                },
+                "MultiAZDatabase": {
+                    "default": "Multi-AZ RDS: "
+                },
+                "DBAllocatedStorage": {
+                    "default": "RDS Storage size: "
+                },
+                "DBSubnet1": {
+                    "default": "First Database Subnet for RDS: "
+                },
+                "DBSubnet2": {
+                    "default": "Second Database Subnet for RDS: "
+                },
+                "RDSInstanceType": {
+                    "default": "RDS Instance Type: "
+                },
+                "RDSSecurityGroup": {
+                    "default": "RDS Security Group: "
+                },
+                "VPCID": {
+                                        "default": "VPC ID: "
+                },
+                "RDSEngineVersion": {
+                                        "default": "Postgres engine version: "
+                }
+            }
+SMAX 2022.11
+Page 
+934
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

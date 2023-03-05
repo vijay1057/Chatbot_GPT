@@ -1,0 +1,189 @@
+Parameter
+Required
+Description
+Default
+Example
+global.database.type
+Yes
+Currently OO supports only PostgreSQL database
+engines. Set this value to "
+postgresql
+".
+N/A
+postgresql
+global.database.host
+Yes
+The hostname of the RDS instance created at the step
+Create an RDS instance for OO
+.
+N/A
+db.host.co
+m
+global.database.port
+Yes
+Database server port.
+N/A
+5432
+global.database.tlsEnabled
+No
+Required only when you enable TLS connection for the
+external database.
+false
+true
+global.database.oocontroller.dbN
+ame
+Yes
+OO Controller database name.
+oocontroller
+db
+oocontroller
+db
+global.database.oocontroller.use
+r
+Yes
+OO Controller database user.
+oocontroller
+dbuser
+oocontroller
+dbuser
+global.database.ooui.dbName
+Yes
+OO UI database name.
+oouidb
+oouidb
+global.database.ooui.user
+Yes
+OO UI database user.
+oouidbuser
+oouidbuser
+global.database.oocentral.dbNa
+me
+Yes
+OO Central database name.
+oocentrald
+b
+oocentrald
+b
+global.database.oocentral.user
+Yes
+OO Central database user.
+oocentraldb
+user
+oocentraldb
+user
+global.database.ooscheduler.dbN
+ame
+Yes
+OO Scheduler database name.
+ooschedule
+rdb
+ooschedule
+rdb
+global.database.ooscheduler.use
+r
+Yes
+OO Scheduler database user.
+ooschedule
+rdbuser
+ooschedule
+rdbuser
+autopass.deployment.database.d
+bName
+Yes
+AutoPass database name.
+aplsdb
+aplsdb
+autopass.deployment.database.u
+ser
+Yes
+AutoPass database user.
+aplsdbuser
+aplsdbuser
+autopass-migration.deployment.
+database.dbName
+Yes
+AutoPass Migration database name - the same as
+Autopass database name
+aplsdb
+aplsdb
+autopass-migration.deployment.
+database.user
+Yes
+AutoPass Migration database user- the same as Autopass
+database user
+aplsdbuser
+aplsdbuser
+Persistence parameters
+Specify the names of the PVCs created as part of the preparation step 
+Prepare persistent volumes and claims for OO
+.
+Parameter
+Required
+Description
+Default
+Example
+global.persistence.configVolumeClaim
+Yes
+Name of the PVC created for OO configuration
+files.
+N/A
+oo-config-pvc
+global.persistence.dataVolumeClaim
+Yes
+Name of the PVC created for OO data files.
+N/A
+oo-data-pvc
+global.persistence.logVolumeClaim
+Yes
+Name of the PVC created for OO logs.
+N/A
+oo-logs-pvc
+global.persistence.rasLogVolumeClaim
+Yes
+Name of the PVC created for OO RAS logs.
+N/A
+oo-ras-logs-pvc
+global.persistence.dataExportVolumeClai
+m
+Yes
+Name of the PVC created for database exports.
+N/A
+oo-data-export-pv
+c
+Database maintenance retention period
+This is optional.
+The OO flows for database purging don't work with the current version of OO. However, to keep the database size under
+control, OO deploys a Kubernetes 
+cron job
+ at install time, set to run each day at 
+00:00 GMT
+. The purpose of this job is to
+purge in the database OO executions data that's older than 365 days.
+All data gets exported from the database and copied to Amazon Elastic File System before deletion, in 
+<oodata-maintenance-and-
+export-volume-path>/oo_data_export_vol
+The data retention period is configurable via the 
+hidden
+ Helm parameter 
+oodata-maintenance-and-export.deployment.data.retentionDa
+ys
+.
+Minimum value is 28, and the value must be in multiples of 14. For example: 28, 42, 56, etc.
+You can configure the retention period after installation, by manually editing the Kubernetes job. For more information,
+see 
+Change OO Database Maintenance Job retention interval
+.
+If you want to configure a different retention interval at OO install time, then run the following command on the Bastion host:
+<OMT_External_K8s_202x.xx.xxxxx>/bin/yq e '.
+oodata-maintenance-and-export.deployment.data.retentionDays = "<desired_amount_of_retention_days>"' -i <path/to/values.yaml>
+Where:
+<OMT_External_K8s_202x.xx.xxxxx>
+ = installation directory of OMT
+<desired_amount_of_retention_days>
+ = the retention interval (28, 42, 56, etc.)
+SMAX 2022.11
+Page 
+945
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,46 @@
+Create a new deployment for OO in EKS
+You can use the 
+cdfctl.sh 
+script provided by Optic Management Toolkit (OMT) to create a new deployment. This deployment
+contains a namespace, default certificate and service account used by Helm when installing the OO chart.
+1
+. 
+Log in to the bastion node and navigate to the OMT installation directory:
+cd OMT_External_K8s_2022.xx.xxxxx/scripts/
+2
+. 
+Run the following command to create the deployment:
+./cdfctl.sh deployment create -d <OO DEPLOYMENT NAME> [-n <OO NAMESPACE>]
+The 
+-n
+ option is optional. If you don't specify this option, a namespace that uses the deployment name you specified for
+the 
+-d
+ option gets created. However, you can specify the 
+-n
+ option if you want to use a custom namespace.
+For example:
+./cdfctl.sh deployment create -d oo
+A message that resembles the following indicates that you have installed the application deployment successfully.
+INF Creating deployment ... name=<OO DEPLOYMENT NAME> namespace=<OO NAMESPACE>
+INF Created namespace "<OO NAMESPACE>" ...
+INF Successfully created deployment "<OO DEPLOYMENT NAME>" uuid=<UUID>
+View the installed deployments
+Run the following command on the bastion node to view the installed applications:
+cd OMT_External_K8s_2022.xx.xxxxx/scripts/cdfctl.sh deployment get
+Your terminal resembles the following:
+UUID     NAME                   NAMESPACE          STATUS   TYPE
+<UUID>   <OO DEPLOYMENT NAME>   <OO NAMESPACE>     OK       SECONDARY
+Note
+: To view more options for the 
+cdfctl.sh
+ script, run 
+./cdfctl.sh deployment -h
+
+
+SMAX 2022.11
+Page 
+930
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

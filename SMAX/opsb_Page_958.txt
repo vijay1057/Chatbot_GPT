@@ -1,0 +1,97 @@
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f /path/to/
+ 
+oo-internal-ingress.yaml
+Step 2: Create an Ingress for SMAX integration
+To create an Ingress for SMAX integration, follow these steps:
+1
+. 
+Save the content below as 
+smax-integration-ingress.yaml
+:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "sma-integration-ingress"
+  namespace: <itsma_namespace>
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/group.name: <integration_alb_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 2443}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=180
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+  labels:
+    app: sma-integration-ingress
+spec:
+  tls:
+  - hosts:
+    - <
+integration_LB_host
+>
+  rules:
+    - host: 
+      http:
+        paths:
+          - backend:
+              service: 
+                name: "itom-nginx-ingress-svc"
+                port: 
+                  number: 443
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<itsma_namespace>
+The namespace of the SMA deployment. For example, 
+itsma
+.
+<integration_alb_name>
+Use the name you specified in
+ oo-integration-ingress.yaml
+.
+<certificate_arn>
+Use the ARN you specified in 
+oo-integration-ingress.yaml.
+<integration_LB_host>
+The FQDN you assigned for this Load Balancer. For example, 
+int.smax.example.com
+.
+Its the same host you provided in 
+oo-integration-ingress.yaml.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f smax-integration-ingress.yaml
+Bind an FQDN with the integration ALB
+After you create and configure the integration ALB, you need to bind an FQDN with this ALB.  See 
+Bind FQDN with ALB
+. 
+Update OO deployment
+After creating ALBs, update the OO deployment with the certificate(s) used for the ALBs. 
+Copy the certificates on the Bastion host, and run the following commands in the Bastion host to update the OO installation:
+1
+. 
+Get the name of the OO Helm installation.
+[user@ip-10-0-0-1 ~]# helm list -n oo-helm
+NAME            NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
+oo
+              oo-helm         18              2022-07-22 13:15:20.156866707 +0000 UTC deployed        oo-1.0.x+2022xx01.x     2022.xx
+[root@ip-10-0-0-1 ~]#
+2
+. 
+Reconfigure OO installation.
+helm upgrade oo -n oo-helm --reuse-values --set-file "caCertificates.oo_lb\.crt"=/path/to/oo_external_load_balancer_certificate.crt --set-file "caCertificates.integration_lb\.crt"=/path/to/integration_load_balancer_certificate.crt
+SMAX 2022.11
+Page 
+958
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

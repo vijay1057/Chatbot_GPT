@@ -1,0 +1,99 @@
+11
+Download the suite images from the image registry
+and import them to your own registry beforehand.
+Bastion node 
+Suite administrator
+Transfer
+images
+beforeha
+nd
+Common
+Sr
+No.
+Task
+Where to
+perform
+Role
+How to
+perform
+Note
+Install the suite
+Complete these tasks to install the suite.
+Sr
+No.
+Task
+Where to
+perform
+Role
+How to perform
+Note
+1
+Install OMT using the
+ ./install
+ command and create an
+Application Load Balancer (ALB).
+Bastion
+node 
+Suite
+administrator
+Deploy bootstrap
+(FIPS mode)
+FIPS
+specific
+2
+Log in to the installation portal and select only the 
+Service
+Management Automation (SMA)
+ capability for your
+deployment.
+Installation
+portal 
+Suite
+administrator
+Select the
+deployment
+configuration
+(FIPS mode)
+FIPS
+specific
+3
+The installer checks if images are ready. If not, transfer the
+images from the image registry to your own registry as
+required.
+Installation
+portal
+Suite
+administrator
+Check and
+download the
+container images
+Common
+4
+Complete the OMT deployment on the installation portal
+and configure the created ALB for the OMT management
+portal.
+Installation
+portal
+Suite
+administrator
+Deploy the
+infrastructure
+services
+Common
+5
+Deploy the suite from the installation portal and configure
+the created ALB for the suite portal.
+Installation
+portal
+Suite
+administrator
+Deploy the suite
+(FIPS mode)
+FIPS
+specific
+SMAX 2022.11
+Page 
+874
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

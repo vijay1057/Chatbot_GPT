@@ -1,0 +1,95 @@
+                    "Ref": "RDSSecurityGroup"
+                }],
+                "Tags": [
+                    {
+                        "Key": "Application",
+                        "Value": {
+                            "Ref": "AWS::StackId"
+                        }
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": {
+                            "Fn::Join": [
+                                "",
+                                [
+                                    {
+                                        "Ref": "AWS::StackName"
+                                    },
+                                    "-RDSInstance"
+                                ]
+                            ]
+                        }
+                    }
+                ]
+            },
+                        "DeletionPolicy": "Delete"
+        },
+        "RDSSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                                "GroupDescription": "Open database for access",
+                                "GroupName": "OO-RDS-Security-Group",
+                "VpcId": {
+                    "Ref": "VpcId"
+                },
+                "Tags": [
+                    {
+                        "Key": "Application",
+                        "Value": {
+                            "Ref": "AWS::StackId"
+                        }
+                    },
+                    {
+                        "Key": "Name",
+                        "Value": "OO-RDS-Security-Group"
+                    }
+                ]
+            }
+                },
+                "RDSSecurityGroupIngressFromBastion": {
+                        "Type": "AWS::EC2::SecurityGroupIngress",
+                        "DependsOn": "RDSSecurityGroup",
+                        "Properties": {
+                "Description": "Allow bastion to communicate with RDS ",
+                "GroupId": {
+                    "Ref": "RDSSecurityGroup"
+                },
+                "SourceSecurityGroupId": {
+                                        "Ref": "BastionSecurityGroup"
+                },
+                "IpProtocol": "tcp",
+                                "FromPort": "5432",
+                                "ToPort": "5432"
+                        }
+                },
+                "RDSSecurityGroupIngressFromWorker": {
+                                "Type": "AWS::EC2::SecurityGroupIngress",
+                                "DependsOn": "RDSSecurityGroup",
+                                "Properties": {
+                                        "Description": "Allow cluster to communicate with the RDS instance ",
+                                        "GroupId": {
+                                                "Ref": "RDSSecurityGroup"
+                                        },
+                                        "SourceSecurityGroupId": {
+                                                "Ref": "ClusterSecurityGroup"
+                                        },
+                                        "IpProtocol": "tcp",
+                                        "FromPort": "5432",
+                                        "ToPort": "5432"
+                                }
+                }
+    },
+    "Outputs": {
+        "RDSEndpointAddress": {
+            "Description": "RDS endpoint Address",
+            "Value": {
+                "Fn::GetAtt": [
+                    "RDSInstance",
+                    "Endpoint.Address"
+SMAX 2022.11
+Page 
+936
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

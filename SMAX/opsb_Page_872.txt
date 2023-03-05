@@ -1,0 +1,82 @@
+                name: "itom-nginx-ingress-svc"
+                port: 
+                  number: 443
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<itsma_namespace>
+: the suite namespace. You can run 
+kubectl get ns
+ to find it (itsma-xxxxx). 
+<application_loadbalancer_name>
+: the name of the created ALB. It's the value you used when 
+creating Ingress for port
+3000
+.
+<certificate_arn>
+: the
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+.
+<external_access_host>
+: the FQDN you've allocated for the suite. For example, 
+www.example.com
+.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f suite-ingress.yaml
+Now you can access the suite portal via 
+https://<external_access_host>/bo
+.
+Verify the installation
+Role
+Location
+Suite administrator
+Bastion node
+To verify the installation, follow the following steps:
+1
+. 
+Log in to the bastion node and run the following command to make sure all of the suite pods are ready.
+kubectl get pod --all-namespaces|grep -v 1/1|grep -v 2/2|grep -v 3/3|grep -v 4/4|grep -v Completed
+This command returns a list of abnormal pods. When it returns no result, all of the suite pods are ready. If any pods can't
+run, see 
+Troubleshoot installation
+.
+2
+. 
+Clear your browser cache.
+3
+. 
+Verify that you can log in to the Suite Administration interface: 
+https://<external_access_host>/bo
+ with the credentials below:
+Username: 
+suite-admin
+Password: the password you set up in the installation process
+4
+. 
+Verify that you can log in to the OMT Management Portal: 
+https://<external_access_host>:5443
+ with the credentials below:
+ 
+Username: 
+admin
+Password: the password you set up when running the bootstrap installation command
+Related topics
+For instructions on how to add or replace a PostgreSQL certificate after installation, see 
+Enable SSL connections to external
+PostgreSQL
+. 
+Tip   
+The suite installation is completed. Next, you can set up the suite environment.
+
+
+SMAX 2022.11
+Page 
+872
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

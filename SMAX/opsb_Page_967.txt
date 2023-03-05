@@ -1,0 +1,67 @@
+After you have ran the script, verify that the audit repositories are uploaded into AWS ECR by following these steps:
+1
+. 
+Type audit in the 
+Private/Public repositories
+ search box in 
+Amazon ECR
+ > 
+Repositories
+ section.
+2
+. 
+Make sure you see entries for audit on the page.
+Download and upload images
+1
+. 
+Copy the 
+smax-image-transfer.py
+ file from the following directory:
+Cloud Deployment x.x.x/byok
+ to OMT_External_K8s_202x.xx-xxx
+/scripts
+2
+. 
+Run the following commands to retrieve the username and password of EC, if you've installed AWS CLI version 1 when
+configuring bastion:
+cd OMT_External_K8s_202x.xx-xxx/scripts
+dockerLogin=$(aws ecr get-login --no-include-email --region <ecr_region>)
+ecrUserName=$(echo $dockerLogin | awk '{print $4}')
+ecrUserPassword=$(echo $dockerLogin | awk '{print $6}')
+ecrURL=$(echo $dockerLogin | awk '{print $7}' | awk -F/ '{print $3}')
+3
+. 
+Run the following commands to retrieve the username and password of EC, if you've installed AWS CLI version 2 when
+configuring bastion:
+cd OMT_External_K8s_202x.xx-xxx/scripts
+ecrUserName=AWS
+ecrUserPassword=$(aws ecr get-login-password)
+ecrURL=<aws_account_id>.dkr.ecr.<region>.amazonaws.com
+4
+. 
+Run the following command to transfer images from the source registry to your own registry. 
+ python3 smax-image-transfer.py -sr <source_registry> -su <source_username> -sp <source_password> -so <source_orgname> -tr <target_registry> -tu <target_username> -tp <target_password> -to <target_orgname> 
+Where,
+<ecr_region> is the region where you specified to put your ECR repositories.
+<source_username> is the user name of the source docker registry. Obtain it from support team if you use Docker Hub, or
+contact the admin of the registry.
+<source_password> is the password of the source docker registry. Obtain it from support team if you use Docker Hub, or
+contact the admin of the registry.
+<source_registry> is the URL of the source registry. For example, 
+registry.hub.docker.com
+.
+<source_orgname> is the organization name in the source docker registry. It's 
+hpeswitom
+ if you use Docker Hub, or contact
+the admin of the registry.
+<target_orgname> is the organization name in the target docker registry, which you can obtain from the admin of the registry.
+Note:
+  You need Python 3 to run the Python script below. Make sure to install Python 3 on the bastion. 
+
+
+SMAX 2022.11
+Page 
+967
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

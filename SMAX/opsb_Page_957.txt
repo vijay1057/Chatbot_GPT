@@ -1,0 +1,161 @@
+the same domain. For example, 
+*.testsma-ng.org.
+6
+. 
+Click 
+Next
+.
+7
+. 
+Select 
+DNS validation
+ or 
+Email validation
+ according to your permission.
+8
+. 
+Click 
+Review
+ and then click 
+Confirm and request
+.
+9
+. 
+Click 
+Continue
+.
+10
+. 
+Finish the certificate validation based on the method you just selected. For more information,
+see 
+https://docs.aws.amazon.com/console/acm/validation
+.
+Import a certificate
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+Services
+ > 
+Certificate Manager
+.
+3
+. 
+Click 
+Import a certificate
+.
+4
+. 
+For 
+Certificate body
+, paste the 
+PEM
+ encoded certificate.
+5
+. 
+For 
+Certificate private key
+, paste the 
+PEM
+ encoded, unencrypted private key that matches the certificate's public key. 
+Important:
+ Currently, services integrated with AWS Certificate Manager support only
+the 
+RSA_1024
+ and 
+RSA_2048
+ algorithms.
+6
+. 
+(Optional) For 
+Certificate chain
+, paste the 
+PEM
+ encoded certificate chain.
+7
+. 
+Click 
+Next > Review and import > Import.
+Create an Ingress for integration between OO and SMAX
+Use the AWS ALB to serve end users to access the suite from web browsers. You need to create an ALB for integration and add
+a listener to the ALB for OO and SMAX respectively during the creation.
+Step 1: Create an Ingress for OO integration
+To create an Ingress for OO integration, follow these steps:
+1
+. 
+Save the content below as 
+oo-internal-ingress.yaml
+:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "oo-internal-ingress"
+  namespace: <oo_namespace>
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/group.name: <integration_alb_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 4443}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /healtz
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=180
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+  labels:
+    app: oo-internal-ingress
+spec:
+  tls:
+  - hosts:
+    - <integration_LB_host>
+  rules:
+    - host:
+      http:
+        paths:
+          - backend:
+              service:
+                name: <oo-nginx-controller-svc>
+                port:
+                  number: 443
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<OO_namespace>
+The namespace where you installed OO. For example, 
+oo
+.
+<integration_alb_name>
+Specify a name for this ALB. For example, 
+oo-int-alb
+. 
+The name must consist of 
+lower case
+ alphanumeric characters, '-', or '.', and must start and end with an
+alphanumeric character.
+<certificate_arn>
+The 
+Amazon resource name
+ of the certificate prepared for this Load Balancer. For example, 
+arn:aws:acm:region:12
+3456789012:certificate/12345678-1234-1234-1234-123456789012
+. For more information, see 
+Prerequisites
+.
+<integration_LB_host>
+The FQDN you assigned for this Load Balancer. For example, 
+int.smax.example.com
+.
+<oo-nginx-controller-svc>
+The Kubernetes service name of OO deployed Nginx ingress controller.
+You can obtain it by running the following command on the bastion host:
+kubectl get svc -n <oo_namespace> | grep -i itom-ingress | awk '{print$1}'
+SMAX 2022.11
+Page 
+957
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

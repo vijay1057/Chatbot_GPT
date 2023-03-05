@@ -1,0 +1,143 @@
+itom-ingress-con
+troller.nginx.servi
+ce.httpsNodePort
+Yes
+This is the 
+NodePort
+ number of the OO deployed
+Nginx ingress controller.
+While values in the range 30000-32767 are accepted,
+the designated port number for the OO Nginx ingress
+controller is 31443. 
+This parameter is missing from 
+values.yaml
+. To add
+it, use the following command on the Bastion host:
+<OMT_External_K8s_202x.xx.xxxxx>/bin/yq e '.itom-ingress-
+controller.nginx.service.httpsNodePort = "31443"' -i <path/to/va
+lues.yaml
+Where: 
+<OMT_External_K8s_202x.xx.xxxxx>
+ is the installation
+directory of OPTIC Management Toolkit (OMT).
+</path/to/values.yaml>
+ is the path of OO values.yaml.
+Make sure to use the command line tool 
+yq
+ that's part
+of OMT 
+202x.xx
+ and not from the OS 
+$PATH
+.
+The version of 
+yq
+ that comes with OMT is 4.6.1, and
+the syntax of the command doesn't work with older
+versions of 
+yq.
+N/A
+31443
+itom-ingress-con
+troller.nginx.servi
+ce.external.node
+PortAutoAssign
+Yes
+This parameter specifies whether OO deployed Nginx
+controller auto assigns a port in the range 30000-3276
+as its 
+NodePort
+. 
+Because you specified a fixed port number (31443
+)
+ in
+the previous parameter, setting this parameter to
+false
+ is mandatory. 
+This parameter is missing from 
+values.yaml
+. To add
+it, use the following command on the Bastion host:
+<OMT_External_K8s_202x.xx.xxxxx>/bin/yq e '.itom-ingress-
+controller.nginx.service.external.nodePortAutoAssign= false' -i <
+path/to/values.yaml
+Where: 
+<OMT_External_K8s_202x.xx.xxxxx>
+ is the installation
+directory of OMT.
+</path/to/values.yaml>
+ is the path of OO values.yaml.
+Make sure to use the command line tool 
+yq
+ that's part
+of OMT 
+202x.xx
+ and not from the OS 
+$PATH
+.
+The version of 
+yq
+ that comes with OMT is 4.6.1, and
+the syntax of the command doesn't work with older
+versions of 
+yq.
+N/A
+false
+Parameter
+Required
+Description
+Default
+Example
+Shared IdM parameters
+OO integrates with SMAX IdM service. At these parameters, specify the IdM connection details
+Parameter
+Required
+Description
+Default
+Example
+global.idm.idmA
+uthUrl
+Yes
+This is the public URL of SMAX IdM service.
+N/A
+https://<suite-f
+qdn>:443/idm-s
+ervice
+global.idm.idmT
+ransportUser
+Yes
+The IdM transport admin user configured in the suite's IdM service. In
+SMAX suite, the name of this user is 
+idmTransportUser
+.
+N/A
+idmTransportU
+ser
+global.idm.supe
+rUser
+Yes
+The OO integration admin user name created in 
+Create OO integration
+admin user in SMAX IdM (EKS)
+N/A
+oo-integration-
+admin
+global.idm.tena
+nt
+Yes
+IdM parent tenant organization name where 
+global.idm.superUser
+ resides.
+For SMA and HCMX, the name of this organization is 
+sysbo
+.
+N/A
+sysbo
+Database parameters
+Configure the following parameters to set up the connection to the Amazon RDS instance.
+SMAX 2022.11
+Page 
+944
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

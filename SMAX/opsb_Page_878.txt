@@ -1,0 +1,62 @@
+Launch EKS cluster worker nodes for CMS
+This task is required only when you need to install CMS. See 
+Sizing guides (EKS)
+ for information about the additional EKS
+cluster worker nodes required to deploy CMS. 
+Launch EKS cluster worker nodes for CMS
+Create additional EKS cluster worker nodes for CMS based on the EKS cluster that you have created for the suite, and specify a
+dedicated 
+Worker Node Group name 
+for CMS. For details, see 
+Launch EKS cluster worker nodes
+.
+Specify a label for the CMS node group
+Perform the following steps:
+1
+. 
+Go to EKS and locate the EKS cluster you created.
+2
+. 
+Click the cluster, and then click 
+Compute
+ to find 
+Node group
+.
+3
+. 
+Click the node group that you have created for CMS, and then click 
+Edit.
+4
+. 
+Edit the 
+Kubernetes labels
+ information as follows.
+Key
+Value
+role
+loadbalancer
+node.type
+worker
+Worker
+cms
+5
+. 
+Click 
+Save changes
+.
+Verify
+After you create the worker nodes for CMS, run the following command on the bastion node to check that you have
+successfully assigned the 
+cms 
+label to the worker nodes:
+kubectl get nodes --show-labels
+Review the output to see if you can see
+ 
+Worker:cms
+ as the label for the worker nodes.
+SMAX 2022.11
+Page 
+878
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

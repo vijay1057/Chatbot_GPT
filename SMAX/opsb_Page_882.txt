@@ -1,0 +1,88 @@
+Download and upload container images for CMS (FIPS
+mode)
+Before you deploy the suite, you need to download the required images from Docker Hub or other registries and then upload
+the images to your registry.
+Generate the Image Set
+Before downloading and uploading the images, you need to generate the image set with the following steps on the bastion
+node:
+1
+. 
+Run the following command to navigate to the CMS helm chart directory of the downloaded CMS helm chart package:
+cd <CMS helm chart directory>
+For example:
+cd CMS_Helm_Chart-202x.xx/cms-helm-charts
+2
+. 
+Copy the following content to a text editor such as Notepad without any auto-formatting, and then change the CMS helm
+chart package name (
+cms-1.x.0+20xx0x00.xx.tgz 
+in the command) to the exact name of the package:
+cat ./samples/values-fips-with-smax.yaml > gdb_tmp.yaml
+cat << EOF >> gdb_tmp.yaml
+secrets:
+  idm_db_password:  clear=dummy_password
+  idm_admin_admin_password:  clear=dummy_password
+  idm_sysadmin_admin_password:  clear=dummy_password
+  autopass_db_password:  clear=dummy_password
+  ucmdb_server_db_password:  clear=dummy_password
+  ucmdb_probe_pg_root_password:  clear=dummy_password
+  ucmdb_probe_pg_probe_password:  clear=dummy_password
+  ITOM_DB_PASSWD_KEY:  clear=dummy_password
+EOF
+sed -i 's/externalAccessHost: ""/externalAccessHost: "dummy.com"/g' gdb_tmp.yaml
+sed -i 's/acceptEula: false/acceptEula:  true/g' gdb_tmp.yaml
+sed -i 's/dbName:/dbName:  dummydb/g' gdb_tmp.yaml
+sed -i 's/idmAuthUrl:/idmAuthUrl:  dummy.com/g' gdb_tmp.yaml
+$CDF_HOME/tools/generate-download/generate_download_bundle.sh -C ./charts/
+cms-1.x.0+20xx0x00.xx.tgz
+ -H gdb_tmp.yaml -S
+3
+. 
+Paste the content that you updated in step 2 to the command line, and then press 
+Enter
+ to run the commands.
+After executing the commands, the system displays the following messages indicating that you have successfully
+generated the 
+offline-download.zip
+ file in the current working directory:
+2023-01-05 18:12:59 INFO generate offline-download.zip from ./charts/cms-1.x.0+20xx0x00.xx.tgz  
+2023-01-05 18:12:59 INFO Rendering chart..................................................... [OK]
+2023-01-05 18:13:09 INFO offline-download.zip is generated under /CMS_Helm_Chart-202x.xx/cms-helm-charts  
+2023-01-05 18:13:09 INFO For more details, please refer: /opt/cdf/log/generate_download_bundle/generate_download_bundle.20230105181259.log 
+The 
+offline-download.zip
+ file contains a list of the required images and will be used when you run the Python script to
+transfer the suite images in the later step.
+After you successfully run the commands, you can delete the 
+gdb_tmp.yaml 
+file. 
+4
+. 
+Unzip the 
+offline-download.zip
+ file and copy the 
+/offline-download/image-set.json 
+file to the 
+<
+OMT_External_K8s_2
+Note
+ If you have already uploaded images to your registry, skip this step.
+Note:
+ To follow the steps in this section, you must have installed the 
+zip
+ Linux command on the node where you
+run the 
+generate_download_bundle.sh
+ script.
+Note
+: Only update the helm chart package name and keep the rest of the content as is. For the secrets
+part, you don't need to specify any real password at the moment and "clear=dummy_password" is just used
+as a placeholder value to pass the download bundle check.
+
+
+SMAX 2022.11
+Page 
+882
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

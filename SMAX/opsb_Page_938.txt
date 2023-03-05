@@ -1,0 +1,73 @@
+The databases must be empty so that OO will initialize them during installation. The table below shows example database
+information prepared for the following components.
+Component
+Database User
+Database Name
+Schema (default)
+OO Central
+oocentraldbuser
+oocentraldb
+oo_cen_core
+OO UI
+oouidbuser
+oouidb
+public
+OO Controller
+oocontrollerdbuser
+oocontrollerdb
+public
+OO Scheduler
+ooschedulerdbuser
+ooschedulerdb
+oo_sch_core
+AutoPass
+aplsdbuser
+aplsdb
+public
+Below are sample SQL commands for creating a user and a database:
+1
+. 
+Log in to your database server with the administrator credentials, using the command below:
+psql -h <RDSEndpointAddress> -p <RDSEndpointPort> -U <postgres_admin> -d postgres
+You get the values of 
+RDSEndpointAddress
+ and 
+RDSEndpointPort
+ from the 
+Outputs
+ of 
+Create an Amazon RDS
+instance for OO
+ step and 
+<postgres_admin>
+ is the PostgreSQL admin user you specified when launching the RDS instance.
+2
+. 
+Run the following commands to create the databases and the users, by substituting the exemplified database names,
+database users, and their respective passwords of each component with the desired values.
+OO Central:
+CREATE ROLE "oocentraldbuser" LOGIN ENCRYPTED PASSWORD 'oocentraldbuserPass' NOSUPERUSER INHERIT;
+CREATE DATABASE "oocentraldb"; 
+ALTER DATABASE "oocentraldb" OWNER TO "oocentraldbuser";
+OO UI:
+CREATE ROLE "oouidbuser" LOGIN ENCRYPTED PASSWORD 'oouidbuserPass' NOSUPERUSER INHERIT;
+CREATE DATABASE "oouidb"; 
+ALTER DATABASE "oouidb" OWNER TO "oouidbuser";
+OO Controller:
+CREATE ROLE "oocontrollerdbuser" LOGIN ENCRYPTED PASSWORD 'oocontrollerdbuserPass' NOSUPERUSER INHERIT;
+CREATE DATABASE "oocontrollerdb"; 
+ALTER DATABASE "oocontrollerdb" OWNER TO "oocontrollerdbuser";
+OO Scheduler:
+CREATE ROLE "ooschedulerdbuser" LOGIN ENCRYPTED PASSWORD 'ooschedulerdbuserPass' NOSUPERUSER INHERIT;
+CREATE DATABASE "ooschedulerdb"; 
+ALTER DATABASE "ooschedulerdb" OWNER TO "ooschedulerdbuser";
+AutoPass:
+CREATE ROLE "aplsdbuser" LOGIN ENCRYPTED PASSWORD 'aplsdbuserPass' NOSUPERUSER INHERIT;
+CREATE DATABASE "aplsdb"; 
+ALTER DATABASE "aplsdb" OWNER TO "aplsdbuser";
+SMAX 2022.11
+Page 
+938
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

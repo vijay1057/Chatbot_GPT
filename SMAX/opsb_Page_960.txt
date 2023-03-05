@@ -1,0 +1,19 @@
+Install external OO components (EKS)
+Operations Orchestration (OO) supports the following components:
+OO External RAS
+OO RAS enables execution in remote data centers and networks. The RAS interacts with Central and polls it for operations
+to execute. Installation of external OO RAS is optional and depends on whether you need additional RASes apart from
+what's already available when you install OO Central.
+OO Workflow Designer
+OO Workflow Designer is a web based environment for authoring flows, which is available as a standalone product that
+you can deploy either on a Windows or Linux server. Installing OO Workflow Designer is optional and depends on your
+requirement to author flows. You need to install the OO Workflow Designer as it's not installed along with OO Central.
+For information about installing these external components, see 
+Install additional OO components
+.
+SMAX 2022.11
+Page 
+960
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

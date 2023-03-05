@@ -1,0 +1,66 @@
+Download OO charts package
+Download the zip file and copy it to the bastion node that you created during the SMA installation. Follow these steps:
+1
+. 
+Download the 
+.zip
+ 
+file from the 
+Software Licenses and Downloads
+ website.
+2
+. 
+Create a directory on the bastion node. 
+For example:
+ssh -i <path_to_bastion_ssh_key> user@<bastion_ip>
+mkdir -p /home/centos/oo_chart
+3
+. 
+Copy the .zip file downloaded at Step 1 in the path created at Step 2.
+For example:
+scp -i <path_to_bastion_ssh_key> <path_to>/oo-1.0.x-2022xx01-xx.zip user@<bastion_ip>:/home/centos/oo_chart/oo-1.0.x-2022xx01-xx.zip
+4
+. 
+Unzip the archive.
+For example:
+ssh -i <path_to_bastion_ssh_key> user@<bastion_ip>
+unzip /home/centos/oo_chart/oo-1.0.x-2022xx01-xx.zip -d /home/centos/oo_chart/
+The following table describes the essential files inside the OO Containerized chart package:
+Name
+File
+OO Helm chart file
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/charts/oo-1.0.x+2
+022xx01.xx.tgz
+Example persistent volume and persistent
+volume claims yaml files
+Persistent volume templates:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/
+oo-helm-charts/samples/persiste
+nt_storage/eks/volumes.yaml
+Persistent volume claims templates:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persisten
+t_storage/eks/claims.yaml
+Persistent volume 
+Readme
+ file:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persisten
+t_storage/eks/README
+Example sizing configuration files based on the
+number of tenants 
+Recommended sizing configuration files:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/sizing/oo
+_default_sizing.yaml
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/
+oo-helm-charts/samples/sizing/oo
+_20tenants_sizing.yaml
+Sizing 
+Readme 
+file:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/sizing/RE
+ADME
+SMAX 2022.11
+Page 
+924
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

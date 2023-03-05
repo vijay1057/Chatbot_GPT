@@ -1,0 +1,74 @@
+Install CMS on AWS
+Role
+Location
+Suite admin
+Bastion node
+To install CMS on AWS, follow these steps:
+1
+. 
+On the bastion node, navigate to the OMT installation directory:
+cd OMT_External_K8s_202x.xx-xxx/bin
+2
+. 
+Run the following command:
+./helm install <
+CMS RELEASE NAME
+> <
+CMS CHART FILE
+> --namespace <
+CMS NAMESPACE
+> -f <
+VALUES YAML FILE
+> -f <
+SECRETS YAML FILE
+>
+Where,
+<
+CMS RELEASE NAME
+>
+ is the unique release name that you need to specify for the CMS deployment. You need to use
+the same release name as specified here when you upgrade CMS in the future.
+<
+CMS CHART FILE
+>
+ is the tar file containing the CMS installation charts.
+<
+CMS 
+NAMESPACE
+>
+ is the unique namespace of the CMS deployment. Use the namespace that you specified in the
+"Create a deployment for CMS" topic.
+<
+VALUES YAML FILE
+>
+ is your custom 
+my-
+values.yaml 
+file with properties configured for the CMS deployment.
+<
+SECRETS YAML FILE
+> is the YAML file that stores the CMS secrets. This file is created when you
+run 
+gen_secrets.sh
+ to generate vault secrets for CMS in the previous step.
+For example:
+./helm install cms-prod CMS_Helm_Chart-202x.xx/cms-helm-charts/charts/cms-1.x.0+20xxxx00.xxx.tgz --namespace cms-prod -f my-values.yaml -f cms-secrets.yaml
+Note
+You can run the above command with the 
+--dry-run
+ argument to simulate an installation. It is useful to
+validate the content in the custom 
+my-values.yaml 
+file before a real installation.
+After installation, you must delete the YAML file that stores the CMS secrets (for example, 
+cms-
+secrets.yaml
+) as it contains sensitive data.
+
+
+SMAX 2022.11
+Page 
+911
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,134 @@
+                ]
+            }
+        },
+        "RDSEndpointPort": {
+            "Description": "RDS endpoint Port",
+            "Value": {
+                "Fn::GetAtt": [
+                    "RDSInstance",
+                    "Endpoint.Port"
+                ]
+            }
+        }
+    }
+}
+Create an Amazon RDS instance for OO
+1
+. 
+Log in to the AWS Management Console and switch to the region selected for SMAX and OO Containerized deployment.
+2
+. 
+Go to 
+CloudFormation
+.
+3
+. 
+Click
+ Create stack
+, click 
+With new resources (standard)
+ > 
+Next > 
+Upload a template file
+ > 
+Choose file
+ and
+select the 
+oo-rds.template
+ file created earlier.
+4
+. 
+Click 
+Next 
+and populate the following fields:
+Stack name
+: Give a name to this stack, such as 
+oo-rds
+.
+VPC ID
+: From the drop-down list select the VPC that's used with the SMA suite deployment.
+First & Second Subnet for RDS
+: Select the same subnet IDs that you used for the SMA RDS database instance. 
+RDS Instance Type
+: Keep the default one or select another type from the drop-down list.
+RDS instance identifier
+: Define an Amazon RDS instance name. You can keep the default or add a custom one.
+User name
+: Type a username for the database admin account, such as "
+postgres
+."
+Password
+: Define a password for the database admin account.
+RDS Storage size
+: Specify a desired storage size for the OO database. For more information, see 
+Additional
+hardware requirements for OO
+.
+Postgres engine version
+: Type an engine version.
+Multi-AZ RDS
+: It's recommended to select 
+false 
+for test and development environments and 
+true 
+for staging and
+production environments to have high availability.
+BastionSecurityGroup
+: Select the same Security Group ID that's used by the SMA RDS instance to allow the
+bastion node to communicate with Amazon RDS.
+ClusterSecurityGroup
+: Select the same Security Group ID that's used by the SMA RDS instance to allow the EKS
+cluster to communicate with Amazon RDS.
+5
+. 
+Click 
+Next > Next > Create stack
+. Wait until the stack creation finishes and you can check the results under
+the 
+Outputs 
+tab.
+Verify creating Amazon RDS
+After creating the Amazon RDS instance, you must test its connectivity by running the command below on the bastion node. 
+psql -h <RDSEndpointAddress> -p <RDSEndpointPort> -U <postgres_admin> -d postgres
+Where: 
+<RDSEndpointAddress>, <RDSEndpointPort>
+: get these values in the 
+Outputs 
+of the previous step. 
+<postgres_admin>
+ is the PostgreSQL admin user you specified when launching the Amazon RDS instance. Replace it with
+the actual value.
+Create databases for OO on the Amazon RDS instance
+Note
+: 
+Please take into consideration that AWS Console UI might change over time, so the information here
+might become outdated at some point.
+
+
+Tip
+: 
+Take note of the value of 
+RDSEndpointAddress
+. You'll use this in later steps.
+
+
+Tip
+: 
+In case of 
+Create Stack
+ errors, check the 
+Events
+ tab to see what the issue is.
+
+
+Note
+: 
+Make sure to install the PostgreSQL client on the bastion node before running the below command.
+
+
+SMAX 2022.11
+Page 
+937
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

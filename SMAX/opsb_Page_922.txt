@@ -1,0 +1,19 @@
+# drop databases
+drop database cms_ucmdb_db;
+drop database cms_autopass_db;
+3
+. 
+Delete all the CMS databases users by running the following commands:
+# drop users
+drop role cms_ucmdb;
+drop role cms_autopass;
+Related topics
+Configure EFS for CMS
+Prepare persistent volumes for CMS
+Launch RDS for CMS
+SMAX 2022.11
+Page 
+922
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

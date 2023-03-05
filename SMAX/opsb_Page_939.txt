@@ -1,0 +1,26 @@
+Get connection details for connecting to the IdM service
+of SMAX
+This topic contains instructions on how to integrate OO with the IdM service of SMAX.
+You'll use the information obtained from 
+Generate sensitive data for OO
+ in the following steps.
+Obtain the password for the IdM transport user
+Run the following commands on the bastion node to obtain the password from SMAX's vault for the user 
+idmTransportUser
+. You'll
+need to use this user for the integration between OO and IdM.
+Get SMAX namespace:
+SMAX_NS=$(echo `kubectl get ns | grep itsma | awk '{print $1}'`) && echo $SMAX_NS
+Get SMAX's IdM pod name:
+SMAX_IDM_POD=$(echo `kubectl get pods -n $SMAX_NS | grep -m1 idm- | head -1 | awk '{print $1}'`) && echo $SMAX_IDM_POD
+Get the password for SMAX's IdM user 
+idmTransportUser:
+TRANSPORT_PASS=$(kubectl exec -it $SMAX_IDM_POD -n $SMAX_NS -c idm -- bash -c "/bin/get_secret idm_transport_admin_password_secret_key" | awk -F= '{print$2}') && echo $TRANSPORT_PASS
+Get IdM Signing Key:
+IDM_SIGNING_KEY=$(kubectl exec -it $SMAX_IDM_POD -n $SMAX_NS -c idm -- bash -c "/bin/get_secret idm_token_signingkey_secret_key itom-bo" | awk -F= '{print$2}') && echo $IDM_SIGNING_KEY
+SMAX 2022.11
+Page 
+939
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,105 @@
+Associate CMS SuperAdmin role (EKS)
+When the system provisions a CMS customer, the CMS out-of-the-box (OOTB) roles with built-in permissions are automatically
+seeded in IdM. The application field of these seeded CMS roles is "CMDB" (as shown in the following screenshot).
+For details of the CMS OOTB roles, see 
+CMS out-of-the-box roles
+.
+The suite admin can do CMS pre-authorization in IdM by associating these CMS OOTB roles to corresponding IdM groups so that
+the suite admin doesn't need to grant permissions to the roles in CMS manually but mapping to the built-in permissions. Take
+the shared IdM solution as an example, you can use the seeded CMS OOTB SuperAdmin role directly without the need of
+creating a new CMS Super Admin role in IdM manually.
+Associate group
+1
+. 
+Log in to the suite IdM (
+https://
+<External_Access_Host>
+/idm-admin
+) as 
+suite-admin
+, and then access
+the 
+SYSBO 
+organization.
+2
+. 
+Go to 
+Groups
+ in the navigation pane, click the 
+administrators
+ group, and then click  
+ 
+ in the toolbar. The 
+Group
+Settings
+ page opens.
+3
+. 
+In the 
+Group Settings
+ section, go to the 
+Associated Roles
+ field, search for and click the OOTB role 
+SuperAdmin
+with the "CMDB" application field, and then associate it to the group.
+4
+. 
+Click 
+SAVE
+. 
+Now you can access CMS with the 
+suite-admin
+ account. Replace 
+<EXTERNAL_ACCESS_HOST> 
+and 
+<PORT> 
+with the
+values that you specify for the
+ global.externalAccessHost 
+and 
+global.externalAccessPort
+ parameters in 
+my-
+values.yaml
+.
+User interface
+Login URL
+CMS UI
+https://<EXTERNAL_ACCESS_HOST>:<PORT>/ucmdb-browser
+UCMDB Admin UI
+https://<EXTERNAL_ACCESS_HOST>:<PORT>/ucmdb-ui
+UCMDB JMX Console
+https://<EXTERNAL_ACCESS_HOST>:<PORT>/jmx-console
+UCMDB Server Status
+https://<EXTERNAL_ACCESS_HOST>:<PORT>/status
+CMS Landing Page
+https://<EXTERNAL_ACCESS_HOST>:<PORT>/cms
+Next step
+After you install the containerized CMS, you can continue with the 
+Associate SMAX tenants with UCMDB customers for Single
+Sign-On
+ task and other subsequent tasks to enable Native SACM. 
+Note 
+After you associate the OOTB role 
+SuperAdmin 
+with the "CMDB" application field to the
+administrators 
+group, the users under this group are pre-authorized with CMS super admin permissions. To
+perform administrative tasks in CMS, you can use 
+suite-admin
+ as the CMS Provider customer super admin (with
+the 
+Server Administrator Privileges
+ flag set and granted SuperAdmin role). The 
+suite-admin 
+can also log in
+to the JMX console with full access and perform global JMX operations, such as creating customers and
+deleting customers. 
+
+
+SMAX 2022.11
+Page 
+920
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

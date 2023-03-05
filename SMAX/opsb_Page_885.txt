@@ -1,0 +1,69 @@
+suite_user_gid=$3
+mount_point=/mnt/cms
+efs_server=$1
+if [ ! -d $mount_point ]; then
+sudo mkdir -p $mount_point
+fi
+export TIMEOUT_FOR_SERVICES=120
+    
+#=== FUNCTION ==================================================
+# NAME: checkMountEFS
+# DESCRIPTION: check aws efs server is ready
+#=================================================================
+mountEFS() {
+local n=0
+while :; do
+n=$(($n + 1))
+if [[ $n -ge $TIMEOUT_FOR_SERVICES ]]; then
+echo "check timeout for mount EFS"
+exit 1
+fi
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $efs_server:/ $mount_point
+if [ $? -eq 0 ] || [ $? -eq 32 ]; then
+echo "Successfully mount EFS"
+sudo sed -i '$a\'"$efs_server:/ $mount_point nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0" /etc/fstab
+break
+fi
+sleep 15
+done
+}
+make_volume() {
+local volume=$1
+cd $mount_point
+local mounted_pv=${mount_point}${volume}
+if [ ! -d $mounted_pv ]; then
+sudo mkdir -p $mounted_pv
+fi
+chown -R $suite_user_uid:$suite_user_gid $mounted_pv
+chmod g+w $mounted_pv
+chmod g+s $mounted_pv
+echo "Successfully make volume: ${volume}"
+}
+mountEFS
+make_volume /var/vols/itom/cms/data_volume
+make_volume /var/vols/itom/cms/conf_volume
+make_volume /var/vols/itom/cms/log_volume
+echo "Finish making all volumes Successfully."
+cd ${CURRENTDIR}
+3
+. 
+Run the following commands to configure the EFS volumes for CMS:
+chmod 755 configureCMSEFS.sh
+sudo ./configureCMSEFS.sh <CMS_EFS_DNS_NAME> <SYSTEM_USER_ID> <SYSTEM_GROUP_ID>
+Where:
+<cms_efs_dns_name>
+ is the 
+FileServerDNSName
+ you get on the Outputs tab when creating the EFS stack.
+<SYSTEM_USER_ID>
+ and 
+<SYSTEM_GROUP_ID>
+: specify an operating system user ID and group ID respectively
+that are used to run the process in the container. Both values must be 1999 or a number between 100000 and
+2000000000 (for example, UID=100001 and GID=100002).
+SMAX 2022.11
+Page 
+885
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

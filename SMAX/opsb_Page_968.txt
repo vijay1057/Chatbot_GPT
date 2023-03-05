@@ -1,0 +1,38 @@
+Create a new deployment for Audit service
+You should deploy Audit service in a separate namespace. You can use the tool provided by OPTIC Management Toolkit
+(OMT) to create an Audit deployment. This tool gets a unique namespace for Audit, default certificate, and service account
+prepared for installing the Audit Helm charts.
+1
+. 
+Log in to the bastion node as a root user.
+2
+. 
+Run the following commands to create an Audit service deployment.
+cd $CDF_HOME/scripts
+cdfctl deployment create -d <Audit Deployment Name> [-n 
+<
+Audit Namespace>]
+or
+$cdfctl deployment create -d <Audit Deployment Name> -n ${Audit NAMESPACE} -t helm
+For example:
+cd $CDF_HOME/scripts
+cdfctl deployment create -d auditns
+or
+cdfctl deployment create -d auditns -n auditns -t helm
+The 
+-n
+ option is optional. If you don't specify this option, the value defaults to the deployment name (the value of the 
+-
+d
+ option). You can run the 
+./cdfctl.sh deployment -h
+ command to view other options.
+When the application deployment is successful, you will see this message: "Successfully created deployment 
+<name>
+".
+SMAX 2022.11
+Page 
+968
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

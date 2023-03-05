@@ -1,0 +1,98 @@
+Launch RDS for OO
+OO Containerized uses Amazon Relational Database Service (Amazon RDS) to store its data.
+There are two options for setting up Amazon RDS for OO:
+(Recommended) Use a dedicated Amazon RDS instance for OO to ensure a smooth and fluent experience.
+Use the same Amazon RDS instance as the rest of the suite components.
+Irrespective of the choice, review the 
+sizing considerations
+ to check the Amazon RDS requirements.
+For option #1:
+Perform all the following steps:
+Prepare Amazon RDS template for OO
+ 
+Create an Amazon RDS instance for OO
+Create databases for OO on the Amazon RDS instance
+For option #2:
+You must resize the shared Amazon RDS instance to an instance type capable of supporting the added requirements
+of both suite and OO.
+Perform the step 
+Create databases for OO on the Amazon RDS instance.
+ 
+Prepare Amazon RDS template for OO
+Copy and save the following as 
+oo-rds.template
+. Upload it later in the
+ AWS Console
+:
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Amazon EKS Control Plane",
+    "Parameters": {
+        "DBSubnet1": {
+            "Description": "First Subnet for RDS. ",
+            "Type": "AWS::EC2::Subnet::Id"
+        },
+        "DBSubnet2": {
+            "Description": "Second Subnet for RDS ",
+            "Type": "AWS::EC2::Subnet::Id"
+        },
+        "DBInstanceIdentifier": {
+            "Default": "oo-postgres",
+            "Description": "The RDS instance identifier",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "64",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9_-]*",
+            "ConstraintDescription": "DBInstanceIdentifier must begin with a letter and contain only alphanumeric characters."
+        },
+        "DBUser": {
+            "Default": "postgres",
+            "Description": "The database admin account username",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "16",
+            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+            "ConstraintDescription": "DBUser must begin with a letter and contain only alphanumeric characters."
+        },
+        "DBPassword": {
+            "NoEcho": "true",
+            "Default": "postgres",
+            "Description": "The database admin account password",
+            "Type": "String",
+            "MinLength": "8",
+            "MaxLength": "41",
+            "AllowedPattern": "[a-zA-Z0-9_-]*",
+            "ConstraintDescription": "DBPassword must contain only alphanumeric characters."
+        },
+        "MultiAZDatabase": {
+            "Default": "false",
+            "Description": "Create a Multi-AZ RDS database instance or not.",
+            "Type": "String",
+            "AllowedValues": [
+                "true",
+                "false"
+            ],
+            "ConstraintDescription": "Must be either true or false. Select false for demo and development environments, select true for staging and production environments."
+        },
+        "DBAllocatedStorage": {
+            "Default": "100",
+            "Description": "The size of the database storage (GB), must be between 100 and 1024GB. For details see 
+Additional hardware requir
+ements for OO
+",
+            "Type": "Number",
+            "MinValue": "100",
+            "MaxValue": "20480",
+            "ConstraintDescription": "DBAllocatedStorage must be between 100 and 20480GB (20 TB)."
+        },
+        "RDSInstanceType":{
+            "Description": "RDS instance type. Please refer to 
+EKS sizing
+.",
+            "Default": "db.r5.large",
+SMAX 2022.11
+Page 
+933
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

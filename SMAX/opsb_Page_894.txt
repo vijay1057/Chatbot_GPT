@@ -1,0 +1,135 @@
+ucmdbprobe.deployment.database.probeEmbeddedDb
+No
+true
+ (default): The
+PostgreSQL database
+embedded in the
+containerized Data
+Flow Probe is used
+false
+: The external
+PostgreSQL database
+is used by the
+containerized Data
+Flow Probe 
+true
+false
+ucmdbprobe.deployment.database.user
+No
+Data Flow Probe
+database user. Do not set
+it if 
+probeEmbeddedDb
+is 
+true
+.
+probe
+cms_ucmdb_probe
+ucmdbprobe.deployment.database.dbName
+No
+Data Flow Probe
+database name. Do not
+set it if
+probeEmbeddedDb
+ is
+true
+.
+dataflowprobe
+cms_ucmdb_probe_db
+ucmdbprobe.deployment.database.schema
+No
+Data Flow Probe
+database schema. Do not
+set it if
+probeEmbeddedDb
+ is
+true
+.
+probe
+probe
+Parameter
+Required
+Description
+Default
+Example
+Persistence parameters
+Parameter
+Required
+Description
+Default
+Example
+global.persistence.enabled
+No
+Enables dynamic PVC creation.
+ 
+In production environments, this
+parameter must be set to 
+true
+.
+true
+true
+global.persistence.dataVolumeName
+No
+Persistent volume (PV) for storing CMS
+data files.
+cms-
+data-
+volume
+global.persistence.dbVolumeName
+No
+Persistent volume (PV) for storing CMS
+database files. This parameter is not
+required if external databases are used.
+cms-
+db-
+volume
+global.persistence.configVolumeName
+No
+Persistent volume (PV) for storing CMS
+configuration files.
+cms-
+config-
+volume
+global.persistence.logVolumeName
+No
+Persistent volume (PV) for storing CMS
+log files.
+cms-
+log-
+volume
+global.persistence.dataVolumeStorageClassName
+No
+The storage class name of
+the automatically created PVC for CMS
+data files.
+The value must be the same as the
+storageClassName defined in the
+corresponding PV. For example, if you
+specify the storage class name as "gp2"
+in 
+cms-pv.yaml 
+when creating the PV,
+use the same value "gp2" here.
+gp2
+global.persistence.dbVolumeStorageClassName
+No
+The storage class name of the
+automatically created PVC for CMS
+database files. 
+The value must be the same as the
+storageClassName defined in the
+corresponding PV. For example, if you
+specify the storage class name as "gp2"
+in 
+cms-pv.yaml 
+when creating the PV,
+use the same value "gp2" here.
+This parameter is not required if
+external databases are used.
+gp2
+SMAX 2022.11
+Page 
+894
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

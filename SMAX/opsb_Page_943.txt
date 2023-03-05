@@ -1,0 +1,100 @@
+global.secu
+rityContext.
+fsGroup
+Yes
+This parameter specifies the operating system group ID that's used to run
+the process in the container.
+When using big values, use the value in double quotes.
+See 
+https://github.com/helm/helm/issues/1707
+ for more information. For
+example: 
+user: "1999"
+You can't change this value after installation.
+1999
+1999
+Parameter
+Required
+Description
+Default
+Example
+Networking parameters
+These parameters define how the OO application reaches the context of the entire SMAX suite.  
+Parameter
+Required
+Description
+Default
+Example
+global.externalA
+ccessHost
+Yes
+This is the external access point for OO, and the FQDN
+should be in the following format: 
+oo.<suite-fqdn>
+.
+The FQDN specified at this parameter is also the DNS
+name of the OO Application Load Balancer (ALB) for
+external access, which you'll create later. See
+Configure load balancers for OO
+ for details on the
+external access ALB.
+N/A
+If you can access the suite
+using the
+FQDN  
+smax.example.com
+,
+then you can access OO
+using 
+oo
+.smax.example.com.
+global.externalA
+ccessPort
+Yes
+This is the port number on which you can access OO
+from outside of the Kubernetes cluster. 
+The port number specified here is the listener port of
+the OO ALB for external access, which you'll create
+later. See 
+Configure load balancers for OO
+ for details
+on the external access ALB.
+9443
+443
+global.nginx.http
+sPort
+Yes
+This is the https port on which the OO deployed Nginx
+controller listens and routes the traffic to the OO pods
+via ingress rules.
+Set this value to 
+443
+.
+If the parameter isn't set, it will take the value of the
+global.externalAccessPort
+ parameter.
+9443
+443
+global.setFqdnInI
+ngress
+Yes
+This parameter controls whether the ingress rules for
+OO components apply for a single host, specified using
+the 
+global.externalAccessHost
+, or not. 
+In EKS, traffic towards the OO components comes from
+two different sources: from the public Application Load
+Balancer for OO, and the integration Application Load
+Balancer. 
+Therefore, you must set this parameter to 
+false.
+ 
+true
+false
+SMAX 2022.11
+Page 
+943
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,153 @@
+9
+. 
+Finish the certificate validation based on the method you just selected. For more information,
+see 
+https://docs.aws.amazon.com/console/acm/validation
+.
+Import a certificate
+If you want to use a custom certificate, follow these steps:
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+All services
+ > 
+Security, Identity, & Compliance
+ > 
+Certificate Manager.
+3
+. 
+If the 
+firstrun
+ page that displays, click 
+Get Started
+.
+4
+. 
+Click 
+Import a certificate
+.
+5
+. 
+For 
+Certificate body
+, paste the 
+PEM
+ encoded certificate to import.
+6
+. 
+For 
+Certificate private key
+, paste the 
+PEM
+ encoded, unencrypted private key that matches the certificate's public key.
+7
+. 
+(Optional) For 
+Certificate chain
+, paste the 
+PEM
+ encoded certificate chain.
+8
+. 
+Click 
+Next > Review and import > Import.
+Create an Ingress for OO
+You need to create an Ingress for OO with port 443:
+1
+. 
+On the bastion node, save the content below as 
+oo-ingress.yaml
+:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "oo-ingress"
+  namespace: "<OO_namespace>"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: <ALB_scheme>
+    alb.ingress.kubernetes.io/group.name: <ALB_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=180
+    alb.ingress.kubernetes.io/certificate-arn: <ALB_cert_arn>
+  labels:
+    app: oo-ingress
+spec:
+  tls:
+  - hosts:
+    - <external_access_host>
+  rules:
+    - host:
+      http:
+        paths:
+          - backend:
+              service:
+                name: "<
+oo-nginx-controller-svc
+>"
+                port:
+                  number: 31443
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<OO_namespace>
+The actual namespace where you installed OO. For example, 
+oo
+.
+<ALB_scheme>
+Possible values: 
+internet-facing
+ | 
+internal
+According to your requirement, set the ALB scheme to:
+internet-facing
+ if you want access OO from the internet, with filtering defined through the security group
+associated with the load balancer.
+internal
+ if you want to access OO only from within the VPC. 
+<ALB_name>
+Specify a name for this ALB. For example: 
+oo-ext-alb
+. 
+The name must consist of 
+lowercase
+ alphanumeric characters, '-', or '.', and must start and end with an
+alphanumeric character.
+<ALB_cert_arn>
+The 
+Amazon resource name
+ of the certificate prepared for this Load Balancer. For example, 
+arn:aws:acm:region:12
+3456789012:certificate/12345678-1234-1234-1234-123456789012
+. For more information, see 
+Prerequisites
+.
+<external_access_host>
+The FQDN you assigned for this Load Balancer. For example, 
+oo.smax.example.com
+.
+<oo-nginx-controller-svc>
+Important
+: Currently, services integrated with AWS Certificate Manager support only the 
+RSA_1024
+ and 
+R
+SA_2048
+ algorithms.
+
+
+SMAX 2022.11
+Page 
+955
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

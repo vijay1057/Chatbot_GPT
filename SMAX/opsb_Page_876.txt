@@ -1,0 +1,86 @@
+(Optional) Install containerized CMS (EKS)
+The Native SACM and SAM solutions require a 
+Micro Focus
+ CMS system to work with the suite. Once you have completed
+the suite installation, you can continue to install CMS on the same OMT cluster as the next deployment (the suite is the first
+deployment).
+Additionally, to enable SMAX to work with the containerized CMS, you must configure a load balancer between SMAX and
+CMS. 
+Step1: Install the containerized CMS
+Perform the following steps to install the containerized CMS:
+Topic
+Description
+Plan
+Review the required resources and create a deployment plan for the installation of CMS with EKS:
+1
+. 
+Review 
+support matrix
+2
+. 
+Review 
+sizing considerations
+Prepare and deploy
+Prepare the required resources for the installation of CMS with EKS:
+1
+. 
+Launch EKS cluster worker nodes for CMS
+2
+. 
+Download CMS charts package
+3
+. 
+Download and upload images for CMS
+4
+. 
+Configure EFS for CMS
+5
+. 
+Prepare persistent volumes for CMS
+6
+. 
+Launch RDS for CMS
+7
+. 
+Create CMS integration admin user in SMAX IdM
+8
+. 
+Create my-values.yaml
+9
+. 
+Create a new deployment for CMS
+10
+. 
+Generate vault secrets
+11
+. 
+Install CMS on AWS
+12
+. 
+Verify the CMS installation
+13
+. 
+Configure load balancers for CMS
+14
+. 
+Associate CMS SuperAdmin role (EKS)
+Uninstall
+Uninstall CMS on AWS with EKS
+Step 2: Configure an Application Load Balancer for integration
+Note
+: This task is optional. If you plan to use classic CMS, skip this step and follow the 
+classic CMS
+documentation
+ instead.
+Note
+ 
+You must install CMS on the same OMT on which SMA is installed.
+For this release, you must use separate RDS and EFS instances for SMAX and containerized CMS.
+
+
+SMAX 2022.11
+Page 
+876
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

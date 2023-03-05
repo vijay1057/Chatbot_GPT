@@ -1,0 +1,146 @@
+<path/to/values.yaml>
+ = the path of OO values.yaml
+Make sure:
+to use the command line tool 
+yq
+ that's part of OMT 
+202x.xx
+ and not from the OS 
+$PATH
+.
+the version of 
+yq
+ that comes with OMT is 4.6.1, and the syntax of the command doesn't work with older versions of 
+yq.
+Parameter
+Required
+Description
+Default
+Example
+oodata-maintenance-
+and-export.deploymen
+t.data.retentionDays
+No
+The OO execution data retention period in days. All data that's
+older than the number of days specified at this parameter will
+be automatically purged by the OO data maintenance
+Kubernetes 
+cron-job
+.
+Minimum value is 28, and the values must be a multiple of 14.
+For example: 28, 42, 56, etc.
+hidden ( not
+exposed in
+the
+values.yaml
+)
+224
+SMAX integration parameters
+Parameter
+Required
+Description
+Default
+Example
+global.smaxF
+qdn
+Yes
+The FQDN and port of the public load balancer for accessing SMAX.
+N/A
+smax.example.c
+om:443
+caCertificate
+s
+Conditional
+This parameter specifies the certificates that OO requires to trust, such
+as the ones used for:
+The external load balancer of SMA
+The OO RDS instance, only if the RDS instance can accept TLS
+connections.
+See below explanation for details.
+The certificates that OO must trust are mandatory. You can specify these certificates in two ways:
+At Helm install time via command line.
+At OO install time via Helm parameter 
+caCertificates
+ in 
+values.yaml
+.
+Providing these certificates via the Helm parameter 
+caCertificates
+ in OO 
+values.yaml
+ is optional. 
+Regardless of the method
+you chose, these certificates must be either the 
+server certificates
+ or the 
+root CA
+ that generated the server certificates. 
+In
+addition, the certificates must be in a 
+PEM
+ format (base64 encoded). 
+In comparison:
+The advantage of 
+Option #1
+ is that its faster and easier than Option #2, but it doesn't add the certificate content to the
+OO values.yaml file.
+The advantage of 
+Option #2
+ is that it adds the certificate(s) content in the OO values.yaml file which provides you with
+a faster way of tracking these certificates at a later point in time, by checking the values.yaml file directly. 
+Add the certificates at install time in CLI
+Add the certificates at Helm install time using the 
+--set-file
+ arguments. 
+For example: 
+helm install [...] --set-file "caCertificates.smax_lb\.crt"=/path/to/smax_lb.crt --set-file "caCertificates.oo_db\.crt"=/path/to/oo_db.crt
+Note that:
+[...]
+ is a placeholder for other Helm install related parameters. For more information, see 
+Install OO Containerized on EKS
+.
+Make sure not to miss the escape character before the dot in the 
+--set-file
+ argument - eg:
+"caCertificates.smax_lb
+\
+.crt"
+You can use multiple -
+-set-file
+ arguments, according to the amount of certificate(s) OO requires to trust.
+Add certificates using the Helm parameter
+1
+. 
+Run the following command to add this parameter in OO values.yaml:
+<OMT_External_K8s_202x.xx.xxxxx>/bin/yq e '.caCertificates = "placeholder"' -i <path/to/values.yaml>
+Where:
+<OMT_External_K8s_202x.xx.xxxxx>
+ = installation directory of OMT
+<path/to/values.yaml>
+ = the path of OO values.yaml
+Make sure that:
+You use the command line tool 
+yq
+ that's part of OMT 
+202x.xx
+ and not from the OS 
+$PATH
+. The version of 
+yq
+ that
+comes with OMT is 4.6.1, and the syntax of the command doesn't work with older versions of 
+yq.
+2
+. 
+Open 
+values.yaml 
+in a text editor, delete "placeholder" from parameter 
+caCertificates
+, and specify the content of the
+certificates as given below:
+SMAX 2022.11
+Page 
+946
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

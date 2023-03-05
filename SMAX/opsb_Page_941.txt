@@ -1,0 +1,126 @@
+Generate sensitive data for OO
+The outcome of this step is the creation of a Kubernetes secret named 
+oo-secret
+, which holds the required sensitive data that
+OO needs at install time.
+The name of this Kubernetes secret is by default referenced in the OO 
+values.yaml
+ (at Helm parameter 
+global.initSecrets
+). At
+OO install time, its data is automatically consumed by the deployed OO pods.  
+Use the 
+gen_secrets.sh
+ script from OMT to prepare the sensitive data.
+1
+. 
+Run the following command on the bastion node:
+OMT_External_K8s_2022.xx.xxxxx/scripts/gen_secrets.sh -n <
+OO NAMESPACE
+> -c <
+OO CHART FILE
+>
+Where:
+<OO NAMESPACE>
+ = the unique namespace of the OO deployment. Use the namespace that you specified in the
+Create a new deployment for OO on EKS
+ topic.
+<OO CHART FILE>
+ = the absolute path of the OO chart file
+For example:
+OMT_External_K8s_2022.xx.xxxxx/scripts/gen_secrets.sh -n oo -c oo-1.0.x+2022xx01.xx/oo-helm-charts/charts/oo-1.0.x+2022xx01.xx.tgz
+2
+. 
+The Vault secret utility prompts you for the following passwords. 
+Key
+Required?
+Description
+idm_admin_adm
+in_password
+Yes
+Enter the password of the 
+oo-integration-admin
+ user. You created this user as part of
+the preparation step 
+Create OO integration admin user in SMAX IdM
+.
+OO_CENTRAL_D
+B_PASS
+Yes
+The password of the OO Central database user, which you created as part of the
+preparation step 
+Launch RDS for OO
+.
+OO_AUTOPASS_
+DB_PASS
+Yes
+The password of the AutoPass database user, which you created as part of the
+preparation step 
+Launch RDS for OO
+.
+OO_IDM_DB_PA
+SS
+No
+Ignore this request, as it belongs to a beta feature of OO which isn't yet available. 
+Press 
+ENTER
+ when prompted for this data. Doing so will generate a random string that
+isn't used by OO.
+OO_CONTROLLE
+R_DB_PASS
+Yes
+The password of the OO Controller database user, which you created as part of the
+preparation step 
+Launch RDS for OO
+.
+ITOM_DB_PASS
+WD_KEY
+No
+Ignore this request, as it belongs to a beta feature of OO which isn't yet available. 
+Press 
+ENTER
+ when prompted for this data. Doing so will generate a random string that
+isn't used by OO.
+IDM_SIGNING_K
+EY
+Yes
+The SMAX IdM signing key, which you obtained as part of the preparation step 
+Get
+connection details for connecting to the IdM service of SMAX
+. 
+idm_transport_a
+dmin_password
+Yes
+Enter the password of the suite IDM transport user. You obtained the password as part of
+the preparation step 
+Get connection details for connecting to the IdM service of SMAX
+.
+OO_UI_DB_PAS
+S
+Yes
+The password of the OO UI database user, which you created as part of the preparation
+step 
+Launch RDS for OO
+.
+OO_SCHEDULER
+_DB_PASS
+Yes
+The password of the OO Scheduler database user, which you created as part of the
+preparation step 
+Launch RDS for OO
+.
+3
+. 
+A message that resembles the following appears to indicate that you have created the OO secret successfully.
+2022-10-13_14:56:26.854 [INFO] Requesting Secrets YAML from Server
+2022-10-13_14:56:27.061 [INFO] HTTP STATUS: 200
+2022-10-13_14:56:27.068 [INFO] Creating K8s secret 'oo-secret'...
+2022-10-13_14:56:27.071 [INFO] Checking if K8s secret already exists...
+2022-10-13_14:56:28.924 [INFO] Secret name: oo-secret
+2022-10-13_14:56:28.928 [INFO] Done
+SMAX 2022.11
+Page 
+941
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

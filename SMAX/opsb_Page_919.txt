@@ -1,0 +1,61 @@
+cmsgateway.deployment.sam.context
+The FQDN of the load balancer for accessing the SAM
+APIs. The value of this parameter is the same as that of
+the 
+cmsgateway.deployment.smax.host
+ parameter.
+www.example-
+integration.com
+cmsgateway.deployment.sam.port
+Set it to the SMAX listening port (2443) of the Ingress
+created for SMAX integration.
+2443
+caCertificates
+Use the content of the certificate requested from 
+AWS
+Certificates Manager 
+for the integration ALB
+.
+Parameter
+Action
+Example
+2
+. 
+Run the following command to apply your changes:
+helm upgrade <
+CMS RELEASE NAME
+> <
+CMS CHART FILE
+> --namespace <
+CMS NAMESPACE
+> -f <
+VALUES YAML FILE
+>
+Where,
+<
+CMS RELEASE NAME
+> 
+is the release name of the CMS deployment that you specified when installing CMS.
+<
+CMS CHART FILE
+>
+ is the tar file containing the CMS installation charts.
+<
+CMS NAMESPACE
+>
+ is the unique namespace of the CMS deployment.
+<
+VALUES YAML FILE
+>
+ is your custom 
+my-v
+alues.yaml 
+file with properties configured for the CMS deployment. 
+For example:
+helm upgrade cms-prod CMS_Helm_Chart-202x.xx/cms-helm-charts/charts/cms-1.x.0+202xxx00.xxx.tgz --namespace cms-prod -f my-values.yaml
+SMAX 2022.11
+Page 
+919
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,93 @@
+Support for configuring up to 20 tenants
+The below configuration enables OO to support up to 20 tenants.
+Copy and save the following as 
+oo_size_values.yaml 
+at the same location as the main 
+values.yaml 
+file if you want to
+deploy OO with support of up to 20 tenants:
+# The sizing yaml for 20 tenants
+global:
+  deploymentType: install
+oocentral:
+  deployment:
+    replicas: 3
+    # JVM Heap memory usage
+    initMemory: 18432
+    maxMemory: 18432
+    # CPU usage
+    cpuRequest: 2000
+    cpuLimit: 4000
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 23040
+      limits:
+        memory: 23040
+oocontroller:
+  deployment:
+    replicas: 1
+    # JVM Heap memory usage
+    initMemory: 1536
+    maxMemory: 1536
+    # CPU usage
+    cpuRequest: 500
+    cpuLimit: 1000
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 2048
+      limits:
+        memory: 2048
+    ooras:
+      # JVM Heap memory usage
+      initMemory: 3072
+      maxMemory: 3072
+      # CPU usage
+      cpuRequest: 1000
+      cpuLimit: 1000
+      # Container memory request/limit
+      resources:
+        requests:
+          memory: 3840
+        limits:
+          memory: 3840
+ooui:
+  deployment:
+    replicas: 2
+    # JVM Heap memory usage
+    initMemory: 1536
+    maxMemory: 1536
+    # CPU usage
+    cpuRequest: 2000
+    cpuLimit: 4000
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 2048
+      limits:
+        memory: 2048
+ooscheduler:
+  deployment:
+    replicas: 2
+    # JVM Heap memory usage
+    initMemory: 6144
+    maxMemory: 6144
+    # CPU usage
+    cpuRequest: 1000
+    cpuLimit: 1500
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 8192
+      limits:
+        memory: 8192
+oodownloader:
+  deployment:
+    replicas: 1
+SMAX 2022.11
+Page 
+949
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

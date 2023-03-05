@@ -1,0 +1,27 @@
+Verify the CMS installation (EKS)
+To verify if CMS has been installed successfully, do the following:
+1
+. 
+Log in to the bastion node.
+2
+. 
+Run the following command to make sure that all CMS pods are ready.
+kubectl get pod -n <
+CMS NAMESPACE
+> |grep -v 1/1|grep -v 2/2|grep -v 3/3|grep -v 4/4|grep -v Completed
+Where:
+<
+CMS NAMESPACE
+>
+ is the namespace where you deploy the CMS chart.
+This command returns a list of abnormal pods. When it returns no results, all CMS pods are ready.
+Note 
+It takes around 30 minutes to stabilize.
+
+
+SMAX 2022.11
+Page 
+912
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

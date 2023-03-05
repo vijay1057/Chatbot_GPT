@@ -1,0 +1,60 @@
+3
+. 
+Run the following command to create persistent volumes:
+kubectl create -f oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/eks/volumes.yaml
+4
+. 
+Run the following command to verify the volume creation:
+kubectl get pv | grep oo
+Create persistent volume claims
+1
+. 
+Navigate to the OO chart package directory. For example:
+cd oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/eks/
+2
+. 
+Open the 
+claims.yaml
+ 
+file with a text editor, specify the below information in each volume claim template then save the
+file:
+The namespace where you deploy OO. You specified this namespace as part of 
+Create OO deployment
+ step.
+The volume name that the persistent volume claims (PVC) bound to.
+If you have used a storage class name during the creation of the OO volumes, then specify the name(s) of the
+storage class for each PVC to bind it to the corresponding volume.
+3
+. 
+Run the following command to create persistent volume claims:
+kubectl create -f oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/eks/claims.yaml
+4
+. 
+Run the following command to verify the volume creation:
+kubectl get pvc -n <oo_namespace> | grep oo
+Note
+:
+The relationship between the OO volume claims and OO volumes is the following:
+oo-config-pvc
+ -> 
+oo-config-vol
+oo-data-pvc
+ -> 
+oo-data-vol
+oo-logs-pvc
+ -> 
+oo-logs-vol
+oo-data-export-pvc
+ -> 
+oo-data-export-vol
+oo-ras-logs-pvc
+ -> 
+oo-ras-logs-vol
+
+
+SMAX 2022.11
+Page 
+932
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

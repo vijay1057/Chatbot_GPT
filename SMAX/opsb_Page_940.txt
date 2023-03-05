@@ -1,0 +1,114 @@
+Create OO integration admin user in SMAX IdM
+Create the OO integration admin user
+The OO integration admin user is responsible for performing integration between OO and IdM. OO uses the credentials of the
+user to synchronize groups and roles from IdM to OO.
+You can create the OO integration admin user in the SMAX IdM portal by following the instructions below.
+1
+. 
+Log in to the SMAX IdM (
+https://
+<External_Access_Host>
+/idm-admin
+) with 
+suite-admin
+ account, and then click
+on 
+SYSBO 
+IdM organization.
+2
+. 
+Go to 
+Users
+ in the navigation pane, and click   
+ 
+  on the toolbar. The 
+ADD USER
+ page opens.
+3
+. 
+Create the OO integration admin user using the following values and then click 
+SAVE
+.
+Field
+(*required)
+Description
+Name*
+Name of the new user. To avoid confusion later, enter the user name as 
+oo-integration-
+admin
+. 
+Display Name*
+Display name of the new user. Use 
+oo-integration-admin
+ in this case.
+Password*
+Specify a password for the OO integration admin user.
+Type*
+Select 
+SYSTEM
+.
+Password Policy
+Leave the field empty.
+User Attributes
+Leave empty.
+4
+. 
+Click 
+SAVE.
+Associate 
+oo-integration-admin
+ to the administrators group
+1
+. 
+In the suite IdM (
+https://
+<External_Access_Host>
+/idm-admin
+) , access the 
+SYSBO 
+organization.
+2
+. 
+Go to 
+Groups
+ in the navigation pane, click the 
+administrators
+ group, and then click   
+ 
+  on the toolbar. The 
+Group
+Settings
+ page opens.
+3
+. 
+Scroll down to the 
+Users
+ section, in the 
+Associated Users
+ field, search for and click the 
+oo-integration-admin
+ user
+to associate it to the group. 
+4
+. 
+Click 
+SAVE
+. 
+Note
+:
+ When selecting type 
+SYSTEM
+, if a user doesn't have a password policy, a "
+defaultFor=SYSTEM
+"
+password policy gets assigned to the user when you click 
+SAVE
+. 
+
+
+SMAX 2022.11
+Page 
+940
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

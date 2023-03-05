@@ -1,0 +1,74 @@
+Where: 
+RDSEndpointAddress
+ and 
+RDSEndpointPort
+ can be collected in the 
+Outputs
+ of the 
+Create an RDS instance
+for CMS
+ step.
+2
+. 
+Run the following commands to create the databases and the users used by UCMDB Server and AutoPass:
+CREATE USER <USERNAME> PASSWORD '<PASSWORD>';
+grant <USERNAME> to <PostgresSQL admin>;
+CREATE DATABASE <DBNAME> OWNER <USERNAME>;   
+For example:
+# For UCMDB
+CREATE USER cms_ucmdb PASSWORD '<PASSWORD>';
+grant cms_ucmdb to <PostgresSQL admin>;
+CREATE DATABASE cms_ucmdb_db OWNER cms_ucmdb; 
+# For APLS 
+CREATE USER cms_autopass PASSWORD '<PASSWORD>';
+grant cms_autopass to <PostgresSQL admin>;
+CREATE DATABASE cms_autopass_db OWNER cms_autopass; 
+3
+. 
+Run the following commands to create the schemas used by UCMDB Server and AutoPass: 
+\c <DBNAME>
+CREATE SCHEMA <DBSCHEMA> AUTHORIZATION <USERNAME>;
+ALTER USER <USERNAME> SET search_path TO <DBSCHEMA>;
+For example:
+# For UCMDB
+ (Required):
+\c <ucmdb_db>
+CREATE SCHEMA <ucmdb_schema> AUTHORIZATION <ucmdb_user>;
+ALTER USER <ucmdb_user> SET search_path TO <ucmdb_schema>;
+# For APLS
+ (Optional) :
+\c <autopass_db>
+CREATE SCHEMA <autopass_schema> AUTHORIZATION <autopass_user>;
+ALTER USER <autopass_user> SET search_path TO <autopass_schema>;
+Note  
+<PASSWORD>
+ for database user should follow below complexity defined by the Vault secret utility:
+At least 8 characters long
+Alphanumeric characters
+At least one lower case letter
+At least one upper case letter
+At least one digit
+
+
+Note
+: If you want to use the SSL connection mode for PostgreSQL, you can download a root certificate that
+works for all AWS regions. For details, see the related AWS document 
+here
+. Then, when creating 
+my-
+values.yaml 
+for the CMS deployment later, set 
+global.database.tlsEnabled
+ to 
+true 
+and configure
+caCertificates
+.
+
+
+SMAX 2022.11
+Page 
+888
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

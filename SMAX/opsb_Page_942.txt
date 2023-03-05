@@ -1,0 +1,105 @@
+Create my-values-yaml for OO (EKS)
+On the bastion node, you need to edit and configure the 
+values.yaml
+ file that comes along with OO Containerized zip. Helm
+install uses the values defined in this file.
+Configure values.yaml
+1
+. 
+Extract the OO chart 
+.tgz
+ archive.
+tar -xvf oo-1.0.x+2022xx01.xx/oo-helm-charts/charts/oo-1.0.x+2022xx01.xx.tgz
+2
+. 
+Create a copy of 
+values.yaml
+ file (so a copy of it will exist permanently).
+cp oo-1.0.x+2022xx01.xx/oo-helm-charts/charts/oo/values.yaml <path_to_copied_oo_values_yaml>/values.yaml.backup
+3
+. 
+Edit the copied 
+values.yaml
+ file using any editor and specify the required values in the file.
+Configurable parameters
+The configurable parameters supported by the OO chart are grouped into the following categories:
+Generic parameters
+Networking parameters
+Shared IdM parameters
+Database parameters
+Persistence parameters
+(Optional) Database maintenance retention period
+SMAX integration parameters
+Monitoring parameters
+Search for and update each parameter described in the below sections as the 
+values.yaml
+ contains other parameters that
+aren't listed. These parameters either have a default value or don't apply to this scenario.
+The 
+values.yaml 
+is in YAML format. Each parameter described below in the format 
+<section1>.<section2>.<section3>
+ is
+available in the 
+values.yaml
+ file like this:
+  section1: 
+    section2: 
+      section3:
+Generic parameters
+Parameter
+Required
+Description
+Default
+Example
+acceptEula
+Yes
+You must accept EULA to deploy OO
+false
+true
+global.dock
+er.registry
+Yes
+Amazon Elastic Container Registry (ECR) containing OO Docker images.
+localho
+st:5000
+981593490063
+.dkr.ecr.us-east
+-2.amazonaws.
+com
+global.dock
+er.orgName
+Yes
+Amazon ECR organization name.
+hpeswit
+om
+hpeswitom
+global.secu
+rityContext.
+user
+Yes
+This parameter specifies the operating system user ID that's used to run the
+process in the container. The value of this parameter and the ID of the
+Amazon Elastic File System owner must be the same. 
+When using big values, use the value in double quotes.
+See 
+https://github.com/helm/helm/issues/1707
+ for more information. For
+example: 
+user: "1999"
+You can't change this value after installation.
+1999
+1999
+Important
+: This 
+values.yaml
+ file contains critical configuration information. The file must be securely stored
+and backed up on a regular basis.
+
+
+SMAX 2022.11
+Page 
+942
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

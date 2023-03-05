@@ -1,0 +1,149 @@
+caCertificates:
+  smax_lb.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIFLTCCAxWgAwIBAgIUEgAXHFYWniNO5iq5E7q8UIiLdfswDQYJKoZIhvcNAQEL
+    [...]
+    gLMaj435og1CxyQMf5qt+m6DqVXjQR/wPfHUNz6S0aON
+    -----END CERTIFICATE-----
+  # Only if TLS is enabled with the OO RDS instance
+  oo_db.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIFLTCCAxWgAwIBAgIUEgAXHFYWniNO5iq5E7q8UIiLdfswDQYJKoZIhvcNAQEL
+    [...]
+    gLMaj435og1CxyQMf5qt+m6DqVXjQR/wPfHUNz6S0aON
+    -----END CERTIFICATE----- 
+For each certificate, the key index name represents the name of the certificate. In the example, 
+smax_lb.crt 
+is the
+certificate used for SMA Application Load Balancer and 
+oo_db.crt 
+is the certificate used for the RDS instance OO
+connects to, only if its configured with a TLS connection. 
+Make sure to use the correct indentation. For example:
+caCertificates
+ is the top level key index, therefore there is no need for any indentation before the parameter name. 
+smax_lb.crt
+ is a second level key index, therefore you must use 2 spaces for indentation.
+----- BEGIN CERTIFICATE -----
+ is the content of the 
+PEM
+ encoded certificate. Indent each line by 4 spaces.
+Monitoring parameters
+You can add monitoring support by exposing Prometheus style metrics from the most critical OO services (OO Controller, OO
+Central, OO Scheduler, OO UI, and OO Downloader). This helps in troubleshooting various aspects inside the cluster like
+performance, scalability, and others. For information on enabling monitoring using Prometheus in OPTIC Management Toolkit
+(OMT), see 
+Enable the monitoring capability
+. After enabling OMT monitoring capability, you must configure OO to deploy the
+service monitors.
+The OO service monitors are deployed when you set the 
+global.prometheus.deployPrometheusConfig
+ user input
+parameter to 
+true
+.
+Parameter
+Required
+Description
+Default
+Example
+global.prometh
+eus.deployProm
+etheusConfig
+No
+Controls whether to deploy
+scraping rules through 
+ServiceM
+onitor
+ objects and alerts
+through
+ 
+PrometheusRule
+ objects
+true
+This input depends on whether you have enabled the
+monitoring capability.
+global.prometh
+eus.deployGraf
+anaConfig
+No
+Controls whether to deploy 
+Con
+figMap
+ objects
+containing 
+Grafana
+ dashboard
+configurations
+true
+ConfigMaps
+ labeled 
+grafana_dashboard:
+"1"
+ contain dashboard configurations. OMT
+monitoring solution uploads these dashboards
+in 
+Grafana
+. For other monitoring solutions download
+and upload the dashboards into 
+Grafana 
+manually.
+global.prometh
+eus.prometheus
+Selector.promet
+heus_config
+No
+Defines the label (s) that apply
+to the scraping rules through 
+S
+erviceMonitor
+ objects
+1
+Based on this label, you can include or exclude
+metrics from Prometheus.
+global.prometh
+eus.grafanaSele
+ctor.grafana_da
+shboard
+No
+Defines the label(s) that apply
+to the 
+Grafana
+ dashboard
+configurations through 
+ConfigMa
+p
+ objects
+1
+The default label value used by the OMT monitoring
+solution. For a custom Grafana solution use the
+appropriate configuration label.
+Create and configure oo_size_values.yaml file
+This additional file indicates the size of OO in terms of the amount of resources each OO component utilizes.
+This configuration is mandatory.
+Support for configuring up to five tenants
+The below configuration enables OO to support up to five tenants.
+Copy and save the following as 
+oo_size_values.yaml 
+at the same location as the main 
+values.yaml 
+file if you want to
+deploy OO with support of up to five tenants:
+global:
+  deploymentType: install
+oocentral:
+  deployment:
+    replicas: 1
+    # JVM Heap memory usage
+    initMemory: 4096
+    maxMemory: 4096
+    # CPU usage
+    cpuRequest: 1000
+    cpuLimit: 2000
+    # Container memory request/limit
+SMAX 2022.11
+Page 
+947
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

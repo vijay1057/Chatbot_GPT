@@ -1,0 +1,146 @@
+global.k8sProvider
+Yes
+Set the value to identify the type of the
+managed Kubernetes environment.
+Note
+: You need to manually insert this
+parameter in the 
+my-values.yaml
+ file and
+set the value to 
+aws 
+for the EKS
+deployment.
+aws
+itom-ingress-
+controller.nginx.service.httpsPort
+Yes
+Set it to a value that doesn't conflict with
+other applications deployed in the same
+cluster. For example, if SMAX and CMS are
+deployed in the same cluster, this
+parameter must be set to a value different
+than SMAX.
+The range of valid ports is 
+30000-32767
+.
+Note
+: You need to manually insert this
+parameter in the 
+my-values.yaml
+ file.
+30443
+itom-ingress-
+controller.nginx.service.external.type
+Yes
+Set the value to 
+''NodePort'
+ for the
+managed Kubernetes deployment.
+Note
+: You need to manually insert this
+parameter in the 
+my-values.yaml
+ file.
+NodePort
+Parameter
+Required
+Description
+Default
+Example
+Database parameters
+The database parameters are configured differently based on whether the internal PostgreSQL is used.
+Parameter
+Required
+Description
+Default
+Example
+global.database.internal
+Yes
+true
+: Deploy a PostgreSQL instance in the namespace of CMS
+deployment and use it in CMS services as the database server.
+ 
+false
+: Use external databases as required in a production
+environment.
+false
+false
+Configure the following parameters if the external database is used (that is, 
+global.database.internal
+ is set to 
+false
+).
+Parameter
+Required
+Description
+Default
+Example
+global.database.createDb
+Yes
+It must be set to 
+false
+.
+false
+false
+global.database.host
+Yes
+Database server host name
+db.example.com
+global.database.port
+Yes
+Database server port
+5432
+global.database.admin
+No
+Do not specify or uncomment this
+parameter when you use the
+external PostgreSQL database.
+Note
+: This parameter is required
+only when you use the internal
+PostgreSQL database.
+ 
+It specifies
+the admin user when creating the
+internal PostgreSQL database
+(
+createDb
+ is 
+true
+). If the admin
+user account does not exist, an
+admin user with the specified name
+(for example, dbadmin) will be
+created. 
+ucmdbserver.deployment.database.user
+Yes
+UCMDB database user
+ucmdb
+cms_ucmdb
+ucmdbserver.deployment.database.dbName
+Yes
+UCMDB database name
+ucmdb
+cms_ucmdb_db
+ucmdbserver.deployment.database.schema
+Yes
+UCMDB database schema
+ucmdb
+ucmdb
+Note 
+Use the internal PostgreSQL for demonstration purposes only. In a production environment, you must
+use external databases for CMS. If the 
+global.database.internal
+ parameter is set to 
+true
+, then there is no need
+to configure all the other database parameters.
+
+
+SMAX 2022.11
+Page 
+892
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

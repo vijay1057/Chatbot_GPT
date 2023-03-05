@@ -1,0 +1,88 @@
+Configure load balancers for OO
+Configure external ALB for OO
+You can access OO from outside the Kubernetes cluster using an AWS Application Load Balancer (ALB).
+The diagram below depicts how to separate SMA and OO access through the two ALBs, while the communication between SMA
+and OO happens through the integration ALB.
+Prerequisites
+Before creating and configuring an ALB:
+Assign an FQDN for OO Load Balancer. For example, see 
+AWS route 53 services
+ if you don't have one.
+The FQDN is a subdomain of the SMA FQDN.
+For example, if SMA is FQDN is 
+smax.example.com
+, then OO FQDN is 
+oo
+.smax.example.com
+.
+Use a certificate for the ALB, which you can generate or import to AWS Certificates Manager. The target domain name (CN
+name) of the certificate is the FQDN you will bind with the ALB in a later step.
+You can prepare a certificate for this Load Balancer using one of the following methods:
+Request a certificate
+If you want to request a new certificate, follow these steps:
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+All services
+ > 
+Security, Identity, & Compliance
+ > 
+Certificate Manager
+.
+3
+. 
+If the 
+firstrun
+ page that displays, click 
+Get Started
+.
+4
+. 
+Click 
+Request a certificate
+.
+5
+. 
+Select 
+Request a public certificate
+ and click 
+Next.
+6
+. 
+Specify your target domain name. Use an asterisk (*) to request a wildcard certificate to protect several sites in the same
+domain. For example, 
+*.testoo-conteinarized.org.
+7
+. 
+Select 
+DNS validation
+ or 
+Email validation
+ according to your permission.
+8
+. 
+Click 
+Request
+.
+Note
+: 
+1
+. 
+The Integration ALB must be internal, you can access it only from the VPC.
+2
+. 
+The two 'external' ALBs used for accessing SMA and OO can be either internal or internet facing, based on
+your preference. 
+The term 'external' here is to emphasize that these ALBs are routing only the traffic that comes from
+outside the Kubernetes cluster.  
+
+
+SMAX 2022.11
+Page 
+954
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,138 @@
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=180
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+    alb.ingress.kubernetes.io/security-groups: <security_groups>
+  labels:
+    app: sma-integration-ingress
+spec:
+  tls:
+  - hosts:
+    - <integration_hostname>
+  rules:
+    - host: 
+      http:
+        paths:
+          - backend:
+              service: 
+                name: "itom-nginx-ingress-svc"
+                port: 
+                  number: 443
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<itsma_namespace>
+: the unique namespace of the SMAX deployment. For example, 
+itsma
+.
+<integration_alb_name>
+: enter the name of the same ALB that you specify in
+ cms-integration-ingress.yaml
+.
+<certificate_arn>
+: the
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+. See details in
+the
+ Prerequisites 
+section above.
+<integration_hostname>
+: the FQDN you've allocated for integration. For example, 
+www.example-integration.com
+.
+<security_groups>
+: the security groups that the ALB belongs to. The inbound rule should allow the traffic to pass. The
+security group should be the same as the one in 
+cms-integration-ingress.yaml
+.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f smax-integration-ingress.yaml
+Bind an FQDN with the integration ALB
+After you create and configure the integration ALB, you need to bind an FQDN with this ALB. The FQDN is the same as the 
+<int
+egration_hostname> 
+setting that you configure in 
+cms-integration-ingress.yaml 
+and 
+smax-integration-ingress.yaml
+ in
+the previous step. See 
+Bind FQDN with ALB
+. 
+You will need the following URLs when configuring integration between SMAX and CMS.
+URL for CMS to access SMAX:  
+https://
+<FQDN>
+:2443
+CMS Gateway URL:  
+https://
+<FQDN>
+:3443/
+cms-gateway
+<FQDN> is the one that you bind with the integration ALB in this step.
+Tip
+: You need the CMS Gateway URL (
+https://
+<FQDN>
+:3443/
+cms-gateway) when enabling the Native SACM and SAM solutions.
+See 
+Enable Native SACM in SMA
+ and 
+Enable SAM in SMAX
+. 
+Update integration parameters in my-values.yaml
+After binding an FQDN with the integration ALB, follow these steps to update integration parameters in 
+my-values.yaml
+:
+1
+. 
+Update the following parameters in 
+my-values.yaml 
+and save the file:
+Parameter
+Action
+Example
+global.idm.idmServiceUrl
+Change the URL to the IdM URL of the Ingress created
+for SMAX integration including the SMAX listening port
+2443.
+https://www.example-
+integration.com:2443/idm-
+service
+cmsgateway.deployment.smax.host
+Set it to the FQDN you've allocated for SMAX internal
+integration. Use the value that you use for 
+<integration_h
+ostname> 
+in the 
+smax-integration-ingress.yaml
+ file.
+www.example-
+integration.com
+cmsgateway.deployment.smax.port
+Set it to the SMAX listening port (2443) of the Ingress
+created for SMAX integration.
+2443
+Important 
+ The name must consist of 
+lower case
+ alphanumeric characters, '-', or '.', and must start
+and end with an alphanumeric character. 
+
+
+SMAX 2022.11
+Page 
+918
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

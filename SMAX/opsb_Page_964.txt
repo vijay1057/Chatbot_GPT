@@ -1,0 +1,43 @@
+Download the Audit Helm chart (EKS)
+To download the Audit Helm chart to the bastion node, follow these steps:
+1
+. 
+Log in to the bastion node and navigate to the directory where you want to download and install Audit service. In this
+directory, create a folder, for example, 
+audit-2022.11
+.
+mkdir audit-2022.11
+cd audit-2022.11
+2
+. 
+Download the 
+Audit
+_Helm_Chart-2022.11.zip
+ file from the 
+Software Licenses and Downloads
+ website to 
+audit-
+2022.11 
+folder or the folder that you have created in Step 1.
+3
+. 
+Unzip the package:
+unzip Audit_Helm_Chart-2022.11.zip
+4
+. 
+Untar the ITOM Audit chart package:
+$tar -xvf auditpkg-1.0.0+20221100.x.tgz
+5
+. 
+Make sure you are in the 
+audit-2022.11
+ folder or the folder that you have created in Step 1. Copy the Helm chart and
+the sample files by using the following commands:
+cp audit-helm-chart/audit/charts/*.tgz .
+cp audit-helm-chart/audit/samples/* .
+SMAX 2022.11
+Page 
+964
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,74 @@
+Install OO Containerized on AWS (EKS)
+This section contains high level installation instructions for OO Containerized on AWS EKS alongside SMAX. To enable SMAX to
+work with OO Containerized, you must configure a load balancer between SMAX and OO.
+Perform the following steps to install OO Containerized:
+Topic
+Description
+Plan
+Review the required resources and create a deployment plan for the installation of OO
+with EKS:
+Review 
+support matrix
+Plan
+ the deployment
+Prepare
+Prepare the required resources for the installation of OO with EKS:
+1
+. 
+Download OO charts package
+2
+. 
+Download and upload container images for OO
+3
+. 
+Configure EFS for OO
+4
+. 
+Create a new deployment for OO
+5
+. 
+Prepare persistent volumes and claims for OO
+6
+. 
+Launch RDS for OO
+7
+. 
+Get connection details for connecting to the IdM service of SMAX
+8
+. 
+Create OO integration admin user in SMAX IdM
+9
+. 
+Generate sensitive data for OO
+10
+. 
+Create values.yaml for OO
+Deploy
+1
+. 
+Install OO on AWS
+2
+. 
+Verify the OO installation in EKS
+Post-install task
+1
+. 
+Configure load balancers for OO
+2
+. 
+Import the OO CA certificate into the suite
+Install external OO
+components
+Install external OO components
+Uninstall
+Uninstall OO on AWS
+Note
+ 
+You must install OO on the same OPTIC Management Toolkit (OMT) on which SMAX is installed.
+You must use separate RDS instances for SMAX and containerized OO.
+SMAX 2022.11
+Page 
+923
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,158 @@
+Launch RDS for CMS
+CMS contains an internal (embedded) PostgreSQL database instance, which should be used for demonstration purposes only.
+You must use external databases in a production environment. 
+When deployed on AWS, the suite uses RDS as the database engine. This RDS instance will be used as the external databases
+for the following CMS components:
+UCMDB Server
+AutoPass License Service (APLS)
+Prepare RDS template for CMS
+1
+. 
+Navigate to the
+ smax-rds.template
+ file under 
+../Cloud Deployment x.x.x/byok/smax-cloudformation-aws
+ in 
+the cloud
+deployment package
+.
+2
+. 
+Create a copy of the
+ smax-rds.template
+ file and rename the new file to
+ cms-rds.template
+.
+3
+. 
+Replace the
+ 
+two
+ SMAX-RDS-Security-Group 
+keys (under 
+RDSSecurityGroup
+ 
+in 
+cms-rds.template
+) with 
+CMS-
+RDS-Security-Group
+, and then save the file.
+Create an RDS instance for CMS
+We recommend that you use RDS as the database engine on AWS. Follow these steps to launch RDS for CMS.
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Go to 
+All services
+ > 
+Management & Governance 
+>
+ CloudFormation
+.
+3
+. 
+Click
+ Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > Choose file and select the 
+cms-
+rds.template
+ file under 
+../Cloud Deployment x.x.x/byok/smax-cloudformation-aws
+.
+4
+. 
+Click 
+Next 
+and populate the following fields:
+Stack name
+: Give a name to this stack, such as 
+cms-rds
+.
+VPC ID
+: Select the created VPC from the drop-down list.
+First/Second Subnet for RDS
+: Select the first/second database subnet created for RDS.
+RDS Instance Type
+: Select an instance type from the drop-down list. See 
+Sizing considerations for EKS deployment
+.
+RDS instance identifier
+: Define an RDS instance name.
+User name
+: Type a username for the database admin account, such as "postgres."
+Password
+: Define a password for the database admin account.
+RDS Storage size
+: Type a storage size. See 
+Sizing considerations for EKS deployment
+.
+Postgres engine version
+: Type an engine version. See 
+Support matrix
+.
+Multi-AZ RDS
+: Select false for test and development environments, select true for staging and production
+environments
+BastionSecurityGroup
+: Select the bastion's security group to allow the bastion node to communicate with RDS.
+ClusterSecurityGroup
+: Select the EKS cluster's security group (
+eks-cluster-sg-*
+) to allow the EKS cluster to
+communicate with RDS.
+5
+. 
+Click 
+Next > Next > Create stack
+. Wait until the stack creation finishes and you can check the results under
+the 
+Outputs 
+tab. Take a note of the value of 'RDSEndpointAddress'. It will be used in later steps.
+After the RDS is created, you must test its connectivity by running the commands below on the bastion node. 
+sudo yum install -y postgresql
+psql -h <RDSEndpointAddress> -U <postgres admin> -d postgres
+Where: 
+<RDSEndpointAddress>
+ 
+can be collected in the 
+Outputs 
+of the previous step.
+<postgres admin>
+ is the PostgreSQL admin user you specified when launching RDS. Replace it with the actual value.
+Next, set up the PostgreSQL databases for CMS on the RDS instance created.
+Set up PostgreSQL databases for CMS on the RDS instance
+In a production environment, you must use external databases for the CMS application. The database user and database name
+information are required when you install CMS, and the database schema information is required for UCMDB Server, but
+optional for AutoPass. The default schema name will be used if there is no new schema name assigned.
+The databases must be empty so that CMS will initialize them during installation. The table below shows example database
+information prepared for the four components.
+Service
+DB User
+DB Name
+Schema (default)
+UCMDB Server
+cms_ucmdb
+cms_ucmdb_db
+ucmdb
+APLS
+cms_autopass
+cms_autopass_db
+public
+Below are sample SQL commands for creating a user and a database for a service:
+1
+. 
+Log in to the bastion node and then run the following command to connect to the PostgreSQL instance.
+psql -h <RDSEndpointAddress> -p <RDSEndpointPort> -U <postgres admin> -d postgres
+SMAX 2022.11
+Page 
+887
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

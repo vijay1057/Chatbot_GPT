@@ -1,0 +1,59 @@
+(Optional) Install the Audit service on EKS
+The Audit service installation is optional. 
+The Audit service is an independent service that enables your system to perform audits for critical events. 
+The Audit service is mainly composed of the following components:
+Audit event producer: SMAX acts as an audit event producer by using a library bundled with itself.
+Audit service engine: An independent microservice that you deploy using a Helm installer. It includes the audit service
+gateway that uses REST APIs and the audit database that stores audit data.
+Audit UI: An independent reporting microservice that you deploy using the same Helm installer. This UI displays audit
+data. 
+When a 
+predefined audit event
+ happens, the audit service creates an audit log record in the audit database and displays the
+record in the
+ Audit UI
+. 
+Install the Audit service on the same OMT as the suite
+Perform the following steps on the same OMT on which the suite is installed:
+1
+. 
+Download the Audit Helm chart (EKS)
+2
+. 
+Download and upload images for Audit service (EKS)
+3
+. 
+Configure EFS for Audit service
+4
+. 
+Prepare persistent volumes for Audit service
+5
+. 
+Launch RDS for Audit service
+6
+. 
+Create a new deployment for Audit service
+7
+. 
+Configure load balancer for Audit service
+8
+. 
+Create application load balancer for Audit service
+9
+. 
+Configure values.yaml for Audit service (EKS)
+10
+. 
+Deploy Audit on AWS (EKS)
+To uninstall the Audit service, see 
+Uninstall Audit service on EKS
+.
+Next step:
+Enable audit
+Install the Audit Collector (EKS)
+SMAX 2022.11
+Page 
+963
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,14 @@
+Post installation task for OO Containerized on AWS(EKS)
+After successful installation of OO Containerized, perform the following tasks:
+1
+. 
+Configure load balancers for OO
+2
+. 
+Import OO certificate into the suite
+SMAX 2022.11
+Page 
+953
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

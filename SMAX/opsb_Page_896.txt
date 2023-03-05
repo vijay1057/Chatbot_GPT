@@ -1,0 +1,104 @@
+global.cms.deployLcInstaller
+No
+Deploy the Local Client installers for downloading in
+the OMT cluster if 
+true
+. 
+By default, this parameter isn't listed in the sample
+file, and the system uses the default value (
+true
+).
+It's recommended that you keep the default value
+and deploy the component without manually setting
+the parameter to 
+false
+.
+ true
+true
+global.cms.deploySolr
+No
+Deploy the embedded SOLR service in the OMT
+cluster if 
+true
+.
+ true
+true
+ucmdbserver.deployment.solrUrl
+No
+The SOLR URL used by UCMDB Server.
+Parameter
+Required
+Description
+Default
+Example
+CMS audit integration parameters
+If you want to enable the Audit service for CMS, you need to add the following parameters under the IdM component.
+Parameter
+Required
+Description
+Default
+Example
+auditEngineHostname
+Yes
+The hostname of the audit service deployment. 
+Null. You
+need to set
+the value.
+audit.example.com
+auditEnginePort
+Yes
+The port in which you deploy the audit service.
+Null. You
+need to set
+the value.
+9889
+auditIntegrationUser
+Yes
+The audit integration user that you use to create audits. The
+user must be the System type and have the CREATE_AUDIT
+permission to create audit data.
+Null. You
+need to set
+the value.
+suite-admin
+auditNfsPath
+Yes
+The path to store audits when audits don't get pushed to the
+audit engine.
+var/nfs/audit
+example/nfs/audit
+caCertificates
+Yes
+The content of the audit CA certificate encoded by base64.
+Get the certificate from the Audit service engine:
+1
+. 
+Open the Audit engine URL in a web
+browser: https://<auditEngineHostname>:
+<auditEnginePort>/audit-gateway?TENANTID=<tenantId>
+2
+. 
+Download the 
+.pem 
+file.
+3
+. 
+Convert the 
+.pem
+ extension to 
+.crt
+.
+openssl x509 -outform der -in audit_gateway.pem -out audit_gateway.crt
+caCertificates:
+  audit.crt: |
+    <certificate content
+    base64 encoded>  
+See the screenshot
+below.
+Certificate example:
+SMAX 2022.11
+Page 
+896
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

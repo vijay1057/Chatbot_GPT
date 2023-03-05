@@ -1,0 +1,78 @@
+(Optional) Install containerized CMS on GovCloud (FIPS
+mode)
+Complete these tasks to prepare and install containerized CMS on GovCloud with FIPS mode enabled.
+Sr
+No.
+Task
+Where to perform
+Role
+1
+Create EKS cluster worker nodes for CMS
+AWS Management Console
+IT / Kubernetes
+Cluster administrator
+2
+Download CMS charts package
+Bastion node
+Suite administrator
+3
+Download and upload container images for CMS
+(FIPS mode)
+Bastion node
+Suite administrator
+4
+Configure EFS for CMS
+AWS Management Console and
+bastion node
+Storage administrator
+5
+Prepare persistent volumes for CMS
+Bastion node
+Suite administrator
+6
+Launch RDS for CMS
+AWS Management Console
+Database administrator
+7
+Create CMS integration admin user
+Suite IdM
+Suite administrator
+8
+Create my-values.yaml (FIPS mode)
+Bastion node
+Suite administrator
+9
+Create a new deployment for CMS
+Bastion node
+Suite administrator
+10
+Generate vault secrets
+Bastion node
+Suite administrator
+11
+Install CMS on AWS
+Bastion node
+Suite administrator
+12
+Verify the CMS installation (FIPS mode)
+Bastion node
+Suite administrator
+13
+Configure load balancers for CMS
+AWS Management Console
+Cloud administrator
+14
+Create Application Load Balancer for
+integration
+AWS Management Console
+Cloud administrator
+15
+Associate CMS SuperAdmin role (EKS)
+Suite IdM
+Suite administrator
+SMAX 2022.11
+Page 
+875
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

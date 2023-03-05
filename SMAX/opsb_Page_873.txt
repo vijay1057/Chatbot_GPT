@@ -1,0 +1,170 @@
+Deploy the suite on GovCloud (FIPS mode)
+If you want to deploy the suite with FIPS mode enabled, you must use GovCloud. For information about the supported services
+and limitations of FIPS mode, see 
+FIPS mode
+.
+The following is the procedure to deploy the suite on GovCloud with FIPS mode enabled. In the tables below, the steps marked
+as 
+Common
+ are applicable to both non-FIPS and FIPS mode installation, and those marked as 
+FIPS specific
+ are applicable
+only to FIPS mode installation. 
+Prepare
+Complete these preparation tasks before installing the suite.
+Sr
+No.
+Task
+Where to
+perform
+Role
+How to
+perform
+Note
+1
+Prepare a valid Docker Hub account to
+download product images from Docker Hub.
+Any client that
+has Internet
+connectivity
+Any
+Activate
+your
+Docker
+Hub
+account
+Common
+2
+Download the cloud deployment package from
+Marketplace.
+Any client that
+has Internet
+connectivity
+Any
+Downloa
+d the
+cloud
+deploym
+ent
+package
+Common
+3
+Prepare your user account with the right permissions
+and a required key pair.
+AWS
+Management
+Console
+Cloud administrator
+Create
+AWS
+user
+policy
+and key
+pair
+Common
+4
+Create a FIPS-enabled AMI.
+Any client that
+has Internet
+connectivity
+Cloud administrator
+Create
+FIPS-
+enabled
+AMI
+FIPS
+specific
+5
+Prepare a Virtual Private Cloud where you will place
+all the other resources.
+AWS
+Management
+Console
+IT / Network
+administrator
+Prepare
+VPC
+(FIPS
+mode)
+FIPS
+specific
+6
+Create an EKS cluster and then launch the EKS cluster
+worker nodes to use Amazon Elastic Kubernetes
+Service (EKS) to install and manage the suite on AWS.
+AWS
+Management
+Console
+IT / Kubernetes
+Cluster administrator
+Build
+EKS
+cluster
+(FIPS
+mode)
+FIPS
+specific
+7
+Create and configure a bastion node to
+communicate with the Kubernetes cluster and we use
+it for the suite installation and troubleshooting.
+AWS
+Management
+Console and
+bastion node
+IT /
+Server administrator
+Configur
+e
+bastion
+Common
+8
+Download and extract OMT and suite packages.
+Bastion node
+Suite administrator
+Downloa
+d the
+required
+installati
+on
+package
+s
+Common
+9
+Create AWS EFS instance to store the OMT and suite
+data on AWS, and then configure EFS volumes. 
+AWS
+Management
+Console and
+bastion node
+Storage administrator
+Configur
+e EFS
+Common
+10
+Prepare RDS instance as the external databases for
+OMT IdM, OMT API Server, and the suite in a
+production environment.
+AWS
+Management
+Console and
+bastion node
+Database administrator
+Launch
+RDS
+Common
+Important 
+In this release, FIPS mode support is under controlled availability, where Micro Focus will work with
+customers to review the planned implementation. Installing the suite with FIPS mode enabled requires more
+hardware resources than without FIPS mode enabled. Contact 
+Micro Focus
+ SMA Product Management before you
+start the implementation.
+
+
+SMAX 2022.11
+Page 
+873
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

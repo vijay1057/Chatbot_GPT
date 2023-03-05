@@ -1,0 +1,87 @@
+Uninstall OO on AWS
+To uninstall Operations Orchestration (OO) on AWS with EKS, perform the following tasks:
+Delete the OO deployment
+1
+. 
+Log on to the bastion node, and navigate to the OPTIC Management Toolkit (OMT) installation directory:
+cd OMT_External_K8s_2022.xx.xxxxx/bin
+2
+. 
+Run the following command to remove the OO release:
+./helm uninstall <
+OO RELEASE NAME
+> -n <
+OO NAMESPACE
+>
+Where:
+<
+OO RELEASE NAME
+>
+ is the OO release that you want to uninstall, which you can get by running the command 
+./helm lis
+t -n <
+OO NAMESPACE
+>.
+<
+OO NAMESPACE
+>
+ is the namespace where you installed OO.
+3
+. 
+Run the following command to remove the OO deployment:
+cd OMT_External_K8s_2022.xx.xxxxx/scripts
+./cdfctl.sh deployment delete -d <
+OO DEPLOYMENT NAME
+>
+Where
+<
+OO DEPLOYMENT NAME
+>
+ is the name you specified for the deployment you created to install OO.
+For example:
+./cdfctl.sh deployment delete -d oo-prod
+You will need to enter the password of the administrator that you set during the OMT installation.
+Remove persistent volume and claims
+If you created the 
+oo-pv.yaml
+ sample file as documented in the 
+Prepare persistent volumes and claims for OO
+ step, run the
+following command to delete the persistent volumes:
+kubectl delete -f <oo-pvc.yaml path>
+kubectl delete -f <oo-pv.yaml path>
+For example:
+kubectl delete -f oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/oo-pvc.yaml
+kubectl delete -f oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/oo-pv.yaml
+Clean the Amazon Elastic File System volumes
+1
+. 
+Copy and save the following script as 
+cleanOONFS.sh
+ on the bastion node:
+#!/bin/bash
+shopt -s extglob
+# Edit as needed
+MOUNT_POINT="/mnt/oo"
+NFS_PARENT="var/vols/itom/oo"
+rm -rf ${MOUNT_POINT}/${NFS_PARENT}/*/*
+ls -l ${MOUNT_POINT}/${NFS_PARENT}/*/
+2
+. 
+Run the following commands to clean up OO data in the NFS storage:
+chmod 755 cleanOONFS.sh
+sudo ./cleanOONFS.sh
+Clean the databases
+When you uninstall OO, the databases residing in the external PostgreSQL databases aren't removed. You need to remove the
+databases manually.
+Note
+: If you have used different names when creating the databases and database users for OO components,
+replace the default names below with the actual names you used. 
+
+
+SMAX 2022.11
+Page 
+961
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

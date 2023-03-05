@@ -1,0 +1,92 @@
+Download and upload container images for OO
+Before you deploy the suite, you need to download the required images from Docker Hub or other registries and then upload
+the images to your registry.
+Generate the image set
+Before downloading and uploading the images, you need to generate the image set with the following steps on the bastion
+node:
+1
+. 
+Run the following command to change directory:
+cd OMT_External_K8s_202x.xx-xxx/tools/generate-download
+2
+. 
+Run the 
+generate_download_bundle.sh
+ script together with the options required by your deployment to generate the
+download bundle zip:
+./generate_download_bundle.sh --chart /home/centos/oo_chart/oo-1.0.x+2022xx01.x/oo-helm-charts/charts/oo-1.0.x+2022xx01.x.tgz -o <org name> [-d <destination dir>]
+Where:
+<OO helm chart file>
+: The absolute path to the OO Helm chart archive. Example: 
+oo-1.0.x+2022xx01-xx/oo-helm-charts/chart
+s/oo-1.0.x+2022xx01.xx.tgz
+<org name>
+: The organization in the image registry that contains the images for installation. By default, it's 
+hpeswito
+m
+.
+<destination dir>
+: The directory path for the output .zip file. The default location is the current directory.
+The 
+generate_download_bundle.sh
+ compares the images needed by the suite with the images that already exist in the
+cluster, and generates a .zip file, 
+offline-download.zip
+. This 
+offline-download.zip
+ file enables you to download the
+required images from Docker Hub.
+For example:
+./generate_download_bundle.sh --chart oo-1.0.x+2022xx01-xx/oo-helm-charts/charts/oo-1.0.x+2022xx01.xx.tgz -o hpeswitom
+The 
+offline-download.zip
+ file gets placed under the current working directory. Use the "
+-d
+" option to specify a different directory.
+You receive the following messages indicating that you have successfully generated the 
+offline-download.zip
+ file:
+2022-10-12 10:22:00 INFO generate offline-download.zip from /home/centos/oo_chart/oo-1.0.x+2022xx01.x/oo-helm-charts/charts/oo-1.0.x+2022xx01.x.tgz
+...
+2022-10-12 10:23:40 INFO offline-download.zip is generated under <option specified at -d argument>
+ 
+Now that you generated the 
+offline-download.zip
+, unzip it to have access to 
+image-set.json
+ which will you'll need in the
+following steps:
+Note
+:
+ If you have already uploaded images to your registry, skip this step.
+
+
+Note
+: In case of any issues, run the following script with -h argument to display the command line options for
+the 
+generate_download_bundle
+ script:  
+./generate_download_bundle.sh -h
+
+
+Important
+:
+Make sure you have zip package installed on the Bastion host, otherwise 
+generate_download_bundle.sh
+ fails
+with the bellow error:
+[FATAL] 2022-08-11 17:16:11 : Command: "zip" not found. Please install "zip" tool first!
+If your Bastion host runs CentOS 7, and you don't have 
+zip
+ package installed, use 
+rpm
+ to install it from
+the CentOS official repository. 
+Example: 
+sudo rpm -ivh http://mirror.centos.org/centos/7/os/x86_64/Packages/zip-3.0-11.el7.x86_64.rpm
+SMAX 2022.11
+Page 
+925
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

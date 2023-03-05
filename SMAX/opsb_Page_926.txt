@@ -1,0 +1,96 @@
+sudo unzip offline-download.zip
+The image set file 
+image-set.json
+ is now located in the offline-download directory. This file contains a list of the required images
+and used when you run the Python script to transfer the images in the later step.
+Copy 
+image-set.json
+ file to the <
+OMT_External_K8s_202x.xx-xxx>/scripts/
+ directory.
+cd offline-download
+cp image-set.json <OMT_External_K8s_202x.xx-xxx>/scripts/
+Create ECR repositories
+Before pushing images to Amazon Elastic Container Registry (ECR), create a repository for each image. Make sure to save the 
+create_aws_repositories.py
+ script in the  
+OMT_External_K8s_202x.xx-xxx/scripts
+ directory on the bastion (see 
+Create ECR repositories
+).
+Note
+: If the script isn't present, copy and save the script below as 
+create_aws_repositories.py
+ to 
+OMT_External_K8s_
+202x.xx-xxx/scripts
+ directory on the bastion:
+import os
+import subprocess
+import time
+import sys
+import json
+import argparse
+import logging
+from collections import OrderedDict
+from subprocess import CalledProcessError
+logFile = os.path.dirname(os.path.realpath(__file__)) + '/create_aws_repositories.log'
+if os.path.exists(logFile):
+    os.remove(logFile)
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                    datefmt='%m-%d %H:%M', filename=logFile, filemode='w')
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+formatter = logging.Formatter('%(levelname)-8s %(message)s')
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
+def sh(cmd, mode='output'):
+    try:
+        if mode == 'output':
+            logging.debug("execute command: " + cmd + " with output returned")
+            return subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True)
+        else:
+            logging.debug("execute command: " + cmd + " with returnCode returned")
+            return subprocess.call(cmd, shell=True)
+    except CalledProcessError as e:
+        logging.error("execute returncode: " + str(e.cmd))
+        logging.error("execute returncode: " + str(e.returncode))
+        logging.error("execute output: " + str(e.output))
+        raise e
+    except Exception as e:
+        logging.error("execute shell exception: " + str(e))
+        raise e
+def loadImageSetFile(filePath):
+    if os.path.exists(filePath):
+        logging.debug("Json file " + filePath + " will be load.")
+        with open(filePath, 'r') as json_file:
+            data = json.load(json_file, object_pairs_hook=OrderedDict)
+            logging.debug(json.dumps(data, indent=2))
+            return data
+def generateImageList(imageSetPath):    
+    suiteImagesFileList = []
+    imageSetData = loadImageSetFile(imageSetPath)
+    for item in imageSetData["images"]:
+        if item['image'] is not None:
+            suiteImagesFileList.append(item['image'])
+    return list(dict.fromkeys(suiteImagesFileList))
+def createAWSrepository(region, orgName, imageName):
+    imageNameStr = imageName.split(":")
+    logging.info ("imageNameStr : " + imageNameStr[0])
+    repositoryName = orgName + "/" + imageNameStr[0]
+    rc = sh('aws ecr describe-repositories --region {}  --repository-names {} > /dev/null 2>&1'.format(region, repositoryName), 'call') 
+    if rc == 255 or rc == 254:
+        rc2 = sh('aws ecr create-repository --region {}  --repository-name {} >/dev/null 2>&1'.format(region, repositoryName), 'call')
+        if rc2 == 0:
+            logging.info ("create repository " + repositoryName + " done !!!")
+        else:
+            logging.error ("create repository " + repositoryName + " failed !!!")
+
+
+SMAX 2022.11
+Page 
+926
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

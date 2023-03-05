@@ -1,0 +1,120 @@
+Component
+Database
+owner
+Database names
+Service
+Management
+maas_admin
+maas_admin, maas_template, xservices_ems, xservices_mng, xservices_rms,
+and xie
+Suite
+Administration
+bo_db_user
+bo_ats, bo_user, bo_config, and bo_license
+Smart Analytics
+smarta
+smartadb
+IdM
+idm
+idm
+Autopass
+autopass
+autopassdb
+7
+. 
+On the 
+Suite Admin Settings
+ page, specify an initial password for the following users, and click 
+Next
+:
+suite-admin
+: the user account used to access the Suite Administration interface.
+bo-integration@dummy.com
+: This is an internal integration user of the suite system. This user is used for internal
+integration, such as for synchronizing data between tenants and the suite administration interface (which is named
+"Suite Administration").
+8
+. 
+A warning appears, asking you to confirm if you want to start the installation process. Click 
+YES
+. The installation progress
+appears on the screen. You can log on to the bastion node and run the 
+kubectl get pods --namespace <namespace>
+ command
+to check the installation progress in the backend. You can run 
+kubectl get ns
+ to find the namespace of the suite ("itsma-
+xxxxx"). 
+9
+. 
+The suite installer starts installing the suite services, followed by post-installation actions. When the installer has
+completed the post-installation actions, the 
+Next
+ button becomes active. Click 
+Next
+. A 
+Congratulations
+ screen is
+displayed. Click 
+Finish
+. The OMT Management Portal opens. 
+Note
+: If the screen indicates any of the post-installation
+actions fails, see 
+Post-installation actions failed
+.
+Create an Ingress for the suite
+You've 
+created an ALB
+ when creating Ingress for port 3000 and port 5443. Now you need to create an Ingress for port 443 to
+bind with the created ALB with these steps:
+1
+. 
+Save the content below as 
+suite-ingress.yaml
+:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "sma-ingress"
+  namespace: <itsma_namespace>
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: <application_loadbalancer_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=180
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+  labels:
+    app: sma-ingress
+spec:
+  tls:
+  - hosts:
+    - <external_access_host>
+  rules:
+    - host: 
+      http:
+        paths:
+          - backend:
+              service: 
+Note   
+All these passwords must contain 10 to 16 characters from all the following categories:
+At least one uppercase letter
+At least one lowercase letter
+At least one digit
+At least one special character from the following: 
+,:/._?&%=+-[]()
+
+
+SMAX 2022.11
+Page 
+871
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

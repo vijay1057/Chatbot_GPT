@@ -1,0 +1,68 @@
+            sudo sed -i '$a\'"$efs_server:/ $mount_point nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0" /etc/fstab
+            break
+        fi
+        sleep 15
+    done
+}
+make_volume() {
+    local volume=$1
+    cd $mount_point
+    local mounted_pv=${mount_point}${volume}
+    if [ ! -d $mounted_pv ]; then
+        sudo mkdir -p $mounted_pv
+    fi
+    chown -R $suite_user_uid:$suite_user_gid $mounted_pv
+    chmod g+w $mounted_pv
+    chmod g+s $mounted_pv
+    echo "Successfully created volume: ${volume}"
+}
+mountEFS
+make_volume /var/vols/itom/oo/oo_config_vol
+make_volume /var/vols/itom/oo/oo_data_vol
+make_volume /var/vols/itom/oo/oo_logs_vol
+make_volume /var/vols/itom/oo/oo_data_export_vol
+make_volume /var/vols/itom/oo/oo_ras_logs_vol
+echo "Finished creating required volumes"
+cd ${CURRENTDIR}
+3
+. 
+Run the following commands to configure the Amazon Elastic File System volumes for OO:
+chmod 755 configureOOEFS.sh
+sudo ./configureOOEFS.sh <EFS_DNS_NAME> <SYSTEM_USER_ID> <SYSTEM_GROUP_ID>
+Where:
+<EFS_DNS_NAME>
+ = the DNS name of the suite Amazon Elastic File System server
+You can obtain this information in two ways:
+1
+. 
+From the EC2 console
+Log in to the EC2 console
+Access Amazon Elastic File System service
+From the file system list, click the one that's used by the suite
+Obtain the DNS name from the bottom right side of the General panel - for example:
+2
+. 
+From any Persistent Volume used in the suite: 
+Example: 
+[user@host ~]# kubectl get pv | grep itsma | grep global
+itsma-bror7-global-volume                  1Mi        RWX            Retain           Bound    itsma-bror7/global-volume                  cdf-default                 2d
+[user@host ~]# kubectl get pv itsma-bror7-global-volume -o json | jq -r .spec.nfs.server
+fs-xxxxxxxxxxxxxxxxx.efs.us-east-2.amazonaws.com
+<SYSTEM_USER_ID>
+ and 
+<SYSTEM_GROUP_ID>
+ = user and group ID respectively, of the user that has read and write
+access in the Amazon Elastic File System server
+The user specified here will be the user that runs the container processes and read/write into the mounted
+volumes
+Unless otherwise specified when was the suite installed, the defaults for 
+UID
+ and 
+GID
+ are: 1999.  
+SMAX 2022.11
+Page 
+929
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

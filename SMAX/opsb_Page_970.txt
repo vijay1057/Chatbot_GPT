@@ -1,0 +1,81 @@
+Prepare persistent volumes for Audit service
+Audit service installation in Helm mode requires the following Persistent Volumes (PVs). PVs are relevant to Elastic File System
+(EFS) volumes.
+Component
+Persistent volume name
+Description
+ITOM Audit
+as-vault-volume-<Audit Namespace>
+PV for configuration
+ITOM Audit
+as-log-volume-<Audit Namespace>
+PV for logs
+If you want to create the required PVs from scratch, perform the following tasks:
+1
+. 
+Navigate to the audit install directory (
+audit-<version>) 
+that you created when downloading the audit Helm chart. For
+example:
+cd <audit_install-dir>/audit-2022.11
+2
+. 
+To find or verify the FQDN of the EFS server and the EFS directory path, run the following two commands.
+3
+. 
+To find the name of the global volume, run the following command:
+kubectl get pv | grep 'global'
+4
+. 
+To describe the PV, run this command:
+kubectl describe pv <pv name of global volume that you found from the previous step>
+Part of the output:
+...
+Source:
+    Type:      NFS (an NFS mount that lasts the lifetime of a pod)
+    Server:   aws-efs.example.net
+    Path:      /var/vols/itom/itsma/global-volume
+    ReadOnly:  false
+where,
+Server
+: Gives you the FQDN of the EFS server
+Path
+: The path information you will need to give in the 
+itom-audit
+-pv.yaml 
+file should start with the same path
+till the 
+itom
+ directory as shown by the 
+Path
+ attribute of the global volume, for example, 
+/var/vols/itom/itsma/global-
+volume
+.
+5
+. 
+Open the 
+itom-audit
+-pv.yaml 
+file with a text editor, give the FQDN of the EFS server and the EFS directory path that
+you provided during the creation of the EFS volumes, and then save the file.
+6
+. 
+Run the following command to create persistent volumes:
+kubectl create -f itom-audit-pv.yaml
+Output:
+persistentvolume/as-vault-volume-auditns created
+persistentvolume/as-log-volume-auditns created
+7
+. 
+Run the following command to verify the volume creation:
+kubectl get pv |grep audit
+Output:
+as-log-volume-auditns      5Gi     RWX      Retain     Available           itom-audit-sc     17s
+as-vault-volume-auditns    5Gi     RWX      Retain     Available           itom-audit-sc     17s
+SMAX 2022.11
+Page 
+970
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

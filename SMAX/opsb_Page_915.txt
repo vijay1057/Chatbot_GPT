@@ -1,0 +1,133 @@
+          - backend:
+              service:
+                name: "itom-ingress-controller-svc"
+                port: 
+                  number: <ingress_controller_port>
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<cms_namespace>
+: the unique namespace of the CMS deployment. For example, 
+cms-prod
+.
+<application_loadbalancer_name>
+: specify the name of the ALB to be created.
+<cms_external_port>: The port number for external access. Use the port number that you set
+in the 
+global.externalAccessPort
+ parameter in 
+my-values.yaml
+. For example, 
+443
+.
+<certificate_arn>
+: the
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+. See details in
+the
+ Prerequisites 
+section above.
+<external_access_host>
+: the FQDN you've allocated for CMS. For example, 
+www.example.com
+.
+<ingress_controller_port>
+: The port number of the Ingress controller for the CMS deployment. Use the port number that
+you set in the 
+itom-ingress-controller.nginx.service.httpsPort
+ parameter in your 
+my-values.yaml 
+file. For
+example, 
+30443
+.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f cms-ingress.yaml
+Now an ALB is created and the CMS Ingress for the external access port (for example, 443) is bound to this ALB automatically.
+Add SMAX IP to the Inbound rule
+You need to add the SMAX private IP to the Inbound rule in the security group that belongs to the CMS application load
+balancer.
+To do this, follow these steps:
+1
+. 
+Log in to the AWS Management Console.
+2
+. 
+Find the application load balancer automatically created for CMS.
+3
+. 
+Click the security group for 
+[k8s] Managed SecurityGroup for LoadBalancer
+.
+4
+. 
+Click 
+Inbound rules
+ > 
+Edit inbound rules
+, and then add the SMAX IP on the port (443, for example) used to access
+SMAX in 
+Source
+.
+Bind an FQDN with CMS ALB
+After you create and configure the ALB for CMS, you need to bind the FQDN that you have allocated for CMS with this ALB.
+See 
+Bind an FQDN with Application Load Balancer
+. 
+Now you can access CMS with the following URLs. Note that at the moment you can only open these URLs. To log in to CMS as
+suite-admin
+, you must perform the 
+Associate CMS SuperAdmin role
+ task.
+To access
+Enter the following URL in your web browser
+CMS landing page
+https://<
+EXTERNAL_ACCESS_HOST
+>:<PORT>/cms
+UCMDB Admin UI
+https://<
+EXTERNAL_ACCESS_HOST
+>:<PORT>/ucmdb-ui
+UCMDB JMX console
+https://<
+EXTERNAL_ACCESS_HOST
+>:<PORT>/jmx-console
+CMS UI
+https://<
+EXTERNAL_ACCESS_HOST
+>:<PORT>/ucmdb-browser
+Where, 
+<
+EXTERNAL_ACCESS_HOST
+>
+ is the one you bind with CMS ALB and 
+<PORT>
+ is the value that you specify for
+the 
+global.externalAccessPort
+ parameter in 
+my-values.yaml
+.
+Important 
+ The name must consist of 
+lower case
+ alphanumeric characters, '-', or '.', and must start
+and end with an alphanumeric character. 
+
+
+Note 
+It takes around 30 minutes to stabilize.
+
+
+SMAX 2022.11
+Page 
+915
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

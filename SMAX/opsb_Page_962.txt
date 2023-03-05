@@ -1,0 +1,28 @@
+1
+. 
+Connect to the Postgres server with the command below:
+psql -h <RDSEndpointAddress> -U postgres -d postgres
+2
+. 
+Delete all the OO databases by running the following commands:
+# drop databases
+drop database oocentraldb;
+drop database oouidb;
+drop database oocontrollerdb;
+drop database ooschedulerdb;
+drop database aplsdb;
+3
+. 
+Delete all the OO databases users by running the following commands:
+# drop users
+drop role oocentraldbuser;
+drop role oouidbuser;
+drop role oocontrollerdbuser;
+drop role ooschedulerdbuser;
+drop role aplsdbuser;
+SMAX 2022.11
+Page 
+962
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
