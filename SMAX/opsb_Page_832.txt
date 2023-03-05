@@ -1,0 +1,86 @@
+Worker Node instance Root
+Volume Size
+100 (the default value).
+Worker Node Group name
+Give a name to the worker nodes group.
+CapacityType
+Select 
+ON_DEMAND 
+for production as SPOT instance may be unstable. For R&D,
+we recommend you select 
+SPOT
+ instance due to its cost-saving abilities.
+Worker Node Number per
+Availability Zone
+Enter the minimum number of worker nodes per Availability Zone. For example,
+1
+.
+Desired capacity of Node
+Group ASG
+Enter the desired number of worker nodes by referring to the 
+Sizing guides
+.
+Maximum Worker Node
+Number per Availability
+Zone
+Enter the maximum number of worker nodes per Availability Zone. For example,
+3
+.
+Worker Node Instance Type
+Select an instance type from the drop-down list by referring to the 
+Sizing guides
+.
+KeyName
+Select your created EC2 key pair. For information about creating an EC2 key pair,
+see the AWS document 
+Create a key pair
+.
+NodeInstanceRole
+Enter the
+ NodeInstanceRole
+ value collected on the 
+Outputs
+ tab when the EKS
+cluster is created successfully (see the 
+Create an EKS cluster
+ section).
+Field
+Description
+5
+. 
+Click 
+Next
+ > 
+Next
+ > 
+Create stack
+.
+Related topics
+For information on EKS, see 
+Amazon EKS
+.
+For information on AMI, see 
+Amazon Machine Images
+.
+Tip: 
+ If you want to modify the 
+Worker Node Number per Availability Zone
+, 
+Desired capacity of
+Node Group ASG
+, and 
+Maximum Worker Node Number per Availability Zone 
+values
+ 
+after you have
+created the worker nodes, see the AWS document 
+Manual scaling
+.
+
+
+SMAX 2022.11
+Page 
+832
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

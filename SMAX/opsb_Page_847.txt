@@ -1,0 +1,186 @@
+If you want to request a new certificate, follow these steps:
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+All services
+ > 
+Security, Identity, & Compliance
+ > 
+Certificate Manager
+.
+3
+. 
+If the 
+firstrun
+ page is displayed, click 
+Get Started
+.
+4
+. 
+Click 
+Request a certificate
+.
+5
+. 
+Select 
+Request a public certificate
+ and click 
+Request a certificate
+.
+6
+. 
+Specify your target domain name. Use an asterisk (*) to request a wildcard certificate to protect several sites in the same
+domain. For example, 
+*.testsma-ng.org
+.
+7
+. 
+Click 
+Next
+.
+8
+. 
+Select 
+DNS validation
+ or 
+Email validation
+ according to your permission.
+9
+. 
+Click 
+Review
+ and then click 
+Confirm and request
+.
+10
+. 
+Click 
+Continue
+.
+11
+. 
+Finish the certificate validation based on the method you just selected. For more information,
+see 
+https://docs.aws.amazon.com/console/acm/validation
+.
+Import a certificate
+If you want to use a customized certificate, follow these steps:
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+All services
+ > 
+Security, Identity, & Compliance
+ > 
+Certificate Manager
+.
+3
+. 
+If the 
+firstrun
+ page is displayed, click 
+Get Started
+.
+4
+. 
+Click 
+Import a certificate
+.
+5
+. 
+For 
+Certificate body
+, paste the PEM-encoded certificate to import.
+6
+. 
+For 
+Certificate private key
+, paste the PEM-encoded unencrypted private key that matches the certificate's public
+key. 
+Important:
+ currently, services integrated with AWS Certificate Manager support only
+the 
+RSA_1024
+ and 
+RSA_2048
+ algorithms.
+7
+. 
+(Optional) For 
+Certificate chain
+, paste the PEM-encoded certificate chain.
+8
+. 
+Click 
+Next > Review and import > Import.
+Step 3: Create an Ingress for the installation portal
+Create an Ingress for port 3000 with these steps:
+1
+. 
+Save the content below as 
+installation-portal-ingress.yaml
+:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "install-ingress"
+  namespace: "core"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: <application_loadbalancer_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 3000}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+  labels:
+    app: install-ingress
+spec:
+  tls:
+  - hosts:
+    - <external_access_host>
+  rules:
+    - host:
+      http:
+        paths:
+          - backend:
+              service:
+                name: "frontend-ingress-controller-svc"
+                port: 
+                  number: 3000
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<application_loadbalancer_name>
+: the name of the ALB to be created.
+<certificate_arn>
+: the
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+.
+Important 
+ The name must consist of 
+lower case
+ alphanumeric characters, '-', or '.', and must start
+and end with an alphanumeric character. You need to use the same value when you create Ingress
+resources for port 5443 and port 443 later.
+
+
+SMAX 2022.11
+Page 
+847
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

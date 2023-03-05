@@ -1,0 +1,113 @@
+Check and download the container images (FIPS mode)
+On the 
+Download Images
+ page, the installer checks whether you have downloaded the required images. If not, the installer
+will guide you to download the missing images. 
+1
+. 
+On the 
+Download Images
+ page, click 
+Next
+ .
+2
+. 
+On the 
+Check Image Availability
+ page, wait until the image check finishes.
+3
+. 
+If all the images are available in the registry, click 
+NEXT
+ to continue the infrastructure deployment. 
+4
+. 
+If there are some images missing, go through the below sections to transfer the images.
+Generate the image set
+Before downloading and uploading the images, you need to generate the image set with the following steps:
+1
+. 
+Run the following command to change directory:
+cd /<OMT_External_K8s_202x.xx-xxx>/tools/generate-download
+2
+. 
+Run the following command to display the command-line options for the 
+generate_download_bundle
+ command: 
+./generate_download_bundle.sh -h
+3
+. 
+Run the 
+generate_download_bundle.sh
+ command together with the options required by your deployment. FIPS currently does
+not support DND, CGRO, SAM, sm-gateway, hence use -F X to only generate images for X features. For example: Replace
+all the placeholders with the actual values.
+./generate_download_bundle.sh -m <suite metadata> -F X -s itsma -v <suite version> -o hpeswitom -d <offline-download.zip location>
+For example:
+./generate_download_bundle.sh -m /directory/containing/suite-metadata.tgz -F X -s itsma -v 202x.xx -o hpeswitom -d /tmp
+The 
+offline-download.zip
+ will be placed in the 
+/tmp
+ directory as specified.
+4
+. 
+Run the following command to remove pg images from ECR
+sed -i-e'/pgha/,+1d'-e'$!N;/\n.*pgha/!P;D' image-set.json
+The image set file 
+image-set.json
+ is located in the current directory. This file contains a list of the required images and will be
+used when you run the Python script to transfer the suite images in the later step.
+Create ECR repositories
+Before pushing images to Amazon Elastic Container Registry (ECR), you need to create a repository for each image.
+To do this, copy and save the script below as 
+create_aws_repositories.py
+ to 
+OMT_External_K8s_202x.xx-xxx/scripts
+ on the bastion:
+import os
+import subprocess
+import time
+import sys
+import json
+import argparse
+import logging
+from collections import OrderedDict
+from subprocess import CalledProcessError
+logFile = os.path.dirname(os.path.realpath(__file__)) + '/create_aws_repositories.log'
+if os.path.exists(logFile):
+    os.remove(logFile)
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                    datefmt='%m-%d %H:%M', filename=logFile, filemode='w')
+console = logging.StreamHandler()
+Important
+ Note that if you have downloaded and uploaded images to the registry at the 
+Prepare
+ phase and
+the installation process takes 12 hours or longer, you may receive an error resembling 
+0 of 96 required images are av
+ailable in the registry
+ on the 
+Check Image Availability
+ page. See 
+0 of X required images are available in the
+registry
+ for more information.
+
+
+Note:
+ To follow the steps in this section, you must have installed the 
+zip
+ Linux command on the node where you
+run the 
+generate_download_bundle.sh
+ script.
+Note:
+ This example contains placeholder values.
+SMAX 2022.11
+Page 
+860
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,144 @@
+Parameter
+Description
+Required
+Default
+auditService.replicas
+The number of Audit service pods that need
+to be running
+No
+2
+auditService.database.user
+The external DB user.
+Yes
+Not
+defined
+auditService.database.jdbcUrl
+The external DB database JDBC URL.
+Yes
+Not
+defined
+auditService.hpa.maxReplicas
+Maximum number of pods for Horizontal Pod
+Autoscaling (HPA) to trigger.
+Optional
+10
+auditService.hpa.minReplicas
+Minimum number of pods for HPA to trigger.
+Optional
+2
+auditService.hpa.targetCPUUtilizationPercentage
+Threshold percentage for HPA.
+Optional
+75
+auditService.idm.publicIdmHost
+This is the hostname of the public ALB that's
+used to access the IdM service externally.
+Optional
+Not
+defined
+auditService.idm.publicIdmPort
+This is the port in the public ALB that's used
+to access the IdM service externally.
+Optional
+443
+auditService.idm.internalIdmHost
+This is the hostname of the internal load
+balancer (internal ALB ) that's used to
+access the IdM service.
+Yes
+Not
+defined
+auditService.idm.internalIdmPort
+This is the port in the internal load balancer
+(internal ALB ) that's used to access the
+IdM service.
+Optional
+443
+auditService.jmx.enable 
+Enables JMX support for Audit service. Use
+this only in the debugging mode.
+Optional
+false
+IDM user configuration
+Parameter
+Description
+Required
+Default
+auditService.idm.superUser
+The user that's used to call IDM APIs to create the
+required groups, roles, and permissions. The user on IDM
+has to have the admin/super user privilege.
+Yes
+Not
+defined
+auditService.idm.superUserOrgName
+The super user organization.
+Yes
+Not
+defined
+Audit gateway configuration
+Parameter
+Description
+Required
+Default
+auditGateway.deployment.publicIdmHost
+This is the hostname of the public ALB
+that's used to access the
+IdM service externally.
+Optional
+Not
+defined
+auditGateway.deployment.publicIdmPort
+This is the port in the public ALB that's
+used to access the IdM service externally.
+Optional
+443
+auditGateway.deployment.internalIdmHost
+This is the hostname of the internal load
+balancer (internal ALB ) that's used to
+access the IdM service.
+Yes
+Not
+defined
+auditGateway.deployment.internalIdmPort
+This is the port in the internal load
+balancer (internal ALB ) that's used to
+access the IdM service.
+Optional
+443
+auditGateway.deployment.auditTransportUser
+The external IDM transport username.
+Yes
+Not
+defined
+auditGateway.deployment.auditEndPoint
+The Audit service end point. For example: 
+https://audit-int.phoenix-hcmx.com:31050
+Yes
+Not
+defined
+auditGateway.hpa.maxReplicas
+Maximum number of pods for HPA to
+trigger.
+Optional
+10
+auditGateway.hpa.minReplicas
+Minimum number of pods for HPA to
+trigger.
+Optional
+2
+auditGateway.hpa.targetCPUUtilizationPercentage
+Threshold percentage for HPA.
+Optional
+75
+auditGateway.jmx.enable
+Enables JMX support for Audit gateway.
+Use this only in the debugging mode.
+Optional 
+false
+SMAX 2022.11
+Page 
+777
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

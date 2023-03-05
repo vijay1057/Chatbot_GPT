@@ -1,0 +1,38 @@
+The SMA suite leverages an 
+AWS Application Load Balancer (ALB)
+ to distribute the incoming traffic across different
+targets.
+You first need to create an 
+AWS Load Balancer Controller
+. It will automatically provision an ALB when you create an
+Ingress for port 3000. Later you will need to create Ingress resources for ports 443 and 5443 respectively, which are bound
+to the same ALB.
+These three ports are used for the following purposes:
+Port 3000: used to access the installation portal
+Port 5443: used to access the OMT management portal
+Port 443: used to access the suite
+Step 1: Create AWS Load Balancer Controller
+The AWS Load Balancer Controller helps to manage load balancers for a Kubernetes cluster. It will provision an ALB for you
+when you create an Ingress. You can create an AWS Load Balancer Controller by referring to the AWS guide:
+https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html
+.
+Step 2: Prepare a certificate for Application Load Balancer
+Before creating an ALB, you need to allocate an FQDN for the suite (for example, via AWS route 53 services by following
+the 
+AWS document
+) if you don't have one. You also need to prepare a certificate for the ALB using 
+one of
+ the following
+methods. Or else, unexpected errors might occur at later steps.
+Request a certificate
+Important
+ The Application Load Balancer (ALB) you will create will be provisioned automatically and managed
+by EKS. Please do not configure anything on the ALB manually.
+
+
+SMAX 2022.11
+Page 
+846
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

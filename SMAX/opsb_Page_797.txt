@@ -1,0 +1,145 @@
+Sizing considerations for EKS deployment
+The performance information provided here is based on tests in an out-of-box environment and for your reference only. Your
+implementation may consume more resources or require more resources to perform in an acceptable manner.
+SMA size definitions
+When you run the suite installer, you will need to select a suite size: 
+Small
+, 
+Medium
+, or 
+Large
+. Different suite sizes require
+different hardware configurations. 
+The following table describes the available suite sizes.
+Suite size
+Small
+Medium
+Large
+Notes
+Maximum
+number of
+concurrent
+users (including
+both ESS and IT
+agent users)
+100~400
+400~1000
+1000~3000
+Concurrent users are active users who have logged in to the system
+to perform operations and consume system resources. There are
+two types of concurrent users, service portal users and IT agent
+users. The workload for each user type is defined as:
+For service portal users: After logging in to the system, each
+portal user has about 30-minute session duration on the
+system and will create 1 ~ 2 orders or requests.
+For IT agent users: IT agent users have longer session
+duration, and each of them will be active for about 1.5 hours
+after logon and handle 4 ~ 6 tickets.
+Based on this workload assumption, the business operation
+throughput can be calculated. For example, for 400 service portal
+users, the number of newly created orders or requests will be 800
+~ 1600 per hour, while for 400 IT agent users, the number of
+handled tickets will be 1000 ~ 1600 per hour. If you have a much
+larger business operation throughput than the numbers provided
+here, consider adding more worker nodes.
+Notes:
+The sizing numbers are based on an assumption that there are only
+standard SMA tenant users. If you are using one or more Service
+Manager tenants or using both SMA and Service Manager tenants,
+user count conversion is needed.
+In general, 1 Service Manager user = 0.7 standard SMA users,
+because a Service Manager tenant consumes only Service Portal in
+the container when SMA is integrated with external Service
+Manager.
+For example, if an SMA deployment needs to support 400 Service
+Manager tenant concurrent users and 100 SMA tenant concurrent
+users, the actual user count is 400 X 0.7 + 100 = 380. So you need
+to select the Small size.
+Maximum
+number of
+records in Smart
+Analytics
+1 Million
+2 Million
+2~4 Million
+Hardware requirements for SMA (SMA only)
+The following table lists the minimum resources needed for setting up an SMA environment in the cloud with high availability.
+A standard deployment includes control plane nodes (owned by AWS), worker nodes, EFS as storage, and RDS as databases.
+Suite size
+(sizing
+profile)
+Concurrent
+users
+SMA control
+plane node
+SMA worker node
+SMA EFS
+SMA Database
+Type
+Volume
+Quantity
+Type
+Volume
+Type
+Storage
+Quantity
+Small
+100~400
+Owned by
+AWS
+m5.2xlarge
+Disk:
+100 GB
+3
+EFS
+Bursting mode
+with 500 GB
+storage
+AWS RDS
+db.m6g.2xlarge*
+200
+GB
+1
+Medium
+400~1000
+Owned by
+AWS
+m5.2xlarge
+Disk:
+100 GB
+4 ~
+5
+EFS
+Bursting mode
+with 2T storage
+AWS RDS
+db.m6g.4xlarge*
+300
+GB
+1
+Large
+1000~3000
+Owned by
+AWS
+m5.2xlarge
+Disk:
+100 GB
+6 ~
+9
+EFS
+Provisioned
+mode with >=
+128 MiB/s
+AWS RDS
+db.m6g.8xlarge*
+400
+GB
+1
+Note
+:
+SMAX 2022.11
+Page 
+797
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

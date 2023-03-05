@@ -1,0 +1,73 @@
+if [ -z ${AWS_SECRET_ACCESS_KEY} ]; then
+    #if [ -z ${AWS_SECRET_ACCESS_KEY} ]; then
+        echo "A non-empty value is required for aws secret access key."
+        echo " Please add a similar parameter and value '-k L5wXXXknSnxxxxxxxxxxxxgxBhXXXXXXXXXXXXX1axc'"
+        exit 1
+    #fi
+fi
+if [ -z ${AWS_REGION} ]; then
+    #if [ -z ${AWS_REGION} ]; then
+        echo "A non-empty value is required for aws region."
+        echo " Please add a similar parameter and value '-r us-west-2'"
+        exit 1
+    #fi
+fi
+# install awscli
+sudo yum install -y python3
+sudo rm /usr/bin/python
+sudo ln -s /usr/bin/python3 /usr/bin/python
+curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
+unzip -o awscli-bundle.zip
+sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
+sudo cp /usr/local/bin/aws /usr/bin/aws
+sudo ln -s /usr/local/bin/aws /usr/sbin/aws
+aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+aws configure set default.region ${AWS_REGION}
+# install packer
+PACKER_VERSION="1.4.3" #Update with your desired version
+curl -Os https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip 
+unzip -o packer_${PACKER_VERSION}_linux_amd64.zip -d /usr/bin
+pv=`/usr/bin/packer --version`
+echo "Your packer version is: $pv"
+make ${EKS_VERSION} 
+9
+. 
+Run the following command on the linux machine to copy the build-ami.sh file to build-ami-for-eks-workernode-master:: 
+cp build-ami.sh build-ami-for-eks-workernode-master/ 
+10
+. 
+Run the following commands on the linux machine to build ami: 
+cd build-ami-for-eks-workernode-master/
+chmod 755 build-ami.sh 
+./build-ami.sh -i <aws_access_key_id> -k <aws_secret_access_key> -r <region> -v <k8s_version> 
+Where:
+<
+aws_access_key_id
+>
+  
+<
+aws_secret_access_key
+>
+ : are the keys you get when you set up your AWS account. If you
+don't have access to Security Credentials, contact your AWS administrators to check it.
+<
+region
+>
+ is the region, such as 
+us-gov-west-1
+.
+<
+k8s_version
+>
+ is the kubenetes version, such as 
+1.22
+. See 
+Support matrix for EKS deployment
+.
+SMAX 2022.11
+Page 
+818
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

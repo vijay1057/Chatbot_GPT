@@ -1,0 +1,49 @@
+Suite
+administrator
+The person with this role has to ensure the success of the entire installation including verification and
+post-installation tasks. This person must have a good understanding of the entire installation process,
+request support from other appropriate roles as needed, and complete the installation once the
+environment is ready for installation.
+Cloud
+administrator
+The person with this role manages resources on AWS. This person grants permissions and changes
+roles from the AWS Management Console.
+IT
+administrator
+The person with this role prepares physical or virtual machines as requested by the Suite Admin.
+Network
+administrator
+The person with this role manages network-related configuration for your organization. This person
+needs to perform network configuration tasks as requested by the Suite Admin.
+Storage
+administrator
+The person with this role plans and deploys all types of storage for your organization. This person
+needs to set up NFS required by the suite.
+Database
+administrator
+The person with this role prepares and configures databases for your organization. This person needs
+to manage databases as requested by the Suite Admin.
+Kubernetes
+Cluster
+administrator
+The person with this role manages Kubernetes for your organization. This person needs to create and
+manage the Kubernetes cluster as requested by the Suite Admin.
+Server
+administrator
+The person with this role performs server-related tasks for your organization. This person needs to
+build and configure the bastion node.
+Role
+Responsibility
+External references
+AWS VPC architecture: 
+https://docs.aws.amazon.com/quickstart/latest/vpc/architecture.html
+AWS Global Infrastructure: 
+https://aws.amazon.com/about-aws/global-infrastructure/regions_az/
+Related topics
+EKS deployment FAQs
+SMAX 2022.11
+Page 
+794
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

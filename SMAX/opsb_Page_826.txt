@@ -1,0 +1,218 @@
+5
+. 
+Click 
+Next
+ > 
+Next
+ > 
+Create stack
+. Wait until the stack creation finishes and you can check the results on the 
+Outputs
+tab. The template creates three security groups automatically for the control plane node, worker nodes, and the bastion
+node. You will need these security groups later when 
+creating the EKS cluster
+, 
+launching working nodes
+, and 
+creating the
+bastion node
+/
+EFS
+/
+RDS
+ respectively.
+Option 2: Deploy in the existing VPC
+If you need to deploy the suite in an existing VPC and your IT policy allows private subnets and public subnets to be deployed
+in the same VPC, follow these steps:
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Tag your VPC so that the EKS cluster can discover it. For details, see the AWS document 
+VPC tagging requirements
+.
+3
+. 
+Go to 
+All services
+ > 
+Networking & Content Delivery
+ > 
+VPC
+.
+4
+. 
+Select the existing VPC and make sure 
+DNS resolution
+ and 
+DNS hostnames
+ are enabled.
+Actions
+ > 
+Edit DNS resolution
+, tick the 
+Enable
+ option, and click 
+Save changes.
+Actions
+ > 
+Edit DNS hostnames
+, tick the 
+Enable
+ option, and click 
+Save changes.
+5
+. 
+Go to 
+All services
+ > 
+Management & Governance
+ > 
+CloudFormation
+.
+6
+. 
+Click 
+Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > 
+Choose file
+ and select the 
+smax-network-witho
+ut-vpc.template
+ file under directory 
+../Cloud Deployment x.x.x/../byok/smax-cloudformation-aws
+ in the 
+cloud deployment package
+.
+7
+. 
+Click 
+Next
+ and populate the following fields.
+Stack name:
+ Give a name to this stack, such as 
+sma-network-without-vpc
+.
+VPC ID:
+ Select your target VPC from the drop-down list.
+VPC CIDR:
+ Enter the CIDR of the target VPC.
+EKS Cluster Name:
+ Give a name to your EKS cluster.
+Availability Zone
+: Select three availability zones from the drop-down list and each availability zone must be
+different, 
+such as us-east-1c,us-east-1b, us-east-1c
+.
+Public Subnet 1/2/3 CIDR:
+ Define a CIDR block for each public subnet. Public subnets will be used to deploy bastion
+instance, load balancer, and NAT Gateway.
+Private Subnet 1/2/3 CIDR:
+ Define a CIDR block for each private subnet. Private subnets will be used to deploy the
+EKS cluster, worker nodes, and EFS.
+Database Subnet 1/2 CIDR:
+ Define a CIDR block for each database subnet. Database subnets will be used to
+deploy RDS.
+8
+. 
+Click 
+Next
+ > 
+Next
+ > 
+Create stack
+. Wait until the stack creation finishes and you can check the results on the 
+Outputs
+tab. The template creates three security groups automatically for the control plane node, worker nodes, and the bastion
+node. You will need these security groups later when 
+creating the EKS cluster
+, 
+launching working nodes
+, and 
+creating the
+bastion node
+/
+EFS
+/
+RDS
+ respectively.
+Option 3: Deploy in existing VPC and subnets
+If you need to deploy the suite in an existing VPC and subnets and your IT policy doesn't allow private subnets and public
+subnets to be deployed in the same VPC, follow these steps to check if your VPC and subnets meet the network requirements.
+If not, you need to manually update the network settings as required. 
+Note:
+ As the application is mainly deployed inside the private VPC, this deployment is also called 
+private network
+deployment.
+Step 1. Check the requirements for the VPC and subnets
+1
+. 
+The private VPC should have a CIDR of at least /21. Make sure DNS resolution and DNS hostnames are enabled. To do
+this:
+a
+. 
+Log in to the AWS Management Console and switch to the selected region.
+b
+. 
+Go to 
+All services
+ > 
+Networking & Content Delivery
+ > 
+VPC.
+Actions
+ > 
+Edit DNS resolution
+, tick the 
+Enable
+ option, and click 
+Save changes.
+Actions
+ > 
+Edit DNS hostnames
+, tick the 
+Enable
+ option, and click 
+Save changes.
+List of VPC examples
+Item
+name
+Description
+Example
+public
+vpc
+The public VPC
+Existing VPC
+smax-
+vpc
+CIDR equal or larger than 21, in private
+network
+CIDR: 10.0.0.0/16, with 
+DNS resolution
+ and 
+DNS
+hostname
+ enabled
+2
+. 
+Subnets
+Three subnets should sit in at least two Availability Zones, better to sit in three Availability Zones, with a CIDR of at
+least /24, configured as private subnets. (No direct internet access).
+Two subnets sit in two Availability Zones, for the database.  
+List of subnet examples
+Note
+ You will need this EKS cluster name when you build the EKS cluster and launch worker nodes
+later.
+
+
+SMAX 2022.11
+Page 
+826
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

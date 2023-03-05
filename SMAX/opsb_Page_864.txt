@@ -1,0 +1,72 @@
+Check and download the container images
+On the 
+Download Images
+ page, the installer checks whether you have downloaded the required images. If not, the installer
+will guide you to download the missing images. 
+1
+. 
+On the 
+Download Images
+ page, click 
+Next
+.
+2
+. 
+On the 
+Check Image Availability
+ page, wait until the image check finishes.
+If all the images are available in the registry, click 
+NEXT
+ to continue the infrastructure deployment. 
+If there are some images missing, please refer to 
+Transfer images beforehand
+.
+Verify the upload status on the installation portal
+1
+. 
+In the installation portal, click 
+NEXT
+ to check the number of uploaded images:
+a
+. 
+Click 
+More
+ to check the name of the remaining images to be uploaded.
+b
+. 
+Click 
+Check Again
+ to see the updated details of the uploaded images.
+2
+. 
+When all the images are successfully uploaded, click 
+Next
+ to go to the 
+Prepare
+ page. After you click 
+Next
+, you can't go
+back to the 
+Download
+ page. 
+Important: 
+If you have downloaded and uploaded images to the registry at the 
+Prepare
+ phase and the
+installation process takes 12 hours or longer, you may receive an error resembling 
+0 of 96 required images are availabl
+e in the registry
+ on the 
+Check Image Availability
+ page. See 
+0 of X required images are available in the
+registry
+ for more information.
+
+
+SMAX 2022.11
+Page 
+864
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

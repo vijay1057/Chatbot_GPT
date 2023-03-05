@@ -1,0 +1,81 @@
+python3 create_aws_repositories.py -r <ecr_region> -o hpeswitom -i ./image-set.json
+OPTIONS:
+##Global option
+-h, --help           Displays this help message.
+##image-set.json option
+-i, --imageSetPath     The images set json file path. 
+-n, --imageName        The single image name.
+##Registry option
+-o, --orgName     The hostname of the repository that you want to pull suite images from.
+-r, --region      The code of the region in which the aws ECR locate, e.g us-west-2.
+-scan, --enableScan     Enable scanOnPush images on repository. otherwise, it will use the default value: MANUAL SCAN of basic rule.
+Where:
+<ecr_region>
+ is the region where you will put your ECR repositories and it can be different from the region you selected to place
+all the prepared AWS resources. 
+Transfer images
+1
+. 
+Copy the 
+smax-image-transfer.py
+ file from 
+Cloud Deployment 1.2.10/byok
+ to 
+OMT_External_K8s_202x.xx-xxx/scripts
+.
+2
+. 
+Run the following command to navigate to the correct directory:
+cd OMT_External_K8s_202x.xx-xxx/scripts
+3
+. 
+Run the following commands to retrieve the username and password of ECR:
+If you've installed AWS CLI version 1 when 
+configuring bastion
+:
+dockerLogin=$(aws ecr get-login --no-include-email --region <ecr_region>)
+ecrUserName=$(echo $dockerLogin | awk '{print $4}')
+ecrUserPassword=$(echo $dockerLogin | awk '{print $6}')
+ecrURL=$(echo $dockerLogin | awk '{print $7}' | awk -F/ '{print $3}')
+If you've installed AWS CLI version 2 when 
+configuring bastion
+:
+ecrUserName=AWS
+ecrUserPassword=$(aws ecr get-login-password)
+ecrURL=<aws_account_id>.dkr.ecr.<region>.amazonaws.com
+4
+. 
+Run this command to transfer images from the source registry to your own registry:
+python3 smax-image-transfer.py -su <source_username> -sp <source_password> -sr <source_registry> -so <source_orgname> -tu $ecrUserName -tp $ecrUserPassword -tr $ecrURL -to <target_orgname>
+In these commands,
+<ecr_region>
+ is the region where you specified to put your ECR repositories.
+<source_username>
+ is the user name of the source docker registry. Obtain it from 
+Micro Focus
+ if you use Docker Hub,
+or contact the admin of the registry.
+<source_password>
+ is the password of the source docker registry. Obtain it from 
+Micro Focus
+ if you use Docker Hub, or
+contact the admin of the registry.
+<source_registry>
+ is the URL of the source registry. For example, 
+registry.hub.docker.com
+.
+<source_orgname>
+ is the organization name in the source docker registry. It's 
+hpeswitom
+ if you use Docker Hub, or
+contact the admin of the registry.
+Note
+  Python 3 is required to run the Python script below. Make sure Python 3 is installed on the bastion. 
+
+
+SMAX 2022.11
+Page 
+862
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

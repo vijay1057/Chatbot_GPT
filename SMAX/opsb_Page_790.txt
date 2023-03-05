@@ -1,0 +1,37 @@
+Install on AWS (EKS)
+This section describes how to install the 
+Service Management Automation (SMA)
+ suite on Amazon Web Services (AWS)
+using Amazon Elastic Kubernetes Service (EKS).
+See the detailed 
+deployment checklist
+ for all the preparation, installation, and setup tasks to deploy SMA.
+Before you begin, ensure that you've reviewed the following planning topics for the EKS deployment:
+The overall 
+reference architecture
+.
+The 
+support matrix
+.
+The 
+suite size definitions
+ and the required 
+hardware resources
+.
+The most 
+frequently asked questions
+.
+External references
+The following videos introduce the detailed steps to install SMAX 2020.08 on AWS. They're for your reference.
+Install SMAX on AWS (Prepare Part1): 
+https://bcove.video/31M4wJD
+Install SMAX on AWS (Prepare Part2): 
+https://bcove.video/3hGMApg
+Install SMAX on AWS (Deploy): 
+https://bcove.video/3hYXirz
+SMAX 2022.11
+Page 
+790
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

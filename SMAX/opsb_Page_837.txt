@@ -1,0 +1,138 @@
+Configure EFS
+This section describes how to create AWS EFS to store OMT and SMA data on AWS, as well as how to configure EFS volumes. 
+Launch EFS
+Role
+Location
+Storage administrator
+AWS Management Console
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Go to 
+All services
+ > 
+Management & Governance
+ > 
+CloudFormation
+.
+3
+. 
+Click 
+Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > 
+Choose file
+ and select the 
+smax-efs.template
+file under 
+../Cloud Deployment x.x.x/../byok/smax-cloudformation-aws 
+in 
+the cloud deployment package
+.
+ 
+4
+. 
+Click 
+Next
+ and populate the following fields:
+Stack name:
+ Give a name to this stack, such as 
+sma-efs
+.
+VPC ID:
+ Select your created VPC from the drop-down list.
+Subnets for EFS:
+ Select the three private subnets created.
+EFS Performance Mode
+: Select the default value, 
+generalPurpose
+.
+EFS Name
+: Give a name to this EFS instance, such as 
+smax-efs
+.
+BastionSecurityGroup
+: Select the bastion's security group to allow the bastion node to communicate with EFS.
+ClusterSecurityGroup
+: Select the EKS cluster's security group (
+eks-cluster-sg-*
+) to allow the EKS cluster to
+communicate with EFS.
+5
+. 
+Click 
+Next
+ > 
+Next
+ > 
+Create stack
+. Wait until the stack creation has finished and you can check the results on the
+Outputs
+ tab. 
+Configure EFS volumes
+Role
+Location
+Storage administrator
+Bastion node
+1
+. 
+Log in to the bastion with the following command: 
+ssh -i <private_key_pem_file> centos@<bastion_ip>
+2
+. 
+Run the following command to download the required package:
+sudo yum install -y nfs-utils
+3
+. 
+Copy and save the following script as 
+configureEFS.sh
+:
+#!/bin/bash
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 "
+    exit 1
+fi
+CURRENTDIR=$(cd "$(dirname "$0")";pwd)
+suite_user_uid=$2
+suite_user_gid=$3
+mount_point=/mnt/efs
+efs_server=$1
+if [ ! -d $mount_point ]; then
+    sudo mkdir -p $mount_point
+fi
+export TIMEOUT_FOR_SERVICES=120
+#=== FUNCTION ==================================================
+Note
+ For information about EFS storage sizing and management, see 
+Manage persistent storage for the suite
+.
+
+
+Note
+ The storage throughput hugely impacts the SMA performance. Low throughput storage might cause
+slow response from the SMA system, or even an http error codes, such as 500, 504. Amazon EFS uses a credit
+system to determine when file systems can burst. When in burst mode, the file system will drive throughput at its
+baseline rate after running out of its credit. This throughput baseline rate is however too low for the SMA system
+to run effectively. You need to keep monitoring your EFS bursting credits balance with AWS CloudWatch. See 
+EFS
+Deployment FAQs
+.
+
+
+Tip
+  Take a note of the value of 
+FileServerDNSName
+. It will be used in later steps.
+
+
+SMAX 2022.11
+Page 
+837
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

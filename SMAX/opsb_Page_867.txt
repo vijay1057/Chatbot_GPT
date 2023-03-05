@@ -1,0 +1,124 @@
+Component
+Database
+owner
+Database names
+Service
+Management
+maas_admin
+maas_admin, maas_template, xservices_ems, xservices_mng, xservices_rms, xie,
+and scheduler
+Suite
+Administration
+bo_db_user
+bo_ats, bo_user, bo_config, and bo_license
+Smart Analytics
+smarta
+smartadb
+IdM
+idm
+idm
+Autopass
+autopass
+autopassdb
+DND
+hcm_admin
+dnd 
+SAM
+sam
+sam
+CGRO
+cgro
+cgro
+7
+. 
+If you selected the CGRO capability while configuring the deployment options, specify the Vertica database connection
+settings.
+Setting
+Description
+Vertica
+Hostname
+or comma
+separated
+Hosts
+ 
+Enter the fully-qualified domain name or IP address of the external Vertica database server.
+Vertica
+DB Name
+Enter the database name of the external Vertica database server.
+Vertica
+DB Port
+Name
+Enter the communications port of the external Vertica database server.
+Vertica
+DB User
+Name and
+Password
+Enter the user name and password of the DBA user account that you have already created. The suite
+will use the Vertica DBA accounts to create databases and database owners for the suite components.
+TLS 1.2
+If the Vertica database server requires TLS connections, perform the following steps:
+1
+. 
+Select the 
+TLS 1.2 
+option.
+2
+. 
+Upload your Vertica CA certificate file (in PEM format) to the suite. The CA certificate can be
+single-level or multi-level. If multi-level, the CA certificate must include the entire CA certificate
+chain (that is, the root CA certificate, second CA certificate, and third CA certificate). To upload
+the Vertica CA certificate file, either drag and drop the file from your local drive to the box or
+browse to the file.
+3
+. 
+Wait until the file upload is complete.
+4
+. 
+Select an SSL mode from the list:
+verify-ca
+: the client will verify that the server is trustworthy by checking the certificate
+chain up to a trusted certificate authority (CA).
+verify-full
+: the client will also verify that the server hostname matches the common name
+in the server certificate. The SSL connection will fail if the server certificate can't be verified.
+This mode is recommended in most security-sensitive environments.
+Notes
+:
+If you don't select the 
+TLS 1.2
+ option and have configured the Vertica database with SSL, the
+suite installation will go through but the CGRO functionality may not work.
+By deselecting the 
+TLS 1.2
+ option, you are disabling or bypassing security features, thereby
+exposing the system to increased security risks. By using the non-TLS option, you understand and
+agree to assume all associated risks and hold 
+OpenText
+ harmless for the same.
+Click 'Test' to validate the connection details. Based on the test result, you will see a corresponding message.
+8
+. 
+On the 
+Suite Admin Settings
+ page, specify an initial password for the following users, and click 
+Next
+:
+suite-admin
+: the user account used to access the Suite Administration interface.
+bo-integration@dummy.com
+: This is an internal integration user of the suite system. This user is used for internal
+integration, such as for synchronizing data between tenants and the suite administration interface (which is named
+"Suite Administration").
+Note   
+All these passwords must contain 10 to 16 characters from all the following categories:
+At least one uppercase letter
+At least one lowercase letter
+At least one digit
+
+
+SMAX 2022.11
+Page 
+867
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

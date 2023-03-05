@@ -1,0 +1,19 @@
+Install and configure Vertica database
+If you plan to install CGRO, you must install and configure the Vertica database as a prerequisite.  You can install by creating
+a Vertica cluster using a CloudFormation template and step-by-step wizards in MC, or manually deploy using an Amazon
+Machine Image (AMI) where Vertica is installed when you create your instances. 
+Eon Mode databases
+ are currently only
+supported on AWS resources. For the AWS-specific installation procedure, see 
+Deploy AWS Instances for your Vertica Database
+Cluster
+.
+For information on configuring Vertica database, see 
+Generating TLS Certificates and Keys
+.
+SMAX 2022.11
+Page 
+841
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

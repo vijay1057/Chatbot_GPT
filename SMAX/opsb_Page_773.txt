@@ -1,0 +1,46 @@
+Prepare persistent volumes for Audit
+Audit service installation in Helm mode requires the following Persistent Volumes (PVs). PVs are relevant to NFS volumes.
+Component
+Persistent volume name
+Description
+ITOM Audit
+as-vault-volume-<Audit Namespace>
+PV for configuration
+ITOM Audit
+as-log-volume-<Audit Namespace>
+PV for logs
+If you want to create the required PVs from scratch, perform the following tasks:
+1
+. 
+Navigate to the audit install directory 
+audit-<version> 
+that you created when downloading the audit Helm chart. For
+example:
+cd <audit_install-dir>/audit-2022.11
+2
+. 
+Open the 
+itom-audit
+-pv.yaml 
+file with a text editor, provide the FQDN of the NFS server and the NFS directory path that
+you provided during the creation of the NFS volumes, and then save the file.
+3
+. 
+Run the following command to create persistent volumes:
+kubectl create -f itom-audit-pv.yaml
+Output:
+persistentvolume/as-vault-volume-auditns created
+persistentvolume/as-log-volume-auditns created
+4
+. 
+Run the following command to verify the volume creation:
+kubectl get pv |grep audit
+Output:
+as-log-volume-auditns      5Gi     RWX      Retain     Available           itom-audit-sc     17s
+as-vault-volume-auditns    5Gi     RWX      Retain     Available           itom-audit-sc     17s
+SMAX 2022.11
+Page 
+773
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

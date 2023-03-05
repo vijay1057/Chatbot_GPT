@@ -1,0 +1,103 @@
+Deployment
+CPU
+RAM
+Disk Space
+All sizes
+4 cores
+2 GB (allocated for CMS Gateway only)
+100 GB
+If you plan to install the containerized CMS (as the next deployment on the same OMT), use the following guidelines to
+determine the additional hardware resources required for CMS.
+1. Determine the deployment size
+When installing CMS, you will need to select a deployment size: Small, Medium, or Large, so that the CMS deployment is
+automatically scaled according to the selected size. Use the following table to determine your deployment size.
+Deployment size 
+Small
+Medium
+Large
+Maximum number of CIs and Relationships in CMDB
+10 million
+30 million
+200 million
+2. Determine the hardware resource requirements
+The following table lists the minimum resources needed for setting up a CMS environment in the cloud with high
+availability.
+A standard deployment includes control plane nodes (owned by AWS), worker nodes, EFS as storage, and RDS as
+databases.
+Suite size (sizing
+profile)
+CMS control plane
+node
+CMS worker node
+CMS EFS
+CMS Database
+Type
+Volume
+Quantity
+Type
+Volume
+Type
+Storage
+Quantity
+Small
+Owned by AWS
+m5.2xlarge
+Disk:
+100 GB
+2
+EFS
+200
+GB    
+AWS RDS
+db.m5.xlarge *
+200 GB
+1
+Medium
+Owned by AWS
+m5.2xlarge
+Disk:
+100 GB
+3
+EFS
+300
+GB    
+AWS RDS
+db.m5.2xlarge *
+400 GB
+1
+Large
+Owned by AWS
+m5.2xlarge
+Disk:
+100 GB
+4
+EFS
+400 GB
+AWS RDS
+db.m5.4xlarge *
+800 GB
+(SSD)
+1
+The sizes are for your reference only. They may vary depending on your ticket size, user access rate, integrations, and so
+on.
+Plan resources for OData integration 
+Before starting to use the OData integration, please read 
+Sizing guide for OData integration
+ to determine if you need
+additional Datahub pods, read-only platform pods, and additional worker nodes.
+Note
+ For EBS backend storage, including EBS backend storage used for OS storage and overlay2, and EBS
+backend RDS services, you may switch to IO1 instead of GP2 for better performance. For more details,
+see 
+EBS storage
+ and 
+RDS Storage
+.
+
+
+SMAX 2022.11
+Page 
+801
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

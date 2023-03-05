@@ -1,0 +1,73 @@
+Item name
+Inbound Protocol
+Port range
+Source
+Description
+smax-RDS-Security-Group
+TCP
+5432
+smax-WorkerNode-Security-Group*
+Worker node
+TCP
+5432
+smax-BastionSecurityGroup
+Bastion node
+4
+. 
+Two or three subnets should sit in at least two Availability Zones, better to sit in three Availability Zones, configured as
+public subnets with the following components configured or other components enabling the provisioning of internet-facing
+load balancers in the subnets (usually on a different VPC peered with the private VPC).
+NAT gateway
+a
+. 
+Open the Amazon VPC console at 
+https://console.aws.amazon.com/vpc/home
+.
+b
+. 
+Click 
+NAT Gateways > Create NAT Gateway
+.
+c
+. 
+Select a public subnet in the peered public VPC.
+d
+. 
+Associate Elastic IP.
+e
+. 
+Click 
+Create a NAT Gateway
+.
+f
+. 
+After creating the NAT gateway, add a NAT gateway route entry in the route table associated with the private
+subnets.
+Internet gateway
+a
+. 
+On the public VPC, go to the 
+Internet Gateway
+ console
+b
+. 
+Click 
+Create internet gateway
+ if there is no Internet gateway attached to it. The system automatically creates
+two route tables after the VPC is created successfully. One of the tables automatically attaches to the Internet
+gateway. You need to name the two route tables respectively. For example, name one route table 
+example-
+sma-public-subnet-routetable
+ and it attaches to the Internet gateway, and name another route table
+example-sma-private-subnet-routetable
+.  
+Step 2. Prepare the other network requirements listed in the EKS guide
+See the details at 
+https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html
+.
+SMAX 2022.11
+Page 
+828
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

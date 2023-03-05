@@ -1,0 +1,101 @@
+<external_access_host>
+: the FQDN you've allocated for the suite. For example, 
+www.example.com
+.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f installation-portal-ingress.yaml
+Now an ALB is created and the Ingress for port 3000 is bound to this ALB automatically.
+Bind FQDN with Application Load Balancer
+Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. In this installation
+procedure example, Amazon Route 53 is used to bind an FQDN (<external_access_host>) such as www.example.com to
+ALB so that end users can easily access the suite from web browsers.
+1
+. 
+Save the following file as 
+createRecord.json
+:
+{
+    "Comment": "Create Alias resource record sets in Route 53",
+    "Changes": [
+        {
+            "Action": "CREATE",
+            "ResourceRecordSet": {
+                "Name": "{{resource_record_set_name}}",
+                "Type": "A",
+                "AliasTarget": {
+                    "HostedZoneId": "{{alb_hosted_zone_id}}",
+                    "DNSName": "{{alb_dns_name}}",
+                    "EvaluateTargetHealth": false
+                }
+            }
+        }
+    ]
+}
+2
+. 
+Run the following commands to specify your own values for the alias record set:
+sed -i -e s@{{resource_record_set_name}}@${EXTERNAL_ACCESS_HOST}@g ./createRecord.json
+sed -i -e s@{{alb_dns_name}}@${ALB_DNS}@g ./createRecord.json
+sed -i -e s@{{alb_hosted_zone_id}}@${ALB_HOSTED_ZONE_ID}@g ./createRecord.json
+where:
+{EXTERNAL_ACCESS_HOST}
+ is the FQDN prepared for the Application Load Balancer.
+{ALB_DNS}
+ is the DNS name of the created Application Load Balancer. You can find the DNS name of the ALB on
+its 
+Description
+ tab.
+{ALB_HOSTED_ZONE_ID}
+ is the hosted zone ID of the created ALB. For example, 
+Z1H1FL5HABSF5
+. You can find
+your ALB's hosted zone ID by running the following command. Replace 
+{ALB_DNS_Name}
+ with your actual value.
+alb_hosted_zone_id: aws elbv2 describe-load-balancers --query "LoadBalancers[?DNSName==\`${ALB_DNS_Name}\`].CanonicalHostedZoneId" --output text
+3
+. 
+Update the AWS CLI by following the steps described in the 
+AWS CLI documentation
+.
+4
+. 
+Run the command below to create the Route 53 record set:
+route53_hosted_zone_id=$(aws route53 list-hosted-zones-by-name --query "HostedZones[?Name==\`${domain_name}.\`].Id" --output text | sed s@/hostedzone/@@g)
+aws route53 change-resource-record-sets --hosted-zone-id ${route53_hosted_zone_id} --change-batch file://./createRecord.json
+Replace 
+${domain_name}
+ with your actual value.
+Now, you can access 
+https://<external_access_host>:3000
+ to start the installation. 
+External references
+For more information about Application Load Balancers,
+see 
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+.
+For more details on AWS Load Balancer Controller, see 
+https://docs.aws.amazon.com/eks/latest/userguide/aws-load-
+balancer-controller.html
+.
+If you experience common Application Load Balancer issues,
+see 
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+.
+For more details on how to create alias record set in Route 53, see 
+https://aws.amazon.com/premiumsupport/knowledge-
+center/alias-resource-record-set-route53-cli/
+.
+Note  
+Amazon Route 53 isn't the only option. If your domain name isn't provided by Route 53, you may
+contact your domain name provider to bind the domain name to the Application Load Balancer DNS name.
+
+
+SMAX 2022.11
+Page 
+848
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

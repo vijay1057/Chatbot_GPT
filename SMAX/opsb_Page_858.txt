@@ -1,0 +1,178 @@
+Select the deployment configuration
+Log in to the installation portal
+1
+. 
+Copy the installation portal URL to a supported browser. The URL uses the following format: 
+https://<external_access_host>:30
+00
+.
+2
+. 
+Log in to the installation portal with the administrator credentials that you created in the bootstrap installation:
+Username: 
+admin
+Password: the password you set up when running the bootstrap installation command
+3
+. 
+Click 
+LOGIN
+.
+If you exit the installation portal at any point, the installation process pauses. The next time you log in to the portal, the
+installation process resumes from the point where you stopped earlier.
+Select the deployment configuration
+In the installation portal, configure the deployment.
+1
+. 
+Select the suite metadata package on your local machine, and then click 
+UPLOAD
+.
+2
+. 
+Choose the 
+2022.11 
+version, and then click 
+NEXT
+.
+3
+. 
+On the 
+End User License Agreement
+ page, accept the license agreements and data policy.
+4
+. 
+Click 
+Next
+. The 
+Capabilities
+ page opens.
+Option
+Description
+Notes
+Service
+Management
+Automation
+(SMA)
+Services of the SMA suite.
+Mandatory for all
+customers
+Service
+Manager
+Portal
+Service
+(SMPS)
+Services required to integrate an external Service Manager system with
+SMA Service Portal.
+Mandatory for SMA-
+SM customers
+Optional for SMAX
+customers who
+want to additionally
+deploy one or more
+Service Manager
+tenants in their
+environment
+Design and
+Deploy
+(DND)
+SMAX Cloud Management offers the DND capability. The DND capability
+enables customers to make new cloud service offerings based on
+published service designs available to consumers. 
+Before enabling and using the Design and Deploy functionality, you
+should install and enable Operations Orchestration(OO) Containerized
+capability. For more information, see 
+Install OO on AWS(EKS)
+ and 
+Enable
+OO Containerized in Suite Administration
+.
+Optional for SMAX
+customers
+Not applicable to
+SMA-SM customers
+Cost
+Governance
+and
+Resource
+Optimization
+(CGRO)
+CGRO enables you to optimize your cloud spending and simplify
+configuration with various cloud providers. With CGRO, you can review
+your public cloud costs to get a clearer understanding of your activity
+and usage of public cloud resources.
+Software
+Asset
+Management
+(SAM)
+With the hardware and software data discovered by UD and license data
+retrieved from SMAX, the new SAM capability enables you to calculate
+and analyze license compliance for the software applications that you
+are using in your organization. This will reduce the risk of noncompliance
+and improve the visibility into your financial and operational decisions.
+5
+. 
+The 
+Database
+ page opens. Select one of the following options to configure a database for the OMT IdM. Make sure the
+database is empty before you begin the installation.
+Out-of-the-box PostgreSQL:
+ Select this option if you want to use an embedded database.
+PostgreSQL:
+ Select this option if you want to connect to an 
+external PostgreSQL database for the OMT IdM
+. Provide
+the following details:
+a
+. 
+If your database requires Secure Sockets Layer (SSL), select 
+Use SSL connection
+, and then click 
+Upload
+ to
+upload your database server certificate in .pem format.
+b
+. 
+Enter the 
+endpoint of the created RDS
+ as 
+Database Host
+ and 
+5432
+ as 
+Port
+.
+c
+. 
+Enter 
+cdfidmdb 
+as the 
+Database Name
+ and 
+the admin user name and password
+ you specified when creating RDS
+instance as 
+User
+ and 
+Password
+.
+d
+. 
+Then, select the 
+If no database is found, create a database automatically
+ option. The installer will
+automatically create an empty database based on the database information you provide.
+6
+. 
+Click 
+Next
+. The 
+Deployment Size
+ page opens.
+Note
+: CGRO has a dependency on DND. If you select CGRO, you
+must select DND as well.
+SMAX 2022.11
+Page 
+858
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

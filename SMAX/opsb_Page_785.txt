@@ -1,0 +1,42 @@
+./downloadimages.sh –h
+The command also has a 
+-p
+ option to provide your password. The 
+-p
+  option doesn't support single quotes (that is, don't
+include single quotes in the password).
+Transfer the images to the control plane node
+If you downloaded the images to a server other than the first control plane node, transfer the images to a directory on the first
+control plane node. By default, the images should be placed under the  
+/var/opt/cdf/offline
+ directory.
+Note
+By selecting the -p option, you are disabling or bypassing security features, thereby exposing the system to
+increased security risks. By using this option, you understand and agree to assume all associated risks and hold
+Micro Focus harmless for the same.
+Micro Focus encourages you to use some other password options, which aren't provided by Micro Focus. By
+implementing the -p option, you may expose the system to increased security risks. You understand and agree to
+assume all associated risks and hold Micro Focus harmless for the same. It remains at all times your sole
+responsibility to assess its own regulatory and business requirements. Micro Focus doesn't represent or warrant
+that its products comply with any specific legal or regulatory standards applicable to you in conducting your
+business.
+
+
+Note
+:
+The images will be uploaded by the 
+uploadimages.sh
+ script later. The image upload requires up to 2 times of the
+image size space in the target image directory. For example, if you choose to use the default 
+/var/opt/cdf/offline
+directory, ensure that you have 2 times of the OPTIC Management Toolkit (OMT) and suite image size space under
+/var/opt/cdf/offline
+ directory of the control plane node
+
+
+SMAX 2022.11
+Page 
+785
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

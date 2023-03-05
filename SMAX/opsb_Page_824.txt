@@ -1,0 +1,22 @@
+Prepare VPC
+Role
+Location
+IT / Network administrator
+AWS Management Console
+To deploy OMT and the suite on AWS with EKS, you must prepare a Virtual Private Cloud (VPC) first and place the other
+resources in this prepared VPC.
+There are three options as described below.
+The first two options are for the scenario where your IT policy allows you to deploy public subnets with private subnets in a
+single VPC and you need to follow the architecture mentioned in 
+Before you begin
+.
+The third option is for the scenarios where your IT policy doesn't allow public subnets to work with private subnets in a single
+VPC and you have the flexibility to deploy on different cloud deployments on AWS. However, you need to work with your
+IT/Network administrator to figure out the detailed solutions for this deployment. The below diagram is one example for your
+reference.
+SMAX 2022.11
+Page 
+824
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

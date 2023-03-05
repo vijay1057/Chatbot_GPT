@@ -1,0 +1,182 @@
+DND
+deployment
+size
+Small
+Medium
+Large
+Notes
+Number of
+cloud
+subscriptions
+per hour
+30
+60
+-
+The numbers in the table are meant to be approximate for a given deployment
+environment, but not exact. For example, a Small environment may only create 5
+offerings, or 10 per category, although the table lists a representative number of
+20. In your anticipated environment, you may find the expected numbers of
+tenants to span multiple profile definitions (for example, the number of active
+subscriptions may fit the Small deployment, while the number of offerings may fit
+the Medium profile). In such a case, select the profile that seems most
+representative of your anticipated environment, with the number of total
+subscriptions of particular importance. The sizing configuration is based on the
+results of in-house performance testing against these deployment environments.
+In general, you should find the need to tune the configuration parameters after
+the installation, as the components can be scaled manually as needed, to support
+the size of the environment you have specified.
+Number of
+active
+subscriptions
+1,000
+7,500
+-
+Number of
+canceled
+subscriptions
+10,000
+50,000
+-
+Number of
+offerings per
+category
+20
+20
+-
+Total
+number of
+designs
+35
+75
+-
+Before enabling and using the Design and Deploy functionality, you should install and enable Operations Orchestration(OO)
+Containerized capability. 
+Use the table below to plan the additional hardware resources for each individual DND instance. The additional hardware
+resources for DND are the total of the additional hardware resources for all DND instances.
+For OO, choose one of the following options for setting up a database:
+To set up OO with a common database, you can choose to connect OO to the same database instance as the rest of the
+suite components. For hardware requirements, see the table below 
+Standard hardware requirements with a
+common database.
+Important:
+On any AWS RDS instance type, the default value of the 
+max_connections
+ parameter is calculated based on
+formula: 
+LEAST({DBInstanceClassMemory/9531392}, 5000)
+. For details, see Amazon documentation 
+here
+.
+To set the 
+max_connections
+ parameter of the RDS instance of OO to the values specified in the following table, you
+need to edit the parameter group associated with the RDS instance and, if the RDS instance was created before the
+parameter change, restart the RDS instance.
+To determine standard hardware requirements with a dedicated database for OO, see 
+Additional hardware
+requirements for OO Containerized with a dedicated database
+ section.
+To deploy OO for 5-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+To deploy OO for 20-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+ 
+Standard hardware requirements with a common database
+Suite size
+(sizing
+profile)
+Number of
+OO
+tenants
+SMA
+control
+plane node
+SMA worker node
+EFS
+DND & OO RDS
+Database - PostgreSQL
+Type
+Volume
+Quantity
+Type
+Volume
+Type
+Storage
+Quantity
+max_connections
+Small
+1 to 5
+Owned by
+AWS
+m5.2xlarge
+Disk:
+100 GB
+3 ~
+4
+EFS
+Bursting
+mode with 1
+TB storage
+AWS RDS
+db.m6g.4xlarge*
+1
+TB
+~
+5.2
+TB
+1
+3400
+#
+Medium
+6 to 20
+Owned by
+AWS
+m5.2xlarge
+Disk:
+100 GB
+9 ~
+10
+EFS
+Bursting
+mode with
+2.5 TB
+storage
+AWS RDS
+db.m6g.8xlarge*
+1.6
+TB
+~
+5.8
+TB
+1
+7710
+##
+#The max_connections value for SMA and DND database should be equal to or greater than 3400.
+##The max_connections value for SMA and DND database should be equal to or greater than 7710 or more.
+*
+ For EBS backend storage, including EBS backend storage used for OS storage and overlay2, and EBS backend RDS services,
+you may switch to IO1 instead of GP2 for better performance. For more details, see 
+EBS storage
+ and 
+RDS Storage
+. 
+Important: 
+When you are installing DND functionality on an existing setup, you need to reconfigure the
+hardware resources as per the recommendations given in the below tables to accommodate the required
+additional resources. 
+Note
+: For EFS and Postgres HA configuration, follow the recommendations provided in vendor-specific
+
+
+SMAX 2022.11
+Page 
+799
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

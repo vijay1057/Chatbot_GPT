@@ -1,0 +1,99 @@
+                "iam:DeletePolicy",
+                "iam:DetachRolePolicy",
+                "iam:DeleteRolePolicy",
+                "iam:ListServerCertificates",
+                "iam:ListSAMLProviders",
+                "iam:ListOpenIDConnectProviders",
+                "iam:GetOpenIDConnectProvider",
+                "iam:CreateOpenIDConnectProvider",
+                "iam:TagOpenIDConnectProvider"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "42",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:role/EksSvcRole-*",
+                "arn:aws:iam::*:role/*NodeInstanceRole-*",
+                "arn:aws:iam::*:role/BastionRole-*",
+                "arn:aws:iam::*:role/service-role/*"
+            ]
+        },
+        {
+            "Sid": "5",
+            "Effect": "Allow",
+            "Action": [
+                "s3:CreateBucket",
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:ListAllMyBuckets",
+                "s3:ListBucket",
+                "s3:ListBucketVersions",
+                "s3:DeleteObject"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "6",
+            "Effect": "Allow",
+            "Action": [
+                "sns:ListTopics",
+                "sns:ListSubscriptions"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "7",
+            "Effect": "Allow",
+            "Action": [
+                "rds:CreateDBCluster",
+                "rds:CreateDBInstance",
+                "rds:CreateDBSubnetGroup",
+                "rds:CreateDBParameterGroup",
+                "rds:CreateDBClusterSnapshot",
+                "rds:CreateDBSnapshot",
+                "rds:DeleteDBSnapshot",
+                "rds:DeleteDBCluster",
+                "rds:DeleteDBInstance",
+                "rds:DeleteDBSubnetGroup",
+                "rds:DescribeDBClusters",
+                "rds:DescribeDBInstances",
+                "rds:DescribeDBSecurityGroups",
+                "rds:DescribeDBSnapshots",
+                "rds:DescribeDBSubnetGroups",
+                "rds:StartDBCluster",
+                "rds:StartDBInstance",
+                "rds:StopDBCluster",
+                "rds:StopDBInstance",
+                "rds:AddTagsToResource",
+                "rds:DescribeDBClusterSnapshots",
+                "rds:ListTagsForResource",
+                "rds:CopyDBSnapshot",
+                "rds:CopyDBClusterSnapshot",
+                "rds:RestoreDBInstanceFromDBSnapshot",
+                "rds:RestoreDBClusterFromSnapshot",
+                "rds:RestoreDBInstanceToPointInTime",
+                "rds:DescribeGlobalClusters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "8",
+            "Effect": "Allow",
+            "Action": [
+                "eks:AssociateIdentityProviderConfig",
+                "eks:DisassociateIdentityProviderConfig",
+                "eks:ListIdentityProviderConfigs",
+                "eks:CreateCluster",
+                "eks:DeleteCluster",
+                "eks:CreateNodegroup",
+SMAX 2022.11
+Page 
+814
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

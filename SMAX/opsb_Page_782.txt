@@ -1,0 +1,17 @@
+Install Audit collector
+Audit collector is an application built using Spring boot to help collect the audits from the file system and pass it to Audit
+service via REST. Audit collector mainly takes care of audits when there is failure in the REST path between Audit producer and
+Audit service. Audit collector is deployed using Helm charts.
+There are three main components that are involved with the Audit collector: IdM, Audit producer ( which includes the Audit
+client ), and Audit service.
+The Audit client, which is part of the Audit producer, creates the audits in the file system when the Audit producer fails to
+reach the Audit service through REST. Then the Audit collector uses the integration user to push the audit to the Audit service
+through REST whenever Audit service is available over REST. Here Audit collector gets the Authentication token for the
+Integration user from IdM.
+This section describes the steps to install the Audit collector.
+SMAX 2022.11
+Page 
+782
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

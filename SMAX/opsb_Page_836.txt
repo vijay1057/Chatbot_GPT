@@ -1,0 +1,30 @@
+Your decision? 5
+Do you really want to set this key to ultimate trust? (y/N) y
+pub  2048R/6DAF72B7  created: 2020-03-28  expires: 2030-03-28  usage: SCEA
+                     trust: ultimate      validity: unknown
+sub  2048g/BDDD8F31  created: 2020-03-28  expires: 2030-03-28  usage: E
+[ unknown] (1). public_key_Micro_Focus_Group_Limited_RSA-2048-2.pub.asc
+Please note that the shown key validity is not necessarily correct
+unless you restart the program.
+gpg> quit
+4
+. 
+Run the following command to unzip the 
+OMT_External_K8s_202x.xx-xxx.zip
+ file:
+unzip OMT_External_K8s_202x.xx-xxx.zip
+5
+. 
+Run the following command on the bastion node to copy the 
+jq
+ file in the 
+bin
+ folder of the installation package to 
+/usr/bin/:
+cp OMT_External_K8s_202x.xx-xxx/bin/jq /usr/bin/
+SMAX 2022.11
+Page 
+836
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

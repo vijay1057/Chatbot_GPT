@@ -1,0 +1,116 @@
+Configure values.yaml for Audit
+You need to create a custom
+ values.yaml
+ file and configure the parameters for an Audit deployment.
+Create and configure values.yaml file
+You can create and configure the 
+values.yaml
+ file based on the sample file (
+Example values.yaml
+) provided in the Audit
+charts package.
+1
+. 
+Create a copy of the sample file in the Install directory, for example, 
+audit20xx.xx
+.
+cp audit-helm-chart/audit/samples/values.yaml .
+2
+. 
+Edit the 
+values.yaml
+ file using any editor and give the required values in the file.
+Configurable parameters
+The 
+values.yaml
+ file contains configurable parameters that are categorized into the following two types:
+Global parameters: These parameters help define a setting that affects all deployed services. These parameters reside
+under the 
+global 
+helm key index. For example, 
+global.idm. idmSvcHost
+.
+Component specific parameters: These are parameters that target a specified component/sub-chart. In
+the values.yaml file, you can find these parameters under the block of values whose name corresponds to the sub-
+chart/component name. 
+For example,
+auditService:
+database:
+Access parameters
+Parameter
+Description
+Required
+Default
+global.externalAccessHost
+This is the FQDN you will use for external
+access to Audit services.
+Yes
+Not defined
+global.externalAccessPort
+This is the port you will use for external
+access to Audit services.
+Yes
+Not defined
+global.nginx.httpsPort
+This is the HTTPS port used by NGINX
+controller.
+Yes
+same
+as 
+global.externalAccessPort
+Docker registry settings
+Parameter
+Description
+Required
+Default
+global.docker.registry
+The docker registry from where the required images
+will get pulled from.
+Yes
+localhost:5000
+global.docker.orgName
+The docker organization name.
+Yes
+hpeswitom
+global.docker.imagePullSecret
+The K8s secret that contains the credentials
+required to pull images from the specified docker
+registry.
+Yes
+registrypullsecret
+global.docker.imagePullPolicy
+The image pull policy.
+Optional
+IfNotPresent
+External IDM configuration
+Note : Only https is supported for IDM communication
+Parameter
+Description
+Required
+Default
+global.idm.idmSvcHost
+The external IDM service hostname
+Yes
+Not defined
+global.idm.idmSvcPort
+The external IDM service port
+Yes
+443
+Vault init configuration
+Parameter
+Description
+Required
+Default
+global.vaultInit.certname
+The name used to generate a certificate within the vault init. Give the
+FQDN of the master node.
+Yes
+Not
+defined
+Core audit service configuration
+SMAX 2022.11
+Page 
+776
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

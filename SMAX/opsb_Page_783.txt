@@ -1,0 +1,45 @@
+Download the Audit collector Helm chart (on-premises)
+To download the Audit Helm chart to the control plane node, follow these steps:
+1
+. 
+Log in to the control plane node and navigate to the directory where you want to download and install Audit collector, for
+example, 
+auditcollector
+. In this directory, create a folder, for example, 
+audit-collector-2022.11
+.
+mkdir audit-collector-2022.11
+cd audit-collector-2022.11
+2
+. 
+Download the 
+Audit
+_Collector_Helm_Chart-2022.11.zip
+ file from the 
+Software Licenses and Downloads
+ website
+to 
+audit-collector-2022.11 
+folder or the folder that you have created in Step 1.
+3
+. 
+Unzip the package:
+unzip Audit_Collector_Helm_Chart-2022.11.zip
+4
+. 
+Untar the Audit collector chart package:
+$tar -xvf audit-collector-<Version>.tgz
+5
+. 
+Make sure you are in the 
+audit-collector-2022.11
+ folder or the folder that you have created in Step 1. Copy the Helm
+chart and the sample value.yaml files using the following commands:
+cp audit-collector-helm-chart/audit-collector/charts/*.tgz .
+cp audit-collector-helm-chart/audit-collector/samples/* .
+SMAX 2022.11
+Page 
+783
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

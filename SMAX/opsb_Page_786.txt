@@ -1,0 +1,120 @@
+Configure values.yaml for Audit collector (on-premises)
+You need to create a custom
+ values.yaml
+ file and configure the parameters for an Audit collector deployment.
+Create and configure a values.yaml file for Audit collector
+You can create and configure the 
+values.yaml
+ file based on the sample file (example
+ values.yaml
+) provided in the Audit
+collector helm chart package.
+1
+. 
+Create a copy of the sample file.
+cp audit-collector-helm-chart/audit-collector/samples/values.yaml
+2
+. 
+Edit the 
+values.yaml
+ file using any editor and give the required values in the file.
+Docker registry settings
+Parameter
+Description
+Required
+Default
+Example
+global.docker.registry
+The docker registry from
+where the required images will
+get pulled from. 
+Yes
+localhost:5000
+registry.example.
+com:443
+global.docker.orgName
+The docker organization
+name. 
+Yes
+hpeswitom
+hpeswitom
+global.docker.imagePullSecret
+The K8s secret that contains
+the credentials required to pull
+images from the specified
+docker registry.  
+Yes
+registrypullsecret
+registrypullsecret
+global.docker.imagePullPolicy
+The image pull policy. 
+Optional
+IfNotPresent
+IfNotPresent
+IDM configuration
+IDM supports only https communication. It's strongly recommended that Audit collector should access IdM through an internal
+LB.
+Parameter
+Description
+Required
+Default
+Example
+global.idm.idmSvcHost
+This is the hostname of the internal LB configured for IdM. If
+you haven't configured an internal LB, then this is the
+hostname of the LB that provides access to IdM. 
+Yes
+Not
+defined
+esm.esm-
+aio-
+01.itsma-
+ng.net
+global.idm.idmSvcPort
+The internal IdM service port. 
+Yes
+443
+443
+Vault init configuration
+Parameter
+Description
+Required
+Default
+Example
+auditCollector.vault.appRoleName
+The role name used by any of the services in
+the namespace where Audit collector is getting
+deployed to access the vault.
+Yes
+Not
+defined
+itsma-
+wkyr2-
+itom-
+itsma-
+certificate
+To fetch the app role name, follow these steps:
+1
+. 
+To get the app role name, run the following command:
+kubectl describe secret --all-namespaces | grep -i approle-name=<Namespace>
+Example:
+ 
+kubectl describe secret --all-namespaces | grep -i approle-name=itsma-wkyr2
+Output:
+Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-sma-ui
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-dnd
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-smartanalytics
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-dnd-platform
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-xruntime
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-bo
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-xruntime-infra
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-cmp
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-ingress
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-itsma-certificate
+SMAX 2022.11
+Page 
+786
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

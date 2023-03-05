@@ -1,0 +1,33 @@
+Before you begin
+To orchestrate and manage resources efficiently, the suite uses Kubernetes as the platform to provide a reliable approach to
+scheduling resources and empower the application to be more fault-tolerant. Cloud-native Kubernetes platforms make
+the provisioning and management of Kubernetes much easier. With the cloud-native Kubernetes, the suite can serve
+customers in a secure, resilient, and simple way.
+On AWS, the cloud-native Kubernetes solution is Amazon Elastic Kubernetes Service (EKS).
+Reference architecture
+The following reference architecture can help you get an overview of the process of deploying the suite on EKS.
+Benefits of using EKS
+EKS provides the following benefits:
+There are no more control plane nodes. The cluster has a guaranteed SLA provided by AWS at a lower cost.
+Auto Scaling Group is deployed by default, which increases the availability.
+Network Load Balancer (NLB) at the Kubernetes level has been removed to reduce cost.
+Managed worker nodes enable you to reduce the operational cost of cluster management.
+Automated deployment with sliced CloudFormation templates supports your existing AWS infrastructure.
+Components
+SMA
+: the suite product shipped and running in the form of containers and managed by Kubernetes.
+Kubernetes
+: open-source software that allows you to deploy and manage containerized applications at scale.
+Public subnet
+: a public subnet is for external-facing resources such as load balancers, bastion nodes, and NAT gateway.
+Private subnet
+: a private subnet is for internal-facing resources such as EKS worker nodes, databases, and storage.
+Bastion node
+: a node that sits in a public subnet. It's used to connect to resources in a private subnet such as
+Kubernetes, databases, and storage to perform deployment, persistent volume setup, database setup, upgrade,
+SMAX 2022.11
+Page 
+792
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

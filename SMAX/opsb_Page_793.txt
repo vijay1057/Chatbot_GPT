@@ -1,0 +1,83 @@
+troubleshooting, and other operational tasks.
+Elastic Kubernetes Service (EKS)
+: a fully managed service provided by AWS. Once it's provisioned, the following
+services are ready to work as a Kubernetes platform for you:
+Control Plane: manages when and where containers are started on your cluster and monitors their status.
+Worker Nodes (Group): nodes to run your containers. The worker nodes are deployed across multiple AWS availability
+zones for high availability and fault tolerance.
+Elastic File Service (EFS)
+: a managed NFS service that stores data used by the containerized applications in
+Kubernetes (such as search engine storage, attachments, certificates, and logs). The storage is called Persistent Volume
+(PV) in Kubernetes.
+Relational Database Service
+ (
+RDS
+)
+: a database service that stores transactional data and metadata used by the
+containerized applications in Kubernetes.
+Elastic Container Registry (ECR)
+: a managed Docker registry service that's secure, scalable, and reliable. The
+suite applications are shipped as container images, which are stored in an ECR.
+Load balancer
+: used to route traffic from external applications to internal applications deployed on Kubernetes. Load
+balancers triggered from the Kubernetes service are able to discover the backend worker node change and always fit the
+latest status of the worker node pool.
+NAT gateway
+: enables instances in a private subnet to connect to the Internet or other AWS services, but prevents the
+Internet from initiating a connection with those instances.
+Inter-communication between components
+The Kubernetes cluster, RDS, and EFS are kept in a private subnet, while other components such as load balancers and
+bastion nodes are in a public subnet. For reasons of separating the public and private subnets, refer to the "Architecture
+design considerations" section below.
+A load balancer works as the entrance of external traffic. It's usually bound with the site's SMAX URL, for example: 
+https://s
+erviceportal.microfocus.com
+. Once end users open the URL in their browsers or mobile apps, after DNS resolution, the load
+balancer routes traffic from external applications to the applications in a private subnet.
+DevOps engineers connect to the bastion nodes in a public subnet and then jump to the private network for cluster
+management. The bastion nodes in this scenario work as a Kubernetes client, database client, or EFS (NFS) client for
+operation purposes.
+The applications reside inside the Kubernetes cluster in the private subnet. It uses EFS as its Persistent Volume and RDS
+as its database, which are also in the private subnet.
+When the applications in the Kubernetes cluster need to connect to the Internet, for example, when you're downloading
+Docker images for upgrade or downloading a patch for an update, the traffic goes through the NAT gateway to prevent
+the Internet from initiating a connection with instances running those applications.
+Architecture design considerations
+Security
+With separated public and private subnets, the network infrastructure is able to provide
+An additional layer of security.
+Independent routing tables configured for every private subnet to control the flow of traffic within and outside the
+Amazon Virtual Private Cloud (VPC).
+All OMT and suite components are located in the private subnet. NO direct Internet access is allowed.
+Employee Self-Service (ESS) users and IT agents can only connect to the specified ports (for example: 443) for business
+purposes. A typical traffic path is described as below:
+End user/IT agent <-> Load balancer (public subnet) <-> EKS worker nodes (private subnet)
+DevOps engineers can connect to the bastion nodes in a public subnet and then jump to the private network for cluster
+management. Only a limited number of users can access the bastion nodes. A typical traffic path is as follows:
+DevOps engineer <-> Bastion node (public subnet) <-> EKS cluster or EFS or RDS (private subnet)
+Availability
+The control plane nodes are managed by EKS with high availability and a guaranteed SLA.
+Amazon Elastic Load Balancers (ELBs) distribute the traffic across different worker nodes in different Availability Zones.
+Worker nodes are distributed across Availability Zones.
+Amazon Elastic File System (EFS) provides storage access across Availability Zones.
+Amazon Relational Database Service (RDS) can be easily configured for high availability across Availability Zones.
+Performance
+The architecture also takes into account the performance balanced against availability. The worker nodes are distributed
+across multiple Availability Zones instead of regions, which makes sure the network latency between different Availability
+Zones is less than 1 millisecond in most cases and guarantees minor performance penalty caused by latency.
+[Optional] Additional load balancer in front of SMAX
+According to your organization's network/security requirements, you may need to setup an additional load balancer in front of
+SMAX.
+Please enable websocket on the additional load balancer if you have installed one.
+Personas
+Installing the suite on AWS with EKS includes sequential procedures and involves different roles in your organization. For
+example, IT administrators manage physical or virtual machines for production use, and the person to install the suite needs to
+request machines from an IT administrator, who will help prepare the requested machines. Typically the involved roles include:
+Role
+Responsibility
+SMAX 2022.11
+Page 
+793
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

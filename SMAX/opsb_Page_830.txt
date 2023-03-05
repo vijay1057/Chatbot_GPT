@@ -1,0 +1,74 @@
+Launch Template Name: Select the template created in step 2 above.
+Launch template version: Select the latest version from the drop-down list.
+Kubernetes labels
+: Click 
+Add label
+ and add the following labels.
+Key
+Value
+Worker
+label
+Role
+loadbalancer
+2
+. 
+Click 
+Next 
+and enter the following fields under Node Group scaling configuration:
+Minimum size
+:  Enter the minimum number of worker nodes per Availability Zone. For example, 1.
+Maximum size:
+ Enter the maximum number of worker nodes per Availability Zone. For example, 3.
+Desired size
+: Enter the desired number of worker nodes by referring to the 
+Sizing guides (EKS)
+.
+3
+. 
+Click 
+Next 
+> 
+Next 
+> 
+Create.
+ 
+Launch EKS cluster worker nodes for CMS
+This task is required only when you need to install CMS. See 
+Sizing guides (EKS)
+ for information about the additional EKS
+cluster worker nodes required to deploy CMS.
+To launch EKS cluster worker nodes, repeat the 
+previous task
+ as you performed to launch EKS cluster worker nodes for the
+suite.
+The only difference is that you need to use the following label for CMS in 
+Kubernetes labels
+ when adding the node group.
+Key
+Value
+Worker
+cms
+Role
+loadbalancer
+After you create the worker nodes for CMS, you can run the following command to check whether the 
+cms 
+label is successfully
+assigned to the worker nodes:
+kubectl get nodes --show-labels
+Review the output to see if you can see
+ 
+Worker:cms
+ as the label for the worker nodes.
+Related topics
+For information on EKS, see 
+Amazon EKS
+.
+For information on AMI, see 
+Amazon Machine Images
+.
+SMAX 2022.11
+Page 
+830
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

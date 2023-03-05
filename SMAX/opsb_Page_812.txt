@@ -1,0 +1,14 @@
+Download the cloud deployment package
+Download the 
+Cloud Deployment 1.2.10
+ package from the 
+Micro Focus ITOM Marketplace
+ website.
+This package contains all the CloudFormation templates and scripts required for the suite installation.
+ 
+SMAX 2022.11
+Page 
+812
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,57 @@
+6
+. 
+Configure AWS CLI options:
+aws configure
+You will be prompted for AWS CLI configuration values.
+Your 
+AWS Access Key ID
+ and 
+AWS Secret Access Key
+ are provided when creating a new AWS account.
+Default region name
+ is the region you selected for your created resources, such as 
+us-gov-west-1
+.
+Default output format
+ is the default output format you want to specify, such as 
+json
+.
+7
+. 
+Configure and check the connectivity from kubectl to the EKS cluster:
+aws eks update-cluster-config --name <eks_cluster_name> --resources-vpc-config endpointPublicAccess=false,endpointPrivateAccess=true --region <cluster_region>
+Wait several minutes until the cluster status is 
+Active
+, and then you can run the following command to check the status:
+aws eks describe-cluster --region=<cluster_region> --name <eks_cluster_name>
+Fetch the kubeconfig:
+aws eks --region <cluster_region> update-kubeconfig --name <eks_cluster_name>
+Check the bastion connectivity to the EKS cluster:
+kubectl get svc
+In these commands, 
+<cluster_region>
+ is the region you selected for the EKS you created, such as 
+us-east-2
+ and 
+<eks_cluster
+_name>
+ is the cluster name you created.
+8
+. 
+Test worker nodes status:
+kubectl get nodes
+Important
+: AWS CLI versions 1 and 2 use the same aws command name. If you previously installed AWS
+CLI version 1, see 
+Migrating from AWS CLI version 1 to version 2
+.
+
+
+Note
+   If you don't have access to Security Credentials, contact your AWS administrators to check it.
+SMAX 2022.11
+Page 
+834
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

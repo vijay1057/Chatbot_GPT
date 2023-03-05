@@ -1,0 +1,88 @@
+console.setLevel(logging.INFO)
+formatter = logging.Formatter('%(levelname)-8s %(message)s')
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
+def sh(cmd, mode='output'):
+    try:
+        if mode == 'output':
+            logging.debug("execute command: " + cmd + " with output returned")
+            return subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True)
+        else:
+            logging.debug("execute command: " + cmd + " with returnCode returned")
+            return subprocess.call(cmd, shell=True)
+    except CalledProcessError as e:
+        logging.error("execute returncode: " + str(e.cmd))
+        logging.error("execute returncode: " + str(e.returncode))
+        logging.error("execute output: " + str(e.output))
+        raise e
+    except Exception as e:
+        logging.error("execute shell exception: " + str(e))
+        raise e
+def loadImageSetFile(filePath):
+    if os.path.exists(filePath):
+        logging.debug("Json file " + filePath + " will be load.")
+        with open(filePath, 'r') as json_file:
+            data = json.load(json_file, object_pairs_hook=OrderedDict)
+            logging.debug(json.dumps(data, indent=2))
+            return data
+def generateImageList(imageSetPath):
+        suiteImagesFileList = []
+    imageSetData = loadImageSetFile(imageSetPath)
+    for item in imageSetData["images"]:
+        if item['image'] is not None:
+            suiteImagesFileList.append(item['image'])
+    return list(dict.fromkeys(suiteImagesFileList))
+def createAWSrepository(region, orgName, imageName, enableScan):
+    imageNameStr = imageName.split(":")
+    logging.info ("imageNameStr : " + imageNameStr[0])
+    repositoryName = orgName + "/" + imageNameStr[0]
+    rc = sh('aws ecr describe-repositories --region {}  --repository-names {} > /dev/null 2>&1'.format(region, repositoryName), 'call')
+    if rc == 255 or rc == 254:
+        if enableScan:
+            rc2 = sh('aws ecr create-repository --image-scanning-configuration scanOnPush=true --region {}  --repository-name {} >/dev/null 2>&1'.format(region, repositoryName), 'call')
+        else:
+            rc2 = sh('aws ecr create-repository  --region {}  --repository-name {} >/dev/null 2>&1'.format(region, repositoryName), 'call')
+        if rc2 == 0:
+            if enableScan:
+                logging.info ("enable repository " + repositoryName + " scanOnPush done !!!")
+            logging.info ("create repository " + repositoryName + " done !!!")
+        else:
+            if enableScan:
+                logging.info ("enable repository " + repositoryName + " scanOnPush failed !!!")
+            logging.error ("create repository " + repositoryName + " failed !!!")
+   else:
+          logging.info ("repository" + repositoryName + " already existed !!!")
+    if enableScan:
+        sh('aws ecr describe-repositories --region {}  --repository-names {} '.format(region, repositoryName), 'call')
+def main(argv):
+    parser = argparse.ArgumentParser(prog='create aws ecr repository for single image or images listed in image-set file.')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('-i', '--imageSetPath', type=str, default='./image-set.json', help='The images set json file path.')
+    group.add_argument('-n', '--imageName', type=str, default='', help='The single image name.')
+    parser.add_argument('-r', '--region', type=str, default='us-west-2', help='The code of the region in which the aws ECR locate, e.g us-west-2.')
+    parser.add_argument('-o', '--orgName', type=str, default='hpeswitomsandbox', help='The hostname of the repository that you want to pull suite images from.')
+    parser.add_argument('-scan','--enableScan',required=False,const=True,action='store_const',help='Enable scanOnPush images on repository. otherwise, it will use the default value: MANUAL SCAN of basic rule.')
+    parsed = parser.parse_args()
+    try:
+        if parsed.imageName:
+            createAWSrepository(parsed.region, parsed.orgName, parsed.imageName,parsed.enableScan)
+        else:
+            suiteImagesSet = generateImageList(parsed.imageSetPath)
+            for item in suiteImagesSet:
+                createAWSrepository(parsed.region, parsed.orgName, item,parsed.enableScan)
+    except Exception as e:
+        logging.error ("execute create repository exception." + str(e))
+    logging.info ("create repository done!!!")
+if __name__ == "__main__":
+    main(sys.argv[1:])
+Then, run the following command on the bastion to create ECR repositories in a preferred region:
+Note
+  Python 3 is required to run the Python script below. Make sure Python 3 is installed on the bastion. 
+
+
+SMAX 2022.11
+Page 
+861
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

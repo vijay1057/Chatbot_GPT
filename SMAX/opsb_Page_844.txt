@@ -1,0 +1,40 @@
+ecrURL=<aws_account_id>.dkr.ecr.<ecr_region>.amazonaws.com
+4
+. 
+Run this command to transfer images from the source registry to your own registry:
+python3 smax-image-transfer.py -su <source_username> -sp <source_password> -sr <source_registry> -so <source_orgname> -tu $ecrUserName -tp $ecrUserPassword -tr $ecrURL -to <target_orgname>
+In these commands,
+<ecr_region>
+ is the region where you specified to put your ECR repositories.
+<source_username>
+ is the user name of the source docker registry. Obtain it from 
+Micro Focus
+ if you use Docker Hub,
+or contact the admin of the registry.
+<source_password>
+ is the password of the source docker registry. Obtain it from 
+Micro Focus
+ if you use Docker Hub, or
+contact the admin of the registry.
+<source_registry>
+ is the URL of the source registry. For example, 
+registry.hub.docker.com
+.
+<source_orgname>
+ is the organization name in the source docker registry. It's 
+hpeswitom
+ if you use Docker Hub, or
+contact the admin of the registry.
+<target_orgname>
+ is the organization name in the target docker registry, which can be obtained from the admin of the
+registry.
+Note
+  Python 3 is required to run the Python script below. Make sure Python 3 is installed on the bastion. 
+
+
+SMAX 2022.11
+Page 
+844
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

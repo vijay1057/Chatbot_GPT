@@ -1,0 +1,63 @@
+Support matrix for EKS deployment
+Cloud deployments and on-premises deployments of the suite basically share the same support matrix (see 
+Support matrix for
+on-premises deployment
+), except for the following aspects.
+Supported environments
+AWS
+AWS GovCloud
+Docker image registry
+AWS Elastic Container Registry (ECR)
+Managed Kubernetes clusters
+Amazon Elastic Kubernetes Service (EKS) v 1.23.x
+Helm
+Helm 3.9.x
+Operating systems
+Worker nodes: Amazon EKS-Optimized Linux
+Databases
+The table below lists the supported and certified databases for OMT and the suite.
+Cloud
+Provider
+Database Service
+OMT external database version
+Suite external database version
+AWS
+Amazon Relational Database
+Service (Amazon RDS)
+PostgreSQL 14.x, 13.x, 12.x,
+11.x for Linux
+PostgreSQL 14.x, 13.x, 12.x, 11.x
+for Linux:
+IdM
+Suite Administration
+Service Management
+Autopass
+DND
+CGRO
+SAM
+Vertica 10.0.x with SSL enabled
+for CGRO
+The table below lists the supported and certified databases for Operations Orchestration(OO) Containerized. You will need a
+database for OO Containerized only if you are going to install the DND capability.
+OO Containerized external database version
+PostgreSQL 14.x, 13.x, 12.x, 11.x
+If you plan to install CMS on the same OMT cluster as the next deployment (SMA is the primary deployment), the table below
+lists the supported and certified databases.
+Important: 
+We always recommend that you follow the installation instructions and install the 
+latest
+ version
+of the suite. If you have a reason to install an older release, please contact the Product Management team.
+
+
+Note
+: The internal PostgreSQL databases are deprecated and might be removed from the suite binaries in a
+future release.
+
+
+SMAX 2022.11
+Page 
+795
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

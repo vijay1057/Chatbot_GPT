@@ -1,0 +1,179 @@
+Build EKS cluster
+Role
+Location
+IT / Kubernetes Cluster administrator
+AWS Management Console
+To use Amazon Elastic Kubernetes Service (EKS) to install and manage the suite on AWS, you need to perform the following
+tasks to create an EKS cluster and then launch the EKS cluster worker nodes.
+Create an EKS cluster
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Go to 
+All services
+ > 
+Management & Governance
+ > 
+CloudFormation.
+ 
+3
+. 
+Click 
+Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > 
+Choose file
+ and select the 
+smax-eks.template
+file under directory 
+../Cloud Deployment x.x.x/../byok/smax-cloudformation-aws 
+in the 
+cloud deployment package
+.
+ 
+1
+. 
+Click 
+Next
+ and populate the following fields.
+Field
+Description
+Stack name
+Give a name to this stack, such as 
+sma-eks
+.
+VPC ID
+Select the created VPC from the drop-down list.
+Subnets for EKS
+Cluster
+Select the three private subnets created.
+EKS Cluster
+Name:
+Enter the EKS cluster name you defined in the 
+Prepare VPC
+ 
+step.
+You must use the same EKS cluster name when creating VPC, EKS cluster, and worker
+nodes; otherwise, the suite installation will fail.
+EKS Cluster
+Version
+Select a 
+supported EKS version
+.
+EKS Cluster
+Security Group
+Select the security group created for the control plane.
+4
+. 
+Click 
+Next
+ > 
+Next
+, acknowledge the required capabilities, and click 
+Create stack
+. Wait until the stack creation is
+completed, and check the results on the 
+Outputs
+ tab.
+After the creation of the EKS cluster, the system creates a security group for the EKS cluster (
+eks-cluster-sg-*
+). You will
+need it when launching EFS and creating RDS later.
+5
+. 
+Check if your VPC has been properly tagged so that the EKS cluster can discover it. For details, see the AWS
+document 
+VPC tagging requirements
+.
+Launch EKS cluster worker nodes
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Go to 
+All services
+ > 
+Management & Governance
+ > 
+CloudFormation.
+3
+. 
+Click 
+Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > 
+Choose file
+ and select the 
+smax-managed-wor
+kernode.template 
+file under directory 
+../Cloud Deployment x.x.x/../byok/smax-cloudformation-aws
+ in
+ the cloud deployment package
+.
+ 
+4
+. 
+Click 
+Next
+ and populate the following fields.
+Field
+Description
+UseCustomizedImage
+Leave it as 
+false
+. Only configure if you use your own customized image to build
+work nodes.
+AMI ID of the custom image for the worker nodes
+: If you set
+UseCustomizedImageID
+=false, leave it as is.
+Snapshot ID of the AMI volume
+:  If you set
+UseCustomizedImageID
+=false, leave it as is.
+Stack name
+Give a name to this stack, such as 
+sma-workernode
+.
+VPC ID
+Select the created VPC from the drop-down list.
+Subnets for EKS Cluster
+Select the three private subnets created.
+EKS cluster name
+Enter the EKS cluster name you defined in the 
+Prepare VPC
+ 
+step.
+You must use the same EKS cluster name when creating the  VPC, EKS cluster,
+and worker nodes; otherwise, the suite installation will fail.
+EKS Worker Node Security
+Group
+Select the security group created for the worker nodes.
+AmiType
+Select AL2_x86_64 AMI type.
+Tip
+: 
+Take a note of the
+ NodeInstanceRole
+ value on the 
+Outputs
+ tab. You will need it to launch worker
+nodes in the next section.
+
+
+SMAX 2022.11
+Page 
+831
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

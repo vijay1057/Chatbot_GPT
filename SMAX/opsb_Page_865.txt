@@ -1,0 +1,103 @@
+Deploy the infrastructure services
+At the 
+Prepare
+ phase, the installation portal deploys the infrastructure services. Follow these steps to complete the OMT
+deployment.
+1
+. 
+The 
+Deployment of Infrastructure Services
+ page lists the core foundation services in the deployment. After the
+deployment finishes, click 
+Next
+.
+2
+. 
+On the 
+Preparation Complete
+ page, click 
+Next
+ to complete the preparation.
+This will take you to the 
+Configure/Deploy
+ phase in the installation portal. After you click 
+Next
+, you can't go back to
+the 
+Prepare
+ phase.
+Create an Ingress for the OMT management portal
+You've 
+created an ALB
+ when creating Ingress for port 3000. Now create an Ingress for port 5443 to bind with the created ALB
+with these steps: 
+1
+. 
+Save the content below as 
+management-portal-ingress.yaml
+:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "mng-ingress"
+  namespace: "core"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: <application_loadbalancer_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 5443}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-2-2017-01
+  labels:
+    app: mng-nginx-ingress
+spec:
+  tls:
+  - hosts:
+    - <external_access_host>
+  rules:
+    - host: 
+      http:
+        paths:
+          - backend:
+              service: 
+                name: "portal-ingress-controller-svc"
+                port: 
+                  number: 5443
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<application_loadbalancer_name>
+: the name of the created ALB. It's the value you used when 
+creating Ingress for port
+3000
+.
+<certificate_arn>
+: the
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+.
+<external_access_host>
+: the FQDN you've allocated for the suite. For example, 
+www.example.com
+.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f management-portal-ingress.yaml
+Now you can access the OMT Management Portal via 
+https://<external_access_host>:5443
+.
+SMAX 2022.11
+Page 
+865
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,241 @@
+Select the deployment configuration (FIPS mode)
+Log in to the installation portal
+1
+. 
+Copy the installation portal URL to a supported browser. The URL uses the following format: 
+https://<external_access_host>:30
+00
+.
+2
+. 
+Log in to the installation portal with the administrator credentials that you created in the bootstrap installation:
+Username: 
+admin
+Password: the password you set up when running the bootstrap installation command
+3
+. 
+Click 
+LOGIN
+.
+If you exit the installation portal at any point, the installation process pauses. The next time you log in to the portal, the
+installation process resumes from the point where you stopped earlier.
+Select the deployment configuration
+In the installation portal, configure the deployment.
+1
+. 
+Select the suite metadata package on your local machine, and then click 
+UPLOAD
+.
+2
+. 
+Choose the 
+2022.11 
+version, and then click 
+NEXT
+.
+3
+. 
+On the 
+End User License Agreement
+ page, accept the license agreements and data policy.
+4
+. 
+Click 
+Next
+. The 
+Capabilities
+ page opens. Only the 
+Service Management Automation (SMA)
+ capability is supported
+for FIPS-enabled installation. Don't select any other capabilities. Click 
+Next
+.
+5
+. 
+The 
+Database
+ page opens. Select one of the following options to configure a database for the OMT IdM. Make sure the
+database is empty before you begin the installation.
+Out-of-the-box PostgreSQL:
+ Select this option if you want to use an embedded database.
+PostgreSQL:
+ Select this option if you want to connect to an 
+external PostgreSQL database for the OMT IdM
+. Provide
+the following details:
+a
+. 
+If your database requires Secure Sockets Layer (SSL), select 
+Use SSL connection
+, and then click 
+Upload
+ to
+upload your database server certificate in .pem format.
+b
+. 
+Enter the 
+endpoint of the created RDS
+ as 
+Database Host
+ and 
+5432
+ as 
+Port
+.
+c
+. 
+Enter a database name, for example 
+cdfidmdb 
+and 
+the admin user name and password
+ you specified when creating
+RDS instance as 
+User
+ and 
+Password
+.
+d
+. 
+Then, select the 
+If no database is found, create a database automatically
+ option. The installer will
+automatically create an empty database based on the database information you provide.
+6
+. 
+Click 
+Next
+. The 
+Deployment Size
+ page opens.
+7
+. 
+On the 
+Deployment Size
+ page, select a deployment size (Small, Medium, or Large).
+8
+. 
+Click 
+Next
+. The 
+Connection
+ page opens.
+9
+. 
+Enter the external access hostname and port (443), which will be used to access the suite user interface.
+10
+. 
+To use custom certificates, select 
+Use custom certificates
+. You get extra options to choose the certificate format. When
+using custom certificates, you must import the Certification Authority(CA) certificates into the browser from where you will
+log in to the management portal.
+11
+. 
+Choose a certificate format.
+If you choose the 
+PKCS#1 or PKCS#8
+ option:
+a
+. 
+Select a 
+CA certificate
+ for a root certificate.
+b
+. 
+Select a 
+Server certificate
+.
+The supported certificate formats include: .crt, .cer, and .pem files.
+c
+. 
+Select a key file. The supported private key formats include 
+PKCS1
+ and 
+PKCS8
+.
+d
+. 
+Enter the private key password for the encrypted private key file.
+The root certificate must be trusted and from the parent domain.
+The server certificate, a certificate chain, must contain the origin server certificate (server.crt) and all
+intermediate certificates. The root certificate/CA is optional for the server certificate.
+The server certificate must be in the following sequence: the original server certificate, the intermediate
+certificated, and the root certificate. Merge all the certificates into a certificate chain.
+If you choose the 
+PKCS#12
+ option:
+a
+. 
+Choose a CA .crt file for CA certificate.
+b
+. 
+Select a .pfx file for the PKCS#12 file.
+c
+. 
+Enter the PKCS#12 file password.
+d
+. 
+Enter the private key password.
+You can also update the certificates in the management portal after the installation.
+12
+. 
+Click 
+Next
+. The 
+File Storage
+ Page opens.
+13
+. 
+On the 
+File Storage
+ page, a list of NFS volumes required for the OMT and suite installation appears. Before you proceed,
+make sure the required NFS shares for OMT and the suite are already configured and the exported NFS folders are empty.
+To configure the file storage, perform the following steps:
+a
+. 
+Configure the first volume:
+I
+. 
+Select 
+Managed NFS
+ 
+as 
+File System Type
+.
+II
+. 
+Enter the DNS name of the created EFS. It's the 
+FileServerDNSName
+ you got on the 
+Outputs
+ tab when
+creating the EFS stack (see the last step in 
+Launch EFS
+).
+III
+. 
+Enter the Exported Paths of EFS volumes using the 
+/<base directory>/<volume label on the web UI>
+ format. For
+example, if you provide the <base directory> as 
+/var/vols/itom/itsma/
+ and the current volume's display label
+shows 
+db-backup-vol
+, the exported path should be 
+/var/vols/itom/itsma/db-backup-vol
+.
+b
+. 
+Although you can repeat the steps above to manually configure the rest of the NFS volumes, we recommend using
+the 
+Auto-fill
+ button if all of the NFS volumes that you have exported meet the following conditions:
+are on the same NFS server
+are located in the same parent folder (<base directory>)
+SMAX 2022.11
+Page 
+856
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,122 @@
+9
+. 
+A warning appears, asking you to confirm if you want to start the installation process. Click 
+YES
+. The installation progress
+appears on the screen. You can log on to the bastion node and run the 
+kubectl get pods --namespace <namespace>
+ command
+to check the installation progress in the backend. You can run 
+kubectl get ns
+ to find the namespace of the suite ("itsma-
+xxxxx"). 
+10
+. 
+The suite installer starts installing the suite services, followed by post-installation actions. When the installer has
+completed the post-installation actions, the 
+Next
+ button becomes active. Click 
+Next
+. A 
+Congratulations
+ screen is
+displayed. Click 
+Finish
+. The OMT Management Portal opens. 
+Note
+: If the screen indicates any of the post-installation
+actions fails, see 
+Post-installation actions failed
+.
+Create an Ingress for the suite
+You've 
+created an ALB
+ when creating Ingress for port 3000 and port 5443. Now you need to create an Ingress for port 443 to
+bind with the created ALB with these steps:
+1
+. 
+Save the content below as 
+suite-ingress.yaml
+:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "sma-ingress"
+  namespace: <itsma_namespace>
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: <application_loadbalancer_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=180
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-2-2017-01
+  labels:
+    app: sma-ingress
+spec:
+  tls:
+  - hosts:
+    - <external_access_host>
+  rules:
+    - host: 
+      http:
+        paths:
+          - backend:
+              service: 
+                name: "itom-nginx-ingress-svc"
+                port: 
+                  number: 443
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<itsma_namespace>
+: the suite namespace. You can run 
+kubectl get ns
+ to find it (itsma-xxxxx). 
+<application_loadbalancer_name>
+: the name of the created ALB. It's the value you used when 
+creating Ingress for port
+3000
+.
+<certificate_arn>
+: the
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+.
+<external_access_host>
+: the FQDN you've allocated for the suite. For example, 
+www.example.com
+.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f suite-ingress.yaml
+Now you can access the suite portal via 
+https://<external_access_host>/bo
+.
+Verify the installation
+Role
+Location
+Suite administrator
+Bastion node
+To verify the installation, follow the following steps:
+1
+. 
+Log in to the bastion node and run the following command to make sure all of the suite pods are ready.
+kubectl get pod --all-namespaces|grep -v 1/1|grep -v 2/2|grep -v 3/3|grep -v 4/4|grep -v Completed
+At least one special character from the following: 
+,:/._?&%=+-[]()
+SMAX 2022.11
+Page 
+868
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

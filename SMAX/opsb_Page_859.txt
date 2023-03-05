@@ -1,0 +1,170 @@
+7
+. 
+On the 
+Deployment Size
+ page, select a deployment size (Small, Medium, or Large).
+8
+. 
+Click 
+Next
+. The 
+Connection
+ page opens.
+9
+. 
+Enter the external access hostname and port (443), which will be used to access the suite user interface.
+10
+. 
+To use custom certificates, select 
+Use custom certificates
+. You get extra options to choose the certificate format. When
+using custom certificates, you must import the Certification Authority(CA) certificates into the browser from where you will
+log in to the management portal.
+11
+. 
+Choose a certificate format.
+If you choose the 
+PKCS#1 or PKCS#8
+ option:
+a
+. 
+Select a 
+CA certificate
+ for a root certificate.
+b
+. 
+Select a 
+Server certificate
+.
+The supported certificate formats include: .crt, .cer, and .pem files.
+c
+. 
+Select a key file. The supported private key formats include 
+PKCS1
+ and 
+PKCS8
+.
+d
+. 
+Enter the private key password for the encrypted private key file.
+The root certificate must be trusted and from the parent domain.
+The server certificate, a certificate chain, must contain the origin server certificate (server.crt) and all
+intermediate certificates. The root certificate/CA is optional for the server certificate.
+The server certificate must be in the following sequence: the original server certificate, the intermediate
+certificated, and the root certificate. Merge all the certificates into a certificate chain.
+If you choose the 
+PKCS#12
+ option:
+a
+. 
+Choose a CA .crt file for CA certificate.
+b
+. 
+Select a .pfx file for the PKCS#12 file.
+c
+. 
+Enter the PKCS#12 file password.
+d
+. 
+Enter the private key password.
+You can also update the certificates in the management portal after the installation.
+12
+. 
+Click 
+Next
+. The 
+File Storage
+ Page opens.
+13
+. 
+On the 
+File Storage
+ page, a list of NFS volumes required for the OMT and suite installation appears. Before you proceed,
+make sure the required NFS shares for OMT and the suite are already configured and the exported NFS folders are empty.
+To configure the file storage, perform the following steps:
+a
+. 
+Configure the first volume:
+I
+. 
+Select 
+Managed NFS
+ 
+as 
+File System Type
+.
+II
+. 
+Enter the DNS name of the created EFS. It's the 
+FileServerDNSName
+ you got on the 
+Outputs
+ tab when
+creating the EFS stack (see the last step in 
+Launch EFS
+).
+III
+. 
+Enter the Exported Paths of EFS volumes using the 
+/<base directory>/<volume label on the web UI>
+ format. For
+example, if you provide the <base directory> as 
+/var/vols/itom/itsma/
+ and the current volume's display label
+shows 
+db-backup-vol
+, the exported path should be 
+/var/vols/itom/itsma/db-backup-vol
+.
+b
+. 
+Although you can repeat the steps above to manually configure the rest of the NFS volumes, we recommend using
+the 
+Auto-fill
+ button if all of the NFS volumes that you have exported meet the following conditions:
+are on the same NFS server
+are located in the same parent folder (<base directory>)
+follow the same exported path naming rule: <base directory>/<volume label on the web UI>
+Once you have turned on the 
+Auto-fill
+ button, the installer automatically configures the remaining NFS volumes for
+you as follows:
+File System Type
+: same as the file system type that you provided for the first volume.
+File Server
+: same as the NFS Server hostname or IP address that you provided for the first volume.
+Exported Path
+: the installer sets this field as 
+/<base directory>/<volume label on the web UI>
+. For example, if you
+provide the <base directory> as 
+/var/vols/itom/itsma/
+ and the current volume's display label shows 
+db-backup-vol
+,
+the installer automatically populates the exported path field with 
+/var/vols/itom/itsma/db-backup-vol
+.
+c
+. 
+Click 
+Next
+. The system validates the volume configurations and then proceeds to the next screen if the validation
+succeeds. If the validation fails, you need to reconfigure the volumes and then click 
+Next
+ again. Note that the
+validation process may take a few minutes.
+14
+. 
+A warning appears. Click 
+Yes
+ to continue the deployment.
+After you click 
+Yes
+, you can't go back to the Select phase.
+SMAX 2022.11
+Page 
+859
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

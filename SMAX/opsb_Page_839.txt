@@ -1,0 +1,154 @@
+Launch RDS
+Both OPTIC Management Toolkit (OMT) and the suite contain an internal (embedded) PostgreSQL database instance, which
+should be used for demonstration purposes only. You must use external databases in a production environment. For
+information about supported external databases, see 
+Support matrix for EKS
+.
+When deployed on AWS, the suite uses RDS as the database engine. This RDS instance will be used as the external databases
+for OMT IdM, OMT API Server, and the suite in a production environment.
+Create an RDS instance
+Role
+Location
+Database administrator
+AWS Management Console & Bastion node
+We recommend that you use RDS as the database engine on AWS. Follow these steps to launch RDS.
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Go to 
+All services
+ > 
+Management & Governance
+ > 
+CloudFormation
+.
+3
+. 
+Click 
+Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > 
+Choose file
+ and select the 
+smax-rds.template
+file under 
+../Cloud Deployment x.x.x/../byok/smax-cloudformation-aws
+.
+4
+. 
+Click 
+Next
+ and populate the following fields:
+Stack name:
+ Give a name to this stack, such as 
+sma-rds
+.
+VPC ID:
+ Select the created VPC from the drop-down list.
+First/Second Subnet for RDS:
+ Select the two database subnets created for RDS.
+RDS Instance Type:
+ Select an instance type from the drop-down list. See 
+Sizing considerations
+.
+RDS instance identifier:
+ Enter an RDS instance name.
+User name:
+ Define a username for the database admin account, such as 
+postgres
+.
+Password:
+ Define a password for the database admin account.
+RDS Storage size:
+ Enter a storage size. See 
+Sizing considerations
+.
+Postgres engine version:
+ Type an engine version. See 
+Support matrix
+.
+Multi-AZ RDS:
+ Select 
+false
+ for test and development environments; select 
+true
+ for staging and production
+environments.
+BastionSecurityGroup
+: Select the bastion's security group to allow the bastion node to communicate with RDS.
+ClusterSecurityGroup
+: Select the EKS cluster's security group (
+eks-cluster-sg-*
+) to allow the EKS cluster to
+communicate with RDS.
+5
+. 
+Click 
+Next
+ > 
+Next
+ > 
+Create stack
+. Wait until the stack creation is completed and you can check the results on the
+Outputs
+ tab.
+After the RDS is created, you need to test its connectivity by running the commands below on the bastion node. 
+sudo yum install -y postgresql
+psql -h <RDSEndpointAddress> -U <postgres_admin> -d postgres
+Where: 
+<RDSEndpointAddress>
+ can be collected in the 
+Outputs
+ of the previous step.
+<postgres_admin>
+ is the database admin user name you specified when creating RDS. Replace it with the actual value.
+Next, set up two PostgreSQL databases for OMT on the created RDS instance.
+Set up a PostgreSQL database for OMT IdM on the RDS instance
+During the OMT installation, the installation portal UI will let you choose an 
+out-of-the-box
+ PostgreSQL or
+an 
+external
+ PostgreSQL for the OMT IdM. You must use an external database for the OMT IdM in a production environment.
+For an external PostgreSQL, the installation portal provides two options for configuring an external PostgreSQL database for
+OMT IdM: manually or automatically. We recommend that you prepare a PostgreSQL instance and let the installer
+automatically create a database for you. To do this, later when you configure OMT database settings on the installation portal,
+select 
+PostgreSQL 
+and check the 
+If no database is found, create a database automatically 
+option (see 
+step 5
+ in 
+Select
+the deployment configuration
+).
+Note
+: OMT uses two databases:
+One for the OMT IdM. This database is normally referred to as the "OMT database." You will need to configure
+this database later in the installation portal (see 
+Select the deployment configuration
+).
+One for the OMT API Server. This database is for the cdf-apiserver service. You will need to specify this
+database when deploying the bootstrap (see 
+Deploy bootstrap
+). 
+
+
+Tip
+  Take a note of the value of 
+RDSEndpointAddress
+. It will be used in later steps.
+
+
+SMAX 2022.11
+Page 
+839
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

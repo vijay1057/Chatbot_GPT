@@ -1,0 +1,165 @@
+Configure bastion
+This topic describes how to create and configure a bastion node. The bastion node communicates with the Kubernetes cluster
+and we use it for deploying the SMA suite and troubleshooting.
+Create a bastion instance
+Role
+Location
+IT / Server administrator
+AWS Management Console
+To create a machine as bastion, follow these steps: 
+1
+. 
+Go to 
+All services
+ > 
+Management & Governance
+ > 
+CloudFormation
+.
+2
+. 
+Click 
+Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > 
+Choose file 
+to select a template file under
+directory 
+../Cloud Deployment x.x.x/../byok/smax-cloudformation-aws 
+in 
+the cloud deployment package
+ as below: 
+If you want to deploy the bastion on a public subnet, select the 
+smax-bastion.template
+ file.
+If you want to deploy the bastion on a private subnet, select the 
+smax-bastion-private.template
+ file.
+3
+. 
+Click 
+Next
+ and populate the following fields:
+Stack name:
+ Give a name to this stack, such as 
+sma-bastion
+.
+VPC ID:
+ Select the created VPC from the drop-down list.
+Public/Private Subnet for Bastion instance:
+ Select a created public/private subnet. If you select a public subnet,
+make sure the 
+Auto-assign public IPv4
+ attribute of the public subnet is enabled.
+Bastion AMI type:
+ Select Amazon-Linux if you deploy SMA on GovCloud; or else, select CentOS-7
+. 
+See 
+Sizing
+considerations
+.
+Bastion AMI ID
+: The AMI ID to create bastion. Leave as 
+default 
+if you wish to use our recommended AMI ID based
+on the Bastion type selected. If specified, the system will generate bastion according to your input. See AWS
+document to 
+Find a Linux AMI
+. To avoid issues when creating bastion, make sure your AMI architecure is 
+x_86_64
+,
+your root device type is 
+ebs
+, your virtualization is 
+hvm 
+and your platform is 
+CentOS
+.  
+Bastion Instance Type:
+ Select an instance type from the drop-down list. See 
+Sizing considerations
+.
+Bastion instance Root Volume Size:
+ Specify a size in GB for the root EBS volume. See 
+Sizing considerations
+.
+Key Pair for SSH access Bastion instance:
+ Select the created EC2 key pair.
+The security group for the Bastion
+/
+BastionSecurityGroup
+: Select the security group created for the bastion
+node.
+4
+. 
+Click 
+Next
+ > 
+Next
+, acknowledge the required capabilities, and click 
+Create stack
+. Wait until the stack creation finishes
+and you can check the results on the 
+Outputs
+ tab.
+Configure the bastion instance
+Role
+Location
+IT / Server administrator
+Bastion
+After the bastion is created successfully, configure the bastion by running these commands:
+1
+. 
+Log in to the bastion: 
+ssh -i <private_key_pem_file> centos@<bastion_ip>
+2
+. 
+Install Docker.
+sudo yum install -y docker
+3
+. 
+Enable Docker and empower to run Docker commands as non-root.
+sudo groupadd docker 
+sudo usermod -a -G docker ${USER}
+sudo usermod -a -G docker root
+sudo systemctl enable docker
+sudo systemctl start docker
+4
+. 
+Download and install the 
+kubectl
+ binary for your cluster's 
+Kubernetes version
+ using the steps described in the 
+AWS
+documentation
+.
+5
+. 
+Install the AWS CLI version 2 by following the 
+AWS document
+.
+Note
+:  Ensure you have subscribed to an AMI, we recommend you subscribe to 
+CentOS 7 (x86_64) - with
+Updates HVM
+. If not yet subscribed, visit 
+Amazon marketplace
+ to do so. If you plan to use a different image,
+ensure to subscribe to that image.
+
+
+Important
+: Do not customize any ClusterRoles (for example, cluster-admin) in the system to avoid potential
+issues. 
+
+
+SMAX 2022.11
+Page 
+833
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

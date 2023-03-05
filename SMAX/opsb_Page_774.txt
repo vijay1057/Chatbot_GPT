@@ -1,0 +1,102 @@
+Prepare external database for Audit
+To prepare PostgreSQL, perform the following tasks.
+Install PostgreSQL
+You must create a separate PostgreSQL database for Audit service. This database can share the same PostgreSQL instance as
+SMAX. Make sure you enable SSL on the PostgreSQL because Audit uses SSL to communicate with PostgreSQL. Instructions on
+how to create a user and a database for a service for PostgreSQL are provided in the 
+PostgreSQL
+ section below.
+Configure PostgreSQL database server
+If you are creating a separate PostgreSQL instance for Audit service, then follow these steps:
+1
+. 
+Enable TLS connections for the database server.
+Both SSL modes (
+verify-full
+ and 
+verify-ca
+) are supported. For details, see the PostgreSQL documentation
+2
+. 
+Configure the 
+postgresql.conf
+ file
+In the 
+postgresql.conf
+ file, configure the following parameters depending on your ITOM Audit deployment size (Small,
+Medium, or Large).
+Note that the default value of the 
+listen_addresses
+ parameter is "
+localhost
+", which means only localhost can connect to the
+PostgreSQL instance. You need to set 
+listen_addresses = '*'
+ to allow remote connections.
+The following table provides example database settings for your reference.
+Parameter
+Small
+Medium
+Large
+effective_cache_size
+32 GB
+48 GB
+48 GB
+maintenance_work_mem
+200 MB
+500 MB
+1 GB
+max_connections
+150
+150
+150
+shared_buffers
+16 GB
+32 GB
+50 GB
+work_mem
+100 MB
+200 MB
+300 MB
+listen_addresses
+'*'
+'*'
+'*'
+3
+. 
+Configure encoding and locale. Make sure that the PostgreSQL instance uses the following encoding and locale settings:
+Encoding: UTF8
+LC_COLLATE: en_US.UTF-8
+LC_CTYPE: en_US.UTF-8
+PostgreSQL 
+ Below are sample SQL commands for creating a user and a database for a service for PostgreSQL database:
+1
+. 
+Log in to your database server with the administrator credentials.
+psql -h <host> -p <port> -U <PostgreSQL admin>
+2
+. 
+Run the following commands to create the database and the user used by the Audit Server:
+CREATE USER <USERNAME> PASSWORD '<PASSWORD>';
+CREATE DATABASE <DBNAME > OWNER <USERNAME>;
+<PASSWORD>
+ for the database user should be at least 16 characters long and have alphanumeric characters, at least
+one lower case letter, at least one upper case letter, and at least one digit.
+Note
+It is strongly recommended to host the database server on a 
+physical machine
+, and it should be an
+independent server without other applications running on it.
+Also, if the database server machine is a virtual machine, the resource must be dedicated to the database
+server.
+Database servers must be set to the same time zone, daylight savings settings, and time as the Audit server.
+The Audit server should be located in the same LAN as the database servers (without a proxy and firewalls
+between them). Otherwise, your system's performance may be impacted.
+
+
+SMAX 2022.11
+Page 
+774
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

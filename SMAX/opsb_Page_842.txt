@@ -1,0 +1,98 @@
+Transfer images beforehand
+Role
+Location
+Suite administrator
+Bastion node
+Before you deploy the suite, you need to download the suite images from Docker Hub or other registries and then upload the
+images to your registry.
+Generate the Image Set
+Before downloading and uploading the images, you need to generate the image set with the following steps:
+1
+. 
+Run the following command to change directory:
+cd <OMT_External_K8s_202x.xx-xxx>/tools/generate-download
+2
+. 
+Run the following command to display the command-line options for the 
+generate_download_bundle
+ command:
+./generate_download_bundle.sh -h
+3
+. 
+Run the 
+generate_download_bundle.sh
+ command together with the options required by your deployment. For example, run
+the following command. Replace all the placeholders with the actual values.
+./generate_download_bundle.sh -m <suite metadata> -s itsma -v <suite version> -o hpeswitom -d <offline-download.zip location>
+For example:
+./generate_download_bundle.sh -m /directory/containing/suite-metadata.tgz -s itsma -v 202x.xx -o hpeswitom -d /tmp
+Note that this example contains placeholder values.
+The 
+offline-download.zip
+ will be placed in the 
+/tmp
+ directory as specified. This file contains a list of the required images and
+will be used when you run the Python script to transfer the suite images in the later step.
+4
+. 
+Unzip the 
+/tmp/offline-download.zip
+ file and copy the 
+/tmp/offline-download/image-set.json
+ file to the <
+OMT_External_K8s_202x.xx-xxx
+>/scripts/
+ directory.
+Create ECR repositories
+Before pushing images to Amazon Elastic Container Registry (ECR), you need to create a repository for each image.
+To do this, copy and save the script below as 
+create_aws_repositories.py
+ to 
+OMT_External_K8s_202x.xx-xxx/scripts
+ on the bastion:
+import os
+import subprocess
+import time
+import sys
+import json
+import argparse
+import logging
+from collections import OrderedDict
+from subprocess import CalledProcessError
+logFile = os.path.dirname(os.path.realpath(__file__)) + '/create_aws_repositories.log'
+if os.path.exists(logFile):
+    os.remove(logFile)
+logging.basicConfig(level=logging.DEBUG,
+                    format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
+                    datefmt='%m-%d %H:%M', filename=logFile, filemode='w')
+console = logging.StreamHandler()
+console.setLevel(logging.INFO)
+formatter = logging.Formatter('%(levelname)-8s %(message)s')
+console.setFormatter(formatter)
+logging.getLogger('').addHandler(console)
+def sh(cmd, mode='output'):
+    try:
+        if mode == 'output':
+            logging.debug("execute command: " + cmd + " with output returned")
+            return subprocess.check_output(cmd, stderr=subprocess.STDOUT, shell=True)
+        else:
+            logging.debug("execute command: " + cmd + " with returnCode returned")
+            return subprocess.call(cmd, shell=True)
+    except CalledProcessError as e:
+        logging.error("execute returncode: " + str(e.cmd))
+        logging.error("execute returncode: " + str(e.returncode))
+        logging.error("execute output: " + str(e.output))
+        raise e
+    except Exception as e:
+        logging.error("execute shell exception: " + str(e))
+        raise e
+Note
+ If you have already uploaded images to your registry, skip this step. 
+
+
+SMAX 2022.11
+Page 
+842
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

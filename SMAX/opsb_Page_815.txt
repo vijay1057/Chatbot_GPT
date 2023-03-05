@@ -1,0 +1,99 @@
+                "eks:DeleteNodegroup",
+                "eks:DescribeNodegroup",
+                "eks:DescribeCluster",
+                "eks:ListClusters",
+                "eks:ListNodegroups",
+                "eks:ListTagsForResource",
+                "eks:ListUpdates",
+                "eks:TagResource",
+                "eks:UntagResource",
+                "eks:UpdateClusterVersion",
+                "eks:UpdateNodegroupVersion",
+                "elasticloadbalancing:DescribeLoadBalancers"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "9",
+            "Effect": "Allow",
+            "Action": [
+                "acm:RequestCertificate",
+                "acm:ImportCertificate",
+                "acm:DeleteCertificate",
+                "acm:DescribeCertificate",
+                "acm:ExportCertificate",
+                "acm:ListCertificates"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "10",
+            "Effect": "Allow",
+            "Action": [
+                "autoscaling:DescribeAutoScalingGroups",
+                "autoscaling:DescribeLaunchConfigurations",
+                "autoscaling:UpdateAutoScalingGroup",
+                "autoscaling:DeleteAutoScalingGroup",
+                "autoscaling:CreateAutoScalingGroup"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "11",
+            "Effect": "Allow",
+            "Action": [
+                "route53:GetHostedZoneCount",
+                "route53:ListHostedZones",
+                "route53:ListHostedZonesByName",
+                "route53:GetHostedZone",
+                "route53:ListResourceRecordSets",
+                "route53:ChangeResourceRecordSets",
+                "route53:GetChange"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "12",
+            "Effect": "Allow",
+            "Action": [
+                "ecr:CreateRepository",
+                "ecr:DescribeRepositories"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "13",
+            "Effect": "Allow",
+            "Action": [
+                "aws-marketplace:ViewSubscriptions",
+                "aws-marketplace:Subscribe"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "14",
+            "Effect": "Allow",
+            "Action": [
+                "backup:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "15",
+            "Effect": "Allow",
+            "Action": [
+                "kms:DescribeKey",
+                "kms:CreateGrant",
+                "kms:GenerateDataKey",
+                "kms:Decrypt",
+                "kms:RetireGrant",
+                "kms:ListKeys",
+                "kms:ListAliases"
+            ],
+            "Resource": "*"
+SMAX 2022.11
+Page 
+815
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

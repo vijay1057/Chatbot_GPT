@@ -1,0 +1,22 @@
+Is the AWS EKS solution an HA solution? There are only a few worker nodes suggested in the sizing guide for EKS
+deployment. Can they guarantee HA for a specific deployment?
+Yes, it's an HA solution. The EKS solution is leveraging the auto scaling group to guarantee node level fail-recovery. That is,
+once a worker node isn't healthy or has crashed, a new node will be added to the group to replace it. It guarantees HA for your
+deployment. If you have more budget on computing resources, you may add more worker nodes to improve availability.
+Can I change the RDS instance type dynamically without downtime?
+It may be covered by the AWS side. It depends on how you configure your RDS structure.
+There is minimal downtime when you are scaling up on a Multi-AZ environment because the standby database gets upgraded
+first, then a failover will occur to the newly sized database.
+However, a Single-AZ instance will be unavailable during the scaling operation.
+Do we still need to write 500 GB dummy data in EFS on EKS to improve EFS performance? What's the suggested
+size for dummy data?
+Yes. The dummy data is used to make sure you have enough credits for continuously writing with a good throughput rate. For
+a more precise dummy data size, you can keep monitoring the EFS Burst Credits by following the link below:
+https://docs.aws.amazon.com/efs/latest/ug/performance.html
+Another way to optimize this is to use provisioned throughput mode.
+SMAX 2022.11
+Page 
+805
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

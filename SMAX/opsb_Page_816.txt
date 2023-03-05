@@ -1,0 +1,95 @@
+        },
+        {
+            "Sid": "16",
+            "Effect": "Allow",
+            "Action": [
+                "config:DescribeConfigurationRecorders"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+c
+. 
+Click 
+Review policy
+ and give a name to this policy. For example, 
+sma-aws-policy
+.
+d
+. 
+Click 
+Create policy
+. Wait until a message appears, indicating you have created the policy.
+Step 2: Attach the policy to a user or role.
+AWS provides multiple ways to attach the policy to a user, here are two possible methods below. 
+Method 1:
+If you want a specific IAM user in your account to be the operator. In this scenario, each user can have their own password to
+access the AWS Management Console. 
+Click 
+Users
+ and follow these steps to attach the policy to your user account:
+1
+. 
+Click the chosen user account from the user list.
+2
+. 
+Click 
+Add permissions
+ > 
+Attach existing policies directly
+.
+3
+. 
+Select the user policy created in the previous step and click 
+Next: Review
+.
+4
+. 
+Click 
+Add permissions
+ and wait till a message appears, indicating you have attached the policy. If you don't have the
+required permissions to attach the user policy, contact your AWS administrators.
+Method 2:
+If you want a federated user to be the operator. 
+In this scenario, your company has its own corporate directory to provide single-sign-on 'SSO' access to the AWS Management
+Console for your users.
+1
+. 
+Create a role for the federated users and attach the prepared policy to it. See 
+Creating a role for federation
+.
+2
+. 
+Switch to the role. See 
+switching roles
+.
+If the above methods do not suit your needs, you can refer to the 
+AWS official guide
+ for more options or contact AWS support
+for assistance.
+Create a key pair on AWS
+Before proceeding, you also need to allocate an FQDN for the suite (for example, via AWS route 53 services by following the
+AWS document
+) and create a key pair on AWS (see the 
+AWS document
+) if you don't have one in the selected region.
+External references
+For more information on AWS user permissions, see 
+AWS IAM
+.
+Important
+ Once you log in to the AWS Management Console, you can select a region at the upper-right
+corner. You must place all the created resources in the same region to prevent performance issues, including VPC,
+EKS cluster, EFS, RDS, and bastion. Some regions don't support the availability of all the required resources. We
+recommend that you read instructions at 
+Geographical distribution of AWS
+ before you select a region.
+
+
+SMAX 2022.11
+Page 
+816
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

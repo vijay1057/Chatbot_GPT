@@ -1,0 +1,78 @@
+Option 1: Deploy in new VPC
+To create a new VPC by using CloudFormation, follow these steps:
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Go to 
+All services
+ > 
+Management & Governance
+ > 
+CloudFormation
+.
+3
+. 
+Click 
+Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > 
+Choose file
+ and select the 
+smax-network-with-
+vpc.template
+ file under directory 
+../Cloud Deployment x.x.x/../byok/smax-cloudformation-aws
+ in the 
+cloud deployment package
+.
+4
+. 
+Click 
+Next
+ and populate the following fields:
+Stack name:
+ Give a name to this stack, such as 
+sma-network
+.
+VPC Name:
+ Give a name to this VPC, such as 
+sma-vpc
+.
+VPC CIDR:
+ Define a CIDR for this VPC.
+EKS Cluster Name:
+ Give a name to your EKS cluster.
+Availability Zone
+: Select three availability zones from the drop-down list and each availability zone must be
+different, such as
+ us-gov-west-1a, us-gov-west-1b, us-gov-west-1c
+.
+Public Subnet 1/2/3 CIDR:
+ Define a CIDR block for each public subnet. Public subnets will be used to deploy bastion
+instance, load balancer, and NAT Gateway.
+Private Subnet 1/2/3 CIDR:
+ Define a CIDR block for each private subnet. Private subnets will be used to deploy the
+EKS cluster, worker nodes, and EFS.
+Database Subnet 1/2 CIDR:
+ Define a CIDR block for each database subnet. Database subnets will be used to
+deploy RDS.
+Note
+ You need to consult your IT/Network administrator in the cloud to choose which option to start with. 
+
+
+Note
+ You will need this EKS cluster name when you build the EKS cluster and launch worker nodes
+later.
+
+
+SMAX 2022.11
+Page 
+820
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

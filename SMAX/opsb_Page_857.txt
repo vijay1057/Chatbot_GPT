@@ -1,0 +1,44 @@
+follow the same exported path naming rule: <base directory>/<volume label on the web UI>
+Once you have turned on the 
+Auto-fill
+ button, the installer automatically configures the remaining NFS volumes for
+you as follows:
+File System Type
+: same as the file system type that you provided for the first volume.
+File Server
+: same as the NFS Server hostname or IP address that you provided for the first volume.
+Exported Path
+: the installer sets this field as 
+/<base directory>/<volume label on the web UI>
+. For example, if you
+provide the <base directory> as 
+/var/vols/itom/itsma/
+ and the current volume's display label shows 
+db-backup-vol
+,
+the installer automatically populates the exported path field with 
+/var/vols/itom/itsma/db-backup-vol
+.
+c
+. 
+Click 
+Next
+. The system validates the volume configurations and then proceeds to the next screen if the validation
+succeeds. If the validation fails, you need to reconfigure the volumes and then click 
+Next
+ again. Note that the
+validation process may take a few minutes.
+14
+. 
+A warning appears. Click 
+Yes
+ to continue the deployment.
+After you click 
+Yes
+, you can't go back to the Select phase.
+SMAX 2022.11
+Page 
+857
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

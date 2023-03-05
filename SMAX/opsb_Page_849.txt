@@ -1,0 +1,124 @@
+Deploy bootstrap
+Role
+Location
+Suite administrator
+Bastion node
+Before you start the installation, you need to allocate an external access host (FQDN) for the suite if you don't have one. For
+example, via AWS route 53 services by following the 
+AWS document
+.
+Follow these steps to start the bootstrap installation:
+1
+. 
+Log in to the bastion and navigate to the OMT installation directory:
+cd OMT_External_K8s_202x.xx-xxx
+2
+. 
+Run 
+openssl vesion
+ to check whether 
+OpenSSL 
+has been installed. If not, run the following command to install it.
+sudo yum install openssl
+3
+. 
+Run the following commands to retrieve the username and password of ECR:
+4
+. 
+Make sure that you have installed AWS CLI version 2 when 
+configuring bastion
+, and then run the following command to
+retrieve the username and password of ECR:
+ecrUserName=AWS
+ecrUserPassword=$(aws ecr get-login-password)
+ecrURL=<aws_account_id>.dkr.ecr.<region>.amazonaws.com
+5
+. 
+Run the following command to install OMT:
+./install --nfs-server <efs_dns_name> \
+          --nfs-folder /var/vols/itom/itsma/core \
+          --registry-url $ecrURL \
+          --registry-orgname <registry_orgname> \
+          --registry-username $ecrUserName \
+          --registry-password $ecrUserPassword \
+          --external-access-host <external_access_host> \
+          -P <platform_admin_password> \
+          --k8s-provider aws \
+          --system-user-id <system_user_id> \
+          --system-group-id <system_group_id> \
+          --db-user <external_db_username> \
+          --db-password <external_db_password> \
+          --db-url <external_db_url> \
+          [--db-crt <external_db_certificate>]
+          [--registry-ca <external_registry-ca>]
+Where:
+<ecr_region>
+ is the region where you specified to put your ECR repositories, such as 
+us-west-2 for Non-FIPS mode or
+us-gov-west-1 for FIPS mode
+.
+<efs_dns_name>
+ is the 
+FileServerDNSName
+ you got on the 
+Outputs
+ tab when creating the EFS stack (see the last
+step in 
+Launch EFS
+).
+<registry_orgname>
+ is the organization in the image registry that contains the images (the default value is
+hpeswitom
+).
+<external_access_host>
+ is the FQDN you allocated for the suite.
+<platform_admin_password>
+: specify an initial password for the OMT 
+admin
+ user. 
+Wrap the password with single
+quotes.
+ You will need it during the suite installation.
+<system_user_id>
+ and 
+<system_group_id>
+ must be the same as the user ID and group ID that you specified when
+configuring EFS volumes (see 
+Configure EFS
+).
+We strongly recommend that you use an 
+external database for the OMT API Server
+ with an SSL connection in a production
+environment. To do so, include the following parameters:
+<external_db_username>
+ is The login user name of the external database for OMT API Server. For example,
+cdfapiserver
+.
+<external_db_password>
+ is The login password of the external database for OMT API Server. For example, 
+mypassword
+.
+<external_db_url>
+ is the DB URL for connections to the external database for OMT API Server. For example,
+jdbc:postgresql://RDSEndpointAddress:5432/cdfapiserverdb
+. The 
+RDSEndpointAddress
+ value can be collected in
+the 
+Outputs
+ of the 
+Launch RDS
+ step.
+<external_db_certificate>
+: The path to the certificate file of the external database for OMT API Server for SSL
+encryption. This parameter is required only if the external database for OMT API Server uses SSL.
+<external_registry-ca>
+. Specifies the path of the trusted CA root certificate (base64 X.509 format) of the external
+registry. This parameter is required only if the external registry certificate is signed by a private CA (self-signed CA).
+Prepare Application Load Balancer
+SMAX 2022.11
+Page 
+849
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

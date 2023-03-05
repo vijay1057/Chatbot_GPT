@@ -1,0 +1,37 @@
+<target_orgname>
+ is the organization name in the target docker registry, which can be obtained from the admin of the
+registry.
+Verify the upload status on the installation portal
+1
+. 
+In the installation portal, click 
+NEXT
+ to check the number of uploaded images:
+a
+. 
+Click 
+More
+ to check the name of the remaining images to be uploaded.
+b
+. 
+Click 
+Check Again
+ to see the updated details of the uploaded images.
+2
+. 
+When all the images are successfully uploaded, click 
+Next
+ to go to the 
+Prepare
+ page. After you click 
+Next
+, you can't go
+back to the 
+Download
+ page. 
+SMAX 2022.11
+Page 
+863
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

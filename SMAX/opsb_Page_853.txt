@@ -1,0 +1,176 @@
+main(){
+  checkPreTools
+  cleanup
+  preparePolicy
+  prepareOIDC
+  createServiceAccount
+  createALBcontroller
+}
+main
+After saving the above script, run the following commands to create the load balancer controller.  
+chmod +x createALBcontroller.sh 
+./createALBcontroller.sh   [-r|--region <awsRegion>] [-c|--cluster <clusterName>]
+Where:
+-r|--region
+: Represents the region that same as your EKS cluster.
+-c|--cluster
+: Represents the name of your EKS cluster. 
+Step 2: Prepare a certificate for Application Load Balancer
+Before creating an ALB, you need to allocate an FQDN for the suite (for example, via AWS route 53 services by following
+the 
+AWS document
+) if you don't have one. You also need to prepare a certificate for the ALB using 
+one of
+ the following
+methods. Or else, unexpected errors may occur at later steps.
+Request a certificate
+If you want to request a new certificate, follow these steps:
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+All services
+ > 
+Security, Identity, & Compliance
+ > 
+Certificate Manager
+.
+3
+. 
+If the 
+firstrun
+ page is displayed, click 
+Get Started
+.
+4
+. 
+Click 
+Request a certificate
+.
+5
+. 
+Select 
+Request a public certificate
+ and click 
+Request a certificate
+.
+6
+. 
+Specify your target domain name. Use an asterisk (*) to request a wildcard certificate to protect several sites in the same
+domain. For example, 
+*.testsma-ng.org
+.
+7
+. 
+Click 
+Next
+.
+8
+. 
+Select 
+DNS validation
+ or 
+Email validation
+ according to your permission.
+9
+. 
+Click 
+Review
+ and then click 
+Confirm and request
+.
+10
+. 
+Click 
+Continue
+.
+11
+. 
+Finish the certificate validation based on the method you just selected. For more information,
+see 
+https://docs.aws.amazon.com/console/acm/validation
+.
+Import a certificate
+If you want to use a customized certificate, follow these steps:
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+All services
+ > 
+Security, Identity, & Compliance
+ > 
+Certificate Manager
+.
+3
+. 
+If the 
+firstrun
+ page is displayed, click 
+Get Started
+.
+4
+. 
+Click 
+Import a certificate
+.
+5
+. 
+For 
+Certificate body
+, paste the PEM-encoded certificate to import.
+6
+. 
+For 
+Certificate private key
+, paste the PEM-encoded unencrypted private key that matches the certificate's public
+key. 
+Important:
+ currently, services integrated with AWS Certificate Manager support only
+the 
+RSA_1024
+ and 
+RSA_2048
+ algorithms.
+7
+. 
+(Optional) For 
+Certificate chain
+, paste the PEM-encoded certificate chain.
+8
+. 
+Click 
+Next > Review and import > Import.
+After preparing the certificate, ensure the status are marked as issued by AWS.
+Step 3: Create an Ingress for the installation portal
+Before creating an Ingress, ensure that the certificates you created in the previous steps have been issued by AWS.
+Create an Ingress for port 3000 with these steps:
+1
+. 
+Save the content below as 
+installation-portal-ingress.yaml
+:
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "install-ingress"
+  namespace: "core"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: <application_loadbalancer_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 3000}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /
+SMAX 2022.11
+Page 
+853
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

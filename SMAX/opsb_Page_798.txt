@@ -1,0 +1,133 @@
+*
+ For EBS backend storage, including EBS backend storage used for OS storage and overlay2, and EBS backend RDS services,
+you may switch to IO1 instead of GP2 for better performance. For more details, see the AWS documents 
+EBS storage
+ and 
+RDS
+Storage
+. 
+Disk usage
+Number of requests in the database
+EFS size
+100 K
+160 GB
+300 K
+600 GB
+The sizes are for your reference only. They may vary depending on your ticket size, user access rate, integrations, and so on.
+Hardware requirements for bastion
+The following table lists the minimum resources needed for setting up a bastion in the cloud. 
+Bastion instance type
+Boot disk type
+Boot disk
+Bastion OS
+ 
+t2.micro,
+ m5.large
+EBS/General purpose SSD (gp2)
+100 GB
+CentOS 7 (x86_64) - with Updates HVM
+ 
+Note:
+ t2.micro is for daily operations while m5.large is for migration and other operations that require more computing
+resources and network bandwidth.
+Additional hardware requirements for OO
+The following sizing requirements denote the target deployment size for a dedicated OO database, based on the number of
+tenants. This is not based on concurrent users.
+To deploy OO for a 5-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+To deploy OO for a 20-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+ 
+Target
+size
+Number of
+OO tenants
+EKS nodes configuration
+EFS 
+RDS Database Instance
+AWS
+Instance
+Type
+Configuration
+Storage
+Quantity
+Configuration
+Additional
+storage
+RDS
+Instance
+Type
+vCPU
+Memory
+Storage
+Quantity
+max_connections
+Small
+1 to 5
+m5.2xlarge
+8 vCPU
+32 GB
+RAM
+100 GB
+2
+OO
+shares
+the
+same
+EFS
+server
+with the
+suite.
+500
+GB
+AWS RDS
+db.r5.large
+2
+16 GB
+750 GB ~ 5 TB
+Medium
+6 to 20
+m5.2xlarge
+8 vCPU
+32 GB
+RAM
+100 GB
+8
+OO
+shares
+the
+same
+EFS
+server
+with the
+suite.
+500
+GB
+AWS RDS
+db.r5.2xlarge
+8
+64 GB
+750 GB ~ 5 TB
+#The max_connections value for the OO database should be set to 1400 or more.
+##The max_connections value for the OO database should be set to 5710 or more.
+Additional hardware requirements for DND & OO
+The system requirements for SMA and Design and Deploy (DND) can be planned while installing SMA or at a later point when
+you are deploying DND on an existing SMA setup. The table includes the hardware requirements for OO also as it is mandatory
+for DND to work.
+A standard deployment includes control plane nodes (owned by AWS), worker nodes, EFS as storage, and RDS as databases.
+First, make sure that you have determined your SMA deployment size by using the table in the "SMA size definitions" section. 
+Then, use the following table to determine your DND deployment size. Note that this table applies for one DND instance. If you
+will enable DND for multiple tenants (one DND Instance for each tenant), you need to determine the deployment size of each
+individual DND instance.  
+SMAX 2022.11
+Page 
+798
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

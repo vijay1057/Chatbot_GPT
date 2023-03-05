@@ -1,0 +1,96 @@
+# NAME: checkMountEFS
+# DESCRIPTION: check aws efs server is ready
+#=================================================================
+mountEFS() {
+    local n=0
+    while :; do
+        n=$(($n + 1))
+        if [[ $n -ge $TIMEOUT_FOR_SERVICES ]]; then
+            echo "check timeout for mount EFS"
+            exit 1
+        fi
+        returnCode=`sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 $efs_server:/ $mount_point`
+        if [[ $returnCode -eq 0 ]] || [[ $returnCode -eq 32 ]]; then
+            echo "Successfully mount EFS"
+            sudo sed -i '$a\'"$efs_server:/ $mount_point nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,_netdev 0 0" /etc/fstab
+            break
+        fi
+        sleep 15
+    done
+}
+make_volume() {
+    local volume=$1
+    cd $mount_point
+    local mounted_pv=${mount_point}${volume}
+    if [ ! -d $mounted_pv ]; then
+        sudo mkdir -p $mounted_pv
+    fi
+    chown -R $suite_user_uid:$suite_user_gid $mounted_pv
+    chmod g+w $mounted_pv
+    chmod g+s $mounted_pv
+    echo "Successfully make volume: ${volume}"
+}
+mountEFS
+make_volume /var/vols/itom/itsma/core
+make_volume /var/vols/itom/itsma/worker-info
+make_volume /var/vols/itom/itsma/db-single-vol              
+make_volume /var/vols/itom/itsma/db-backup-vol
+make_volume /var/vols/itom/itsma/itom-logging-vol
+make_volume /var/vols/itom/itsma/rabbitmq-infra-rabbitmq-0
+make_volume /var/vols/itom/itsma/rabbitmq-infra-rabbitmq-1
+make_volume /var/vols/itom/itsma/rabbitmq-infra-rabbitmq-2
+make_volume /var/vols/itom/itsma/global-volume
+make_volume /var/vols/itom/itsma/db-volume
+make_volume /var/vols/itom/itsma/db-volume-1
+make_volume /var/vols/itom/itsma/db-volume-2
+make_volume /var/vols/itom/itsma/smartanalytics-volume
+make_volume /var/vols/itom/itsma/itsma-smarta-sawarc-con-0
+make_volume /var/vols/itom/itsma/itsma-smarta-sawarc-con-1
+make_volume /var/vols/itom/itsma/itsma-smarta-sawarc-con-a-0
+make_volume /var/vols/itom/itsma/itsma-smarta-sawarc-con-a-0
+make_volume /var/vols/itom/itsma/itsma-smarta-sawarc-con-a-1
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-0
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-1
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-2
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-3
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-4
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-5
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-a-0
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-a-1
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-a-2
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-a-3
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-a-4
+make_volume /var/vols/itom/itsma/itsma-smarta-saw-con-a-5
+make_volume /var/vols/itom/itsma/itsma-smarta-sawmeta-con-0
+make_volume /var/vols/itom/itsma/itsma-smarta-sawmeta-con-1
+make_volume /var/vols/itom/itsma/itsma-smarta-sawmeta-con-a-0
+make_volume /var/vols/itom/itsma/itsma-smarta-sawmeta-con-a-1
+echo "Finish making all volumes Successfully."
+cd ${CURRENTDIR}
+4
+. 
+Run the following commands to configure EFS volumes:
+chmod 755 configureEFS.sh
+sudo ./configureEFS.sh <efs_dns_name> <system_user_id> <system_group_id>
+Where:
+<efs_dns_name>
+ is the 
+FileServerDNSName
+ you got on the 
+Outputs
+ tab when creating the EFS stack (see the last
+step in section 
+Launch EFS
+).
+<system_user_id>
+ and 
+<system_group_id>
+: specify an operating system user ID and group ID respectively that are used
+to run the process in the container. Both values must be 1999 or a number between 100000 and 2000000000 (for
+example, UID=100001 and GID=100002).
+SMAX 2022.11
+Page 
+838
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

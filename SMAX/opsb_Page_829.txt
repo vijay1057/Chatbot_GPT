@@ -1,0 +1,213 @@
+Build EKS cluster (FIPS mode)
+Role
+Location
+IT / Kubernetes Cluster administrator
+AWS Management Console
+To use Amazon Elastic Kubernetes Service (EKS) to install and manage the suite on AWS, you need to perform the following
+tasks to create an EKS cluster and then launch the EKS cluster worker nodes.
+Create an EKS cluster
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Go to 
+All services
+ > 
+Management & Governance
+ > 
+CloudFormation.
+ 
+3
+. 
+Click 
+Create stack
+, click 
+Template is ready
+ > 
+Upload a template file
+ > 
+Choose file
+ and select the 
+smax-eks.template
+file under directory 
+../Cloud Deployment x.x.x/../byok/smax-cloudformation-aws 
+in the 
+cloud deployment package
+.
+ 
+4
+. 
+Click 
+Next
+ and populate the following fields:
+Stack name:
+ Give a name to this stack, such as 
+sma-eks
+.
+VPC ID:
+ Select the created VPC from the drop-down list.
+Subnets for EKS Cluster:
+ Select the three private subnets created.
+EKS Cluster Name:
+ Enter the EKS cluster name you defined in the 
+Prepare VPC
+ 
+step.
+EKS Cluster Version:
+ Select a 
+supported EKS version
+.
+EKS Cluster Security Group:
+ Select the security group created for the control plane.
+5
+. 
+Click 
+Next
+ > 
+Next
+, acknowledge the required capabilities, and click 
+Create stack
+. Wait until the stack creation is
+completed, and check the results on the 
+Outputs
+ tab.
+6
+. 
+Check if your VPC has been properly tagged so that the EKS cluster can discover it. For details, see the AWS
+document 
+VPC tagging requirements
+.
+Launch EKS cluster worker nodes
+Use the following steps to launch EKS cluster worker nodes for FIPS mode enabled installations.
+1
+. 
+Log in to the AWS Management Console and switch to the selected region.
+2
+. 
+Go to 
+All services
+ >
+EC2
+. From the left navigation pane, click 
+Launch Templates
+ > 
+Create launch template
+. Name
+the template and populate the following fields:
+UseCustomizedImage
+: Set to 
+True 
+to use your own customized image to build work nodes. Else leave as is.
+AMI ID of the custom image for the worker nodes
+: If you set 
+UseCustomizedImageID
+=true, input the ID
+of the AMI to be used to build the node group. Else leave as is.
+Snapshot ID of the AMI volume
+: If you set 
+UseCustomizedImageID
+=true, input the ID of the volume
+snapshot of the node group AMI. Else leave as is.
+Amazon machine image (AMI)
+: Select the AMI you created earlier. See 
+Create a FIPS-enabled AMI
+.
+AmiType
+: For normal EKS users, select AL2_x86_64 AMI type. Ignore this parameter if you are using custom AMI.
+Instance type
+: Select an instance type from the drop-down list. See 
+Sizing considerations (EKS)
+.
+Key pair (login)
+: Select the created EC2 key pair.
+Network settings
+: Select 
+Virtual Private Cloud
+.
+Security groups
+: Select the cluster's security group to allow the EKS cluster to communicate with worker. For
+example, eks-cluster-sg-*.
+Storage
+: Enter 
+100 
+in the 
+Size (GiB)
+ field.
+CapacityType
+: Select 
+ON_DEMAND 
+for production as SPOT instance may be unstable. For R&D, we recommend
+you select 
+SPOT
+ instance due to its cost-saving abilities.
+Click 
+Create launch 
+template
+ to launch the template.
+3
+. 
+Go to 
+All services
+ > 
+EKS 
+> 
+Clusters 
+and select the EKS cluster name you defined in the 
+Prepare VPC
+ 
+step:
+Note You must use the same EKS cluster name when creating the  VPC, EKS cluster, and worker nodes; otherwise, the
+suite installation will fail.
+1
+. 
+Click 
+Configuration 
+> 
+Compute 
+> 
+Add node group
+. Name the node group and populate the following fields:
+Node IAM Role
+: Enter the
+ NodeInstanceRole
+ value collected on the 
+Outputs
+ tab when the EKS cluster is
+created successfully (see 
+Create an EKS cluster
+ ).
+Enable the 
+Use launch template
+ button.
+Note
+ You must use the same EKS cluster name when creating VPC, EKS cluster, and worker nodes;
+otherwise, the suite installation will fail.
+
+
+Tip
+  
+Take a note of the
+ NodeInstanceRole
+ value on the 
+Outputs
+ tab. You will need it to launch worker
+nodes in the next section.
+After the EKS cluster is created, the system creates a security group for the EKS cluster (
+eks-cluster-sg-
+*
+)
+. 
+You will need it when 
+launching EFS
+ and 
+creating RDS
+ later.
+
+
+SMAX 2022.11
+Page 
+829
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,52 @@
+Install Audit collector on-premises
+This section provides the steps required to install the Audit collector.
+Generate vault secrets
+To generate vault secrets for the Audit collector chart, perform the following steps on the control plane node:
+1
+. 
+Run the following command:
+$CDF_HOME/scripts/gen_secrets.sh -n <Audit Producer Namespace> -c <Audit Collector Chart File> -o <Secrets YAML File>
+Where:
+<Audit Audit Producer Namespace> is the namespace in which the Audit Producer is running.
+<Audit Collector Chart File> is the tar file containing the Audit collector installation charts (
+audit-collector-
+<version>.tgz
+)
+<Secrets YAML File> is the YAML file that stores the Audit collector secrets. Specify the file name (for
+example, 
+audit-collector-secrets.yaml
+), and then the script will generate this YAML file after you run the script.
+You will need to use this file when you run the command to install the Audit collector.
+For example:
+/opt/cdf/scripts/gen_secrets.sh -n itsma-cfpni -c audit-collector-<version>.tgz -o audit-collector-secrets.yaml
+2
+. 
+The vault secret utility prompts you for the following passwords:
+Key
+Required
+Description
+audit-collector-integration-user-pass-key
+Yes
+Audit collector integration user password.
+Install Audit collector
+To complete the deployment, you will need to install the Audit service using Helm.
+Run the following command:
+$helm install audit-collector <Audit Collector Chart> -n <Audit Producer Namespace> -f values.yaml -f audit-collector-secrets.yaml --set-file "caCertificates.cert_one\.crt"=/path/to/cert_one.crt --set-file "caCertificates.cert_two\.crt"=/path/to/cert_two.crt
+Where,
+<Audit Collector Chart> is the tar file containing the Audit collector installation charts.
+<Audit Producer Namespace> is the namespace where the Audit producer is running.
+<Values YAML File> is your 
+values.yaml 
+file with properties configured for the Audit collector deployment.
+<Audit Collector Secrets YAML file> is the file that gen_secret script generates and holds the Audit collector secrets.
+For example:
+$helm install audit-collector audit-collector-<version>.tgz -n itsma-cfpni -f values.yaml -f audit-collector-secrets.yaml --set-file "caCertificates.idm\.crt"=idm.crt --set-file "caCertificates.auditservice\.crt"=ase.crt
+Note
+: Make sure you deploy Audit collector in the same namespace where the Audit producer is running. Audit
+collector requires the Audit producer file system and it will use the Audit producer PVC and subpath. 
+SMAX 2022.11
+Page 
+788
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

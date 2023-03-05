@@ -1,0 +1,89 @@
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+    alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS-1-2-2017-01
+  labels:
+    app: install-ingress
+spec:
+  tls:
+  - hosts:
+    - <external_access_host>
+  rules:
+    - host:
+      http:
+        paths:
+          - backend:
+              service:
+                name: "frontend-ingress-controller-svc"
+                port: 
+                  number: 3000
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<application_loadbalancer_name>
+: the group name for the ALB to be created.
+<certificate_arn>
+: the
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+.
+<external_access_host>
+: the FQDN you've allocated for the suite. For example, 
+www.example.com
+.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f installation-portal-ingress.yaml
+To check the ingress status, run the command below.
+kubectl get ingress -n core cdf-mngm-ingress 
+The output should be as below and should contain the 
+elb
+ address.
+NAME             CLASS    HOSTS   ADDRESS         PORTS     AGE
+install-ingress    <none>
+   *         xxx.xxx.elb.amazonaws.com   80, 443   147m 
+Now an ALB is created and the Ingress for port 3000 is bound to this ALB automatically.
+Bind FQDN with Application Load Balancer
+Amazon Route 53 is a highly available and scalable cloud Domain Name System (DNS) web service. In this installation
+procedure example, Amazon Route 53 is used to bind an FQDN (<external_access_host>) such as www.example.com to
+ALB so that end users can easily access the suite from web browsers.
+1
+. 
+Save the following file as 
+createRecord.json
+:
+{
+Important 
+ The ALB group name must begin and end with an alphanumeric character, should contain
+no space and can contain only alphanumeric characters and hyphens. For example, 
+main-alb
+. You need to
+use the same value when you create Ingress resources for port 5443 and port 443 later.
+
+
+Note
+:  If the above command fails to get the elb address, use the commands below to troubleshoot. You
+can then refer to 
+AWS load balancer troubleshooting page
+ and visit 
+error recreating load balancer
+ for possible
+solutions.
+kubectl describe ingress -n core install-ingress 
+kubectl logs -n kube-system deployment.apps/aws-load-balancer-controller 
+
+
+Note  
+Amazon Route 53 isn't the only option. If your domain name isn't provided by Route 53, you may
+contact your domain name provider to bind the domain name to the Application Load Balancer DNS name.
+
+
+SMAX 2022.11
+Page 
+854
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

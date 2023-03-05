@@ -1,0 +1,104 @@
+If you want to use the SSL connection mode for PostgreSQL, you can download a root certificate that works for all AWS
+regions. For details, see 
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html
+. You will
+need to select the 
+Use TLS  connection
+ option and upload the certificates during the installation.
+You will need to enter the database host, database port, database name, the database admin user who has the
+Superuser
+ role attribute, and the database login password.
+Set up a PostgreSQL database for OMT API Server on the RDS instance
+Role
+Location
+Database administrator
+Bastion node
+OMT supports both embedded and external PostgreSQL databases for the OMT API Server.
+For demonstration purposes only, you can use the embedded API Server database that's created by the installer automatically
+during the installation and you do 
+NOT 
+need to specify the related options while you run the 
+install
+ command (see 
+Deploy
+bootstrap
+).
+In a production environment, we highly recommend that you create an external PostgreSQL database for the OMT API
+Server exclusively. To do this, later you will need to specify the related options while you run the 
+install
+ command (see 
+Deploy
+bootstrap
+).
+Follow the steps below to set up the non-public schema external PostgreSQL database, as OMT doesn't support public schema
+for the external PostgreSQL database. This requires database administrator credentials.
+1
+. 
+Prepare the PostgreSQL admin user you specified when creating RDS in the first section. In the steps below, it's referred
+to as 
+<postgres_admin>
+.
+2
+. 
+If your database server is configured to use SSL, create a copy of the database server certificates in the .pem format. You
+will need to select the 
+Use SSL connection
+ option and upload the certificates during the installation.
+3
+. 
+Log in to the bastion node and then run the following command to connect to the PostgreSQL instance. Replace <postgres
+admin> with the actual value.
+psql -h <RDSEndpointAddress> -U <postgres_admin> -d postgres
+where 
+RDSEndpointAddress
+ can be collected in the 
+Outputs
+ of the 
+Create an RDS instance
+ step.
+4
+. 
+Run the following commands:
+CREATE USER cdfapiserver login PASSWORD 'mypassword';
+grant cdfapiserver to <postgres admin>;
+CREATE DATABASE cdfapiserverdb WITH owner=cdfapiserver;
+\c cdfapiserverdb;
+ALTER SCHEMA public OWNER TO cdfapiserver;
+ALTER SCHEMA public RENAME TO cdfapiserver;
+REVOKE ALL ON SCHEMA cdfapiserver from public;
+GRANT ALL ON SCHEMA cdfapiserver to cdfapiserver; 
+ALTER USER cdfapiserver SET search_path TO cdfapiserver;
+The example commands above perform the following operations:
+creating an external database and a user for the OMT API Server
+changing the public schema and revoking the public role of the database
+setting 
+search_path
+ from public to non-public
+In this example,
+cdfapiserver
+ is the database login user name. Replace it with your actual value. 
+mypassword
+ is the database login password. Replace it with your actual value. Make sure the password is wrapped
+in single quotes.
+cdfapiserverdb
+ is the database name. Replace it with your actual value. 
+5
+. 
+Make sure the external database is empty, which means the database doesn't contain any database object, such as
+tables, procedures, and views.
+6
+. 
+When your database is ready, make a record of the following information. You will need this information during the
+installation at the 
+Deploy bootstrap
+ step.
+Database host
+Database port
+Database name
+Database login user/password
+SMAX 2022.11
+Page 
+840
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

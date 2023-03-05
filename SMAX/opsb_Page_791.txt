@@ -1,0 +1,31 @@
+Plan for AWS
+The following table provides an overview of the topics covered in the Plan section:
+Topic
+Description
+Before you
+begin
+Review the suite deployment architecture on AWS, including the benefits of using EKS, deployment
+components, inter-communication between components, and the design considerations like security and
+performance.
+Support
+matrix
+Based on your deployment plan, review the system requirements for the suite installation. At the
+conclusion of this phase, you must have the following resources in place:
+Bastion node required to communicate with the Kubernetes cluster
+Worker node(s) to run suite services
+NFS server to store OMT and suite data
+Relational database
+Sizing
+consideration
+Collect and evaluate data from your current environment to determine the following:
+Suite deployment option that suits your environment the best
+Size and complexity of your suite deployment
+FAQs
+List the most frequently asked questions about deploying the suite on AWS with EKS, including generic
+cloud questions and questions specific to EKS deployment only.
+SMAX 2022.11
+Page 
+791
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

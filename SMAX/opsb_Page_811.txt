@@ -1,0 +1,35 @@
+Activate your Docker Hub account (EKS)
+You need a valid Docker Hub account to download Micro Focus product images from Docker Hub.
+Skip this section if you already have an active Docker Hub account that Micro Focus has authorized.
+1
+. 
+Create a Docker Hub account at 
+https://hub.docker.com
+. When you enter your password for your Docker Hub account,
+don't use single quotes. Make a note of your Docker Hub ID and password. 
+2
+. 
+Request the software fulfillment and licensing team of your region to activate your Docker Hub account. Send emails to
+one of these contacts (Americas: 
+dockersupport.ams@microfocus.com
+, Asia-Pacific: 
+dockersupport.apj@microfocus.com
+, and
+Europe, Middle East, and Africa: 
+dockersupport.emea@microfocus.com
+) according to your region with the following
+information:
+Company name
+Micro Focus customer Service Agreement ID
+Docker ID
+Email
+License edition
+You will receive an email notification from Micro Focus authorizing your Docker Hub account to access the Micro Focus
+product images. This may take one or more business days. Meanwhile, you can proceed and complete the other
+prerequisite tasks explained in the upcoming pages.
+SMAX 2022.11
+Page 
+811
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

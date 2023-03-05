@@ -1,0 +1,145 @@
+Deploy the suite on AWS
+This section provides information required to install and configure the 
+Service Management Automation (SMA) suite 
+on
+AWS
+, 
+including the preparation, installation, and setup tasks.
+In addition to the 
+SMA
+ capability, you can also install and enable the following add-on capabilities. For each new installation,
+the 
+SMA
+ capability is mandatory, and the rest are optional.
+Product
+capability
+Description
+Service
+Manager
+Portal Service
+(SMPS)
+Services required to integrate an external Service Manager system with SMA Service Portal.
+Design and
+Deploy (DND)
+SMAX Cloud Management offers the DND capability. The DND capability enables customers to make
+new cloud service offerings based on published service designs available to consumers.
+Before enabling and using the Design and Deploy functionality, you should install and enable
+Operations Orchestration(OO) Containerized capability. For more information, see 
+Install OO on
+AWS(EKS)
+ and 
+Enable OO Containerized
+.
+Cost
+Governance
+and Resource
+Optimization
+(CGRO)
+CGRO enables you to optimize your cloud spending and simplify configuration with various Cloud
+providers. 
+The CGRO installation has a dependency on DND. If you select CGRO, you must select DND as well.
+Software
+Asset
+Management
+(SAM)
+With the hardware and software data discovered by UD and license data retrieved from SMAX, the
+new SAM capability enables you to calculate and analyze license compliance for the software
+applications that you are using in your organization. This will reduce the risk of noncompliance and
+improve the visibility into your financial and operational decisions.
+To install these add-on capabilities, use one of the following methods.
+select the add-on capabilities from the installation portal during the suite installation (see step 2 in the 
+Install the
+suite 
+section).
+install the add-on capabilities on top of an existing suite instance (see the 
+Install add-on capabilities 
+section).
+In addition, you can optionally install and enable the 
+Native Service Asset & Configuration Management
+ 
+(SACM)
+solution after the suite deployment (see the 
+Enable Native SACM 
+section). Native SACM is one single solution for the entire
+Service Asset & Configuration Management process with instant access to the data and embedded graphical widgets for CI
+topology representation. 
+Before you begin, ensure that you 
+have the deployment architecture planned
+.
+The following table provides a list of tasks that you must complete in the given order. A user can have multiple roles.
+Prepare
+Complete these preparation tasks before installing the suite.
+Sr
+No.
+Task
+Where to
+perform
+Role
+How to
+perform
+1
+Prepare a valid Docker Hub account to download 
+Micro Focus
+product images from Docker Hub.
+Any client that
+has Internet
+connectivity
+Any
+Activate
+your
+Docker
+Hub
+account
+2
+Download the cloud deployment package from 
+Micro Focus
+Marketplace.
+Any client that
+has Internet
+connectivity
+Any
+Downloa
+d the
+cloud
+deploym
+ent
+package
+3
+Prepare your user account with the right permissions and a
+required key pair.
+AWS
+Management
+Console
+Cloud administrator
+Create
+AWS user
+policy
+and key
+pair
+4
+Prepare a Virtual Private Cloud where you will place all the
+other resources.
+AWS
+Management
+Console
+IT / Network
+administrator
+Prepare
+VPC
+5
+Create an EKS cluster and then launch the EKS cluster worker
+nodes to use Amazon Elastic Kubernetes Service (EKS) to
+install and manage the suite on AWS.
+AWS
+Management
+Console
+IT / Kubernetes
+Cluster administrator
+Build EKS
+cluster
+SMAX 2022.11
+Page 
+806
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

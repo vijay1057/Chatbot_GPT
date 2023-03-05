@@ -1,0 +1,25 @@
+Installation tasks (EKS)
+This section contains all the mandatory and optional tasks to install the suite in an EKS environment.
+Activate the Docker Hub account
+Download the cloud deployment package
+Create AWS user policy and key pair
+Prepare VPC
+Build EKS cluster
+Configure bastion
+Download the required installation packages
+Configure EFS
+Launch RDS
+(Optional) Install and configure Vertica database
+Transfer images beforehand
+Deploy bootstrap
+Select the deployment configuration
+Check and download the container images
+Deploy the infrastructure services
+Deploy the suite
+(Optional) Install containerized CMS (EKS)
+SMAX 2022.11
+Page 
+810
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
