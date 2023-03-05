@@ -1,0 +1,31 @@
+Get started with Service Management
+The Service Management includes components as described in the following table.
+Component
+Description
+Service
+Management 
+Service Management provides a tool for service desk and help desk management that quickly and
+efficiently handles change and incident management. Service Management integrates a broad range of
+suite capabilities, Big Data, and social collaboration to enable your workforce with connected
+intelligence.
+Smart
+Analytics
+Smart Analytics is a big data-based Service Desk solution. Smart Analytics can help you achieve the
+following goals:
+Improve the Help Desk management processes
+Reduce the time and effort that end users and IT professionals expend on submitting requests
+Accelerate the process of problem management
+Improve the search experience across a variety of internal and external content
+Service Portal
+Service Portal enables IT departments to offer their services in an online shopping experience, similar to
+the experience today at popular online retailers. With Service Portal, end users can order, track, and
+manage their IT services, access knowledge articles, initiate chat conversations, and complete surveys.
+Mobile app
+A native mobile app that connects your organization's people and information by providing your team
+access to the Service Desk applications and knowledge articles on mobile devices.
+SMAX 2022.11
+Page 
+137
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

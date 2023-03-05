@@ -1,0 +1,65 @@
+Core Data
+People
+The first thing I need to do is to figure out who needs to be part of the system, and what they will do inside of it.
+First, all the people that provide one or more of our services (I know we haven’t talked about services yet, but for now think of
+them as anything someone might ask us for) need to be in the system so they can see all of the incoming user requests, get
+notifications about or possible issues, and work on any tasks we need to assign to them. In most cases, we refer to these users
+as 
+agents
+.
+Second, there are all the people that want to consume our services that need a way to interact with us to request the services,
+report issues with their ability to consume the service, or even just ask questions about the services. This type of user is most
+often referred to as an '
+end user
+' or '
+service requester
+'.
+Finally, there are all the people that will not be using the system itself but may be referenced inside of it. One example is our
+external vendors. These users won’t log in to the system, but our agents might want to call them or send them a copy of a
+request via email, so we need their contact information in the system.
+In Service Management Automation X there are two types of people; 
+users
+ and 
+contacts
+. Users are people that can log in to
+the system, while contacts can't. From our previous examples, our agents and end users will exist as users, while the rest
+(external vendors, etc.) will be contacts.
+Core Data
+In this chapter we tackle the concepts around the core data of the Service Management Automation X suite:
+people, locations, and groups (and we’ll throw in roles for good measure).
+As we introduce new record types, we will be building up the Service Management Automation X Data Model. In
+each chapter, we will investigate the core files for each concept or module introduced as well as their immediate
+relationships to other record types. This also means that not every relationship may be shown for each record
+type, which greatly reduces the complexity of each image. At the end of this guide, we will describe the data
+model in detail, but it's difficult to display every relationship in the system in one image. The complete data
+model can be found 
+here
+.
+In our Data Model, each box is color-coded. These colors represent the 
+badge color
+ for records of that type
+within SMAX. The color families also help to visualize the overall modules that certain collections of records
+create.
+Putting the Core Data record types into our data model is a bit problematic, as they relate in some way to almost
+every other record type in the system. Instead of drawing all of those lines and making our model unreadable,
+here we present a simplified data model showing only the relationships between these objects.
+Note the icons for Person, Location, Entitlement Rule, Time period and Group. On our data models from here on
+out we will add these icons to any boxes that have relationships to each type. For example, Incident records
+reference several types of Core Data, giving the following representation:
+In this way, the icons show that the Incident has relationships to Person, Group, and Location.
+By the end of this section Glenn will:
+Understand which people he needs to include in the Service Management Automation X implementation
+Know the difference between a User and a Contact
+Discover how to determine what users can do by adding Roles to a Person or Group
+Learn about the two different types of Groups in Service Management Automation X; Functional and
+Organizational
+Define what makes up a Location
+See how certain information can be made available only to certain users
+
+
+SMAX 2022.11
+Page 
+151
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,93 @@
+You can run the CDF pre-check script standalone or offline, ensuring that your environment meets important prerequisites
+before you proceed with download and deployment steps. For details, see 
+Run a precheck before you install
+.
+During installation, you have the option to turn on an 
+Auto-fill
+ button to let the installer automatically configure the
+NFS/EFS volumes for you.
+Miscellaneous changes
+Cluster node roles (Master, Worker) are now displayed on the kube-status script (for example, 
+kubectl get nodes
+).
+The certificate renewal script allows for more flexibility. Certificates can now be renewed after they have expired without
+restarting the cluster. Certificate validity (by default, 1 year) can also be customized based on the customer's policy.
+2019.05
+SMAX 2019.05 introduces the following new features and enhancements.
+Smart virtual agent
+This release includes a natural language understanding (NLU) based SMAX virtual agent (Chatbot) that can help to improve the
+productivity of IT agents. End users can chat with the virtual agent in the SMAX Service Portal with natural language. The
+virtual agent combines Rasa with IDOL to understand the end users' intentions and find the best matching intent predefined to
+provide either related answers or catalog offerings as responses.
+For more information, see 
+Virtual agent settings
+.
+Modular package management
+The Dev2Prod process now supports granular synchronization of configuration data from one SMAX tenant to another (for
+example, from your development tenant to production tenant). You can synchronize the configuration data of desired entities
+of one or more modules from a source tenant to a target tenant. The source and target tenants can belong to the same SMAX
+system or two different systems, and can have the same tenant type or different tenant types (development, production, trial,
+and so on). For more information, see
+ Dev2Prod - Synchronize your development and production tenants
+.
+Support of entity links in user options
+This feature enables you to create user options that act as entity links to expose data from SMAX tables in supported record
+types: Request, Incident, Change, and Release. For more information, see 
+Use entity links in user options
+.
+Scheduled reports
+With a preset schedule, SMAX can regularly generate certain reports and send them to a group of recipients through emails.
+For more information, see 
+Scheduled reports
+.
+Deployment on Google Cloud
+The suite can now be deployed on Google Cloud in a demo or production environment. The following functions are supported:
+Google Kubernetes Engine cluster can be easily created and managed from Google Cloud Console.
+NFS Filestore can be subscribed as a storage solution with high performance and availability.
+PostgreSQL can be used to implement a solution to backup, restoration, monitoring, migration, and disaster recovery.
+Additional database support
+PostgreSQL 10.x and 9.6x are supported for SMA in this release.
+Service Portal enhancements
+The accessibility of the Service Portal is enhanced to improve the usability for all users:
+Enhance keyboard navigation with consistent and meaningful sequence
+Enhance labels, instructions and relationships for better screen reader support
+You are now able to add embedded JavaScript to Service Portal.
+You are now able to sort the knowledge articles within category by 
+Last update time
+ on Service Portal.
+You are now able to search for the requests on Service Portal. The request search isn't only available in the request
+tracking page, but also available in the global search.
+Enhanced custom request tracking tab: The custom tab extends self-service capabilities by providing a company or
+corporate level view of requests for selected administrative roles. Requests can be filtered and sorted in the grid columns,
+and data can be exported to a predefined Excel template. The custom tab is available to users with an administrator-
+defined role, and the data to be displayed in the grid can be controlled with request meta-phase and DSL expression. In
+this release, you can define 3 custom tabs at maximum.
+Suite Administration enhancements
+Unit-based licensing option: Suite Administration now supports uploading and allocating a unit license. With a unit license,
+you have the flexibility of allocating the license capacity to different combinations of concurrent users and named users.
+The 
+User auto-sync
+ setting is introduced in the account setting page to enable or disable automatic user
+synchronization.
+The LDAP configuration interface in the 
+Authentication
+ tab of the account page is improved. In addition, now after you
+configure an LDAP or SAML IdP authentication, you can click 
+Validate
+ to check if the user synchronization is configured
+correctly or not.
+You can now use the 
+Lock user
+ or 
+Unlock user
+ button to lock or unlock a user. A user locking API is also available.
+You can now customize the maximum size and file type allowlist of attachments submitted by users in a tenant under
+Tenant Details
+.
+Data export enhancement
+SMAX 2022.11
+Page 
+127
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

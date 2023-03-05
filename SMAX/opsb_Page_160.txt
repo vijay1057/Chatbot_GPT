@@ -1,0 +1,49 @@
+One other thing we should keep in mind when creating our offerings is the shopping cart system that Service Management
+Automation X provides for end users. The cart collects and submits requests for multiple goods and services in a single
+transaction.
+Public, Private and Confidential Requests
+By default, requests are viewable by any agent that has the rights to the request application and the end user that the request
+was for (the 'requested for person'). However, there are certain requests where we want to control who may view and interact
+with them. For this purpose, Service Management Automation X allows us to create public, private, and confidential requests.
+Public Requests
+Sometimes a certain request or issue will affect multiple users in the same location. Instead of opening multiple Requests for
+these events, we would be more efficient if we created one and allowed all affected users to use it instead of opening their
+own. For just this purpose, Service Management Automation X supports public requests.
+Public requests can be shared with, and tracked by, users affected by the same issue. If an end user sees a public request in
+the portal that interests them, they can “follow” the request. This allows the user to track the request and be notified when
+someone resolves it.
+Inside of each offering is a setting that determines whether it may be opened as a public request. Additionally, there is a
+setting that specifies if the public request should be shared with users with the same location, organization, or both.
+Private Requests
+Private requests are the default type of request, and may only be viewed in the Service Management Automation Service
+Portal by the requested by and requested for person in the record. They will not appear for any other end user. Again, we may
+set this on each offering.
+Confidential Requests
+Certain requests need to be created where the requested for person may not see the request. For example, certain Human
+Resources requests are confidential. Once again, this may be set for a specific offering.
+Subscriptions
+For many of our service offerings, we want to connect the person making the request with the service or piece of equipment
+they are requesting. In Service Management Automation X this accomplish this by creating a subscription.
+Subscriptions link a person with a service, device, infrastructure component, or peripheral.This allows us to track the entire
+life-cycle in which the “subscriber” consumes the CI. The subscription also tracks cost information, including both one-time
+and recurring costs.
+We can create these subscriptions manually (either through the SMAX UI or via import), or by using business rules. SMAX
+includes out of the box business rules that allow us to create subscriptions automatically from requests.
+Subscriptions also add functionality to request management. It allows our agents to find the CI or service that someone is
+calling about, shortening the time they need to spend on every customer interaction. The Service Management Automation
+Service Portal users will now have a new “My Asset” page, which shows their own subscription information. The portal will also
+display information to the end user about the devices they subscribe to.
+Tailoring the Service Management Automation Service Portal
+One final step we want to take is to tweak the way we present the Service Management Automation Service Portal to our End
+Users. While it looks nice right out of the gate, Service Management Automation X makes it easy to change colors, fonts, and
+even images to fit our unique corporate theme. This will make our end users more comfortable as they immediately recognize
+the portal as part of our corporate toolset.
+I made changes to the portal's appearance in just a few minutes using the “Self Service Portal Settings” option. Take a quick
+gander at my creative masterpiece…
+ 
+SMAX 2022.11
+Page 
+160
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

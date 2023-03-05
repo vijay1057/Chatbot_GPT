@@ -1,0 +1,109 @@
+For details and an examples, see 
+here
+.
+ 
+☐ 
+Where possible, define the Service Component/System Element hierarchy under these Services
+For more details, see 
+this chapter 
+in the Getting Started guide.
+ 
+☐
+ 
+(
+optional) Set the primary Functional Groups responsible for supporting these Services either in
+the Actual Service or an associated Routing Definition
+For example of using these groups in a workflow, see 
+here
+ in the Configuration guide.
+☐
+ 
+Update Agent training material with Service information
+Setting up Request Management
+Request management handles the end to end process of receiving a request from an end user and fulfilling it. A request
+management process reduces the load on agents by allowing end users to fulfill their own requests without agent involvement
+either by automating common request offerings (such as password resets) or providing knowledge that will allow the end user
+to answer a question by themselves. For more information, please read the 
+Request Management
+ chapter in the Getting
+Started guide.
+☐
+ 
+Review the default Record Categories, adding or removing where necessary
+For additional details, see 
+this section
+ in the Getting Started guide.
+☐
+ 
+Import existing Knowledge Articles
+For information on packaging existing articles and importing them into SMAX, see 
+here
+.
+☐
+ 
+Review Request Roles and ensure Agents have correct Roles
+☐
+ 
+Review default Views and Reports, editing or adding if necessary
+For more information, see 
+this section
+ of the Getting Started guide.
+☐
+ 
+Implement a satisfaction survey if desired
+For further explainations of surveys, see 
+this section
+ of the Getting Started guide.
+☐
+ 
+Define a default Service Level Agreement with Service Targets for Support Requests
+For more information, see the 
+Service Level Management
+ section of the Getting Started guide .
+☐
+ 
+Update Agent training materials with Request Management process flows
+The Service Catalog
+To consume the services IT provides, the end users need to have a way of discovering the services available and what actions
+or requests they can perform against them. The service catalog provides the means of creating those available choices for
+both the Service Management Automation Service Portal (accessed by the end users) and request management (accessed by
+the agents). 
+Before creating your Service Catalog, we recommend reading the 
+associated chapter
+ in the Getting Started guide.
+☐
+ 
+Create the high-level Service Category structure with existing Service Definitions
+For examples and further information on setting up the category structure, see the related information 
+here
+ in the
+Getting Started guide.
+☐
+ 
+Create any necessary Entitlement records to attach to Offerings
+For example of using Entitlement Rules to segregate data by location, see 
+here
+.  
+☐
+ 
+Create a few Offerings for each Service
+For information on setting up offerings, see 
+here
+ in the Getting Started guide.
+☐
+ 
+Customize the Self Service Portal look & feel
+For example of a tailored service portal, see 
+here
+.
+☐
+ 
+Update end user training materials with Self Service Portal information
+ 
+Setting up Incident Management
+SMAX 2022.11
+Page 
+148
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

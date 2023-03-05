@@ -1,0 +1,36 @@
+Behind the scenes
+Adopt Native SACM for a fresh installation
+Native SACM can be enabled in the following modes:
+Classic mode: SMA connecting with Classic CMS
+Multi-deployment mode: Both SMA and CMS are containerized and deployed on OMT
+Hybrid mode: SMAX is installed in a cloud environment and connects with a classic CMS running on-premises
+Classic mode
+The Native SACM solution requires a CMS system to work with the SMA suite. The following diagram shows the architecture of
+integrating Native SACM with Classic CMS.
+Using shared IdM in classic mode
+Deploying Classic CMS with the shared IdM brings the following benefits:
+You only need to configure User/Group/Role settings like LDAP and SAML configurations once, for both SMAX and CMS.
+You don't need to apply the configurations on both sides.
+Single Sign-On between SMAX and UCMDB enables a seamless user experience when navigating through the UI elements.
+However, in this mode, you need to enable the CMS multi-customer mode to correspond with the SMAX multi-tenancy mode. In
+a real-world environment, configurations for shared IdM and CMS multi-customer mode can be complicated, for details,
+see 
+Associate SMAX tenants with UCMDB customers for Single Sign-On
+.  
+Not using shared IdM in classic mode
+If you don’t need Single Sign-On between SMAX and UCMDB in the Native SACM context, SMAX uses IdM to achieve user
+authentication while Classic CMS has its own user management controlled by UCMDB. This means the management of users,
+groups, roles, and permissions happens in SMAX and CMS individually. For this option, no more additional configurations are
+required during the Classic CMS installation and CMS multi-customer mode is optional in this scenario. 
+Containerized multi-deployment mode
+The Native SACM and SAM solutions require a 
+Micro Focus
+ CMS system to work with the suite. Once you have completed
+the suite installation, you can continue to install CMS on the same OMT cluster as the next deployment (the suite is the first
+deployment). The following diagram shows the multi-deployment structure.
+SMAX 2022.11
+Page 
+141
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

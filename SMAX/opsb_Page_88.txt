@@ -1,0 +1,137 @@
+Deprecation and obsolescence
+Deprecated items
+A deprecated item is categorized as a component/feature/parameter for which there will be no further enhancement. It will
+continue to be supported till a notice of obsolescence is published. In addition, bug fixes and support cases will be handled till
+such time that the deprecated item becomes obsolete.
+Deprecated item
+Description
+Deprecated
+since
+version
+Analytics REST API
+You can use OData instead.
+2022.11
+BI integration based
+on the BI integration
+API
+You can use OData for BI integration. 
+2022.11
+Self-hosted
+PostgreSQL on Azure
+VMs
+Use Azure Database for PostgreSQL Flexible Server instead. Self-hosted PostgreSQL
+on Azure VMs can continue to work, but might be obsoleted in a future release. 
+2022.05
+Internal PostgreSQL
+databases
+PostgreSQL databases that are embedded in OMT and the suite. Do not use them
+for new installations. Might be removed from the suite in a future release.
+2022.05
+PostgreSQL 10.x
+Do not use it for new installations. Existing customers can continue to use it,
+however, the support might be discontinued in a future release.
+2022.05
+The following
+Operations
+Orchestration-based
+integrations:
+Jira
+Octane
+Use the Integration Engine to configure these integrations instead. These Operations
+Orchestration-based integrations will be obsoleted in a future release.
+2022.05
+SMAX-Microsoft
+Teams integration
+through OPB
+The SMAX-Microsoft Teams integration through OPB is deprecated and will be
+obsoleted in a future release. Use the Integration Engine-based Microsoft Teams
+integration instead.
+2022.05
+SMAX-UCMDB
+integration through
+OPB
+The SMAX-UCMDB integration through OPB is deprecated and might be removed in
+a future release. Existing customers can continue to use it, but the support might be
+discontinued in a future release. Instead of OPB, we highly recommend that you use
+Native SACM to integrate SMA and UCMDB.
+2022.05
+-device-type
+ option of
+the 
+install
+ script
+This command line option specifies the device type for Containerd storage. The
+default value is 
+overlayfs
+ and no other value is supported.
+2021.11
+-cloud-
+provider 
+option of the 
+install
+ script for
+managed Kubernetes
+installation
+This command line option specifies the Kubernetes provider when you install OMT.
+It's replaced by the 
+--k8s-provider
+ option.
+2021.05
+--k8s-home 
+option of
+the 
+install
+ script
+This command line option specifies the installation directory for the core OMT
+binaries. It's replaced by the 
+--cdf-home
+ option.
+2021.05
+2 tier tenancy model
+The 2 tier tenancy model where you can create several tenants in one account is
+deprecated. It's replaced by the 1 tier tenancy model where you can create one
+tenant in one account. 
+2021.02
+Lightweight SSO (LW-
+SSO) token and API
+LW-SSO is deprecated. Use the Access Token approach instead.
+The 
+/auth/authentication-endpoint/authenticate/login
+ API is also deprecated. Use the 
+auth/a
+uthentication-endpoint/authenticate/token
+ API instead.
+2020.11
+SMAX-HCM
+integration
+This integration is deprecated and may be obsoleted in a future release.
+2020.05
+Obsoleted items
+An obsoleted item is categorized as a component/feature/parameter that's no longer supported.
+Obsoleted item
+Description
+Obsoleted
+since
+version
+PostgreSQL 10.x
+No longer supported.
+2022.11
+Self-hosted PostgreSQL on
+Azure
+No longer supported. You must migrate to Azure Flexible Server. 
+2022.11
+CentOS/RHEL/Oracle Linux
+7.8
+These operating systems are no longer supported.
+2022.11
+Red Hat Enterprise Linux
+8.2, 8.3
+Oracle Linux 8.2, 8.3
+These operating systems are no longer supported.
+2022.05
+SMAX 2022.11
+Page 
+88
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

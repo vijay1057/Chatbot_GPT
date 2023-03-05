@@ -1,0 +1,39 @@
+Get started with Operations Orchestration
+Operations Orchestration (OO) Containerized is a capability that enables seamless automation and orchestration of repeatable
+IT operations across teams, tools, and environments.
+The capability contains the following functional components:
+OO Central with an Internal OO Remote Action Service (RAS)
+ - These components are available when you install
+OO Containerized. 
+OO Containerized can be installed on the following platforms:
+On-premises:
+ Install on physical or virtual machines. See 
+Install OO on-premises
+.
+Public cloud: 
+Install on a public cloud–Amazon Web Services (AWS) with EKS, or Microsoft Azure with AKS.
+See  
+Install OO on EKS
+ and 
+Install OO on AKS
+.
+OO Workflow Designer
+ - You need to install this separately on an on-premises environment using a standalone
+installer.
+External RAS
+ - You need to install this separately on an on-premises environment using a standalone installer.
+Together, the components of OO enable you to manage various services and devices across the organization and across their
+life cycle.
+Related topics
+To understand the OO terminologies, see 
+Glossary
+.
+To learn OO capabilities, see the 
+OO capabilities
+ topic.
+SMAX 2022.11
+Page 
+144
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

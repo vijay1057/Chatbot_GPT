@@ -1,0 +1,100 @@
+Suite
+Administration
+QCCR1E157254
+When you try to upload a license file in Suite Administration, the
+uploading fails with the following error:
+License file uploading failed: 401
+See the workaround
+.
+2019.05
+OMT
+OCTCR19M1187639
+OMT doesn't support SSL connections to the native Google PostgreSQL
+database in deployments on GKE. The native Google PostgreSQL server
+certificate doesn't include the required IP/FQDN for SSL connections to
+the native Google PostgreSQL database. Therefore, the connection (with
+sslmode=verify-full) can't be validated and the installation fails.
+See the workaround.
+2019.05
+OMT
+OCTCR19M881694
+Repeating errors "Orphaned pod found" are flooding the syslog on the
+control plane nodes and worker nodes. The repeating errors resemble
+the following:
+Orphaned pod "06e07ca9-b83c-11e9-ae33-005056b36f84" found, but volume subpat
+hs are still present on disk : There were a total of 24 errors similar to this. 
+Turn up verbosity to see them. 
+Note
+: This issue exists only in an embedded Kubernetes environment.
+See the workaround
+.
+ 
+2019.05
+Suite Update
+QCCR1E152805
+The 
+MORE DETAILS
+ page of the suite version update process displays
+unnecessary information. This page should display only a list of pods
+being upgraded.
+There is no workaround for this issue.
+2019.02
+Service Portal
+QCCR1E157063
+After you submit a request bundle that includes more than 3 requests in
+Service Portal, some child requests of the request bundle stop
+responding in the 
+Log
+ phase, instead of proceeding
+to 
+Approval
+ or 
+Fulfillment
+ phase as expected.
+See the workaround
+.
+2019.02
+Service Portal
+QCCR1E149945
+If a SAML user uses Internet Explorer 11 or Edge, when the user logs out
+of Service Portal and tries to log in again, no authentication page is
+displayed and the user can directly access Service Portal. No such issue
+occurs in Firefox and Chrome.
+There is no workaround for this issue.
+2019.02
+Service Portal
+QCCR1E152637
+After you use the Openl10n community site to localize SMAX into
+Chinese, the existing translation of some elements isn't appropriately
+updated.
+There is no workaround for this issue.
+2019.02
+Notifications
+QCCR1E151666
+When you use EWS, sometimes email notifications from SMAX are sent
+with delays.
+There is no workaround for this issue.
+2019.02
+Service Portal
+QCCR1E149117
+When you try to log in to Service Portal, the following error occurs:
+Server Error. Please try to refresh, or come back in a few minutes.
+This issues happens when the itom-xruntime-gateway service is
+restarted at the backend. When the service is recreated, it's assigned a
+new IP address by Kubernetes. However, Nginx in itom-xruntime-ui
+doesn't pick up the new IP address of itom-xruntime-gateway and still
+attempts to connect to the old IP address.
+See the workaround
+.
+2018.08
+Category
+Issue ID
+Description
+Found in
+version
+SMAX 2022.11
+Page 
+86
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

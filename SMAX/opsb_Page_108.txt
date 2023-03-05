@@ -1,0 +1,90 @@
+Support matrix
+This release introduces the following changes.
+Operating systems: starting from this release, RHEL 8.6 and Oracle Linux 8.6 are additionally supported, and RHEL/Oracle
+Linux 8.2 and 8.3 are no longer supported.
+Databases: 
+Support for AWS RDS m6g
+. For EKS deployment, this release supports AWS RDS m6g, which consumes less CPU
+and has a lower cost than m5. Note that for CMS, you still need to use m5. 
+Support for Azure Flexible Server
+. For AKS deployment, this release supports Azure Database for PostgreSQL
+Flexible Server as a fully managed PostgreSQL service. You can easily provision an Azure flexible server from the
+Azure portal, rather than follow the complicated steps to set up self-hosted PostgreSQL databases on Azure VMs. 
+Deprecation of self-hosted PostgreSQL on Azure VMs
+. This method is deprecated and might be obsoleted in a
+future release. You can continue to use it in an upgraded environment, but you need to use Azure flexible server
+instead for new installations. 
+Deprecation of PostgreSQL 10
+. PostgreSQL 10 is deprecated and its support might be discontinued in a future
+release.
+Deprecation of internal PostgreSQL
+. The PostgreSQL service embedded in the suite is deprecated and might be
+removed from the product code in a future release.
+Kubernetes versions
+Embedded Kubernetes: 1.23 for on-premises deployment using the K8S distribution embedded in OMT
+Managed Kubernetes: 1.22 for EKS, AKS, GCP, or OpenShift deployment using a managed K8S distribution
+Integration: The SMAX-UCMDB integration through OPB is deprecated and might be removed in a future release. Existing
+customers can continue to use it, but the support might be discontinued in a future release. Instead of OPB, we highly
+recommend that you use Native SACM to integrate SMA and UCMDB. 
+OMT installation and upgrade packages
+This release uses the following package names:
+OMT2205-<build>-15001-Embedded-K8s.zip
+OMT2205-<build>-15001-External-K8s.zip
+Monitoring capability
+The monitoring capability is now enabled by default when you install OMT with the embedded Kubernetes. 
+Terminology changes
+This release introduces the following terminology changes:
+The component formerly known as Container Deployment Foundation (CDF) is now referred to as OPTIC Management
+Toolkit (OMT). 
+The following terms are used to refer to different distributions of Kubernetes:
+Embedded Kubernetes/K8s: used when referring to deployments using 
+Micro Focus
+ shipped Kubernetes. 
+Managed Kubernetes/K8s: used when referring to deployments with Kubernetes that are documented and fully
+supported by 
+Micro Focus
+. 
+BYOK: used when referring to deployments with any CNCF certified Kubernetes distribution (such as Rancher or
+OKD), which customers may have standardized on. Currently, BYOK deployments are not yet supported. 
+External Kubernetes/K8s: used when referring to Managed Kubernetes or BYOK deployments for the purpose of
+documentation or packaging.
+Note that these changes are not applied to earlier releases.
+2021.11
+Service Management
+This release introduces the following new feature for Service Management.
+Automatic creation of retroactive changes
+For 
+Device
+ and 
+System Element
+ record types, you can first enable retroactive change detection in Studio, set up business
+rules that allow for automatic creation of retroactive changes, then make a schedule so that retroactive changes can be
+created periodically. See 
+Retroactive changes
+.
+Asset Management
+This release introduces the following new features or enhancements for Asset Management.
+AMX license
+This release supports a new license type of Asset Management. With an Asset Management license, you can use SMAX in the
+Asset Management experience mode. See 
+AMX license
+ and 
+Use Asset Management
+.
+Software Asset Management (SAM)
+To reduce manual effort, you can now have the product versions that are newly discovered upon a synchronization
+automatically linked to the existing upgrade and downgrade matrix. See 
+Automatically build the compatibility matrix
+.
+Besides manually linking license rules for each product version, you can now configure a default license rule for all
+versions of the product in one go. See 
+Configure license rules for a product
+.
+The filter widget in SAM now includes more filter options, and the widget behavior is aligned with that of other modules in
+the suite.
+SMAX 2022.11
+Page 
+108
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,69 @@
+OO capabilities
+The key features of Operations Orchestration (OO) are the following:
+Helps you keep, troubleshoot, and repair your resources.
+Checks the health of, diagnose, and repair the networks, servers, software applications, and workstations.
+Helps you to perform repetitive tasks, such as checking status on internal or external website pages.
+Enables element automation, run book automation, integrated automation, and automation of the business services.
+Offers an intuitive drag and wire capability to design, create, share, and customize flows.
+Powerful execution mechanism, which enables high performance. You can scale OO Central to reach high numbers of
+steps per second.
+Offers interactive execution and user interface (UI) embedding capabilities, which enable you to interact with the system
+in a much more usable fashion.
+OO Central
+OO Central is the runtime environment of OO. You can deploy it using the OO Helm Chart. It has a web based user interface
+(UI), that the administrators and end users can access. You can use OO Central for running flows, monitoring the various runs,
+and generating reports.
+OO Central has the following features:
+Flow Execution
+: OO Central offers execution capabilities for the deployed flows. Use a web based UI for executing the
+flows. The execution capabilities include browsing the flow library, launching an execution, and tracking that execution
+until its end.
+OO Administration
+: OO Central offers administrators the means to manage the administration of OO from the system
+and operational perspectives. It covers areas such as setting permissions, defining system components, configuring LDAP,
+and more.
+Engine
+: The engine works behind the scenes of Central. This is the back end component that processes and manages the
+entire flow execution. The engine manages the step execution, persistency, and manual interaction with the users.
+Scheduler
+: OO Central includes an out-of-the-box scheduler. This enables the OO administrator to define various
+recurrence patterns for flow executions, to track, and manage them.
+Internal OO RAS
+The internal OO RAS gets deployed automatically for each OO Central tenant in a tight coupling framework during the tenant
+deployment process. Note that for each Central tenant there is a corresponding out of the box RAS deployed.
+OO Workflow Designer
+OO Workflow Designer is a web based environment for authoring flows. OO Workflow designer is available as a standalone
+product that you can deploy either on a Windows or Linux server. Flows are authored in the CloudSlang language and run in
+OO Central.
+OO Workflow Designer has the following features:
+Web based UI
+: OO Workflow Designer offers web access, which minimizes time to value and allows for simple
+management.
+Hybrid authoring interface- Textual and graphical
+: OO Workflow Designer offers a graphical interface on top of the
+CloudSlang textual language. Every graphical change is immediately reflected in the underlying source code. The source
+code is visible from the OO Workflow Designer UI and you can control this source code in a 
+GIT
+ repository.
+Collaboration using GIT
+: OO Workflow Designer allows collaboration using Git. This means that different authors
+(Central IT, line of business, operator, or application developer) can contribute to the authoring, while they can each work
+using their preferred tool. This can be either the OO Workflow Designer in which the authoring is graphical or via 
+ATOM
+with the CloudSlang plugin which allows authoring the source files directly in a textual manner.
+Enhanced usability
+: OO Workflow Designer and CloudSlang offer enhanced usability for authoring flows, with features
+such as default errors, sensitive system properties, decisions, input bindings, and direct deployment to OO Central.
+External OO Remote Action Service (RAS)
+The OO RAS enables execution in remote data centers and networks. The RAS interacts with Central and polls it for operations
+to execute.
+If you set up the RAS to start the connection, you need to open ports for inbound communication only in Central. To
+achieve high availability of RASes, you simply add another RAS and point it to Central.
+In addition, the RASes support a grouping mechanism, which enables you to correlate between a step in the flow and the type
+of the RASes that can execute this step. Therefore, the binding between the flow steps and the RASes is dynamic.
+SMAX 2022.11
+Page 
+145
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,104 @@
+see 
+Enable the SAM capability
+.
+Supports multi-tenancy: one-to-one tenant mapping with SMAX.
+Supports integrating UCMDB with Microsoft SCCM to retrieve the required data for SAM to calculate license compliance.
+You can use SCCM to collect data of desktops and installed software applications, and Universal Discovery to discover
+servers. For more information, see 
+Use the SCCM Installed Software Integration job for SAM
+.
+Supports more product versions, and also more Microsoft products: Office, Windows desktop OS, BizTalk Server, Visual
+Studio, Project Server, Exchange Server, SharePoint Server, Lync Server, Skype for Business Server, Office Visio, Office
+Project.  For more information, see 
+Supported software titles
+.
+Standalone containerized CMS (on-premises and EKS only)
+Important In this release, the installation of the containerized CMS is under controlled availability, where 
+Micro Focus
+ will work
+with customers to review the planned implementation. Make sure you discuss with your account management before actually
+starting to deploy it.
+SMAX now can integrate with 
+Micro Focus
+ CMS that's installed on CDF as a standalone containerized application, by using
+Helm charts. 
+If you want to use Universal Discovery, you need to install a classic data flow probe. The data flow probe embedded in the
+containerized CMS supports only single-customer mode and can be used only for demonstration purposes.  
+For more information, see 
+(Optional) Install containerized CMS (on-premises)
+ and 
+(Optional) Install containerized CMS (EKS)
+.
+Service Management enhancements
+Enhanced data domain segmentation
+The data domains list can include up to 1,000 items. Additionally, you can now export the existing data domains list to a
+.zip package of XLS files for supported languages, update the files with your custom values, and then import your custom
+data back to SMAX. See 
+Manage the data domains list
+.
+You can assign up to 250 domains (the Public domain and 249 custom domains) to a record. See 
+Assign a record to a data
+domain
+.
+You can assign data domains to a person through the ManagePersons API. See 
+Manage Persons API
+.
+Data domain segmentation is extended to the SACM module. See 
+Data domain segmentation for SACM
+.
+Agentless REST calls
+SMAX can now run REST calls to a remote API without the need for an On-Premises Bridge (OPB) agent. You need to configure
+an agentless endpoint and an 
+Execute Agentless REST
+ business rule to run agentless REST calls. For more
+information, see 
+Run agentless REST calls
+.
+Attachment allowlist enhancements
+For better security, the out-of-the-box attachment allowlist is narrowed down to the following: gif, jpeg, jpg, png, xls, xlsx,
+csv, txt, bmp, tif, tiff, log, pkb, eml. Additionally, a 
+Restore Default
+ button enables you to easily restore the default
+allowlist. Unlike in earlier releases, a blank allowlist now disallows users to submit any types of attachments.
+Note
+: after SMAX is upgraded to this release, your original allowlist, and attachments uploaded before the upgrade are
+retained.  
+Attachment allowlist checking is now bypassed when users download files from the system (such as zip/xls/csv/pdf/pkb
+files), and is conducted only when users upload files to the system no matter whether from the frontend or backend
+(through REST calls). Files without an extension are blocked from both the frontend and backend. 
+Before starting the suite installation or upgrade, you are prompted to accept a security agreement regarding risks that
+customizing the default allowlist might incur, and then generates a legal agreement file (legal-agreement-
+YYYYMMDDHHMM.txt) on the NFS server. 
+Lookup function
+The Lookup() function is added to the expression language. This function returns the value of a record's field when certain
+conditions are met. For more information, see 
+Expression Language functions and syntax
+.
+Cloud Management 
+Cloud Management simplifies the delivery, consumption, and governance of IT services and resources. The codeless and
+customizable interface of cloud management, powered with workflow orchestration, service designer, streamlined catalog, and
+a smart service portal, provides for the complete lifecycle management of public and private cloud resources based IT
+services. 
+In this release, Cloud Management offers the following new features:
+Cost Governance and Resource Optimization (CGRO)
+CGRO enables you to optimize your cloud spending and simplify configuration with various cloud providers. With CGRO, you
+can review your public cloud costs to get a clearer understanding of your activity and usage of public cloud resources.
+HCMX license
+This release supports the HCMX license which entitles you to use the Cloud Management capability. For more information,
+see 
+HCMX license
+.
+In this release, Cloud Management offers the following enhancements:​
+Design and Deploy
+The 
+Deployment Operations
+ UI supports the following:
+Instance events view provides a link to the Operations Orchestration flow run to aid in troubleshooting flow execution
+failures.
+Search using the design version.
+SMAX 2022.11
+Page 
+121
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

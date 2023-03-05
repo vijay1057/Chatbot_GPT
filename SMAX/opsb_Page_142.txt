@@ -1,0 +1,50 @@
+Using shared IdM in containerized multi-deployment mode
+Hybrid mode 
+The hybrid mode follows the principles of a classic CMS deployment. The only difference is that UCMDB is running on-premises
+and the SMA suite is in the cloud. See 
+Native SACM hybrid mode
+. 
+Upgrade SMAX and/or UCMDB in a Native-SACM-enabled deployment
+In general, to use Native SACM, the difference in versions of SMAX and UCMDB need to be the current version plus/minus 1.
+For example, Native SACM can work between SMAX 2021.05 and UCMDB 2021.05/2021.02. The only exception is SMAX
+2020.11, you have to run it with UCMDB 2020.11 to get Native SACM working. For details, see 
+Prepare for the Native SACM
+deployment
+.
+How to's
+You can find the details of Native SACM in the following topics:
+Enable Native SACM
+You can enable Native SACM in the tenant application settings. Please be aware that this operation can't be reverted, once you
+enabled Native SACM, you can no longer use OPB to connect SMA and CMS: 
+Enable Native SACM
+Use Native SACM:
+Native SACM
+Manage CI Topologies and Impact rules
+CI topology
+Manage data Domains/Tenants 
+To have a better understanding of SMAX data domain segmentation and UCMDB multi-tenancy: 
+Data domain segmentation
+ 
+Tenants Management
+ (Classic CMS) or 
+Tenants Management
+ (Containerized CMS)
+Adopt data domain segmentation for Native SACM
+Understand reconciliation in UCMDB 
+Native SACM reconciliation
+ 
+Configure Native SACM
+Configure Native SACM with Studio
+Export/Import tenants 
+Tenant export and import
+ 
+Note
+ In containerized multi-deployment mode, using separate IdMs for SMAX and CMS is not supported.
+
+
+SMAX 2022.11
+Page 
+142
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

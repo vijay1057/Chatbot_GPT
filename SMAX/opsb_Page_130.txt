@@ -1,0 +1,77 @@
+Suite restart process improvement by providing a pod dependency management framework. Additionally, you can now
+use a new CDF script (cdfctl.sh) to restart your suite environment. For more information, see 
+Restart the cluster hosts
+.
+Resource contention resolution by providing a pod startup throttling mechanism
+Improvement on suite recovery from common failure scenarios
+Improvement on pod affinity and anti-affinity rules
+Upgrade
+Improved suite version update robustness
+Improved tenant content update robustness
+An additional precheck step before suite version update to ensure smooth version update and also reduce system
+downtime
+For more information, see 
+Upgrade the suite
+.
+Suite Administration
+LDAP over SSL (LDAPS) is supported for external authentications with LDAP. Additionally, you can configure the GroupDN type
+in LDAP server settings. For more information, see 
+How to edit an account
+.
+2018.05
+Service Management Studio
+Studio in Service Management enables the creation of custom processed-based applications and supporting tables through
+codeless configuration capabilities. Codeless configuration enables the management of applications, including defining and
+editing an application's fields, forms, business rules, processes and notifications, as well as importing data and defining custom
+actions for the application, all while preserving the ability to seamlessly update to future releases.
+The Record Management module has been enhanced and renamed as Studio.
+In addition to managing existing applications and records, you can also create custom applications and record types using
+the Menu tab in Studio.
+You can set approval plans for custom record types.
+You can create many-to-many fields (associations) on the Fields tab.
+Both many-to-many and one-to-many associations can be added to a form.
+A check box named "Enable workflow" is added to custom action. When this check box is selected, some fields will be
+created and can be utilized when you create business rules.
+Tenant can now be an object in expression language.
+Service Management
+Some user options can be selected as "Filter by" or "Group by" fields.
+Rolling update solution
+This solution leverages the rolling update capability of Kubernetes to update SMAX from version 2018.02 to version 2018.05.
+The rolling update capability updates the suite services in a certain order, and updates only 30% ~50% of the pods of a
+service at one time, rather than taking down the entire service. This way, the system downtime caused by the suite update
+process is minimized.
+For more information about the update process, see 
+Apply a version update
+.
+Deployment on AWS
+As of this release, the following functions are supported to improve security and performance for deployment on AWS:
+DMZ-like network architecture
+RDS provisioning automation (automated deployment only)
+Network Load Balancer
+Application Load Balancer
+Distribution across multiple Availability Zones
+Provides more availability than single AZ. The overall service will not be impacted even if servers in an entire zone
+are down.
+Ensures balanced performance against availability. As control plane nodes and worker nodes are distributed on
+multiple AZs instead of regions, the network latency between different AZs is less than 1 millisecond in most cases,
+which guarantees minor performance penalties caused by latency.
+Procurement Management
+The Procurement module manages the end-to-end lifecycle of IT asset purchases. It tracks and manages purchase orders and
+purchase order lines, as well as the relationship with purchase requests. It facilitates moving purchasing assets into stock and
+reconciles with inventoried assets.
+In Procurement Management, you can perform the following tasks:
+Vendor catalog management
+Purchase order management
+Purchase request tracking
+Asset receiving
+Deployment on Azure
+The suite can now be deployed on Azure in a production environment, with the limitations described in 
+Plan an Azure
+deployment
+. The following functions are supported:
+SMAX 2022.11
+Page 
+130
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

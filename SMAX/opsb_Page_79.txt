@@ -1,0 +1,132 @@
+Known issues
+Category
+Issue ID
+Description
+Found in
+version
+Service
+Management
+OCTCR19M1752306
+Analytic report will fail to load if you Group by a field with a time series,
+and then add a second-level Group by type.
+2022.11
+Service
+Management
+OCTCR19M1741446
+If you set up a reverse proxy in your environment, Single Sign-On (SSO)
+is not working in some scenarios. The users have to log in to the system
+each time they access a different application in the suite.
+2022.11
+Service
+Management
+OCTCR19M1761189
+Service Level Target (SLT) on request is not suspended when the Agent
+adds comments to User in the Discussion section which changes the
+request status to 
+Pending end user
+.
+See the workaround
+.
+2022.11
+Service
+Management
+OCTCR19M1742739
+If the application setting "Agent interface inherits self-service role
+permissions" is OFF, after you access an additional capability (such as
+SAM, DND) from the main menu and then access the menu again, you
+might see more menu items than what you saw previously.
+2022.11
+Service
+Management
+OCTCR19M1738002
+You can't assign roles to a Suite Admin user after the user is attached to
+a tenant.
+2022.11
+Service
+Management
+OCTCR19M1740045
+SAM can't be accessed directly from the OO or Audit page.
+See the workaround
+.
+2022.11
+OMT
+OCTCR19M1742695
+When upgrading OMT from 2022.05 to 2022.11, if the current internal
+CoreDNS version is lower than the target internal version, you still see
+this message: 
+INFO: Coredns version didn't change. No need to upgrade coredns
+.
+See the workaround
+.
+2022.11
+Smart
+Analytics
+OCTCR19M1760445
+After you newly install SMA or upgrade it to 2022.11, the global search
+for request records created by non-English users in Service Portal fails.
+See the workaround
+.
+2022.11
+Service
+Management
+OCTCR19M1740045
+You can't access SAM directly from the OO page.
+See the workaround
+.
+2022.05
+Service
+Management
+OCTCR19M1670116
+After you change the link to an agreement record, SLT can't be
+calculated correctly using the new agreement.
+2022.05
+OMT
+OCTCR19M1640007
+After upgrading OMT to 2022.05 on embedded Kubernetes, if you add a
+new worker node to the cluster, pods can't be rescheduled to the newly
+added node. This issue occurs because the CoreDNS service IP address
+in the kubelet-config file is incorrect on the newly added node.
+See the workaround
+.
+2022.05
+Smart
+Analytics
+OCTCR19M1761912
+Performing reindex from GUI Global Search function may cause the out-
+of-memory error.
+To work around the issue, 
+see the workaround
+.
+To fix the issue, apply the 2022.11.P3 patch.
+2022.05
+Smart
+Analytics
+OCTCR19M1761137
+Searching in the Service Portal using quotations does not work as
+expected for exact phrases.
+There is no workaround for this issue. For the internal searching
+algorithm, see 
+Enable Phrase Queries
+.
+2022.05
+Smart
+Analytics
+ 
+OCTCR19M1629239
+After you newly install SMA or upgrade it to 2022.05, searching record
+types (Knowledge, Offering, Request, Idea) from Service Portal using
+non-English languages fails occasionally.
+See the workaround in 
+Post-upgrade task for Smart
+Analytics
+ and 
+Searching record types from Service Portal using non-
+English languages fails occasionally
+.
+2022.05
+SMAX 2022.11
+Page 
+79
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

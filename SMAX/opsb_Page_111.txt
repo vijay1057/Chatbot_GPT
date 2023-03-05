@@ -1,0 +1,108 @@
+Tenancy model migration toolkit
+Cloud Management capsules and content packs 
+See 
+Cloud Management capsules and content packs
+.
+2021.08
+Service Portal
+User experience improvements
+The refreshed and improved user interface (UI) for Service Portal is launched with optimized user experience.
+Improved layout for head menu and sidebar
+Optimized behavior for request search
+Enhanced UI design for request list, request details, and To-do card
+The display order of sections, groups, and individual user options is now aligned with the definition sequence in
+offerings.
+The 
+Theme Settings
+ UI is relocated from Agent interface to Service Portal interface and redesigned with the new UI. 
+Now you can gain quicker access to create your custom display theme for Service Portal.
+Also, you can preview the changes made for your theme immediately through standard navigation
+The following settings are newly introduced in theme settings to give you more customized options:
+Size of category tiles in landing page
+Category text background opacity
+Category font size
+Category in bold font
+Streamline Smart Virtual Agent and IDOL-based Virtual Agent.
+For the full list of changes and improvements, see 
+Service Portal
+.
+Functional improvements
+The following settings are newly introduced in 
+configuration settings
+:
+You can now add custom actions to the requests in Service Portal.
+You can now upload an icon for your embedded JavaScript in Service Portal. The icon will be displayed next to the link you
+specified in the sidebar.
+The following settings are newly introduced in 
+feature settings
+:
+Enable session timeout alert
+Enable voting on service offerings
+Enable voting on articles
+Include Requests in default filter of global search
+You can now use 
+Request on behalf
+ in tablet browsers.
+Asset Management
+Software Asset Management enhancements
+This release introduces the following enhancements for the new SAM capability.
+SAM now supports calculating license consumption for physical VMware clusters. You can view the cluster consumption
+information on the 
+Analysis 
+page.
+SAM can now directly calculate the consumption of operating system environment (OSE)-based licenses for software
+applications. You can view the OSE-based license consumption on the 
+Compliance
+ and 
+Analysis
+ pages.
+A 
+Managed products 
+filter is available now for you to view the managed products.
+The 
+Products
+ and 
+Compliance
+ pages show the managed products by default. See 
+Products
+ and 
+Compliance
+.
+For demo or testing purposes, you can download the 
+SAM Sample Data 2021.08 
+package from 
+Micro Focus
+ 
+Marketplace
+ and
+deploy it in your environment planned to run SAM. See 
+Deploy sample data
+.
+Data migration from Asset Manager
+This release provides some sample Connect-It scenarios and a technical guide to help you migrate data from Asset Manager to
+AMX. You can download the content (
+AM to AMX data migration package 1.0
+) from 
+Micro Focus
+ 
+Marketplace
+.
+Currently, the following record types, organized by business modules, can be migrated:
+Contract: Contract
+Financial: Budget, Budget Line, Budget Center, Budget Type, Cost Center, Cost Type, Fiscal Year, Accounting Period, Fixed
+Asset
+Procurement: Vendor Catalog, Catalog Items, Vendor, Brand
+SACM and SAM: Asset Model, Actual Service, Device, Infrastructure Peripheral, License, Stock Room
+Master Data: User, Group, Location
+Service Management
+This release introduces the following enhancements for Service Management.
+Native SACM
+Now, the default depth of displaying the CI topology is changed from 5 to 1 so that the topology widget only displays CIs
+that are directly related.
+You can now bulk create/update more than 50 CIs in SMAX.
+SMAX 2022.11
+Page 
+111
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

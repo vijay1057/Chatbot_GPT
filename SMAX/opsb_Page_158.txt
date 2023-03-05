@@ -1,0 +1,25 @@
+Service Category
+The service category is a high-level definition that groups similar services. For example, since we have services for Lync, online
+conference rooms, and internal discussion forums, we might create a service category for 'Meeting and Collaboration' and put
+all of those services inside of it.
+The primary use of service categories is to help the end user find what they are looking for, so we should create our definitions
+with that in mind. As you see here, the first thing the end user experiences in the Service Management Automation Service
+Portal is a list of categories they can choose from.
+The other thing you will notice is that we can make some significant changes to the way SMAX presents our catalog to the end
+user. We can change both the background and icon of each category and determine the order to display the categories.
+Another thing we can do that you can’t see is to limit certain categories to specific groups and/or locations using the
+entitlement rules I mentioned earlier. We can create an entitlement rule for a specific group, role, and/or location, and then set
+that rule in a category’s 'Audience' section. Only end users that meet the criteria of the entitlement rule (having the right
+location for example) will see the category in the Service Management Automation Service Portal.
+Service Definition
+The service definition level is made up of the service definitions that we created earlier. In order for a service to show up in our
+service catalog, we need to fill in the catalog description and category in the service definition.
+Just like our service categories, we can specify the ‘Audience’ of the service definition based on entitlement rules. This can
+control who can request the service or any of its related offerings.
+Offering
+SMAX 2022.11
+Page 
+158
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

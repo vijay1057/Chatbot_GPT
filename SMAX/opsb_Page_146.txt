@@ -1,0 +1,35 @@
+Key concepts
+Meet Glenn.
+Glenn is the newly appointed administrator for a new implementation of the Service Management Automation X (SMAX)
+product at his company, 
+ACME Products Inc
+. 
+ACME 
+provides widgets for many other companies and handles shipping them
+worldwide from a number of locations.
+ACME
+ has grown over the years, and the number of systems it needs to ensure the delivery of its widgets has grown as well.
+Additionally, the company has invested in internal products to help it run smoothly. This growth has resulted in the need for IT
+to run in an agile and streamlined manner, which was one of the biggest reasons for 
+ACME 
+to go with SMAX.
+Join us as we follow the implementation process that Glenn uses to get Service Management Automation X up and running. We
+will document how the system is designed to meet the continuing demands of the company to offer the best service to their
+customers.
+We will be focusing on the decisions that Glenn makes that result in a quick and efficient implementation. This involves an
+iterative approach to problem solving and delivering value quickly, then circling back and adding additional value and deeper
+process definitions. We can watch as the system evolves over time from simple call center processes to a fully functional
+service desk that includes all facets of IT management (and possibly beyond).
+We also offer a simple checklist of the tasks Glenn will perform to implement Service Management Automation X. If you would
+like to use this checklist as a template for your own implementation, you can find it 
+here
+.
+This guide encompasses the Service Management applications inside of SMAX, including Service Request,
+Incident, Change, and many others. Join implementer Glenn Walker as he learns what functionality is available in
+SMAX, investigating the "what" and "why" aspects of the product rather than the "how".
+SMAX 2022.11
+Page 
+146
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

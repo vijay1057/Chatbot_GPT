@@ -1,0 +1,105 @@
+Expert recommendation for ticket handling
+Machine learning-based expert recommendation for ticket handling is now available:
+Agent users can set their area of expertise in their user profile, and admin users can set expertise to ticket owners or
+assignees based on Hot Topic Analytics.
+When an agent opens a Request or Incident record, the side pane of the record displays relevant experts based on agent
+skills matching the natural language text in the record, and the agent can interact with a suggested expert with the
+following actions: Email, Chat, Add as expert assignee, Add to Major incident team (for incidents), Add as follower (for
+requests), or Call in Teams.
+See 
+Expert recommendation for ticket handling settings
+.
+"My Groups" based filtering
+"My Groups" is now available as a filtering option for all entity links referencing the Group table for all modules, including
+custom modules. You can use this option in the filter of a record list, an operational report, a 1:M or M:M relationship, or a
+customized tab in Service Portal. 
+Disable notifications for person with selected status
+A new application setting is added. People with the selected status(es) will not receive email notifications sent by the system
+(for example, through business rules or scheduled reports). The status can be 
+Active
+, 
+Leave of
+absence
+, 
+Retired
+, 
+Terminated
+, and 
+Inactive
+. If you have custom status defined, they are also supported. For a newly
+deployed tenant, this setting is set to 
+Leave of absence
+, 
+Retired
+, 
+Terminated
+, and 
+Inactive
+ by default.
+Recipient allowlist behavior change
+In earlier versions, leaving the 
+Recipient allowlist
+ application setting empty will allow the domain check to be bypassed. In
+this release, a behavior change has been introduced. Now, entering an asterisk (*) will allow the domain check to be
+bypassed, while leaving this field empty will stop emails from being sent to any external recipients.  
+Note For customers who used to set this field as empty, if they want the same behavior, the 
+Recipient allowlist
+ needs to be
+updated as 
+*
+ after a suite upgrade.
+Capability to support multiple-selection lists
+With Service Management, you can use the List type in a user option or the ENUM field type for single-selection from an
+enumeration list. Now, a new Multi-Select List type of user option or ENUM_SET general field type is available to serve a
+multiple-selection list use case.
+A new "Multi-Select List" field type is available in user options and a new "ENUM_SET" logical type is available in Studio.
+They allow you to define user options or custom fields for multiple selections.
+DND aggregated offering now supports the Multi-Select type of List in the Service Design mapping with the Multi-Select
+List user option in the aggregated offering.
+This new Multi-Select List of user options or ENUM_SET field type supports regular DSL expressions and functions that are
+applicable to collections, for example, UNION, JOIN, INTERSECTION, CONTAIN, etc.
+This new Multi-Select List of user options or ENUM_SET field type supports business rules that are applicable to ENUM
+values. For example, "Set field" and "Define suggested values." Special business rules for collections are also applicable,
+for example, "Append or remove values in a multi-value field."
+You can display the Multi-Select List of user options or ENUM_SET field values in the grid view, you can also add them to
+filter conditions based on flexible operators, group by list values, and use them in reporting and exporting, etc.
+The Multi-Select List capability is also available in the mobile app.
+Note: For cloud offerings aggregated from DND which include List user options, if the value of the user option is defined in
+a script, the value can’t be retrieved from the mobile app.
+Limitation: Pricing for Multi-Select List of user options is not supported for now.
+Create M:M associations between two OOB record types
+You can create new associations between OOB record types. See 
+Enable a custom association between two out-of-the-box
+record types
+.
+For example, you can create associations between Article and Person:
+Several People can be Responsible for an Article
+A Person can be Responsible for several Articles
+Default columns of M:M grids 
+When adding an M:M Grid to a form, you can specify what columns should be displayed by default. 
+Separation of self-service role permissions and agent role permissions
+A new tenant setting 
+Agent interface inherits self-service role permissions
+ controls the modules and features that
+agent users can access from the agent interface UI based on either of the following:
+Only their agent role permissions (when this setting is 
+Off
+)
+Both their self-service role permissions and agent role permissions (when this setting is 
+On
+)
+By default, this setting is set to 
+Off
+ for newly created tenants and set to 
+On
+ for upgraded tenants (so upgraded tenants
+continue to work as before by default). 
+Right-to-left layout improvements
+Hebrew is now officially supported and available as an out-of-the-box language option.
+The right-to-left (RTL) layout is now enhanced for RTL languages in the Agent interface, including:
+SMAX 2022.11
+Page 
+105
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

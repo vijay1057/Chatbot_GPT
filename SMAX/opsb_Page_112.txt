@@ -1,0 +1,91 @@
+Manual creation of retroactive changes
+There're cases when a change needs to be made immediately and it's impossible or inconvenient to submit a request for
+change in advance. In such cases, users can manually create a change record after the implementation of the change to
+document the change details and perform a post-implementation review. See 
+Retroactive changes
+.
+Notes
+:
+We encourage customers to follow the processes for planned changes and use this feature only sparingly. 
+To use this feature in an upgraded tenant, a tenant admin must add new fields to change forms and apply changes to
+processes and rules of Change. See 
+Perform post-upgrade tasks as the tenant admin
+.
+Knowlege search of Confluence content
+In Service Management you can enable automatic access to knowledge stored on your Confluence websites. From within
+Service Management, agents can search and access on-premises or cloud-hosted Confluence knowledge indexed.
+See 
+Integrate with SharePoint and Confluence
+.
+Microsoft Teams integration enhancements
+Supports an unlimited number of MS Teams channels and can show MS Teams user names on the Discussions tab in the
+corresponding record
+Allows you to configure a public FQDN for SMAX deployed in a private network. Based on this FQDN, the system builds the
+MS Teams subscription URL and MS Teams calls the SMAX integration engine to send reply messages to SMAX
+Supports a proxy server that requires authentication
+Uses the standard expression language syntax for field mapping configuration
+Note
+: If you already set up this integration in the previous release, the integration will continue to work after you upgrade to
+this release. Nevertheless, you must reconfigure your existing configurations to use the new business rule template. If you do
+not do this now, you run the risk of this integration failing in a future release. See 
+Business rules for the Microsoft Teams
+integration
+.
+Reference validation on field deletion
+To prevent content validation failures during a suite upgrade caused by incorrect field deletions, you can no longer delete a
+custom field from Studio if the field is being referenced by a form, process, or rule. See 
+How to delete a custom field from a
+record type
+.
+Cloud Management
+This release introduces the following new features and enhancements for Cloud Management.
+Design and deploy (DND)
+The default fulfillment task plan added to the aggregated offering is improved to support various provision result.
+Service Instance Management
+The 
+Logs
+ view shows information, warning, and error messages that occur during the service instance lifecycle. The Logs
+view complements the Events view and includes additional information, such as the inputs and outputs of each flow execution,
+that are otherwise only visible by viewing a flow execution in OO. For more information, see 
+Service Instance Management
+.
+Content Management
+From this release:
+You can uninstall capsules from the Content Store UI.
+You can see a preview of the capsule dependencies before uninstallation. The preview also shows the actions that are
+required and warnings. See 
+Content Management
+Cloud Management capsules and content packs
+CloudSlang capsules
+This release includes the following CloudSlang capsules:
+CloudSlang Azure capsule 2.0.0
+The CloudSlang workflows and operations are refactored to support provisioning or unprovisioning of VMs and user operations
+for Azure compute service design. New workflows and operations have also been added. See 
+Capsule CloudSlang Microsoft
+Azure
+.
+CloudSlang VMware vCenter capsule 2.0.0
+The CloudSlang workflows and operations are refactored to support provisioning or unprovisioning of VMs and user operations
+for VMware vCenter compute service design. See 
+Capsule CloudSlang VMware vCenter
+.
+OOTB capsules and content pack
+This release introduces the following new features and enhancements for these out of the box (OOTB) capsules and content
+pack:
+Microsoft Azure capsule 18.8.0 
+Microsoft Compute service design is enhanced to align 
+cloud_private_dns_name
+, and 
+primary_dns_name
+ properties
+ 
+with
+UCMDB class model. You can also find a drop-down list of instance size. See 
+Capsule Microsoft Azure
+.
+SMAX 2022.11
+Page 
+112
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

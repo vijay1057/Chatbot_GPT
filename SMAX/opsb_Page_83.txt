@@ -1,0 +1,150 @@
+Cloud
+Management -
+Design and
+deploy
+OCTCR19M1192449
+The orchestration Management session expires even though the Service
+Designer session is active.
+See the workaround
+2021.02
+Cloud
+Management -
+Design and
+deploy
+OCTCR19M1246031
+When you try to reinstall an already installed capsule, the process fails
+with a 
+Conflict
+ error.
+There is no workaround for this issue.
+2021.02
+Cloud
+Management -
+Image
+Aggregation
+OCTCR19M1202408
+When submitting a design request, the 
+Memory Size
+ and 
+Number of
+CPU cores
+ fields display all the available options to the end user,
+instead of showing only the ones configured by the Admin.
+There is no workaround for this issue.
+2021.02
+Cloud
+Management -
+Design and
+deploy
+OCTCR19M1212200
+After upgrading the solution to 2020.11, if you try to provision a VM in
+vCenter, OO flow 
+Get Guest Info
+ fails with null pointer exception error.
+See the workaround
+2020.11
+Cloud
+Management -
+Image
+Aggregation
+OCTR19M1566120
+The Image Aggregation page (
+Design
+ ->
+Image Aggregation
+) can't
+be loaded from the mega menu directly.
+2022.05
+License
+OCTCR19M1206601
+Once a trial license gets revoked for a tenant associated with an
+account, you can't reassign a trial license to the tenant with the same
+tenant ID. 
+There is no workaround for this issue.
+2021.02,
+2020.11
+Service
+Management
+OCTCR19M1150204
+With Native SACM enabled, if you create a filter against a federated field
+for Device and you use the group by feature, the <No Value> entry
+always appears and no results are displayed on the Request grid page.
+2020.11
+Suite
+Administration
+OCTCR19M1061258
+If you set up the custom domain (short URL) for a tenant, the users with
+the OAuth authentication type can only use the custom domain as the
+login URL. The original URL (long URL) no longer works for the OAuth
+users.
+2020.11
+Suite
+Administration
+OCTCR19M1158160
+When users with the OAuth authentication type log out of the system,
+they can't see the tenant 
+Logout
+ page with the 
+LOG IN
+ button to log
+in again. As a result, if the users want to log in to the tenant again,
+they have to manually enter the tenant URL.
+2020.11
+Suite
+Administration
+OCTCR19M1153336
+The admin can't map the IdM user field and the OAuth fields with the
+JASON type such as 
+address.zip_code
+. If the admin configures it, the
+information can't be synchronized to IdM.
+2020.11
+Cloud
+Management -
+Image
+Aggregation
+OCTCR19M1175967
+System Default Proxy disappears while creating integration and isn't
+editable after changed from Custom Proxy.
+See the workaround
+2020.11
+Cloud
+Management -
+CGRO
+OCTCR19M1175540
+Data collection is failing for cloud cost data providers after upgrade from
+2020.08 to 2020.11.
+See the workaround
+2020.11
+Cloud
+Management -
+CGRO
+OCTCR19M1172769
+After upgrade from 2020.08 to 2020.11, cloud cost data providers aren't
+seen on the UI.
+See the workaround
+.
+2020.11
+Cloud
+Management -
+Design and
+Deploy
+OCTCR19M1179083
+After upgrading from version 2020.08 to 2020.11, the solution fails to
+generate DND application-specific log files. 
+Example: 
+<NFS>/global-volume/logs/dnd/<TENANT_ID>/<NAMESPACE>/…/csa.log
+ 
+See the workaround
+2020.11
+Category
+Issue ID
+Description
+Found in
+version
+SMAX 2022.11
+Page 
+83
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,137 @@
+Cloud
+Management -
+CGRO
+OCTCR19M1567255
+Notifications are not received on crossing the configured cost limit
+threshold for spend groups. 
+There is no workaround for this issue.
+2022.05
+Integration
+N/A
+If an integration scenario rule references a parameter that was not
+defined in preceding rules, the scenario will stop at this rule even if the
+rule's 
+Stop processing upon failure
+ option is OFF. Currently, the
+errors that can be ignored by this option include only error responses
+from the target system, not rule parsing errors.
+2022.05
+Integration
+N/A
+If you add a REST Executor 2.0 endpoint in another browser tab or
+window, you can't select the endpoint when creating an integration. You
+must refresh the page to be able to select the endpoint.
+2022.05
+Integration
+N/A
+If you change the endpoint of an integration, all task queue history will
+be associated with the new endpoint.
+2022.05
+Integration
+N/A
+For integration engine-based integrations through the OPB agent, the
+Request details
+ field in the task queue details page is empty.
+2022.05
+Integration
+N/A
+In the configuration page for 
+generic
+ or 
+no auth
+ types of REST
+Executor 2.0 endpoints, leading or trailing spaces in Expression fields
+will cause expression parse failure.
+2022.05
+Service Portal
+OCTCR19M1678040
+ 
+The request details page in Service Portal displays the 
+Offering
+ field
+value in English for a localized offering.
+2021.11
+Service
+Management
+OCTCR19M1686161
+ 
+The agent interface displays the name of a localized offering in English. 
+2021.11
+Service
+Management
+OCTCR19M1434744
+You can't assign licenses to a user imported from a source tenant. 
+See the workaround
+.
+2021.11
+Service
+Management
+OCTCR19M1422229
+With Native SACM enabled, if a filter contains 
+displaylabel = "
+, the
+Device grid page fails to load data.
+2021.11
+Service
+Management
+OCTCR19M1190179
+An offering cannot be aggregated and the Service Catalog management
+page shows the following error: 
+Failed to aggregate the offering xxxxxx. 
+Additionally, you can find the following messages in the log file: 
+Property descriptor element is invalid, since its reference name is not a
+valid element. Reference element type is concluded from the property's
+logical type. Refer to: customization.
+2021.11
+Cloud
+Management -
+Content
+Management
+OCTCR19M1441338
+vCenter resource sync flow fails with DND password having special
+characters in it.
+See the workaround
+.
+2021.11
+Cloud
+Management -
+Content
+Management
+OCTCR19M1434355
+Content installation job fails with an error 
+Failed to create process
+engine, exiting.
+See the workaround
+.
+2021.11
+OMT
+ 
+OCTCR19M143982
+8
+ 
+When running the cleanRegistry script in $CDF_HOME/script to delete
+unwanted images from your registry, you receive "too many open files"
+errors and fail to delete any unwanted images.
+See the workaround
+.
+2021.11
+Service
+Management
+OCTCR19M1747953
+When using custom domain on AWS, any modification in the suite-
+ingress.yaml file will cause an error on the short URL (custom domain)
+page, which will potentially cause service outage.
+See the workaround
+.
+2021.11
+Category
+Issue ID
+Description
+Found in
+version
+SMAX 2022.11
+Page 
+81
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

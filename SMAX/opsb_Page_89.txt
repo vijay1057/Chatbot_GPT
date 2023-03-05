@@ -1,0 +1,205 @@
+JSP scripts
+The use of JSP scripts to set dynamic values in option properties has been
+deprecated.  This functionality will be obsoleted in 2022.05.
+2022.05
+ResourceAlias
+The use of ResourceAlias to enable JS scripts to set dynamic values in option
+properties will be deprecated.  This functionality will be obsoleted in a future
+release.
+2022.05
+NFS v3
+NFS v3 is no longer supported.
+2021.11
+DOCKER_HTTP_PROXY
+DOCKER_HTTPS_PROXY
+DOCKER_NO_PROXY
+The parameters 
+DOCKER_HTTP_PROXY
+, 
+DOCKER_HTTPS_PROXY
+, and 
+DOCKER_NO_PR
+OXY
+ in the 
+install.properties
+ file are no longer supported.
+The parameters are replaced by 
+CRT_HTTP_PROXY
+, 
+CRT_HTTPS_PROXY
+, and 
+CRT_
+NO_PROXY.
+2021.11
+DIRECTLVM_DEVICE
+DIRECTLVM_DEVICE_FORCE
+THINPOOL_DEVICE
+The parameters 
+DIRECTLVM_DEVICE
+,
+ DIRECTLVM_DEVICE_FORCE
+,
+ 
+and 
+THINPOOL_D
+EVICE
+ in the 
+install.properties
+ file are no longer supported.
+2021.11
+DOCKER_BIP
+The parameter 
+DOCKER_BIP
+ in the 
+install.properties
+ file is no longer supported.
+2021.11
+Red Hat Enterprise Linux
+7.7, 8.0, 8.1
+CentOS 7.7 and 8.
+x
+Oracle Linux 7.7, 8.0, 8.1
+These operating systems are no longer supported.
+2021.11
+Internet Explorer 11
+Internet Explorer 11 is no longer supported.
+2021.08
+PostgreSQL 9.6
+PostgreSQL 9.6 is no longer supported.
+2021.08
+Embedded CMS
+Embedded CMS is no longer supported. 
+2021.08
+OMT embedded HA
+PostgreSQL database
+Removed the embedded HA PostgreSQL database. A script is provided to
+migrate your HA database to a single PostgreSQL database instance.
+2021.05
+PostgreSQL 9.5
+PostgreSQL 9.5 is no longer supported.
+2020.11
+ChatOps
+ChatOps is no longer supported. If you want to integrate the suite with
+Microsoft Teams for Channel notification, see 
+Integrate with Microsoft
+Teams
+ for more details.
+2020.08
+Classic SAM deployment
+The classic SAM deployment is no longer supported. Instead, you can use the
+new containerized SAM capability introduced in 2020.08, which is part of the
+suite installation.
+2020.08
+Demo and Extra Small suite
+sizes
+The two deployment sizes are removed from the suite installer.
+2020.05
+fix_rabbitmq.sh
+This script is removed from the SMA Operation Toolkit. A solution to RabbitMQ
+issues is provided in the Troubleshooting section.
+2020.05
+clean_image.sh
+The clean_image.sh script is removed from the $K8S_HOME/scripts/ directory.
+The Kubernetes image GC now removes unwanted images.
+2020.02
+Self-Hosted NFS as storage in
+the cloud, including GCP,
+Azure, AWS (classic and EKS)
+SMA no longer supports Self-Hosted NFS as the storage service when
+deployed on a public cloud.
+2020.02
+Classic AWS deployment
+The classic AWS deployment (including GovCloud) is no longer supported. You
+can use the Amazon Elastic Kubernetes Service (EKS) deployment instead.
+2020.02
+Classic Azure deployment
+The classic Azure deployment is no longer supported. You can use the Azure
+Kubernetes Service (AKS) deployment instead.
+2019.11
+deployment_log_location
+The 
+deployment_log_location
+ parameter has been removed from the
+install.properties file. 
+2019.11
+CentOS/RHEL/OEL 7.4
+These operating systems are no longer supported.
+2019.11
+Service Catalog aggregation
+The Service Catalog aggregation feature in Service Management
+(
+Administration
+ > 
+Configuration
+ > 
+Application Settings
+ > 
+Enable
+service catalog aggregation
+) is obsoleted and removed from the product
+UI.
+2019.08
+kube-registry-proxy
+ is removed.
+All the 
+kube-registry-proxy
+ related content is removed.
+2019.08
+Docker bootstrap
+ is removed.
+The thin pool for Docker
+bootstrap is removed as well.
+All 
+Docker bootstrap
+ related content is removed.
+2019.05
+registry-proxy
+ is removed.
+All  
+registry-proxy
+ related content is removed.
+2019.05
+Certain scripts in the 
+$K8S_HO
+ME/scripts
+ directory
+The following scripts are removed: 
+startETCD.sh
+, 
+startFlannel.sh
+, and 
+startVault.s
+h
+.
+2019.05
+FLUENTD_LOG_LOCATION
+ parameter
+The 
+FLUENTD_LOG_LOCATION
+ parameter in the install.properties file is no longer
+supported.
+2019.02
+Internal OpenLDAP
+The internal OpenLDAP server has been removed from the suite. Only
+external LDAP servers are supported.
+2019.02
+CentOS 7.2, 7.3
+CentOS 7.2 and 7.3 are no longer supported.
+2019.02
+RHEL 7.2, 7.3
+RHEL 7.2 and 7.3 are no longer supported.
+2019.02
+OEL 7.2, 7.3
+OEL 7.2 and 7.3 are no longer supported.
+2019.02
+Obsoleted item
+Description
+Obsoleted
+since
+version
+SMAX 2022.11
+Page 
+89
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

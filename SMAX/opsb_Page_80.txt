@@ -1,0 +1,127 @@
+Service Portal
+OCTCR19M1605295
+When the user uses the self-service password reset feature to reset the
+password, an error is displayed after the user submits the verification
+code.
+To fix the issue, apply the 2022.05.P1 patch.
+2022.05
+Service
+Management
+OCTCR19M1739082
+You have an offering and its User options tab defines an entity link field.
+Then, on the Request default values tab, you use a DSL expression that
+contains this entity link field to set a field’s value. When you try to use
+this offering to create a request in the Service Portal, if the entity link
+field has a value, the request creation fails. To work around this issue,
+use a Set field business rule on the offering’s Rules tab instead of setting
+the value on the Request default values tab.
+2022.05
+Service
+Management
+OCTCR19M1608075
+OCTCR19M1608346
+Groups with special characters in their UPNs can't be updated.
+See the workaround.
+2022.05
+Service
+Management
+OCTCR19M1596390
+Tenant export/import fails because a new column
+(cdu_data_upgrade_version) is missing in the xservices-mng database.
+See the workaround
+.
+2022.05
+Operations
+Orchestration
+OCTCR19M1595189
+Subsequent attempts to redeploy the Operations Orchestration
+capability will fail once you encounter the following error in Autopass.
+Failed to get license list for tenant with ID <tenant_id> in APLS
+See the workaround
+.
+2022.05
+Service
+Management
+OCTCR19M1575794
+ 
+The platform-offline pod restarts frequently during Service Level Target
+(SLT) calculation. 
+See the workaround
+.
+2022.05
+Service
+Management
+OCTCR19M1523055
+After you change a work schedule (a type of time period) and click
+Apply now
+, the 
+Target date
+ and 
+Elapsed duration
+ in the 
+Service
+Level Targets
+ section of its associated request/incident aren't updated
+accordingly.
+See the workaround
+.
+2022.05
+Service
+Management
+N/A
+In SAM, the deployment information for VMware vRealize Operations and
+Oracle products isn't visible.
+See the workaround
+.
+2022.05
+Cloud
+Management -
+subscription
+OCTCR19M1571306
+During subscription modification, the values of some user options with
+dynamic JS are not loading.
+See the workaround
+. 
+2022.05
+Cloud
+Management -
+Design and
+deploy
+OCTCR19M1565380
+ 
+After an upgrade, the Service Portal subscription in the pending state is
+moved to the terminated state.
+See the workaround
+.
+2022.05
+Cloud
+Management -
+Image
+Aggregation
+OCTCR19M1566120
+Image Aggregation
+ page is not loaded when accessed from 
+Main
+Menu > Build > Design > Image Aggregation.
+Refresh the page to load the Image Aggregation page.
+2022.05
+Cloud
+Management -
+CGRO
+OCTCR19M1521553
+ 
+CGRO Vertica SSL Test Connection doesn't work even with a valid
+certificate.
+There is no workaround for this issue.
+2022.05
+Category
+Issue ID
+Description
+Found in
+version
+SMAX 2022.11
+Page 
+80
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

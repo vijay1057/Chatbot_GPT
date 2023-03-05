@@ -1,0 +1,66 @@
+their requests in the SMAX Service Portal.
+2018.02
+Shared services support
+This release enables shared service providers to manage their customers' requests and incident records in one user interface
+via a multi-tenant (MT) console. The provider tenant and managed tenants can be configured in Suite Administration so that
+each customer has their own Service Management tenant, and shared service providers can view all data together in one
+console.
+Shared service agents who have the appropriate permissions can view the following information:
+A dashboard that aggregates real time information from multiple customers. The dashboard displays the number of
+incidents and requests for each tenant.
+A grid that displays the requests or incidents belonging to specific managed customers. The information in the grid can be
+filtered like any other record grid in Service Management.
+Individual records directly in the relevant managed customer's tenant. This information is displayed in a separate tab
+when an individual incident or request record is clicked. The record is then editable depending on the shared service
+agent's permissions for that managed customer.
+Smart Analytics enhancements
+Includes the following enhancements for Smart Analytics:
+Smart Ticket
+Tenant administrators can define their own Smart Ticket tasks according to the Service Request module requirements.
+Smart Search
+Tenant administrators can perform the following actions to improve search accuracy:
+Enable the phrase queries function to add quotations for a search request
+Enable the 
+ignore certain special characters function to 
+interprets special elements as normal characters instead of a
+query syntax.
+Define the minimum search result relevance threshold
+Content group scaling
+If the Smart Search performance isn't good enough, an administrator can easily add content for Smart Search to balance
+the search requests by using more content servers.
+Service Portal mobile app
+A new iOS Service Portal mobile app is available to support this release. Additionally, the user experience of the search
+functionality in the Android app is
+improved.
+Backup and restore
+This release includes a new DR tool that can back up and restore the following suite data:
+Configmap data, which includes suite configuration information
+Smart Analytics volume, which includes content data and configurations
+Global NFS volume data, which includes integration certificates and attachments that users added to Service Portal
+records
+Community localization support
+By using the
+ Openl10n community site, you can localize SMAX (Service Portal and Service Management) into additional
+languages that aren't officially supported by SMAX.
+PostgreSQL view support
+Provides a PostgreSQL view for data reporting in Service Management. These views can be accessed using third-party tools,
+such as the Business Intelligence tool.
+Natural Language Processing (NLP) based Virtual Agent (beta version)
+This release includes a beta version of the SMA Virtual Agent (Chatbot). The Virtual Agent can do the following to help improve
+the productivity of real IT agents and improve end user experience:
+Answer questions from end users with information from the knowledge base
+Create a support ticket when requested by a user who isn't satisfied with the answer provided
+Create service requests when requested by users who can't find desired offerings from within the service portal
+This beta version supports English only, and is recommended for demo or test environments only. You can download the
+Note
+To utilize the Service Catalog aggregation feature, your enterprise must own a Premium license for the
+Service Management Automation Suite.
+This release has controlled availability for the Service Catalog aggregation feature. 
+
+
+SMAX 2022.11
+Page 
+132
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

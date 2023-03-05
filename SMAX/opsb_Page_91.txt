@@ -1,0 +1,120 @@
+SMAX 2022.11.P1 patch release notes
+Software release date: December 2022
+See 
+SMA-SM 2022.11.P1
+ patch release notes if you have enabled SMA-SM Service Portal.
+What's new
+This patch release includes the following enhancement:
+Test your design by deploying an instance based on configuration options
+In the Service designer, you can now test your service designs by deploying test instances using the configuration options. See
+Create and deploy a new instance
+.
+Enhancement
+Category
+Issue ID
+Description
+Cloud
+Management
+OCTCR19M17478
+10
+Ability to test service design configuration by creating/deploying test instance
+from designer.
+Fixed issues
+SMAX
+Category
+Issue
+ID
+Description
+Service Portal
+OCT
+CR1
+9M1
+7474
+17
+The HTML anchor tags in the knowledge articles don't work in Service Portal.
+Service Portal
+OCT
+CR1
+9M1
+7471
+91
+When the Q&A module is disabled, Service Portal still displays the 
+Help Your Friends with
+Open Questions
+ link.
+Service Portal
+OCT
+CR1
+9M1
+7484
+02
+The French news articles aren't localized in Service Portal. When you click 
+Show all news
+, the
+news articles are displayed in English.
+Service Portal
+OCT
+CR1
+9M1
+7514
+16
+If a user of data domain A creates a request Service Portal, then the request is assigned to
+another user of data domain B, the request can no longer be searched out in 
+My request
+ in
+Service Portal by the user of data domain A.
+Service Portal
+OCT
+CR1
+9M1
+7604
+45
+The global search for request records created by non-English users in Service Portal fails.
+Service
+Management  
+OCT
+CR1
+9M1
+7400
+45
+If you enable the SAM capability and the OO or Audit capability, and OO or Audit has a different
+FQDN with Service Management, you can't open the Software Asset menu item from an Audit or
+Operations Orchestration form.
+Service
+Management
+OCT
+CR1
+9M1
+7543
+16
+In the 
+Live Support
+ UI, the 
+All
+ button isn't aligned with the other buttons in the same line.
+Service
+Management
+OCT
+CR1
+9M1
+7541
+78
+An integration scenario fails to save when the listener of an action template is changed from its
+default value and disabled.
+Service
+Management
+OCT
+CR1
+9M1
+7420
+92
+SyncEmailsTask 
+email endpoint task fails with a 
+Task timeout exceeded
+ error.
+SMAX 2022.11
+Page 
+91
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

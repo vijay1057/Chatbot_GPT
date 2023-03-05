@@ -1,0 +1,37 @@
+At this point, we have enough functionality for our end users to make requests through our Service Management Automation
+Service Portal, and our agents to enter Requests manually through Live Support. However, what we want is a system that
+helps both groups find the best way to resolve their requests. While the system will recommend offerings for repeatable types
+of requests, we also want it to suggest possible solutions for issues or questions. Service Management Automation X includes a
+powerful search engine that will do exactly that, but we need to make the system “smarter” regarding the services we provide
+by adding knowledge articles to the system.
+While we'll look into the method of authoring new knowledge articles later in this guide, we can take advantage of the
+knowledge we already have created using Service Management Automation X's Knowledge Packaging Tool. With this tool, we
+will take all of our current knowledge, convert it to HTML if necessary, and use the tool to package it into a format the Service
+Management Automation X can understand.
+Once we import these packaged articles into our system, our end users and agents will have access to the knowledge that
+might assist them in processing their requests. We’ll take a look at how the knowledge ties into the other processes later.
+Here is the 
+documentation for the Knowledge Packaging Tool
+ if you want to see the specifics of how we are going to be
+importing our knowledge articles.
+Surveys
+Once we have our service request system up and running, we need to ensure that it's fulfilling the users’ needs and continue
+to improve it. One of the best ways we can judge the opinions of the people using the system is simply to ask them, which is
+what we can use surveys to do.
+With surveys, we can customize a set of questions to determine customer satisfaction with areas such as:
+How easy was it to navigate our service request catalog to find what they were looking for?
+Was their request fulfilled in an acceptable amount of time?
+If calling the Service desk directly, how well did our agent help them to fulfill the request?
+Was the service desk agent’s accent believable? (kidding!)
+The survey module not only gives us a way to ask these questions but also gives us an excellent way to investigate the results
+of both the structured responses (those with a limited set of responses to choose from) and unstructured ones as well (such as
+free-form text). Service Management Automation X includes Big Data analysis features that can group similar text and provide
+simple but powerful graphical method of unstructured analysis. Of course, now that I’ve gotten you interested in this
+functionality, I’ll tell you we’ll be looking at it in detail later…
+Using standard business rules, we can send out surveys automatically when certain things happen — like when the request is
+SMAX 2022.11
+Page 
+165
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

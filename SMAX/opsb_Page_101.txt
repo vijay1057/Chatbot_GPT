@@ -1,0 +1,104 @@
+Category
+Issue ID
+Description
+Audit
+service
+OCTCR19M1766
+351
+Audit collector deployment fails when a user tries to deploy it in a namespace other than
+SMAX namespace.
+CMS
+Category
+Issue ID
+Description
+UCMDB
+Integration
+OCTCR19U1761725
+Error occurs when trying to refresh the integration job or delete a CI after UCMDB
+server upgrade.
+Upgrade
+OCTCR19U1726370
+Empty fields for InstalledSoftware after UCMDB server upgrade.
+Known issues
+Category
+Issue ID
+Description
+Found in
+version
+Cloud
+Management
+OCTCR19M1
+771753
+When you try to create a test instance using configuration options for GCP
+service designs, the test deployment fails.
+2022.11.P3
+Apply the patch
+Download the suite metadata file (itsma-suite-metadata-2022.11.P3-xxx.tgz) of this patch release from 
+here
+, and then follow
+the instructions below to apply the patch:
+If SMAX is deployed in an on-premises environment, see 
+SMAX patch installation (on-premises)
+.
+If SMAX is deployed in a GCP, Azure (AKS), or AWS (EKS) environment, see 
+SMAX patch installation (managed
+Kubernetes)
+.
+Apply OMT 2022.11 patch 2
+This patch release includes OMT 2022.11.P2, which you can download from 
+here
+. The filename of this patch is 
+OMT_2022.11.P2-0
+15.zip
+.
+You can install SMAX 2022.11.P3 and OMT 2022.11.P2 in any sequence. For information about how to apply this patch, see
+Install an OMT patch
+.
+Apply Audit 2022.11 patch 3
+This patch release includes Audit 2022.11.P3. You can download the Audit service patch file (Audit_Helm_Chart-
+2022.11.012.zip) from 
+here
+ and the Audit collector patch file (Audit_Collector_Helm_Chart-2022.11.012.zip) from 
+here
+ and then
+follow the instructions below to apply the Audit service patch and the Audit collector patch:
+If you have deployed Audit in an on-premises environment, see 
+Install an Audit patch (embedded Kubernetes)
+.
+If you have deployed Audit in an AWS (EKS) or OpenShift environment, see 
+Install an Audit patch (managed Kubernetes)
+.
+Apply OO Containerized 2022.11 patch 2
+You can download this OO Containerized patch from 
+here
+. Apply this patch only if you have installed OO Containerized
+2022.11. For detailed installation steps, see 
+OO Containerized 2022.11.P2 patch release notes
+.
+(Optional) Apply Containerized CMS 2022.11 patch 3
+Containerized CMS 2022.11.P3 is available to download from 
+here
+. Follow the instructions below to apply the patch:
+If Containerized CMS is deployed in an on-premises environment, see 
+Install a CMS patch (embedded Kubernetes)
+.
+If Containerized CMS is deployed in a managed Kubernetes (Azure with AKS, AWS with EKS, or OpenShift) environment,
+see 
+Install a CMS patch (managed Kubernetes)
+.
+For detailed information about fixed issues, patch name, and download link, see 
+Containerized CMS 2022.11.P3 patch release
+notes
+.
+Note
+: If you haven't installed OO Containerized 2022.11 patch 1 and upgraded your external OO RAS or
+Workflow Designer, you need to upgrade these two external OO components after applying OO Containerized
+2022.11 patch 2.
+
+
+SMAX 2022.11
+Page 
+101
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

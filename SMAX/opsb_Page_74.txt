@@ -1,0 +1,134 @@
+Service
+Management
+OCT
+CR1
+9M1
+6460
+75
+When you use the Export to CSV option to export raw data, the system removes the HTML tags in
+the rich text fields.
+Service
+Management
+OCT
+CR1
+9M1
+6761
+44
+Saving Operational report gives an error when using the Entity link User option field in the Group
+By field.
+Service
+Management
+OCT
+CR1
+9M1
+6780
+37
+Hidden fields are still visible in the preview of Approval of Fulfillment.
+Service
+Management
+OCT
+CR1
+9M1
+6790
+02
+When you try to filter an entity link with "no value" on a report, an error occurs: Wrong entity-[id]
+and [type] should be defined.
+Service
+Management
+OCT
+CR1
+9M1
+6821
+10
+When the customization policy is set to Restricted, the Studio error messages are inconsistent
+about the cause of the error.
+Service
+Management
+OCT
+CR1
+9M1
+6840
+27
+The Delete button in the Person grid is disabled for Contacts when the Person record type has a
+custom one2many relationship.
+Service
+Management
+OCT
+CR1
+9M1
+6840
+31
+Image in Knowledge Model disappears after a period of time.
+Service
+Management
+OCT
+CR1
+9M1
+6861
+62
+Change Calendar shows the Schedule date/time in meaningless characters.
+Service
+Management
+OCT
+CR1
+9M1
+6871
+52
+The "Tags" field can't be added to the Article grid view.
+Service
+Management
+OCT
+CR1
+9M1
+6942
+21
+User Option Data type double is not visible in the columns of record grid views.
+Service
+Management
+OCT
+CR1
+9M1
+7018
+97
+When you go to the Change Schedule tab and hover over a change that is in Approve plan where
+the change is still pending (Not approved), the value in the Change calendar shows that the
+change is approved.
+Service
+Management
+OCT
+CR1
+9M1
+7140
+19
+An error occurs when a non-Tenant Admin user views an Article or News.
+Service
+Management
+OCT
+CR1
+9M1
+7170
+31
+The warning message is incorrect when a user creates a custom record type workflow.
+Service
+Management
+OCT
+CR1
+9M1
+7190
+39
+You can't add a new field through Studio > Device.
+Service
+Management
+OCT
+CR1
+9M1
+7244
+93
+The left-hand side pane in the tasks/approvals grid displays "Unknown" when you add multiple
+Group by attributes.
+SMAX 2022.11
+Page 
+74
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

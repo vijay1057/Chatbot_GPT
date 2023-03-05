@@ -1,0 +1,107 @@
+The Products page now presents more information including the time when license compliance is last calculated, the
+calculation status, and the time when the product is last synchronized.
+AMX theme in Service Portal
+One new out-of-the-box display theme, the AMX theme, is now available for tenants newly created in this release. For tenants
+created earlier, you can manually create a theme. See 
+Configure Service Portal display theme settings
+. 
+General improvements
+This release introduces the following general improvements.
+User Management Reports
+You can now get detailed reports of user role assignments and license usage from 
+User management reports
+. 
+The tenant admin needs to enable this feature and assign required permissions to users so that they can view the reports.
+See 
+Enable User Management Reports
+.
+When this feature is enabled, you can select 
+Administration > People > User Management Reports
+ to view the following
+information:
+People and groups assigned with a particular role
+Roles assigned to a particular person (either directly assigned or inherited from groups)
+A list of licenses with usage information, start date, and expiration date
+A list of users allocated with a particular license and a list of logged-in users
+SMAX-SMAX case exchange
+You can integrate two SMAX systems for case exchange. This integration has the following capabilities:
+Uses a built-in integration framework based on the Integration Engine and a new endpoint type 
+REST Executor 2.0
+. 
+Supports all record types
+Has predefined configuration templates for Incident and Request case exchange
+See 
+Integration Engine—SMAX to SMAX case exchange
+ and 
+Integration Engine
+.
+New business rules
+Create record and entity link
+ is an Action rule that creates a record that links to the original record. Fields of the new
+record can also be specified by this rule. See 
+Action rule examples
+.
+Validate if field matches pattern
+ is a Validation rule that determines if the input of a TEXT field matches a predefined
+pattern. See 
+Validation rule examples
+.
+Content module
+The Content data can be imported into your instance of Service Management. The 
+Content
+ menu option
+(under 
+Administration > Utilities > Data Deployment
+) appears only if you have the Tenant Admin role. Unlike Sample
+Data, which is for demonstration and testing purposes, the Content data is aimed to ready your Service Management for real-
+world business needs. A solution powerful as Enterprise Service Management (ESM) has delicate designs and features to
+sustain various ecosystems within an enterprise. For example, besides the traditional IT Service Management, Human
+Resource Service Management is a basic and essential system that can be empowered by ESM. However, building up the
+whole data model from scratch can be overwhelming and you may not know where to start with. That's when the Content data
+comes in handy. See 
+Content
+.
+Accessibility improvements in Chat UI
+Chat capability is now compatible with supported screen reader software and keyboard shortcuts. See 
+Accessibility support
+.
+FIPS support
+This release supports FIPS mode with the following limitations: 
+Supports a FIPS-enabled deployment only on AWS EKS in AWS GovCloud
+New installations only (you can't upgrade an existing non-FIPS deployment to FIPS mode)
+Only the SMA and containerized CMS services are using FIPS-certified libraries
+When running in FIPS mode, SMAX has certain functionality limitations
+Note In this release, this feature is under controlled availability.  
+See 
+FIPS mode
+.
+Native SACM
+The 
+Data precheck
+ section in 
+Enable Native SACM in SMA
+ has been enhanced.
+Service Portal
+This release introduces the following enhancements for Service Portal.
+You can now search and access knowledge articles of SharePoint and Confluence from Service Portal.
+To define whether and which users can search and access knowledge articles, you can configure the
+ExposeInPortal
+ and 
+ExposeToEntitlementID
+ parameters in the CFS's 
+config.ini
+ file. See 
+Integrate with SharePoint
+and Confluence
+.
+The 
+custom tab feature
+ in Service Portal is improved to support more CRM (Customer Relationship Management) use
+cases:
+You can now add at most 10 customized tabs in the request list
+SMAX 2022.11
+Page 
+109
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

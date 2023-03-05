@@ -1,0 +1,93 @@
+Implementation Checklist
+This section contains an example implementation checklist you can use to guide you through the minimal steps to prepare a
+SMAX system for use by end users and agents.
+While not every area in the system is covered, the necessary steps are included for the initial setup and the most popular
+modules. Links to relevant documentation are also provided.
+Setup Core Data & Customization
+The core data (such as location and group definitions) is widely used in the SMAX modules. This makes it quite important to
+implement early in the implementation process while ensuring the data is correctly created (or imported). 
+For high-level information on the types of core data needed, see the Getting Started guide 
+here
+.
+☐ 
+Review out-of-the-box Roles and modify or add as necessary
+Review the 
+roles documentation
+, which includes a list of out of the box roles.
+☐
+ 
+Create or import Location data
+For more details, please review the 
+Locations
+ section in the Getting Started guide.
+☐ Create or import Organizational Groups
+Organizational Groups contain all the boxes on the company’s org chart. Business units, departments, and the
+company itself are represented as separate but related Organization Groups. 
+The Organizational Group also contains information about the Owner/Manager of the Group and all the members of
+the Organization. Note that a person can only belong to one Organizational Group.
+☐
+ 
+Create or import Functional Groups
+Functional Groups contain the people responsible for a specific job function or process within the system.  These
+groups can encompass people who belong to several Organizational Groups or may be used to further break up
+Organizational Groups into different functions that they support.  For example, within a Department that builds a
+specific product we can create separate Functional Groups for the Database team, the UI team, and the Application
+team.  It's also important to note that people can belong to multiple Functional Groups, so people that support
+multiple processes can belong to all the teams that are necessary.  
+The main thing you will use Functional Groups for is to assign “work”. When you want a specific “Team” to work on
+a Request, Incident, Change, or even a Task, assign a Functional Group to the record you want them to work on. 
+From there, you can also assign a specific Group member to the record, so it's not only important to define the
+Groups but to make sure the correct people are part of the Group.
+☐
+ 
+Import any Users that were not part of the SSO integration
+You can perform simple imports through the UI, but for more complex information consider using the 
+Manage
+Persons API
+.
+☐
+ 
+Create or import Contacts (non-users) into SMAX
+☐
+ 
+Assign Users to Roles, Locations, and Groups
+For small implementations, this may be manually done, but most implementations will require the use of the
+Manage Persons API to make bulk updates.  For more information on this API , see 
+here
+.
+Micro Focus
+ provides the 
+Connect-It
+ product as one tool to move information from your internal data sources to
+SMAX.  
+Connect-It
+ makes use of the Manage Persons API so you can add attributes, set licensing, and add Users to
+Roles and Groups.
+☐
+ 
+Customize the notification header & footer
+For example, you can replace the logo with your organization's logo. 
+☐
+ 
+Update Agent training material with Location and Group information if needed
+Define your primary services
+Services are at the core of most processes within SMAX. Taking the time to define your services fully will improve the
+productivity of these processes, notably the Service Catalog. You can find more information on defining your services and
+examples in the 
+SACM Overview
+ chapter of the Getting Started guide.
+ 
+☐ 
+Create Service Definitions for a few of your most important/used Services
+For information on adding the Service Definitions, see 
+here
+.
+☐ 
+Create the Actual Service entries that represent these Services in your environment
+ 
+SMAX 2022.11
+Page 
+147
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,79 @@
+Get started with Cloud Management
+Cloud Management simplifies the delivery, consumption, and governance of IT services and resources. The codeless and
+customizable interface, powered with workflow orchestration, service designer, simplified catalog, and a smart service portal,
+provides for the complete lifecycle management of public and private cloud resources-based IT services.
+Cloud Management offers the following capabilities:
+Design and deploy
+Using 
+Design and Deploy (DND)
+, you can create service designs and offerings, and automate the provisioning and
+management, of hybrid and multi-cloud resources. The DND capability allows you to automate a wide variety of resource
+requests with an on-demand selection of parameters and options. From the Main Menu go to 
+Build > Design. 
+For more
+information, see 
+Design and Deploy
+.
+Before enabling and using the Design and Deploy functionality, you should have installed the Operations Orchestration
+Containerized capability. For more information on how to install Operations Orchestration see, 
+Install OO on-premises
+, 
+Install
+OO on EKS
+, and 
+Install OO on AKS
+.
+Cost governance and resource optimization
+Cost Governance and Resource Optimization (CGRO)
+ uses detailed, centralized cost reports for Azure and Amazon Web
+Services to enable showback and chargeback to business budgets, and help identify the biggest spenders via powerful data
+slicing and dicing capabilities. IT can further optimize public cloud costs via built-in insights around reserved instances, which
+benefit from cost-effective, reservation-based pricing and avoid overspending on on-demand instances. From the Main Menu
+go to 
+Run > Cost Governance. 
+For more information, see 
+Cost Governance and Resource Optimization
+.
+Image aggregation
+Image Aggregation
+ 
+showcases cloud service templates from the marketplace portals of AWS, Microsoft Azure, and vCenter.
+As a catalog administrator, you can use the capability to easily create and publish new offerings from these templates. From
+the Main Menu go to 
+Build > Design > Service Designer > Image Aggregation. 
+For more information, see 
+Image
+Aggregation
+.
+Content Store
+Content Store is part of the DND capability and is a web-based service for managing capsules. Users can download the latest
+capsules published on the ITOM Marketplace and use the Content Store to easily install them into the suite. Users can also use
+the Content Store to install custom capsules. From the main menu go to 
+Build
+ > 
+Design
+ > 
+Content Management. 
+For
+more information see 
+Content Management
+.
+offer a unified experience to manage requesting, provisioning, and consumption of IT services 
+deliver multi-cloud infrastructure and IT services to business users
+define the service life cycle management to provision, update, and de-provision cloud resources
+manage hybrid and multi-cloud XaaS environments
+orchestrate the IT operations processes end-to-end
+The Cloud Management functionalities and menu visibility depend on:
+License
+ - You need to assign a Cloud Management license to access the functionalities. 
+Experience mode 
+-  The experience mode possibilities are related to the assigned licenses. For more information on
+how to configure the experience mode and the functionalities available, see 
+Experience mode
+.
+SMAX 2022.11
+Page 
+136
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

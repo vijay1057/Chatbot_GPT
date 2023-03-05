@@ -1,0 +1,98 @@
+contain the transaction details for each cloud resource provisioned. For details, see 
+HCMX License
+.
+Platform features
+Data domain segmentation for Native SACM
+Data domain segmentation in Service Management provides the ability to restrict the visibility of specific records and actions
+to specific people, roles, or groups. In this release, through the Native SACM solution, data domain segmentation is associated
+with UCMDB multi-tenancy. 
+In UCMDB, the UCMDB Multi-Tenant architecture is designed to provide a logical separation of the data model into tenants.
+With the data model and the class model stored in UCMDB, the UCMDB Multi-Tenant solution tags each CI and resource (TQL
+query, View) as being owned/used by certain tenants. The UCMDB Multi-Tenant architecture serves the same purpose as SMAX
+data domain segmentation. When Native SACM is enabled, SMAX data domains can be synchronized to UCMDB as UCMDB
+consumer tenants, thus achieving data segmentation in both systems. For details, see 
+Adopt data domain segmentation for
+Native SACM
+.
+Single Sign-On with UCMDB
+Single Sign-On can be achieved by connecting UCMDB and SMAX IdM, it also works when there are multiple SMAX tenants and
+multiple UCMDB customers. For details, see 
+Single Sign-On with UCMDB
+.
+OAuth authentication support
+To broaden the use case for users to access Service Portal and the agent interface, the suite admin can configure the OAuth
+authentication in IdM Admin Portal to verify the identity of end users. The OAuth authentication is only supported by tenants
+with the new tenancy mode. For details, see 
+Configure authentication in IdM Admin Portal
+.
+Password policy enhancement
+To have the flexibility to specify different password policies for different users, the suite admin can go to IdM Admin Portal to
+define multiple password policies, specify password policies for specific user types, and specify password policies for specific
+users according to business requirements. For details, see 
+Configure password policy in IdM Admin Portal
+.
+Access Token
+To better support single sign-on when you deploy multiple 
+Micro Focus
+ products, the Access Token mechanism is implemented
+in the suite as a start to replace the LW-SSO mechanism.
+Cloud Native Focus
+You can now migrate the suite from on-premises to cloud environments or between different public cloud platforms. See
+details at 
+Migrate the suite to a new deployment platform
+.
+For the suite deployed in the cloud, a new backup and restore solution is introduced in this release. This solution
+leverages Velero to back up and restore the Kubernetes configurations and verifies the cloud-native services to back up
+and restore the database and storage data. See 
+Back up and restore (managed kubernetes)
+ for more information. 
+Installation, upgrade, and system maintenance
+OpenShift support in an on-premises environment (
+under controlled availability
+):
+ 
+You can now install SMA on
+OpenShift in an on-premises environment. For more information, see 
+Install on OpenShift
+. 
+Upgrade precheck: you can now specify a tenant content validation timeout value. For more information, see 
+Tenant
+content validation fails
+.
+Enhanced Support Assistant. For more information, see 
+SMA Support Assistant
+.
+Support for PostgreSQL 9.5 is discontinued, and support for PostgreSQL 11 is added.
+Documentation
+Terminology change (documentation only): Following industry standards and updates to the Kubernetes glossary, the help
+center refers to a “master node” as a “control plane node” as of this release. This is a name change only; there is no
+change in functionality. In some cases, such as UI text in the CDF Installation Portal, this change is not yet applied. In such
+cases, the documentation continues to use the legacy term.
+Service Management Automation X Privacy Settings Guide for Administrators and End Users
+The 
+Service Management Automation X Privacy Settings Guide for Administrators and End Users
+, available on the
+Software Support Portal
+, provides information about how personally identifiable information (PII) is collected by SMAX and
+how to configure privacy settings. This document is used as guidance for following requirements from legislations like
+GDPR or CCPA. To download this document, you must log on to the Software Support Portal and your account must be
+configured to contain a valid Service Agreement ID (SAID).
+2020.08
+Software Asset Management (SAM)
+SAM is a new capability that helps you better understand the relationship between software installed in your enterprise and
+the contracts you hold for this software.
+In this release, SAM reaches GA with the following enhancements: 
+Supports containerized SAM included in SMAX installation. You can deploy SAM in an on-premises or an AWS, Azure, and
+GCP environment. Also, you can choose to install it as an add-on capability after the suite installation. For more
+information, see 
+Install add-on capabilities
+.
+Note:
+ If you already have a classic SAM instance deployed and want to use the new containerized SAM capability
+introduced in this release, remove the classic instance from the tenant and then deploy a new one. For more information,
+SMAX 2022.11
+Page 
+120
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

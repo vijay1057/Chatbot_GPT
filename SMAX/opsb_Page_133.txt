@@ -1,0 +1,64 @@
+Virtual Agent (Chatbot) -- Beta 2018.02
+ package from the 
+Micro Focus
+ 
+ITOM Marketplace
+. For more information about how
+to install and integrate the SMA Virtual Agent, refer to the PDF document that's included in this package.
+2017.11
+In earlier releases, Service Management Automation uses Service Manager as the Service Management module. This release
+introduces an "X platform", which can be used as a replacement of Service Manager. During the suite installation, customers
+have the option to choose either the Service Manager option or the X platform option, which are referred to as "Service
+Management Automation SM (SMA-SM)" and "Service Management Automation X (SMAX)", respectively.
+SMAX offers the following benefits:
+Container-based delivery
+Provides customers true choice via a modern foundation to build and deploy advanced IT solutions—that can run in any
+environment. Through advanced data management capabilities, customers get flexibility coupled with complete control of
+their data sovereignty.
+Runs on the public cloud with auto scaling
+Offers the ability to install and work with SMAX instances deployed on the Amazon Web Services ecosystem, providing
+customers with greater flexibility in how they run and store their applications and data. Additionally, customers can enable
+auto scaling at both the node level and pod level. For more information, see 
+Auto scaling
+.
+Codeless and version-less configuration
+Accelerates onboarding and reduces Total Cost of Ownership (TCO) through automated upgrades giving customers almost
+instant access to new features and capabilities.
+Modern user experience
+Gives the consumer the simplest service experience driven by analytics and automation.
+A native mobile application complements the web service portal with a streamlined, native interface that focuses on key
+tasks that need to be managed on the go.
+Virtual agents provide automated assistance with integrated live-chat or email to enhance continuous customer support.
+Social collaboration features, including the ability to vote, translation on the fly, and "ask a friend" and survey options that
+help end-users source answers from the community and enhance end-user autonomy.
+Multi-tenant support
+Provides industry-leading multi-tenancy and high scalability, with deployment flexibility across on-premises and cloud for
+global and regional Managed Service Providers.
+Additional enterprise applications
+Adds the following analytics-based applications to the existing catalog of service management applications:
+operational project management
+human resource workflow
+application and service portfolio management
+financial tracking
+ideation and proposal management.
+Change and Hot Topics Analytics
+Uses industry-leading 
+IDOL
+ analytics to improve change management and service agents.
+Enhanced Smart Ticketing Analytics
+Features an Optical Character Recognition and machine learning system to accept and route service requests.
+Apply simple suite update
+You can now check for suite updates on Docker Hub and apply the updates to your suite environment.
+Install from a backup
+You can now use a backup of an existing environment to set up a replicated environment. During the installation process, the
+suite installer allows you to select either a new installation or an installation based on backed up data from an existing
+deployment. Note that this feature requires that both CDF and the suite in the two environments be the same version and
+patch level.
+Enhanced database support
+This release adds support of external PostgreSQL for UCMDB.
+SMAX 2022.11
+Page 
+133
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

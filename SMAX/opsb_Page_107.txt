@@ -1,0 +1,97 @@
+LDAP Query
+JDBC Query
+File system
+REST Executor 1.0
+You can use these endpoints to dynamically list data in the configuration option properties of service design. See 
+Use
+endpoints
+ and 
+Use case: OPB endpoints of DND
+.
+Consumption management APIs
+Using these APIs, you can generate data from the suite which can be used to build your own user interface with ease.
+The following APIs are available:
+GET Offering
+Service Request Lifecycle Management 
+You can access these APIs after installing/upgrading the suite and enabling the DND capability. See 
+Consumption management
+APIs
+.
+Group access to subscription
+When you submit a request based on a cloud offering or modify an existing cloud subscription, you can enable group access to
+the subscription on the request. This opens the possibility to assign your groups to the subscription as well. If the groups are
+assigned to the subscriptions under different access levels, all members of those groups will be able to operate, modify,
+cancel, or have full access to that subscription according to the assigned access level. The initial requestor person will stay as
+the subscriber of the subscription. See 
+Group access to subscription
+.
+Image Aggregation
+The service designer can use Image Aggregation generated Cloud Slang design to customize the public or private cloud
+services by adding more Cloud Slang based workflows
+Replacement of embedded OO with OO Containerized
+The Design and Deploy (DND) capability of cloud management has been re-architectured leading to resource optimization and
+increased efficiency. From this release onwards the Operations Orchestration (OO) embedded in DND has been removed and
+hence you need to migrate to Operations Orchestration (OO) Containerized. See 
+Install OO on-premises
+, 
+Install OO on
+EKS
+, and 
+Install OO on AKS
+.
+OO Containerized also provides standalone OO Workflow Designer and OO external RAS  which can be installed on-premises.
+You need to run a script to get the OO Workflow Designer and OO external RAS installer bits into the OPB download center for
+direct download. See 
+Enable direct download of OO RAS and OO Workflow Designer from the SMAX UI
+.
+Automatic resource synchronization
+Automatic resource synchronization through an OO scheduler is now enabled. During provider creation (Azure, AWS, GCP, and
+vCenter) details of available resources for a given account get synchronized automatically. See 
+Automatic resource
+synchronization
+.
+Operations Orchestration (OO) Containerized
+This release of OO Containerized includes an out-of-the-box scheduler. This scheduler allows administrators to schedule
+workflow executions with advanced planning options (configurable start dates, end dates, timezone, recurrence patterns, and
+exclusions) and configurable workflow level inputs. It also allows administrators to manage the schedules and track workflow
+executions.
+Service Portal
+Portal customization
+You can now create custom widgets to embed your own Web Components or static HTML contents in certain theme areas,
+including the header, footer, sidebar, and category areas. In addition to creating custom widgets in the predefined locations,
+you can also create the Full page widgets, which can be displayed as a whole page with a consistent appearance like other
+functionality pages, such as the Offering details pages or Request Tracking pages. See 
+Service Portal custom widgets
+.
+Miscellaneous
+When the title of an offering or article in Service Portal is truncated due to a length limit, you can hover over the truncated
+text to view the full title.
+Related records: supports up to 10,000 records in total in the Related records tab, divided by the number of records types.
+Related knowledge: supports pagination
+Enable Google Analytics to measure your website traffic and gather vital information about your website visitors for SMAX.
+See 
+Enable Google Analytics
+.
+Accessibility improvements in Chat UI: You can now open the chat conversation window using the "Alt + X" shortcut.
+See 
+Accessibility support
+.
+Service Catalog open localization. See 
+Localize Service Catalog with OpenL10n
+.
+Mobile app
+The name of the mobile app has changed to Enterprise Service Management. The icon label of the app is 
+ESM
+. 
+In this release, the agent mode of the mobile app is generally available for Android devices.
+Note that the agent mode for iOS devices has been generally available since 2021.08.
+The mobile app has been updated to version 2022.05.x. See the 
+mobile app documents
+ for details. 
+Installation, upgrade, and system maintenance
+SMAX 2022.11
+Page 
+107
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

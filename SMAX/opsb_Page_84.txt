@@ -1,0 +1,162 @@
+Cloud
+Management -
+Design and
+Deploy
+OCTCR19M1146517
+While configuring resource providers with an HTTPS endpoint, you get an
+override message 
+Provider Validation Failed. 
+This override appears even if
+you have configured the certificate in the DnD truststore and entered
+the correct Resource Provider URL and credentials on the UI.
+See the workaround
+2020.11
+Service
+Management
+OCTCR19M1154135
+When you click 
+Service Portfolio
+ > 
+Service Definitions
+, the system
+displays 
+SERVICE DEFINITION
+ under
+ SERVICE CATALOG
+MANAGEMENT
+ instead of 
+SERVICE PORTFOLIO
+ in the top menu. In
+addition, in the 
+Home page
+ drop-down list from the 
+Page
+preferences
+ section in
+ PROFILE & PREFERENCES
+, you can
+see the 
+Service Catalog > Service Definitions
+ entry gets duplicated.
+There is no workaround for this issue.
+2020.08
+Service
+Management
+OCTCR19M954008
+When you perform a mass update on offerings by applying a fulfillment
+plan, all types of plans get listed, including the irrelevant plan types
+from Change, Release, and Articles.
+2020.08
+Cloud
+Management -
+Design and
+Deploy
+OCTCR19M807912
+Operation Orchestration external RAS call to AWS based DND URL is
+failing with SSLPeerUnverifiedException: peer not authenticated.
+There is no workaround for this issue.
+2020.08
+Cloud
+Management -
+Design and
+Deploy
+OCTCR19H1032008
+Operations Orchestration that's internal to Design and Deploy doesn't
+support ping operation.
+There is no workaround for this issue.
+2020.08
+Cloud
+Management
+OCTCR19M995520
+CGRO functionality won't work if Vertica gets configured for SSL but the
+certificate is not placed in persistent volume path during suite
+installation.
+See the workaround
+.
+2020.08
+Cloud
+Management
+OCTCR19M931327
+Reconciliation of Azure uCMDB/UD fails.
+There is no workaround for this issue.
+2020.08
+Cloud
+Management
+OCTCR19M970155
+Go to 
+Build > Design > Brokering
+, AWS Service Catalog
+Aggregation gets displayed. Brokering functionality isn't supported for
+this release.
+2020.08
+Smart
+Analytics
+OCTCR19M1733078
+IDOL search may have performance issues when enabling the access
+filter in DashboardDefinition.
+See the workaround
+.
+2020.05
+Service
+Management
+OCTCR19M789222
+Native SACM sample data isn't deployed successfully.
+2020.05
+Service
+Management
+OCTCR19M786864
+Native SACM migration may not migrate "Cloud Service" system
+elements when they have related objects.
+2020.05
+Suite
+installation
+and upgrade
+QCCR8B37686
+If you have ever migrated self-hosted NFS to Azure File, when you
+upgrade the suite to version 2020.05 or when you install add-on
+capabilities in version 2020.05, the 
+File Storage
+ page still displays
+information of the old self-hosted NFS configuration.
+2020.05
+Suite
+Administration
+OCTCR19M1028989
+When you click the 
+Capability settings
+ tab for a tenant with DND or
+SAM deployed for more than seven days, you receive the following error
+message:
+Cannot find record with entity type: OperationJobEntity and id:<id>.
+This is because the operation history record of the DND or SAM
+deployment is older than seven days and got archived.
+You can ignore this error message.
+2020.05
+Suite
+Administration
+OCTCR19M1206470
+The suite admin can't log in to IdM Admin Portal
+(https://<External_Access_Host>/idm-admin) if the suite is upgraded
+from a version earlier than 2019.05 and the IdM signing key in Suite
+Administration has been changed, a 503 error occurs.
+See the workaround
+.
+2020.05
+Service
+Management
+OCTCR19M787594
+When a report administrator views a group or public report, the Access
+field's value is missing.
+There is no workaround for this issue.
+2020.05
+Category
+Issue ID
+Description
+Found in
+version
+SMAX 2022.11
+Page 
+84
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

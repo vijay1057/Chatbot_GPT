@@ -1,0 +1,91 @@
+Release log
+The SMAX release log is a cumulative list of features introduced in each release. This log helps you with a quick review of all
+the new features that were added for each release version.
+2022.05
+General improvements
+Integration Engine enhancements
+Extended integration support
+This release supports integrations with the following systems (connectors): ALM Octane, ALM/Quality
+Center, Jira, ServiceNow, Operations Orchestration, Power Automate, and ArcSight SOAR. See 
+Connectors
+.
+New or enhanced functionalities
+Dev2Prod support: you can import integration configuration from a development tenant to a production tenant.
+Support for a Generic connector, which enables you to construct HTTP requests that can be sent to any REST endpoints.
+REST Executor 2.0 endpoint improvements, including:
+Support for two new authentication types: a token-based authentication type (generic authentication) and a "no
+auth" authentication type that does not include user credentials or token in request headers.
+Support for connecting through the On-Premises Bridge Agent
+Displaying the statuses of all requests executed by the Integration Engine in the endpoint
+Support for proxy server (configured on the Suite Administration portal)
+Ability to control whether to allow subsequent rules in a scenario to execute when a rule fails.
+Ability to manually run a scenario directly from the Integration Engine UI (inbound integrations only)
+New and enhanced DSL functions
+Support of complex JSON payloads
+Support of iteration through JSON arrays
+Ability to create a scenario based on a predefined template
+Attachment support
+See 
+Migrating integrations
+, 
+Scenario templates
+, 
+DSL functions
+, 
+JSON payload expressions
+, 
+Expression language
+.
+Inbound email integration –
+ 
+support for Exchange Online
+The "trigger SMAX action through email" functionality now supports Microsoft Exchange Online as part of Office 365. The
+Exchange Online integration uses the Exchange Web Services (EWS), and supports the OAuth 2.0 authentication method. Note
+that if you use a previous version of Exchange Server that is based on the Basic authentication method for this email
+integration, you must change your configuration to use this new OAuth-based Exchange Online service, because Microsoft will
+deprecate Basic authentication in Exchange in the near future.
+Converged authorization
+The converged authorization solution enables the tenant admin to manage users, roles, and groups from one single user
+interface (the agent portal) when using additional capabilities such as Cloud Management (DND, CGRO, and Content Store),
+UCMDB, and Operations Orchestration. It removes the need for the suite admin to access the IdM Admin Portal for managing
+roles and groups for these capabilities, and therefore streamlines the tenant admin's user administration workflow and reduces
+the maintenance cost. 
+This solution takes effects on new authorization data created in this release; existing authorization data in an upgraded system
+will continue to work as before. To adopt this solution for existing authorization data of a tenant, a migration tool is available
+from the Suite Administration UI to save all authorization data on both sides: IdM and the tenant. 
+See 
+User authorization
+.
+Note: This solution introduces a limitation on the User principal name (UPN) field for groups: the user can't include special
+characters in group UPNs, including space and these characters: @;:=&<>#{}|`^~%'?\"/[]. However, groups created in
+earlier versions of SMAX are not affected—groups with special characters in the UPN can still work correctly.
+Service Management
+Global search configurability
+In the Studio, you can now enable 
+global search
+ for custom record types and custom fields by configuring index fields. This will
+give you more control over which fields are indexed for each of the record types.
+Flexible work schedules and time zones for SLT calculation
+For Request, Incident, and custom record types, the system can calculate an SLT based on the work schedule and time zone of
+a Person field and an assignment group field of the ticket. This is useful when users and groups are located in different time
+zones or have different work schedules. See 
+SLT settings
+.
+In Studio, the 
+SLT settings
+ tab for Request or Incident enables you to specify a Person field for the 
+Customer
+ option
+and specify a Group field for the 
+Assignment group
+ option
+In each Person or Group record, an Availability section enables you to specify a work schedule and time zone for the
+person or group.
+Important In an upgraded environment, you must perform a crawling upgrade to use this feature. Without a crawling upgrade,
+SLT calculation works as before. 
+SMAX 2022.11
+Page 
+104
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

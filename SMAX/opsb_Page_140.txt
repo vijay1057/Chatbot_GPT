@@ -1,0 +1,22 @@
+Furthermore, it is now possible to trigger workflow actions based on CI changes happening in UCMDB. Any
+federated UCMDB attributes can be used in the SMAX workflow engine to cover your business requirements. In the example
+below, an email is sent when Universal Discovery changes the serial number of a CI.
+Multi-Tenant and Data domain rules 
+With Native SACM, the tenant model and data domain rules in SMAX are fully transparent to UCMDB. In one farm, every SMAX
+tenant can have its own UCMDB customer to be uniquely connected with in the same UCMDB instance. You no longer need to
+set up another UCMDB instance for each SMAX tenant. This also applies to the logical data separation called Data Domain
+Segmentation in SMAX. This feature works transparently with UCMDB to ensure data security across the whole suite. 
+Possible scenarios: 
+Explanation of the multi-customer and multi-tenant concept of UCMDB can be found here:
+UCMDB 
+Multi-Tenancy Architecture vs. Multi-Customer Architecture
+ (Classic CMS) or 
+Multi-Tenancy Architecture vs. Multi-
+Customer Architecture
+ (Containerized CMS). 
+SMAX 2022.11
+Page 
+140
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,34 @@
+Request Management
+Setting up Service Request
+Once we have our service catalog set up we need to give our agents a way to fulfill the incoming requests and respond to the
+end users. This is the primary job function of our service desk, and they will handle those requests through the request
+management module.
+The easiest way to think about the process is that any interaction with the end user will go through a request. We have other
+Request Management
+Request management handles the end to end process of receiving a request from an end user and fulfilling it. A
+properly prepared request management process reduces the load on agents by allowing end users to fulfill their
+own requests without agent involvement either by automating common request offerings (such as password
+resets) or providing knowledge that will allow the end user to answer a question by themselves.
+In order to direct the implementation towards this end, the service desk managers must take the time to
+investigate the requests that don't fit an existing offering or can't be resolved using the existing knowledge base.
+With this information, new pre-defined offerings (with specified task plans) may be created and new knowledge
+articles may be added to the system to improve the experience for the next request of the same type.
+The ability to assist end users with their requests may also be measured in targeted surveys. These surveys can
+gather feedback on areas ranging from the agents’ performance to the overall satisfaction with a particular
+service.
+By the end of this section, Glenn will:
+Learn how to setup record categories for the request management process
+Create views and reports for the dashboard in order to help agents find existing requests
+Show how the Live Support feature helps agents quickly enter new requests manually
+See how to import existing solutions into knowledge articles to assist end users and agents in finding
+solutions to their issues
+Find out how to create survey campaigns to track the quality of the service request management is providing
+to the end users
+
+
+SMAX 2022.11
+Page 
+162
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,33 @@
+Now that I've defined the high-level service definition, I want to get started on defining what makes up each implementation of
+the Email service. Service Management Automation X allows me to define this in different stages:
+Actual service – The instance of a service in our environment. You might only have one instance of a service in the
+environment, or there might be multiple implementations. For our Email service, we have two separate systems we use to
+support multiple locations.
+Service component – One or more components required to support an actual service
+System element – One or more elements required to support a service component
+I know enough to put together the high-level components and elements by myself. There is an additional level of definition
+below the system element which comprises the actual devices that make up the components and elements. It will be
+important to go back and define those devices, but I can get started with what I know right now. In fact, I could just define my
+actual services to get started, but I'll put in everything I know about the system right now.
+We have two Email services in operation right now; one in North America and another that covers our EMEA region. Each of
+these is a unique instance of the Email service (making each of them an “actual service”), so I'll define each one separately.
+The components of each are identical, but we named them in a way that specifies which actual service they belong to. When I
+am entering these into Service Management Automation X, I'll relate each piece to the correct actual service. In other words,
+I'll first create the “North America Email“ actual service under the “Email Service” service definition. Then I'll create each of its
+service components from that actual service as related CIs (configuration items).
+Finally, I'll create the system elements for each service component, again as related CIs. In this way, I'll create two separate
+actual services, each with their own hierarchy of supporting components and elements underneath. This will give our IT
+department a clear definition of what makes up the service we are supporting. We can think of this as the internal
+representation of our service.
+Here's a quick sketch of what makes up our two services:
+North America Email Service
+EMEA Email Service
+As you can see, the structures of the services are identical. The difference in the two services is that each component is now a
+unique item or collection of items. While the service definition is an abstraction, the actual services contain specific
+components and elements.
+SMAX 2022.11
+Page 
+155
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

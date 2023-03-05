@@ -1,0 +1,24 @@
+In reality, each of the components and elements is composed of multiple virtual machines running on multiple physical
+machines. In the future, we want every bit of this level of granularity to be part of our SACM database, but this will be enough
+to get us started.Hey, that's not bad for a start, is it? I've defined the internal services that my team will provide for our
+customers. And created a high-level configuration of each of the actual services we currently have in production. That seems
+like enough work to deserve a coffee break.
+Actually, before I have that coffee, let's look at another important service we provide to our users: Service Management. We
+have two actual services to define: the IT Service Desk and the HR Help Desk. Our HR team is using SMAX to manage their
+requests, while the IT department is using Service Manager. Our service structure looks like:
+You can see that even though both services perform the same overall function (providing Service Management functions), they
+have different components defined that support them. At a high level — the service levels — they are the same. But as we dig
+deeper into the pieces that make them run, we see differences in the software used and the computers that run them.
+Okay, now I definitely need that coffee. Why don't you review service definitions and think about how you would map your
+own service infrastructure, and I'll be back in a short while to talk about the service catalog.
+While you are waiting, you can always check out the online help for more information about the 
+Service Portfolio
+ or 
+SACM
+.
+SMAX 2022.11
+Page 
+156
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

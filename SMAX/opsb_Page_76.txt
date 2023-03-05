@@ -1,0 +1,127 @@
+Service
+Management
+OCT
+CR1
+9M1
+7173
+19
+Some logs are missing from the SMAX CI history.
+Service
+Management
+OCT
+CR1
+9M1
+7202
+25
+DSL function round_down doesn't work correctly.
+Service
+Management
+OCT
+CR1
+9M1
+6830
+06
+The search function fails when the platform offline is busy with native SACM processing.
+Service Portal
+OCT
+CR1
+9M1
+6100
+02
+Service Portal users can't view images added in various record types in a tenant whose data was
+moved from another tenant.
+ 
+Service Portal
+OCT
+CR1
+9M1
+6999
+92
+When you try to add a comment in Service Portal, the maximum length of the comment is limited
+to 5000 characters. But the Agent interface allows up to 10,000 characters in Discussion.
+Service Portal
+OCT
+CR1
+9M1
+5370
+48
+In Service Portal, some related news are displayed under the Related article section of News, but
+the current user doesn't have permission to view the news.
+Service Portal
+OCT
+CR1
+9M1
+5778
+26
+Suppose you have two Entity Link user options Field A and Field B, and there is a rendering rule
+for Field B that depends on the value of Field A. If you select the value of Field A from the pop-up
+table rather than from the drop-down list, the rendering rule for Field B doesn't take effect.
+Service Portal
+OCT
+CR1
+9M1
+5732
+87
+If you specified an error message in a validation rule for M2M fields, Service Portal fails to display
+the specified error message when the validation fails.
+Service Portal
+OCT
+CR1
+9M1
+5954
+73
+If you prohibit adding comments for some service requests through a business rule, Service Portal
+fails to display an error message when the user attempts to add a comment.
+Service Portal
+OCT
+CR1
+9M1
+6119
+71
+Service Portal doesn't show field validation errors correctly.
+Service Portal
+OCT
+CR1
+9M1
+6312
+07
+The Request on behalf window disappears when you click the search bar.
+Service Portal
+OCT
+CR1
+9M1
+6420
+62
+When you create a smart ticket, the creation source is “other” on the smart ticket page. If you
+have created a rule whose condition is create source = "ess," this rule will block the request
+submission. 
+Service Portal
+OCT
+CR1
+9M1
+6434
+81
+When you duplicate a request in the cart, if there is a user option with Date type in the request,
+this date field is set to empty in the duplicated request.
+Service Portal
+OCT
+CR1
+9M1
+6455
+16
+When a user tries to approve from the Portal Approval list, comment input is mandatory. However,
+when the user forgets to do so, no error/alert pops up.
+Service Portal
+OCT
+CR1
+9M1
+6740
+36
+If there is a table added in a knowledge article, when you view this knowledge article in Service
+Portal, the table style isn't properly displayed.
+SMAX 2022.11
+Page 
+76
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

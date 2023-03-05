@@ -1,0 +1,46 @@
+Reports around degradation of service that may or may not be caused by something in our environment
+The third workflow handles requests specific to HR. This allows us to have a specialized process (including approvals) for the
+HR department.
+The final workflow handles the situation where we allow our end users to create a ‘shopping cart’ that contains multiple
+selections from our service catalog. When this happens the system creates each specific item as either a “Service”, “Support”,
+or “HR Support” request, and also creates an additional “Cart” request to handle the overall approvals and provide a single
+point of entry and communication with the end user.
+Service Workflow
+As you can see in the above image, the 'Service' workflow for request consists of discrete phases ('Log', 'Approve', etc.) that
+take place within higher level steps (such as 'Classification' or 'Approval'). An important point to keep in mind is that the end
+user will have visibility into what step in the process their request is in, but only the agents can see the full workflow of a
+request (including the current phase and past phases). An end user will only see the current step and where that lies in the
+order of all steps for the current process as seen in the image below.
+Classification
+The only phase of the 'Classification' step is the 'Log' phase. In this phase, either the end user or an agent determines what the
+end user is requesting and enters that into the request. If the end user selects a 'Service' type offering, then the request will
+use the 'Service' workflow.
+In the 'Log' phase the agent must enter a title and description for the request, specify who is making the request (and who it's
+for if that's a different person), and add the information on how many people the request will impact and how urgent it's (the
+system uses these last two fields to determine the overall priority of the request).
+To move the request into the next phase, the agent must assign the request either an owner or a responsible group. This is
+where the finger-pointing really begins! Just kidding, but it's important to get the request to the right people as quickly as
+possible. Remind me to tell you about some cool functionality we can add using business rules to do this automatically, but
+we’ll have to get back to that later.
+Once the request has its ownership, it will move into the next phase. This will be the 'Approve' phase if the related offering has
+approvals defined, or straight into the 'Fulfill' phase if it doesn't. The only other possible transition is to the 'Abandon' phase,
+which will only happen if an agent manually moves it there (which ends the request life-cycle).
+While this might seem like a lot of information for the agent to handle just to get the process started, remember that the
+system fills most if not all of this information automatically based on the selected offering. This is why pre-defining the
+offerings ahead of time is so important. It can reduce the manual effort of our service desk agents during this phase of the
+request process, and like me, they would like the required effort to be as little as possible.
+Defining a title and impact/urgency information for a password reset request, for example, is straightforward since it's always
+the same every time it's performed. Assigning a request like this to a specific group may not be as straightforward, however,
+we’ll go over a great feature Service Management Automation X has to help with this later, for now, we can just imagine that
+we could assign a specific group to an offering.
+If we define the offering with all of this information correctly, when an end user requests it from the Service Management
+Automation Service Portal the system will correctly prioritize and assign the request automatically, and then move to the next
+phase ('Approve' or 'Fulfill') with no input needed from our agents.
+Approval
+The 'Approval' step and the associated 'Approve' phase should be self-explanatory. At this point in the request, any needed
+SMAX 2022.11
+Page 
+168
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

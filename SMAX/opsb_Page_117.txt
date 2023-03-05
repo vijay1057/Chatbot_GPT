@@ -1,0 +1,103 @@
+permission control. For more information, see 
+Assign permissions to a role for Administration modules
+. 
+Note: The system does not change the existing role permissions defined in the previous release after an upgrade to this
+release.
+Emoji support
+The full set of 
+Unicode emoji
+ is supported in the following field types:
+RICH_TEXT
+SMALL_TEXT
+MEDIUM_TEXT
+LARGE_TEXT
+The common scenarios where emoji are leveraged:
+When an end-user submits a request in Service Portal, emoji can be copied into and displayed in text fields.
+When email integration is used to generate a service request, the emoji in the email can be parsed and displayed in the
+request.
+When an agent edits a record, emoji can be copied into and displayed in the text field. 
+Native SACM enhancements
+Native SACM migration status
+After the Native SACM migration starts, the 
+MIGRATION STATUS
+ button becomes available and you can click it to check the
+progress of the migration. The migration status window gives you an overview of the migration. While the migration is
+ongoing, the numbers of migrated/failed Actual Service, Service Components, System Elements, Devices, and CI relationships
+are displayed. The numbers are refreshed every 30 seconds.  
+Meanwhile, the 
+MIGRATION REPORT
+ button becomes available in the 
+Migration Status
+ window and you can click it to
+download a .json file that contains the migration details.
+For details, see 
+Enable Native SACM in SMA
+.
+Business Criticality federation with Native SACM
+The 
+Business Criticality
+ field in SMA and the 
+business_criticality
+ attribute in UCMDB are federated. For details, see 
+CI
+type, attribute, and subtype federation
+.
+Integration with SharePoint Server 2019
+You can index articles from SharePoint Server 2019 into the Knowledge module. 
+Integration with Microsoft Teams
+You can integrate the suite with Microsoft Teams for Channel notification. For more information, see 
+Integrate with Microsoft
+Teams
+. This feature is also supported in older versions now. Check the respective version documentation for details. 
+Cloud Management enhancements
+This release introduces the following enhancements for Cloud Management.
+Pause and Resume
+Service Designer Failure handling allows you to configure whether to pause or fail a service instance when an action failure
+occurs during subscription modification. For details, see 
+Service Design Failure Handling
+. 
+You can resume, reset, or fail a paused service instance during subscription modification. For information on the actions that
+can be performed for paused service instances, see 
+Instance Management
+.
+Deployment Operations UI Improvements
+The instance detail page has the following enhancements:
+Providers
+ option to view which resource providers were used for provisioning or interacting with different cloud
+resources for a given service instance.
+Filter
+ option to list the service instances.
+For details, see 
+Service Instance Management
+.
+Miscellaneous
+You can now select OAuth 2.0 authentication methods if you use Exchange Online as part of Office 365 as your email
+service. The email configurations are available in 
+Suite Administration
+ for the whole suite and 
+Application settings
+ for
+each tenant. Note that the Basic authentication for EWS to connect to Exchange Online will be decommissioned soon by
+Microsoft, contact 
+Micro Focus
+ Support if you don't have a plan to upgrade to 2021.02 in the near future.
+In 
+Suite Administration
+, you can now change the 
+Manage users in tenant
+ setting to specify whether the tenant admin
+can manage users in a tenant. This setting is on by default and can be changed when the tenant is in New or Active status
+since this release. In previous releases, this setting is off by default and can't be switched off once you set it to on.
+Dev2Prod - support for localized content managed by the Export/Import localization process. This includes
+localized content of Categories, Service Definitions, and Offerings, which you create by exporting the English data
+through the 
+Export for localization
+ option to a CSV file and then importing the translated CSV file back to the system.
+After the import of a catalog data package, you no longer need to manually import the CSV file of the localized content
+into the target tenant.
+SMAX 2022.11
+Page 
+117
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

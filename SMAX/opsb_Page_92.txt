@@ -1,0 +1,164 @@
+Service
+Management
+OCT
+CR1
+9M1
+5843
+14
+In multi-tenant (MT) environments, when you have two tabs for two different tenants opened in a
+same browser and log in with the same shared service user, if you operate a request for tenant A
+and then go to the other tab for tenant B, after you open a request of tenant B, the tenant ID in
+the URL changes to tenant A and the 
+Page not found
+ error occurs. This issue is only fixed when you
+open a link of tenant B in certain UI components. See 
+Limitations
+.
+Service
+Management
+OCT
+CR1
+9M1
+7520
+38
+The DB Queue Depth is abnormal. This is because the calculation ticket breach status of the SLT
+History Tab uses a lot of DB Disk I/O.
+Service
+Management
+OCT
+CR1
+9M1
+7390
+82
+A DSL expression is used for an User Option field in the default value of an offering. The request
+cannot be created when using this offering on the portal side. The following error message
+appears: 
+The structure returned by the DSL when parsing useroption entitylink is an array should be processed
+as a normal string.
+Service
+Management
+OCT
+CR1
+9M1
+7401
+22
+Although the TaskPlan has finished and the result is failed, the status of the other task node is still
+In progress and the approvals under this node are still pending, which causes confusion to the
+customer and gives the wrong impression that the TaskPlan is still running.
+Service
+Management
+OCT
+CR1
+9M1
+7485
+99
+When you create a time period record, if you add more than 250 services in the Applies to section,
+the services that exceed 250 won't be properly displayed in the maintenance window. If a change
+record is linked to such service (for example, the 251st service), then when you view the change
+details, there is no visualization in the change calendar for this service.
+Service
+Management
+OCT
+CR1
+9M1
+7244
+93
+The side bar of tasks/approvals grid displays "Unknown" when you add multiple Group by
+attributes.
+Service
+Management
+OCT
+CR1
+9M1
+7540
+67
+Export to excel with Swiss German language pack is exporting dates with a format not matching
+what is shown in the UI grid.
+Service
+Management
+OCT
+CR1
+9M1
+2148
+49
+When the Start time of One Time Event is set to a date which is more than 3 months in the past,
+the working_hours.EffectiveEndTime expression will fail with a DSL error: 
+DataSourceException: Argu
+ments passed for EffectiveEndTime are out of allowed range.
+Service
+Management
+OCT
+CR1
+9M1
+7203
+10
+The grid view of a report that includes an Offering User option of type ENTITY_LINK won't display
+on the grid.
+Service
+Management
+OCT
+CR1
+9M1
+7523
+06
+Analytic report will fail to load when grouping by Date/Date time field and Entity_Link at the same
+time, and then sorting by Entity_Link.
+Service
+Management
+OCT
+CR1
+9M1
+7541
+56
+[Time series] The chart will skip the time series label with no data at the beginning or end of the
+time series when using the time filter.
+Service
+Management
+OCT
+CR1
+9M1
+7620
+09
+A request report using Offering as a filter, and group by ENTITY_LINK type field of User option,
+then drilling down navigates to no value.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+7410
+23
+The results of license consumption calculation for Oracle LMS might be wrong in the following
+cases.
+Case 1: The utilization analysis of Oracle database options and management packs including
+Advanced Analytics, Advanced Compression, Advanced Security, and Partitioning is inaccurate.
+Case 2: When the names of running Oracle database options and management packs are not
+equal to the Oracle database running instances, SAM will ignore them during license consumption
+calculation for Oracle LMS.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+7414
+19
+The 
+Compliance trend in past 6 months 
+report displays the compliance status of a product as
+both 
+Compliant
+ and 
+Noncompliant
+.
+Category
+Issue
+ID
+Description
+SMAX 2022.11
+Page 
+92
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

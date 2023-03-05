@@ -1,0 +1,42 @@
+Each location may have a 'parent' defined. Think about the parent/child relationship of two locations as 'the child is located
+inside of the parent location.' For example, a country can be the parent of a city, or a rack can be the parent of a rack unit. I
+noticed that the system will only let me add a parent that makes sense in the hierarchy, so it wouldn’t let me add a room as a
+parent of a region.
+We won’t have time right now to define everything down to the detail that Service Management Automation X allows. So what
+we should do is determine what we will use locations for and make sure we define enough to support those processes. For
+that, we need to look at what processes make use of locations.
+The first and most obvious use of locations is to determine where a person or piece of equipment is physically located. Our
+Active Directory already has most of this information in it, but we will have to define the locations in the system before we can
+put anything in them. Therefore, we want to export that information and then massage it with the location types, then import
+it into Service Management Automation X. That should get us a good start on defining our cubes and rooms, as well as defining
+the parents such as floors, buildings, sites, cities, countries, and regions.
+Another use of Locations we will get to eventually is linking locations with the stockrooms that support them. This information
+is used in the service request and asset management processes to reserve 'in stock' devices/assets for delivery to a supported
+location. While this will be important later, we can put off these definitions for a little while.
+But when we’re ready to dive in, let's be sure to reference the 
+online documentation for locations
+ for more information.
+Entitlement Rules
+We'll eventually use locations, groups, and roles in what Service Management Automation X calls entitlement rules. These
+rules restrict what our end users see in the Service Management Automation Service Portal. For example, we might only allow
+requests for certain services from a certain location or group. We won’t be setting up any of these rules yet, but it's something
+to keep in the back of our minds while we are defining our locations, groups, and roles.
+If you can’t wait to find out more about Entitlement Rules, head to the 
+online documentation
+.
+Time Periods
+Everyone -- and in our line of work every
+thing
+ -- has a schedule. Service Management Automation X allows us to create
+schedules for work schedules, holidays, maintenance and blackout schedules, and special events. The Time Period
+Management module enables user to create and manage complex time periods for use in a variety of places inside of the
+product.
+Additional information on Time Periods may be found 
+here
+.
+SMAX 2022.11
+Page 
+153
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

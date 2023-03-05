@@ -1,0 +1,99 @@
+Mega menu
+Grid
+Request module (excluding Live chat)
+Approvals/Tasks
+Incident module
+Change module
+The "Related contracts" section in the Contract details form
+Emails and URLs (always left-to-right aligned, even in RTL mode)
+ See 
+Language support
+. 
+Native SACM – Mapping between SMAX subtype and UCMDB CI type
+When a user creates a record of a federated SACM record type in SMAX, Subtype is a mandatory field. Based on the selected
+Subtype, a CI of the corresponding CI type is created in UCMDB. The mapping is now defined by a set of business rules, which
+set the CI type based on conditions such as Native SACM status and Subtype. Some basic rules are predefined in the "After
+change" sections of Actual Service, Device, Service Component, and System Element record types to provide a default CI type
+and cannot be modified. There are also a series of out-of-the-box business rules that define CI types based on Subtypes, which
+otherwise, are customizable.
+Note: If you have upgraded from an earlier version, we strongly suggest that you follow the steps listed in 
+Update business
+rules for Native SACM
+ so the subtype-to-CI-type mapping can function as designed. Even if you have not adopted Native SACM
+for now, doing so will ready your system for future Native SACM usage.
+Native SACM – support for the full lifecycle of CIs
+The enhanced CI aging solution enables you to automatically retire CIs that Universal Discover hasn't discovered for a
+predefined period of time, and then move them to the End of Life metaphase. 
+Important In an upgraded environment, you must perform a crawling upgrade before you can use this feature.
+Native SACM – federation enhancement
+In UCMDB, there are hundreds of CI types under the 
+Application Resource
+ CI type family. Previously, only three of them are
+federated through the Native SACM solution: AWS Resource, Database Resource, and WebService Resource.
+Now the whole 
+Application Resource
+ CI type family is federated through Native SACM. However, to make this enhancement
+fully functional, especially for the CI topology feature and certain business rules, some TQL changes are required in the UCMDB
+Admin UI and will be carried out by a new UCMDB content pack. Before the release of the next UCMDB content pack, we
+strongly suggest that you manually update the TQLs in UCMDB so that you can immediately benefit from this enhancement. In
+addition, for Application Resource CIs that already existed in UCMDB, some enrichment rules also need to be re-configured and
+executed. Details can be found in the 
+Additional steps for the Native SACM federation enhancement
+ section below. 
+Asset Management
+This release introduces the following features for SAM:
+Customize service workflows against license usage records
+Introduced the 
+License Usage
+ feature that allows you to customize SMAX service workflows for better software compliance
+management. For example, automatically sending email notifications when a software product becomes noncompliant and
+creating service requests for purchasing new licenses when the license usage exceeds the threshold. See 
+Customize service
+workflows against a license usage record
+.
+Normalization rules
+Offered the normalization rules to facilitate license consumption calculation and better compliance reporting. This feature
+allows you to further normalize and group multiple products imported from CMS into a new one. Then, by configuring license
+rules and maintaining the compatibility matrix, you can get a compliance report against the normalized product. See
+Configurations
+.
+Enhanced license rules
+Enhanced the license rule capability, making it easy for you to manage and use the license rules:
+Supports editing a published custom license rule even when it's being referenced
+Added the Generic user-based license rule
+Enhanced and aligned user experience
+Enhanced the 
+Compliance
+ 
+page for easier management and reporting of software compliance information:
+Provided product compliance information at the publisher level
+Grouped the compliance position information of on-premises and SaaS products on the same Dashboard
+ 
+tab page
+Added the 
+Product compliance 
+tab where you can view detailed software compliance data
+Aligned user experience in SMAX:
+Added the Columns widget on SAM's 
+Compliance
+/
+License Metrics/License Rules/Products
+ menus, which allows
+you to customize your view of the available fields in each record. See 
+List view columns
+.
+Supports exporting product compliance data into CSV and XLS files on the 
+Compliance
+ page
+Allows you to drill down the product compliance reports on the 
+SAM Home
+ page to view more detailed information.
+Cloud Management
+OPB endpoints for DND
+The following OPB endpoints are introduced for DND:
+SMAX 2022.11
+Page 
+106
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

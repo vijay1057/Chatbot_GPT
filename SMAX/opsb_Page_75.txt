@@ -1,0 +1,140 @@
+Service
+Management
+OCT
+CR1
+9M1
+4925
+94
+Time Period definition adjusts Start and End times by 1 hour on each Save for some Time zones.
+Service
+Management
+OCT
+CR1
+9M1
+6144
+66
+The search box of the M2M field is missing from Full and Preview forms when it's associated with
+the Problem module.
+Service
+Management
+OCT
+CR1
+9M1
+6660
+78
+The History entry does not use the display label for change transitions from the impact analysis to
+the design phase.
+Service
+Management
+OCT
+CR1
+9M1
+6930
+28
+The Add button keeps slipping behind the taskbar when trying to scroll down to click the button to
+add comments.
+Service
+Management
+OCT
+CR1
+9M1
+6081
+00
+When you create a CI relationship through a SMAX business rule, if the CI relationship already
+exists and the UCMDB ID doesn't match the Global ID in UCMDB, the whole operation will fail.
+Service
+Management
+OCT
+CR1
+9M1
+6099
+00
+CI synchronization is very slow when other tenants have busy CI synchronization.
+Service
+Management
+OCT
+CR1
+9M1
+6423
+45
+The description for the "Recipient allowlist" setting on the Administration > Application Settings
+page is inaccurate.
+Service
+Management
+OCT
+CR1
+9M1
+4971
+54
+The Studio rule editor can't detect an invalid operator =! in a DSL expression. The correct
+operator is !=.
+Service
+Management
+OCT
+CR1
+9M1
+5640
+35
+Newly added fields become invisible after being saved.
+Service
+Management
+OCT
+CR1
+9M1
+5731
+98
+Platform logs are flooded with error: 
+DiskDevices value: [] meet exception. java.lang.IllegalStateException: N
+ot a JSON Object: []
+Service
+Management
+OCT
+CR1
+9M1
+6231
+28
+The maximum size of a request body is 1 MB. If the body size is larger than 1 MB, a "413 Request
+Entity Too Large" error will occur. This limit wasn't documented.
+Service
+Management
+OCT
+CR1
+9M1
+6257
+25
+When you update a request through Live Support from the agent interface and save the changes,
+the "An unexpected error occurred" error message is displayed when a CI is detected in the
+description.
+Service
+Management
+OCT
+CR1
+9M1
+6411
+86
+If the offering rules contain bracket symbols, including "(", ")", "[" and "]", when you try to update
+the offering, an error occurs.
+Service
+Management
+OCT
+CR1
+9M1
+6781
+23
+When you export data to an XLSX file, the Date field is exported in 12 Hours format when the
+user's time zone configuration is set to 24 hours format.
+Service
+Management
+OCT
+CR1
+9M1
+7082
+42
+After importing entity data in Studio, the "Imported by" displays ??,?? for users with Japanese First
+and Last names.
+SMAX 2022.11
+Page 
+75
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

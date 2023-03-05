@@ -1,0 +1,27 @@
+When an agent (or the system) assigns a task to a person, they get an email notification and can also use the tasks list inside
+of Service Management Automation X to see all the tasks assigned to them.
+The system can handle some of these tasks automatically (such as the 'Reserve PC' task in the above example) and may
+never need a person to work on them at all. We can use business rules to fill in information or even call an external tool to do
+the work in another system. Service Management Automation X even has a great built-in integration to 
+Micro Focus
+’s Operation
+Orchestration product, which we can use to coordinate work between multiple external systems.
+Once all the tasks have been completed, the Agent simply needs to fill in the solution (a summary of what was done to fulfill
+the request) and enter a completion code (which describes how the solution fulfilled the problem: 'Resolved with workaround',
+'Request denied', etc.) and the system will move the request into the 'Validation step'. For these type of requests, we could
+even use automated tasks in the task plan to set a solution and completion code if all other tasks complete successfully.
+One other possibility I should point out is what happens if the end user no longer needs the Request to be fulfilled after it has
+been opened. In this case, the agent can abandon the request, which ends the request process without finishing the requested
+work.
+Validation
+Now that we’ve finished the work associated with the request, are we done? Well, not quite. The result of the request process
+is to ensure that the resolution satisfies the end user. It's up to the end user to decide if we got things right. That leads us to
+the 'Validation' step of the request.
+Upon entering the 'Validation' phase, the system places the request into the 'Accept' phase. When this happens, the end user
+receives an email notifying them of the resolution and asking them for their feedback.
+SMAX 2022.11
+Page 
+170
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

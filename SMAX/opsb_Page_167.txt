@@ -1,0 +1,34 @@
+Request Flows
+Request Management Workflows
+Now that we have set up our request management process components, I thought it would be a good idea to take a step back
+and see how the process flows from beginning to end. We know the basics of what a request is, right? Someone who consumes
+one of our services is either:
+requesting something we have pre-defined in our service catalog
+requesting something we don’t have defined, but still related to one of our services
+requesting help with an issue that's causing them to not be able to consume the service
+requesting a service we aren't providing at this time
+requesting something from HR
+requesting multiple items at the same time
+Service Management Automation X has a few different workflows defined for requests that handle these possibilities. A
+workflow is the system’s definition of how a certain process will run. The three primary request workflows in the system are:
+“Service”, “Support”, “HR Support”, and “cart”. Don’t let the names confuse you, these are all workflows that deal with our
+service requests (or just ‘requests’ for short).
+The first workflow handles those pre-defined requests, while the second deals with a more unstructured request such as:
+Requests for Information that need to be researched or looked up in the knowledge base (if the end user could not find
+the information on their own).
+Complaints about a particular service or service component.
+Request Flows
+At this point, we have created a functional request management process and have a good start on the complete
+data model we defined earlier. While we still have a good bit of definition to do, we now have a fairly robust
+system capable of serving our service request needs.
+To expand on what we have built, we will now inspect the actual processes the system uses to fulfill a user
+request.
+ 
+
+
+SMAX 2022.11
+Page 
+167
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

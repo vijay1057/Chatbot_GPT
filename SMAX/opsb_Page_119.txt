@@ -1,0 +1,84 @@
+Service Management enhancements
+This release introduces the following enhancements for Service Management.
+Support for more than one transition in the same direction between two workflow phases
+There are cases where customers want to allow multiple transitions between two phases to allow both automatic closure and
+manual closure. Up to two transitions of different types (one automatic and one manual) in the same direction are allowed
+between two phases in a workflow. For details, see 
+Add a transition in a process
+.
+Enhancements to lists
+The maximum number of items of a volatile list or a non-volatile has been increased to 300. The only exception is the Data
+Domain list, which can contain up to 1,000 items. 
+Enhancements to fields
+In general, the maximum number of fields per record has been increased. For details, see 
+Field properties
+. 
+Removal of the limit on active agreements
+In earlier releases, up to 250 active agreements (including Service Agreements, Support Agreements, and Human Resource
+Agreements) were supported. Now, there is no limit on the number of active agreements in the system.
+Support of SharePoint Server 2016
+This release adds support for SharePoint Server 2016. 
+Cloud Management 
+This release introduces the following new features and enhancements for Cloud Management.
+Image Aggregation
+Image Aggregation
+ 
+showcases cloud service templates from the marketplace portals of AWS, Microsoft Azure, and vCenter. As
+a cloud business service manager, you can use the Aggregator to instantly create and offer new services from these templates
+without having to create an automation asset. For details, see 
+Image Aggregation
+.
+Content Store
+Content Store service is now included in HCMX. Content Store is part of the DND capability. Content Store is a web-based
+service for managing capsules. Users can download the latest capsules published on the ITOM Marketplace and use the
+Content Store to easily install them into the HCMX suite. Users can also use the Content Store to install custom capsules. For
+details, see 
+Content Management
+Cloud Cost Limits
+Cloud Cost Limits allows you to specify a threshold for a cloud spend group, view a spend group's spend compared to the
+threshold, and receive email notifications when that threshold is exceeded. For details, see 
+Cloud cost limits
+.
+Cloud Cost Report - Save report filters
+You can now save report filters, allowing you to quickly return to complex filter selections without recreating them. For details,
+see 
+Cost Governance
+.
+Cloud Cost Report - Enhanced data/date management
+You can now limit the amount of data collected by selecting a collection start date so that your collection only gathers data
+from the specified date. For details, see 
+Create, edit, and delete cost reporting integrations
+.
+Pause and Resume
+Service Designer Failure handling allows you to configure whether to pause or fail a service instance when an action failure
+occurs during Provisioning or Cancellation (De-Provisioning). For details, see 
+Service Design Failure Handling
+.
+Deployment Operations UI Improvements
+The Instance Management page displays a tree view of all the components that are part of the deployed instance. You can also
+search for a component using the search box. For details, see 
+Service Instance Management
+.
+Cloud subscription and cloud offering improvements
+A new "Unpublished" status is added to offerings to support the cloud subscription lifecycle. When the offering is in the
+“Unpublished” status, the offering is not available in Service Portal, nor in the Service Request Management module.
+However, end users can still modify or cancel the associated subscriptions in Service Portal.
+To avoid unnecessary request creation for the migrated cloud subscriptions, the dependency on "initiated by request" is
+removed from the cloud subscription rules. You need to manually merge these updated business rules in the upgraded
+system. See 
+Update the Subscription rules
+.
+After you create a request for a cloud service without specifying the
+ Subscription name
+ field in Service Portal, the
+system uses the request ID plus the cloud offering name as the display name when creating the subscription and the
+actual service for the request.
+The length of user options in the String type for the aggregated offering is largely extended.
+Tenant based License Report
+HCMX License reporting supports download and viewing of the consolidated HCMX license usage for a tenant. The report will
+SMAX 2022.11
+Page 
+119
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

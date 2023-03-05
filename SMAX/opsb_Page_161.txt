@@ -1,0 +1,17 @@
+Okay, so I probably need to follow our corporate guidelines and enlist the help of someone with a little more artistic talent than
+I have, but you get the idea.
+Since our service desk also supports some of our external customers, I should point out we can also have different “themes”
+based on the user’s group, location, or role by again using entitlements. So each of our customers can have a different look
+and feel for their portal, and different offerings in each.
+At this point, we have our end-user facing service catalog pretty much ready to go. Next, we’ll take a look at how our Agents
+can process these requests quickly and easily.
+Of course, details for 
+customizing the Service Management Automation Service Portal
+ can be found in the online
+documentation.
+SMAX 2022.11
+Page 
+161
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,95 @@
+Suite namespace naming convention change:
+For each new installation of the SMA suite, the suite namespace is no longer itsma<n> (itsma1, itsma2, and so on). The
+namespace uses the following format: itsma-xxxxx (xxxxx refers to a randomly generated string). An example suite name
+is 
+itsma-bjldt
+. If your environment is upgraded to this release, the suite namespace remains unchanged. For example, 
+itsma
+1
+. You can enable tab completion of the suite namespace so that you can use the Tab key to automatically complete the
+randomly generated string. For details, see 
+Enable tab completion of the suite namespace
+.
+Additional OS support
+:
+This release adds support of the following operating systems for both on-premises and on-cloud deployments (AWS and
+Azure):
+CentOS 7.6
+RHEL 7.6
+OEL 7.6
+Note
+: CentOS/RHEL/OEL 7.2 and 7.3 are no longer supported.
+Swedish support
+Swedish support is added for Service Management, Service Portal, and the mobile app.
+Simplified login authentication
+:
+You can set the default login type to FEDERATION, LDAP, or DB in the tenant details page.
+The email address of a user can be changed but the same Person record is kept in SMAX so the history is maintained.
+You can set users using DB authentication to log in with their email address.
+2018.08
+This release provides key enterprise readiness improvements in the areas of installation and configuration, logging and
+troubleshooting, suite recovery from planned or unplanned events, and upgrades. In addition, this release also enhances the
+SMAX Service Portal by providing new company request tracking tab. This release provides key enterprise readiness
+improvements in the following areas: installation and configuration, logging and troubleshooting, suite recovery from planned
+or unplanned events, and upgrade. Additionally, this release enhances the SMAX Service Portal by providing a new company
+request tracking tab.
+Expanding our Public cloud support, this release also enhances our HA deployment for SMAX on Azure Public Cloud by using
+Azure Internal load balancer (ILB) for multiple-control plane node deployments.
+The following are key highlights of this release.
+SMAX Service Portal
+New company request tracking tab: A company tab extends self-service capabilities by providing a company level view of
+requests for selected administrative roles. Requests can be filtered and sorted in the grid columns, and data can be
+exported to a predefined Excel template. The company tab is available to users with an administrator-defined role, and
+the data to be displayed in the grid can be controlled with request meta-phase.
+Search relevancy improvements for “phrase” queries (by disabling spell check when the search term is enclosed in double
+quotation marks)
+UI changes on the Service Portal feature settings page:
+New configuration option to display all upper case or user entered text
+Ability to configure the text color on the Category tile
+Ability to define user's text input interval for search
+For detailed information, see
+ Configure Service Portal feature settings
+.
+Public cloud
+Improved high availability of multiple-control plane node deployments on Azure by using Azure internal load balancer. For
+more information, see 
+Internal load balancer
+.
+Upgrade guidelines and scripts are available for SMAX deployment on AWS. The upgrade process for AWS deployments is
+same as that for on-premises deployments. For more information, see 
+Apply a version update
+.
+Enterprise readiness
+In this release, there is a dedicated focus on enterprise readiness to enhance the installation, management, and operation of
+the suite.
+Installation and configuration
+The precheck and post-installation configuration scripts have been improved
+Relevant error messages and pod status are displayed during suite installation
+NFS sizing tool - an interactive tool is available on 
+Micro Focus
+ ITOM Marketplace, which can dynamically calculate the NFS
+folder sizes required for your specific on-premises deployment. For more information, see 
+Sizing considerations
+.
+Additional support of the following operating systems (see 
+Support matrix for on-premise deployment
+):
+64-bit CentOS 7.5
+64-bit RHEL 7.5
+64-bit OEL 7.5
+Logging and troubleshooting
+Auto archiving of log files: a script is provided to automatically compress and move log files from a source folder to a
+destination folder on a regular basis by scheduling an archiving job using the cron service. For more information, see
+Auto-archiving_logs
+.
+The SMA-SM troubleshooting documentation has been improved with common scenarios. For more information, see 
+SMAX
+issues
+.
+Recovery from planned and unplanned events
+SMAX 2022.11
+Page 
+129
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

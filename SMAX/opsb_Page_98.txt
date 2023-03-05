@@ -1,0 +1,19 @@
+For detailed information about fixed issues, patch name, and download link, see 
+Containerized CMS 2022.11.P2 patch release
+notes
+.
+Perform additional steps for the fixed issues in previous patches
+ The 2022.11.P1 patch release includes OO Containerized 2022.11.P1. If you haven't already applied this OO patch, apply it by
+following the instructions in the 2022.11.P1 patch release notes.
+Patch
+Issue ID
+Section of instructions
+2022.11.P1
+N/A
+Apply OO Containerized 2022.11 patch 1.
+SMAX 2022.11
+Page 
+98
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

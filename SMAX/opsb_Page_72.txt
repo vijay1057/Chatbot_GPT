@@ -1,0 +1,136 @@
+Service
+Management
+OCT
+CR1
+9M1
+6930
+24
+When you click "Start Discussion" and enter a message in the live discussion pane, the "Max
+number of connections to XMPP server reached [50]." message appears if the concurrency user
+number is high.
+Service
+Management
+OCT
+CR1
+9M1
+6995
+81
+Occasionally, the page becomes blank when opening a Request.
+Service
+Management
+OCT
+CR1
+9M1
+7015
+32
+Change Model with many2many relationships returns wrong arguments:
+[firstEndpoint.Id,firstEndpoint.type] should be defined.
+Service
+Management
+OCT
+CR1
+9M1
+7178
+89
+Customers are able to create record types with the same spelling but different capitalization. This
+is an unsupported operation.
+Service
+Management
+OCT
+CR1
+9M8
+8083
+5
+By default, the Resolution section of Service Requests and Incidents can't be expanded. Currently,
+only IT Support Requests' Resolution section can be expanded. This behavior wasn't documented.
+Service
+Management
+OCT
+CR1
+9M1
+3244
+36
+Customers implement one rule to allow only one request to be related under " This request
+depends on" of any request, but the rule doesn't work when adding 2 requests to a request which
+has no records under "This request depends on."
+Service
+Management
+OCT
+CR1
+9M1
+3691
+70
+When creating a Task, you can't put an expression in the assignment group field.
+Service
+Management
+OCT
+CR1
+9M1
+4210
+91
+The title of the parent record type is not updated in the task record after it is changed.
+Service
+Management
+OCT
+CR1
+9M1
+5203
+09
+Email notifications are blocked due to an undocumented "notification frequency" feature.
+Service
+Management
+OCT
+CR1
+9M1
+5208
+20
+The expression evaluation fails when an expression is changed to a static value.
+Service
+Management
+OCT
+CR1
+9M1
+5549
+76
+The history entry for the "Send by Email" option misses the person who sent the email, and the
+"Updated by" value is empty when the suite has a large number of Person records.
+Service
+Management
+OCT
+CR1
+9M1
+5660
+78
+The Category page can display up to 1000 Category records. This limit wasn't documented.
+Service
+Management
+OCT
+CR1
+9M1
+5734
+10
+It is not possible to have a grid view with a filter that returns empty strings.
+Service
+Management
+OCT
+CR1
+9M1
+5752
+69
+Business Rule "Create Record and entity link" creates duplicate records.
+Service
+Management
+OCT
+CR1
+9M1
+5950
+65
+If you add a business rule that contains files in the rule's parameters (for example, when you add
+a "Set field" action rule where the field's description includes an image), the files are no longer
+deleted the next day. Note that such files are not deleted if the rule has already been triggered.
+SMAX 2022.11
+Page 
+72
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

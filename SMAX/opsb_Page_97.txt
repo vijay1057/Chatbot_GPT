@@ -1,0 +1,130 @@
+SMAX 2022.11.P2 patch release notes
+Software release date: January 2023
+See 
+SMA-SM 2022.11.P2
+ patch release notes if you have enabled SMA-SM Service Portal.
+Fixed issues
+Category
+Issue
+ID
+Description
+Service
+Portal
+OCT
+CR1
+9M1
+7410
+63
+When you add an attachment in Service Portal, if the file extension can't be recognized, Service
+Portal will set the mime_type field to empty. But in the Agent interface, the mime_type field will be
+set to application/octet-stream.
+Service
+Portal
+OCT
+CR1
+9M1
+7544
+02
+When a survey contains multiple rating group questions, if the questions in different multiple rating
+groups have the same label, for example, if question A and question B have the same label, then
+when you take this survey in Service Portal, after you select the answer for question A, when you
+further select the answer for question B, the answer for question A will disappear.
+Service
+Management
+OCT
+CR1
+9M1
+7444
+17
+You can create multiple many2many fields with the same name but different capitalization.
+However, these fields can't be processed by dev2prod.
+Service
+Management
+OCT
+CR1
+9M1
+7320
+10
+For OLA, if the record is firstly assigned to group A and then re-assigned to another group, the OLA
+target is active as expected. Later, when switching back to group A and staying for a period of
+time, once the tickets move to the close phase, the corresponding group’s SLT elapsed duration is
+incorrect.
+Service
+Management
+OCT
+CR1
+9M1
+7651
+59
+Actual services can't be loaded with EMS query when a CMS federation field is used in the filter or
+exposed in the grid column after Native SACM is enabled.
+Service
+Management
+OCT
+CR1
+9M1
+7660
+66
+Failed to import tenant. Errors that resemble the following are seen in the platform log:
+ERROR: column "achievement_date" of relation "import_entities_xxxxxxx" does not exist
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+7680
+07
+Red Hat Enterprise Linux doesn't make full use of the existing RHEL for VDC licenses in virtual
+environment as the RHEL Server license is more cost-efficient. 
+Apply the patch
+Download the suite metadata file (itsma-suite-metadata-2022.11.P2-xxx.tgz) of this patch release from 
+here
+, and then follow
+the instructions below to apply the patch:
+If SMAX is deployed in an on-premises environment, see 
+SMAX patch installation (on-premises)
+.
+If SMAX is deployed in a GCP, Azure (AKS), or AWS (EKS) environment, see 
+SMAX patch installation (managed
+Kubernetes)
+.
+Apply OMT 2022.11 patch 1
+This patch release includes OMT 2022.11.P1, which you can download from 
+here
+. The filename of this patch is 
+OMT2211P1-15001
+.zip
+.
+You can install SMAX 2022.11.P2 and OMT 2022.11.P1 in any sequence. For information about how to apply this patch, see
+Install an OMT patch
+.
+Apply Audit 2022.11 patch 2
+This patch release includes Audit 2022.11.P2. You can download the Audit service patch file (Audit_Helm_Chart-
+2022.11.011.zip) from 
+here
+ and the Audit collector patch file (Audit_Collector_Helm_Chart-2022.11.011.zip) from 
+here
+ and then
+follow the instructions below to apply the Audit service patch and the Audit collector patch:
+If you have deployed Audit in an on-premises environment, see 
+Install an Audit patch (embedded Kubernetes)
+.
+If you have deployed Audit in an AWS (EKS) or OpenShift environment, see 
+Install an Audit patch (managed Kubernetes)
+.
+(Optional) Apply Containerized CMS 2022.11 patch 2
+Containerized CMS 2022.11.P2 is available. follow the instructions below to apply the patch:
+If Containerized CMS is deployed in an on-premises environment, see 
+Install a CMS patch (embedded Kubernetes)
+.
+If Containerized CMS is deployed in a managed Kubernetes (Azure with AKS, AWS with EKS, or OpenShift) environment,
+see 
+Install a CMS patch (managed Kubernetes)
+.
+SMAX 2022.11
+Page 
+97
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

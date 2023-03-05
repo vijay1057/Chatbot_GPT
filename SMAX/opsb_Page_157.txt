@@ -1,0 +1,35 @@
+Service Catalog
+The Catalog Structure
+Now we have our services created, and the next step is to set up our service catalog. The service catalog will allow both agents
+and end users to find and request what they are looking for.
+The service catalog itself has three levels we need to consider:
+Service category
+Service definition
+Offering
+The Service Catalog
+To consume the services IT provides, the end users need to have a way of discovering the services available and
+what actions or requests they can perform against them. The service catalog provides the means of creating
+those available choices for both the Service Management Automation Service Portal (accessed by the end users)
+and request management (accessed by the agents).
+Creating a complete service catalog can be one of the more time-consuming parts of creating the complete
+Service Management Automation X implementation, but also can create the most value. A well-crafted service
+catalog will reduce the manual effort needed by the Service Desk Agents by allowing the End Users to create a
+well-formed request that we can automatically route to the correct groups—or even fulfill by an automated
+process that never needs an agent’s intervention.
+By the end of this section Glenn will:
+Understand what makes up the service catalog and how they are displayed to the end user in the Service
+Management Automation Service Portal
+Learn where the system defines the specific offerings that the end users can ask for via a service request
+See how task plans guide a service request through the correct process
+Find out how reusable fulfillment plans can be created to reduce duplicate work in creating similar task plans
+Limit who can see specific parts of the service catalog using entitlement rules
+Tailor the Service Management Automation Service Portal look and feel, as well as available options, to better
+fit the company’s style
+
+
+SMAX 2022.11
+Page 
+157
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

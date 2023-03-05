@@ -1,0 +1,100 @@
+OO Containerized 2022.11.P1 release notes
+Patch release date: December 2022
+Install the patch
+The OO Containerized 2022.11.P1 patch is a Helm chart deployed on top of the existing OO Containerized
+2022.11 installation. 
+Download the OO 2022.11.P1 patch package
+The OO 2022.11.P1 Helm chart package includes the 
+oo-helm-charts-1.0.x-20221101P1-xx/oo-helm-charts/charts/oo-1.0.x+20221101P1.xx.
+tgz
+ file.
+1
+. 
+On the control plane node/bastion host, download the 
+OO 2022.11.P1
+ zip package from 
+here
+.
+2
+. 
+Unzip the package:
+unzip 
+oo-helm-charts-1.0.x-20221101P1-xx.zip
+Get values.yaml file for existing deployment
+Run the following command to get 
+values.yaml
+ file from the previous OO deployment. 
+helm get values <oo_install_name> -n <oo_namespace> >  <previous_deployment_values.yaml>
+Download the required container images
+If you deployed the suite 
+on-premises
+: Follow the steps provided in the topic 
+Download OO container images
+, by
+generating the download bundle for the OO Containerized 2022.11.P1 Helm chart.
+If the suite is deployed on a 
+managed Kubernetes
+:
+EKS
+: Follow the steps provided in the topic 
+Download and upload OO container images
+, by generating the download
+bundle for OO Containerized 2022.11.P1 Helm chart.
+AKS
+: Follow the steps provided in the topic 
+Download container images for OO (AKS)
+, by generating the download bundle
+for OO Containerized 2022.11.P1 Helm chart.
+Apply the OO Containerized 2022.11.P1 patch
+Upgrading to the 2022.11.P1 patch consists of three stages:
+Pre-upgrade hooks
+: There are three Kubernetes jobs that run first. These jobs are responsible for upgrading the
+databases of the OO components and tailoring some IDM resources. If these jobs run successfully, the upgrade process
+continues with rolling out the new version of OO pods. 
+If these jobs fail, the upgrade process stops.
+Rolling update
+: This is the stage where the OO pods are upgraded to the new version through the rolling update
+strategy. 
+Post upgrade
+: A Kubernetes job runs as soon as the pre-upgrade hooks are complete and waits until all the OO
+components are rolled out to the new version before it runs. Its purpose is to upgrade all OO RAS pods in the OO
+namespace in sequential order. This step takes time, about 5 minutes per RAS.
+ To install the 2022.11.P1 patch, follow these steps:
+1
+. 
+Run the following command: 
+helm upgrade <oo_install_name> -n <oo_namespace> <OO chart file> -f <previous_deployment_values.yaml> --set global.deploymentType="upgrade" --timeout 30m
+Where:
+<
+oo_install_name
+> is the name of the OO deployment that you specified when installing OO 2022.11
+<
+oo_namespace
+> is the unique namespace of the OO deployment.
+<
+OO_chart_file
+> is the new tar file containing the OO installation charts.
+<
+previous_deployment_values.yaml
+> is an absolute path of previous_deployment_values.yaml file that was obtained through
+the 
+helm get values
+ command.
+For example:
+helm upgrade oo -n oo oo-1.0.x+2022xx01P1-xx/oo-helm-charts/charts/oo-1.0.x+2022xx01P1.xx.tgz -f <previous_deployment_values.yaml> --set global.deploymentType="upgrade" --timeout 30m
+You can run this command with the 
+--dry-run
+ argument to simulate an upgrade.
+On successful completion of pre-upgrade hooks, you will see a message similar to the following. Completing pre-upgrade
+hooks takes about 3 to 4 minutes.
+    
+Release "<oo_install_name>" has been upgraded. Happy Helming!
+[...]
+Thank you for installing Micro Focus Operations Orchestration - 20**.**.
+The deployment is in progress, you can check the status using the following command:
+SMAX 2022.11
+Page 
+95
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

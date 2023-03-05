@@ -1,0 +1,77 @@
+We already have all our Users in our company’s Active Directory (AD), which we can import directly into SMAX. We'll have to do
+extra work to also get all our contacts into the system. One thing, we should make sure we check that our current AD data is
+correct before we move any of it into our new system.
+You can find more information about People in the 
+online documentation
+.
+Groups
+Once all our people are in the system, we need to organize them into the proper groups. Service Management Automation X
+uses groups for a variety of reasons, including sending notifications, specifying who can approve processes, or to assign work.
+Service Management Automation X has two distinct types of groups: organizational and functional.
+Organizational groups
+ contain all the boxes on the company’s org chart. We can represent all our business units,
+departments, and the company itself as organizational groups. We’ll define the company itself as an organization, and then all
+the internal business units and their contained departments. The organizational group also contains information about the
+owner/manager of the Group and all of the members of the organization. Note that a person can only belong to one
+organizational group. Our best practice will be to add the person to the organizational group at the bottom of the org chart
+hierarchy – so in our case, we'll add people to their department.
+Functional groups
+ contain a list of people responsible for a specific job function or process within the system. These groups
+can encompass people who belong to several different organizational groups or could further break up organizational groups
+into different functions they support. For example, within a department that builds a specific product we can create separate
+functional groups for the database team, the UI team, and the Application team. It's also important to note that people can
+belong to multiple functional groups, so people that support multiple processes can belong to all of the necessary teams.
+The main thing we will use functional groups for is to assign 'work'. When we want a specific 'team' to work on a request,
+incident, change, or even a task, we do that by assigning a functional group to the record we want them to work on. From
+there, we can also assign a specific group member to the record, so it's not only important to define the groups but to make
+sure the correct people are part of the group.
+Again, we have most of the organizational information we need in our Active Directory system to import into Service
+Management Automation X. However, we will most likely need to do additional work to create the functional groups and get
+the right people into each one.
+More detailed information on groups can be found in the 
+online documentation
+.
+Roles
+Once we have all of the people and groups, it’s time to determine who can do what in our system. Service Management
+Automation X handles this by allowing us to set specific permissions inside of roles. We can assign these roles to either a group
+or a specific person. Unless there is someone that requires a specific exception, we should concentrate on setting the roles for
+groups (rather than on the users) as this will require much less administrative work on our part.
+Service Management Automation X comes with a good number of roles already defined that reflect industry best practice
+recommendations. In our case, I think these will be enough and we won’t have to add any ourselves, but if that becomes
+necessary we can do so.
+One thing to remember is that all users will have the ‘Self-Service Portal User’ role defined for them by default. This has all of
+the permissions needed to log in to and use the Service Management Automation Service Portal. Therefore, in most we won’t
+need to assign any role for users that will only access the system through the portal. The only time this would become
+necessary is if we need to create any custom applications (SMAX makes that easy to do, too) that end users will access
+through the Portal. If this happens, we can clone the out of the box role, add more permissions to it, and assign that to our
+portal users. 
+Remember that a person can have multiple roles. Therefore we don’t have to create a specific role for someone who is both an
+Incident Manager and a Financial Manager. Instead, we make sure they have both existing Roles.
+More information on roles may be found in the 
+online documentation
+.
+Locations
+Along with knowing who the people are in our system, it would be a good idea to know where those people are, right? For that,
+we need to add locations to Service Management Automation X. SMAX defines locations in a hierarchy similar to the
+organizations we previously defined. Each location also has a specific type which ties it to where it fits on the hierarchy. The
+location types we can define include:
+Region
+Country
+City
+Site
+Building
+Floor
+Stockroom
+Data Center
+Room
+Meeting Room
+Cube
+Shelf
+Rack
+Rack Unit
+SMAX 2022.11
+Page 
+152
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,32 @@
+Smart
+Analytics
+Smart Analytics is a Service Desk solution based on big data. Smart Analytics can help you achieve the
+following goals:
+Improve the Help Desk management processes
+Reduce the time and effort that end users and IT professionals spend on submitting requests
+Speed up the process of problem management
+Improve the search experience across a variety of internal and external content
+Service Portal
+Service Portal enables IT departments to offer their services in an online shopping experience, similar to
+the experience today at popular online retailers. With Service Portal, end users can order, track, and
+manage their IT services, access knowledge articles, start chat conversations, and complete surveys.
+Mobile app
+A native mobile app that connects your organization's people and information by providing your team
+access to the Service Desk applications and knowledge articles on mobile devices.
+Component
+Description
+Related topics
+Licensing
+Personas
+User authentication and authorization
+SMA enterprise readiness
+OMT
+Service Portal
+Service Management
+Get started with Native SACM
+SMAX 2022.11
+Page 
+135
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,51 @@
+Get started with Native SACM
+Native SACM is one single solution for the entire Service Asset & Configuration Management (SACM) process with instant
+access to the data and embedded graphical widgets for CI topology representation.
+Instead of a loosely coupled and single-directional data replication, Native SACM is a natively connected solution that enables
+bi-directional data federation between SMA and CMS.
+Comparison
+Native SACM is optional. You may have no integration, continue to use the integration with UCMDB based on OPB, use Native
+SACM, or use a custom integration. 
+SMAX without UCMDB 
+SMAX with UCMDB based on OPB 
+SMAX with Native SACM 
+It's difficult to manually
+keep models up to
+date. 
+Scheduled data synchronization to SMAX. 
+Real-time data federation for up-to-date services
+and inventory. 
+Unidirectional data flow from UCMDB to
+SMAX. 
+Bi-directional data flow. 
+Limited CI types supported out-of-the-box.
+Other CI types can be added with
+customization. 
+Limited CI types are federated. 
+Service model and CI topology can be
+maintained in SMAX and UCMDB. 
+One service model and CI topology. 
+End-to-End lifecycle from asset to CI. 
+Auditing including federated attributes. 
+Enriched CI information. 
+Configurable CI topology and impact rules. 
+Codeless extension of CI attributes and
+codeless configurability of business rules for
+federated data. 
+Use cases
+This section lists common use cases covered by Native SACM. These are examples only to give an overview and are not meant
+to be complete. 
+Bi-directional data exchange 
+Services or CIs created in SMAX are now directly created in UCMDB without any delay. Any CIs created in UCMDB, for example,
+via discovery, are available in SMAX in real-time. 
+Any changes of the data on either side are reflected immediately. 
+Service/CI topology 
+With Native SACM, the Service/CI topology is driven by UCMDB's powerful modeling capabilities. All Service/CI relations are
+kept in one place and are consistently used in SMAX. With Native SACM, the topologies can be modified based on the TQLs
+defined in UCMDB. Customers are now able to view the topology without restrictions in SMAX.
+SMAX 2022.11
+Page 
+138
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

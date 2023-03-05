@@ -1,0 +1,133 @@
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+7424
+78
+The 
+Utilization of oracle database options/packs
+ report provides wrong calculation results
+for items in different utilization statuses.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+7415
+31
+When you drill down to a utilization status of the 
+Utilization of oracle database
+options/packs 
+report, the 
+Database
+ and 
+Instance 
+columns have no value.
+IdM
+OCT
+CR1
+9M1
+7414
+46
+If you set up a reverse proxy in your environment, Single Sign-On (SSO) is not working in some
+scenarios. The users have to log in to the system each time they access a different application in
+the suite.
+Integration
+OCT
+CR1
+9M1
+7523
+24
+If an integration uses a REST Executor 2.0 endpoint with the Generic authentication type, the
+integration's scenarios fail with an authentication error if the authentication response received
+from the external system contains some special characters.
+Integration
+OCT
+CR1
+9M1
+7482
+91
+After completing a request or incident exchange flow by using the SMAX connector's respective
+out-of-the-box scenario template, the system incorrectly displays two records in the request or
+incident's External assignment section.
+Integration
+OCT
+CR1
+9M1
+7551
+54
+After completing a request or incident exchange flow by using the SMAX connector's respective
+out-of-the-box scenario template, the system displays a wrong URL in the External assignment
+section for the request or incident created in the target system.
+Integration
+OCT
+CR1
+9M1
+7511
+30
+If an integration uses a REST Executor 2.0 endpoint with the OAuth 2.0 authentication type, and
+the target system's authorization response doesn't contain the expiry time for its access tokens,
+the integration's scenarios fail to execute due to token expiration errors.
+Integration
+OCT
+CR1
+9M1
+7534
+07
+The Manage relationship (EMS) action included in the SMAX connector doesn't work.
+Category
+Issue
+ID
+Description
+Audit service
+Category
+Issue ID
+Description
+Audit
+service
+OCTCR19M174821
+4
+Kubernetes event log is filled with errors because of Audit service HPA
+misconfiguration.
+Audit
+service
+OCTCR19M175014
+4
+By default, Plan and Build menus are visible to users when navigating from the Audit
+UI
+.
+Apply the patch
+Download the suite metadata file (itsma-suite-metadata-2022.11.P1-xxx.tgz) of this patch release from 
+here
+, and then follow
+the instructions below to apply the patch: 
+If SMAX is deployed in an on-premises environment, see 
+SMAX patch installation (on-premises)
+.
+If SMAX is deployed in a GCP, Azure (AKS), or AWS (EKS) environment, see 
+SMAX patch installation (managed
+Kubernetes)
+.
+Apply Audit 2022.11 patch 1
+This patch release includes Audit 2022.11.P1. You can download the Audit service patch file (Audit_Helm_Chart-
+2022.11.010.zip) from 
+here
+ and the Audit collector patch file (Audit_Collector_Helm_Chart-2022.11.010.zip) from 
+here
+ and then
+follow the instructions below to apply the Audit service patch and the Audit collector patch:
+If you have deployed Audit in an on-premises environment, see 
+Install an Audit patch (embedded Kubernetes)
+.
+If you have deployed Audit in an AWS (EKS) or OpenShift environment, see 
+Install an Audit patch (managed Kubernetes)
+.
+SMAX 2022.11
+Page 
+93
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

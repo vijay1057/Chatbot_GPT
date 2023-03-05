@@ -1,0 +1,124 @@
+Service Portal
+OCT
+CR1
+9M1
+5683
+08
+Users fail to access SMAX through the Self Service Portal app or a web browser on an android
+phone using the custom domain URL.
+Service Portal
+OCT
+CR1
+9M1
+5971
+61
+Values in the user options fields will be automatically reset or cached after the rendering rule is
+canceled.
+Service Portal
+OCT
+CR1
+9M1
+5990
+42
+A red asterisk is missing in the mandatory Boolean User Options field in the Service Portal.
+Service Portal
+OCT
+CR1
+9M1
+6052
+95
+When the user uses the self-service password reset feature to reset the password, an error is
+displayed after the user submits the verification code.
+Installation
+OCT
+CR1
+9M1
+7362
+64
+For medium profile deployment, only one replica is defined for the itom-sma-ui-deployment pod,
+which isn't enough.
+Integration
+OCT
+CR1
+9M1
+5776
+08
+If the user you specify when installing OPB is not a tenant admin, OPB writes Integration Engine-
+related errors in the log even if you are not using the Integration Engine.
+Integration
+OCT
+CR1
+9M1
+6045
+07
+When the "Upload an attachment from a multipart form" action in the ServiceNow integration is
+executed, ServiceNow returns an error if the action's input parameter configuration contains text
+parameters.
+Integration
+OCT
+CR1
+9M1
+1801
+22
+When you add comments to a request from the Email notification, if the email signature contains
+asterisk symbols, the updates to the request will fail.
+Integration
+OCT
+CR1
+9M1
+5672
+09
+Authorized domains configured in email endpoints are case-sensitive.
+Integration
+OCT
+CR1
+9M1
+5804
+80
+If you add two consecutive "Apply to each" rules in an integration scenario, the second "Apply to
+each" rule fails to execute.
+Integration
+OCT
+CR1
+9M1
+5845
+18
+If you include a trailing slash in the Service Manager URL in the endpoint configuration, the
+Service Manager integration fails.
+Integration
+OCT
+CR1
+9M1
+5882
+76
+After you click the Run scenario button on the Scenario page, an inaccurate message is displayed.
+Integration
+OCT
+CR1
+9M1
+6113
+39
+If an email's subject contains more than 140 characters, the email integration fails to create a
+request for the email.
+Reports
+OCT
+CR1
+9M1
+6464
+66
+Failed to create a scheduled report whose frequency is every n weeks (n is a number larger than
+1).
+Reports
+OCT
+CR1
+9M1
+7209
+05
+The sorting is not working correctly in report charts when there are two levels of "group by"
+applied and the sort field is the first-level "group by" field of entity link type.
+SMAX 2022.11
+Page 
+77
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

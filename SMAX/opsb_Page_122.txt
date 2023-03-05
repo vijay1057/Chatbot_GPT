@@ -1,0 +1,90 @@
+Listing of service instances by users. 
+For more information, see 
+Deployment Operations - Instance Management
+.
+A new default role, CMP Agent, is added, see 
+Roles
+.
+Fulfillment plan enhancements
+To allow customization, the default fulfillment task plan added to the aggregated offering is improved with more
+granularities.
+A new fulfillment plan type, Cloud Service Request, is added. This type of fulfillment plan only contains a task plan but no
+user options.
+Notifications for cloud subscriptions and service requests
+The subscriber can receive email notifications when:
+the cloud subscription is about to expire or is expired.
+the cloud service deployment is successful or failed.
+the cloud subscription is canceled.
+the cloud service modification is successful or failed.
+For more information, see 
+Subscription notification rules
+.
+For service requests, the assigned agents can receive notifications when the system fails to deploy, modify, or cancel a cloud
+service. See 
+Service request notification rules
+.
+Experience mode enhancements
+The experience mode setting now becomes a multi-select field that sets the experience when users work with this tenant. The
+following options are available based on the license assigned to the tenant: 
+Enterprise Service Management    
+IT Service Management    
+Asset Management    
+Cloud Management
+For more information, see 
+Experience mode
+.
+Tenancy model migration
+If you have an existing tenant created before the introduction of the 1 tier tenancy model (starting from version 2020.05) and
+you want to enable add-on capacities for this tenant, you can install and use the tenancy model migration script to migrate
+your tenant to the 1 tier tenancy model.
+For more information, see 
+Migrate a tenant to the 1 tier tenancy model
+.
+Service Portal enhancements
+You can now set the default sort order for the offerings in Service Portal in 
+Feature Settings
+.
+The 
+Last update time
+ for sorting articles becomes more accurate, which now gets updated only when the article
+content is updated or when the article moves to the consumption metaphase.
+Cloud Native Focus
+You can now use the 'azure' or 'kubenet' network plugin as the cluster's network model when setting up an AKS cluster for
+SMA (see 
+Build AKS cluster
+). Review the 
+best practices
+ recommended by Azure to choose the plugins based on your needs.
+Installation, upgrade, and system maintenance
+This release introduces the following changes. 
+Support for multi-deployment mode (on-premises and EKS only)
+You can now install SMA and CMS on the same CDF cluster, in an on-premises or AWS with EKS environment. In this multi-
+deployment scenario, you deploy SMA in a classic way as the first deployment and deploy CMS through Helm as the
+next deployment. For more information, see 
+(Optional) Install containerized CMS (on-premises)
+ and 
+(Optional) Install
+containerized CMS (EKS)
+.
+Note
+: CMS embedded in the suite has been deprecated since this release (no longer available for new installations). However,
+if you have already the embedded CMS installed, it can continue to work after an upgrade to this release. To avoid
+confusion, starting with this release, the following documentation convention is used: CMS embedded in the suite is referred to
+as the "embedded CMS" and CMS deployed as the next deployment is referred to as the "containerized CMS." 
+Support for custom UID and GID
+UID and GID refer to the user ID (UID) and group ID (GID) that are used to run the process in a Docker container. In earlier
+releases, only a default value of 1999 is supported for both of them. In this release, in addition to 1999, you can specify a
+custom value between 100000 and 2000000000 for them. For example, you can use UID=100001 and GID=100002. 
+In an embedded kubernetes environment: specify the SYSTEM_USER_ID and SYSTEM_GROUP_ID parameters in the
+install.properties file. 
+In a managed kubernetes environment: specify the UID and GID as command options when configuring NFS or EFS
+volumes.
+Suite upgrade limitations due to k8s upgrade (embedded kubernetes only)
+The CDF 2020.08 installation and upgrade package for embedded kubernetes deployments adopts a new version of K8S, which
+doesn't provide the APIs required by SMA 2020.05. For this reason, if CDF is upgraded to version 2020.08, features that need
+SMAX 2022.11
+Page 
+122
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

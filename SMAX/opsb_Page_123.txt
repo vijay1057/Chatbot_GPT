@@ -1,0 +1,110 @@
+to call the CDF APIs to restart the corresponding pods aren't working until SMA is also upgraded to version 2020.08. For more
+information, see 
+Upgrade
+. 
+SMA Support Assistant
+With the SMA Support Assistant, suite administrators can run system maintenance tools (currently only SMA Doctor) from the
+following URL: https://<External Access Host>/support. For information about how to set up and use this feature, see 
+SMA
+Support Assistant
+.
+2020.05
+Native SACM
+Native SACM is one single solution for the entire Service Asset & Configuration Management (SACM) process with instant
+access to the data and embedded graphical widgets for CI topology representation.
+Instead of a loosely coupled and single-directional data replication, Native SACM is a natively connected solution that enables
+bi-directional data federation between SMAX and CMS, which is achieved by building a new technology called CMS Gateway.
+After CMS Gateway is set up and ready, you can enable Native SACM in the tenant application settings. Please be aware that
+this operation can't be reverted, once you enabled Native SACM, you can no longer use OPB to connect SMAX and CMS.
+For more information about how to install, administer, and use Native SACM, see:
+Deploy Native SACM
+Configure Native SACM with Studio
+Native SACM
+SMAX Cloud Management 
+SMAX Cloud Management offers the Design and Deploy (DND) capability. DND enables you to create service designs and
+offerings, and automate the provisioning and management of hybrid and multi-cloud resources:
+Manage hybrid and multi-cloud XaaS environments
+Deliver multi-cloud infrastructure and application services to their business users
+Orchestrate end-to-end IT operations processes
+Aggregate and broker services from the public cloud and private cloud templates
+Define end-to-end service life cycle management to provision, update, and de-provision cloud resources
+In this release, you can deploy DND on tenants that are created in SMAX 2020.05, one DND instance for each tenant. Note
+that DND isn't available for tenants upgraded to this release.
+For information about how to deploy and use DND, see 
+Deploy DND
+, 
+Design
+, and 
+Deployment operations
+.
+SMAX Cloud Management in this release is under Controlled Availability.
+Quick mode for tenant export
+A 
+Quick mode
+ is introduced for tenant export. Compared with the traditional 
+Full mode
+, the Quick mode allows you to
+export tenant data without attachments, which reduces the export time. If you choose to use 
+Quick mode
+, you need to
+manually move your attachment files before tenant import. 
+For details, see the 
+Export and Import
+ section on 
+Export_and_import_tenant
+.
+New tenancy model
+The relationship between account and tenant is simplified. Now you can only create one tenant in one account. The account
+and its tenant have the same ID. The shared service type of the tenant is the same as the account that the tenant belongs
+to. Based on the 1 tier tenancy model, you can enable more add-on capacities, which will help to meet more IT4IT
+requirements.
+Group level visibility for reports and views
+Users can share their reports or favorite views with specified user groups. Two role permissions (
+Create group
+reports
+ and 
+Create group favorite views
+) and one access level named 
+Group
+ were introduced for this enhancement. For
+more information, see 
+Reports
+, 
+Report properties
+ and 
+Views
+.
+Context-sensitive help
+The embedded context-sensitive help has been replaced with the online context-sensitive help. You can now access the up-to-
+date documentation on ITOM Practitioner Portal from the product interface. If you have limited Internet connections, you can
+export the documentation to PDF on ITOM Practitioner Portal when you are connected to the Internet.
+Service Portal enhancements
+When the language of Service Portal is set to Arabic, the layout of UI elements is improved for fully right-to-left (RTL)
+language support. For existing RTL limitations, see 
+Language support
+.
+The 
+Support offerings
+ section is renamed to 
+Supporting offerings
+ in the subscription details and the CI details.
+Miscellaneous changes
+The maximum allowed number of non-volatile lists per tenant has been changed from 20 to 50 (
+Studio
+ > 
+Lists
+).
+You can turn on 
+Log user last access time 
+(Service Management > 
+Administration > Configuration > Application
+Settings
+)
+ 
+to save users' last access time to Person records.
+SMAX 2022.11
+Page 
+123
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

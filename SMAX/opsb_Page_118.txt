@@ -1,0 +1,124 @@
+New business rule template "Update user option default value": this rule template is available in the 
+After
+changes
+ section of the workflow for Offering or Model. For more information, see 
+Update user option default value
+. 
+Installation, upgrade, and system maintenance
+This release adds support for RHEL/CentOS/Oracle Linux 8.3.
+Supported Kubernetes versions: 1.19 (on-premises), 1.18 (EKS), 1.19.x (AKS), 1.17.x (GCP)
+Support of managed NFS storage for on-premises installation. See 
+Configure NFS volumes
+.
+New JMX metrics are exposed to Prometheus to better support in-depth monitoring and diagnostics on specific
+SMA components. See 
+Monitoring SMA with open source tools
+.
+2020.11
+Dev2Prod enhancements
+The 
+Max Dev2Prod package file size (MB)
+ setting (Suite Administration > tenant details form > 
+Application
+settings
+ tab) defines the maximum .pkb file size allowed for running an import (including an import simulation) by using
+the Package Manager. This setting does not take effect when you export a package file (.pkb). For more information,
+see 
+Set a maximum allowed package size for import
+.
+You can now export Service Catalog record data from one tenant and then import it into another. The supported Service
+Catalog data types are Category, Offering, Service Definition, and Fulfillment Plan. For more information, see 
+Dev2Prod -
+Synchronize Service Catalog content
+.
+Service Portal enhancements
+When you 
+define the user options
+ in an offering record, you can now add the help text to give some details or hints of this
+user option.
+When you 
+define the user options
+, in addition to defining the user options as individual fields, now you can also classify
+the fields into different groups and sections if you need to manage multiple user options with different types.
+After you select 
+Visible to Self-service Portal 
+in the 
+Price
+ tab
+ of an offering, the additional price added per user option
+is also displayed on the individual user options in Service Portal.
+You can now configure the date and time formats based on the language in 
+Service Portal configuration settings
+. 
+Expense line capability
+This release introduces the expense line capability to track and manage costs incurred during the lifecycle of assets and
+services. Expense lines can be generated automatically based on the configured cost allocation rules or created
+manually. Using the 
+expense lines
+ you can perform a cost analysis and get a detailed view of where the expenses have
+incurred.
+By default, expense lines can be generated or created on the record types as follows:
+Contract
+Device
+Infrastructure & Peripherals
+License
+Subscription
+Out-of-the-box business rules on when to start/stop the expense lines generating are provided for these record types, out-of-
+the-box cost allocation rules are also provided in 
+Cost Allocation
+.
+To use this feature, turn on 
+Enable expense line
+ in 
+Application settings
+.
+An out-of-the-box report is provided to show the chargeback expense lines by cost center.
+If your suite is upgraded to 2020.11, see 
+Manual tasks for expense line feature
+ for more information about activating this
+feature in existing tenants.
+Enhancements to the new SAM capability
+By leveraging the SMAX reporting engine, you now have a centralized reporting tool to design compliance reports in order
+to monitor software consumption and spend.
+Currently, SAM only supports creating reports based on the embedded entities (Product, Software Publisher, License
+Metric, and Product Compliance). For more information, see 
+Design SAM reports from SMAX using embedded entities
+.
+SAM now supports creating compliance reports based on license consumption data managed in IBM License Management
+Tool (ILMT). This feature leverages the 
+IBM License Metric Tool (ILMT)/BigFix Integration
+.
+For more information, see 
+Best practice of creating compliance reports for ILMT-managed products
+.
+You can upgrade the new SAM capability along with the suite. For more information about required configurations,
+see 
+Perform post-upgrade tasks as the suite admin
+ or 
+Upgrade the suite (managed kubernetes)
+.
+Mobile app
+You can now approve or deny the change requests with the mobile app. This feature is only supported for SMAX 2020.11.
+After you select 
+Visible to Self-service Portal 
+in the 
+Price
+ tab
+ of an offering, the additional price added per user option
+is also displayed on the individual user options in the mobile app.
+Agent mode
+The agent mode of Service Portal 
+mobile app
+ is available as Early Access in this release on iOS devices only.
+Agent users can switch to the agent interface and manage the requests after the agent mode is enabled in 
+Application Settings
+and mobile request forms are configured.
+For more information, see 
+https://community.microfocus.com/t5/SMAX-Learn/Live-Meetings-for-SMAX-Software-Community-
+Technical/ta-p/1616351
+SMAX 2022.11
+Page 
+118
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

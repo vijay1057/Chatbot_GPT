@@ -1,0 +1,54 @@
+   `watch kubectl get pods -n <oo_namespace>`
+*********************************************************************************
+** WARNING:                                                                    **
+**                                                                             **
+**  1. If you referenced a values.yaml file for installing OO, you must        **
+**  manage access to this file carefully as it contains sensitive information. **
+**  Micro Focus recommends restricting access by leveraging file permissions,  **
+**  by moving the file to a secure location, or by simply deleting the file.   **
+**  Failing to secure values.yaml may expose the system to increased           **
+**  security risks. You understand and agree to assume all associated risks    **
+**  and hold Micro Focus harmless for the same. It always remains the          **
+**  Customer's sole responsibility to assess its own regulatory and business   **
+**  requirements. Micro Focus does not represent or warrant that its           **
+**  products comply with any specific legal or regulatory standards            **
+**  applicable to Customer in conducting Customer's business.                  **
+**                                                                             **
+*********************************************************************************
+ 
+    
+After completing pre-upgrade hooks, Helm starts upgrading OO components.
+2
+. 
+Run the following command to make sure that all OO pods are ready. If the command returns a blank output, then all the
+OO pods are ready.
+kubectl get pod -n <oo_namespace> |grep -v 1/1|grep -v 2/2|grep -v 3/3|grep -v Completed
+3
+. 
+Access the OO page at 
+https://<EXTERNAL_ACCESS_HOST>:<EXTERNAL_ACCESS_PORT>/oo
+ and make sure that
+the OO Containerized is fully up. 
+4
+. 
+Once the upgrade was successful, run the following command to set the 
+deploymentType
+ parameter to install. 
+helm upgrade <oo_install_name> -n <oo_namespace> <OO chart file> -f <previous_deployment_values.yaml> --set global.deploymentType="install"
+Upgrade OO RAS
+If you apply OO Containerized 2022.11.P2 patch over the existing OO Containerized 
+2022.11
+installation, reinstalling/upgrading OO RAS or OO Workflow Designer to a newer version 
+is required
+.
+If you apply OO Containerized 2022.11.P2 patch over the existing OO Containerized 
+2022.11.P1
+installation, reinstalling/upgrading OO RAS or OO Workflow Designer to a newer version 
+is not required
+.
+SMAX 2022.11
+Page 
+103
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

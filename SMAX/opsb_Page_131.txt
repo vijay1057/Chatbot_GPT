@@ -1,0 +1,77 @@
+High availability of control plane nodes
+The control plane consists of three nodes distributed in different subnets.
+An azure application gateway is used to balance the traffic to the control plane nodes.
+High-performance storage
+NetApp ONTAP cloud is used as the storage service.
+Support for up to 1,500 concurrent users.
+Service Level Target Settings
+An enhanced Service Level Management modules enables you to flexibly setup SLAs and OLAs for the new record types
+created in Studio, based on your business requirements. It's now possible to measure your Service Level Targets based on your
+internal and external agreements. This enables you to monitor your daily operations to improve the customer satisfaction. The
+following features are available:
+Control the SLT calculation and configure the key fields involved in SLT
+Create SLAs/OLAs for customized record types by leveraging Service Target Sets
+Within Service Level Target Sets, it's now possible to:
+Select the applicable target types
+Define business rules for the required start/stop/suspend conditions for each target type 
+Define business rules to update your records or send notification.
+Notifications in iOS Service Portal mobile app
+Notifications are added to the iOS Service Portal mobile app in this release. You now receive the following notifications when
+you log in to Service Portal with the iOS mobile app: Pending approval, Resolved request, and Provide more information.
+If the Service Portal application is in use (running in the foreground), the in-app notification is displayed.
+If the Service Portal application isn't in use, the push notification is displayed.
+Suite Administration
+Access Control List (ACL). ACL is a new feature that enables the suite admin to control data access for users in the shared
+service provider and shared service agent roles.
+Roles and permission enhancement. Now users in the suite admin, shared service provider, and shared service agent
+roles can access Suite Administration with different privileges. For example, now only suite admin can access
+CONFIGURATION, OPERATION HISTORY, and ACCESS CONTROL.
+Password policy. A new password policy tab is introduced in account configuration to set up password policies.
+License synchronization with AutoPass. If licenses are uploaded directly in AutoPass, you can synchronize license
+information from AutoPass to Suite Administration.
+NLP based Virtual Agent (Alpha package)
+This release includes an alpha package of the SMA Virtual Agent (Chatbot). The Virtual Agent can perform the following tasks
+to help improve the productivity of real IT agents and improve end user experience:
+Answer questions from end users with information from the knowledge base
+Create a support ticket when requested by a user who isn't satisfied with the answer provided 
+Create service requests when requested by users who can't find desired offerings from within the service portal 
+You can download 
+Virtual Agent (Chatbot) -- Alpha package 2018.05
+ from 
+Micro Focus
+ 
+ITOM Marketplace
+. For more
+information about how to install and integrate the SMA Virtual Agent, refer to the PDF document that's included in this
+package.
+ChatOps
+ChatOps uses a command line interface to link SMA to collaboration tools such as Microsoft Teams, Slack, and Mattermost. You
+can use ChatOps commands to search for, view, and update incidents. Additionally, ChatOps suggests knowledge articles and
+provides hyperlinks to the full knowledge article in the KM module.
+This release includes the following enhancements:
+Provides hyperlinks to suggested knowledge articles
+Adds the 
+search incident
+ command to search both incidents and knowledge articles 
+Adds the 
+help incident
+ command to provide help information with comprehensive guidance
+Provides misspelling correction
+You can download the ChatOps package from 
+Micro Focus
+ ITOM Marketplace. For more information about how to install and
+configure ChatOps, refer to the PDF document that's included in this package.
+Service Catalog Aggregation
+Service Catalog Aggregation allows end users to use the SMAX Service Portal to request catalog offerings that are defined and
+fulfilled in Service Manager along with the SMAX defined and fulfilled offerings. End users are able to track the status of all
+Caution
+This alpha package supports English only, and is recommended for demonstration or test environments only. Do
+not deploy this package in a production environment.
+
+
+SMAX 2022.11
+Page 
+131
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,21 @@
+itom-xruntime-sx deployment
+This deployment is no longer used. If it exists in your environment, you must
+manually delete it with the 
+kubectl delete deployment itom-xruntime-sx
+-n <suite namespace>
+ command.
+Note
+: This deployment has been removed since SMA 2019.08; however, it
+may still exist in an upgraded SMA environment.
+2018.08
+Obsoleted item
+Description
+Obsoleted
+since
+version
+SMAX 2022.11
+Page 
+90
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

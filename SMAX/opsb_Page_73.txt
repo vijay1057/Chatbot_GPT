@@ -1,0 +1,138 @@
+Service
+Management
+OCT
+CR1
+9M1
+6080
+12
+The SMAX notification rule limits the recipients to the first 250 and others will not receive the
+email. In addition, no errors will occur to indicate that some emails have not been sent.
+Service
+Management
+OCT
+CR1
+9M1
+6097
+08
+When using dev2prod, if "Enable approval plan" is checked, an error occurs.
+Service
+Management
+OCT
+CR1
+9M1
+6097
+49
+Mass update fails when the record type has an encrypted field with unencrypted values.
+Service
+Management
+OCT
+CR1
+9M1
+6131
+18
+When you change the entity by using group by phase id, the group column doesn't display the
+phase Id.
+Service
+Management
+OCT
+CR1
+9M1
+6135
+32
+When you try to use Dev2Prod to export two offerings, the following error message appears: list
+of Objects.
+Service
+Management
+OCT
+CR1
+9M1
+6141
+23
+Changes are lost when replacing a string by using the substitute function.
+Service
+Management
+OCT
+CR1
+9M1
+6151
+20
+The "ParentDisplayLabelKey" of a cloned change's approval task is set to be displayed as its
+parent change's.
+For example, when you clone change 1 to change 2, the ParentDisplayLabelKey of change 2's
+approval task is set to be displayed as Change 1's.
+Service
+Management
+OCT
+CR1
+9M1
+6236
+50
+When you try to close a request, you receive the error message "DataDomains is empty and
+mandatory."
+Service
+Management
+OCT
+CR1
+9M1
+6291
+74
+One request is at the Accept phase, then, it's manually moved to the Close phase. The duration of
+the phase is doubled.
+Service
+Management
+OCT
+CR1
+9M1
+6293
+98
+Occasionally, SLAs keep running even when the request is in the closed status.
+Service
+Management
+OCT
+CR1
+9M1
+6340
+33
+The type of records listed under the "More" toolbar doesn't begin with an uppercase letter.
+Service
+Management
+OCT
+CR1
+9M1
+6375
+29
+The Active flag is not set to true for Requests created as Cart Requests with more than 2 records.
+Service
+Management
+OCT
+CR1
+9M1
+6411
+30
+When uploading an attachment in a record, the time of the attachment in the entity record
+created by the rule is always displayed as "a few seconds ago," which is inconsistent with the
+time of uploading an attachment in the original record.
+Service
+Management
+OCT
+CR1
+9M1
+6424
+11
+Time zones that don't have Day Light Savings time aren't saved correctly in Work Schedules. The
+time values will change.
+Service
+Management
+OCT
+CR1
+9M1
+6428
+87
+When you go to Studio > Request > Comparison mode > Rendering forms, an unexpected error is
+displayed: Cannot read property 'forEach' of undefined.
+SMAX 2022.11
+Page 
+73
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

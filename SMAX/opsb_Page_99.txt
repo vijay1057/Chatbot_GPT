@@ -1,0 +1,107 @@
+SMAX 2022.11.P3 patch release notes
+Software release date: February 2023
+See 
+SMA-SM 2022.11.P3
+ patch release notes if you have enabled SMA-SM Service Portal.
+What's new
+This release introduces the following new features or enhancements for Cloud Management.
+RBAC implementation to support multiple accounts
+You can enable non-administrator users to view the spend data for cloud accounts they're responsible for. To grant access, you
+should configure group access to cloud accounts. For information, see 
+Configure group access to cloud accounts
+.
+Blended, unblended, and amortized costs in AWS reports
+You can view blended, unblended, amortized, net unblended, and net amortized costs in the showback UI of AWS reports. For
+information, see 
+Cost governance
+.
+Download reports in showback UI
+This feature combines the functionality of 
+Download as CSV
+ and 
+Save as PNG
+ buttons into one 
+Export Report
+ button.
+Upon clicking this button, a zip file is created. This file contains a CSV file with the exported data, a PNG image of the graph,
+and a text file that describes what filters have been applied to the report. For information, see 
+Cost governance
+.
+GCP discounts based on committed usage
+You can get discount recommendations for GCP on resource-based committed usage discounts (CUDs).  For more information,
+see 
+Recommendation details
+.
+User operation execution for test deployment
+In the 
+Component
+ details page in 
+Instance management
+, you can now see a USER OPERATIONS tab that lists all the user
+operations associated with the service design of your test instance. You can now execute the user operations from here for
+your test deployments. See 
+Service instance management
+.
+Enhancement
+Category
+Issue ID
+Description
+Cloud
+Management
+OCTCR19M17
+79836
+Service designer should be able to execute the user operations configured for the design
+in Test Deployment instance.
+Fixed issues
+Category
+Issue
+ID
+Description
+Service Portal
+OCT
+CR1
+9M1
+7488
+79
+When you are creating a request through Service Portal, if you press Ctrl+C and Ctrl+V to directly
+copy and paste an existing image into the Description field and then submit the request, there
+are two attachments in the API response of the request.
+After you click 
+Save
+ to finish creating a new request through the Agent, you stay on the current
+page and add a picture in the attachment. When you press F5 to refresh the page, the picture in
+the Content section is missing. Instead, you see an icon suggesting that the picture can't be
+loaded.
+Service Portal
+OCT
+CR1
+9M1
+7607
+81
+In the 
+Interactions
+ field of a request, if the text overflows into the next line, the word at the end
+of the line is split in the middle, rather than wrapped to the next line. This issue occurs for English
+and German words.
+Service Portal
+OCT
+CR1
+9M1
+7591
+80
+The dates of attachments shown in the 
+My approvals
+ page are incorrect.
+Service Portal
+OCT
+CR1
+9M1
+7401
+14
+Unable to drag an email to a rich text editor.
+SMAX 2022.11
+Page 
+99
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

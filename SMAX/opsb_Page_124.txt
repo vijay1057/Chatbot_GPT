@@ -1,0 +1,127 @@
+You can create, update, or restore your tenant key chain to support encrypted fields in the tenant (Service Management
+> 
+Administration > Configuration > Application Settings
+). The encrypted fields usually contain sensitive data, such
+as user options using the 
+Encrypted String
+ field type and the passwords for an aggregation provider in the provider
+configuration page.
+The 
+Numeric
+ field type for user options is replaced by the 
+Double
+ field type. The behavior of the new 
+Double
+ field type
+is the same as the original 
+Numeric
+ field type. In addition, a new field type, 
+Integer
+, is added.
+SMAX can search and access knowledge articles from a SharePoint Online instance, in addition to on-premises SharePoint.
+For details, see 
+Index knowledge articles from SharePoint Online
+.
+Installation, upgrade, and system maintenance
+Installation
+:
+The Demo and Extra Small deployment sizes are obsoleted, and no longer available for new installations.  If your
+deployment size is Extra Small, the suite can continue to work after upgrading to version 2020.05; however, we
+strongly recommend you to scale up to Small or a larger size.
+The suite's embedded PostgreSQL has been changed from a high-availability cluster to single-node PostgreSQL. For
+more information, see 
+Migrate from internal PGHA to internal single-node PostgreSQL
+.
+Upgrade
+: SMA 2020.02.001 or a later patch must be applied before you can upgrade the suite to this release. Apply the
+patch before the CDF upgrade (which is recommended); if you forget to do this, you still have a chance to apply the patch
+before the suite upgrade. 
+System maintenance
+: the 
+SMA Support Assistant
+ provides a stable runtime platform for running SMA maintenance
+tools such as SMA Doctor, for both embedded kubernetes and managed kubernetes deployments. 
+2020.02
+Custom domain
+Suite administrators can specify a custom fully qualified domain name (custom domain) per tenant, instead of using the
+same external access host name in all tenant URLs. This is especially useful for customers running SMAX in an MSP
+environment or large organizations that need to use multiple domains for accessing SMAX.
+Users can use the following URL to access their tenant: https://<custom domain>. This eliminates the need to type a
+tenant ID.
+For information about the limitations of this feature, as well as instructions on how to configure custom domains for SMAX
+tenants, see 
+Configure custom domains for tenants
+.
+Managing users in tenants
+This feature enables the tenant admin to manage users in the agent interface and reduces the suite admin's effort of user
+maintenance. After the suite admin enables the 
+Manage users in tenant
+ setting in Suite Administration, the tenant admin
+can unlock users, trigger password reset emails, and create users in the agent interface of the tenant.
+For more information, see the "How to manage users in the tenant" section in 
+Users and contacts
+.
+Consolidating tuning settings
+Tuning related application settings affecting shared infrastructure (such as database, NFS storage, memory and so on) are now
+moved from Service Management to Suite Administration. Therefore, the suite admin can do the configurations for tenants by
+considering impact on the entire suite.
+Scheduled purge of closed transaction records
+This feature enables tenant admins to delete closed transaction records from SMAX. This feature is useful especially for
+customers who need to automatically purge old records from their system for compliance of legal requirements such as GDPR
+requirements.
+For more information, see the "Enable purge" section in 
+Application settings
+.
+Extended data domain segmentation
+Data domain segmentation in SMAX has been extended from a number of main record types (Task/Approval, Article, Change,
+Incident, Problem, Request, and Service Level Target) to the following reference record types: Person, Group, Company,
+Location, Record Category, and Contract.
+For more information, see 
+Data domain segmentation
+ and 
+Data domain segmentation - use cases
+.
+Cc and Bcc in email notifications
+SMAX enables agent users to specify Cc and Bcc recipients in email notifications. This includes manual email notifications sent
+by clicking the 
+Send by email
+ menu option from a record, and automatic email notifications sent by the following new
+business rules: 
+Send notification with cc and bcc recipients
+ and 
+Send comment notification with cc and bcc
+recipients
+.
+For more information, see 
+Action rule examples
+.
+Service Portal enhancement
+If you want to navigate external URLs from Service Portal, please add the trusted domains to the approved list
+in 
+Application Settings
+ > 
+Authorized domains for navigation
+. If you type "*" in the field, it means all domains are
+trusted by the system; If you leave this field blank, it means no domain is trusted by the system.
+The 
+Services and Assets
+ page is refactored to enhance usability.
+Previously both CIs and subscriptions are displayed in the same view and grouped by CI subtype. Now you can see
+two tabs in the 
+Services and Assets
+ page, one for subscriptions and one for CIs.
+The system displays CIs and subscriptions in all statuses including 
+Retired
+, 
+Canceled
+, 
+Ended
+, 
+Expired
+, and so on.
+SMAX 2022.11
+Page 
+124
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,140 @@
+Service
+Management
+OCT
+CR1
+9M1
+7618
+18
+When you create an incident or change record, after you select a value for a field, the page scrolls
+to the top automatically.
+Service
+Management
+OCT
+CR1
+9M1
+7619
+12
+Performing reindex from the GUI Global Search function may cause an out-of-memory error.
+Service
+Management
+OCT
+CR1
+9M1
+7686
+91
+A performance issue occurs when you delete too many contacts from the person grid at a time.
+Service
+Management
+OCT
+CR1
+9M1
+7429
+31
+Failed to export a report as PDF or XLSX file with 
+enumSet
+ UserOptions field.
+Service
+Management
+OCT
+CR1
+9M1
+5725
+87
+An error message "<customfield_c> was not found in the cache" pops up when users switch an
+operational report between the Chart and Table views.
+Service
+Management
+OCT
+CR1
+9M1
+7594
+18
+When using a custom Date/Datetime field (for example, 
+testdate
+) as the "Group by" field in an
+analytic report, users can't save the report because of an error that resembles the following:
+The property [[RequestsOffering, testdate]] for the record type [Request] was not
+found.
+Service
+Management
+OCT
+CR1
+9M1
+7621
+40
+Two legends have the same color on the chart in a new analytic report.
+Service
+Management
+OCT
+CR1
+9M1
+7660
+59
+The exported PDF file lost the content of the report when using the ZH-CN, KO, AR, HE, EL, or JA
+language.
+Service
+Management
+OCT
+CR1
+9M1
+7607
+46
+While using Dev2Prod to import a package for specific modules, occasionally, other modules get
+corrupted in the production environment. Specifically, all the custom objects and their
+translations are missing. 
+Service
+Management
+OCT
+CR1
+9M1
+7723
+58
+The web browser crashes when the user tries to add a value to a many2many grid that links two
+custom modules.
+Service
+Management
+OCT
+CR1
+9M1
+7730
+59
+After you add the "Define suggested values based on filter" rule for the Category field, this filter
+rule is properly applied to the drop-down list of the Category field, but not applied to the table
+when you click the lookup button next to the drop-down menu. A fix was provided in an earlier
+release of the suite, however, it caused other issues and needs to be reverted. 
+Cloud
+Management
+OCT
+CR1
+9M1
+7760
+98
+During test deployment, if you don't enter a value for an optional property, you will see a
+semantic error message next to that field in the test deployment UI. 
+Cloud
+Management
+OCT
+CR1
+9M1
+7640
+41
+Failure in collecting cost and usage data for unversioned AWS CUR reports.
+Suite
+Administration
+OCT
+CR1
+9M1
+7725
+12
+SMAX re-login after a timeout session redirects to an error page.
+Category
+Issue
+ID
+Description
+Audit service
+SMAX 2022.11
+Page 
+100
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

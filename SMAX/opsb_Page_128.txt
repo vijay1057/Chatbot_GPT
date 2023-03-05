@@ -1,0 +1,88 @@
+In the agent interface, you can now export Rich Text fields when exporting data in grid views to a CSV or XLS file. The Rich
+Text fields (either encrypted or not) are exported with HTML tags removed. Additionally, you can export up to 1,000 records
+with no more than 3 Rich Text fields at one time.
+Note
+: This feature isn't supported in the self-service portal.
+Upgrade process enhancements
+Support of auto upgrade for CDF: You can upgrade CDF by using the autoUpgrade.sh script.
+Support of CDF hot upgrade (upgrade with no downtime). When upgrading CDF manually, you can run a script
+(podReScheduler.sh) before upgrading each worker node to reschedule singleton pods to other worker nodes in advance
+to avoid system downtime.
+Ability to increase the suite deployment size as part of the suite upgrade process (for example, from Small to Medium).
+Note that scaling down isn't supported, and you can change your sizing profile only as part of the suite upgrade process.
+Precheck of the cluster resource usage (CPU and Memory)
+Improved Service Portal mobile app
+The custom image defined on the category will fill the whole category tile on Service Portal mobile app.
+Service Portal mobile app supports "Text color on category tile" defined in theme setting.
+The UI/UX design of the Service Portal mobile app is improved, including:
+Login
+ and 
+Request
+ button design
+Default background image
+Color schemes
+2019.02
+SMAX 2019.02 introduces the following new features.
+Improved stability and performance
+This release has improved the stability and performance of the suite. Improvements made include:
+More robust RabbitMQ to prevent crashes and false liveness status of RabbitMQ
+Cleanup of redundant SQL queries to reduce backend load
+Efficient indexes to speed up query performance
+Use of crawling upgrade to adopt new indexes after content update
+Crawling upgrade
+The crawling upgrade feature enables you to implement various database modifications after a patch or version update or
+perform data migration from a legacy field to a new field after a version update. For more information, see 
+Crawling upgrade
+tab
+.
+Upgrade process changes
+You can upgrade from SMAX version 2018.08, including 2018.08.001 and 2018.11 (also known as "2018.08.002"), to this
+release. The upgrade process for this release has the following changes:
+CDF upgrade
+: includes two steps:
+1
+. 
+Upgrade to CDF 2018.11
+2
+. 
+Upgrade to CDF 2019.02
+Suite upgrade:
+After CDF is upgraded to version 2019.02, you must first download the suite metadata file from the 
+Micro Focus
+ Software
+Licenses and Downloads portal and upload it to the CDF Management Portal. By reading the suite metadata file, CDF detects if
+a suite version update is available. For details, see 
+Upgrade
+.
+HCM integration enhancement
+The HCM integration now supports additional use cases to use change control in HCM offering fulfillment. For more
+information, see 
+Change control in HCM offering fulfillment
+.
+Additional support of Service Manager tenant
+In earlier SMAX releases, all tenants used SMAX as the backend. This release enables you to deploy a tenant that uses either
+SMAX or Service Manager as the backend.
+Miscellaneous changes
+Simplified installation process:
+You no longer need to select your deployment mode (SMAX or SMA-SM mode) on the installation portal's capability
+selection screen. Only two capabilities (SMA and CMS) are displayed on the screen.
+One more NFS volume is required for CDF (CDF logging volume), and the three suite NFS volumes are no longer
+needed.
+For best security, a database owner initial password screen is added so that you can specify an initial password for
+the PostgreSQL databases that the suite installer automatically creates on the external database server for SMA (you
+can update the passwords after installation as described in 
+Sync updated suite component database passwords
+).
+There is no longer an LDAP configuration screen. LDAP configuration is performed in Suite Administration after
+installation.
+The administrator account setting page enables you to additionally specify an initial password for the internal
+integration user (bo-integration). You can change the password after installation (see 
+Change internal integration
+user password
+)
+SMAX 2022.11
+Page 
+128
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

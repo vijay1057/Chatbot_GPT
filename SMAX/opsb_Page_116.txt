@@ -1,0 +1,100 @@
+See 
+SMA mobile app
+.
+Installation, upgrade, and system maintenance
+This release introduces the following changes in the installation and upgrade process:
+This release supports installation on OpenShift Container Platform in an on-premises environment in general availability.
+Additionally, you can optionally use StorageClass for dynamic provisioning for an installation on OpenShift. 
+To improve the search performance on AKS with Azure Files, a new block storage solution is now available. You can install
+the suite using Azure Files and migrate the Smart Analytics and RabbitMQ data to Azure Disks after suite 
+deployment
+ or
+upgrade
+.
+This release supports deploying the containerized CMS on OpenShift Container Platform in an on-premises environment.
+See 
+Install containerized CMS (OpenShift)
+.
+2021.02
+Mobile app
+This release speeds up the loading time when you log in to the mobile app. Also, a process bar is displayed to show the
+loading status when you log in to the mobile app or switch from Service Portal mode to Agent mode. This feature is for iOS
+devices only by this release.
+When you switch between different accounts, you don’t need to re-enter your username and password if the session for
+the selected account isn't expired. This feature is for iOS devices only by this release.
+Service Portal mode
+The groups and sections defined for 
+user options
+ are now supported on the mobile app in this release.
+When you create a request, you can now perform more actions in the rich text box, including formatting descriptions,
+adding attachments, and scanning barcodes or QR codes. This feature is for iOS devices only by this release.
+The layout of request and approval details page is improved for better user experience.
+Agent mode
+Note
+: The agent mode of the Service Portal mobile app is available as Early Access in this release on iOS devices only. 
+You can now add solutions from the suggested solutions to your requests.
+You can now view the related records and involved CIs of the requests.
+You can now scan barcodes or QR codes when you add assets/CIs to a request.
+You can now view and manage the tasks assigned to you or your group. This feature is only supported for SMAX 2021.02.
+You can now view and add attachments for the requests and tasks.
+You can now view the detailed information of Person records and contact the person by tapping the phone number, the
+email address or the location.
+When you perform a global search, the search results can also return relevant knowledge articles or news.
+You can now define additional 11 forms for agent mode from 
+Service Management
+ > 
+Studio
+ > 
+Forms
+. For more
+information, see 
+Configure the Service Portal mobile app
+.
+For more information, see 
+Service Portal mobile app for iOS
+ and 
+https://community.microfocus.com/t5/SMAX-Learn/Live-
+Meetings-for-SMAX-Software-Community-Technical/ta-p/1616351
+.
+Asset Management enhancements
+Expense line enhancements
+A stacked bar chart is provided to show the comparison of the planned budget and the actual expenses incurred for a
+certain 
+budget
+.
+A History tab is added to the 
+expense lines
+ to show the updates made to an expense line.
+New SAM enhancements
+You are now able to calculate license compliance for VMware products including VMware VirtualCenter (vCenter), VMware
+vRealize Operations (vROps), and VMware vSphere Suite, with out of the box license rules and metrics. For more
+information, see 
+Best practice of creating compliance reports for VMware products
+.
+Note Currently, SAM's VMware content is available only to the containerized CMS 2021.02 deployment. If you are using
+classic or containerized CMS 2020.11, you won't be able to create compliance reports for VMware products.
+You can now 
+maintain the license compatibility matrix
+ following publishers' official document by using an easy-to-use
+graphic editor. With this capability, SAM can transfer licenses based on your license usage and license pool, which means
+you can make full use of your purchased licenses.
+Service Management enhancements
+Granular access control for the Administration modules
+The tenant admin can now grant a selected role the desired permissions for individual Service Management administration
+modules, through two-layer access control: administration menu visibility control and CRUD (Create/View/Update/Delete)
+Important  
+To access new CMS images in this release, make sure that you follow the instructions in 
+Activate
+your Docker Hub account
+ to submit a request for 
+Micro Focus
+ to authorize or reauthorize your Dock Hub account
+for CMS.
+
+
+SMAX 2022.11
+Page 
+116
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

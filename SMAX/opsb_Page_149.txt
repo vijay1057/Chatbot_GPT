@@ -1,0 +1,100 @@
+An Incident encompasses any disruption or degradation of a service, whether the service is internal or external. Issues with
+redundant hardware (or software) are also handled as an incident, even if the degradation isn't apparent to an end user.
+The goal of the incident management process is to resolve the disruption or degradation as quickly as possible. This may often
+involve enacting a workaround (such as rebooting a server or restarting a specific service) rather than a permanent fix.
+We highly recommend reviewing the 
+Incident Management chapter
+ in the Getting Started guide before starting your
+implementation.
+☐
+ 
+Review the default Record Categories, adding or removing where necessary
+☐
+ 
+Import existing Knowledge Articles
+☐
+ 
+Review Incident Roles and ensure Agents have correct Roles
+☐
+ 
+Review default Views and Reports, editing or adding if necessary
+☐
+ 
+Define a default Service Level Agreement with Service Targets
+For more information, see the 
+Service Level Management
+ section of the Getting Started guide .
+☐
+ 
+Create Incident Models and or Templates to assist with Incident creation
+For explanation and examples, see the 
+Incident Models
+ section of the Getting Started guide.
+☐
+ 
+Update Agent training materials with Incident Management process flows
+Setting up problem management
+A problem is simply the cause of one or more incidents. The aim of the problem process is to minimize the impact of known
+problems on consumers and prevent recurring incidents.
+Problem management encompasses the activities required to diagnose the root cause of incidents and determine short term
+workarounds and long term resolutions to those problems. It's also responsible for ensuring the correct resolutions are
+implemented through the correct control processes such as change management and release management.
+For more information, see 
+Problem Management chapter
+ of the Getting Started guide.
+☐
+ 
+Review the default Record Categories, adding or removing where necessary
+☐
+ 
+Import existing Knowledge Articles
+☐
+ 
+Review Problem Roles and ensure Agents have correct Roles
+☐
+ 
+Review default Views and Reports, editing or adding if necessary
+☐
+ 
+(optional) Create Problem Templates to assist with Problem creation
+☐
+ 
+Update Agent training materials with Problem Management process flows
+Setting up Change Management
+Changes to IT infrastructure may be necessary to respond to problems or externally imposed requirements and to improve the
+efficiency and effectiveness of existing services. The change management process ensures that standardized methods,
+processes, and procedures are used for all changes to give efficient and safe handling of all changes to the infrastructure, and
+is used to determine that the need for change outweighs the potential detrimental impact of changes.
+The 
+Change Management chapter
+ of the Getting Started guide contains additional information on setting up the module.
+☐
+ 
+Review the default Record Categories, adding or removing where necessary
+☐
+ 
+Review Change roles and ensure Agents have correct Roles
+☐
+ 
+Review default Views and Reports, editing or adding if necessary
+☐
+ 
+Create Change Models to guide Agents in most popular and important Changes
+For more information, see the 
+Change Models
+ section in the Getting Started guide.
+☐
+ 
+Create Time Periods for Change blackout and maintenance periods
+For further information on setting up Time Periods, see 
+here
+ in the Getting Started guide.
+☐
+ 
+Update Agent training materials with Change management process flows
+SMAX 2022.11
+Page 
+149
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

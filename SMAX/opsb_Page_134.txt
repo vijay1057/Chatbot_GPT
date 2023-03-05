@@ -1,0 +1,109 @@
+Get started
+Service Management Automation X (SMAX) is an analytics-driven service management solution. It combines four key
+application areas: IT Service Management (ITSM), IT Asset Management (ITAM), Extended Service Management (XSM), and
+Cloud Management.
+ITSM and ITAM are available out-of-the-box. You can extend them in a codeless manner. You can find available ITSM and
+ITAM apps in 
+ITOM Marketplace
+.
+XSM works based on out-of-the-box content such as HR workflows. You can extend them in a codeless manner. You can
+find available XSM apps in 
+ITOM Marketplace
+.
+Cloud Management offers the following capabilities:
+Design and Deploy (DND)
+Cost Governance and Resource Optimization (CGRO)
+Image Aggregation
+Content Management
+SMAX is offered as a service (SaaS), you can also deploy SMAX on-premises or in the cloud. Additionally, the multi-tenancy of
+SMAX allows to host and manage environments for multiple customers within a single installation.
+The following table includes detailed information about the deployment platforms.
+Deployment
+type
+Deployment platform
+Description
+On-
+premises
+ITOM Container
+Deployment
+Foundation
+Deploy on physical or virtual machines with Kubernetes provided by the ITOM OPTIC
+Management Toolkit (OMT). 
+RedHat OpenShift
+Deploy on-premises with RedHat OpenShift Kubernetes and on-premises databases
+and persistent storage.
+Cloud
+Google Cloud
+Platform (GCP)
+Deploy on GCP with Google Kubernetes Engine (GKE) and other cloud native
+services like CloudSQL and Filestore.
+Azure
+Deploy on Azure with Azure Kubernetes Service (AKS) and other cloud native
+services like Azurefile/Azure NetApp Files.
+Amazon Web
+Services (AWS) 
+Deploy on AWS with Elastic Kubernetes Service (EKS) and other cloud native
+services like Elastic File Service (EFS) and Relational Database Service (RDS).
+The following capabilities are available during the suite installation.
+Capability
+Description
+Service
+Management
+Automation
+(SMA)
+Services of the SMA suite.
+Service
+Manager
+Portal Service
+(SMPS)
+Services required to integrate an external Service Manager system with SMA Service Portal.
+Design and
+Deploy (DND)
+Part of Cloud Management solution. DND enables customers to make new cloud service offerings based
+on published service designs available to consumers. This capability requires an HCMX  license.
+The DND menu visibility also depends on the experience mode. For more information on how to set
+experience mode, see 
+Application Settings
+.
+Cost
+Governance
+and Resource
+Optimization
+(CGRO)
+Part of Cloud Management solution. CGRO enables you to optimize your cloud spending and simplify
+configuration with various cloud providers. With CGRO, you can review your public cloud costs to get a
+clearer understanding of your activity and usage of public cloud resources.
+This capability requires an HCMX license.
+The CGRO menu visibility also depends on the experience mode. For more information on how to set
+experience mode, see 
+Application Settings
+.
+Software
+Asset
+Management
+(SAM)
+With the hardware and software data discovered by UD and license data retrieved from SMAX, the new
+SAM capability enables you to calculate and analyze license compliance for the software applications
+that you are using in your organization. This will reduce the risk of noncompliance and improve the
+visibility into your financial and operational decisions.
+The Service Management Automation suite includes components as described in the following table.
+Component
+Description
+OPTIC
+Management
+Toolkit (OMT)
+OMT powers the deployment of container-based software suites.
+Suite
+Administration
+This is a user interface for a suite administrator to manage, configure, and operate the suite.
+Service
+Management 
+Service Management provides a tool for service desk and help desk management that efficiently
+handles change and incident management. Service Management integrates a broad range of suite
+capabilities, Big Data, and social collaboration to enable your workforce with connected intelligence.
+SMAX 2022.11
+Page 
+134
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

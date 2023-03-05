@@ -1,0 +1,12 @@
+Impact assessment 
+Another key use case is to have a powerful impact assessment feature. With Native SACM, impact assessment is driven by
+UCMDB's impact rules. Customers are now able to configure the rules based on their requirements. 
+Codeless extension of CI attributes and codeless configurability of business rules for federated data 
+With Native SACM, it’s super easy to expose additional CI details from UCMDB in SMAX. You can simply go to Studio, add a new
+attribute to the data model and link the new attribute with an attribute from UCMDB.
+SMAX 2022.11
+Page 
+139
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

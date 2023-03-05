@@ -1,0 +1,49 @@
+SACM Overview
+Providing Services
+One of the first differences I noticed about Service Management Automation X compared to other options out there was that it
+was designed it around services. Our IT department provides and maintains these services for the end users, so it makes
+sense for us to focus the solution on them.
+So one of the first things I need to do is to define the services our IT department provides to our customers.  Why start here?
+Well, without specifically calling out the services we need support we could see a ton of problems. We might get calls or emails
+about things we have no control over. Or we might get requests relating to our products, but for things we simply can't do.
+Defining our services limits our responsibilities to the consumers and it refines the focus of our team as providers. By clearly
+specifying what we provide, we can accurately and succinctly define our processes around these services. This will result in a
+much higher (and faster) return on the investment we are putting into our new service desk applications.
+The bottom line here is that regardless of what processes you are thinking of implementing at the start of your project, define
+your services first. Everything else revolves around these definitions.
+Service Management Automation X is service driven. Therefore these definitions will have a big impact on how our end users
+and agents will interact. The service catalog was designed around services (as the name would suggest). You can think about
+this as the menu where end users come to “consume” our services. For our agents, everything from assigning the right team
+for a task to knowing who to notify in emergencies resolves around services. So if the users are ordering from a menu, the
+agents will be in the kitchen working to provide these services to the end users. We’ll also be able to report by service, so we
+can see which services generate the most load on the service desk in terms of the number of questions asked, requests, and
+issues.
+And remember, as our portfolio changes and we take on more responsibilities we can add to our service definitions. We want to
+be agile, so we need to expect and even embrace change.
+Ok, let's get started then. The ITIL process documentation defines an IT Service as "a service provided to one or more
+customers by an IT service provider". Okay… Well, that makes us the IT service provider, and in this case, our customers are
+the employees of the company.
+Based on that we have many services we need to define in the system. Let’s start with one of the most used services we
+provide, Email. The service we are providing to the consumer is the ability to send and receive an email with their company
+address. So I'll add a service definition for that in the service portfolio. Once I do, I need to move the service into the “operate"
+step of the workflow since it's an existing service.
+Getting Started with the Service Portfolio and SACM
+In this section, Glenn will define the services that his IT department provides as part of the service portfolio, and
+the high level components that make up those services in the Service Asset and Configuration Management
+(SACM) module. SACM maintains information about the configuration items (and their relationships) required to
+deliver an IT service. Providing the service definitions he will support is also the first step in defining the service
+portfolio within Service Management Automation X.
+These definitions will continue to fill in the overall Service Management Automation X data model.
+By the end of this section Glenn will:
+Work with IT to create a list of all business services provided to the consumers/clients
+Create the service definitions within the service portfolio
+Define each instance as an actual service in Service Asset and Configuration Management (SACM) module
+Define the service components and system elements for the actual services in SACM
+
+
+SMAX 2022.11
+Page 
+154
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

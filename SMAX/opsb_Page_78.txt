@@ -1,0 +1,113 @@
+Suite
+Administration
+OCT
+CR1
+9M1
+6990
+00
+If there are up to 1 million DB users in the system, user sync from IdM to Suite Administration will
+fail with IdM crash.
+Suite
+Administration
+OCT
+CR1
+9M1
+6090
+58
+The wrong OAuth Configuration is used if you have multiple OAuth Configurations.
+Suite
+Administration
+OCT
+CR1
+9M1
+6984
+95
+If there are up to 1 million users in the system, when you navigate to the Users tab in IdM Admin
+Portal, IdM crashes.
+Suite
+Administration
+OCT
+CR1
+9M1
+7173
+35
+If you reset the password for an integration user in Suite Administration after making some
+changes to the user, integrations that use the integration user will fail with an authentication
+error.
+Suite
+Administration
+OCT
+CR1
+9M1
+5960
+45
+If a tenant's default login type is LDAP or OAuth, integrations that use integration users created in
+the tenant fail with an authentication error.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+6351
+05
+When the number of consumed points of unknown users is larger than the number of available
+points, the number of consumption points pushed to license usage is incorrect for a named user
+product.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+6410
+18
+No Oracle Database Options and Management Packs are displayed in Compliance and Analysis.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+6605
+57
+Subscriptions with unrecognizable status can't be synchronized to SAM, but the exception
+information can be found in the log file.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+6171
+23
+During license calculation, errors will occur if the license metric for the license model is empty.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+6242
+05
+License calculation results are different when the license allocation order changes.
+Software
+Asset
+Management
+OCT
+CR1
+9M1
+7071
+19
+The report card of 
+Compliance trend in past 6 months
+ on the 
+SAM Home 
+dashboard is
+missing.
+SMAX 2022.11
+Page 
+78
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

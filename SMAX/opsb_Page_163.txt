@@ -1,0 +1,49 @@
+methods for our internal agents to start processes, but by directing all end user communication through requests we can keep
+our backend functions separate from (but connected to) our customer-facing functions. Whether the service desk is taking a
+phone call, responding to an email, or the end user makes a request directly through the Service Management Automation
+Service Portal, the result in our system will be a request.
+In Service Management Automation X the Request process is ready to go out of the box, but there are a few places where we
+might want to configure it a little before we begin. The first thing we need to look at is the record categories we want to use.
+Notice that these record categories are completely separate from the service categories we created for the service catalog.
+Setting up our Record Categories
+The first thing we want our system to do is to help the service desk agents classify the request while providing initial support.
+Initial support in our case means the analysis, evaluation, and routing of the request by our first line agents. By classifying the
+request into a pre-defined category we can help the initial agent ask the proper questions and direct the request to the proper
+group. One thing to keep in mind though is the fact we can't be 100% sure we have the right category for a request until we're
+finished with it. So it's important to train our agents to review the categorization at the end of the request process and correct
+it when necessary.
+Categorizing the requests will also assist us in investigating the requests over time and determining specific trouble areas
+where we may need to invest in improving our service offerings or even change the existing services themselves.
+In Service Management Automation X the record categories are defined using a three-level hierarchy, so we can have two
+levels of sub-categorization under the main categories. We don't have to use all three levels for every category though. Once
+we add a record category, we won’t be able to delete it (that would 'break' the data integrity of existing records that used it),
+but we can make them inactive so agents can't add them to new records. Either way, we should do our homework and try our
+best to build an accurate categorization structure for our services. The effort here will be well worth the time spent.
+One thing we might want to consider here is whether we want to add a catch-all record category. This might be useful as we
+train our agents or bring someone new onboard, as it might not be clear to them which category to use. If we create an
+'Unknown' category, it will give them a quick way of getting past the classification process. However, if we do this we need to
+think about adding a business rule (Service Management Automation X’s method of letting us change the out-of-the-box
+workflow of a process) that won’t allow a request to close while still in the “Unknown” category. Having the “Unknown”
+category exist after a request closes would make it much harder for the request managers to mine the data for trends and
+problem areas.
+The exact steps used to 
+create and edit categories
+ can be found in the online documentation.
+Creating Views and Reports for the Dashboard
+The next thing we want to do is give our agents some quick and easy ways to see what's going on in the system and get to the
+tickets they need to work on. The first thing they will see when they log in is the system dashboard, but then each user can
+customize the dashboard to fit their personal preference and work habits. I will need to review the list of out of the box reports
+and add any I think our agents might want or need.
+The second thing we need to do is to make sure there are adequate views defined for our agents. The agents will use these
+views to manage their workload and determine which Requests they should work on. There are already pre-defined views such
+as 'My Requests’, which should be enough for the majority of our agents. However, one manager requested that I make a
+public view of 'All Active Critical Requests'.
+I can easily create this view by going to the requests list from the 'Service Request' menu. From there I need to edit the
+current filter to what I want, that click the 'Edit views' button at the top of the screen. Using the 'Save view as' option I can
+name the new view the way I want and mark it as public so everyone can view it.
+SMAX 2022.11
+Page 
+163
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

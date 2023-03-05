@@ -1,0 +1,112 @@
+debug and track the fulfillment steps of their Test Deployment Instance by accessing the events, view the cause of failure, and
+link detailed Operations Orchestration flow. See 
+Service design deployments
+ and 
+Service Instance management
+.
+Pause on success
+This release introduces the 
+Pause on Successful Completion 
+option which, can be used to pause the lifecycle execution
+when an action is successfully completed. An operator can resume the lifecycle execution using the user interface or by
+invoking an API. You can enable this option in the lifecycle action wizard of Service Design, Component Template, and
+Resource Offering. For more information on how to enable the option, refer to the following documents.  
+For Service Design - 
+Lifecycle action selection wizard for service design
+ and 
+Action selection wizard for service design
+. 
+For Component Template - 
+Lifecycle action selection wizard for component template
+ and 
+Action selection wizard for
+component template
+. 
+For Resource Offering - 
+Lifecycle action selection wizard for resource offering
+ and 
+Action selection wizard for resource
+offering
+. 
+For more information on how to resume the lifecycle execution, see 
+Service Instance Management
+.
+Cost Governance and Resource Optimization
+You can gain visibility into cloud spend by filtering the data based on the preferred date range. See 
+Showback Reports
+, for
+more information on how to set the date range.
+Content Management
+From this release:
+The OOTB capsules will appear in Content Store after you enable DND. See 
+Content Management
+The Content Store API now includes Uninstall API, which you can use to uninstall any existing capsule in the Content Store
+UI. See 
+Content Store API
+.
+Cloud Management capsules and content packs
+This release introduces the following new features and enhancements for these out of the box (OOTB) capsules and content
+pack:
+Google GCP capsule 2.3.3
+You can use the Google GCP capsule to create databases (MySQL, Postgres, and SQL server) in GCP.
+Microsoft Azure capsule 18.7.0
+While creating VMs in Linux using the Microsoft Azure capsule, you can choose between username/password based and SSH
+key based authentication types. 
+Microsoft Azure Load Balancer
+ and 
+Microsoft Azure Database Management
+ resource
+offerings now point to the correct resource category.
+Capsule Amazon AWS 18.4.1
+You now have the option to choose the providers in the 
+AWS RDS Advanced User
+ service design. 
+Amazon RDS Database
+Provision
+ resource offering now points to the correct resource category (Database). Resource sync now fetches the latest
+RDS DB Engine (MySQL, Oracle Database Standard Edition, Oracle Database Enterprise Edition, and Postgres) versions.
+OO Cloud Content 2.11.4
+Describe DB Engine Versions
+ operation is added to the Amazon folder and this fetches the latest RDS DB Engine
+versions. 
+Get SSH Public Key Info 
+and
+ List SSH Public Keys by Subscription 
+workflows are added to Microsoft
+Azure Compute folder. 
+Undeploy VM
+ workflow in the Microsoft Azure Compute folder is now modified with the logic to delete
+OS and data disks and 
+Delete Disk
+ workflow is added to help delete a specified disk.
+See 
+Content Management
+ for the complete list of OOTB capsules and content packs.
+Mobile app
+This release introduces the following new features and enhancements for the mobile app. 
+If you add some help text to a user option in Service Management, the mobile app can also display the help text.
+The mobile app supports the full set of 
+Unicode emoji
+ for both Service Portal mode and Agent mode.
+The common scenarios where emoji are leveraged:
+When a Service Portal user submits a request, adds comments or chats with a virtual agent, emoji can be copied into
+and displayed in text fields.
+When an Agent user edits a record, emoji can be copied into and displayed in the text field.
+Agent mode
+The agent mode of the mobile app is now available as Early Access for both iOS and Android devices.
+iOS
+The Home page is introduced in the Agent interface for quick access to My Requests, My Group Requests, My Tasks and
+My Group Tasks pages.
+Besides the image files, now you can also preview the text files from the Attachments list. In addition, you can now
+download and share all types of files from the Attachments list.
+Android
+Agent users can switch to the agent interface and manage the requests after the agent mode is enabled in 
+Application
+Settings
+ and mobile request forms are configured.
+SMAX 2022.11
+Page 
+115
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

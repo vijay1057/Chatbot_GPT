@@ -1,0 +1,122 @@
+Service
+Management
+OCTCR19M692304
+The order is wrong when you sort the subscription records by price or
+recurrent price from high to low. The subscriptions without a price or
+recurrent price are displayed prior to the ones with a price or recurrent
+price.
+There is no workaround for this issue.
+2020.05
+Service Portal
+/ Service
+Management /
+Suite
+Administration
+OCTCR19M786593
+When the default login type is set, you can enter your username and
+password on the same page for login. However, if you log out and try to
+log in again, you first need to enter your user name, click 
+Next
+, and
+then enter your password.
+There is no workaround for this issue.
+2020.05
+Service Portal
+/ Service
+Management 
+OCTCR19M779223
+When a user's upn is same as the group upn, a "Session Expired" popup
+is displayed when the user logs in to the tenant.
+There is no workaround for this issue.
+2020.05
+Service Portal
+OCTCR19M781360
+If the login name of a user is in Russia, Simplified Chinese, or Greek, the
+user can't log in to Service Portal.
+There is no workaround for this issue.
+2020.05
+Integration
+N/A
+Case exchange between Service Management and Service Manager isn't
+working. 
+There is no workaround for this issue. 
+2020.02
+Integration
+OCTCR19M915639
+If you have an incident model where it will trigger an OO flow if there are
+any comments or field updates to an incident, SMAX isn't triggering the
+OO flow for any first comment or field updated.
+There is no workaround for this issue. 
+2020.02
+Suite
+Administration
+QCCR1E159016
+You can't save the configuration for a Service Manager tenant when the
+Service Manager tenant is active.
+2020.02
+Suite
+Administration
+QCCR1E159957
+After you configure the custom domain, some URLs (such as
+https://<custom domain>/saw/ess and https://<custom
+domain>/dashboard) aren't appropriately rerouted when using a reverse
+proxy server.
+2020.02
+OMT
+QCCR8B36839
+OMT upgrade fails with a "Waiting for upgrade finished timeout" error
+message.
+See the workaround
+.
+2020.02
+Mobile app
+QCCR1E158359
+Service Portal mobile app doesn't support Dark Mode in iOS and Android
+devices. Dark Mode is disabled in mobile app at this stage.
+There is no workaround for this issue.
+2020.02
+Smart
+Analytics
+QCCR1E158646
+The search results might be incomplete occasionally during the suite
+upgrade process.
+There is no workaround for this issue.
+2020.02
+Service
+Management
+QCCR1E159423
+The filtering rule for fields (such as Category in a request) only supports
+values that start with a letter or underscore while the rest of the
+characters only consist of letters, numbers, and underscores. For
+example, if a value starts with a bracket, the filtering doesn't take effect
+when you select this value.
+2019.11
+Mobile app
+OCTCR19M866367
+Service Portal mobile app doesn't support Right-to-Left languages.
+There is no workaround for this issue.
+2019.08
+OMT
+OCTCR19S1245110
+The Grafana pod enters the 
+CrashLoopBackOff
+ state, and error messages
+that resemble the following are written to the log:
+  Service init failed: Migration failed err: database is locked
+This issue occurs in managed Kubernetes distributions of OMT that are
+deployed on Microsoft Azure.
+There is no workaround for this issue. 
+Click here for more information
+.
+2019.08
+Category
+Issue ID
+Description
+Found in
+version
+SMAX 2022.11
+Page 
+85
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,102 @@
+Capsule Amazon AWS 18.5.0
+Amazon RDS, AWS EC2 Compute Advanced, and AWS EC2 Compute with Spot Instance service designs are enhanced. For
+Amazon RDS service design, you can now get two additional outputs 
+DB Instance Status
+ and 
+Endpoint Address. 
+You can
+now retrieve 
+Private IP address
+ and 
+Private DNS Name
+ values using Amazon Deploy Instance flow in Cloud content pack.
+See 
+Capsule Amazon AWS
+.
+Google GCP capsule 2.5.0
+Provider selection logic applied to 
+Google Compute Instance
+ service design. You now have the option to choose the
+providers in the 
+Google Compute Instance
+ service design. See 
+Capsule Google GCP
+.
+OO Cloud Content 2.12.0
+New operations added to Microsoft Azure and Amazon folders. See 
+Cloud content pack
+.
+See 
+Content Management
+ for the complete list of OOTB capsules and content packs.
+Mobile app
+This release introduces the following new features and enhancements for the mobile app. 
+Agent mode
+In this release, the agent mode of the mobile app is generally available for iOS devices.
+iOS (Generally Available)
+Agent users can easily manage requests (search including KM results, view and assign requests, see affected CIs, view and
+update tasks, add CI by QR or barcode scan, and add attachments) in the mobile app.
+The following data types are now supported in the mobile form design:
+One to many grid (view-only)
+Many to many grid (view-only)
+Duration
+You can now synchronize the Views defined in Service Management to the mobile app.
+In the My Views page, you can browse the views and configure which views to be displayed in the app.
+Android (Early Access)
+You can now search for specific requests, devices, people, and knowledge articles or news.
+When you update the detailed information of a request in the rich text editor, you can:
+Edit and format your descriptions, such as bold and highlight the text, or add bullet points
+Embed images or files in the rich text editor
+Scan barcodes or QR codes into the rich text editor
+Functional Improvements
+The default sort order for the offerings set in 
+Sort offering by
+ is also applicable in the mobile app in addition to Service
+Portal.
+After you enable 
+Debug Settings
+ for the mobile app, users can turn on the debug mode on the mobile app to record the
+app logs for debugging purposes.
+See 
+SMA mobile app
+.
+Installation, upgrade, and system maintenance
+The following changes in the installation, upgrade, and system maintenance process are introduced:
+This release introduces a simplified network architecture with fewer network layers and less latency for EKS deployment.
+You can now use 
+AWS Load Balancer Controller
+ to automatically provision a load balancer. See 
+Install the suite with
+new architecture
+ and 
+Migrate to the new architecture
+.
+The backup and restore solution for managed kubernetes deployment is improved with more details including how to
+define recovery objectives and how to apply a Disaster Recovery Plan to your organization. See 
+Overview of backup and
+restore
+ and 
+Use case: backup and restore
+.  
+Support for PostgreSQL 9.6 is discontinued, and support for PostgreSQL 12 is added.
+Support for Internet Explorer 11 is discontinued.
+2021.05
+Integrations 
+This release introduces the following integration enhancements. 
+Microsoft Teams integration
+You can easily integrate Service Management with Microsoft Teams through a new built-in integration framework.
+See 
+Integrate with Microsoft Teams through a native integration framework
+.
+Direct download of UD Probe and UCMDB Local Client from Service Management UI (containerized CMS only)
+Containerized CMS customers can 
+enable direct download of UD Probe and UCMDB Local Client from the Service Management
+UI
+. 
+Asset Management
+SMAX 2022.11
+Page 
+113
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

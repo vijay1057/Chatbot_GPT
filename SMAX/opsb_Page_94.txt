@@ -1,0 +1,26 @@
+Apply OO Containerized 2022.11 patch 1
+You can download this OO Containerized patch from 
+here
+. Apply this patch only if you have installed OO Containerized
+2022.11. For detailed installation steps, see 
+OO Containerized 2022.11.P1 patch release notes
+.
+(Optional) Apply Containerized CMS 2022.11 patch 1
+Containerized CMS 2022.11.P1 is available. follow the instructions below to apply the patch:
+If Containerized CMS is deployed in an on-premises environment, see 
+Install a CMS patch (embedded Kubernetes)
+.
+If Containerized CMS is deployed in a managed Kubernetes (Azure with AKS, AWS with EKS, or OpenShift) environment,
+see 
+Install a CMS patch (managed Kubernetes)
+.
+For detailed information about fixed issues, patch name, and download link, see 
+Containerized CMS 2022.11.P1 patch release
+notes
+. 
+SMAX 2022.11
+Page 
+94
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

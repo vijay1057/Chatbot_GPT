@@ -1,0 +1,29 @@
+Yes, you guessed it. More information about 
+dashboards and reports
+ may be found in the online documentation.
+Live Support
+The Live Support module is specifically created for the agents that will create requests coming in through the company’s
+phone system. Live Support can connect directly to our Computer Telephony Integration (CTI) system so the agent can see the
+caller’s name, related information, and recent requests without having to take any action. If we aren't using CTI, the agent
+simply begins to type the caller’s name and the system will provide a list of possible matches in the system. Live Support can
+also help the agent to determine the proper resolution of the request depending on the description they have entered. Live
+Support will suggest:
+Knowledge articles based on the request description
+Recent incidents on the service specified in the request
+Any known issues with the equipment (configuration items) that the caller has
+Offerings that might relate to the request description
+Knowledge articles that the agent has marked as their favorites
+This functionality brings curated system knowledge from several areas and puts it in front of the agent automatically. This can
+save the agent time and produce a better experience for the caller. The agent can resolve the request directly from Live
+Support, or create a new request for processing by another agent or team.
+Live Support brings a number of features directly to the agent. Details about the 
+Live Support features
+ can be found in the
+online guide.
+Importing Existing Knowledge
+SMAX 2022.11
+Page 
+164
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

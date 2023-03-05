@@ -1,0 +1,107 @@
+You can now grant privilege to users for viewing request details in the customized tabs: 
+Enable users to view the details of all requests in a custom tab
+Enable users to view only the details of the requests they are entitled to
+When you add query expressions to define the requests to be displayed in the customized tabs, three-level object
+properties and some specific DSL functions are now supported.
+See 
+Instructions and tips
+.
+When you perform a Reject or Approve action in Service Portal, a dialog box is displayed and prompts you to add
+comments.
+For Approve action, tenant admin users can enable 
+Show quick approval
+ in 
+Feature settings
+ to display a
+Quick Approve
+ button for Service Portal users to approve without adding comments.
+The 
+global search issue
+ in Service Portal was fixed by separating the Machine Learning sub-search logic for Related
+Offerings into a dedicated action. Now the search results can include at most 5 related offerings based on search
+relevancy and the search results are appended to the end of the normal search results which include at most 30 records.
+You may disable the Machine Learning sub-search logic for Related Offerings in 
+Feature settings
+. 
+Note:
+ If you have applied the patches which include this search fix in earlier versions, then after you upgrade to this
+release, the method provided to bypass the Machine Learning sub-search logic in these patches won't take effect
+anymore. Instead, you may bypass it in 
+Feature settings
+.
+Mobile app
+This release introduces the following enhancements for the mobile app.
+Agent mode
+iOS
+Incident management is now supported in Agent mode for iOS devices:
+iOS 15 is newly supported in this release.
+Android
+You can now add solutions from the suggested solutions to your requests.
+You can now view the related records and involved CIs of the requests.
+You can now view the updates and comments of the requests in the 
+Activity 
+tab.
+The actions from the "more actions  
+ 
+" list are moved to the 
+Account 
+bottom tab.  
+Android 12 is newly supported in this release.
+Login improvements
+The UI design of the login page is enhanced to provide clearer instructions for login.
+If you log out of the mobile app and then log in again, the system will automatically fill in your username according to
+your previous login information.
+Functional improvements
+You can now use the rich text box to edit your contents for Android devices.
+See 
+mobile app
+. 
+Installation, upgrade, and system maintenance
+Support for the following operating systems is discontinued: 
+Red Hat Enterprise Linux 7.7, 8.0, 8.1
+CentOS 7.7 and 8.
+x
+Oracle Linux 7.7, 8.0, 8.1
+To improve the search performance on AKS with Azure Files, you can now create a StorageClass for Azure Disks to store
+the Smart Analytics and RabbitMQ data and use Azure Files to store all the other data. See 
+Subscribe premium Azure Files
+and Azure Disks
+ for details.
+Containerd replaces Docker as the CDF container runtime. If you are upgrading to CDF 2021.11 from an earlier version,
+the migration from Docker to containerd is automatic. However, you may need to temporarily add a worker node to your
+cluster.
+The suite upgrade process includes an additional prerequisite step to create a database for the Integration Engine (which
+didn't require a database prior to this release). See 
+Create a database for the Integration Engine
+.
+The downtime during the suite upgrade this time will last longer and may range from about 30 minutes to one hour
+because of an encryption algorithm change in this release.
+Change FQDN: the 
+fqdn-replace.sh 
+script has been refactored and the process has changed accordingly—now you need
+to run the 
+replaceExternalAccessHost.sh
+ script first to change the FQDN for the CDF cluster and then run the 
+fqdn-
+replace.sh 
+script to change the FQDN for the suite. See 
+Change FQDN
+. 
+SMAX Content packs released on 
+Micro Focus
+ Marketplace
+Supporting resources for this release are available to download for free from the 
+Micro Focus
+ ITOM Marketplace:
+SMA Cloud Deployment Package
+SMA Operation Toolkit
+SMA Support Assistant
+SMA Doctor
+SMA Monitor
+SMAX Studio Apps
+SMAX 2022.11
+Page 
+110
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

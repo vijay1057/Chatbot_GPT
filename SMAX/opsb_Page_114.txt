@@ -1,0 +1,119 @@
+In this release, we are introducing additional Software Asset Management (the new SAM capability) features:
+Adobe content for user-based licenses
+You can now 
+calculate license compliance for Adobe products
+ with the out-of-the-box license rule 
+Adobe user-based
+licensing
+. 
+Currently, SAM's Adobe content is available only to the classic or containerized CMS 2021.05 or later deployments.
+In this release, SAM only supports Adobe's named-user licenses and their compliance calculation.
+Analyze end-of-support product information
+You can now view the number of products that will reach the end of support (EOS) date within a year. This helps you better
+manage your products' license compliance. See 
+View EOS products
+.
+License compatibility matrix - Upgrade
+When you need to purchase new licenses, SAM can calculate the number of highest-level licenses required to fulfill your
+license shortage according to the upgrade path. You can maintain the upgrade relationships following publishers' official
+documents by using an easy-to-use graphic editor. See 
+Maintain license compatibility matrix
+.
+Export/Import
+You can now export and import product information and dependent data (including product compatibility matrix and
+relationships between product versions and license rules) from SAM's Products page.
+Count product instances
+You can now view the number of product instances installed in your environment from the EOS report and product list.
+Service Management
+This release introduces the following enhancements for Service Management.
+Multiple dashboards
+In this release, agent users with the appropriate role permissions can create dashboard definitions for self-use or for sharing
+with specified audiences or all agent users. This way, agent users can view appropriate dashboards from their dashboard home
+page. See 
+Dashboard definitions
+ and 
+Overview of dashboards
+.
+Note
+: To use this feature in an upgraded tenant, the suite admin needs to 
+perform a crawling upgrade
+ and the tenant admin
+needs to 
+add new fields to the Full person form
+. 
+Many-to-many associations can be added to multiple records at the same time
+You can now add many-to-many associations to multiple records through the Preview pane at the same time. See 
+Update
+records using the Preview pane
+.
+CI synchronization control through Subtype and sd_type mapping
+Not all the CIs discovered by Universal Discovery are relevant to SMAX users. After the integration of SMAX 2021.05 and
+UCMDB 2021.05, you can use the SMAX Subtype and UCMDB sd_type mapping to control the synchronization of specific CIs
+from UCMDB to SMAX. See 
+CI type, attribute, and subtype federation
+.
+Requests
+The out-of-the-box display names for offering type, request type, and request workflow are changed as follows:
+Administration > Configuration > Lists > 
+Offering Type
+: The display names of the 
+IT Support Offering
+ and 
+IT
+Service Offering
+ list items are changed to 
+Support Offering
+ and 
+Service Offering
+.
+Administration > Configuration > Lists > 
+Request Type
+: The display names of the 
+IT Support Request
+ and 
+IT
+Service Request
+ list items are changed to 
+Support Request
+ and 
+Service Request
+.
+Administration > Configuration > Studio >
+“Request” record type > 
+Processes and Rules
+: The display names of
+the 
+IT Service
+ and 
+IT Support
+ workflows are changed to 
+Service
+ and 
+Support
+.
+Note: 
+If you have customized these items in earlier versions, the system won't make further changes.
+Person data privacy control
+When setting a role, you can select the 
+User privacy control in the self service portal
+ to prevent Service Portal users
+from retrieving other users' information such as name and avatar.  Specifically, the user information will change to
+"anonymous." See 
+Roles
+.
+Cloud Management
+This release introduces the following new features and enhancements for Cloud Management. 
+Image Aggregation
+Cloud Management now supports the Google Cloud Platform (GCP) resource provider, which enables you to aggregate images
+from GCP. See 
+Image Aggregation providers
+.
+Deployment events
+This release supports the cross launch of the Service Instance details page from the link provided on the Test Deployments
+Instance to the corresponding Service Instance in the Instance Management UI. This enhancement facilitates the Designer to
+SMAX 2022.11
+Page 
+114
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

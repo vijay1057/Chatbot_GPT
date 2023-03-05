@@ -1,0 +1,21 @@
+Installation
+QCCR1E150235
+If the external access host FQDN of the suite installation contains only
+two portions (for example, myhost.mynet), you can log in to the OMT
+Management Portal after the installation. However, you can't log in to
+the suite.
+This is a limitation of the SMA suite. Only FQDNs that contain at least
+three portions (for example, myhost.mydomain.mynet) are supported.
+There is no workaround for this issue.
+2017.11
+Category
+Issue ID
+Description
+Found in
+version
+SMAX 2022.11
+Page 
+87
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

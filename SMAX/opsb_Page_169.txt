@@ -1,0 +1,23 @@
+approvals take place (and I have my over-sized “DENIED” stamp ready). If the proper people approve the request, it will move
+into the 'Fulfill' phase, and if not it will move to 'Done' (and the end user will receive a notification that this happened).
+Our agents can see what approvals are necessary and even which ones have already been approved or denied directly from
+the Request. If they have the right role (remember those?) they can even change who needs to give their thumbs up for a
+particular approval.
+Notice how we can control the logic regarding what approvals the request requires and the order of those approvals. In this
+example, the system will not process the 'Financial approval' will until someone approves the 'Manager approve' task.
+Another nice thing we can do is allow our Agents to manually add approvals to the process from the request itself. If they have
+the right role (that we defined earlier, remember) they can click to add new approval requirements to the request, then add
+the person or group to that new approval.
+Fulfillment
+'Fulfillment' is where the work to fulfill the request is done (shocking, I know). With the 'Service' workflow, agents accomplish
+this by working on tasks that defined in the associated offering and/or any manually created tasks. During the fulfillment step,
+groups may pass the request back and forth. However, it will always be the responsibility of the owning service desk group to
+ensure that the request gets completed.
+The owner of the request can view the overall task plan directly from the request to see what tasks are in progress, which are
+upcoming, and any that might have been unnecessary.
+SMAX 2022.11
+Page 
+169
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

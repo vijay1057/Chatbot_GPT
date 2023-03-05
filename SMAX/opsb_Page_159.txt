@@ -1,0 +1,51 @@
+The final level in the service catalog hierarchy contains service offerings. These offerings are where we define the details of
+specific products and processes we provide related to our services. The offering definition includes information on how it will
+appear to the end user in the service catalog and the processes that the system needs to complete to fulfill a request for this
+offering.
+Some examples of offerings we need to define for our Email service might include:
+Standard email
+Premium email
+Upgrade email
+Increase mailbox size
+Create email aliases
+Enable mobile email
+Resolve an email issue
+The system defines the processes (the actual work someone needs to do) as tasks within the offering. The completed task plan
+may contain both manual and automated tasks. Inside the plan, we can also define any order and/or dependencies for those
+tasks.
+There may be several offerings that use the same plan, with some small changes to the values being passed or the default
+values. Service Management Automation X allows us to create reusable task plans called fulfillment plans. We can then attach
+these fulfillment plans to any offering, keeping us from having to create the same plan over and over.
+Creating each offering is the most challenging item of work in setting up the service catalog. For each offering, we need to find
+the answers to several questions:
+What does the offering provide to the person requesting it? Is it a physical item, a change to something they already
+have, or the ability to use a service?
+What steps (or tasks) are necessary to provide the item/service/etc? What order do we perform these tasks in?
+For each of the tasks, who makes sure they get completed?
+Who manages the overall process (to help us define it or change it when necessary)?
+We also need to be mindful of where we create our offerings. Offerings are not packaged as part of the configuration changes
+in the development to production process (see Appendix B), so we only want to create examples and do testing in our
+development tenant. We should create our actual offerings in the production system. Don’t worry, we can mark them as
+“inactive” until we are ready for them to show up in the portal.
+Now you can see why getting the service catalog can be quite a lot of work. But if we do it right, we'll have a system that can
+track, direct, and automate the work necessary for everything IT provides. By putting in this work up front we will save our end
+users and agents even more time down the road.
+And look, I know that we aren’t ever going to be “done” with the service catalog. Our services will change over time. New
+offerings will be created for our existing services, and some offerings will become obsolete and need to be removed.
+Maintaining the service catalog is an ongoing process we will need to oversee as time goes on.
+And of course, if you would like more detailed information about the service catalog head to the 
+online documentation
+.
+ 
+Localization
+We have end users all over the world, and they don’t all speak the same language. Lucky for us, Service Management
+Automation X has a built-in process that lets us export all the text in our catalog so we can send it off for localization. Once the
+localization is complete, we simply import the translated text back into our system, and then each end user will see the service
+catalog in their own language.
+Shopping Cart
+SMAX 2022.11
+Page 
+159
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

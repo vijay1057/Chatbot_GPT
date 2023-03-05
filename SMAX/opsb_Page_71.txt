@@ -1,0 +1,139 @@
+Service
+Management
+OCT
+CR1
+9M1
+6097
+40
+The User Management Reports Group page gives a "Not Authorized" error when the group status
+is null.
+Service
+Management
+OCT
+CR1
+9M1
+7190
+77
+When the user performs "Export survey responses" for a survey that includes a "Rating group"
+type question and the end user didn't provide an answer to the question, the "Export survey
+responses" action fails.
+Service
+Management
+OCT
+CR1
+9M1
+5208
+34
+Business rules that set a field's value to empty don't work for some field types.
+Service
+Management
+OCT
+CR1
+9M1
+5535
+14
+Users with View permission for Survey record types can't view survey records.
+Service
+Management
+OCT
+CR1
+9M1
+7240
+09
+With Native SACM activated, the entity suggestion rules filter incorrectly for ActualService to
+ActualService relationships.
+Service
+Management
+OCT
+CR1
+9M1
+5757
+94
+The platform-offline pod restarts frequently during the Service Level Target (SLT) calculation.
+Service
+Management
+OCT
+CR1
+9M1
+5721
+76
+If you add a comment that contains some special styles or formatting, Service Management
+doesn't allow you to add more comments to the same record and displays the error "You do not
+have the right to change existing comments."
+Service
+Management
+OCT
+CR1
+9M1
+5734
+99
+After enabling Field Encryption for a field with existing data in it, it is no longer possible to use the
+Mass Update feature.
+Service
+Management
+OCT
+CR1
+9M1
+6117
+42
+The offering duplication gets stuck if it contains rules created in an earlier version of SMAX.
+Service
+Management
+OCT
+CR1
+9M1
+6140
+48
+After the crawling upgrade, the SLT tenant setting flag "sltIsMainJobEnabled" is wrongly enabled
+by default even if it was disabled before the crawling upgrade.
+Service
+Management
+OCT
+CR1
+9M1
+6211
+67
+If several comments are added to a case simultaneously through the API, SMAX can't handle them
+properly.
+Service
+Management
+OCT
+CR1
+9M1
+6238
+82
+When the number of tickets increases, SQL performance becomes slow and causes SLT
+calculations delayed for hours.
+Service
+Management
+OCT
+CR1
+9M1
+6310
+30
+Metadata cache experiences issues when there are multiple tenants with the same system field
+definition for the same record type.
+Service
+Management
+OCT
+CR1
+9M1
+6470
+62
+If you go to the "Targets" tab and modify the "Service level targets" table by adding/removing
+columns, all changes disappear after a refresh.
+Service
+Management
+OCT
+CR1
+9M1
+6701
+16
+When you change the "Services" field of a request, if the Service Level Agreement (SLA) is also
+changed to another SLA linked to this service, the SLT calculation result will be incorrect.
+SMAX 2022.11
+Page 
+71
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

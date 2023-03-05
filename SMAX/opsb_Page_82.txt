@@ -1,0 +1,121 @@
+Upgrade
+OCTCR19M1441583
+The OMT upgrade fails after you update the certificates from the OMT
+management portal.
+See the workaround
+.
+2021.08
+Service Portal
+ OCTCR19M1384075
+The “Loading...” message is hardcoded in the customized tab of the
+request list.
+There is no workaround for this issue.
+2021.08
+Service
+Management
+OCTCR19M1190179
+Failed to aggregate an offering and the Service Catalog management
+page displays an error that resembles the following: 
+"Failed to aggregate the offering xxxxxx."
+Additionally, you can find the following messages in the log file: 
+"Property descriptor element is invalid, since its reference name is not a
+valid element. Reference element type is concluded from the property's
+logical type. Refer to: customization."
+There is no workaround for this issue.
+2021.08
+Service
+Management
+OCTCR19M1208014
+Some emojis are missing after you export a report to a PDF.
+There is no workaround for this issue.
+2021.08
+Cloud
+Management -
+Design and
+deploy
+OCTCR19M1376543
+Incorrect dialog box is displayed while accessing 
+Main Menu > Build >
+Design
+ for a user with 
+CMP Agent
+ role user and no permissions
+assigned in IDM.
+There is no workaround for this issue.
+2021.08
+Cloud
+Management -
+Image
+Aggregation
+OCTCR19M1323188
+Mismatch between the number of images projected (on the 
+Providers
+>
+ 
+Image Aggregation Providers
+ page) and the actual number of
+images collected (on the 
+Design
+ 
+> Image Aggregation 
+page), for a
+given provider.
+This occurs because of the following reasons:
+1
+. 
+When updating the actual number of images collected on the
+Design > Image Aggregation
+ page, the system merges
+duplicate images into single images. 
+Or
+2
+. 
+When collecting images, due to some technical issues, some of the
+images may be skipped.
+There is no workaround for this issue.
+2021.08
+Integration
+OCTCR19M1324639
+The Microsoft Teams integration based on the built-in integration
+framework doesn't support OpenL10n. 
+2021.05
+Suite
+Administration
+OCTCR19M1473393
+In a loginByEmail account, if a user is configured as both a DB user and
+an LDAP user with the same email address, the user can log in only as
+the LDAP user and can't log in as the DB user.
+There is no workaround for this issue.
+2021.02
+Service
+Management
+OCTCR19M1208014
+Some emojis are missing after you export a report to a PDF.
+There is no workaround for this issue.
+2021.02
+Service
+Management
+OCTCR19M1206473
+During the Native SACM data migration, if you restart an offline pod, the
+migration status will always appear "In progress."
+There is no workaround for this issue.
+2021.02
+Cloud
+Management
+OCTCR19M1209297
+Cloud subscription will show “Terminated” status in Service Portal when
+the deployment in DND pauses for more than 24 hours. The status won't
+get updated even if the deployment resumes in DND.
+There is no workaround for this issue.
+2021.02
+Category
+Issue ID
+Description
+Found in
+version
+SMAX 2022.11
+Page 
+82
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

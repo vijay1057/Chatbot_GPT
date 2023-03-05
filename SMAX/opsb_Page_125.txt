@@ -1,0 +1,117 @@
+The 
+New offerings
+ section is removed from the subscription details and the CI details. Therefore, end users can't
+create subscriptions from the offerings listed in this section.
+The 
+More offerings
+ section is renamed to 
+Related offerings
+ in the the subscription details and the CI details.
+A new 
+Initiated by offering
+ section is added to the the subscription details.
+The 
+History
+ section is renamed to 
+Request history
+ in the the subscription details.
+Cloud Native Focus
+This release supports Azure Files as the storage service when you deploy SMAX on Azure using the Azure Kubernetes
+Service. See 
+AKS Sizing guides
+ for sizing recommendations and 
+Subscribe premium Azure Files
+ for details.
+When SMA is deployed on AWS with the Large sizing profile, EFS is supported.
+Miscellaneous changes
+The CDF management portal offers a 
+Change
+ feature that enables you to add non-installed suite capabilities to an
+installed SMA instance, which can be either a new installation or an upgraded environment of SMA 2020.02. For more
+information, see 
+Add suite capabilities to an existing installation
+.
+One single CDF package for both installation and upgrade: 
+CDF2002-xxxx-15001-Standard.zip
+ for embedded kubernetes
+environments and 
+CDF2002-xxxx-15001-BYOK.zip
+ for managed kubernetes environments
+Adds support of the following operating systems for on-premises deployment: RHEL 8.1, and OEL 8.1
+Upgraded to underlying key open source projects Kubernetes 1.15 / Docker 19.3 and alignment to default storage driver -
+Overlay2
+2019.11
+SMAX 2019.11 introduces the following new features and enhancements.
+Cloud Native Focus
+SMAX in managed kubernetes mode now supports the deployment on Azure using the 
+Azure Kubernetes Service (AKS)
+ and
+AWS using the 
+Amazon Elastic Kubernetes Service (EKS)
+.
+Note:
+ For SMAX environments already in AWS classical mode, we recommend that you use the 
+backup-and-restore toolkit
+ to
+migrate your data to an EKS environment.
+AWS GovCloud support
+The suite can now be deployed on AWS GovCloud manually in classical mode. For more information, see 
+Install the suite on
+AWS manually
+.
+The classical mode will be replaced by the EKS mode when EKS is available on AWS GovCloud.
+Service Portal enhancements
+When the language of Service Portal is set to Arabic, the layout of UI elements is improved for better right-to-left (RTL)
+language support. Additional improvements will be introduced in future releases as part of our continuous effort to eliminate
+the remaining RTL related limitations.
+Service Portal mobile app
+The Smart Virtual Agent functionality for mobile app is upgraded to provide a better user experience. You can now chat
+with a Smart Virtual Agent (Chatbot) in the mobile app, retrieving solutions and obtaining support from the RASA-based
+virtual agent.
+You can now add multiple tenants and switch between the tenants in the Service Portal mobile app.
+Smart Analytics
+Containerized IDOL in the suite is upgraded to 12.3 and the setup is changed from mirror mode to non-mirror (consistent
+hashing) mode. 
+A full reindex for Smart Analytics
+ is needed if you upgrade the suite from a previous version, users are
+informed with the reindex progress if they perform search when the reindex isn't completed.
+Service Management enhancements
+Automated physical deletion of attachments:
+You can run a 
+Delete attachments
+ business rule, which when triggered, deletes attachments from relevant records. You
+can run this rule after applying changes or per schedule. Additionally, an asynchronous file repository server (FRS)
+cleansing daemon job keeps monitoring soft-deleted attachment files and then physically deletes them from the file
+system on a daily basis (up to 20,000 files per day). For details, see the 
+Delete attachments
+ section in 
+action rule
+examples
+.
+Execution of OO flows directly from workflows:
+You can run 
+Execute Operations Orchestration (OO) flow
+ business rules after applying changes in a record. This
+feature is supported for all entities, including custom entities. You can run this rule at the entity level or entity workflow
+level to trigger a job on a group of records that meet a specified condition. For details, see the 
+Execute Operations
+Orchestration (OO) flow
+ section in 
+action rule examples
+ and 
+Perform an integration with Operations Orchestration
+.
+Conversion of non-user friendly duration time format:
+Duration time fields in reports that were displayed as numeric values in minutes/seconds/milliseconds, which were not
+user-friendly, are now converted to readable dd:hh:mm format. This conversion covers the following fields:
+SLT: ElapsedDuration
+Task: BilledDuration
+CartItem: SupportDurationTime
+Request: SupportDurationTime
+Release: ActualDuration, and ScheduledDuration
+SMAX 2022.11
+Page 
+125
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

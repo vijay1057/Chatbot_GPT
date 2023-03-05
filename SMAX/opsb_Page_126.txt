@@ -1,0 +1,76 @@
+Change: ActualDowntimeDuration, ActualDuration, ScheduledDowntimeDuration, and ScheduledDuration
+Limitation
+: When reports of a pie/column/bar type are exported to a PDF, some fields are still displayed as a numeric value in
+the old format.
+Reduced downtime during suite binary upgrade
+The downtime is significantly reduced during the suite binary upgrade process. This is achieved by creating another set of
+temporary replica pods for certain deployments to take over the work from the original pods before upgrading them. All of the
+temporary pods remain at the old version (2019.08) to keep the services running, and when all of the original pods have been
+updated to the new version (2019.11), they take back over the work from the temporary pods, which are then deleted. This
+enhancement has been implemented for the following deployments, which have a large number of API calls between each
+other:
+itom-xruntime-serviceportal
+itom-xruntime-gateway
+itom-xruntime-ui
+itom-xruntime-platform
+Operating system support
+This release adds support of the following operating systems:
+CentOS 7.7, 8.0
+RHEL 7.7, 8.0
+OEL 7.7, 8.0
+Note
+: CentOS/RHEL/OEL 7.4 is no longer supported.
+SAM solution
+The new SAM solution retrieves software installation and license data from CMS and SMAX. SAM helps calculate and analyze
+software license compliance. It provides information such as license compliance status, licenses consumed per machine,
+license allocation, compliance risks to your enterprise, and potential cost savings.
+This release of SAM introduces the following features and capabilities:
+Display and analyze compliance status of the deployed software
+Support the following out-of-the-box license rules:
+Microsoft: Windows Server, SQL Server, Office 365
+Oracle: Oracle Database with Options and Management Packs (based on Oracle LMS)
+Provide license rule SDK for customization
+Retrieve the hardware and software CI inventory directly from CMS and retrieve license data directly from SMAX in real
+time
+Note
+: To enable SAM for multiple tenants, you must deploy different SAM environments for different tenants.
+For more information, see 
+Deploy SAM
+ and 
+Software Asset Management
+.
+2019.08
+SMAX 2019.08 introduces the following new features and enhancements.
+Service Portal enhancements
+Subscriptions can be automatically created as part of the request fulfillment process, simplifying ongoing management and
+related requests via the self-service portal.
+The display of those subscriptions has been enhanced: When you have multiple subscriptions on the same service, device, or
+infrastructure, all subscriptions will be listed under 
+Service and Assets
+ in Service Portal. The display label of each
+subscription will be shown instead of the name of service, device, or infrastructure.
+Smart virtual agent enhancement
+Tenant administrators can enable the smart virtual agent in 
+Application settings
+.
+Using entity link user options in DSL expressions
+You can use entity link user options in complex DSL expressions to improve the effectiveness and efficiency of SMAX. For more
+information, see 
+Use entity link user options in DSL expressions
+.
+Enhanced upgrade process
+Decoupled the CDF upgrade process, allowing you to lower infrastructure upgrade risks while focusing on suite application
+added-value instead
+Ability to remove older image versions before and after upgrade by using the 
+clean_images.sh
+ script to reclaim disk space
+During the suite version update, you have the option to keep your resource settings (CPU, memory, and replicas) for
+Deployments, StatefulSets, and DaemonSets that you used in the previous version, to save your performance tuning
+effort.
+Installation process enhancements
+SMAX 2022.11
+Page 
+126
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
