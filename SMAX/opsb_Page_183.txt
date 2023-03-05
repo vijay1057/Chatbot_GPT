@@ -1,0 +1,46 @@
+knowledge directly. At the bottom of the 'Resolution' section is a 'Suggested solutions' tab. Clicking on this tab brings up the
+most likely knowledge candidates. This knowledge might be more than just articles (i.e. incidents, changes, etc.), but the
+knowledge articles are always available.
+Again, the agent can copy a link to the article into the solution field with a single click.
+Clicking on the 'Find more solutions' button will take the user to the global search, copying the description of the record they
+are working on. What? You don’t know what global search is? Well, that’s because I haven’t gone over that yet. I was looking
+for a good time to bring it up and now seems like the right time.
+Global Search
+Service Management Automation X’s global search function is accessed by clicking the magnifying glass icon on the top right
+of the screen. It allows the agent to perform a search on the entire system and then drill down into a specific record.
+One of the nice features here is the ability to restrict the search to a certain record type. So I can perform a search and only
+return relevant knowledge articles or news. I can also perform the search while I have another record up, and return to it when
+I’m done.
+While I can’t use the global search to fill in the solution information like I could when searching from the request/incident, I can
+mark a specific article as a 'Favorite'. My favorites are always available when using the 'Live Support' page, so if there is an
+article I use all the time I can make it a favorite so it will be available during every call. I have saved more time by making the
+'How to reboot a computer' article one of my favorites than you could imagine.
+A few things we may need to remember when using the global search:
+Only the top 30 results will be displayed.
+Each item has a relevancy score based on how closely it matches the search criteria. Records that have a very low score
+will not be displayed.
+There are also some powerful ways to enhance the use of the global search tool. While it's too much to go into here if you are
+interested you can look into:
+Service Management Automation X search engine FAQs
+Global Search tips
+Discovering Needed Knowledge
+With the service desk, I think the saying “We don’t know what we don’t know” is very relevant. If we knew every question that
+our end users would ask, we could create all the right knowledge articles so they could find what they needed without even
+talking to an agent.
+While we do our best to put out as much quality knowledge as we can, there are always new types of devices or software that
+the end users get their hands on that we don’t know about. And sometimes we don’t do the best job of putting together the
+right knowledge for our own services before we launch them (I know, I was shocked too). So while Service Management
+Automation X might not look into the future for us to determine what we need to create, it has great tools that can help us
+point out what knowledge we might miss based on our end users’ needs.
+Hot Topic Analytics
+One of the Big Data tools that makes Service Management Automation X so popular is called Hot Topic Analytics. This tool
+allows us to find patterns in unstructured data such as text descriptions. This powerful tool is used in several places in the
+product, including knowledge management.
+We can use the Hot Topic Analytics engine to find common terms in support requests or even user searches. This is a great
+way to find out new things users are looking for that aren't already supported by a service offering or knowledge article.
+SMAX 2022.11
+Page 
+183
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,17 @@
+Reporting on Service Targets
+It will be very important for us to report on how we are performing against our service agreements. Service Management
+Automation X stores all the data we need to determine what kind of job we are doing against each one.
+One thing we need to think about as we design our reports is what we are measuring in each one. Are we looking at how we
+are doing in a specific area, such as incidents or requests? Or are we looking at a specific type of target (the approvals target
+type in a request for example)?
+The reason this is important is that we will report against a different data set depending on the answer to that question. If we
+want to see all the incidents that have breached any service target, we will report against the incident table. If instead, we
+want to see how many approval target type breaches we have; I need to report against the actual service level target data.
+So as long as we know what we are trying to measure we can select the correct record type to report against. This way we can
+get all the information we need into our reports and/or dashboards.
+SMAX 2022.11
+Page 
+190
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

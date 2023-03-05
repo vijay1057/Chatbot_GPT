@@ -1,0 +1,20 @@
+Service Management Automation X also provides an option to view all the changes defined in the release using the calendar.
+From the calendar, the release manager can review and change the planned start and end time of each change — as long as
+they are contained within the start and end times of the release.
+Setting up Release Management
+Again, setting up release management is very similar to setting up the other modules we have addressed so far. Release uses
+the same record categories we have seen before, so we need to review those and create any additional ones that we might
+need. We can also review the existing views and reports and add any we might find necessary.
+As we should expect by now, there are a few things we need to do that are specific to release management. This includes
+setting up any necessary release models we might need to best support our current release process.
+Creating Release Models
+Many of our releases are on a set schedule; every quarter, every month, etc. Release models allow us to create the framework
+for these releases so we don’t have to re-enter the same information every time. This also includes defining specific tasks that
+we need to complete during the release life-cycle. Remember, these tasks don't relate to the actual changes that make up the
+release, but on the overall process of the release itself.
+SMAX 2022.11
+Page 
+218
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

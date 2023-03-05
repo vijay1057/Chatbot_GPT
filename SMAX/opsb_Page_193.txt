@@ -1,0 +1,39 @@
+Adding Questions
+Now we can add the actual questions we want the end users to answer. There are several types of questions we can use,
+including:
+Primary survey rating — An overall rating that can have anywhere from 2-5 selections to choose from. Each selection can
+have a unique image associated with it (smiley faces anyone?).
+Rating — Additional ratings that may have from 2-6 selections to choose from.
+Rating Group — Multiple questions that all have the same 2-6 selections to choose from.
+Text — A question that enables the end user to type in a response. They can type in multiple lines of text.
+Short Text — Again a question that allows the end user to type in a response, but only a single line of text.
+Radio — A question that allows the end user to select a response from a list of pre-defined selections
+Number — A question that allows the end user to select a numerical response. We can set a minimum and maximum
+value that the user may select.
+Each question will have a title visible to the user, and a report label — a short, descriptive label that will appear in the reports.
+If we want to see how the survey will look to our end users, we can use the 'Preview' option on the survey. This can be useful
+to get a feel for how much work we are asking the end user to do — if we make the survey too long or appear like a lot of
+work, our end users may not bother to fill it in.
+Setting up Reports
+After our end users answer our questions, we need to investigate the results to see how we did and decide where we can
+improve. Setting up the reports is simple, but we need to plan out what reports we need ahead of time.
+The first thing we need to do is determine what type of record (if any) we want related to this survey. It might be requests,
+incidents, or any other type of record in the system. Once we set this on our survey, we can specify what fields from that
+record we want to use in our reports. For example, if we are setting up a survey for incidents, we might want the service,
+category, and urgency fields to be available in our reports. The survey definition will give us a list of all the available fields and
+we need to select which ones we will need.
+We can also use information from the end user that's taking the survey in our reports. Again we need to specify the attributes
+of the end user we want to use in our reports (location, company, etc.). Alternatively, we can specify that this is an anonymous
+survey and no information about the end user will be kept.
+Next, we need to create the actual reports. Service Management Automation X gives us the option to create a simple report for
+each question we created that shows how many users selected each option, all at the push of a single button. After that, we
+can create more reports that slice and dice the result data any way we want to — as long as we specified a field in the survey
+definition we can use it in our reports.
+Survey Workflow
+Once we create the survey, it moves through its own workflow just like the other record types we’ve looked at so far. The
+SMAX 2022.11
+Page 
+193
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

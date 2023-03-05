@@ -1,0 +1,13 @@
+The percentage of fully automated changes (all tasks are automated) out of all automated changes
+The average duration of an automated change
+Additionally, the change automation panel will suggest specific change models it thinks may be suitable for automation.
+As you might expect, there is much more information about change analytics in Service Management Automation X’s 
+online
+documentation
+.
+SMAX 2022.11
+Page 
+216
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

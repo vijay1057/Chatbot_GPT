@@ -1,0 +1,65 @@
+functional difference between the two is found in the targets they define. SLAs define the expected time to move between
+specific steps of a workflow, while OLAs define the maximum time any one group should take to work on a specific record.
+The agreements can cover one of two areas:
+Service agreements
+ — define response criteria for service requests
+Support agreements
+ — define response criteria for support requests and incidents
+Human resource agreements
+ —define response criteria for human resource management service requests
+Service Agreements
+Our service agreements specify the targets that our IT department should strive for when handling service requests. When we
+define these agreements, we need to specify the specific service offerings they cover. We can specify multiple offerings in a
+single service agreement, as long as they all have the same targets. In fact, to get started we can create a single service
+agreement to define the desired response times for all our services. Later, we can go back and create new service agreements
+to define specific targets for specific services.
+For each type of agreement, there are multiple target types we can measure. For service level agreements we can define the
+following targets:
+Approval
+ — The time it should take between creating the request and getting the required approvals completed
+Fulfillment
+ — The time it should take between the approval of the request and the actual fulfillment
+In operational level agreements, there is a single target type to measure:
+Time in group
+ — The time the service request remains assigned to a specific group
+Each of these types can have a different target based on the priority field set in the service request. So the most critical
+requests need to be completed quicker than the low priority ones under the same agreement.
+Because each service agreement can encompass many service offerings, as we are building our service catalog it would be a
+good idea to come up with some kind of grouping that represents some discrete “shirt sizes” of time we expect the fulfillment
+of each offering to take. In that way, we can create a service agreement for each “shirt size”.  For example, something that fit
+in the “small” size. might have a much shorter target than those in the “extra large” size. This way we can have targets for all
+of our offerings with no need to create a separate agreement for each one.
+Support Agreements
+Support agreements are concerned with the targets our It department has with the customer regarding support requests and
+incidents. These agreements are defined for issues with specific services, and each agreement can specify targets for multiple
+services.
+For Support agreements, there are again multiple target types that are measured. Each is slightly different based on which
+record type is being used. For support requests, we have the following target types:
+Initial review 
+— The time it should take between logging the request and moving it to the 'Fulfillment' step.
+Chat request response
+ — The time it should take for an agent to respond to an end user’s chat request
+Resolution
+ — The time it should take between the 'Fulfillment' step and the 'Validation' step
+In operational level agreements, there is again a single target type to measure:
+Time in group
+ — The time the support request is assigned to a specific group
+Our incidents have the same target types except for the 'chat request response', which is only available for support requests.
+Service Level Target Sets
+To define the targets for the different agreement types, we will need to create what Service Management Automation X calls
+target sets. These sets allow us to create reusable definitions that can be referenced in multiple agreements, reducing the
+overall amount of work we need to do.
+Each target set specifies the agreement type it may be used for and the record type (incident, support request, or service
+request) it may be associated with. In addition, we need to specify the work schedule (we’ll get to those in a minute) and the
+time zone that should be used for the target calculations.
+We need to specify the actual targets for each of the target types (which include time to initial review, resolution, and chat
+request response). We can define a single target for a type (such as the Resolution type), or we can define a separate target
+for the type based on the associated record's priority. So we might set one day as the resolution target for a critical priority
+incident, but a 7-day target for a low priority incident. Oh, and it isn’t necessary to set a target for every priority. So if we don’t
+want to measure low priority incidents for a certain agreement, we can do that.
+SMAX 2022.11
+Page 
+187
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

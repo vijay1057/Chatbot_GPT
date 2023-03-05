@@ -1,0 +1,24 @@
+Select the Product from the list of products that was pulled in from UCMDB in the previous step (Sync products from UCMDB).
+For example, Adobe Reader
+The version should be provided again based upon the product information held in UCMDB.
+Choose whether to use IP or Hostname.
+Enter in the relevant device details for the rule to run against and then click on 
+Test.
+The results of the test will be shown both at the top right of screen with the status having a green tick. Also the log section will
+show the results of the rule running and the Agent can see if it worked the way they were expecting. In the above scenario it
+shows that Adobe Reader is not installed on the device, which was correct.
+Once the Rule is working the way it’s required the next stage is to publish the rule
+Click on switch under Publish so the rule can become Active and be used within SAM
+Clone a Rule
+Cloning a Rule is similar to creating a new rule however it uses an already created rule as a template to start from.
+Click on 
+Clone
+  
+ 
+ 
+SMAX 2022.11
+Page 
+267
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,64 @@
+Differences from Service Manager
+New users of SMAX often start their implementation with the expectation that it's simply a new version of Service Manager. While
+SMAX incorporated lessons learned from decades of ITSM experience, it was created with a completely new way of looking at the
+processes, user interactions, and overall experiences.
+SMAX focuses on the organization's ability to provide services to end users, and is proactive in solving end user issues versus
+managing IT "tickets". For new users (and administrators), some adjustment to the old mindset and approach will be
+necessary. This doesn't mean that the old mindset or approach is "wrong", but simply that it doesn't apply to SMAX.
+This document will investigate some of the concepts that are markedly different between SMAX and Service Manager. While
+not every difference can be reviewed in detail, we will concentrate on areas pointed out by real customers of both products.
+Concept changes
+Service based support
+One of the primary differences between SMAX and other solutions is that it was designed around services. The most important
+step of a successful SMAX implementation is defining the business and infrastructure services that make up your company's IT
+portfolio.
+Service Definitions
+The ITIL process documentation defines an IT Service as "a service provided to one or more customers by an IT service
+provider." In the real world, it means that any subject of a call, email, or portal request from an end user that IT supports is
+part of an IT Service. By clearly defining these services, the IT department can accurately and succinctly define the supported
+processes around these services. This will result in a much higher (and faster) return on the investment made in implementing
+SMAX.
+By creating the list of supported IT Services, the number of calls or emails pertaining to issues that the Service Desk has no
+control over is lowered. This still leaves those requests that might be related to an IT Service that are simply not under the
+control of IT. In order to inform the end users about what's available through the Service Desk, as well as to better control and
+categorize incoming requests, SMAX allows the definition of specific Offerings under an IT Service. These Offerings make up
+what's known as the Service Catalog -- literally a listing of everything the IT Service Desk supports.
+Service Catalog
+Micro Focus
+ designed the Service Catalog around the service definitions (as the name would suggest). Think about the
+catalog as the menu that end users use to "consume" the defined services. And if the users are ordering from a menu, the IT
+agents are in the kitchen working to fulfill these requests.
+Creating a complete service catalog can be one of the more time-consuming parts of a SMAX implementation. And as the IT
+department changes and takes on more responsibilities, the number of service definitions and associated offerings will
+continue to grow. The Service Catalog should be thought of as a living thing, and change should be expected (and even
+embraced).
+Categorization and the search focused end portal
+One of the most visible differences between the End User Portal in Service Manager and SMAX is in the categorization
+hierarchy of the Service Catalog. While the Service Manager catalog allows multiple layers of categorization, SMAX has only
+three levels of navigation. These levels are:
+Category -> Service Definition -> Offering
+The flattened structure of the SMAX Service Catalog makes it easier for both the administrators and the end users to
+determine where a specific offering should reside. However, navigating the categories and service definitions manually isn't
+the most efficient way for an end user to find what they are looking for.
+The End User Portal was designed with search as the primary method for users to find the correct Offering. A single search will
+return both Offerings and Knowledge Articles that most reflect what the user is looking for.
+For more detailed information about working with the Service Catalog, see 
+Services and the Service Catalog
+.  
+How do I do "X" in SMAX?
+Create multiple workflows for incidents
+Processes within SMAX use a pre-defined workflow or set of workflows to create and track records using that specific process.
+You can configure these workflows to fit specific requirements not included in the out-of-box definitions, but you can't add new
+workflows within the processes.
+The use of only the existing workflows enforces commonality to the records within a process. This results in easier integrations,
+consistency in reporting, the ability to use a common set of performance indicators, and allows the use of common views.
+You can modify existing workflows by adding new phases within the defined set of steps (also called meta-phases). Those
+phases will be used by every record within the associated process.
+In Service Manager, administrators often add categories to display unique fields, add business logic, add approvals, or add
+tasks. In SMAX, this same functionality can be added by using models.
+SMAX 2022.11
+Page 
+239
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

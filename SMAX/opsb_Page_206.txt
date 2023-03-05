@@ -1,0 +1,17 @@
+Resource providers
+Deployment resource providers are management platforms that offer centralized control over the infrastructure and resources
+used in a cloud computing environment. For example, a provider such as VMware vCenter can deploy virtual machines, while a
+provider such as 
+Micro Focus
+ SiteScope can monitor applications.
+A provider corresponds to a specific instance of an application that can be used to provision service designs. For example, to
+provision service designs that target VMware vCenter, you must first create a provider (with a provider type of VMware
+vCenter).
+For more information, see 
+Deployment Resource Providers
+SMAX 2022.11
+Page 
+206
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

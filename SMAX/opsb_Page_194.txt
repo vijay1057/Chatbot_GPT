@@ -1,0 +1,45 @@
+workflow is straightforward and comprises four distinct steps.
+Creation
+This step contains the 'Create phase' and is used to create the initial survey record. Here we can create the structure and
+questions for the survey and select the fields that will appear in the reports.
+Publication
+During the 'Prepare' phase of this step, we can define the execution dates, create the business rules for sending out the
+survey, and prepare the reports. If we define the 'Active from' date, the survey will transition to the next step when that date is
+reached. Otherwise, we can manually move the survey forward when we are ready.
+If we need to change the structure or questions of the survey, we can return it to the 'Create' phase.
+Consumption
+Now the survey is ready for the end users. We can send out the survey using either the manual or automatic methods we
+discussed, and the answers will be recorded for our reporting. After the survey is completed, it moves to the 'Assess' phase
+(which will happen automatically if we have specified an 'Active until' date). Here we can review all the reports, but new
+Surveys will not be sent out and data will no longer be collected.
+Retirement
+Here the survey is archived. All saved data is cleared out and reports are inactivated so that it frees up our overall reporting
+quota.
+Sending out a Survey
+After we create our survey, we need to send it out for people to answer. Service Management Automation X provides two
+primary ways of distributing surveys; manually or automatically.
+Sending a Survey Manually
+To send a Survey manually, we use the 'Send survey now' option from the survey we created. The system will then prompt us
+for a list of people and/or groups to send the survey to. If we defined the survey around a specific record type (like incident or
+request) we also need to define the record we want to link to this survey.
+Finally, we need to specify a notification template for the survey, which defines how the survey invitation email will look to the
+end user. Service Management Automation X has a default template we can use, or we can create our own.
+Sending a Survey Automatically
+To send a survey manually, we use the 'Send survey now' option from the survey we created. The system will then prompt us
+for a list of people and/or groups to send the survey to. If we defined the survey around a specific record type (like incident or
+request) we also need to define the record we want to link to this survey.
+Finally, we need to specify a notification template for the survey, which defines how the survey invitation email will look to the
+end user. Service Management Automation X has a default template we can use, or we can create our own.
+If you are interested in more details on how to create the business rule, you can find them in the online documentation 
+here
+.
+For both methods, the end users will receive an email with a link to the survey and they will see a visual indication when they
+log in to the Service Management Automation Service Portal. They simply need to fill out the survey from the portal if they
+wish — they have the option to skip the survey. Once we get their responses we can investigate the results.
+Analyzing the Survey Results
+SMAX 2022.11
+Page 
+194
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,57 @@
+create tasks for any of the active phases (except for the 'Log' phase). All the tasks created for a specific phase must be
+completed before the incident can leave that phase. The collection of tasks within an incident (or any type of record) is called
+a Task Plan.
+These tasks become useful when we use them to assign work related to resolving the incident, such as assigning someone to
+do some detailed review of the logs during the 'Validation' step.
+You can find more information on 
+incident task plans
+ (and task plans in general) in the online documentation.
+Service Level Targets
+Just like requests (again), incidents may have service level targets defined. While we will get into the whole service level
+management process in detail later, I did just want to mention one thing. While these targets measure the same things in
+request and incident, the actual targets can be different between the two processes.
+Request/Incident Workflow
+You’ve probably realized that there are going to be times where the same issue is going to result in both the Request and
+Incident processes being used. For example, if there is a hardware failure that results in the company Email being unreachable
+we will have:
+One Incident against the Email service that's related to the hardware that's having the failure
+Possibly multiple Requests against the Email service from any End User that's unable to get to their Email
+Luckily, Service Management Automation X has built-in interaction between Request and Incident that will reduce the work
+that our Agents need to do in order to properly run both processes.
+If for some reason our monitoring software did not capture the Incident automatically and we first received a call from an End
+User about the issue, of course the Agent who received that call will open a Request to restore the Service for the caller. Once
+they have determined that the actual Service isn't operational and they don't see any active Incidents against the Service,
+they know they need to create an Incident as well. Using Service Management Automation X, all they will need to do is check
+the “Service Impacted” flag on the Request and Service Management Automation X will automatically create the related
+Incident (and create the link between the Request and the Incident).
+Again in this example, we would probably end up with quite a few Requests that are linked to the Incident, as more and more
+people end up missing their email. Once our technicians fix the actual issue (or come up with a workaround… again, the point
+is to restore the ability to provide the Service) the Incident can be resolved. At this point Service Management Automation X
+will automatically resolve all of the related Requests, copying over the resolution. This gives the End Users the ability to accept
+the resolution and close their Request – with no need for our Service Desk Agents to get involved!
+If for some reason the resolution of the Incident did not restore the Service for any of the callers, then their Request will
+become active again (and the Service Desk Agent responsible for that Request will be notified). See how the Request and
+Incident process are still separate, even though they are linked? The Incident is responsible for restoring the ability to provide
+the Service, and the Request is responsible for ensuring that the customer can again consume the Service.
+Oh, and I know that some of our Service Desk Agents pull double duty as technicians as well, helping to fix various software or
+hardware problems that occur – thus working on the Incident process as well. To make their job easier, if the Request was
+originally marked with a “Service Impact” flag the Agent can actually close the Incident from the Request process. If the linked
+Request is resolved and accepted with one of the following Completion codes:
+Resolved with workaround
+Unable to reproduce
+Abandoned by user
+Incident resolved
+The linked Incident will be updated with the Solution and corresponding Completion code, resolving the Incident. Since the
+Incident can also turn around and resolve any additional (still active) Requests when it's resolved, our one Service Desk Agent
+can resolve all of the linked Requests as well as the Incident directly from their own Request!
+Ok, I hope that gave you a good overview of the Incident process, as well as how it interacts with our other main support
+process – Request. Unfortunately, there seems to be a pretty serious Incident going on right now… I can see my boss kicking
+one of our database servers. I’ll give you a chance to review what we’ve documented so far while I go and take care of
+whatever he broke this time. I’ll be back in a bit to talk about some supporting process for both Request and Incident
+Management.
+SMAX 2022.11
+Page 
+178
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

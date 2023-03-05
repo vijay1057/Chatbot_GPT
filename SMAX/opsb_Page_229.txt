@@ -1,0 +1,44 @@
+few minutes).
+We need to look at the results for any:
+Failed records — this could be the result of changes being made to Production outside of our Dev2Prod process
+Removed records where we did not delete any configuration records - again, this could point out new System
+Configuration changes outside of our process.
+If there are any unexpected results, we will need to investigate each one (most likely involving finding the persons who made
+those changes) to determine what actions we need to take. This may involve more changes on our Development tenant —
+which would necessitate a new export be created. For example, if the source tenant has a custom entity link between two
+OOTB record types and the target tenant doesn't have the 
+Enable a custom entity link between two out-of-the-box
+record types
+ application setting enabled, the import fails. You need to turn on the setting and run the import again.
+Once we are happy with the results of the simulation, we are ready to perform the actual import of our System Configuration
+package. This is again accessed through the Package Management section, this time selecting the “Import” option.
+  
+The import
+should be scheduled ahead of time so that there aren't any users logged into the system while the import is run. In fact,
+Service Management Automation X will block all logins during the import, except for users with the Tenant Administrator role.
+Just like the simulation, we can see the status of the process as it imports each type of System configuration data. If we ran
+the simulation, we should not be surprised by any failures. After the import has been completed, the users can once again log
+in. At this point the System Configuration changes we have made are active and will affect the workflow of the system records.
+Notes on the Dev2Prod process
+While the actual Dev2Prod process is relatively straightforward and easy to follow, there are a few areas and exceptions
+important to note.
+While most everything under the 'Records' configuration option is handled by the Dev2Prod process (such as adding fields or
+changing rules), some options specific to certain record types aren't handled as system configuration changes (and thus not
+moved by the Dev2Prod activities). These are handled as data configuration changes and include:
+Approval definitions in request
+Approval definitions in change
+Approval definitions in proposal
+Approval definitions in custom record type
+Synchronize Service Catalog data from development to production
+The Dev2Prod process also supports Service Catalog data. As a best practice, you can create Service Catalog data in the
+development tenant and then import the data into production. For details, see Related topics.
+Related topics
+Dev2Prod - Synchronize your development and production tenants
+Dev2Prod - Synchronize Service Catalog content
+Troubleshoot Dev2Prod issues
+SMAX 2022.11
+Page 
+229
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

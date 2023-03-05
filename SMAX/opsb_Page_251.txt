@@ -1,0 +1,42 @@
+Using Software Asset Management in SMAX
+Introduction
+This document means to aid customers who want to utilize SAM within SMAX. It details how to navigate SAM, generate
+software licenses, create metrics, and show how they can be consumed to create compliance & analysis reports. The key
+entities discussed in this document are; Products, License Models, Licenses, Compliance & Analysis. License Metrics and
+License Rules have also been added for completeness.
+The information in this document assumes that SAM has already been setup and installed. If this is not the case, see the
+following documentation on how to install SAM: 
+Enable SAM
+.
+There is also an assumption that the UCMDB environment has been deployed and Universal Discovery is running with the
+required discovery jobs. see 
+SAM best practice
+.
+It is important to understand what is discovered in a customer environment will vary, so some screenshots in this document
+will differ slightly in each customer environment.
+This document will include the following information:
+Overview and Navigation of SAM 
+Sync products from UCMDB    
+Create a License Model    
+Create a Software License    
+Relate a product to a License Rule    
+Calculate a compliance    
+Analysis of compliance    
+License Metrics    
+License Rules – OOTB or bespoke    
+Troubleshooting
+Overview and Navigation of SAM
+To access SAM, in the main menu go to 
+Run
+ and then click on 
+Software Asset.
+In order to view and use SAM, an Agent must be granted the appropriate permissions. They need View rights for the License
+record type in order to see the SAM Home and Compliance screens. For access to all additional functionality, Admin rights for
+the License record type are needed.
+If the agent has full admin rights, they should be brought to the SAM Home screen:
+SMAX 2022.11
+Page 
+251
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,42 @@
+Roles
+Localization (for field labels, notifications, etc.)
+We know that we can’t change any of these areas in our production system, so how do we do it? We need to follow the
+dev2prod process and the accompanying tools that Service Management Automation X provides. This will ensure that all of our
+changes apply to production correctly, causing no problems or downtime.
+One important point of clarification: fields that are created as user options (as part of an offering or model definition) and any
+lists specific to a user option aren't considered system configuration items and aren't included in the dev2prod process. User
+options are part of the data configuration process.
+Data Configuration
+Data configuration doesn't change the behavior of a process directly. Instead, it's referenced by a record, which may have an
+effect on the overall process. An obvious example here is a service offering. While a specific service offering doesn't affect the
+workflow of every request, selecting an offering will influence the behavior of that specific record.
+Changes in data configuration areas 
+aren't handled as part of the dev2prod process
+ and must be either made directly in
+the production system or imported into production from an external file (although importing isn't always an option for every
+type of configuration data).
+There are numerous examples of data configuration areas in Service Management Automation X, and while the overall method
+of creating these types of data is similar, there are small differences we will investigate. For now, let’s list out the record types
+that are considered part of data configuration:
+Service Management Automation Service Portal settings
+Routing definitions
+Record categories
+Integration settings
+Service categories
+Service definitions
+Service offerings
+Fulfillment plans
+Time periods
+Service/support agreements
+Change/incident/release models
+Templates
+Approval definitions
+SLT settings
+Changes in these areas must be performed in the production system, which may seem risky at first. However, there are a few
+best practices that will ensure that we will not cause any issues in the production system if we follow them.
+SMAX 2022.11
+Page 
+227
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,16 @@
+Once the products that currently exist in UCMDB have been imported, they can be used within SAM to create Software License
+models.
+Create a License Model
+From the Software Asset Management menu, select 
+License Models
+If no License models have been created then the screen will appear empty.
+Click on 
+New
+     
+The New Asset Model screen will appear:
+SMAX 2022.11
+Page 
+253
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

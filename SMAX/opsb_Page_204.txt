@@ -1,0 +1,16 @@
+Service Instance
+A subscription originates with a subscription request, which is a request for delivery of cloud services that are initiated by the
+subscriber (end-user) using a catalog in the Service Portal. After a subscription request is approved, a service instance is
+created. The system constructs service instance artifacts during service deployment and updates service instances during
+service management. Service instances provide all details of the deployed service and its components; for example,
+provisioned IP details for a network segment component. Service instances are based on the service design configured for the
+service offering, and on consumer demand.
+For more information, see 
+Service Instance Management
+.
+SMAX 2022.11
+Page 
+204
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

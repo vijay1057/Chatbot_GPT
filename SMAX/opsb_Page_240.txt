@@ -1,0 +1,56 @@
+If you need unique flow and/or functionality within a specific process, SMAX provides models (called Offerings inside the
+Service Request process). These models allow you to extend the process in a number of ways, including:
+adding specific fields, called “User options” to the process
+adding rules that apply to the process using the model
+adding approvals (to applicable processes)
+setting default values
+adding tasks (in series or parallel) to one or more phases of the process
+For further information about workflows and models, see 
+Enhancing Workflow with Models
+.
+Create unique forms for different categories of incidents
+SMAX has a single workflow defined for Incidents. Every Incident category uses the same workflow and therefore the same
+forms. In order to display information differently for different types of Incidents, fields may be hidden or disabled based on the
+category. Additionally, different Models may be used to add unique fields to one or more categories. It's actually more
+manageable to use the Model to hide or disable fields on a form, then associate the Model based on specific categories using
+workflow rules.
+For more information on these methods, please view the 
+Working with Forms
+ and 
+Enhancing Workflow with Models
+ articles.
+"Kill" a user session
+When a Service Manager user leaves a session running while they are away or their session stops responding, they are still
+using a license and may block other users from updating a record if they have it locked (due to SM's pessimistic locking
+strategy). Even if the user logs in to another session, the old session is still "active" and taking up resources. In these cases,
+the Service Manager administrator may "kill" the users's session, freeing up resources, licenses, and any record locks.
+SMAX users can have multiple concurrent sessions (even from multiple devices) and still only consume a single license.
+Session timeouts are handled by the SMAX engine, and any inactive sessions are closed automatically. Additionally, SMAX
+uses optimistic locking, so viewing or updating a record doesn't lock it for other users.
+For these reasons, there is no need for the administrator to kill a SMAX user session. 
+Create ad-hoc approvals
+Approvals in ITIL processes ensure that requests or changes affecting the business are within the scope and direction of the IT
+directives. With that purpose in mind, approvals are most often defined ahead of time with the proper persons or groups
+needed to be the gatekeeper of the associated request or change.
+Approval Plans in SMAX allow the administrator to pre-define the approvals needed for a particular process based on
+information in the appropriate record. For example, if a specific Service is set in a Change, the approval can be defined to
+include the owner of that Service. Additionally, Change Models (or Offerings for Request) can define approval persons or
+groups for that particular Model or Offering. Using these methods, it's possible to set the Approval Plans to correctly assign
+approvals for any particular type of Request or Change without any intervention from a user.
+However, in some less mature or non-ITIL implementations, changes and requests may include manual (or ad-hoc) approvals
+that are added to the process after it has begun. While this is by no means a best practice, SMAX allows multiple methods to
+modify the Approval Plan beyond its original definition.
+The first method involves a user directly updating the Approval Plan for a specific record. Greatly heightened permissions are
+needed to update the plan in this way, and this isn't an appropriate method for the average user. However, it does allow
+administrators to make modifications when the situation demands it.
+A more controlled solution involves adding fields to the form that specifically contain persons or groups that should be added
+to the Approval Plan. These "ad-hoc" approvers may then be specified by a regular user without the need to edit the Approval
+Plan directly.
+These approvals may be defined at the Record (Request or Change) level or in a specific Offering or Model. 
+ 
+SMAX 2022.11
+Page 
+240
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,39 @@
+Problem Management
+Using Problem Management
+One way we can reduce the number of Incidents our agents have to deal with is to keep them from happening in the first
+place. While that sounds far-fetched, that's exactly what the problem management process aims to do.
+A problem, in the definition of this process, is the underlying cause of one or more incidents. To keep the problem from
+causing additional Incidents to occur, we need to diagnose the root cause, identify short-term workarounds if possible, and
+resolve the problem so that no more incidents will occur.
+Think of it this way, if our roof is leaking we might run around and put down buckets to catch all the water. This is dealing with
+the incidents (the floor is getting wet), but the root cause of each of these incidents is the leaky roof. After the rain ends, we
+won't have to deal with the water again for a while, but if we don’t fix the root cause of the issue (our problem) then we will
+have to deal with a rash of incidents again the next time it rains.
+While that simplistic example makes it clear that dealing with the problem will give us the best return on our investment over
+time, sometimes in the real world, we lose that focus while we are busy putting our buckets out and dealing with each incident
+as it occurs. Then when the rain lets up we forget about the problem because there are so many other things we need to focus
+on in our day-to-day operations. Then the cycle starts over again the next time our company sends out a mass email that
+causes a ton of users to hit the website at once causing overflow errors which start a chain reaction that ends up bringing
+down all of our servers… er, I mean the next time it rains.
+Problem Management
+A problem is simply the cause of one or more incidents. The aim of the problem process is to minimize the impact
+of known problems on consumers and prevent recurring incidents.
+Problem management encompasses the activities required to diagnose the root cause of incidents and determine
+short-term workarounds and long-term resolutions to those problems. It's also responsible for ensuring the correct
+resolutions are implemented through the correct control processes such as change management and release
+management.
+Problem management also maintains information about existing problems and the appropriate workarounds and
+resolutions to reduce the number and impact of incidents over time. This results in a close relationship between
+problem management and knowledge management, with the addition of a known error database adding
+additional functionality to the knowledge process.
+While incident management and problem management are separate processes, they are closely related and share
+attributes such as categorization, impact, and priority codes. This allows for easy consumption of problem
+management data by incidents.
+
+
+SMAX 2022.11
+Page 
+196
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

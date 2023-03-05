@@ -1,0 +1,32 @@
+Release Management
+Using Release Management
+Now we have our change management processes under control, and we can handle changing our IT environment. But what
+happens when we need to make a bunch of changes to the environment at the same time, and those changes are all
+interconnected? How are we going to coordinate who does what and in what order?
+Service Management Automation X provides the release management process for just that purpose. Release management
+allows us to plan, design, build, configure and test releases in a controlled manner. These releases comprise distinct release
+components, which are simply changes. Now our release manager has an easy way of keeping their eye on all these changes
+at once and can manage the entire group of changes as a single entity.
+The Release also allows us to do our planning at a higher level, including the definition of specific tasks or approvals that apply
+to the overall release rather than each unique change. This allows us to add work that needs to be done before and/or after all
+the specific changes have been implemented.
+Release
+Release management allows a release manager to plan, schedule, and control multiple changes and additions to
+existing services. The release provides a single pane of glass to organize and coordinate many related changes
+implemented by different people or teams.
+The Service Management Automation X release management module:
+Helps you create, manage, and deploy releases, and the changes in a release.
+Helps you schedule and track the status of included changes.
+Provides standard methods and procedures.
+Provides release level reporting, with actionable tiles that drill into changes in different release statuses.
+Release management allows you to create specific tasks and/or approvals for the release. These activities are tied
+to the release itself and not to the underlying tasks and are useful for specific actions that must be performed
+either before or after the changes are implemented.
+
+
+SMAX 2022.11
+Page 
+217
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

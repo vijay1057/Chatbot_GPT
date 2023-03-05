@@ -1,0 +1,45 @@
+Data Configuration
+Making changes to Configuration Data
+Data configuration changes are modifications to records that can affect specific actions or calculations in a process without
+changing the process itself. There are several examples of configuration data in Service Management Automation X, and each
+may have a different effect on the processes. Some examples include:
+Service offerings: change what can be selected from the service catalog, add user options to a request, add specific
+business rules to a request, define the tasks for a request
+Time periods: affect the calculations for service level targets and change calendars
+Approval definitions: determine what approvals are needed for specific process, and in what order those approvals need
+to be performed
+As you can see, even though we aren't changing the system configuration, we can have quite an effect on the overall process
+by creating or changing configuration data. Because data configuration changes need to be made manually in the production
+system, we should ensure that we follow the right procedures to minimize the chances of causing any problems for our end
+users and agents.
+The following is a list of best practices we can use to ensure our data configuration changes go smoothly:
+1
+. 
+When changing a new area or making a new type of change to any area, make the change in the development system
+first. When creating a time period for the first time, or adding a new type of functionality like an external REST call in a
+service offering task plan, it's best to take the time to create and test it outside of the production environment. Even
+though the entire record may not be moved automatically between systems, by first testing the data configuration
+change we can ensure there is no issues or conflicts when we create it in the production system (and we can copy and
+paste the more difficult pieces such as any business rules or DSL).
+2
+. 
+To minimize the chance of affecting users, the configuration data changes should be created in an “inactive” state. Then
+the changes can be activated when a minimum amount of users are active on the system (such as immediately after a
+system configuration change is made using the dev2prod process). Data configuration records have a flag, a status, or a
+workflow phase that can mark them as inactive (and thus hidden to the end users). When it's time to activate the records,
+in most cases it's possible to activate all records of a certain type at once using the multiple record selection and update
+feature from a list.
+Data Configuration Changes
+Data configuration changes must be performed directly on the production system. While they can (and most times
+should) be performed in the development system for testing, there is no automatic mechanism for moving them
+into a separate production system.The records used to make data configuration changes have a specific status or
+workflow phase which specifies that they aren't ready for users. This specification will keep anyone from using
+these new records before you are ready to activate them.
+
+
+SMAX 2022.11
+Page 
+230
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

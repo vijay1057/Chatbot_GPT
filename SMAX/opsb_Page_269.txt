@@ -1,0 +1,18 @@
+2020-07-17 02:19:30.559 [pool-1-thread-1] INFO  c.m.s.c.controller.RuleController - Consumed time of license consumption relation saving: 31 ms.
+2020-07-17 02:19:30.559 [pool-1-thread-1] INFO  c.m.s.c.controller.RuleController - Calculation completed on total 7 physical devices!
+The highlighted line above shows that only Physical devices were taken into account. If the Agent knew more devices had this
+product installed but was wondering why only 7 were showing in the compliance report, this explains why. Currently in order
+for VMs to appear in the calculation all the physical kit that hosts the VMs would need to be discovered as well. A VM with no
+physical kit associated to it, would not be considered for calculation within the Generic per Device rule that was used for doing
+the worked example above. The rule specifically looks at the Host is Virtual attribute in UCMDB to determine if it should be
+used within the calculation.
+If SAM still doesn’t work, contact the 
+Micro Focus
+ Service Management Automation X Support team and create a ticket. Be sure
+to include all relevant log files from SAM and SMAX when raising the support ticket.
+SMAX 2022.11
+Page 
+269
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

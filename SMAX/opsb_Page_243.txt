@@ -1,0 +1,88 @@
+Core Data and the SMA Evolution Toolkit
+While the amount of transactional data (Incidents, Changes, Problems, etc.) moved from Service Manager to SMAX should be
+kept to a minimum, most if not all the core data needs to move to the new system. This core data makes up the backbone of
+any Service Management solution and has a direct impact on any connected reporting solution. Example of information stored
+in the core data tables in SMAX include:
+People
+Locations
+Groups
+Vendors
+Roles
+Detailed information on the Core Data tables may be found in the 
+Key Concepts
+ guide.
+SMA Evolution Toolkit
+In order to facilitate a move from Service Manager to SMAX, we have provided the SMA Evolution Toolkit. This package
+provides pre-configured scripts for use with Connect-It that allow data imports to SMAX either directly from Service Manager or
+from CSV files. The SMA Evolution Toolkit may be found on the 
+ITOM Marketplace
+.
+Using the Toolkit, data is moved from existing Service Manager tables into the new SMAX entities. For detailed information on
+what data is moved and how fields are mapped, please see the documentation included with the SMA Evolution Toolkit. The
+following table details the specific tables the data moves from and to:
+Service Manager Table 
+SMAX Record Type
+company
+Vendor
+dept
+Group (Organizational)
+contacts
+Person
+location
+Location
+vendor
+Vendor
+The SMA Evolution Toolkit provides out of the box configurations to move the data from Service Manager to SMAX. The
+documentation also describes how to modify the mapping to add or remove fields. This functionality may be used to map
+custom Service Manager data fields to either existing or new fields inside SMAX.
+While the tables are similar across the two products, there are differences that must be understood before importing existing
+data into SMAX. The following sections examine the key differences between the Core Data tables.
+Vendor
+The Service Manager 
+company
+ record represents the highest organizational unit in an organizational hierarchy. In other
+words, a company will represent a customer itself as an organization. 
+Company records are also used to build the organizational structure of external entities or customers. Multiple Service
+Providers (MSPs) use this data to enable the Mandanten functionality inside Service Manager to separate certain data
+elements.
+From a conceptual point of view, the overall concept is similar in SMAX. In SMAX, Service Manager company records are
+imported into the 
+Vendor
+ record type. Vendors include internal or external vendors, suppliers, distributors, service providers,
+cloud service providers, or wholesalers. The Vendor record represents the highest level of the corporate organizational
+structure.
+Additionally, data from the Service Manager 
+vendor
+ table is also imported into the 
+Vendor
+ record type.
+Group
+While Service Manager contains many tables that deal with groups of people, SMAX stores its groups inside of a single 
+Group
+record type. These groups are shared between all the different transactional record types (Incident, Change, etc.). There are
+two different types of groups in this table: Organizational and Functional. 
+Organizational groups
+ contain all the boxes on a company’s org chart. Organizational groups represent business units and
+departments. As a result, records from the Service Manager 
+dept
+ table are imported into SMAX as organizational groups.
+Person
+The 
+Person
+ record type in SMAX contains the information contained in Service Manager's 
+operator
+ and 
+contacts
+ table.
+Every person that is referenced in SMAX will have an entry in the Person table. People that will login to SMAX are marked as
+users. Users in SMAX are most often administered through the Suite Administration application.
+Location
+A SMAX Location contains information very similar to that found in the location table in Service Manager. Locations can also be
+hierarchical, so that parent/child relationships exist between records.
+Other Import Methods
+SMAX 2022.11
+Page 
+243
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

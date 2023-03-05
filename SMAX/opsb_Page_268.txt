@@ -1,0 +1,61 @@
+In the Clone License Rule, enter the specific details for Name and Code, along with Publisher and what Metric will be used.
+Then click on 
+Clone
+.
+The newly created Rule is now added. As with creating a new rule, it still needs to be published before it can be used. Also it’s
+possible to edit the rule with the relevant details in order to do the appropriate calculations for how the rule should work.
+Troubleshooting
+When troubleshooting SAM there is a good level of detail within the Practitioner Documents site: 
+Troubleshoot SAM
+.
+This section aims to provide a few additional hints and tips in order to troubleshoot using SAM.
+SAM Logs
+On the NFS server that SMAX is configured to use check the following location:
+For example:
+/var/vols/itom/itsma/global-volume/logs/sam/
+In this location there is a number of folder locations dependent on the SAM components that are running.
+These are as follows: 
+Backend   
+Init    
+UI
+The key logs to look at if SAM isn’t working correctly are:    
+Full.log    
+Spring.log
+If when running a compliance or analysis SAM doesn’t return the expected results the following logs are also worth looking at:  
+ 
+Full_adapter.log    
+Full_calc.log
+There is also a couple of folders to look in when troubleshooting compliance calculations inside /SAM/Backend/<TenantID>    
+Adapter    
+Compliance
+Inside these folders are the results for what SAM worked out using the information held in UCMDB & SMAX against the License
+rules applied to the products used by SAM. If a compliance report didn’t produce the expected results for a certain product
+then these logs are good to help understand why. They are normally named after the product in the Compliance area for
+example MCAFEE_MCAFEE VIRUSSCAN_calc.log, which would look like this:
+020-07-17 02:19:21.427 [Calc queue consumer(McAfee VirusScan:db643b29-4140-4b73-975c-1045c055dcc9)] INFO
+ c.m.s.c.r.q.CalcUnitMessageConsumer - Calc queue consumer(McAfee VirusScan:db643b29-4140-4b73-975c-1045c055dcc9) is started.
+2020-07-17 02:19:24.164 [Calc-0] INFO  c.m.s.c.r.q.CalcUnitMessageWorker - The license consumption of the db643b29-4140-4b73-975c-1045c055d
+cc9 product on the sov02om20 host is calculated.
+2020-07-17 02:19:24.179 [Calc-1] INFO  c.m.s.c.r.q.CalcUnitMessageWorker - The license consumption of the db643b29-4140-4b73-975c-1045c055d
+cc9 product on the sov02om28 host is calculated.
+2020-07-17 02:19:24.179 [Calc-2] INFO  c.m.s.c.r.q.CalcUnitMessageWorker - The license consumption of the db643b29-4140-4b73-975c-1045c055d
+cc9 product on the sov02oo11 host is calculated.
+2020-07-17 02:19:24.195 [Calc-0] INFO  c.m.s.c.r.q.CalcUnitMessageWorker - The license consumption of the db643b29-4140-4b73-975c-1045c055d
+cc9 product on the sov02ft36 host is calculated.
+2020-07-17 02:19:24.195 [Calc-1] INFO  c.m.s.c.r.q.CalcUnitMessageWorker - The license consumption of the db643b29-4140-4b73-975c-1045c055d
+cc9 product on the sov02bac02 host is calculated.
+2020-07-17 02:19:24.211 [Calc-2] INFO  c.m.s.c.r.q.CalcUnitMessageWorker - The license consumption of the db643b29-4140-4b73-975c-1045c055d
+cc9 product on the sov02nnm71 host is calculated.
+2020-07-17 02:19:24.211 [Calc-0] INFO  c.m.s.c.r.q.CalcUnitMessageWorker - The license consumption of the db643b29-4140-4b73-975c-1045c055d
+cc9 product on the sov02nnm68 host is calculated.
+2020-07-17 02:19:25.258 [pool-1-thread-1] INFO  c.m.s.c.controller.RuleController - Sent 'END_FLAG' for product[McAfee VirusScan]
+2020-07-17 02:19:25.258 [pool-1-thread-1] INFO  c.m.s.c.controller.RuleController - Waiting for calculation finish...
+2020-07-17 02:19:30.262 [pool-1-thread-1] INFO  c.m.s.c.controller.RuleController - Round 1 allocation finished! Consumed time: 0 ms.
+2020-07-17 02:19:30.356 [pool-1-thread-1] INFO  c.m.s.c.controller.RuleController - Consumed time of compliance results aggregation: 94 ms.
+2020-07-17 02:19:30.528 [pool-1-thread-1] INFO  c.m.s.c.controller.RuleController - Consumed time of compliance results saving: 172 ms.
+SMAX 2022.11
+Page 
+268
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

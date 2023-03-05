@@ -1,0 +1,69 @@
+Collecting Environment Information
+Collecting existing Service Manager environment information
+A thorough investigation of the existing Service Manager environment and workflows improve the overall Evolving to
+SMAX experience. It is important to remember that this is an evolution and not a copy of the existing product. Understanding
+both the current processes as well as the new ones in SMAX is essential in the transformation to the new application.
+The following checklist will guide the administrator in gathering the environmental, configuration, integration, and other data
+that will help determine the best path to the new SMAX installation.
+☐ 
+Collect Service Manager details
+Service Manager version information:
+What are the Runtime Environment and Application versions?
+Is the current SM implementation using Process Designer? This is important, as it will trigger different paths
+during the data migration.
+Modules in use:
+Which modules are in use? How are they used? Are any used in unexpected or non-standard ways?
+Level of customization:
+How much tailoring has been performed? Evolution planning will differ based on how far the current
+implementation has digressed from out-of-the-box (OOB) Service Manager.
+If the system is close to OOB:
+Focus on differences in the Service Manager and SMAX flows and what customizations absolutely
+must move to SMAX.
+If the system is far away from OOB:
+Determine whether a best practice OOB implementation in SMAX is acceptable and/or necessary. If
+additional configuration is required to implement necessary requirements, determine the possible
+effects to the project cost, timeline, and future upgrades.
+Service Manager Instances:
+Typical Service Manager environments are split into DEV, TEST and Production systems. Investigate the current
+development lifecycle and highlight possible differences in the development lifecycle when using SMAX. The SMAX
+Dev2Prod/Package Manager utility may involve changes in the current process. Information on the Dev2Prod utility
+may be found here: 
+Dev2Prod Utility
+Used/Supported Languages:
+Identify which languages are actively used in Service Manager and ensure they exist in the SMAX supported
+language list. In case a language is not currently supported, proactively determine available options (and the
+amount of work needed to add a new language to SMAX if necessary).
+☐ 
+Review data/transaction volume and peak usage
+Collect information on all SM data volumes to properly size the future SMAX instance. It is important to understand
+the following details about the existing Service Manager system:
+number of concurrent users during different times of the day; incl. Peak Usage numbers
+number of Requests / Incidents / Changes etc. per month
+total number of Requests / Incidents / Changes etc.
+average attachment size and number of attachments
+the systems current Service / CI details (numbers, levels)
+Further details will help determine the best strategy for migrating the Service Manager master data:
+How many categories (across all levels) exist in the system?
+How many groups?
+How many contacts?
+How many locations and departments?
+If there are high numbers in any of these areas, review each individually to determine if cleanup prior moving them
+to SMAX would benefit the migration effort.
+☐ 
+Review license type and count
+Ensure the system has the correct SMA license to move to SMAX. A classic Service Manager license will not entitle
+use of SMAX. For more information, contact your corresponding Sales Representative.
+☐ 
+Plan the infrastructure setup
+It is important to capture the current infrastructure setup and discover any potential differences in the infrastructure
+setup when moving to SMAX. 
+Important areas to investigate include:
+database requirements (SMAX only supports PostGresSQL)
+Operating systems requirements (Windows is currently not supported)
+high availability requrirements
+SMAX 2022.11
+Page 
+241
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

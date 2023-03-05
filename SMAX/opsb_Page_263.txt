@@ -1,0 +1,18 @@
+This page gives additional details about the deployment of the software. The agent can see what type of Metric is used (in this
+example, "host"), the version of the software installed, and the install path of the software as discovered by the UCMDB.
+Consumption Tab
+The consumption tab gives details of what rule is being used and how many consumption points are used by this device. It also
+gives details about the Software License. If it was associated to a Contract in the Contract Management module in SMAX, it will
+also show the details of the contract along with start and end dates.
+License Metrics
+Out of the box, SAM comes with three types of Publishers for using with License Rules. One is the generic publisher, which will
+deal with most vendors licensing models as shown below:
+For the example of how to create Software License and then see how that license is consumed the OOTB Generic Metrics will
+be used.
+Then there are the Microsoft and Oracle Metrics, both of which are shown below:
+SMAX 2022.11
+Page 
+263
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,26 @@
+We can define our own Approval process for each of the three approval phases:
+Normal change - Approve Deployment
+Normal Change - Approve Plan
+Emergency Change - ECAB
+In addition, we can define approvals for each Change Model that has specific approval requirements above those in the overall
+process. When a Change is created for one of these Models, the specific approvals are added to the general process level
+approvals.
+Information on approval plans can be found 
+here
+.
+ 
+Change Calendar
+Service Management Automation X’s change calendar feature helps us keep tabs on all of the changes happening in our IT
+infrastructure. This is useful not only for getting an overall picture of upcoming and current changes but also in scheduling new
+changes to ensure we are complying with our maintenance and blackout windows.
+I think the change calendar will quickly become our change managers’ best friend. Using it, they can see all of the upcoming
+changes (or just those filtered by whatever criteria fits their needs). From a single view, they can see the changes scheduled
+start and end times, any planned downtime they might cause, who the change owner is, whether the change has been
+approved, and any changes out of compliance due to being scheduled outside of a maintenance window.
+The manager may also reschedule changes by dragging them to the new time frame on the calendar. This is useful for
+SMAX 2022.11
+Page 
+213
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

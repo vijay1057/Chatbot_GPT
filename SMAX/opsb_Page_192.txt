@@ -1,0 +1,34 @@
+Surveys
+Surveys
+At this point, Service Management Automation X is allowing us to do some pretty important things. We are tracking the
+services we provide to our consumers, taking requests from our end users, and resolving any incidents that affect our services.
+But how are we doing, at least in the eyes of our end users? Well, why don’t we ask them?
+We can do this by creating and sending out surveys to our end users. Service Management Automation X provides all of the
+tools we need to not only create these surveys but also to analyze the results we get back. This will allow us to gather the
+information we need to continually improve our services and our ability to support them.
+Creating a Survey
+The process of creating a survey is as simple as figuring out what questions to ask and when to ask them. That might sound
+like an over-simplification, but with Service Management Automation X, it’s really that easy. Okay, there may be a few other
+things we need to do, but it's easy. Let’s take a look at exactly what we need to do.
+First, we need to create a new survey. From the list we get to by selecting 'Survey' from the main menu, we select the 'New'
+option. Now we need to name our new survey with both an internal and external name — external being what the end user will
+see when they are filling out the survey. We can also add instructions to show the user when they are taking the survey. At this
+point, we may want to specify the dates that this survey will be active, or we can leave it open-ended.
+Surveys
+The survey management module enables Service Management Automation X to send surveys to end users and
+consume the data collected by these surveys. In this chapter, we will follow Glenn as he investigates how to
+create and schedule a survey and investigate the results.
+Surveys may be connected to any other record type in the system, such as incidents, changes, or request, or can
+be stand-alone. These surveys allow the IT department to gather input from the consumers on how they are
+performing, how they can improve, what new services they could offer, or any other question they might have.
+Once an end user completes a survey, Service Management Automation X gives Glenn the ability to analyze both
+the structured and unstructured data that was gathered. This allows him to see problem areas and create plans to
+improve them.
+
+
+SMAX 2022.11
+Page 
+192
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

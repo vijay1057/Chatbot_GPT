@@ -1,0 +1,45 @@
+Service Level Management
+Service Levels
+At this point, we have all the tools we need to take our end users’ requests and handle our incidents. What we don’t have yet is
+a way to let our agents know which ones they should work on first. Similarly, we have no way to quantify the quality of our
+service delivery to our End users. No one will believe us if we just say we’re doing a good job, we need a way of measuring the
+level of service we are providing, which we can then use to drive the correct prioritizing of the agent’s work.
+We can measure the quality of our service delivery by defining service level agreements with our customers (our end users’
+management in our case) to deliver their required services within pre-defined objectives. These agreements will allow us to set
+measurable objectives for providing our services and how long it should take to handle issues that the users run into with
+those services. 
+Service level management is the process we will use to define, monitor, and adjust these service level agreements with our
+customers. Specifically, this process will allow us to:
+Set measurable objectives for all IT services
+Create a relationship with the customer that fosters communication
+Ensure that the customer understands the level of service to be provided
+Monitor the quality of the delivered services
+Improve service quality when necessary.
+Service Management Automation X allows us to define these objectives in our end user facing processes (encompassing
+service and support requests, and our internal processes incidents).
+Agreements
+There are two types of agreements tracked within Service Management Automation X, 
+service level agreements
+ (SLAs) and
+operational level agreements
+ (OLAs).
+The service level agreement is an agreement between ourselves (as the IT service provider) and a customer. The operational
+level agreement is an agreement between the IT service provider (again us) and another part of our own organization. The
+Service Level Management
+In this chapter, Glenn will look at the service level management area of Service Management Automation X.
+Service level management (SLM) allows you to measure the quality of service delivery by defining service level
+agreements with your customers to deliver their required services within pre-defined objectives. SMAX allows the
+organization to measure both customer focused and internal focused objectives.
+The service level targets created in these agreements are reflected in the requests and incidents created in the
+system, allowing agents to better prioritize their workload by tackling the issues that will breach a target first.
+Service level data may be collected and reported upon to allow you to change existing service level targets with
+your customers or highlight trouble areas where you may need more resources or need to make changes in the
+current process.
+
+
+SMAX 2022.11
+Page 
+186
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

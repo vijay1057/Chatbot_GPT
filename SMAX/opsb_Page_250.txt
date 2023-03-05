@@ -1,0 +1,51 @@
+Reporting Options
+Reporting
+The ability to process and investigate the data gathered in a service management system is of utmost importance. The SMAX
+application provides several methods for reporting on this data, including handling both operational and analytical type
+reports.
+Due to the differences in technology and functionality between Service Manager and SMAX, automatic migration of existing
+reports is not possible. Therefore, it is important to understand the reporting options that SMAX provides in order to decide
+where and how the existing reporting requirements should be met.
+Internal Reporting
+In-tool reports enable the view of the current and past status of the SMAX system. Data may be grouped or filtered to display
+specific information and data relevant to an agent or a supervisor. Reports may be saved publically and made available to
+agents with appropriate permissions or may be set for private use.
+An overview of SMAX in-tool reporting 
+may be found here
+.
+External Reporting
+SMAX built-in reports and dashboards provide a quick and useful way to define many simple operational and analytic reports.
+Meanwhile, complex reporting and KPI determination need advanced queries that involve multiple tables. These reports can be
+better addressed with external Business Intelligence tools crafted specifically for this purpose.
+The SMAX application provides two primary tools for exposing the relevant data to the external reporting tools:
+PostgreSQL Views
+Business Intelligence Integration and APIs
+PostgreSQL Views
+The internal representation of SMAX data is not formed in a way that is conducive to reporting tools. Instead, 
+PostgreSQL
+views
+ are generated automatically by the SMAX platform and allow external tools to view SMAX data in a standard relational
+format. By connecting a third-party tool, such as Microsoft Power BI or Tableau, directly to your SMAX data, PostgreSQL views
+may be utilized to generate complex and comprehensive database reports.
+Documentation that explains how to use PostgreSQL Views may be 
+found here
+. Additionally, a video demonstration may be
+found here
+.
+ 
+Business Intelligence Integration
+The Business Intelligence (BI) integration module enables an administrator to export fields and relationships for selected
+record types so that they may be imported into an external Business Intelligence tool. This allows great flexibility in exporting
+data for a third-party reporting tool. It is also useful for aggregating SMAX data with data contained in other parts of an
+organization.
+You can perform the intergration with either of the following methods:
+Use the BI integration API
+Use OData for BI integration
+Details on the Business Intelligence Integration model may be 
+found here.
+SMAX 2022.11
+Page 
+250
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

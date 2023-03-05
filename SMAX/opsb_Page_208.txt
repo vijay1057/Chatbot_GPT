@@ -1,0 +1,44 @@
+specific type of change to make it as efficient as possible.
+Setting up Change Management
+Setting up change management is nearly identical to setting up the other modules we have addressed so far. Change uses the
+same record categories we have seen before, so we need to review those and create any that we need specifically for
+changes. We can also review the existing views and reports and add any we might find necessary.
+There are a few things, however, that are specific to change management we need to address to ensure the best experience
+for our agents. This includes setting up a few change models for common types of changes and defining the blackout and
+maintenance windows for the change calendar.
+Creating Change Models
+There are many pieces of information that go into creating a change request. Along with the actual SACM components that are
+being changed, the requester needs to provide various pieces of data that include:
+A description of the change, including the reason for the change and the justification for it
+Change classification information, including the categorization, risk, urgency, and projected impact of the change
+When the change will be made and how long it will take
+Who needs to review the change and approve it
+An implementation plan (and a remediation plan in case of failure, including specific tasks necessary to complete the
+change
+So you can see that creating a change isn't a simple procedure. However, over time we will most likely perform the same type
+of change multiple times.
+To make this process more efficient, Service Management Automation X provides the ability to create change models. Change
+models are much like service offerings as they define all the information needed to request a specific type of change.
+Not only does this make it easier to create changes, but Service Management Automation X also tracks the success rate and
+the risk criteria for all changes created with a specific change model. This will allow us to identify specific types of changes
+prone to failure or that have high risk. We can then work with our experts to modify the processes they use to make the
+change, with the goal of raising the success percentage and lowering the risk.
+The success analysis and risk statistics I mentioned are also visible on each change record as well as a list of the last few
+similar changes. These are visible on the right-hand side of each change in a separate section titled 'Additional information'. If
+you can’t see the graphs, you’ll need to expand it by clicking on the arrow at the top of the section.
+You can find more information about change models in the 
+online documentation
+.
+Setting up Time Periods
+One of the important aspects of a change is scheduling when it will occur. Because they may affect the services we are
+providing to our end users, it's important to minimize any impact the change may have on their operation. One way we try to
+minimize this impact is to schedule times for when changes may take place (maintenance windows) and times where they
+aren't (blackout periods).
+We create the maintenance windows and blackout periods in Service Management Automation X using time periods. With time
+periods, it's easy to define recurring events using a simple and easy to understand scheduling mechanism.
+SMAX 2022.11
+Page 
+208
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

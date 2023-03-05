@@ -1,0 +1,7 @@
+Give the License an appropriate name and fill in the relevant fields, as shown below:
+SMAX 2022.11
+Page 
+256
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

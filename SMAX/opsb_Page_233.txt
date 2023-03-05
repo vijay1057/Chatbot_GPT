@@ -1,0 +1,57 @@
+13
+. 
+Complete this for all users.
+Currently, only incidents and requests can be managed. The users granted with Incident permission are assigned
+with 
+Incident Manager
+ role in the managed tenant automatically. The users granted with Request permission are assigned
+with 
+Service Request Manager
+ role in the managed tenant automatically. 
+You can change the permissions of a user in Suite Administration by clicking the drop-down icon to the right of their name: 
+ 
+.
+The proper permissions must be configured on the provider tenant and the managed tenants for users to be able to view or
+edit managed tenant records.
+SMAX
+tenant
+Roles in SMAX
+Applied to
+Provider
+tenant
+MT Administrator
+Admin only. Users with this role can add MT agents to the managed tenants. 
+MT Agent
+All users who access managed tenant records.
+Managed
+tenant
+Service Request
+Manager 
+(recommended)
+All users who access request data for this managed tenant.
+If role not assigned, then applicable view and/or edit permissions on requests
+and all related record types (such as person, group, service) must be assigned to
+these users.
+Incident
+Manager
+(recommended)
+All users who access incident data for this managed tenant.
+If role not assigned, then applicable view and/or edit permissions on incidents
+and all related record types (such as person, group, service) must be assigned to
+these users.
+If you wish to modify the permissions on a given managed tenant, you will need to configure this within the tenant Roles
+permissions.
+At this point, the configuration of the MT console is complete and you can log in to the Provider Tenant to use it. 
+Using the MT Console
+After creating the provider and Managed tenants, you can log in to the appropriate SMAX tenants to work on the tickets. This
+section shows what you would expect to see when logging into the different tenants.
+Managed Tenant
+As a user logging into a managed Tenant, you will see no difference in how the SMAX tenant operates. Any user from the
+Provider that has been given access via Suite Administration will be visible in the Person table, allowing them to be utilized as
+any other user (given permissions and roles or assigned to groups, etc.).
+SMAX 2022.11
+Page 
+233
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

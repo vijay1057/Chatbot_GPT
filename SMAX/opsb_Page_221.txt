@@ -1,0 +1,38 @@
+Planning
+The 'Planning' step allows the release coordinator to plan the resources and tasks required for the release. During the
+'Plan and design' phase, the release coordinator analyzes the release based on the included changes, plans the resources
+and tasks required, and reviews, revises, and updates the schedule as necessary. If the decision is to move on with the
+release, the release coordinator manually transitions it to the 'Build and test' phase. If not, the release is canceled, and
+the release coordinator manually transitions it to the 'Abandon' phase.
+In the 'Build and test' phase, the implementation and back out plans for the included changes are built and tested.
+Release specific plans, such as training plans, are also created. From here, the release coordinator moves it to the
+'Approve deployment' phase if it's ready, or may move it back to the 'Plan and design' phase if further planning and
+elaboration are necessary.
+For the final 'Approve deployment' phase, the relevant analyst checks the proposed timing and content of the release, the
+relative time for the contained changes, validates that all changes have been approved, and confirms that all resources
+are aligned to make the contained changes. Once approved, the release automatically transitions on to the 'Deploy'
+phase, or back to the 'Build and test' phase, depending on the information provided by the release coordinator.
+Alternatively, the release coordinator can cancel the release by manually transitioning it to the 'Abandon' phase.
+Deployment
+The 'Deployment' step comprises the actions associated with the actual implementation of the release. Here, the release
+coordinator coordinates and monitors the implementation of the associated changes.
+During the 'Deploy' phase, changes are implemented according to the implementation plan, and all release tasks are
+completed. Any necessary release specific activities — the actual changes and any work outside of the changes — are
+done. Then the release coordinator manually transitions the release to the 'Early life support' phase.
+If the execution fails, the release coordinator manually transitions the change to the 'Remediate' phase. The release
+coordinator can cancel the release by transitioning it to the 'Abandon' phase.
+When the release moves to the 'Remediate' phase, the remediation plan is implemented.
+Validation
+Once a release moves to the 'Validation' step, the release coordinator determines whether the release implementation
+succeeded and reviews the procedure taken for the purposes of process improvement.
+In the 'Early life support' phase, the release coordinator and relevant IT stakeholders (such as the service owner, technical
+staff, etc.) monitor the release, resolve problems, and implement improvements to help stabilize the release.
+Finally, during the 'Review' phase, the release coordinator and relevant IT stakeholders review the result of the release,
+compare the actual and proposed implementation, and decide whether to create a release model. Once completed, the
+release transitions to the 'Closed' phase.
+SMAX 2022.11
+Page 
+221
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,55 @@
+Using Discovery for Configuration Control, Verification, and Audit
+Having the configuration item information in Service Management Automation X gives us the ability to follow our configuration
+control process (with change management as a primary driver) and the verification and audit processes. But how do we get
+the information into the system to begin with? I guess we could hire a bunch of interns to walk around asking questions and
+entering the information manually, but that doesn’t seem efficient.
+Universal Discovery
+An automated discovery product gives us a means to populate our configuration item information. There are multiple products
+on the market that use a variety of methods to capture the information about our service assets and configuration items and
+map the relationships between these elements. Some of the most advanced versions of these tools can even discover and
+model our business services and applications. 
+Micro Focus
+ Universal Discovery is one of these highly advanced discovery tools
+we will use to model and discover the IT infrastructure we use to deliver our services to our customers.
+Unlike network-oriented discovery products or asset inventory products, 
+Micro Focus
+ Universal Discovery explores assets and
+configuration items (CIs) from layer 2 through layer 7 of the Open Systems Interconnection model, as well as deep-device and
+application-specific information. It also explores and maps the relationships between these elements beyond the traditional
+uses and contains relationship types.
+Now, I really don’t understand all of the words in the above paragraph. I just copied what was in the product brochure. But
+what I do know is how excited our IT personnels were when they saw what the product could do and how quickly and easily it
+created a detailed map of our infrastructure. Now what we need is a place to put all of this data.
+UCMDB
+Micro Focus
+ Universal CMDB is a configuration management database solution which — in concert with Universal Discovery —
+collects and manages accurate and updated business service definitions, associated infrastructure relationships and detailed
+information on the assets, and acts as a central component in many of the key process in an IT organization. The UCMDB is the
+central storage component for our configuration items and handles the reconciliation needed when using multiple data sources
+or discovery tools.
+UCMDB is a default tool in the Service Management Automation X suite, so we can always have the latest up-to-date
+information at our fingertips. Whether we are looking at incidents, changes, or other processes inside of SMAX, the UCMDB will
+provide all the supporting information our agents need to make the correct decisions.
+If our agents need any specific information or details, they can launch the UCMDB browser with a single click. As an example,
+our agent might want to see what a certain configuration item looked like in the past. As the information inside of the standard
+agent interface reflects the latest status of a CI, launching out to the UCMDB browser would allow the agent to investigate the
+configuration over time, which might help them when investigating an ongoing incident.
+Setting up SACM
+There isn’t much that we need to do in order to “set up” the SACM module. Service Management Automation X defines all the
+configuration item types and attributes for us, and the UCMDB is ready to go out of the box.
+There are only two options we need to concern ourselves with, which are both specified in the 'SACM configuration' option
+from the main SACM screen.
+First, we need to specify whether we want our agents to have the authority to launch a remote desktop connection when
+viewing the information of a Windows computer (if they are also on a Windows computer). If we do, we need to set the 'Enable
+RDP' check-box to true. This will add a 'Remote Connection' button to the toolbar when viewing a Windows computer.
+Second, if we are taking full advantage of the UCMDB, we need enable it and tell Service Management Automation X the URL
+of the UCMDB browser. This will add a button to the configuration items to show their information in the UCMDB browser.
+The out-of-the-box integration inside of Service Management Automation X will synchronize the configuration items based on
+predefined mapping information. This should be enough to meet our process needs, but if it isn’t we can to create our own
+customized mapping and bring in the exact attributes we need.
+SMAX 2022.11
+Page 
+201
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

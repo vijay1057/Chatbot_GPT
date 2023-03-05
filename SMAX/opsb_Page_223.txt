@@ -1,0 +1,26 @@
+Note the icons for Person, Location, Entitlement Rule, Time period and Group. On our data models from here on out we will add
+these icons to any boxes that have relationships to each type. For example, Incident records reference several types of Core
+Data, giving the following representation:
+In this way, the icons show that the Incident has relationships to Person, Group, and Location.
+In addition, in the full Data Model diagram, links to the Expense Line record type are represented by a dollar sign ($). A
+separate Data Model for Expense Lines is included in this section to show specific relationships to that record type.
+ITIL Record Types
+To further simplify the Data Model diagram, the ITIL record types are combined into distinct groups when two or more record
+types share the same relationships. There are three groupings:
+Blue: All ITIL record types (request, incident, problem, change, and release)
+Orange: request and incident
+Light Green: change and release
+When a relationship connects to or from one of these group boxes, it represents a relationship to all record types within that
+box. In the example below we can infer relationships between:
+Change relates to one ore more requests and change relates to one or more incidents
+Both change and release related to one or more incidents
+Full Data Model
+Dotted lines represent a virtual relationship between record types. There is no physical relationship in the database structure,
+but there is a relationship between the record types that's defined in SMAX's application code.
+The complete Data Model follows:
+SMAX 2022.11
+Page 
+223
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

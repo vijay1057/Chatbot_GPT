@@ -1,0 +1,39 @@
+disaster recovery requirements
+latency requirements
+local / regional / global distributions
+on-premise or SaaS implementation
+☐ 
+Review Interfaces and Integrations
+Existing interfaces/integrations with Service Manager that must continue to work with SMAX need to be identified.
+Due to specific differences between how Service Manager and SMAX handle integrations, special attention is
+needed when investigating these areas.
+It is recommended to document all 
+Micro Focus
+ owned integrations and verify these integrations are also available
+with SMAX. These integrations may include but are not limited to:
+OMi
+UCMDB
+OO
+As a second step, document all other integrations and identify what method is used to integrate these 3rd party
+products with SMAX. Possible methods include:
+Web Service Integration
+Connect IT
+LDAP Integration
+SCAUTO
+Depending on these findings, the decision on how to implement these integrations in SMAX must be made. Some
+differences in how SMAX implements integrations may help guide these decisions. These differences include:
+SCAUTO is not supported
+SMAX Web Service API only uses REST (no SOAP support)
+☐ 
+Review custom documentation
+Examine all current custom documentation to gather information on current processes, system setup, and ways of
+working.
+Reviewing the documentation will help to identify differences in the current processes in Service Manager compared
+to SMAX. Based on any differences discovered, determine how to modify processes where necessary to better fit
+the SMAX workflows. Identify any custom documentation that must be rewritten for the move to SMAX
+SMAX 2022.11
+Page 
+242
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

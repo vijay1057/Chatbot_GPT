@@ -1,0 +1,51 @@
+We can use Service Management Automation X to not only keep these problems visible and prioritize them, but it also has
+tools to help us find problems we might not even realize we have.
+Let’s take a look at how problem management works, and then we can see how some of the big data features of Service
+Management Automation X make it even more powerful.
+Setting up Problem Management
+We’re done! No really, we’ve done just about everything we need to do already. Problem uses the same record categories and
+groups we use for incident management, so there isn’t much more to do.
+Okay, I know how much you love to work, so if you want to be gung-ho we can set up a few predefined views and reports
+specific to problem management. Happy now? Fine, now let’s check out the life cycle of an actual problem record.
+Problem Workflow
+The problem workflow uses the same high-level steps as incident management. Thinking about it, this shouldn’t be surprising.
+The difference between the two process is in the end goals rather than the execution. Incident stops once we resolve the
+immediate impact while problem goes farther to discover the root cause and remove the likelihood that the same issue will
+happen again.
+Classification
+Identical to the incident workflow, there are two phases of the 'Classification' step. The first is the 'Log' phase, where we enter
+the initial information such as the title and description of the issue and what service is being affected. After this information is
+saved the problem moves to the 'Classify' phase.
+The only additional information required in the 'Classify' phase is a category. Once we fill the category in the problem will
+move on to the resolution step. When the problem created directly from an incident, this happens immediately.
+Resolution
+The 'Resolution' step comprises two phases, 'Investigate' and 'Resolve'. Our primary focus in the Investigate phase is the
+discovery of the root cause of the problem. The owner of the problem may create tasks for other agents to help with the
+investigation. Once he discovers the root cause and documents it in the problem record, the owner moves the problem into
+the 'Resolve' phase.
+During the 'Investigation' phase, any related incidents dependent on the problem resolution receive notifications when the
+owner adds updates to the problem with certain information, including:
+When a workaround is found
+When an expected resolution date is set
+These notifications are sent to the person assigned to the related incident.
+Once the problem enters the 'Resolve' phase, it's classified as a known error. The focus on this phase is in resolving the root
+cause issue that's causing the problem. Note that this may often cause the agent to create related changes or more tasks
+within the problem itself. Once the agent resolves the primary issue and enters a resolution, the owner will manually move the
+problem to the next step for review.
+When this transition to the 'Validation' step is taken, the people assigned to any related incidents are again notified.
+Validation
+The 'Validation' step includes a single phase, 'Review'. This phase allows the owner (or other designated person) to review the
+solution used to resolve the problem. If the solution isn't correct (if further testing showed the issue was ongoing for example),
+the owner may return the problem to the 'Resolve' phase for further troubleshooting.
+Once the problem has been reviewed the person reviewing it may manually close the problem. When this step is taken, the
+assignees of any related incidents will again receive a notification that the problem has been resolved.
+Problem Tasks
+Similar to other areas in Service Management Automation X, tasks and task plans are available inside of the problems
+themselves. Again, these tasks become useful when we use them to assign work for someone to perform investigation around
+the root cause of the problem or help us to come up with the true resolution.
+SMAX 2022.11
+Page 
+197
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

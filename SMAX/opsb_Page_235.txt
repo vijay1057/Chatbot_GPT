@@ -1,0 +1,27 @@
+The MT Console includes the following tabs.
+Dashboard
+Displays all managed customers including:
+Total open requests and incidents for all managed tenants on the top right of the dashboard.
+An icon per managed customer displaying open incidents or requests for that managed client. Hovering on the icon
+displays a tooltip detailing the priority level of the open requests or incidents.
+Totals for only the selected managed customers at the bottom of the dashboard. Each is a link to view the requests or
+incidents of the selected customers in the request or incident grid. 
+The information in the MT Console Dashboard is filtered to display only 
+active
+ incidents and requests by default.
+You can add additional filters to limit the information you can view in the dashboard which works in the same way as it does on
+any other view filter in SMAX; however, the number of fields available is limited.
+You can also use the dashboard to select the customers to view in the requests and incidents grids.
+Select a client by clicking the icon.
+A selected customer has a checkmark added to its icon.
+You can select up to five customers to view in the grids.
+Requests
+A grid view of the open requests for selected customers. You can select up to five customers to view in the grid.
+Incidents
+A grid view of the open incidents for selected customers. You can select up to five customers to view in the grid.
+SMAX 2022.11
+Page 
+235
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

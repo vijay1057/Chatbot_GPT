@@ -1,0 +1,69 @@
+Description - A detailed description of the change
+Service - What service is driving the change (the change might affect multiple services, but which one is the primary
+reason we need the change made)
+Justification - A detailed explanation of why we need to make the change
+The agent may also specify the time which they think the change should be performed although they may change the actual
+time later in the workflow.
+During the next phase, 'Classification', the agent specifies the impact of the change on the existing service. They also need to
+categorize the change and set the group responsible for ensuring the change process is followed. The agent may also specify
+any configuration items (devices, system elements, etc.) that will be involved in the change.
+Once the agent specifies this information, they can move the change forward into the 'Planning' step.
+Planning
+The 'Planning' step involves gathering all the information needed to make the change and having this information validated
+and approved by the relevant stakeholders. This step starts in the 'Plan' phase, where the agent needs to specify the overall
+plan for the change, including:
+Implementation plan - How the change will be performed
+Remediation plan - What steps should be taken if the implementation plan fails
+Risk - The risk to our IT infrastructure due to the change being performed. This is a combination of how important the
+affected services are to the infrastructure, how difficult the change is to make, how often this change has failed in the
+past, and other considerations
+Owner - The person who will manage the change through the overall process (not necessarily the person who will make
+the physical changes happen)
+Scheduled start and end dates
+The agent may also determine whether this change needs to go through the 'Build and test' phase later in the process.
+Changes that have been performed numerous times and have a well-understood process (yet still need to go through the full
+approval process) might skip this step.
+After this information is complete, the agent can move the change to the 'Approve plan' phase. In this phase, the stakeholders
+will either approve or reject the change based on the specified plan. As we will see later, this isn't the final go/no-go approval.
+Rather, this is the overall approval that this change should happen and the planning is sufficient. The actual approval to deploy
+the change and start execution comes later. The Change Advisory Board (CAB) and other relevant stakeholders (such as the
+owner of the service being affected and the change owner) need to approve the plan in order for the change to move forward.
+Once the plan has been approved, the change enters either the 'Build and test' phase if necessary, or goes directly to the
+'Approve deployment' phase.
+For those changes that need the 'Build and test' phase, the owner of the change coordinates the process with the individuals
+needed to complete the entire change. This is often done using tasks, which we have seen before and will look at in more
+detail later in this chapter. During the 'Build and test phase', the owner validates (or modifies) the change implementation and
+remediation plans. After they validate the plans, the owner moves the change into the 'Approve deployment' phase.
+In the 'Approve deployment' phase, the CAB and relevant stakeholders give the final approval or rejection of the overall
+change. This includes the updated plan and the actual scheduling of the change. Once the change is approved, it moves to the
+'Deployment' step.
+Deployment
+Once we’re done with planning and scheduling the change, the actual work takes place during the 'Deployment' step.
+Primarily, the work is done in the 'Execute' phase. For most changes, the actual work will be defined in a task plan, with tasks
+assigned out to one or more agents that will perform the work. It's the job of the change owner to ensure the tasks are
+performed in the order that they defined during the planning step. Service Management Automation X gives the change owner
+a view into the overall status of the tasks.
+When all the tasks are completed, the Change moves into the next phase, depending on the outcome of the 'Execute' phase. If
+the change completes successfully, it moves to the next step of the process which is the 'Validation' step. Specifically, it
+moves into the 'CMDB Update' phase of the 'Validation' step.
+If the change was unsuccessful, it moves into the 'Remediate' step, where the change owner (and any other agents he needs
+to pull into the process) follows the remediation plan to back out any changes that need to be reversed. Once complete, the
+change is moved into the 'Validation' step, but in this case, it moves directly to the 'Review' phase.
+Validation
+When a successful change moves into the 'Validation' step, it begins in the 'CMDB Update' phase. Here, the change owner
+updates the details for any configuration items that were modified either directly in the SACM module, or in an external CMDB.
+Once complete they can then move the change into the final phase, 'Review'. The owner sets the final completion code that
+specifies the outcome of the change and enters the results of their review. Once this is complete they may close the change,
+ending the change management process.
+Standard Change Workflow
+Standard changes are types of changes that are well understood, considered relatively low risk, happen frequently, and follow
+an approved, documented process. These are the changes that our specialists think they can perform in their sleep (and
+sometimes I’m worried they do).
+So it shouldn’t come as a surprise that the primary difference in the standard and normal change workflows is in the 'Planning'
+step.
+SMAX 2022.11
+Page 
+211
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,34 @@
+Incident Management
+Setting up Incident Management
+Previously we set up our request management process to handle everything coming from the consumers of our services. Now
+we’ll set up the processes we use to support how we provide those services to our end users.
+The first of the “back-office” processes we’ll set up is the incident process. Incident management is triggered when there is an
+outage or degradation detected in one of our services. We may detect the outage or degradation by monitoring software, it
+may be found by one of our technicians, or it could even be reported by an end user through a support request. When
+incidents happen, our IT managers get very grumpy, so we need to set up our process to handle them as quickly as possible.
+In terms of setting up incident management, you’ll be happy to hear we’ve already done most of the setup already. Incident
+uses the same record categories we created for request, and the same knowledge database we pre-populated with our
+existing articles. We can set up some new surveys for incidents just like we did for request as well.
+We should set up a few views and reports that are very similar to the ones we created for request. For the reports on the
+dashboard let’s add:
+My incidents by priority
+Incidents by group
+Incident Management
+An Incident encompasses any disruption or degradation of a service, whether the service is internal or external.
+Issues with redundant hardware (or software) are also handled as an incident, even if the degradation isn't
+apparent to an end user.
+The goal of the incident management process is to resolve the disruption or degradation as quickly as possible.
+This may often involve enacting a workaround (such as rebooting a server or restarting a specific service) rather
+than a permanent fix.
+When a similar issue occurs multiple times, each instance should be tracked as a separate Incident. This allows
+other processes (such as problem management), as well as reporting, to discover trends that will help to find the
+root cause of the recurring incidents.
+ 
+
+
+SMAX 2022.11
+Page 
+174
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,30 @@
+This is a great way for us to reduce the number of requests our agents have to handle by eliminating reports for planned or
+known issues that are currently happening. If one of our users logged in to report the internal company web page is down,
+they might see a news article explaining that it's down for maintenance. While it might not seem like much, the fact that we
+won’t need to have an agent respond to that question is a great thing. Especially when you consider that this might happen to
+a great number of users, we are making our agents more efficient by keeping new requests from being opened unnecessarily.
+Searching in the Service Management Automation Service Portal
+When the end user makes a search from the Service Management Automation Service Portal, the system will present them
+with relevant articles from our knowledge database. Remember how I said knowledge is more than just our knowledge articles
+though? Here the system might also present relevant service offerings that might solve an end user's issue.
+The system provides everything in a single list, making it easier for the end user to find what they are looking for. Here you
+can see that the system returned knowledge articles, but it also returned offerings and a user question (an extension of the
+knowledge application we’ll look at later) that the user might find helpful. If the end user selects an article, they will view it in
+its entirety (including any embedded images and video). If they instead select an offering, Service Management Automation X
+will walk them through the requesting process.
+Using Live Support
+When the agent types a caller’s question or request on the 'Live Support' screen, Service Management Automation X checks
+for related information — including knowledge articles and news. The agent can bring up the articles by selecting the
+'Suggested Solutions' box, which shows the number of related articles that the system found.
+If the agent finds an article that solves the caller’s issue, they can click the 'Propose as solution' button. This will fill out the
+solution and link the request and the knowledge article.
+You’ll be quick to notice that Service Management Automation X is again searching additional types of knowledge. We’ll take a
+look at that when we check out the 'Live Support' page in more detail later.
+Working a Request or Incident
+If one of our agents is working on a request or incident through the standard interface, they can still take advantage of
+SMAX 2022.11
+Page 
+182
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

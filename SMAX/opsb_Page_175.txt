@@ -1,0 +1,29 @@
+Incidents by service
+Incident Volume in the Past Month
+Then we can add a few views for our specific service desks to help them out. I’ll set one up to show all the critical incidents,
+then we can work with the Incident managers to create exactly what they need.
+Incident Models
+Another tool we have for incident management is the concept of incident models. Similar to the offerings we have in request
+management, incident models contain the information to guide our agents through the process of solving common types of
+Incidents. This information could include:
+Default values for any field (“A production database incident always has an impact of ‘Enterprise’”)
+A list of tasks necessary to resolve the incident
+Unique information needed for this type of incident defined as user options (“for major incidents, the agent needs to enter
+a conference line number”)
+Any business rules specific to this type of incident (from sending extra notifications to bringing in information from an
+external system)
+As we run into common or similar incidents, our incident managers can create these Models to improve our responsiveness
+going forward. For now, we can just create a ‘major incident’ model that when selected will:
+Set the impact and urgency of the incident to the highest levels
+Create tasks for the owner of the affected service to start a conference line and send notifications to our critical response
+team
+Trigger an extra review by our problem management team after the incident is resolved
+All of the details around 
+incident models
+ can be found online as well.
+SMAX 2022.11
+Page 
+175
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

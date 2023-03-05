@@ -1,0 +1,30 @@
+it automatically filled in what it could from the requests we checked.
+One time that this would be useful would be after introducing new functionality after an upgrade. If we see a lot of
+questions about a new feature after we upgrade the HR system (for example), we might want to put out a quick
+knowledge article about that feature so that the end users can find the answers they need themselves — without our
+agents having to get involved.
+What about those cases where an end user can’t find what they are looking for but doesn’t open a request? Well, we can
+change the Hot Topic Analytics to look at user searches rather than requests.
+This allows us another view of what might be missing from the offerings or knowledge within our system. Just like with
+requests, I can select one or more searches and quickly create a new knowledge article or offering so that next time the
+user can resolve their issue by themselves.
+We will still need our own processes to ensure that our knowledge articles are relevant and up to date. Service
+Management Automation X can tell us how often certain articles are being used so we can improve or retire those that no
+one bothers using. We could also review any articles older than a certain date to ensure relevancy.
+Cool, right? Now we can have a better way to let us know we might have missed something than that one vein on the
+boss's head that throbs when he's about to scream at us.
+Configuring the “Stop list”
+When we use the Hot Topic Analytics feature we don’t want the system to return words that are so common they don't
+add value to the results. Service Management Automation X provides a list of these words to ignore in a 'stop list' for
+every supported language in the system.
+If there are any terms that our company wishes to ignore when using this feature, we simply enter them in this list.
+Conversely, if there is a common term we want to take into consideration we need to remove it from this list. For
+example, in our company, we have an internal application named 'ACROSS'. Since “across” is an out-of-the-box stop word,
+we would get no feedback on how much it's used in searches or requests. Once we remove it, those searches and
+requests will now be seen in the Hot Topic Analytics feature.
+SMAX 2022.11
+Page 
+185
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

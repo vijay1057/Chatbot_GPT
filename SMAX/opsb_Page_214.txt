@@ -1,0 +1,31 @@
+grouping changes in a single maintenance window, but also ensuring they all can get the needed time with a particular
+configuration item or group of CIs.
+A mini version of the change calendar is also available when viewing a single change. This view only shows the current change
+but allows the change owner to see upcoming maintenance windows and blackout periods. The system can also schedule a
+change for the next suitable maintenance window, provided the owner specifies the expected duration of the change.
+You can get more information about the change calendar in the 
+online documentation
+.
+Change Analytics
+Service Management Automation X’s Change Analytics feature allows us insight into our own Change Management process, as
+well as making suggestions on how we can improve it. Currently, Service Management Automation X analyzes our
+performance against three KPIs and gives us an idea of how we can best improve our results.
+The three KPIs we are looking at are:
+Success rate
+Standard changes
+Change automation
+Success rate
+This system measures this KPI by calculating the percentage of successful changes out of the total changes in the filtered
+group. This starts by looking at all records, but we can filter to only look at changes against a specific service, in a certain time
+range, in a certain category, or those made for a specific reason. In fact, we can use a combination of any of these filter
+criteria to focus on exactly what we are looking for.
+Along with an overall picture of how we are doing against our goal, Service Management Automation X’s change analytics also
+shows us the areas where we will get the most “bang for the buck” against this KPI if we were to improve them. In the example
+shown above, the system is telling us we should focus our improvement efforts against the Exchange service and the Catalog
+service. Improvements in these services will result in a larger increase than if we were to focus on another service instead.
+SMAX 2022.11
+Page 
+214
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

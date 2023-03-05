@@ -1,0 +1,66 @@
+Service Management Automation X allows us to identify and record our configuration items using its built-in hierarchical
+structure and also allows us to create relationships between the CIs. We’ve already looked at the top levels of this structure,
+but now we're ready to review each level in detail — as well as add the final level. Our final hierarchy includes:
+Actual services
+Service components
+System elements
+Devices
+This hierarchy is created by the relationships between the configuration items and follows a few rules:
+Each actual service comprises one or more service components
+Each service component contains zero or more system elements or devices
+Each system element contains zero or more devices
+Each system element can support zero or more service components
+Actual Services
+We learned earlier that an actual service is an actual instance of a service definition that benefits our consumers. It's important
+to note that an actual service doesn't have to equate to a technical service. It could be something physical such as a mailbox.
+We can identify how we are using the actual service by specifying a specific subtype of either:
+Business service
+Infrastructure service
+Where the first is a service that directly benefits our consumers, and the second is something that supports our business
+services but isn't something that our consumers interact with.
+Each actual service will contain one or more service components.
+Service Components
+The service component level allows us to divide our actual services into sections of distinct functionality. They are describable
+parts of our service. They aren't anything that can be discovered, but rather things that will be entered from our own
+knowledge of the services. For example, we might have a Payroll service that we want to split up into the actual application,
+the supporting database, and the web server. All of these things make up the Service, but they all have their own distinct
+function (and most likely have a different team in charge of them).
+Because we define them at whatever level we need, there aren't any pre-defined subtypes for service components. Instead,
+it's best to name them in a way that makes their functionality clear. In our Payroll example we might name our service
+components:
+Payroll Application
+Payroll Database
+Payroll Web Server
+Service components should always relate to one or more actual services (we might have a single service component used by
+multiple services).
+In the opposite direction, service components are made up of either system elements or devices. It's our decision on which
+one to use, and the decision is based on the complexity of the service. If each of our components comprises only a few devices
+that would be the way to go. However, if we are talking about a great number of devices, and we can group those devices in a
+logical way, it's better to relate the service component to system elements (which are made up of a group of devices).
+System Elements
+A system element is a functionality supported by one or more devices. For example, a specific server is a device. When this
+server runs a specific set of applications, it becomes a web server. The web server is the system element. Unlike service
+components, these system elements are often discoverable using automated software tools.
+Service Management Automation X has pre-defined subtypes for system elements that help us define their actual
+functionality:
+Running software
+Web server
+Database
+Virtualization
+Application server
+CI collection
+And we can always specify 'Other' if we have something that doesn’t fit any of those categorizations.
+Each system element can support multiple service components and is itself comprised of one or more devices.
+Devices
+We’ve taken a look at the higher level configuration items: services, service components, and system elements. Now we need
+to go an extra level so we can define the actual devices that work together to provide the functionality of those components
+and elements.
+Service Management Automation X has built-in definitions for the physical (and virtual) devices we find in our IT infrastructure.
+While we can extend the list of device subtypes, I think the out-of-the-box list will be sufficient for now. We can always come
+back and add more if we discover the need.
+SMAX 2022.11
+Page 
+200
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

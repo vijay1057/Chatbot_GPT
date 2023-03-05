@@ -1,0 +1,15 @@
+Service Design
+Designs are the recipes for automating the cloud and include reusable service components. Service components and their
+relationships in a design define the framework for creating the service. Create, configure, and change service designs to give
+on-demand, automated service delivery.
+Designs also offer a structure for options that consumers can select when ordering service. You can re-use designs for multiple
+service offerings, with each service offering customized to meet the needs of different consumer organizations and groups. 
+For information on how to add or edit a service design, and to learn more about design-related options, see 
+Service Designer
+.
+SMAX 2022.11
+Page 
+202
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,29 @@
+Time Periods
+To set a specific work schedule for a target set (so we only count the time we are “working” against the service targets), we
+first need to define it. We do this by creating a time period of a specific type (work schedule).
+The time period definition contains all of the scheduling information needed to determine when someone using this schedule is
+working. Time periods are very flexible regarding start and end times, one time events (extra working hours), and holidays.
+Service agreements use work Schedules to only count time against a target during actual working hours. If the service target
+specifies that it's only valid during an eight to five shift, then any time spent outside of those hours will not count against the
+target. This is why it's important that we also specify the time zone in the target definition. 8 a.m. in San Diego isn't the same
+as 8 a.m. in Shanghai (as I found out the hard way in my last job).
+Service Agreements in Action
+So we’ve spent a good deal of time going over how to define our service agreements, but if you're like me then you'd probably
+like to see examples of a service agreement in action. Let’s go through some hypothetical scenarios and see how the
+agreements work in the processes they support.
+Example #1: Incident
+In this scenario, an Incident was created by one of our monitoring systems at exactly 8 a.m. (how convenient). One server that
+supports our Email service went down (possibly because the boss kicked it again)!
+We have a support agreement defined for the Email service, which has a specific service level target set for use with Incidents.
+This incident had a priority of critical assigned to it by our monitoring system, so we are assigning the following targets for
+each type:
+Initial review (for critical priority) has a target of 10 minutes
+Resolution (for critical priority) has a target of 60 minutes
+There is no work schedule defined (which equates to 24x7 service), and the time zone is set to America/Los_Angeles. Even
+though there is no work schedule, we want to define the correct time zone to handle date switch overs such as Daylight Saving
+SMAX 2022.11
+Page 
+188
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

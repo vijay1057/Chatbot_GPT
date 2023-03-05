@@ -1,0 +1,30 @@
+Release Flow
+Classification
+When creating a release, the release coordinator must supply all of the relevant details. This includes filling out the
+following fields during the 'Log' phase:
+Title - A short description of the Release
+Release type - Whether this is a minor, major, or emergency release
+Description - A detailed description of the release
+Service - What service is driving the release (the release might affect multiple services, but this specifies which one
+is the primary reason the release was required)
+Release model - What pre-defined model will this release follow
+Reason for release - Why the release is necessary (selected from a list of reasons)
+Justification - A detailed explanation of why this release is necessary
+The release coordinator may also specify the latest execution date necessary for the release, categorize it, and set the
+urgency.
+In the next phase, 'Evaluate', the release coordinator can review the previous information and then must categorize the
+release and assign it to an owning group and owner. This is also where the release coordinator identifies the necessary
+changes and ensures they are part of the release by creating or linking them.
+Once the release coordinator specifies this information, they can move the release forward into the 'Planning' step.
+Release Flow
+Each release is governed by the release management workflow.
+This workflow defines the activities that happen before and after the actual changes that make up the release are
+implemented and determines what happens if the changes aren't successful.
+
+
+SMAX 2022.11
+Page 
+220
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,18 @@
+Data Model
+As we progress through the guide, we will investigate how the different record types in Service Management Automation X are
+related, building up to a complete data model. This will provide a useful way to see how all the different modules interact with
+each other. The final data model is represented in the following diagram:
+In our Data Model, each box is color-coded. These colors represent the 
+badge color
+ for records of that type within SMAX. The
+color families also help to visualize the overall modules that certain collections of records create.
+Core Data
+Putting the Core Data record types into our data model is a bit problematic, as they relate in some way to almost every other
+record type in the system. Instead of drawing all of those lines and making our model unreadable, here we present a simplified
+data model showing only the relationships between these objects.
+SMAX 2022.11
+Page 
+222
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

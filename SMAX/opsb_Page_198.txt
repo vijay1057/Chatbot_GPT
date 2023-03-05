@@ -1,0 +1,24 @@
+When to Create Problems
+So how do we know that we have a problem? There are two primary methods we can use to create new problems: manual and
+guided.
+Manual Problem Analysis
+This part of the problem analysis process simply means we are looking at specific incidents as they occur. In this way, we are
+capitalizing on the knowledge of our agents as they resolve everyday issues. If an agent recognizes that an incident is very
+similar to one they have already looked at (or thinks it might readily occur again) they can create a problem directly from the
+incident — if they have the rights to create a new problem.
+If they don’t have the rights to create a new problem, they simply mark the incident as a 'Problem candidate'. Our problem
+managers — agents responsible for the problem management process — will review all the flagged incidents. During the
+review, the problem manager will determine whether or not to create a problem from the incident.
+Guided Problem Analysis
+Guided Problem analysis takes advantage of Service Management Automation X’s powerful Big Data tools to analyze incident
+data to assist the problem managers in finding trends that may point out problems that aren’t apparent in manual analysis.
+Using the Hot Topic Analytics engine on the incident records, the problem manager can find patterns and recurrences of
+related incidents. From these grouped incidents, they can then create a problem from multiple Incidents. These incidents will
+be linked to the created problem, so when the problem moves forward in its workflow Service Management Automation X
+updates the incident owners with relevant information.
+SMAX 2022.11
+Page 
+198
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

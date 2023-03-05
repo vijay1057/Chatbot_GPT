@@ -1,0 +1,20 @@
+Click 
+Save
+In the Details pane, the Generic per Device rule should now show for the Default rule:
+   
+Calculate a Compliance
+Once the agent assigns the default rule to the product, the system can run the calculation to determine how the product is
+being consumed across the company infrastructure.
+In the Products screen within Software Asset Management, search for the desired Software product, in this case 
+McAfee
+:
+Click to highlight the row (not on the Product Name link which is in blue). The row is now highlighted in grey:
+At the top of the screen, click on the 
+Calculate
+ button (this button becomes available once a row is selected).
+SMAX 2022.11
+Page 
+259
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

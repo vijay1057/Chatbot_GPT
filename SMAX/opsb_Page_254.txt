@@ -1,0 +1,15 @@
+At this point, the agent can enter the details for the Software License they are working on. For this example, use 
+McAfee
+ for
+creating a License Model for Antivirus software:
+Once all details have been entered, click 
+Save
+.
+For the newly created License Model, click on the ID number:
+The system will then show the details for the License Model:
+SMAX 2022.11
+Page 
+254
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

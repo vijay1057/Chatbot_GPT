@@ -1,0 +1,34 @@
+The key information required for this model must now be entered for compliance reporting. In the main Asset Model Details
+pane, add the following information based upon the Software Asset information as part of the contractual agreement with the
+Vendor for their product:    
+Count per Pack    
+Pack Price    
+Currency
+Next, add the Software Coverage details. This is where the License Metric and the Product version are selected. In this
+example, the 
+OOTB Generic – Per Device
+ metric and the 
+UCMDB discovered McAfee VirusScan 8 Ent
+ product are used.
+Once the details have been entered into the License Model, click on 
+Save
+.
+The License Model is now complete.
+Create a Software License
+Now that the License Model exists, the next step is to create the Software License. The following steps show how to create the
+Software License using the same McAfee Antivirus example.
+From the top menu click on 
+Licenses
+.
+Click on 
+New
+    
+ 
+  
+The New License screen will appear:
+SMAX 2022.11
+Page 
+255
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

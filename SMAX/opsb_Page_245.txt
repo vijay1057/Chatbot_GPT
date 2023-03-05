@@ -1,0 +1,39 @@
+SMAX/SM Dual Mode
+Introduction
+While Service Manager (SM) and Service Management Automation X (SMAX) are both end-to-end, stand-alone, solutions for IT
+and Extended Service Management, they can also be used together. Customers looking for a modern self-service portal while
+leveraging the Service Manager request catalog can deploy the SMA Service Portal with Service Manager; this deployment
+combination is called “Mixed Mode” for short. Customers looking to transform the entire Service Request process, that is, the
+Self-service Portal, Service Catalog, End-user Knowledge Management, and Service Request functions, can deploy SMAX with
+Service Manager for the remaining processes such as Incident, Problem, and Change; this deployment combination is called
+“Dual Mode” for short. Mixed and Dual Modes are considered by customers looking to improve the self-service experience,
+advance the entire service request process, revamp the service catalog, or transition to SMAX.
+SM unloads and accompanying documentation are provided for setting up SM and SMAX systems for use in Dual Mode. The
+information, as well as “recipes” for setting up SMAX catalog offerings for fulfillment in either Request or Incident Management
+in Service Center, may be found at the following link: 
+https://marketplace.microfocus.com/itom/content/dual-mode-recipe
+What is Dual Mode?
+Using Dual Mode, the entire Service Request Management process is run inside SMAX. This includes the Self-service Portal,
+Service Catalog, Knowledge Management, and Service Request functions. All configuration for these processes (specifically
+Service Catalog) is done within SMAX.
+The remaining processes are handled with Service Manager. This includes Incident, Problem, and Change.
+When a Service Request Management process would create a related Incident, Problem, or Change (or any other process
+handled in SM), the information is passed from SMAX to SM using the Case Exchange capabilities shared by the two products.
+This exchange is bi-directional, so the necessary information (such as the status of the related process) is passed back to
+SMAX when needed.
+Dual Mode vs. Mixed Mode
+While both Mixed and Dual mode improve the self-service experience for the end-user, they have unique advantages
+depending on the overall goal.
+Customers that are highly invested in Service Manager and only want an improved Self-service Portal should focus on Mixed
+Mode. In mixed mode, all configuration is done within SM (including the Service Catalog) and the actual Service Request
+Management is performed in SM as well. 
+If a customer is interested in moving to SMAX over time, Dual Mode is an attractive option. The Service Request Management
+processes are all within SMAX, taking advantage of the modern UI and containerized backend infrastructure. While the other
+processes exist in SM at the beginning, they can be moved one by one until all processes exist only in SMAX.
+ 
+SMAX 2022.11
+Page 
+245
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

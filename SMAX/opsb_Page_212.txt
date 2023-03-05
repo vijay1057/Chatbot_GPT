@@ -1,0 +1,34 @@
+In the normal change workflow, the 'Approve plan', 'Build and test', and 'Approve deployment' phases are removed. Once the
+'Plan' phase is complete, the change moves directly to the 'Execute' phase of the 'Deployment' step.
+One goal of our change management process is to find those types of changes (represented in our change models) that we
+can move to use the standard change workflow. This will involve work on our part to create well-defined change models that
+dictate our approved process, but we also have tools in Service Management Automation X that will help us discover good
+candidates. We’ll take a look at that when we look at change analytics.
+Emergency Change Workflow
+Often when something breaks, or there is a major Incident that needs to be resolved quickly, we need to adjust the IT
+infrastructure as soon as possible. In these cases, it isn’t always possible to follow the normal change workflow, so we use the
+emergency change workflow instead.
+As you can see, again the difference from the normal workflow is in the 'Planning' step. The 'Approve plan' has been removed,
+and the 'Approve deployment' phase has been replaced with the 'ECAB' phase (which is where the emergency CAB performs
+approvals).
+While the emergency change workflow allows us to make changes more quickly, it also makes the 'Review' phase more
+important. Not only do we need to review whether the Change completed successfully and had the desired effect on the
+infrastructure, we also need to look into why this needed to be an emergency change. We need to make sure that this type of
+change is the exception to the process rather than the rule.
+Change Tasks
+Tasks and task plans are available inside of all the change workflows. Change often sees the heaviest use of tasks out of any
+module in the system. Taking the time to create the right task plan during the planning step of a change can have a huge
+positive impact on the overall success of the change process.
+As we find types of changes that have similar (or identical) task plans, we can create change models based on those plans to
+minimize the work the change owner needs to do for each individual change. Once we have our change models optimized, we
+can review them and “promote” those with low risk to use the standard change process.
+Change Approvals
+Service Management Automation X gives us the ability to visually design complex approval plans that can reference specific
+people or groups (such as our CAB group). These plans can look up people or groups from information related to the change
+(such as the owner of the related service).
+SMAX 2022.11
+Page 
+212
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

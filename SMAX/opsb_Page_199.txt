@@ -1,0 +1,48 @@
+SACM Details
+Using Service Asset and Configuration Management
+Earlier, we saw how SACM and the service portfolio combined to give us a comprehensive picture of the services we provide
+and all the configuration items that make up those services. Defining our services and their components is the first step in our
+ongoing process. Ensuring that we keep those services running well and improving them over time will take more work.
+Service Management Automation X’s service and configuration management module provides the repository for all the
+components (the configuration items) that make up our services. This repository supports the primary functions of the SACM
+process:
+Configuration Identification - it gives us the ability to enter all the information for our configuration items, including
+specific information on the type of CI, all relevant attributes, and relationships to other CIs.
+Configuration Control - we need to ensure that no configuration items are added or changed without the required
+authorization and make sure that all changes are accurately recorded. This process is aided by change management to
+control changes to our environment.
+Configuration Verification and Audit - we need to check to ensure that the information we have in Service Management
+Automation X matches the actual state of our production environment.
+General information about SACM in Service Management Automation X can also be found in the 
+online documentation
+.
+Configuration Identification
+SACM
+The primary focus of Service Asset and Configuration Management is to maintain information about all the
+configuration items required to deliver an IT service. This includes specific information about each configuration
+item and the relationships between multiple CIs.
+There are multiple sub-processes within the overall SACM process, each with their own objectives:
+• Configuration Identification - define and maintain the underlying structure of the CMS (configuration
+management system) via the configuration model so it may contain all the information regarding configuration
+items. This includes specifying the attributes that describe all CI types and their components and defining their
+relationships to other CIs and CI types.
+• Configuration Control - ensure that no changes are made to configuration items (including adding new CIs)
+without the proper authorization and procedures and ensure that all changes made are properly recorded in the
+CMS.
+• Configuration Verification and Audit - perform regular checks to ensure that the information in the CMS
+accurately represents the configuration items installed in the production environment.
+Service Management Automation X provides the starting configuration model and may be used as the primary
+configuration management system. Alternatively, an external configuration management database may be used
+as the primary CMS and integrate with Service Management Automation X to provide a copy of the CI information
+for all SMAX processes. This information is vital in many areas of Service Management Automation X, including
+(but not limited to):
+• Identifying the impact of requested changes
+• Providing diagnostic information to the service desk to help in resolve incidents or problems
+
+
+SMAX 2022.11
+Page 
+199
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

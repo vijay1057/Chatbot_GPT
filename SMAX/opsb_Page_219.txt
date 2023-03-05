@@ -1,0 +1,9 @@
+In addition, we can also define business rules that apply to releases that use a specific model. We can filter the list of possible
+owners, default field values, ensure that there is sufficient time between the start and end dates, or apply any other type of
+rule that will only run for this type of release.
+SMAX 2022.11
+Page 
+219
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,30 @@
+Here you can see a Hot Topic “map” that represents common terms used to create new support requests. While the colors
+are simply there to separate the terms (and look pretty), the size of each colored area represents the number of requests
+using these terms — which the system also displays numerically.
+We can add filters to narrow down the request to only analyze those for a specific service, time range, or even just those
+in a particular phase. We can also type in search terms (in the search box on the top) to narrow down the analysis even
+more. For example, I could type in “iPhone” and see what kind of requests are coming in related to iPhones, even though
+we don’t officially support them in any of our services. If I see a huge box labeled “Email”, maybe I need to think about
+supporting company email on iPhones.
+You can also click on a colored box to just see the related requests in the list on the right-hand side. Oh, and it’s hard to
+see in just a screenshot, but in some of the boxes (like the top left in this example), you can see some very faded text
+behind the main text. If you click on this box, it will show a further breakdown of records in that group.
+One note, sometimes when you break down a category the total number of records in the multiple categories might add
+up to more than the total shown on the original box you clicked on. That is because a record might belong to more than
+one box in the Hot Topics Analytics map. Here there might be a record that fit into both of the subdivisions inside of our
+original box. Just remember that the displayed numbers represent the records that fit in each box, not the total number of
+records.
+So how do we use this information? Well, we can investigate specific boxes on the map (and we should focus on the
+largest boxes first) and see if there is a common question or theme in the included requests. Remember that when we
+select a box, we will see the requests that fit in that box on the list on the right-hand side of the screen.
+If I scan that list and see a common theme, I’ll check to see if we have any service offering or knowledge on that theme
+already (I can search the system using the global search tool without having to leave the Hot Topic Analytics screen to
+check for this). If we don’t, I can create one or the other from this screen. Check the boxes next to the appropriate
+requests and click the 'Create Article' or 'Create Support Offering' (you can change this to a service offering during the
+actual create process if you want). This will take us to the create screen where we can fill in all the information, but notice
+SMAX 2022.11
+Page 
+184
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

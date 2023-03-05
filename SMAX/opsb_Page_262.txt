@@ -1,0 +1,21 @@
+The number of Products the agent has configured will determine the number shown on the screen above, in this case 2.
+Click on the tile to drill down for more information.
+The agent will then see a screen similar to what is shown below:
+The agent can look at what Software products are held in SAM on the left hand side of the screen, and details of the actual
+devices that have that product installed on the right.
+If the License Model was more complex rather than the Generic per Device, the number of processors and the cores per
+processor columns would then be important to the agent. In this example they are not required, but the columns are provided
+to allow the agent to understand how each device is configured and how that could potentially impact on the License
+consumption points for each Software License they create.
+If the Agent clicks on any of the Device Names list in the Devices screen, they can drill down to understand how the device is
+consuming the product. There are three options, General, Deployment and Consumption.
+General Tab
+This page gives the same level of detail shown on the previous page listing all the devices but now specific to the device
+selected by the Agent.
+Deployment Tab
+SMAX 2022.11
+Page 
+262
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,32 @@
+If the end user selects the 'Accept' button, the system closes the request and completes the process.
+If we didn't completely solve their issue, or they want to give feedback on the process, they use the 'Add comments' button.
+This brings up the original request and allows them to leave whatever comments they wish. After they leave their comments,
+the request automatically enters the 'Review' phase. Now it's up to the responsible agent to review the user’s comments and
+decide if they can close the request or need to move it back to the 'Fulfillment' step.
+Support Workflow
+Not every end user request will fit into our pre-defined service catalog. Sometime people will enter requests because they are
+having an issue with a service we provide. To handle these types of requests, we use support requests.
+Support requests are similar to service requests, but let’s take a look at each step of the process and look at the differences.
+Classification
+While both workflows start with the ‘Log’ phase, the ‘Support request’ workflow adds a second phase to the ‘Classification’
+step. In the ‘Classify’ phase, the service desk agent can enter additional information about the end user’s issue and set other
+information such as the service they are having an issue with and an initial category for the request. At this point, the agent
+must also assign the request to either a group or an agent.
+Approval
+Support requests have no pre-defined approvals, so the workflow skips this step.
+Fulfillment
+Instead of a single fulfillment phase, the support request has the ‘First level support’ and ‘Escalate’ phases.
+The ‘First level support’ phase is where the actual work starts, and our agents often complete many requests in this phase. Just
+like service requests, the work can perform the work directly in the request or in tasks assigned to multiple people in parallel.
+The primary difference in the workflows is the ability to escalate a support request (into the ‘Escalate’ phase, of course). An
+agent works an escalated support case in the same way, however, the system sends out additional notifications during the
+process. For example, an escalated request might send notifications to the owner of the affected service.
+Validation
+The ‘Validation’ step is identical between both workflows. The end user is emailed to determine whether or not the request
+was completed successfully.
+SMAX 2022.11
+Page 
+171
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

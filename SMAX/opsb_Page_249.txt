@@ -1,0 +1,31 @@
+Knowledge
+Knowledge Articles
+Knowledge is more centrally featured in SMAX than other service management tools. For end users, Knowledge Articles are an
+integral part of the Service Catalog, giving answers and direction without the need to directly address a service desk agent. For
+the agents, the Articles are integrated directly into their UI, showing possible solutions to a user's issue without having to leave
+the screen they are working on.
+The existing knowledge in Service Manager is a critical piece of the Evolving to SMAX process. Bringing this asset into the
+SMAX system is extremely important, and tools have been created to assist in this process. Before this process is performed, it
+is suggested to review the existing Knowledge Documents to determine if any do not belong in the new system. In order to
+move the documents from Service Manager to SMAX, follow the two steps listed below:
+☐ 
+Export knowledge documents from Service Manager
+Knowledge articles from Service Manager may be exported and packaged to prepare them for importing into SMAX
+using utilities created for this purpose. These utilities and instructions on how to use them may be found here:
+Export knowledge articles from Service Manager
+☐ 
+Import knowledge documents into SMAX
+For the import phase, please see:
+Import knowledge article packages
+Creating Knowledge from transactional records
+It is strongly recommended that transactional records from Service Manager (Incidents, Changes, etc.) are not moved to the
+new SMAX system. In order to keep any important information from these records that might help solve or speed in the
+resolution of future transactions, subject matter experts should example these records and create Knowledge from them
+(either in Service Manager before knowledge is moved or directly in SMAX). This will allow the information to be used in the
+future without adding complexity to the SMA Evolution process.
+SMAX 2022.11
+Page 
+249
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,60 @@
+be passed back and forth between the two records. In fact, the Agent working on the Request simply needs to check a box
+that states that the Service is impacted in some way and Service Management Automation X will automatically create a new
+Incident and link it with the Request. Additionally, new Requests may be related to the same Incident when they come in.
+When creating the new Request, the Incident will show up in the Agent’s interface as a possibly related Incident in order to
+make the relation easier to find – and then the Agent can relate the two together with a single click.
+When an Incident is resolved (we’ll look more at the actual workflow in just a minute), the pertinent information is copied to all
+related Requests. The Requests will automatically move to the Accept phase, which if you remember will send the End User an
+email to let them know the issue has been resolved. In this way, a single person resolving the Incident can also resolve
+multiple Requests at the same time – without having to do anything additional!
+For those time when the same Agent is responsible for both the consumer and provider side of the issue, Service Management
+Automation X also allows them to do all of the work on the Request if they desire. If the Request is closed successfully, the
+Incident will automatically be resolved as well. This works great for our Service Desk Agents that are more technical and work
+on the actual issues as well as helping the End Users.
+If you are still a little confused by the difference between the two processes, check out this 
+document
+ which explains it in
+more detail.
+Incident Workflow
+Overall, the Incident workflow is very similar to the request workflow. However, the end goals of the two processes are
+different. While request deals with ensuring that the end user’s issue has been resolved, the incident aims to eliminate any
+disruption or degradation in the service that the IT department is providing.
+Classification
+Unlike request, there are two phases of the ‘Classification’ step rather than one. The first is the ‘Log’ phase, where the initial
+information such as the title and description of the issue and what service is being affected. After this information is saved the
+Incident moves to the ‘Classify’ phase.
+The only additional information required in the ‘Classify’ phase is a category (remember those?). Once the agent enters the
+category, the Incident will move on to the ‘Resolution’ step. It's important to have the categorization information as the
+combination of category and service will most likely give us an idea of how this incident should be assigned.
+Once we’ve entered the category (along with all the required fields) the incident moves on to the ‘Resolution’ step.
+Resolution
+The ‘Resolution’ step consists of two phases, the ‘Initial Support’ phase and the ‘Escalate’ phase. During the resolution step,
+the service desk agents work to resolve any disruption that the Incident has caused. They may pass the incident along to one
+or more expert groups if necessary. These groups aren't part of the day to day operations of the service desk but are Subject
+Matter Experts (SMEs) that may be necessary to help with specific systems or applications that support our services.
+If it becomes necessary to raise the visibility of the Incident within the organization, the agent can move it into the ‘Escalate’
+phase. The primary goal is still to resolve any disruption, but the ‘Escalate’ phase marks the incident as needing more visibility
+and sends notifications to more personnel.
+Once the source of the service disruption is found and removed the agent can fill in a resolution for the incident, which moves
+it into the ‘Validation’ step. Remember that to resolve the incident we don’t necessarily have to fix the root cause of the
+problem, we only need to make sure that service has been restored to the consumers. This may involve providing a
+workaround to the issue rather than a complete solution.
+Validation
+The ‘Validation’ step includes a single phase, ‘Review’. This phase allows the service desk agent (or other designated person)
+to review the solution used to resolve the incident. If the solution is incorrect (if further testing showed the issue was ongoing
+for example), the agent may return the Incident to the Initial support phase for further troubleshooting.
+If the solution is correct, the agent needs to add a completion code to the incident before closing it and completing the
+process. The completion code states how the issue was resolved. It might have been resolved successfully with a fix, or
+perhaps a workaround was given to the end users. The completion code is very important for many post-incident reports and
+processes such as problem management, and our agents need to make sure they take the time to fill it in correctly.
+Feel free to take a minute and look at the 
+incident workflow
+ in the online documentation if you would like.
+Incident Task Plans
+I mentioned before when talking about incident models we can assign tasks as part of the incident process. An agent can
+SMAX 2022.11
+Page 
+177
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

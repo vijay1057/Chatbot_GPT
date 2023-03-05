@@ -1,0 +1,30 @@
+Writing User-friendly Articles: An Example
+The following is a real example of a Knowledge Article before an after it was rewritten with the advice given above.
+Article content before rewrite:
+The Repository server allows only 
+Micro Focus
+ networks. To access this server we should use the 
+Micro Focus
+ intranet
+network. If you are in a public network, you need to connect to the Pulse VPN first to access this server. Servers located in
+all the Data Centers (including Trade and LabOPs) will be able to communicate to this repository server using respective
+Data Center Proxies. If you want to access this server from 
+Micro Focus
+ office networks then no need to connect to any
+VPN.
+Article content after rewrite:
+Access to the Repository server
+- You can only access the repository server from the 
+Micro Focus
+ networks.
+- If you are in a public network, connect to Pulse VPN first
+Note: Servers located in all the Data Centers (including Trade and LabOPs) can communicate to this repository server using
+respective Data Center Proxies.
+The large block of text has been replaced with bullet points and a simple note, conveying the same information as the original
+in a way that's easily consumed by the customer.
+SMAX 2022.11
+Page 
+248
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

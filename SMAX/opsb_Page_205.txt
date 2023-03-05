@@ -1,0 +1,13 @@
+Service Design Components
+Components are elements of service design. Only topology components are displayed in the Components tab. Sequenced
+components aren't associated with providers or provider types. From the Components tab, you can view the topology
+components associated with a specific provider instance and manage the topological components.
+For more information, see 
+Service Design Components
+.
+SMAX 2022.11
+Page 
+205
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

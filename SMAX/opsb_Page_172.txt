@@ -1,0 +1,39 @@
+HR Support Workflow
+Not everyone calls the Service Desk with an IT related question. Over time, we have seen more and more requests coming in
+for services provided by Human Resources. Luckily, Service Management Automation X’s request module has a process that
+caters exclusively to these types of requests. This allows our organization to integrate its HR operations as a part of request
+management, benefiting from a familiar data structure, workflow, reports, and so on.
+We can configure and manage our HR support requests separately from Service Catalog processes and streamline processes
+that don't require approval or validation.
+Classification
+HR support workflow provides both the 'Log' and 'Classify' phases, which operate similarly to the same phases in the support
+workflow. In these phases, the service desk agent ensures that the request is entered correctly, and assigns it to an agent or a
+group.
+Fulfillment
+In the 'Process' phase, the assigned agent performs the actions needed to complete the Request. This often involves specific
+tasks associated with the request, which may be handled by a different agent (or HR representative in this case). Once they
+complete the actions, the agent provides a solution and completion code and closes the Request.
+Validation
+The 'Validation' step is the same as the other request workflows. The end user is emailed to determine whether the Request
+was completed successfully.
+If that wasn’t detailed enough for you, check out the full descriptions of the 
+service request workflows
+ online.
+Cart Workflow
+The Request module has a special workflow for shopping cart requests. For these requests, SMAX creates a single request that
+handles the overall approval, and then a separate request for each item added to the cart. The first request uses the cart
+workflow.
+Until the first request reaches the 'Close phase, all child requests will remain in their own 'Log' phase.
+Classification
+The system processes the 'Log' phase with no input from the agent. Its only function is to determine if there are any needed
+approvals or not. If there are, the request proceeds to the 'Approval' step. If not, it processes to the 'Done' step.
+Approval
+In the 'Approve' phase, the system processes all necessary approvals. This works identically to the 'Approval' step in a service
+workflow.
+Once the cart request is completed, the child requests may be processed.
+SMAX 2022.11
+Page 
+172
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

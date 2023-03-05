@@ -1,0 +1,27 @@
+The agent can see how many total license points the company is allowed to use and how many are actually being consumed.
+In this example, there is $13.95K in potential savings as there are 93 available license points that are not being used.
+The Agent can click on the products's tile to see exactly what devices are using this license.
+SaaS Compliance
+On the 
+Compliance
+ page, click the 
+SaaS
+ tab to view the license compliance status of all supported SaaS products.
+Each card provides a summary of a SaaS product, including the license compliance calculation time, compliance status, cost,
+and the number of subscriptions. The cost indicates the total cost for all subscriptions assigned to a user per month. If
+the 
+SaaS
+ tab page does not provide the number of active and used subscriptions separately, the number of available
+subscriptions is used. For detailed subscription information, click a card.
+Analysis of compliance
+The previous step explained how to create the Compliance in order to show what devices consumed the product licenses. This
+section will describe how an agent can analyze that data within SAM.
+From the Software Asset Management menu, click 
+Analysis
+The agent will then be shown a screen similar to the example below:
+SMAX 2022.11
+Page 
+261
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

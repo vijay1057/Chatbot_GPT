@@ -1,0 +1,56 @@
+Services and the Service Catalog
+Introduction
+Some customers new to SMAX (or ITIL v3 in general) are confused about what IT services are and what services they
+themselves support. ITIL defines it as "a service provided to one or more customers by an IT service provider." In more simple
+terms, if an end user contacts the Service Desk with a request and the agent's answer is anything but "we don't support that",
+that request is somehow related to a supported IT Service.
+What are Services?
+Services that IT provides to end users are called Business Services. Examples could include collaboration services, email
+services, or mobile device support. Services that are used internally by IT are called Infrastructure Services. Some examples of
+these might include data storage or networking services. Some services can even be made up of other services.
+More information on Services and how they are defined can be found here: 
+SACM Overview
+Finding and defining the IT Services can be one of the most time-consuming parts of creating any SMAX implementation, but it
+can also create the most value. Knowing the entirety of what IT does (and doesn't) support is an invaluable piece of
+information. Once the high level services are known, the creation of the Service Catalog can begin in earnest.
+ 
+Designing the Service Catalog 
+The Service Catalog is separated into three sections:
+Service Categories
+Service Definitions
+Offerings
+Precise definitions and examples of each of these levels may be found here: 
+The Service Catalog
+When designing your Service Catalog, there are some high level considerations that you should keep in mind. These include:
+Design for the End User
+Design for Search
+Design a Catalog, not an Entry Form
+Design for the End User
+When designing the Service Catalog, the most important design consideration is to create the catalog for the end user, not the
+agents. While the purpose of the Service Catalog is to reduce the load on the agents, this can only be accomplished if the end
+user is able to easily find what they are looking for. 
+For example, when browsing the Service Categories, the end user is much more likely to understand what's contained in a
+category named "Phone and Mobile" than one labeled "Telecom". 
+Design for Search
+Along the same lines, when creating Offerings, the descriptions must contain the right information so the end user can find
+them when searching. The SMAX Service Portal works best when the users simply search for what they are looking for help
+with. However, this only works if the Offerings contain all of the information the user might search for. When designing the
+Offerings, include as much information about them in the descriptions as possible.
+Design a Catalog, not an Entry Form
+When designing the catalog, an administrator may fall into the mindset that it's important to keep the number of Offerings to a
+minimum. To accomplish this, they will create a single Offering that can be used for a number of different actions. These end
+user must then select one or more options to complete their request, often without being certain of which selection to make.
+An alternative approach is to create Offerings that are specific to a single type of request or task. While this will result in more
+Offerings to maintain, the system becomes more intuitive for the end user, leading to higher satisfaction and acceptance.
+Consider how the leading on-line services build their own catalogs. There isn't a single item (offering) for "Book" that makes
+the user select the type, author, and title from a list. Instead, each unique book has its own entry, categorization, and
+description. This also makes it easier for the end user to search for and find exactly what they are looking for.
+Creating the Offering Description
+One of the most important parts of the Service Catalog is the description of the provided offerings. The descriptions are the
+starting point of a customer's interaction with the Service Portal. It helps a customer to know:
+SMAX 2022.11
+Page 
+246
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

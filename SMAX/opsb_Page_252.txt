@@ -1,0 +1,25 @@
+The SAM Home screen gives an overview of the potential costs that a company could incur for license overspend or show what
+products are at risk due to not enough licenses. When an Agent uses SAM for the first time, the home screen will not display
+any data. Once the system calculates the license usage, the widgets are populated.  The data is driven by UCMDB discovery
+linked with Software Licenses that are created within SMAX. SAM can then join this data together and perform calculations to
+see how the discovery data fits the license rules defined in the Software License model.
+When navigating between screens, the agent uses the top menu to access the appropriate parts of SAM.
+This document contains a worked example of how to use each area of SAM to create a working Software License and show a
+Compliance result,  then analyze the findings. It’s essential to follow the document in the order it is written to ensure the
+required results.
+Sync products from UCMDB
+The first step in creating a Software Licenses is to understand what Products are installed across the company infrastructure.
+From the top menu in the SAM Home page, click Products.
+From the Products page, both On-Premise and SaaS products can be viewed.
+The first time SAM is used there will be no products listed for On-Premise.
+At this point the agent must click 
+Sync from CMS
+, which will take some time depending on how many Installed Software CIs
+are held in UCMDB.
+Once the Sync has completed, there should be a full list of products shown:
+SMAX 2022.11
+Page 
+252
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

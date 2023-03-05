@@ -1,0 +1,16 @@
+If a new vendor Licensing Metric needs to be used over and above the OOTB metrics just Click on New at the top and follow the
+screens to create a new Metric.
+The Agent will need to provide the Publisher from the Drop down list imported from UCMDB
+Provide a Name for the License Metric to help understand what the metric is trying to work out, like a processor license or an
+installation license.
+Provide a Code for the metric. SYS is used by the OOTB so that can’t be used. It is recommended to use a code with the
+publisher name then the type of license metric. For example, mf_per_processor
+Then finally the Calculation Unit such as Host, Installation or Operating System Environment
+When complete, click 
+Save
+SMAX 2022.11
+Page 
+264
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

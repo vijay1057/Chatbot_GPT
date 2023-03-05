@@ -1,0 +1,65 @@
+Dev2Prod
+Making the system configuration changes on the development tenant
+Once we have our development tenant created, we can make our system configuration changes. To remind you, this includes
+changes to the following areas:
+Records -> Fields
+Records -> Forms
+Records -> Rules
+Records -> Processes
+Records -> Notifications
+Records -> Custom actions
+Records -> Global search
+Lists
+Roles
+Localization (for field labels, notifications, etc.)
+SLT settings
+We also need to ensure that we perform adequate testing after we make our changes. Once certain system Configuration
+changes have been made, such as adding a field to the system, it may be impossible to remove. This is why we need to review
+all of our changes and test them thoroughly before moving them on to Production.
+This results in the most effective Dev2Prod changes being small and self-contained. Large-scale changes affected multiple
+areas of the system should be avoided unless absolutely necessary. Smaller, agile changes are more effective and carry much
+lower risk.
+Exporting the system configuration changes
+After our system configuration changes have been performed and tested in the development tenant, it's time to export them.
+The export is performed by the 'Package Management' utility which may be found in the 'Administration' section of the Service
+Management Automation X menu. From there we can select the 'Export' option.
+While the export is taking place, Service Management Automation X displays the system configuration changes and the
+number of records in each type. Note that this isn't a count of what has been changed, but rather all of the records in this
+area. Therefore even if we only make a single change there will be many records included in the export.
+It's important to leave the browser we are using open until the export has completed. If the browser closes during the export
+process, we need to restart the export process from the beginning (after we log in again) to ensure we get a clean export.
+The actual export will download to our computer as a .pkb file named “user-customization-<current date/time
+information>.pkb” (where <current date/time information> will be replaced by a representation of the current date and time).
+Importing into the production system
+The development of new system configuration changes can take time, over which some changes to the production system will
+take place. New data configuration changes may be created or old ones modified. It's important to ensure our new system
+configuration changes will not cause any conflicts before importing them into Production.
+To ensure our changes will import smoothly, we first need to simulate the system configuration import. Why are we simulating
+it before we actually load the import? Well, there is a chance that there were other changes made on production while we
+were performing our development, and those changes might not be compatible with ours. Now, with proper planning and
+administration, the chances of this are very low. However, if someone else had created their own system configuration export
+as part of a separate Dev2Prod process, this could happen. Therefore it's very important to share the planning and
+implementation schedules of any system configuration changes in our Service Management Automation X system with all of
+the administrators and developers.
+To perform the simulation, once again we access the 'Package Management' utility from the main menu. This time we will
+select the 'Simulate import' option. The system will then prompt for the location of our system configuration package. Once we
+supply that information, Service Management Automation X will analyze the package and report its findings (this might take a
+Dev2Prod
+Service Management Automation X provides a standard process for moving system configuration changes from a
+development system to production. This process, named Dev2Prod, provides a structured procedure designed to
+minimize risk to the production environment. We can use an analogy where the system configuration represents
+the roads that the data configuration changes drive on. We can't move or change the roads at any time, as that
+would cause chaos for the drivers. Instead, we have a well-defined process that allows us to create the changes in
+a separate system and then move them when there are no drivers on the road. In order to properly move the
+system configuration data, the following steps should be followed:
+System configuration changes are made and tested on the dev system
+The changes are exported as a package using the package management utility
+On Production, the package management utility is used to import the configuration package
+
+
+SMAX 2022.11
+Page 
+228
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

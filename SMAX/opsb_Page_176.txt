@@ -1,0 +1,35 @@
+Incident Flows
+Request and Incident… Better Together
+You’ve probably noticed that there is quite a bit of similarity between the Request and Incident processes. The real difference
+between the two is that Request handles requests and issues coming from the consumers of our Services while Incident
+handles issues on the provider side. I’ve come up with two tenants for our Service Desk to help define what each of these
+processes is used for:
+Service Request management encompasses the consumer-facing processes that make up the expected, day to day
+activities involved in providing a service to an individual or group.
+Incident Management encompasses the processes used by the service provider to track and resolve any issue that
+impacts the ability of a user to consume the service.
+It may have crossed your mind that there will be some situations where we actually need both of these processes. Let’s take a
+look at an example of this in detail.
+For our example, let’s say one of our End Users has called in because they can’t access the company’s HR web page. When
+they call in, one of our Agents creates a support request. The goal of that request is to allow the End User to access the web
+page – or to allow the End User to consume the Service.
+After the Agent works with the End User for a bit over the phone, they determine that there is some type of failure in one of
+the DNS servers that's causing the issue. Now there is a known issue that's impacting our ability to provide a Service, so they
+need to also create an Incident. In some cases the Request and Incident might be assigned to the same Agent, but in others
+there might be one Agent working with the End User (in the Request) and another more technical one working on the server in
+question (in the Incident).
+Luckily, Service Management Automation X makes it easy to link the original Request to the Incident, allowing information to
+Incident Flows
+ 
+Now that we have set up a good portion of what we need for incident management, we can look at the incident
+workflow. Along the way, we will investigate the similarities and differences between incident and request
+management and how they work together.
+ 
+
+
+SMAX 2022.11
+Page 
+176
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

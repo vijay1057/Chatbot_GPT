@@ -1,0 +1,58 @@
+Whether this is the offering they are looking for
+What they can expect out of the offering
+What they need to prepare or have ready before making their request
+What to include in the Offering description
+When creating Offerings for the Service Catalog, consider including the below in the description:
+What does the offering provide?
+Who should request the offering and in what scenario? Who should not request the offering in a different scenario.
+If there are other offerings with similar names, explain the difference between them.
+Anything customers need to have prepared before requesting the offering.
+Any expected actions customers need to take after requesting the offering.
+If the delivery time is important for the customers, consider adding it to the description.
+Add a link to other documents with important information
+This isn't meant to be a mandatory list. Find the right balance between the information you would like to include and the
+length of the Offering description. Be sure to consider how the customer might search for the Offering, and include that
+information in the description.
+Supplement the Service Catalog with Knowledge Articles 
+The Knowledge Articles in a SMAX system can be the Service Desk's best friend. Any customer issue that can be self-resolved
+using knowledge is one less issue that the Service Desk needs to address.
+Do's and Don'ts for Knowledge Articles
+Do:
+Focus on only one topic per article
+Easy to read
+Easy to maintain
+Consider starting with questions/issues customers may have or have had in the past
+Use bullets to list out important points
+Have articles reviewed by a technical writer whenever possible
+Add reference links to other related topics whenever applicable
+Don't:
+Create long articles with multiple topics
+Consumers may lose patience while reading them
+Only focus on solving problems in the Service Desk -- recurring problems are a good indicator of the need for a related
+Knowledge Article
+Write Articles like a casual email, with no clear structure and long paragraphs
+ 
+Using Naming Conventions and Models in Articles
+In order to clearly and quickly get the point of a Knowledge Article across to a customer, consider using naming conventions
+when creating the title of the article. This will also increase the consistency of the articles overall.
+Some examples of naming conventions include:
+For
+Suggested Naming Convention
+Best Practices/Policies/FAQ
+XXXXX Best Practices/Policy/FAQ
+How-Tos
+"How To..." or us a verb phrase like "Using ...", "Setting up..."
+Knowledge tips
+Use the issue description as the title, eg: "Slow connectivity...", "400 Bad Request Error"
+Conceptual contents
+About..., General Introduction to...
+Additionally, using Models for each of these types (and any others you wish) will improve consistency among your Articles,
+resulting in improved user acceptance and use. For each of the "types", create a separate Model where the common content is
+predefined. For example, if you create a "Frequently Asked Questions" type, the content may have a "Question" and "Answer"
+section specified.
+SMAX 2022.11
+Page 
+247
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

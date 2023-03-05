@@ -1,0 +1,31 @@
+The Asset Tag must be unique for each Software License, and it is also important to create a consistent a naming convention.
+Try to include the product vendor and some detail about the product.
+Enter the details for how many Licenses have been purchased for the product and details about the Unit Rights.
+When selecting the Phase, only two phases will allow the consumption to be calculated, which are 
+Pool
+ and 
+Prepare
+. In all other
+phases the license consumption calculation won’t be taken into account.
+Once all the relevant information has been entered, click 
+Save
+.
+The Software License is now ready to be used.
+Relate a Product to a License
+Now that the Software License has been created, the product must be set to use the correct license rule. Only then can the
+correct consumption be calcualted.
+From the Software Asset Management menu, click on 
+Products
+.
+When the list of products appears, the agent may use the 
+Search
+ on the top right of the screen and enter the desired Product,
+in this case 
+McAfee
+.
+SMAX 2022.11
+Page 
+257
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

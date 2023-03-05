@@ -1,0 +1,23 @@
+Once saved the new Publisher is added to the list on the left hand. In the right hand screen the details of the newly added
+metric can be seen. Now the new metric can be used with any License Rules which require this algorithm to work out usage.
+License Rules – OOTB or Bespoke
+In the current version of SAM there are 20 Software License rules which come OOTB. There are 4 Generic rules, 14 Microsoft
+rules and 2 Oracle rules. In time more rules will be generated and published with later releases of SAM. If new rules are
+required then Agents can either create new or clone existing rules depending upon their requirements. In most cases for the
+majority of vendors the OOTB rules should be sufficient. In the worked example the Generic per Device rule will be used, so
+the agent can go to the next stage in the process if they want to carry on following this example.
+If the Agent requires an understanding of how to create a new rule or clone one then this is described below, but the process
+won’t be used in the worked example showing the creation of a License Model, License and how the products then consume
+the model.
+ 
+Create a Rule
+To create a new rule click on 
+New
+   
+The New License Rule window will appear:
+SMAX 2022.11
+Page 
+265
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

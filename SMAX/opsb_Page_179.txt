@@ -1,0 +1,43 @@
+Knowledge Management
+Knowledge Articles and News
+In a perfect world, a service desk agent would never have to figure out the solution to a specific issue or answer a question
+more than once. While we don’t live in a perfect world, we can do our best to capture all of our knowledge for use by both our
+agents and end users.
+While everything in Service Management Automation X is knowledge of some form or another, knowledge management allows
+us to create and maintain a curated database of knowledge articles and news articles for our services. In this way, we can
+ensure the integrity and quality of our most used pieces of knowledge.
+After we capture what we know, Service Management Automation X assists our agents and end users by displaying relevant
+knowledge at key points in the processes they are using. But before we see how the system does this, let’s make sure we
+understand what this curated database holds and how we add to it.
+The knowledge management process allows us to create two separate types of knowledge: knowledge articles and news.
+Articles contain information about a service (or a component of the service) that could help someone either provide the
+service or consume the service. For a simple example, we might have a knowledge article that describes how to access the
+company email using a tablet or phone.
+News, on the other hand, contains alerts or notices about critical issues or temporary changes to a service that users are
+consuming or providing. For example, we might create a news article for an upcoming outage of the Email service while we are
+upgrading it. One of the few differences in the article and news records is that the news articles may have a distinct end time
+after which they are no longer displayed to the users.
+One thing that's worth mentioning about both types of knowledge is that we can link them to the entitlement rules that we
+talked about earlier. Therefore you can create knowledge that can only people in a specific group, location, or role can view.
+This makes it easier to keep all the users from being overloaded with articles that aren’t applicable to their unique situation.
+Creating New Knowledge
+We have a few choices for creating new knowledge. As I mentioned earlier, one of the first things we might want to do is to
+import some of the knowledge we already have in our organization. But what about when we want to create new articles, or
+there is an upcoming event we want to create a news article for?
+One option we have is to start from scratch by creating a new article through the Service Management Automation X menu
+option. Then fill out the information and save the record to start the process workflow (more on that in a second). However,
+Knowledge
+In this chapter, we will look at the knowledge management process. Knowledge management allows the IT
+department to gather, analyze, store and share information about its provided services. The primary purpose of
+the process is to improve efficiency by reducing the need to rediscover information that's already known in some
+part of the organization.
+Knowledge articles may be related to many of the other primary IT processes. Articles can be created from these
+other processes, as well as used to assist in the resolution of these processes as well.
+
+
+SMAX 2022.11
+Page 
+179
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

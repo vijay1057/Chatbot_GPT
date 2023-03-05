@@ -1,0 +1,18 @@
+Evolving from Service Manager
+When evolving an existing Service Manager system, it is highly recommended to follow the overall guidelines and steps from
+the 
+Implementation Checklist
+ in the Key concepts guide. In addition to the information contained in the checklist, this section
+highlights additional steps and information that is directly related to a Service Manager implementation. Although these
+documents are specific to Service Manager, they may also be useful when evolving from other systems as well. This
+information includes:
+Differences from Service Manager
+Collecting Environment Information
+Core Data and the SMA Evolution Toolkit
+SMAX/SM Dual Mode
+SMAX 2022.11
+Page 
+238
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

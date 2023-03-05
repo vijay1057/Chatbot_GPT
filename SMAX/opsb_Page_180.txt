@@ -1,0 +1,47 @@
+most times the Knowledge we want to add results from working on a customer issue or implementing a specific change to the
+system.
+In that case, we can create the Article or News directly from the process we are working on — it can be an incident, a change,
+or most other process type records. We simply open the 'More' menu on the top of the screen and select 'Create article from
+record' or 'Create news from record'. This will take us to the correct screen to create the new knowledge, with relevant
+information from the original record already filled in. I find this a much better starting point than a blank screen, but you can
+use whichever method suits you best.
+If you would like more specific information regarding the creation of knowledge and news articles, you can find it in the 
+online
+documentation
+.
+Models
+When we create new articles, we want to have consistency between similar types. By which I mean all of our FAQs should look
+the same, all of our service disruption news articles should look the same, etc.
+To help with this, Service Management Automation X provides article models that we can use when creating a new article. We
+can set up as many models as we would like and create a common template for the look and feel of that article type.
+Localization
+Since we support multiple languages within our company, we will have to ensure that these articles are available in all of these
+languages. Service Management Automation X provides functionality that lets us export our articles so we can send them off
+for localization. Once our localizers complete their task, they send us back the files they have created and we can load them
+right back into SMAX. 
+Now when our end users perform searches and view articles, they will see them in their own language. For more information,
+please see 
+Localize articles
+.
+Knowledge Workflow
+Just like any other process in Service Management Automation X, the Knowledge process has a unique workflow that our
+knowledge contributors will follow. This workflow comprises four distinct steps.
+Creation
+We talked about how we can start the knowledge process, which begins in the 'Draft' phase of the 'Creation' step. As the
+knowledge contributor, this is where I will create the title and content of the article — which is what our agents and end users
+will see. For the content, I can use all the rich text components I might need, including links, images, and tables.
+I also need to specify the service this knowledge applies to. Using the service, we can better present the users with relevant
+information.
+Once we create the content, we can move the article into the 'Publication' step.
+Publication
+In the first phase of the 'Publication' step, we can set specific users or groups to be reviewers for our article. Fittingly enough,
+this is called the 'Review' phase. Service Management Automation X will automatically email the reviewers letting them know
+we want their feedback on our article.
+The reviewers can leave their comments on the article in the discussions section. We haven’t talked about discussions yet, but
+this is where multiple users can have, well, discussions about the record in question.
+SMAX 2022.11
+Page 
+180
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,20 @@
+Highlight the desired row, then click on 
+Details
+.
+Within the Details screen for the Product, click on 
+License Rule Settings
+.
+Click on the Product Version, in this case 
+McAfee VirusScan 8 Ent
+.
+At this point the Default rule must be assigned to the Product (or no consumption will be taken into account). Once the Default
+Rule has been applied, SAM associates discovered products to the License Model and License information that was created
+earlier.
+When the License Model was created it was based upon the Generic per Device rule. So for this product, that check box needs
+to be ticked and then the Default Value will automatically be set to that rule.
+SMAX 2022.11
+Page 
+258
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,43 @@
+Change Management
+Using Change Management
+Now that we have our services defined and have performed the hard work of mapping out all of their components and
+relationships, let’s just change everything, right? Unfortunately, that's how it feels sometimes. As the needs of our consumers
+change and grow, and new requirements bring the need for new systems and services, our IT infrastructure changes. What we
+need is a way to keep up with and control these changes.
+In order to control our IT environment, we shouldn’t allow any change to our existing infrastructure without some kind of
+documentation and approval process. Otherwise, we could negatively (and perhaps drastically) affect the services we are
+providing to our end users and customers.
+Luckily, we have change management and the change process. This process allows changes to the IT infrastructure to keep up
+with demand in a controlled way. Using it, we can evaluate the need for a specific change and weigh the possible benefits
+against the risk of unforeseen issues it might create. Additionally, we can define an approval process that won't let any change
+happen without the right stakeholders giving it the go-ahead.
+It also allows us to create a more standardized method of making these changes, and when we get good enough at a certain
+type of change, we can bypass the upfront evaluation and approval process. Even better, we can automate some or all of a
+Change Management
+Changes to IT infrastructure may be necessary to respond to problems or externally imposed requirements and to
+improve efficiency and effectiveness of existing services. The change management process ensures that
+standardized methods, processes, and procedures are used for all changes to facilitate efficient and safe handling
+of all changes to the infrastructure, and is used to determine that the need for change outweighs the potential
+detrimental impact of changes.
+ITIL defines the Change Management process with the following:
+“The goal of the change management process is to ensure that standardized methods and procedures are used
+for efficient and prompt handling of all changes, in order to minimize the impact of change-related incidents upon
+service quality, and consequently improve the day-to-day operations of the organization.”
+In a well-run environment, any change to an IT service (whether a business or infrastructure service) that affects
+one of the following should be controlled by change management:
+Hardware
+Communications equipment and software
+System software
+All documentation and procedures associated with the running, support and maintenance of live systems
+The change management process includes recording change requests, impact assessment, cost/benefit and risk
+analysis of proposed changes, business justification and approval of the change, managing and coordinating
+change implementation, monitoring implementation tasks, reviewing change results, and closing the completed
+change.
+
+
+SMAX 2022.11
+Page 
+207
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

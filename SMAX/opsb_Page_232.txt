@@ -1,0 +1,34 @@
+7
+. 
+Set the Account field to your “managed Account.”  You will see it has an icon associated with it.
+8
+. 
+Assign Licenses and deploy the tenant as normal.
+9
+. 
+After the Tenant has been deployed, go back to your Provider tenant and click on the 
+Shared service
+ tab.
+10
+. 
+Click the “Add” button next to 
+Managed tenant
+. Select the desired tenant you wish to add from the drop-down list. Only
+managed tenants are available.
+11
+. 
+After adding the tenant, we now should add the users that we want to access this shared tenant's data. Click the 
+Add
+button next to 
+User access
+.
+12
+. 
+In the pop-up box, select the user from the list and mark which modules they will have access to. Then repeat this for all
+users that you want to be able to access the tenant.
+SMAX 2022.11
+Page 
+232
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

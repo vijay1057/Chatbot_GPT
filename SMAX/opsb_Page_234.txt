@@ -1,0 +1,16 @@
+Screenshot of the menu of a managed tenant (name in the top left added via self-service portal settings)
+ 
+Provider Tenant
+In the provider tenant, you see a few additions. Firstly for each managed tenant, you will find a company record in the vendor
+table.
+If you then go to the full view of this record, there is an additional tab set up called “Managed Customer,” which provides view-
+only details of the information added in Suite Administration.
+The Mega Menu for SMAX also has an additional option in the right-hand side section labeled “MT Console."
+Clicking this will take you to a view of the managed tenants and the relevant tickets available for you to work on.
+MT Console Tabs
+SMAX 2022.11
+Page 
+234
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

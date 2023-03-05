@@ -1,0 +1,59 @@
+Best Practices
+Introduction
+Service Management Automation X (SMAX) is the first application suite for IT and Enterprise Service and Asset
+Management built on native machine learning, analytics, CMDB, and discovery. The out-of-the-box, extensible, best practices
+and completely codeless configuration means faster time-to-market for implementations. It can be deployed on-premise, in
+private or public cloud, or moved from one to the other as business conditions change. Its scalable, multi-tenant, architecture
+makes it easy to install, configure, and run.
+Customers (and their administrators) that have worked with other products may find some areas in SMAX different than they
+are used to -- especially products that aren't ITIL compliant. This document attempts to highlight and explain some of the
+important concepts and functionality within SMAX that may be new or not intuitive to users not familiar with the product.
+This document, as well as the related documents linked here, will continue to evolve over time. Check back often for new
+areas of interest, and feel free to suggest possible content using the "feedback" option.
+ 
+High Level Guidance
+Stay close to home
+…and out of the box
+In order to get the most out of your SMAX implementation, We recommend keeping as close to the provided out-of-the-box
+processes as possible. These have been created based on the industry standard ITIL process definitions as well as years of
+experience supporting customers with their IT business.
+SMAX contains numerous methods of configuring these processes to fix specific needs but be careful not to use these to
+change a process into something that it wasn’t meant to support. For example, you don’t want to modify the Request process
+to handle Incidents. There are specific workflows, rules, and supporting process around each of these that are specific to their
+needs. Trying to fit a square peg into a round hole by drastically changing these processes to fit other needs will not only
+make the overall system more complex and unmanageable but may also cause issues when trying to upgrade to new versions,
+take advantage of new functionality, or implement integrations to other products.
+This document will highlight some of the methods available to streamline your SMAX processes to fit your needs without
+changing the methodology behind the overall system.
+Don’t create the next buggy whip
+…by trying to reimplement an old system inside of SMAX
+One of the most common causes of issues in a SMAX implementation is the attempt to recreate the functionality of an older or
+different Service Management application. In most cases, SMAX has a different method of implementing behaviors than
+whichever older product is being replaced. It's important that the implementor understands the SMAX methods and
+methodology and doesn't try to recreate exactly what they had in their previous application.
+While it would be impossible to cover every application that SMAX could replace, there is a separate document that reviews
+several use cases for implementors that are coming from Service Manager. That document may be found 
+here
+.
+ 
+Processes
+Service Request vs. Incident
+Using the Service Request and Incident applications correctly allows an IT organization to better serve their customers while
+gathering important information about how those customers are using the available services. This in turn allows IT to improve
+existing services as well as identifying the need for additional ones.
+For customers moving to SMAX from non-ITIL (or older versions of ITIL) based solutions, the difference between Service
+Request and Incident may not be readily apparent. However, the ITIL v3 framework makes the distinction clear:
+The goal of Service Request Management is to ensure that the user can consume the service to their satisfaction.
+The goal of Incident Management is to restore normal operation of a service as quickly as possible.
+To use the example of a restaurant, Service Request handles everything that the guests (the end users) interact with. The
+guests can order from the menu of what the restaurant provides (the Service Catalog) or talk to the wait staff (the Service
+Desk operators) if they need something they can’t find on the menu. Their order is represented by a Service Request in our
+scenario.
+However they order it, whatever the guest asks for makes its way to the kitchen where their order is prepared. In our example,
+this is where the chefs (the IT operators) provide the guests with their orders. They have a variety of equipment to cook with
+SMAX 2022.11
+Page 
+270
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

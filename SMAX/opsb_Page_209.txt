@@ -1,0 +1,13 @@
+We can define the maintenance and blackout time periods to correspond to every service we have or only a specific service.
+When creating or reviewing a change, the requester will see the blackout and maintenance windows, which will assist them in
+the scheduling process. In fact, Service Management Automation X can even suggest a start time based on the duration of the
+change and the maintenance windows defined.
+Additional information about time periods may be found 
+here
+.
+SMAX 2022.11
+Page 
+209
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

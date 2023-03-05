@@ -1,0 +1,16 @@
+Service Level Targets
+One thing regarding the request workflow I want to mention is the service level targets the system calculates for the request.
+These targets measure the time it takes between certain steps in the process (the most important being the time between the
+Request being created and resolved).
+Service level targets are defined by the service level management process, which we will cover later. For now, it's enough to
+know the target times for the request are determined by a combination of:
+The service specified in the request
+The priority of the request (which is calculated by the specified urgency and impact)
+This results in the high priority requests having a shorter target time than those of low priority. Here’s a useful tip: sorting a
+list of requests by the next target time gives an agent a great idea of what order they should tackle them in.
+SMAX 2022.11
+Page 
+173
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

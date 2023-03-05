@@ -1,0 +1,30 @@
+Change Flows
+Change Workflow
+Change management has three separate workflows we will examine. Each corresponds to a different type of change request:
+Normal change - a change that will proceed through all steps of the change management process, and should be
+reviewed by the Change Advisory Board (CAB).
+Standard - a pre-approved change, an often repeated type of change that's low risk and has a well-understood plan.
+Emergency - an urgent change that needs to be evaluated and approved (or rejected) in a very short time frame.
+Sometimes an emergency change has to be opened in the system after the physical change has taken place.
+While each type of change has a different workflow, they all go through the same steps. The differences come in which phases
+the change goes through in each step.
+Normal Change Workflow
+The normal change workflow is the most common of new change requests. These changes must have an approved
+implementation plan and an approved deployment plan. Let’s take a look at each step in the process.
+Classification
+When creating a change, the agent must supply the details for the request. This includes filling out the following fields during
+the 'Log' phase:
+Title - A short description of the change
+Reason for change - Why the change is being made (from a list of defined choices)
+Change Flows
+Change management has three distinct workflows that may be used, depending on the change being performed.
+Service Management Automation X provides some additional features that assist in scheduling changes and
+improving the overall change management process over time.
+
+
+SMAX 2022.11
+Page 
+210
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

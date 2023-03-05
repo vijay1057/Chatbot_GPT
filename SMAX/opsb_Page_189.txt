@@ -1,0 +1,58 @@
+Time.
+When we look at the incident itself, we can see how the service agreement is being used by looking at the 'Targets' tab. From
+here we can see everything we need regarding the agreements, including:
+A summary of each service level target type (initial review & resolution) comprising
+The current status of each target (Active, Breached, or Achieved)
+The Target date which needs to be met in order to achieve each target
+The Elapsed duration of each specific type (how much time has already been used)
+The target duration of each type (the total time allowed)
+The date at which the target was achieved (if we met the target)
+The next target time that will occur for this Incident
+The overall status of the incident regarding the targets (active, breached, or achieved)
+At the top of the Incident is an indicator of how long until the next target time, or how far in the past it was if we missed it. So
+now if we pulled the ticket up just after it was opened we would see the target date for Initial review is 8:10 a.m. and the
+target for resolution is 9:00 a.m.
+For each target type, the system will send alert messages to the assigned group (or groups) when 50%, 75%, and 90% of the
+target time has passed. Here, everyone was too busy watching cat videos on the Internet an no one categorized and assigned
+the ticket in time. Even though the service desk received an email at 8:05, 8:07 (and 30 seconds), and 8:09.
+At 8:10, because the Incident had not yet been categorized, the Initial review target was breached. The system will email the
+assigned group (or groups) with this information, and mark the overall status of the incident as breached (if any targets are
+breached then the incident has breached the service agreement).
+However, the incident is still out there and we have another target to meet. The next target time of the incident will now
+reflect the resolution target of 9:00 a.m. Again, reminder emails will be sent out at 8:30 (50%), 8:45 (75%), and 8:54 (90%).
+Our crack team finds the issue and resolves the incident at 8:50 a.m. (so the third email reminder was never sent). Now if we
+look at the targets we see that the resolution target has a status of 'Achieved' and the achievement date is today at 8:50.
+We notice that the overall status is still 'Breached'”, as again if any target is breached the overall status of the Incident will
+also be 'Breached'.
+Example #2: Service Request
+In this scenario, an end user requested the 'New Sharepoint Site' offering from the Service Management Automation Service
+Portal. This offering is linked to a Service agreement which has an associated target set. The targets are set as follows:
+Approval (all priorities) has a target of 2 hours
+Fulfillment (all priorities) has a target of 4 hours
+Let’s say the request is made at 9:00 a.m. The approval target is now set at 11:00 a.m. The fulfillment target, however, isn't
+set to anything yet. Why? Well, the Fulfillment target is measured by the time the approval has been completed and the end of
+the 'Fulfillment' step. Since the request has not completed the 'Approval' step yet, the timer has not started.
+While we are waiting for the approval to happen, one thing to note is that there are automatically generated reminders sent to
+the approvers already, so no extra notifications are sent by the SLA processing.
+The Approval is completed at 10:00 a.m., so we have achieved the approval target. Now the fulfillment target starts, and we
+have four hours (until 2:00 p.m.) to get it completed. For the fulfillment target, we have the reminders sent at 12:00 noon
+(50%), 1:00 p.m. (75%) and 1:36 p.m. (90%) to the assigned group.
+The fulfillment is completed at 1:30 p.m., so the fulfillment target is also achieved. This means the overall status of the
+incident will also be 'Achieved'.
+Prioritizing Work using Service Targets
+One of the most useful things that our agreements give us is a method for our agents to prioritize their work. Instead of relying
+on the request or incident priority, instructing our agents to use the next SLT target time field results in better handling of their
+work queues. They simply need to work on the item with the next SLT target time that will expire the quickest.
+Why is this better than using priority? Well, let’s say there we have a few incidents out there for each priority (critical, high,
+medium, and low). If we only work on the highest priority first, and new incidents are coming in, some of which are critical or
+high priority, then the medium and low priority incidents may never get worked on (or at least not for a long time). And don’t
+forget that not all high priority Incidents are equal! If our Payroll service is down, it's much more important than our Room
+Reservation service (at least to me it is) — leading to different targets between the two services.
+If we teach our agents to look at the next SLT target time, a medium priority incident that has been open for a few days will
+work its way to the top of the list so that the agent will work on it before we breach the service agreement.
+SMAX 2022.11
+Page 
+189
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,30 @@
+Service Management Automation X gives us further insight into what types of changes completed successfully versus those
+that were not. In the example shown here, we can see that having a build a test plan and having an execution task plan were
+strong indicators of the overall success rate. This might lead us to either train our change owners on these features or even
+require these attributes for changes above a certain risk threshold.
+Finally, we can also take a look at the KPI measurement over time. This will give us a better idea whether any changes we
+make to our process affect the success rate of our changes. For example, if we were to perform the training we just mentioned
+in the middle of February, we might see a definite increase in the success rate after that point. We can also see that hiring my
+wife’s cousin Vinnie on February 27th might not have been such a great idea…
+Standard Changes
+This KPI measures the percentage of standard changes (those that use the standard workflow) out of the selected changes. In
+our IT environment, we should strive to create an approved and documented process for any repeatable change. This will
+result in many change models in the system being marked as standard, and we know from experience that these types of
+changes are more successful in a shorter time frame than other types. In fact, if we didn’t already know that, Service
+Management Automation X will tell us how much more efficient and successful they are as part of this analytic.
+Service Management Automation X will also nominate some change models that are following the normal workflow as
+candidates for the standard workflow. It looks at all of the change models to find the ones that have low impact, low risk, and a
+high rate of success.
+Again, we have the ability to look at this KPI over time to see how we are doing in an ongoing manner.
+Change automation
+This KPI displays the percentage of changes that contain automated tasks in their execution plan. Another way we can make
+our change management process more efficient is to automate as many repeatable steps of a change model as we can.
+Automated processes are faster and less error-prone than comparable manual ones.
+Not only will Service Management Automation X tell us how many of our changes we automated, it will also calculate:
+The difference in success rate in automated changes versus non-automated ones
+SMAX 2022.11
+Page 
+215
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

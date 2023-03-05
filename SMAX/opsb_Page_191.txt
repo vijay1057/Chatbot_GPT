@@ -1,0 +1,19 @@
+Timing and Caching
+It probably won't surprise you, but there is a ton of processing going on behind the scenes to calculate all the service level
+targets and related actions for all the incidents and requests being opened. Service Management Automation X has to perform
+complex calculations which included time periods (and time zones) every time someone creates or updates a request or
+incident.
+To optimize performance, Service Management Automation X performs the calculations in small batches in the background so
+that the end users and agents aren't negatively affected. The small side-effect of this is that the calculations might not be
+visible to the agents for up to a minute. So we need to let our agents know that if they don't see a target time in a record they
+recently created or updated, they need to give it a few seconds and it will appear.
+One other area that the optimization work affects is in changing the actual service level targets. To keep performance at its
+peak, the internal caching mechanisms used may not take the new values into consideration for a few minutes. In fact, the
+system will warn us of this when we change the targets. It's possible to override this behavior if necessary, but we need to
+make sure we only do this when we have to.
+SMAX 2022.11
+Page 
+191
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

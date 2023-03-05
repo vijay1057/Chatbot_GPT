@@ -1,0 +1,20 @@
+SMAX will create a Task to run in the background. SAM will then run a calculation using the License details, the License Model,
+the License Rules, and the number of Discovered pieces of software to determine how the product is being used across the
+infrastructure.
+A notification at the top of the screen to let the Agent know if the calculation was successful or not.
+When the row is highlighted, it is also possible to click on Schedule so the Agent can choose how often to calculate usage. For
+this action, a cron expression is required. For details, see 
+Calculate license consumption
+.
+Once the calculation returns as successful, the agent can go to the Compliance screen on the top menu of Software Asset
+Management. The Compliance screen will show all the Software Licenses in SAM with a Status of either Compliant or
+Noncompliant, as shown below:
+In this example, the agent see that the McAfee VirusScan is Compliant, there is one version of the software, and how much it
+costs to have this product on the network.
+The Agent can click on the McAfee VirusScan product to see greater detail around how this product is being used.
+SMAX 2022.11
+Page 
+260
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

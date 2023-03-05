@@ -1,0 +1,31 @@
+Give the License a relevant name (in this example, 
+Micro Focus
+ per Processor),
+ and a unique code (for this example,
+mf_per_inst)
+. From the Publisher drop down list, the agent may choose the company of the software they are creating the rule
+for, in this example 
+Adobe
+. Then choose the license metric, in this case 
+Micro Focus
+ per Processor
+. Then click 
+Save
+ to
+complete.
+Now the rule has been created it’s now possible to edit the rule by highlighting the correct row and then clicking on 
+Edit
+Script.
+Now the agent can look at the script that is used by the rule and make modifications based upon the Vendors rules for
+Software License compliance.
+For information regarding creating scripts for License Rules, please see 
+SAM license rules APIs
+.
+Also within the Edit Script function is the means of testing the rule before it’s published to determine if it will produce the
+correct results based upon the data held in UCMDB.
+SMAX 2022.11
+Page 
+266
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

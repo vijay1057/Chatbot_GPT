@@ -1,0 +1,38 @@
+Evolving to SMAX
+The expectations of both the business and the end-users have around the service desk have changed. As a result of
+organizations moving towards digitization, and the way in which users engage with technology and services in non-work
+contexts, there has been a shift in how employees and IT work together. However, this new synergy brings requirements that
+a classically deployed, stable legacy service management architecture cannot easily meet. As your organization
+considers a digital transformation strategy that will enable it to operate with greater ease, efficiency, productivity, and overall
+agility, and to keep users happy and engaged, your IT service management processes must adopt these modern capabilities. 
+We will help you achieve that when transitioning to SMAX. This documentation will focus on the evolution process when
+coming from the Service Manager, but the approach is general enough that with small modifications it can be used for any
+existing service management application.
+In this section, you will find guidance, best practices, and checklists for evolving to SMAX. The overall direction of the evolution
+process is similar to that of a new implementation, so it is highly recommended to follow overall guidelines and steps from the
+Implementation Checklist
+ in the Key concepts guide.
+The biggest change from a new SMAX implementation is that much of the data needed already exists in the current service
+management system. The Evolving to SMAX documentation focuses on this existing data, as well as specific differences
+regarding this data between the two products. The following sections will provide guidance and best practices on dealing with
+this existing documentation and how it can be best integrated into the new SMAX implementation:
+Before you start
+Evolving from Service Manager
+Differences from Service Manager
+Collecting Environment Information
+Core Data and the SMA Evolution Toolkit
+SMAX/SM Dual Mode
+The Service Catalog
+Knowledge Articles
+Reporting Options
+Using Software Asset Management in SMAX
+Best Practices
+Working with Forms
+Enhancing Workflow with Models
+Request vs. Incident
+SMAX 2022.11
+Page 
+236
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

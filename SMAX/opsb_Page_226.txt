@@ -1,0 +1,67 @@
+Configure SMAX
+Making Changes to our System Behavior
+If there is anything certain in this world, it’s that some of the more important managers in the company will want us to change
+how our Service Management Automation X system works. In truth, Service Management Automation X has some great
+functionality built in, but there's no way that it can know the intricacies (and sometimes straight-up craziness) of how we
+handle the processes in our company.
+Luckily, Service Management Automation X comes with a wide array of configuration options that we can use to tune each
+process to our “real world” methodologies. While we aren't going into the nuts and bolts of all of the methods right now, I think
+it's important to go over the best practices for making certain types of configuration changes. Otherwise, we might lose some
+changes that we make, or even put our system in a bad state, by not following the proper procedures.
+We can classify our configuration changes into two categories: 
+system configuration
+ and 
+data configuration
+. This is an
+important distinction to make because the best practices for making changes in each category is very different.
+System Configuration
+System configuration changes include modifications tied to a process at a low level. When we make changes at this level, it
+can change the behavior in every record of a specific type (like an incident or a change). For example, adding a field to the
+incident records is a system configuration type of change — that field is now available in every incident record.
+Because these type of changes have such a large effect, system configuration changes can't be made directly in our
+production system. Service Management Automation X simply won't allow us to do so. There is a specific process we need to
+follow to create these changes in a development system, test them, and then move them into production. We'll look at this
+process (called dev2prod for short) in detail, but first, let’s make sure we understand what types of changes are system
+configuration changes.
+System configuration changes are primarily made in the 'Records' utility. This utility allows us to add fields, change forms, add
+custom actions, or modify the process workflow of a specific record type. It should be clear that changes to this low-level
+information are system configuration changes, but there are a few other places we need to consider.
+Lists, roles, and localization resources are also considered system configuration information. These bits of information are so
+tied into the underlying structure of the record definitions they need to use the same process to ensure everything keeps
+working correctly.
+So it looks like our system configuration information includes any changes made to the following areas:
+Records -> Fields
+Records -> Forms
+Records -> Rules
+Records -> Processes
+Records -> Notifications
+Records -> Custom actions
+Lists
+Configuring Service Management Automation X
+Service Management Automation X provides an excellent experience out of the box. However, it's likely that each
+customer of the product will have different processes they would like to follow, and most have different services
+they wish to provide to their own customers.
+Service Management Automation X provides a variety of ways to configure each process to better provide the
+correct experience for every customer. It's very important to understand the different customization options
+available. Just as important is understanding the correct methods to use them to provide a seamless transition
+between the development of these custom configurations and the activation of them in a production environment.
+The configuration abilities in Service Management Automation X fit into one of two primary categories:
+System configuration
+Data configuration
+System configuration changes affect the underlying structure, workflow, business rules, or other low-level
+definition of a particular process (such as incident or change management). Configuration changes at this level
+will affect every record created for the specific process. System configuration changes can't be made directly in a
+production system, and instead must follow a specific development to production (dev2prod) process.
+Data configuration changes are created by creating or modifying specific records that support the higher level
+processes. An example of a data configuration change is the creation of a new service offering that will be used in
+the request management process. Changes at this level only affect a process record that references it. Data
+configuration changes are almost always made directly in the production environment.
+ 
+
+
+SMAX 2022.11
+Page 
+226
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

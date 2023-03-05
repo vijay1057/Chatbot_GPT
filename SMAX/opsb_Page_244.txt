@@ -1,0 +1,23 @@
+In addition to the SMA Evolution Toolkit, the SMAX application provides other methods of importing. Data in CSV format can be
+directly imported into a table, or for more complex imports SMAX's REST API may be used. Alternatively, a middleware product
+such as Connect-It may be used to move data between the products (like the SMA Evolution Toolkit does).
+Service Manager and SMAX Data model considerations
+Service Manager does not use the full functionality of a relational database system. Relations between tables are managed
+internally in the SM Application layer. This means that the “foreign key” concept of the RDBMS is not used in the Service
+Manager Database. Each record is managed individually in the corresponding entity. The consequence is that “referential
+integrity checks” are not performed by the RDBMS. However, Service Manager internal validation rules to ensure that the links
+between records are correctly checked. 
+On the contrary, the SMAX data model is completely relational. Each record in an entity has a unique ID. Cross entity
+references are built via this unique ID. However, SMAX also does NOT force referential integrity at the database level.
+As a consequence, the following has to be considered when moving data records from SM to SMAX.
+To ensure the re-conciliation is working properly when updating records, the SM unique key must be preserved in SMAX
+when moving data. E.g. the email address of a user. Each time moving/updating data a query need to check whether that
+person already exists and either create or update the record.
+ When using cross entity references for example linking a location to a parent location, the solution to create/update
+locations must first query the ID of the parent location prior being able to create the reference successfully.
+SMAX 2022.11
+Page 
+244
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

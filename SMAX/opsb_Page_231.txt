@@ -1,0 +1,50 @@
+Managed Service Provider (MSP) Mode
+Service Management Automation X provides the ability for shared services providers to manage their business units' and/or
+clients' request and incident records in a single interface using the multi-tenant (MT) console.
+Each customer/business unit can use their own tenant but allow the “parent” to have direct access to the tickets from a
+consolidated view.
+The MT console requires the Tenants to be set up in a specific way, and then Agents to be given appropriate permission to the
+MT console and “child” tenants.
+If an agent has been granted the permissions on a specific managed tenant, when the agent clicks on an Individual record in
+the MT console, the record opens in a separate tab, and the agent is then inside that specific tenant. 
+Suite Administration Configuration for MT Console
+1
+. 
+Create an Account in the Suite Administration and set it with a Shared Service type of Provider.
+2
+. 
+Add users to the provider account.
+Two additional roles are now available for users.
+Shared service admin: Assigned with 
+MT Administrator
+ role in SMAX automatically.
+Shared service agents: Assigned with 
+MT Agent
+ role in SMAX automatically.
+3
+. 
+Create a tenant as normal but set the “Shared service type” field to 
+Provider
+.
+You need to assign licenses and deploy the tenant as normal. The Account field will also show an Icon to identify it as a
+Provider tenant.
+4
+. 
+Create an Account in Suite Administration as normal but set the shared service type to 
+Managed
+.
+5
+. 
+Create users as normal within this Account.
+6
+. 
+You now need to create the managed tenant. Create a tenant as normal except that you need to set the shared service
+type to 
+Managed
+.
+SMAX 2022.11
+Page 
+231
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

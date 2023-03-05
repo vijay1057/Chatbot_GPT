@@ -1,0 +1,30 @@
+After the survey has ended and we have all the results, we need to figure out what all of that data means. Service
+Management Automation X has two different ways to help us with this; reports and hot topics.
+Reports
+Remember the work we did earlier in setting up our reports? Well, it’s time for that to pay off. When we look at the reports tab
+in our survey, we can see the up-to-date results for all of our reports.
+  
+You can see now why it was so important to figure out what reports we needed ahead of time. By putting in the work to define
+them up front, we now have an excellent set of curated information that will help us find actionable areas of improvement
+based on the results of our survey.
+One important thing to note is that the system updates reports once every 24 hours, so we will not be seeing the data from the
+current day in the reports.
+Hot Topics
+While the reports are excellent at giving us a clear look into almost all the question types we can ask in our Surveys, they don't
+help us gain insights from questions that allow the end user to type in text. This is where we can take advantage of Service
+Management Automation X’s ability to analyze the answers to text questions using the Hot Topic Analytics feature.
+Now we can look at trends and commonalities in the end users’ responses to the survey questions — just like we did when
+using the knowledge management functionality earlier. We can play with the filters to break out specific time periods,
+questions (with text responses), or even certain responses to the overall survey rating. For example, I can just focus responses
+to a "how can we do better” question for those who gave us overall ratings in the lower half of the possible responses.
+From the resulting boxes, I can drill in to get more detail and look at all the responses that fit the selection. This gives us the
+power to mine our unstructured data to find areas where we can create a plan to improve on. Now we can change how we
+provide our services, create better knowledge to help our consumers, or perhaps even create some new training material. This
+time, however, we won't have to guess where our problems are as Service Management Automation X and the survey module
+have guided us to where our issues lie.
+SMAX 2022.11
+Page 
+195
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
