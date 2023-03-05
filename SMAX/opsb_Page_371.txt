@@ -1,0 +1,40 @@
+Gmail Integration
+Introduction
+Service Management Automation X provides an email integration that may be used to request appropriate knowledge articles,
+create requests, add comments, and accept solutions to existing requests. The email integration uses the On-Premises Bridge
+to connect to an external inbox to process incoming emails. This document describes how to configure Gmail as the external
+inbox to use with the Service Management Automation X email integration.
+This chapter will include:
+Configuring the Gmail account
+Determining where to install the On-Premises Bridge (OPB)
+Downloading the OPB configuration file
+Downloading the OPB installation binary
+Installing the OPB
+Adding the Gmail addresses email integration credentials to the OPB
+Creating and configuring the email integration endpoint on Service Management Automation X
+Troubleshooting issues
+Configuring the Gmail account
+The Service Management Automation X email integration uses 
+IMAP
+ to communicate with the remote email server. By default,
+Gmail disables the ability to connect using IMAP, so IMAP must be enabled in the Gmail account settings. To enable IMAP,
+access the Gmail settings and select the Forwarding and POP/IMAP menu. Select the Enable IMAP Button and then save the
+settings.
+ 
+ 
+The IMAP protocol allows Service Management Automation X to move emails from the inbox to other folders once they have
+been processed. By default, emails successfully processed are moved into a folder named ‘Processed’, while emails that have
+an issue with being processed are moved into a folder named ‘Errors.’ These folders must be created in Gmail and will appear
+in the list of folders. Once the folders are created and IMAP is enabled, the configuration of the Gmail account is complete. ​
+Determining where to install the OPB
+The On-Premises Bridge must be installed on a machine that has access to both the Gmail server and the Service Management
+Automation X tenant at all times. 
+Micro Focus
+ recommends against installing the agent on laptops or machines that are not
+actively maintained for consistent uptime. The firewall on the machine must allow the agent to connect to ports 993 and 465
+SMAX 2022.11
+Page 
+371
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

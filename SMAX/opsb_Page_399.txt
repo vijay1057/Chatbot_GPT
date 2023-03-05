@@ -1,0 +1,29 @@
+OMT user roles
+Cluster administrator
+Administers cluster-wide resources, such as nodes, volumes, and namespaces
+Responsible for cluster resources, including sizing, scaling-out nodes, and upgrading the Kubernetes infrastructure
+Authorizes the Deployment administrator to deploy containerized software into a specific namespace (Kubernetes-level
+authorization)
+Has access to the 
+CLUSTER
+ menu of the Management Portal
+Deployment administrator
+Administers the installation of containerized software
+Authorizes the Application administrator in the target deployment
+Has access to the 
+DEPLOYMENT
+ menu of the Management Portal
+Deploys applications using AppHub
+Application administrator
+Administers the deployment at the application level, including licensing, IdM, user authentication and authorization, and
+certificate management
+Has access to the 
+APPLICATION
+ menu of the Management Portal
+Manages deployments using AppHub
+SMAX 2022.11
+Page 
+399
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,57 @@
+When the system provisions a CMS customer, the CMS out-of-the-box (OOTB) roles with CMS built-in permissions are
+automatically seeded in IdM. Since CMS doesn't have out-of-the-box groups, for each CMS customer, the suite admin needs to
+create a CMS admin group in IdM and associate both the CMS out-of-the-box 
+SuperAdmin 
+role and the tenant admin user to
+this group, so that the SMAX tenant admin can access CMS with the highest privilege of this CMS customer. When the suite
+admin enables Native SACM for the tenant, SMAX automatically replicates the seeded CMS OOTB roles and the CMS admin
+group from IdM to the agent interface. For more information, see 
+CMS user management overview
+.
+When performing user authorization management tasks in the agent interface
+When you perform typical user authorization management tasks listed in the 
+Best practices
+ section below in the agent
+interface, the system replicates the roles and groups and their relationships to IdM. The users are already available in IDM.
+Furthermore, the system also pushes all the relationships of users, groups, and roles to IdM.
+Best practices
+Normally, the out-of-the-box roles and groups for the additional capabilities can satisfy your business needs; if they can't, you
+must create custom roles from the agent interface, and the system replicates them to IdM at the same time. The created roles
+are prefixed with their Application value, so that you can easily identify which capability each role belongs to.
+Typical tasks in the agent interface
+As a best practice, always use the agent interface to create and manage roles and groups. The following are typical tasks you
+can perform in the agent interface:
+Create or update groups
+Create roles
+Update role permissions (SMAX roles only)
+Add or remove persons to/from groups (see 
+this section
+ for exceptions)
+Add or remove roles to/from groups
+Add or remove roles to/from persons
+Add or remove groups to/from persons (in the 
+Group membership
+ section) 
+Permission assignment
+You assign permissions for SMAX and the additional capabilities as follows. 
+Note: 
+ The CMS admin group is associated with the
+ [CMDB] SuperAdmin 
+role so that the SMAX tenant
+admin can have the highest privilege of this CMS customer. Don't use the 
+[CMDB] TenantAdmin 
+role as this is
+for the UCMDB tenants, which correspond to the SMAX data domains instead of the SMAX tenants.
+
+
+Caution 
+If you create roles or groups directly from the IdM Admin Portal, the system stores them only in IdM,
+which causes data inconsistency between IdM and the tenant. 
+
+
+SMAX 2022.11
+Page 
+392
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

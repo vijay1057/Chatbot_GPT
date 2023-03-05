@@ -1,0 +1,162 @@
+Virtual agent
+IDOL based virtual
+agent
+Yes
+Yes,
+embedded in
+end user live
+chat of SMSP
+Yes
+Yes
+Virtual agent
+RASA based virtual
+agent
+No
+No
+No
+Yes
+Virtual agent
+Chat AIML support
+(mainly used for
+virtual agent)
+No
+No
+No
+No
+Chat
+End user live chat
+Yes
+Yes
+Yes
+Yes
+Survey
+End user survey
+Yes
+Yes
+Yes
+Yes
+Subscription
+Subscription
+management - SM
+or SMAX
+No
+No
+Yes, SM only
+Yes, SMAX only
+Subscription
+Subscription
+management -
+HCMX
+No
+No
+No
+Yes
+Subscription
+Subscription
+management - CSA
+No
+Yes
+No
+No
+Portal
+settings
+Entitlement based
+theming
+Yes, group based
+No, support
+theme
+customization
+via Jumpstart
+framework
+No
+Yes,
+group/location/role
+based
+Localization
+Customer self-
+localization
+Yes
+No
+Yes
+Yes
+Localization
+List and search both
+localized catalog
+and default
+language (English)
+catalog for a user
+with non-English
+locale
+Yes
+Yes
+Yes
+Yes
+Mobility
+Mobile browser
+support
+(Responsive design)
+Yes
+Yes
+No
+Yes
+User
+Management
+Log of end user
+login (user name
+and IP address)
+No
+No
+Yes
+No
+User
+Management
+User self-
+registration
+Yes
+Yes
+Yes
+No
+Accessbility
+Accessibility
+Partial
+Partial
+Yes (WCAG AA)
+Partial
+License
+Show license
+warning message
+for multiple
+suppliers
+N/A
+Yes
+N/A
+N/A
+Customization
+Support custom
+adapter
+N/A
+Yes
+N/A
+N/A
+Customization
+Jumpstart support
+No
+Yes
+No
+No
+Category
+Feature
+SMA-SM Service Portal
+Service
+Manager
+Service
+Portal 9.62
+SM ESS 9.7x
+SMAX Service
+Portal
+SMAX 2022.11
+Page 
+456
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

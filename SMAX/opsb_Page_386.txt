@@ -1,0 +1,151 @@
+Licensing
+The solution can be deployed with the following licenses: 
+SMAX Express and SMAX Premium: provide the access to IT Service Management and Extended Service Management
+solutions.
+AMX: provides the access to a consolidated Asset Management solution. A SMAX Premium license is required if you would
+like to include Asset Management capability in SMAX. AMX can also be deployed independently if you intend to use Asset
+Management capabilities only.
+HCMX: provides the access to a consolidated Cloud Management solution. An HCMX license is required if you would like to
+include Cloud Management capability in SMAX, it can also be deployed independently if you intend to use Cloud
+Management capabilities only.
+The following table lists the features and products that are available in each license.
+Module
+SMAX
+Express
+SMAX
+Premium
+AMX
+HCMX 
+Note
+Service Portfolio Management
+✓
+✓
+Service Catalog Management
+✓
+✓
+✓
+✓
+With an HCMX license, this module is limited to cloud
+management use cases.
+ 
+Time Period Management
+✓
+✓
+Service Level Management
+✓
+✓
+Vendor Management
+✓
+✓
+✓
+✓
+Change Management
+✓
+✓
+Release Management
+✓
+✓
+Knowledge Management
+✓
+✓
+✓
+Service Asset and
+Configuration Management
+✓
+✓
+✓
+✓
+The Finance tab on Device/Infrastructure & Peripheral
+/Subscription records is available for the SMAX Premium
+and AMX licenses only.
+With an HCMX license, this module is limited to cloud
+management use cases.
+For Native SACM impact analysis, the Universal
+Discovery Premium license or manually modeled Service
+Models in UCMDB are required.
+Survey Management
+✓
+✓
+Service Design
+✓
+Supports only AWS, Microsoft Azure, and GCP
+Service Request Management
+✓
+✓
+✓
+✓
+With an HCMX license, this module is limited to cloud
+management use cases.
+Incident Management
+✓
+✓
+Problem Management
+✓
+✓
+On-Call Schedule Management
+✓
+✓
+Deployment Operations
+✓
+Automated Operations
+✓
+✓
+✓
+Contract Management
+✓
+✓
+Idea and Proposal
+Management
+✓
+✓
+Application Portfolio
+Management
+✓
+✓
+Project and Program
+Management
+✓
+✓
+Software Asset Management
+(including the new SAM
+capability)
+✓
+✓
+50 new SAM units are included in the respective product
+licenses. 
+Additional SAM units can be purchased as add-on license
+capacity.
+Financial Management
+✓
+✓
+✓
+With an HCMX license, this module is limited to cloud
+management use cases.
+Procurement Management
+✓
+✓
+Cost Governance
+✓
+Insights
+✓
+Product
+SMAX
+Suite
+Express
+SMAX
+Suite
+Premium
+AMX
+HCMX 
+Note
+CMDB
+✓
+✓
+✓
+✓
+SMAX 2022.11
+Page 
+386
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

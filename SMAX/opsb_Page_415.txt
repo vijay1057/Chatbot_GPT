@@ -1,0 +1,33 @@
+Flannel
+When the OMT installs and configures its embedded Kubernetes, it configures additional network fabric. OMT supports only the
+Flannel network fabric.
+Every host gets its own flannel daemon running which creates a subnet allocated in a preset range: 172.16.0.0/16 for
+containers and 172.17.17.0/24 for Kubernetes services.
+The subnet configuration is handed over to Kubernetes and the Containerd daemon which uses it to generate IP addresses for
+its containers.
+The subnet that Flannel generates is unique for cluster node. This guarantees that all Pods get a cluster-wide unique IP
+address. The uniqueness is guaranteed by Flannel using Etcd to store the subnet definitions.
+The Flannel subnet is passed onto the Containerd daemon using the --config=/path/to/containerd-config.toml option. This
+happens at install time.
+The subnet that Flannel generates doesn't change for a node during the node lifecycle. It persists across reboots.
+OMT supports two flannel configuration modes:
+host-gw
+Packet forwarding via iptables rules set by flanneld
+Packets not encapsulated
+Requires layer 2 connectivity between nodes
+Packet forwarding occurs at the physical layer ie NIC
+Requires all cluster nodes to be in a single subnet
+vxlan
+Packet forwarding via Linux kernel VXLAN functionality
+Creates a virtual L2 network over a physical L3 network.
+Works by encapsulating L2 packet in an L3 packet.
+Requires only the control plane nodes to be in the same subnet
+Host-gw configuration and data flow
+Figure - Flannel host-gw configuration and data flow
+Vxlan configuration and data flow
+SMAX 2022.11
+Page 
+415
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

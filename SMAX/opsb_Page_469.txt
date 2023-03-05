@@ -1,0 +1,43 @@
+Configure the product
+In this step, you need to configure the product with information such as the license rules used to count product licenses and
+the product compatibility matrix that allows you to define the downgrade and upgrade paths.
+Maintain license compatibility matrix
+The compatibility matrix feature built in SAM offers you the capability to downgrade or upgrade the license for a product. The
+downgrade matrix allows a license to cover the installations of lower-version products. In addition, if you’ve used up the
+licenses for a product version, you can use the upgrade matrix to recalculate the number of the higher-version licenses needed
+for covering the product installations and then buy the corresponding number of licenses to stay compliant.
+1
+. 
+From the top menu, select 
+Products
+.
+2
+. 
+Search for Visio and then click the product name.
+3
+. 
+Go to the 
+License compatibility matrix
+ tab.
+4
+. 
+On this page, you can manage the upgrade and downgrade relationships between product versions. For license
+compatibility, see the publisher’s official documentation.
+In the 
+Downgrade 
+tab, hover over 
+Visio 2019 Pro
+, press and hold down the left mouse button, and then draw a line
+between it and Visio 2016 Pro. This indicates that the licenses for Visio 2019 Pro can be downgraded to entitle the use of
+Visio 2016 Pro.
+In the 
+Upgrade 
+tab, draw a line between the Visio 2019 Pro and Visio 2016 Pro. After you set the upgrade relationship,
+once the licenses for Visio 2016 Pro are used up, SAM will recalculate the number of extra licenses you need to purchase
+for entitling Visio 2019 Pro. This helps bring you back to compliance.
+SMAX 2022.11
+Page 
+469
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

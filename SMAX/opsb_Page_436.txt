@@ -1,0 +1,53 @@
+Databases
+Both the OMT and Suites use databases to store their data.
+Databases can be embedded PostgreSQL or external PostgreSQL or Oracle.
+For production use, only external databases are supported.
+The following table lists the OMT databases:
+Use
+Embedded Database
+External database supported?
+Micro Focus Identity Management (IDM)
+PostgreSQL
+Yes, PostgreSQL or Oracle
+OMT Suite Installer
+PostgreSQL
+Yes, PostgreSQL or Oracle
+OMT AppHub Helm UI
+PostgreSQL
+Yes, PostgreSQL or Oracle
+Kubernetes data store (*1)
+ETCD
+No
+Flannel configuration (*2)
+ETCD through K8S API server
+No
+Vault data backend (*3)
+ETCD or NFS
+No
+(*1) Kubernetes only installed if OMT with embedded Kubernetes.
+(*2) Flannel only installed if OMT with embedded Kubernetes.
+(*3) Vault backend NFS if OMT without embedded Kubernetes.
+Embedded databases
+Overview
+OMT AppHub uses two containerized databases:
+ETCD
+PostgreSQL (optional, can use cluster-external PostgreSQL)
+Embedded database are always containerized database engine instances with external storage attached to the container to
+store the database files. 
+The external storage is NFS or Ceph and is attached to the database container using the volume as persistent volume claim
+linked to persistent volume pattern. 
+For ETCD, direct hostPath volume mounts are used.
+Backup / restore for embedded Postgres
+OMT deploys a backup/restore service for the embedded Postgres databases.
+The database are registered to this service and can be backed up and restored using a command line tool or by calling the
+backup/restore service REST API.
+The following diagram shows the architecture and the activity flow for backup of the databases.
+External databases
+OMT and Suite support using external databases. For the specific system requirements (including database support) of each
+Suite, refer to the Install section of the suite documentation.
+SMAX 2022.11
+Page 
+436
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

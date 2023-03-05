@@ -1,0 +1,27 @@
+Monitoring
+Overview
+Systems that run Containerd and Kubernetes can be monitored in various ways.
+Containerd provides basic runtime metrics through the use of “crictl stats”.
+In OMT, monitoring occurs at the Kubernetes level.
+The monitoring data is collected from Kubelet which acts as an abstraction layer for particular container runtime engines.
+OMT embedded Kubernetes includes Metrics Server for cluster-wide monitoring. Both talk directly to Kubernetes metrics
+endpoints where the raw data is provided by the Kubelet.
+The Kubelet gets this information from cAdvisor.
+The Kubelet information is then aggregated by Metrics Server and visualized via the Kubernetes dashboard.
+See 
+https://kubernetes.io/docs/concepts/cluster-administration/resource-usage-monitoring/
+ ;
+https://github.com/kubernetes/heapster
+ ; 
+https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/
+Additional OMT monitoring: Prometheus and Grafana
+Through an optional capability install additional monitoring packages are available for download.
+OMT deploys Prometheus to collect metrics and visualises the data through Grafana.
+Metrics are supplied by the application and the underlying Kubernetes infrastructure.
+ 
+SMAX 2022.11
+Page 
+443
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

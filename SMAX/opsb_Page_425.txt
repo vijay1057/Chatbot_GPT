@@ -1,0 +1,62 @@
+The access permissions for 
+<CDF root>/data
+ have been set such that a regular user can't view/change sensitive information
+when browsing the 
+<CDF root>
+ installation directories. Execution permissions for Kubernetes and other tools and processes
+have also been restricted.
+Node local storage access 
+Containers can access node local storage directly only if the container is configured to use host path storage.
+External NFS volume security
+Containers persist data on multiple shared volumes. The supported storage backend for these shared volume is NFS or Ceph.
+Suite installations will request additional volumes to separate configuration from logs from databases.
+Squashing for NFS
+For NFS, root user access is squashed to a particular user and group. The user ID and group ID will be 1999 and 1999 resp.
+This uid and gid are defined/used inside the container image and may also be present in Pod specifications in the
+securityContext section.
+Because of the required root_squash option to anonuid/anongid for the NFS mount pints, access to the NFS volumes must be
+restricted using firewall rules so that only mount and access requests from cluster nodes will succeed.
+Refer to the Suite installation/administration guide for configuration details.
+Image security
+Image scanning
+All Micro Focus images (including the open source 3
+rd
+ party images) are scanned for vulnerabilities and malware.
+This scanning occurs a 1
+st
+ time during the CI/CD (continuous integration / continuous delivery) process that's integrated into
+our development process.
+This scanning occurs and 2
+nd
+ time during the signing process when the images are uploaded to Docker Hub. See Image
+signing.
+Image signing
+All Micro Focus images (including the open source 3
+rd
+ party images) are digitally signed when uploaded into Docker Hub. At
+this time the images are rescanned for malware.
+Micro Focus uses the standard Docker Notary process and server to sign and store the image signatures.
+Image signature checking
+The image signatures can be checked when the images are downloaded from Docker Hub and before they're pushed into the
+customer’s local registry.
+The downloadimages.sh script has a -c|--content-trust parameter which when set to ‘on’ will verify the image signature of all
+the downloaded images with the Docker Notary server (
+https://notary.docker.io
+).
+ 
+inadvertently create major issues. Root access should be limited to select administrative actions only.
+Note
+The default user and group IDs are uid 1999 and gid 1999. This can be changed if the uid/gid values conflict with
+existing user accounts and groups on the cluster nodes.
+
+
+Note
+The malware scanning occurs on Micro Focus’ servers and isn't a feature of Docker Notary.
+
+
+SMAX 2022.11
+Page 
+425
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

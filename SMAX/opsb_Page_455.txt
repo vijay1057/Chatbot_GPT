@@ -1,0 +1,175 @@
+Request
+tracking
+Show custom
+actions on the
+request detail page
+and to-do list
+Yes
+Yes, but no
+to-do list in
+SMSP
+No
+Yes
+Request
+tracking
+"Require Action" tab
+in request list
+(launched from
+"Show all" in
+"Require Action"
+section of to-do
+card)
+Yes
+N/A
+N/A
+No
+Search
+Knowledge search
+with entitlement
+Yes
+Yes, with
+limitation:
+1. Entitlement
+isn't
+supported
+when SOLR is
+used in SM.
+2. SM
+entitlement
+isn't
+supported
+when SMSP
+knowledge
+IDOL content
+is used.
+Yes
+Yes
+Search
+Search box is
+available on the
+offering detail page
+Yes
+No
+No
+Yes
+Search
+Knowledge article
+feedback/usage
+(vote up, vote
+down, view count)
+Yes
+Yes
+Yes
+Yes
+Search
+Able to hide
+knowledge and
+news
+Yes
+No
+No
+Yes
+Search
+Search external
+libraries
+(sharepoint, wiki,
+file system)
+No
+No
+Yes
+Yes, sharepoint
+and confluence
+Search
+Search for request
+Yes
+Yes
+Yes
+Yes
+Approval
+Service request
+approval (Service
+Manager interaction
+approval)
+Yes
+Yes
+Yes
+Yes
+Approval
+Line item approval
+Yes
+Yes
+Yes
+Yes
+Approval
+Change approval
+Yes
+Yes
+Yes
+Yes
+Approval
+Fulfillment request
+approval
+Yes
+No
+Yes
+N/A
+Approval
+External approval
+(BPM)
+N/A
+Yes
+N/A
+N/A
+Approval
+View approval
+history (show
+past/future
+approver/approval
+group)
+Yes
+Yes
+Yes
+No
+Approval
+List all approvals
+processed by the
+login user
+No
+Yes
+No
+No
+Approval
+Show and perform
+approval
+delegation, whereas
+define approval
+delegation at the
+Agent's side
+Yes
+Yes
+Yes
+Yes
+Approval
+Define approval
+delegation in the
+Portal
+Yes
+No
+Yes
+Yes
+Category
+Feature
+SMA-SM Service Portal
+Service
+Manager
+Service
+Portal 9.62
+SM ESS 9.7x
+SMAX Service
+Portal
+SMAX 2022.11
+Page 
+455
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

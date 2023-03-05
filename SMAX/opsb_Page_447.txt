@@ -1,0 +1,67 @@
+SMA enterprise readiness
+This page provides a brief overview of the SMAX enterprise readiness.
+Deployment mode
+You can deploy SMAX on-premises, in the cloud, or on OpenShift. 
+High availability
+SMAX can achieve high availability through failure recovery, failover, and load balancing.
+Failure recovery
+Failure recovery of SMAX follows the restart policy of Kubernetes. The policy is specified as Always, all pods should be
+restarted automatically after a failure occurs. As designed in Kubernetes, failed containers are restarted by the kubelet with an
+exponential back-off delay (10s, 20s, 40s, and so on) capped at five minutes, and is reset after ten minutes of successful
+execution.
+Failover
+SMAX will fail over a resource to protect against a failed service, for example, when the pod hosting the resource becomes
+inactive, or the resources within the pod fail. During a failover process, the service will switch from the failed pod/resource to
+another redundant one.
+A pod is the smallest deployable object in the Kubernetes object model and it represents a running process on your cluster.
+Pods are a model of the pattern of multiple cooperating processes that form a cohesive unit of service. For more information
+about each service and its description, see suite common services, Smart Analytics services, SMAX services, and Suite
+Administration in 
+Service dependency
+. You can also find a pod failure recovery time report in Appendix.
+Load balancing
+In a typical enterprise application architecture, a load balancer in front of application servers increases security, scalability,
+and flexibility. SMA uses Nginx as a bundled load balancer to distribute incoming traffic to internal application servers and can
+work on a single instance or multiple control plane nodes.
+In addition to the bundled load balancer, SMA is also compatible with the external load balancer. As the SMA frontend Ingress
+works in the active-standby mode, the external load balancer can only serve as a reverse proxy, forwarding incoming traffic to
+the active SMA frontend Ingress. Serving as a reverse proxy, the external load balancer can be configured to work on both
+layer 4 (TCP) and layer 7 (HTTPS). 
+Scalability
+When the suite is deployed on-premises or in the cloud, you can perform manual scaling on certain pods listed in the table in
+the Appendix section. 
+Backup and restore
+You can back up and restore the following data with the utilities and tools provided with the suite:
+Configmaps including suite configuration information
+Smart Analytics volume including content data and configurations
+Global NFS including certificate and attachments users added to Service Management records
+For more information about the backup and restore procedures, see 
+Back up and restore
+.
+There are certain limitations on the current backup and restore solution:
+The remote global NFS volume and Smart Analytic NFS volume need to be mounted on the control plane node where the
+Note
+Be sure of the following if you deploy the external load balancer before installing the SMA suite: 
+1
+. 
+Set the FQDN of SMA to that of the load balancer during the OMT installation.
+2
+. 
+Set the target server of the external load balancer to the control plane node, or the virtual IP address of
+control plane nodes if deployed with multiple control plane nodes. 
+Be sure of the following if you deploy the external load balancer after installing the SMA suite:
+1
+. 
+Set the target server of the external load balancer to SMA's control plane node, or the virtual IP address of
+control plane nodes if deployed with multiple control plane nodes.
+2
+. 
+Replace the FQDN of SMA with that of the load balancer.
+
+
+SMAX 2022.11
+Page 
+447
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,80 @@
+SMAX
+You assign permissions to SMAX roles from the agent interface. For more information, see 
+Roles
+.
+CMS
+You assign CMS role permissions from the UCMDB UI. For more information, see the permission granting section in 
+Create CMS
+non-admin roles, users, and groups
+.
+Other capabilities
+For capabilities other than SMAX and UCMDB, the suite admin manages their role permissions from the IdM Admin Portal. For
+details, see the following links:
+Configure authorization for DND
+Configure authorization for Content Store
+Configure authorization OO Containerized
+Limitations
+The converged authorization solution has the following limitations.
+The "Move tenant" feature in Suite Administration doesn't support converged authorization. The feature imports the
+authorization data from the source tenant to the target tenant, but the authorization data imported into the target tenant
+isn't replicated to IdM. 
+If a group and a user have the same user principal name (UPN), you can't assign roles to that group or user. This issue
+happens only to existing authorization data from an upgraded system. In new installations, you're not allowed to create a
+user and a group with the same UPN.
+When replicating authorization data to IdM, the system skips the 
+Self-Service Restricted Portal User
+, 
+Self-Service
+Portal User
+, and 
+Guest
+ roles. If a group has only one or more of these roles assigned, the system doesn't replicate the
+group to IdM; if a group has also other roles assigned, the system replicates the group but skips the relationships
+between the group and any of these three roles. 
+The 
+Self-Service Restricted Portal User
+, 
+Self-Service Portal User
+, and 
+Guest
+ roles are SMAX Service Portal
+specific roles, and hence there's no need to replicate them to IdM. 
+The user principal name of a group or the Code value of a role can't contain special characters, including space, carriage
+return, and any of the following characters: 
+@;:=&<>#{}|`^~%'?"/[]
+.
+Some roles have different names in the Agent interface and in IdM. For example, the 
+Tenant Admin Role
+ in the agent
+interface has a display name of 
+tenantAdmin
+ in IdM. For a list of these roles, see 
+Authorization migration tab
+.
+This solution replicates only direct group memberships from IdM. It doesn't replicate group memberships created by
+LDAP group rules configured in the IdM Admin Portal.
+Migrate authorization data
+If you have one or more of the additional capabilities deployed, you may want to migrate existing authorization data between
+IdM and the tenant so that converged authorization works for all authorization data of that tenant. A 
+Migrate
+ button is
+available from Suite Administration: either from the tenant record or from the Configurations tab. You can start the migration
+process with one click. This process replicates authorization data between IdM and the tenant (the agent interface) so that
+both sides store the same authorization data. This is a one-time process. Once the two sides store the same data, whenever
+you create new authorization data from the agent interface, the new data is replicated to IdM simultaneously. For more
+information, see 
+Authorization migration tab
+.
+If you have none of the additional capabilities deployed in your environment, there's no need to do the migration. This is
+because you can manage SMAX roles, groups, and role permissions directly from the agent interface without the need for the
+IdM Admin Portal.  
+Tip 
+You can safely run the migration multiple times.
+
+
+SMAX 2022.11
+Page 
+393
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

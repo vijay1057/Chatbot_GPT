@@ -1,0 +1,111 @@
+Search behaviors
+SMAX implements different search policies and strategies in different locations within its various search UI areas.
+Global search in Service Portal/Service Management/Live Support
+This table compares the different search behaviors in Service Portal, Service Management (Agent interface), and Live Support.
+Service Portal
+Service Management (Agent
+interface)
+Live Support
+Number of searchable
+record types
+10, including:
+Article
+News
+QNA
+ServiceOffering
+SupportOffering
+HumanResourceOffering
+ServiceRequest
+SupportRequest
+HRRequest
+Idea
+ 
+43, including:
+AccountingPeriod 
+ActualService 
+Article 
+AssetModel
+Brand
+Budget 
+BudgetCenter
+BudgetLine
+Change 
+Contract 
+CostCenter 
+CostType
+DashboardDefinition
+Device 
+RemoteArticle
+PersonGroup
+HRRequest
+Idea
+Incident
+InfrastructurePeripheral 
+KnownError
+License 
+Location 
+News
+SupportOffering
+ServiceOffering
+HumanResourceOffering 
+Optimization 
+Person 
+Portfolio 
+Problem 
+Program 
+Project 
+ProjectPortfolio 
+Proposal 
+Release 
+SupportRequest 
+ServiceRequest
+ServiceComponent
+ServiceDefinition 
+SystemElement
+QNA
+Company
+10, including:
+Article
+News
+RemoteArticle
+Incident
+SupportRequest
+HRRequest
+QNA
+ServiceOffering
+SupportOffering
+HumanResourceOffering
+Minimum search result
+relevance threshold
+Based on the value specified in
+Smart Analytics settings
+Default: 30
+30
+10
+Maximum number of
+search results returned
+30
+30
+50
+Only return results
+requested by/for the user
+who's searching
+Yes
+No
+No
+Restricted by entitlement
+rules
+Yes
+No
+No
+Note:
+ Some record types might not be applicable depending on the license assigned to the tenant. 
+Global search in Service Portal
+In Service Portal, requests, offerings, knowledge articles, news, ideas, and Q&A entries are searchable.
+Requests: End users can view entitled public requests, as well as requests submitted by themselves or submitted for
+SMAX 2022.11
+Page 
+460
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

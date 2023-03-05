@@ -1,0 +1,73 @@
+Converged authorization
+Converged authorization is a solution that enables the tenant admin to manage users, roles, and groups for additional
+capabilities such as Cloud Management (DND, CGRO, and Content Store), UCMDB, and Operations Orchestration (OO), from
+one single user interface – the SMAX agent interface. Normally, the tenant admin assigns roles to groups and then adds users
+to groups so that users can inherit the role permissions from the groups. 
+This topic explains how the solution works, best practices for using the solution, and how to migrate existing tenants to this
+solution. 
+How it works
+The following explains how the solution works.
+Roles
+In the agent interface, roles have an attribute named Application. When creating a new role, you need to specify a value for
+the following fields:
+Name
+: the display name of the role. When replicating roles from the agent interface to IdM, the system maps this field to
+the Display name field of the role in IdM. 
+Code
+: this field is used for mapping. When replicating roles from the agent interface to IdM, the system maps this field to
+the Name field of the role in IdM. Note that the 
+Code
+ field doesn't allow space or any of the following special
+characters: 
+@;:=&<>#{}|`^~%'?"/[]
+.
+Application
+: can be one of the values listed in the following table. The Application field identifies the capability to which
+the role belongs. These capabilities are either installed together with SMAX or installed separately; however, they have
+something in common – sharing the same IdM with SMAX. 
+When you enable Native SACM, DND, and OO in Suite Administration, the system automatically replicates the seeded
+roles and groups for CMS, DND (DND and Content Store), and OO from IdM to the agent interface.
+Application field
+value
+Capability
+Notes
+SMAX
+SMAX
+Indicates it's a SMAX role, which is used to access the agent interface and Service
+Portal. 
+CMDB
+Universal
+Discovery and
+CMDB
+(UCMDB)
+Indicates it's a CMS role, which is used to access classic or containerized CMS
+installed for 
+Native SACM
+. 
+DND
+Design and
+Deploy (DND)
+Indicates it's a 
+DND
+ role. DND is used for Cloud Management. 
+CGRO
+Cost
+Governance
+and Resource
+Optimization
+Indicates it's a 
+CGRO
+ role. CGRO is used for Cloud Management.
+Note
+When you enable DND in Suite Administration, the system creates seeded roles and groups only for DND
+and Content Store, not for CGRO. 
+There's a strict rule that roles can't and mustn't be shared between capabilities.
+ 
+
+
+SMAX 2022.11
+Page 
+389
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

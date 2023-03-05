@@ -1,0 +1,52 @@
+Persistent container storage is hosted using NFS or Ceph.
+NFS
+A typical Linux OS - hosted single NFS server doesn't offer much in terms of HA.
+To increase the level of HA for the NFS storage, various options exist:
+The NFS server data partitions use software or hardware RAID
+The NFS server data partitions is hosted on network-attached storage. Example:
+StoreEasy Storage
+The NFS server itself is virtualized and provided by the storage array software/hardware. Examples:
+3PAR File Persona Software
+NetApp
+Other storage vendors may offer similar capabilities. Refer to the vendor documentation for details.
+Setup an active/passive NFS server in an HA cluster. This approach is available and documented from various Linux
+vendors/distributions. Links:
+Red Hat: 
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/High_Availability_Add-
+On_Administration/ch-nfsserver-HAAA.html
+SUSE: 
+https://documentation.suse.com/sle-ha/12-SP4/html/SLE-HA-all/art-ha-quick-nfs.html
+Component replicated database
+The ETCD component will use a replicated database in MMMW cluster configuration. The database will be replicated across all
+control plane nodes.
+Component external databases
+Application components can be configured to use an external database. See also section “High availability through use of
+external databases”.
+Multi-control plane and HA virtual IP
+Leader election for ETCD
+When installing OMT embedded Kubernetes with multiple control plane nodes, the supported number is 3 control plane nodes.
+This is so that the leader election for ETCD’s distributed database scheme works properly.
+HA virtual IP
+All of the control plane nodes participate in the HA virtual IP configuration. This is so that a pre-defined IP address configurable
+through the OMT embedded Kubernetes installer configuration file (install.properties) can be bound to all of the control plane
+nodes depending on which one is found to be alive or load-balance across all control plane nodes if they're both found to be
+active.
+For this to work, the installer sets up and runs a copy of keepalived on each control plane node make the Kubernetes API
+server highly available.
+High availability through use of external databases
+Connecting the applications such as OMT AppHub and suites to (an) external database(s) contributes positively to the level of
+HA.
+Highly available storage
+This can be provided through a highly available NFS server or Ceph cluster setup coupled with a highly available storage array
+or storage.
+ 
+Note
+This document doesn't cover setting up external database HA.
+
+
+SMAX 2022.11
+Page 
+432
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

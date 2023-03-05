@@ -1,0 +1,56 @@
+toolkit runs.
+No built-in scheduler for automatic backup. You can use third-party tools to schedule the backup jobs.
+No integrity check and encryption for the backup data.
+Update
+You can apply a patch update or a version update to SMAX.
+For the version update, SMAX only supports an upgrade from the previous release to the current release ("N to N+1").
+For more information, see 
+Upgrade
+.
+Sizing
+You can specify the suite sizing during installation based on your use case. For more information, see the following topics:
+Sizing for on-premises deployment
+ 
+Sizing considerations for GCP deployment
+Sizing considerations for AKS deployment
+Sizing considerations for EKS deployment
+Sizing considerations for OpenShift deployment
+You can also increase your deployment size before a suite version upgrade. The new size takes effect only when the version
+update is completed.
+Security
+You can import users from LDAP or federated SAML IdP to the suite. For more information, see 
+How to edit an account
+.
+Monitoring and logging
+You can configure a proper monitoring mechanism so that you are aware of any potential issues with your worker nodes, pods,
+and services. For more information, see 
+Monitoring SMA with open source tools
+.
+Openl10n support
+By using the Openl10n community site, you can localize SMAX (Service Portal and Service Management) into additional
+languages that aren't officially supported by SMAX. For more information, see 
+Localize SMAX by using Openl10n
+.
+Appendix
+This section provides the following information:
+A table that outlines the detailed supportability for certain capabilities
+A pod failure recovery time report that lists the Mean Time to Repair (MTTR) for the pods. The time is calculated based on
+a specific system configuration (1 control plane node + 2 worker nodes with 8 CPU/32G Memory, 50 self-service users,
+and 50 IT agent users) in a lab environment. The actual time may vary depending on your suite size.
+Supportability
+This section describes the suite's supportability for the following capabilities. 
+Backup and restore
+The suite supports backup and restore based on Velero. 
+High availability
+See the following table.
+Category
+Supported pods
+Failure recovery
+All 
+pods
+SMAX 2022.11
+Page 
+448
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,11 @@
+2
+. 
+OMT AppHub and suites create persistent volume claims. Kubernetes will do a best-effort matching of claim to
+volume using storage class and size as the selection criteria.
+ 
+SMAX 2022.11
+Page 
+428
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

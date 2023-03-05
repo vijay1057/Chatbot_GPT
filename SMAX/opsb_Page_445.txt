@@ -1,0 +1,78 @@
+Supportability
+Logs
+Locations
+Log files are created in various places throughout the lifecycle of installation and running of OMT and Suites.
+Node level logging for the OMT embedded Kubernetes
+Container logs
+Application logs on external volumes
+Aggregated logs on external volumes (if FluentBit is configured to aggregate)
+The table below describes more details about the OMT processes and components:
+Type
+Location or command
+Contents
+Location
+Linux syslog
+/var/log/messages /
+dmesg
+Kernel ring buffer contains some messages related to Containerd and other host-
+level Kubernetes components such as Kubelet.
+Command
+crictl logs <container
+ID>
+Stdout from inside a particular container.
+Command
+“journalctl -u <unit
+name>
+Set unit name to following:
+Containerd: containerd
+Kubectl logs: kubelet
+Location
+<OMT installation
+directory>/logs/
+Component logs for OMT tools, scripts
+Location
+External NFS or Ceph 
+OMT and Suite logs
+Location
+/var/log/containers
+Container stdout/stderr logs collected by Fluentbit
+Container logs in pods
+Pods can contain multiple containers. For kubectl commands, add –c <name of container> to get individual container logs.
+To see what containers are inside a Pod run kubectl describe pod <name of pod> then look for the Init containers: and
+containers: section to see what containers make up the pod. Then use the container name as the value for the -c option on
+kubectl describe.
+1
+. 
+kubectl describe pod mng-portal-2981853324-x8f29 -n core
+…
+Init Containers:
+install:
+…
+Containers:
+mng-portal:
+…
+kubernetes-vault-renew:
+…
+Log collection and forwarding
+OMT and suites can deploy FluentBit in the following configurations:
+DaemonSet for node logs such as /var/log/containers and logs of host components for the OMT embedded Kubernetes
+such as Kubelet and Containerd
+Deployment for application logs written to external volumes (NFS, Ceph)
+Pod sidecar for particular Pod or set of Pods logs
+The log provenance is preserved as much as possible, indicating what node, pod and container the log originated.
+Logging output can be collected and forwarded to:
+an external volume
+OBA
+ElasticSearch
+Splunk
+generic http(s) receiver
+Log rotation
+Log rotation pods are deployed using a Kubernetes Daemonset, therefore it runs on every node.
+Logs are either rotated or deleted and are configurable.
+One additional log rotation pod is deployed by OMT to handle log rotation on the OMT logging volume.
+SMAX 2022.11
+Page 
+445
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

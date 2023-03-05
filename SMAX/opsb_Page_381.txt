@@ -1,0 +1,53 @@
+Enhancing Workflow with Models
+Introduction
+When certain sub-types of processes necessitate additional process definition on top of the existing workflow, the SMAX
+administrator can define specific Model records. These models allow the default workflow to be extended in multiple ways,
+including:
+Adding additional fields, called 
+User options
+Adding business rules
+Adding specific tasks during multiple workflow phases
+Setting default values that are set when the model is selected
+Models are available for the following processes:
+Change
+Incident
+Knowledge (Article models)
+Release
+Request (Offerings)
+The following areas support models, but only for setting supporting information/default fields:
+Asset Models
+License Models
+The administrator can define models in these areas to create a unique flow on top of the existing process workflow. The
+following example shows how the use of Incident Models can create a specific workflow for Major Incidents inside of the
+Incident process workflow. Note how the Incident Model allows the additional flow on top of the existing Incident workflow.
+Requirements
+When a Major Incident occurs:
+1
+. 
+The Impact and Urgency of the Incident should be set automatically
+2
+. 
+The Incident should automatically be marked as a Problem candidate.
+3
+. 
+The group handling the Incident needs to set up a PDL and open a Bridge line for the Major incident team to communicate
+with
+4
+. 
+The group handling the Incident needs to add the domain experts to the Major incident team
+5
+. 
+Notifications should be sent to the PDL whenever a new comment is added to the Incident
+6
+. 
+The manager of the group handling the Incident must sign off that the Incident has been resolved successfully
+Implementation
+In order to fulfill the requirements, the administrator will create a new Incident Model record named “Major Incident”.
+User Options
+Two user options will be added. One to contain the PDL, and the other to contain the Bridge Code.
+SMAX 2022.11
+Page 
+381
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

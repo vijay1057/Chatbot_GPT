@@ -1,0 +1,72 @@
+c
+. 
+Click 
+Save
+.
+A message will appear at the top of the page, indicating that the new license model is created.
+Create a license
+1
+. 
+From the top menu, select 
+Licenses
+.
+2
+. 
+Click 
+ 
+New
+.
+In the 
+New License
+ dialog box that appears, enter the required information.
+For the 
+License model
+ field, select the 
+Microsoft Visio Desktop Application License Model
+ record we created
+previously.
+The asset tag must be unique for each software license, and it’s also important to create a consistent naming
+convention. Try to include the product vendor and some details about the product.
+Specify the number of licenses purchased for the product and details about the unit rights. Once you set 
+Quantity
+and 
+Unit rights
+, the 
+Total rights
+ field will be automatically populated.
+Only licenses in the Pool, Prepare, and Receive phases allow license consumption. In all other phases, the license
+consumption calculation won’t be taken into account.
+If you are also using the 
+original SAM application
+ in SMAX, you will see a License metric field in the dialog box. We
+recommend that you remove this legacy field from all the forms that contain this field for the License and Asset
+Model record types in 
+Administration 
+> 
+Configuration 
+> 
+Studio
+. For more information, see 
+How to delete a
+custom field from a record type
+.
+3
+. 
+Click 
+SAVE
+.
+4
+. 
+To check the license data, go to the 
+Products 
+page, search for and click the 
+Office Visio
+ product, and then click the
+License 
+tab.
+SMAX 2022.11
+Page 
+468
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

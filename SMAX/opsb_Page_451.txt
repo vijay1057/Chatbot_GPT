@@ -1,0 +1,36 @@
+itom-xruntime-ui
+0.2
+itom-bo-ui-deployment
+0.1
+Itom-dnd-controller
+12.35
+Itom-oo
+12.16
+itom-oodesigner
+5.56
+itom-dnd-operations-gateway
+2.23
+itom-dnd-instance-management
+2.23
+Itom-cgro-insights
+7.7
+Itom-cgro-insights-gateway
+9.2
+Itom-cgro-showback
+7.65
+Itom-cgro- showback -gateway:
+9.7
+itom-dnd-platform-deploy-controller
+itom-dnd-bootstrap-job
+itom-image-catalog
+2.23
+itom-image-catalog-gateway
+3.28
+Pod
+Mean Time to Repair (MTTR) (Minutes)
+SMAX 2022.11
+Page 
+451
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,10 @@
+When the credentials manager opens, click the ‘New’ button and select the 'OPB email integration domain' option from the list
+and click OK. 
+Add a name which will appear in Service Management Automation X UI when you add the email integration endpoint. Then add
+the email address and password used to login to the Gmail account (Gmail configured in an earlier step).
+SMAX 2022.11
+Page 
+375
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

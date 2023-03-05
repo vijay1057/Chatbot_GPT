@@ -1,0 +1,64 @@
+Storage
+Overview
+Storage considerations are necessary for installations with and without embedded Kubernetes.
+The information in this is general in nature and describes the various types and usage of storage both local and external for
+containers.
+Containers
+At runtime, container file systems are either completely read-only (RO) or read-write (RW).
+Files on-disk inside a container are ephemeral. When a container crashes, it will be restarted but the files will be lost. A
+container always starts with a clean file system.
+Changes to RW container file systems won't survive a container restart. Any changes made to a RW container file system will
+be gone if the container is restarted for whatever reason.
+Therefore, any container state that needs to survive a restart needs to be stored outside of the container on so called
+external storage
+.
+When running in Kubernetes (the scheduling unit being a Pod possibly consisting of multiple containers) it may also be
+necessary to share files between containers. This needs to be done by accessing a shared external data store.
+External storage can be backed by a variety of technologies ranging from traditional local hard drives or SSD, SAN attached
+storage (iSCSI, fiber channel), disk clustering software, NFS and others.
+A choice of storage depends on what customers are using and/or performance and HA requirements for the data in the
+external storage.
+Containerized applications such as OMT AppHub and ITOM suites currently support only local temporary, NFS or Ceph storage.
+The data stored in the external storage can be any of the following (and the list isn't exhaustive):
+Configuration files
+Add-on binary files
+Product customizations (can take many forms)
+Database files
+Temporary files
+Platform and Suite logs
+Kubernetes provides external storage to containers via an abstraction called Volumes.
+Volumes are attached to containers either directly or via a further abstraction called Persistent Volumes and Persistent Volume
+Claims.
+Essentially, volumes are just directories that are made accessible to running containers inside a Pod.
+See 
+https://kubernetes.io/docs/concepts/storage/volumes/#background
+Applications uses both directly attached Volumes (for ephemeral data) and Persistent Volumes (for persistent data) attached
+to containers.
+Volume mounts are used for:
+exposing a node host path inside a container (hostPath)
+providing ephemeral directories for temporary data (emptyDir)
+Persistent Volumes are used for:
+container configuration data
+log files
+database files
+Volumes link the container to a specific type of storage and are therefore not ideal when creating portable deployments of
+Suites. For this reason, their use is kept limited.
+Persistent Volumes don't link the container to a specific type of storage. Through the creation of persistent volume claims
+(PVC) that are linked 1:1 with a particular persistent volume (PV) and the use of the PVC as a volume inside the container, we
+can achieve volume storage backend agnostic deployments.
+Volumes: 
+https://kubernetes.io/docs/concepts/storage/volumes/
+Persistent volumes: 
+https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+Containerd storage
+Containerd provides a RW container filesystem by layering a RW layer on top of the RO image layer.
+Containerd hosts use a storage driver to provide a unified view of the layered file system that makes up the container images.
+The Containerd runtime used in the OMT embedded Kubernetes uses the 
+overlayfs
+ storage driver.
+SMAX 2022.11
+Page 
+426
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

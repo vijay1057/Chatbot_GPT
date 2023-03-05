@@ -1,0 +1,27 @@
+changes from IdM to the agent interface.
+Replication of authorization data
+Automatic replication occurs in the following scenarios.
+When deploying a tenant in Suite Administration
+When the suite admin deploys a tenant in Suite Administration, the system replicates the following data from the agent
+interface to IdM:
+The out-of-the-box SMAX roles
+The tenant admin user
+The relationship between the tenant admin user and the Tenant Admin role.
+Roles replicated from Service Management are mostly read-only in IdM. The only operation that you need to perform on such
+roles is assigning permissions to capabilities other than SMAX and CMS, by using the Associated Permissions field.
+When enabling DND, OO, or Native SACM in Suite Administration
+When the suite admin enables DND or OO in Suite Administration, the system replicates the seeded out-of-the-box roles and
+groups and the relationships between users, roles, and groups from IdM to the agent interface. As an example, the following
+screenshot shows some seeded DND and OO roles replicated to the agent interface.
+Caution
+ The system doesn't prevent you from updating the Application field, but you shouldn't do this in IdM.
+Otherwise, the data consistency between IdM and SMAX will be compromised and this will result in unexpected
+behavior.
+
+
+SMAX 2022.11
+Page 
+391
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

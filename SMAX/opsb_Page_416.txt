@@ -1,0 +1,55 @@
+Figure - Flannel vxlan configuration and data flow
+Using Flannel with Containerd
+The Containerd daemon assigns DHCP IP addresses for the containers on this node from its assigned network CIDR.
+Kubernetes records this container IP address and stores the information in Etcd and decorates the pause container with the
+network information.
+IP address allocation has two exceptions:
+Case 1: containers that share the host IP address:
+Kubernetes Pods started with “hostNetwork: true”: Kubernetes API server, Kubernetes controller manager, Kube Proxy,
+Kube Scheduler, Keepalived
+Case 2: Kubernetes Services (Kind:Service): assigned from a network defined when the Kubernetes API server is started. This
+doesn't overlap with any Pod IPs.
+# kubectl describe svc mng-portal -n core
+Name: mng-portal
+Namespace: core
+Labels: app=mng-portal
+Annotations: <none>
+Selector: app=mng-portal
+Type: ClusterIP
+IP: 172.17.17.117
+Port: <unset> 80/TCP
+TargetPort: 9090/TCP
+Endpoints: 172.16.98.2:9090
+Session Affinity: None
+Events: <none>
+The cluster services IP address is specified on the Kubernetes API server:
+…..
+- command:
+- /hyperkube
+- apiserver
+- --bind-address=0.0.0.0
+- --etcd-servers=https://hostname.mycompany.net:4001
+- --insecure-port=0
+- --secure-port=8443
+- --service-cluster-ip-range=172.17.17.0/24
+…..
+All other OMT AppHub containers have an IP addresses assigned by the Containerd daemon from the network defined by
+Flannel.
+The following diagram shows a practical example:
+The host node has a statically assigned IP address from 16.0.0.0/16
+The Containerd daemon is only accessible via localhost and has a container subnet selected from 172.16.0.0/16. The
+actual subnet will be selected by Flannel for this node.
+Kubernetes Kubelet runs directly on the node and shares the host’s IP address.
+Various other Kubernetes components run containerized but share the host’s IP address (*).
+All other OMT AppHub and Suite components run containerized and get an IP addressed assigned in the 172.16.0.0/16
+Flannel selected subnet (*2).
+Figure - OMT embedded Kubernetes networking
+The Pod is decorated with the DHCP IP address in the local node subnet address range.
+All containers that make up the Pod share the same IP address. Inside the Pod, containers can talk to each other’s processes
+using “localhost”.
+SMAX 2022.11
+Page 
+416
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

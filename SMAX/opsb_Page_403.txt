@@ -1,0 +1,35 @@
+OPTIC Management Toolkit (OMT)
+What is OPTIC Management Toolkit (OMT) ?
+OPTIC Management Toolkit provides the necessary tooling for installing and running containerized ITOM applications on
+Kubernetes.
+“
+OMT
+” is “Application Hub” + “embedded K8s” + “CLI Tools”
+Application Hub 
+is an application for managing our containerized applications / suites - deployment management and monitoring:
+ UI for Helm based deployments
+ Supports non-Helm Installs suites too via legacy UI/CLI
+ Some basic cluster admin functions for the embedded K8s
+ Cluster-wide monitoring of the deployed applications (via Prometheus)- need to ensure simple UX.
+The Kubernetes instance(s) can be existing hosted or on-premise. This is referred to as external Kubernetes.
+External Kubernetes is subdivided into 2 categories:
+1
+. 
+Managed Kubernetes: fully supported on application and infrastructure level
+2
+. 
+Bring Your Own Kubernetes (BYOK): fully supported on the application level, best effort on infrastructure level.
+In case customers do have existing external Kubernetes instance(s) then they can install and use the OMT embedded
+Kubernetes.
+OMT also provides a set of reusable components that ITOM applications deploy integrated in their offering.
+A customer may choose not to install Application Hub and work only with CLIs (Helm and other CLIs) if the ITOM application can be
+installed using Helm charts.
+Architecture
+The following diagram explain the functional composition of the OMT with or without the embedded Kubernetes.
+With external Kubernetes
+SMAX 2022.11
+Page 
+403
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

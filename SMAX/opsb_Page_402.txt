@@ -1,0 +1,45 @@
+Transform without drama
+OPTIC makes practical transformations possible—building on what already works through open, composable REST APIs and a
+broad set of connectors. In other words, you don’t need to replace valuable workhorse systems, such as your existing Business
+Intelligence (BI) tools for reporting. Instead, you can build on those solutions with these drama-reducing capabilities:
+Unified process automation with embedded best-practices content that improves productivity without requiring brittle
+custom code.
+Discovery and topology mapping for both cloud and on-premises environments that enables efficient management based
+on current configurations.
+A single interface for user self-service, backed by smart virtual agents, that reduces user frustration while improving
+response times and staff efficiency.
+Flexible deployment options—in the cloud, in containers, as a service, or on premises—and the ability to switch as
+needed.
+Harness built-in, unlimited-use intelligence at the core
+While competitors have scrambled to partner or acquire AI/ML tools, bolt them on, and then charge you more for their use,
+OPTIC is different. It has built-in, unlimited-use intelligence at the core to normalize, store, and make sense of all the data that
+is produced by the variety of tools found across IT environments. Besides saving you money, embedded intelligence results in
+better analysis with algorithms perfectly tuned for the known data sources within OPTIC.
+Optimize your use of the cloud as a full partner
+OPTIC allows you to discover, monitor, manage, and govern cloud services in tandem with your on-premises approach—
+maximizing the customer experience and business return. You can install transparent guardrails for cloud costs and policies.
+Unify performance and availability management across all hybrid cloud and on-premises applications and infrastructure. And
+stay open to new possibilities with multicloud deployment options. With the cloud as your partner, you can extend operational
+best practices while retaining cloud agility.
+Your Platform for Change
+Ultimately, OPTIC is the automation engine built to help you quickly introduce innovative services as you move towards
+delivering the self-driving IT your business craves. Building on what already works, you can take a high tech, low drama
+approach to unifying the business user experience and improving operational efficiency. Backed by intelligence at the core,
+you can make your tools smarter without paying extra. And by optimizing your use of the cloud, you can also optimize service
+delivery across every environment. In short, you 
+can
+ take your transformation where it needs to go without all the drama.
+For more information, check out the 
+Micro Focus Universe sessions on OPTIC
+, including the ITOM Keynote, "Simplify the
+Complexity of IT and Build Resilience for What’s Next" and the technical session, "Explore the Advancements and Advantages
+of the Micro Focus ITOM Platform."
+Source: https://community.microfocus.com/it_ops_mgt/b/sws-571/posts/announcing-optic---the-operations-platform-for-
+transformation-intelligence-and-cloud
+ 
+SMAX 2022.11
+Page 
+402
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

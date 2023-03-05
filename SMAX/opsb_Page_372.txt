@@ -1,0 +1,32 @@
+(the default Gmail IMAP and SMTP ports). If there are connection issues, open a command window and try to telnet into the
+ports. If this is not possible, the integration will not be possible from this machine. The primary cause of the ports not
+appearing open is a firewall between the OPB machine and the Internet.
+ 
+Downloading the OPB configuration file
+There are two steps to installing the On-Premises Bridge. First, download the OPB connection file. Second, download the
+installation binary (covered in the next section). To download the OPB connection file, open the Service Management
+Automation X UI and then navigate to 
+Admin-> integration->Agents
+. Click on the ‘Add agent’ button to launch the new
+agent form. Enter a name for the agent and then click on the ‘Download Connection File’ button. Once clicked, a file with the
+information on how to connect to this specific tenant will be downloaded. The connection file is unique per tenant and has
+information including the agent name, tenant number, and farm location. After downloading the file, it will need to be copied to
+the machine where the OPB will be installed. The configuration file is named 
+server-connection.conf
+.
+Downloading the OPB installation binary
+The On-Premises Bridge agent installation is available for download from the Service Management Automation X UI on
+the 
+Admin -> Integration Management -> Agents
+ page. Then click on the ‘Download agent’ button. The agent is ~300mb
+in size and may require several minutes to download. The file is named 
+opb-installation.exe
+. 
+Installing the OPB
+Copy the installation binary downloaded previously to the machine that it will be installed on and double click to launch.
+SMAX 2022.11
+Page 
+372
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

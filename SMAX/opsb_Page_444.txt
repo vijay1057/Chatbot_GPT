@@ -1,0 +1,20 @@
+Licensing
+Single License File
+OMT delivers a Licensing service that allows the Suite to simply deploy a single license file for their Suite, injecting dynamically
+all the software license keys in each individual product. This simplifies the license management process when deploying the
+ITOM suite as software bundle.
+Redeem License
+Based on the customer entitlements, customer can visit the Micro Focus software entitlement site to redeem and download the
+exact Suite level license. Similar to other software licenses, we offer both production and non-production licenses allowing a
+greater flexibility for evaluation and staging environments.
+When connecting to the License Management Server console, customers can load their downloaded license file and proceed.
+License Management
+The License Management Server console allows customers to add/remove/redeem licenses once the suite has been deployed.
+Customer can manage additional entitlements based on additional purchases.
+ 
+SMAX 2022.11
+Page 
+444
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

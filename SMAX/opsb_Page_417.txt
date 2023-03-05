@@ -1,0 +1,72 @@
+The decoration is stored on a container called “pause”, using the image gcr.io/google_containers/pause-amd64:3.1 (different
+OMT releases may use a newer or different image). These containers are only visible when using host native commands such
+as ctr or ps.
+For more detail on Flannel, see: 
+https://github.com/coreos/flannel
+Kubernetes clusters are closed from a network perspective. All intra-container traffic stays inside the cluster. No outside
+access to any internal cluster services is possible. All Ingress has to be declared explicitly: traffic from outside the cluster is
+only possible if explicitly allowed.
+Cross-node traffic is secured using TLS.
+Pods and Services
+Pods in Kubernetes are ephemeral. They can be created and destroyed dynamically. When destroyed, they won't have the
+same network identify.
+For this reason, Services were defined as a logical group of Pods. Services are long lived. Services load balance incoming
+traffic across the set of Pods that they group.
+A service represents a micro-service, such as a web server or a database engine. Services can be discovered using
+environment variables (every container gets injected with all of the services in its namespace) or DNS (services are named get
+a fixed long-lived DNS name and can be addressed this way).
+Inside the cluster containers can talk to micro-services exposed via Services without having to know where the service runs,
+how many replicas serve it or what its IP address is.
+Cluster services receive IP address from the cluster service IP range. This is preset to 172.17.17.0/24. All cluster services will
+receive an IP address allocated in this range. (This range is a configuration parameter to the Kubernetes API server, see
+https://kubernetes.io/docs/admin/kube-apiserver/
+, --service-cluster-ip-range parameter.
+Ingress / egress
+Ingress
+To access a service from an external network requires adding some additional information to expose it via a port on all nodes
+or via a load balancer.
+On OMT embedded Kubernetes, the services are of type clusterIP so by default they aren't visible from outside the cluster.
+They may or may not be grouped under an Ingress controller to provide a unified URL namespace and access to the cluster
+services.
+A OMT AppHub plus an ITOM suite installation registers many services:
+Run: 
+kubectl get svc --all-namespaces
+NAMESPACE     NAME                            TYPE           CLUSTER-IP      EXTERNAL-IP                              PORT(S)                        AGE
+core          default-postgresql-svc          ClusterIP      172.17.17.190   <none>                                   5432/TCP                       6d14h
+core          idm                             ClusterIP      172.17.17.142   <none>                                   443/TCP,444/TCP                6d14h
+core          idm-postgresql-svc              ClusterIP      172.17.17.63    <none>                                   5432/TCP                       6d14h
+core          idm-svc                         ClusterIP      172.17.17.156   <none>                                   443/TCP,444/TCP                6d14h
+core          itom-k8s-dashboard-svc          ClusterIP      172.17.17.35    <none>                                   443/TCP                        6d14h
+core          itom-vault                      NodePort       172.17.17.62    <none>                                   8200:8200/TCP,8201:16916/TCP   6d16h
+core          kube-dns                        ExternalName   <none>          kube-dns.kube-system.svc.cluster.local   <none>                         6d16h
+core          kube-registry                   NodePort       172.17.17.106   <none>                                   5000:5000/TCP                  6d14h
+core          kubernetes-vault                ClusterIP      None            <none>                                   80/TCP,8898/TCP                6d16h
+core          metrics-server                  ClusterIP      172.17.17.21    <none>                                   443/TCP                        6d14h
+core          mng-portal                      ClusterIP      172.17.17.246   <none>                                   80/TCP                         6d14h
+core          nginx-ingress-controller-svc    NodePort       172.17.17.216   <none>                                   5443:5443/TCP,5444:5444/TCP    6d14h
+core          suite-conf-svc-demo             ClusterIP      172.17.17.189   <none>                                   8080/TCP,8081/TCP              6d14h
+core          suite-db-svc                    ClusterIP      172.17.17.83    <none>                                   5432/TCP                       6d14h
+core          suite-installer-svc             ClusterIP      172.17.17.117   <none>                                   8080/TCP,8443/TCP              6d16h
+default       kubernetes                      ClusterIP      172.17.17.1     <none>                                   443/TCP                        6d16h
+demo-6zgp0    app-api-svc                     ClusterIP      172.17.17.95    <none>                                   8060/TCP                       6d14h
+demo-6zgp0    app-ui-svc                      NodePort       172.17.17.2     <none>                                   82:20826/TCP                   6d14h
+demo-6zgp0    autopass-lm-svc                 ClusterIP      172.17.17.231   <none>                                   5814/TCP                       6d14h
+demo-6zgp0    idm                             ExternalName   <none>          idm.core.svc.cluster.local               <none>                         6d14h
+demo-6zgp0    itom-pg-backup                  ClusterIP      172.17.17.52    <none>                                   8443/TCP                       6d14h
+demo-6zgp0    postgres-svc                    ClusterIP      172.17.17.109   <none>                                   5432/TCP                       6d14h
+kube-system   heapster                        ClusterIP      172.17.17.121   <none>                                   80/TCP                         6d14h
+kube-system   kube-dns                        ClusterIP      172.17.17.78    <none>                                   53/UDP,53/TCP                  6d16h
+There are services for ultimately externally-facing services, and services that will never be exposed.
+By default, none of the services are exposed externally. The default Kubernetes service type is ClusterIP which keeps the
+services externally invisible but internally fully visible.
+To allow external access for OMT AppHub services, an Ingress definition processed by an Ingress controller is needed or
+Note
+Refer to the Suite documentation for any exceptions.
+
+
+SMAX 2022.11
+Page 
+417
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

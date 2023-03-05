@@ -1,0 +1,16 @@
+Use case
+This section covers the use cases for the different capabilities.
+Software Asset Management (SAM)
+Manage software compliance using SAM
+Control your budget using the Financial Management module
+Cloud Management
+Cloud Management - Design and deploy cloud offerings
+Cloud Management - Govern costs and optimize resources
+Use case: OPB endpoints of Design and Deploy
+Enable IaC Gateway in HCMX
+SMAX 2022.11
+Page 
+464
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

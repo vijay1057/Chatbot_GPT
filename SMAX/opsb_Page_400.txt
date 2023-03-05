@@ -1,0 +1,29 @@
+OMT enterprise readiness whitepaper
+OPTIC Management Toolkit provides the necessary tooling for installing and running containerized ITOM applications on
+Kubernetes.
+The installation and deployment of ITOM Suites in an IT environment has been traditionally very complex and expensive to
+setup and operate, involving different IT teams, including infrastructure, network, storage, and virtualization groups as well as
+additional resources, such as professional services. You would also expect spending additional time for post-deployment
+activities such as product-to-product integrations, and licensing activities. Upgrades have also been very slow to be adopted
+with very large regression cycles gated by many environments and processes, impacting final delivery of updates into
+production.
+By building a new and agile software delivery platform, alongside a modernized software, the OPTIC Management Toolkit
+allows customers to install pre-integrated, feature-rich ITOM applications. Not only day 1 operations are smoother due to the
+nature of a container based infrastructure, containerization allows for easier download, deployment and operation of
+subsequent upgrades.
+The distribution unit of the software delivery is a container. Micro Focus is able to standardize on deployment, upgrade and
+patching, scaling and rollback of ITOM applications and accelerate delivery of our innovative quality software.
+Intended audience
+This information is intended for IT Operations Management administrators, solutions architects and integrators, software
+administrators, virtual infrastructure administrators, and operations engineers, deploying, operating, scaling or building
+solutions around the Micro Focus ITOM applications.
+Disclaimer
+Within the IT Operations Management portfolio, some ITOM applications may not support all features described in this
+whitepaper. We recommend you first review your application support matrix to ensure maximum and accurate compatibility
+before proceeding with any environment changes.
+SMAX 2022.11
+Page 
+400
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

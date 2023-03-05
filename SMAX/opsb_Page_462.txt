@@ -1,0 +1,99 @@
+Article
+Tags
+For how to use this field, see 
+Create or update a knowledge/news article
+.
+Request
+Public comments
+Actual service ID
+Category ID
+Involved device ID
+Incident
+Category ID
+Actual service ID or display label
+Involved device ID
+Change
+Actual service ID or display label
+Category name
+Involved device ID
+Change model name
+Sub category
+Priority
+Phase
+Actual Service
+Global ID
+Environment
+Subtype
+Support group
+Device
+Global ID
+OS type
+Environment
+Subtype
+Phase
+Model
+Hardware and software information
+Record type
+Applicable indexed fields
+Why search results don't match the search keyword
+Sometimes, a search might return results that don't seem to match the required keyword. For example, if you search "printer",
+a seemingly irrelevant result such as "order laptop backpack" might appear. This is because some indexed fields other than
+Title, Description, and ID are used to search for the keyword.
+To find the indexed field that matches the search keyword, follow these steps:
+1
+. 
+Go to the 
+saw-dah
+ log folders (/var/vols/itom/itsma/smartanalytics-volume/logs/idol/saw/dah/smarta-saw-dah-<n>), and
+find the 
+action.log
+ file.
+2
+. 
+Open the file and locate the action that has the 
+maxresult=60
+ string. The 
+Text
+ field indicates the search keyword.
+3
+. 
+Copy the entire action and use a URL decoding tool to decode this query.
+4
+. 
+Remove 
+responseFormat=json&
+ from the decoded query, and then copy the query to a text editor.
+5
+. 
+Go to Service Management, select 
+Configurations
+ > 
+Smart Analytics
+, and then click 
+GO TO SMART ANALYTICS
+.
+6
+. 
+In Smart Analytics Assistant, double-click 
+XService DAH
+, and then replace 
+action=GetStatus
+ in the text box with your
+decoded query.
+7
+. 
+Run this action to get the response result.
+8
+. 
+Search 
+printer
+ in the result. You will find the indexed field that contains your keyword. In this example, it's the 
+PUBLIC-
+COMMENTS
+ field.
+SMAX 2022.11
+Page 
+462
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

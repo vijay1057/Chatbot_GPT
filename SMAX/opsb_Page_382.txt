@@ -1,0 +1,13 @@
+Rules
+A single rule will be added to send an email to the PDL when a new comment is added. This rule should only run if the PDL User
+option has been filled in.
+Task Plan
+The work to set up the PDL, open the Bridge line, and invite the domain experts will be performed as tasks. Three tasks will be
+defined for the “Initial support” phase of the Incident. Note that the tasks can either be created as serial (as they are here) or
+parallel.
+SMAX 2022.11
+Page 
+382
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

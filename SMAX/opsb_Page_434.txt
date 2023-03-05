@@ -1,0 +1,42 @@
+Update OMT
+The updat will update all components such as Containerd, Kubernetes, Vault, Etcd, Flannel and OMT AppHub core to a next
+release in the supported update path.
+The update process is done by executing an orchestrator update script or by manually executing the update scripts on all of
+the cluster nodes.
+In case of external Kubernetes, the orchestrator update script will skip any infrastructure updates and only update the
+applicable containerized components. In case of amanual update, the steps referring to infrastructure can simply be skipped.
+Patching / hotfixing OMT
+Micro Focus will provide patches and hotfixes through its support channels.
+These updates will contain updated binaries, configuration files, metadata and scripts.
+Customers will need to transfer the updates to the OMT embedded Kubernetes nodes and run the update script(s).
+Updates will either be:
+Cumulative patches
+Hotfixes specific to one or more customers. Such hotfixes may be rolled into the next cumulative patch.
+Updating Suites
+For suites deployed using Helm charts
+Updating a suite happens via the update flow in the OMT AppHub Helm UI.
+A prerequisite for a suite update may be the update of OMT AppHub first. If this is required, the Suite update guide will detail
+it.
+This is the flow of an update for an installed Suite:
+A new version is built and made available through Docker Hub and/or the software download site.
+The update wil be in the form of a new Helm chart.
+The Helm chart can be downloaded through the software download site
+Updated container images will be available through Docker Hub.
+The customer is notified via the Micro Focus (support) communication channels.
+Using a command tools:
+The update Helm chart is uploaded and made available for deployment
+The updated container images are downloaded from Docker Hub and uploaded in the container image registry
+Using the OMT AppHub Helm UI update flow, the deployment is updated to the new version.
+For suites deployed using suite metadata
+Updating a suite happens via the suite update process using OMT Management Portal.
+A prerequisite for a suite update may be the update of OMT AppHub first. If this is required, the Suite update guide will detail
+it.
+This is the flow of an update for an installed Suite:
+A new version is built and made available through Docker Hub and/or the software download site.
+The update can take the form of:
+SMAX 2022.11
+Page 
+434
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

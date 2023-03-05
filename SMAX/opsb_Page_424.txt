@@ -1,0 +1,59 @@
+A customer-issued certificate for customer access can be loaded into this instance.
+Refer to the Suite installation/administration documentation for details.
+Secure configuration store and cluster-internal certificate issuing
+Vault and Kubernetes-vault
+OMT uses Hashicorp’s Vault solution to provide:
+secure storage of sensitive configuration data
+issuing cluster-internal (or external Nginx controller) certificates
+Micro Focus leverages the following core functionality:
+Generic secret Vault backends to store configuration data.
+The data is secured at rest and in-flight.
+Vault to component communication is secured using certificates.
+PKI backends Vault backends to issue cluster internal certificates.
+Vault Approle authentication mechanism for services to access secure configuration data.
+For ease of use, the Vault server init and unseal steps happen automatically. The init steps happen at installation time, the
+unseal steps occur automatically whenever the server is started.
+The Vault root key and unseal shards are stored in ETCD or in Kubernetes secrets (the latter is the Vault backend data store is
+NFS).
+OMT only supports automatic unseal of the Vault server. This has been added for ease of use. Restrict access to ETCD and
+Kubernetes so the Vault root key and unseal shards aren't compromised.
+See also: 
+https://www.vaultproject.io/
+ ; 
+https://github.com/Boostport/kubernetes-vault
+Kubernetes
+Security context for containers
+The Kubernetes securityContext is used inside Pod specification to run as a regular non-root user or to elevate privileges where
+needed. Elevating privileges is avoided whenever technically possible (*).
+securityContext:
+  fsGroup: 1999
+  runAsGroup: 1999
+  runAsNonRoot: true
+  runAsUser: 1999
+Or:
+securityContext:
+privileged: true
+Cluster-level role-based access control
+The OMT embedded Kubernetes cluster runs with RBAC enabled. OMT defines a set of cluster roles/bindings and within a
+namespace defines roles/bindings are defined. These are associated to Kubernetes service accounts within the AppHub and
+suite namespaces. These service accounts are used by Pods.
+For external Kubernetes, Micro Focus expects clusters to run with RBAC enabled.
+Storage security
+See also: Storage
+Node local directory/file access policies
+OMT embedded Kubernetes installation
+Node local storage can only be accessed by the root users.
+Note
+Vault itself doesn't have an automatic unseal.
+
+
+Note
+Root user access to cluster nodes must be strictly controlled and limited. With root permissions, users can
+
+
+SMAX 2022.11
+Page 
+424
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

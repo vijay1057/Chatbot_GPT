@@ -1,0 +1,63 @@
+Security
+OMT embedded Kubernetes, AppHub and other application installations leverage and/or employ various techniques for tight
+security control:
+Host firewall
+SE Linux on the cluster node
+Linux kernel process isolation features
+Container users and privileges
+Host directory / file permissions
+Containerd configuration
+Kubernetes configuration
+Certificate-secured communication
+Dedicated secure configuration store and certificate generation: Hashicorp Vault
+OMT AppHub user management
+Host firewall
+The host firewall can be up and running during and after OMT embedded Kubernetes is installed.
+Applications can be installed with the host firewall running.
+SELinux
+Host-level
+Host-level SELinux can be in either “disabled”, “permissive” or “enforcing” mode for installation and runtime of the OMT
+embedded Kubernetes.
+OMT installs SE Linux policy modules to allow components to work when SE Linux is running in "enforcing" mode.
+It's possible that on certain customer configurations, security exceptions will be caught, thereby possibly causing one or more
+components not to work properly. In such case, a support ticket can be opened so Micro Focus can address the limitation
+through an updated policy module.
+Containerd-level
+OMT embedded Kubernetes doesn't support reconfiguring the Containerd daemon to enable SELinux support using the
+enable_selinux setting in /path/to/cfg/containerd-config.toml.
+Linux kernel process isolation features
+The basis of container security is provided by several Linux kernel isolation features:
+namespaces: 
+http://man7.org/linux/man-pages/man7/namespaces.7.html
+cgroups: 
+http://man7.org/linux/man-pages/man7/cgroups.7.html
+chroots: 
+http://man7.org/linux/man-pages/man2/chroot.2.html
+Containerd uses the above Linux kernel features to provide secure and isolated execution of application processes inside
+containers.
+The remainder of this chapter focuses on the specific OMT security configuration.
+Container users and privileges
+Users
+Containers 
+typically
+ don't use the root user inside the container.
+They use a regular user account and group inside the container, defined when the container image is built.
+This non-privileged user is then used to start all the processes inside the container.
+Below example shows a typical suite container, showing output of the ‘id’ command and running processes:
+sh-4.3$ id
+uid=495(bvd) gid=493(bvd) groups=493(bvd)
+sh-4.3$ ps -ef
+UID PID PPID C STIME TTY TIME CMD
+bvd 1 0 0 Apr12 ? 00:03:15 /bin/node /bvd/server.js control
+bvd 180 0 0 11:42 ? 00:00:00 sh
+bvd 197 180 0 11:45 ? 00:00:00 ps -ef
+OMT AppHub uses the root user only where technically required. If not technically required, OMT AppHub containers use a
+regular user.
+“Technically required” explained:
+Micro Focus uses off the shelf open source images and the container user is set as root and can't be changed
+SMAX 2022.11
+Page 
+420
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

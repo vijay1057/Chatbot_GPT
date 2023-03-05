@@ -1,0 +1,54 @@
+Open Source Use and Support
+Open Source
+Micro Focus uses (where possible) unmodified Open Source components..
+Support and maintenance of the open source components is a Micro Focus responsibility.
+The following table lists the main open source components that make up OMT:
+Use
+Maintainer link
+Deployed by OMT when
+external Kubernetes used?
+Container runtime
+Containerd: 
+https://containerd.io/
+No
+Container orchestration
+Kubernetes: 
+https://kubernetes.io/
+No
+Distributed
+configuration database
+Etcd: 
+https://github.com/coreos/etcd
+No
+Container network
+fabric
+Flannel: 
+https://github.com/coreos/flannel
+No
+Secure configuration
+store / certificates
+Vault: 
+https://github.com/hashicorp/vault
+Yes
+Monitoring and metrics
+Metrics Server: 
+https://kubernetes.io/docs/tasks/debug-
+application-cluster/resource-metrics-pipeline/
+Prometheus: 
+https://prometheus.io/
+  
+Grafana: 
+https://grafana.com/
+Optional
+Log collection and
+forwarding
+Fluentd: 
+https://fluentbit.io/
+Optional
+Components, maintainers and support
+SMAX 2022.11
+Page 
+406
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

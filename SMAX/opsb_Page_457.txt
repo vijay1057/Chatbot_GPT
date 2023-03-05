@@ -1,0 +1,73 @@
+Service Management
+Service Management is a comprehensive helpdesk solution that manages support and service requests, incidents, change
+requests, and problems. Service Management includes these modules that adhere to ITIL v3 best practice recommendations:
+Plan
+Service Portfolio Management
+ to define and manage service definitions
+Service Catalog Management
+ to categorize and manage services and offerings
+Time Period Management
+ to define and manage maintenance windows, blackout periods, work schedules, holidays, and
+events, for use in Change and Service Level Management
+Service Level Management
+ to define and track review and resolution metrics for Incident and Service Request
+Management
+Vendor Management
+ and 
+Contract Management
+ to organize internal and external vendors, and contracts with these
+vendors
+Idea and Proposal Management
+ to collect and track service-related ideas and proposals, and align proposals with business
+objectives
+Application Portfolio Management
+ to assess and prioritize the current application portfolio and determine which
+applications need to be modernized
+Project and Program Management
+ to track and manage IT projects, programs, and project portfolios
+Build
+Change Management
+ with embedded normal, standard, and emergency workflows, task management, and change
+models
+Release Management
+ with embedded workflow and models
+Knowledge Management
+ to organize and reuse resources such as knowledge articles, solutions, user input, and historical
+knowledge
+Service Asset and Configuration Management
+ with an integrated On-Premises Bridge to your local UCMDB instance
+Survey Management
+ to create surveys that collect user feedback and enable problem analysis
+Procurement Management
+ to create and manage vendor catalogs and purchase orders, and receive assets
+Design
+ to create a service design blueprint which can be ordered from Service Portal
+Run
+Service Request Management
+ to fulfill support or service requests
+Incident Management
+ that includes embedded workflow and collaboration features
+Problem Management
+ with task planning, embedded workflow, and collaboration features
+On-Call Schedule Management
+ to manage agent availability, and the distribution of tickets and notifications
+Software Asset Management
+ to manage, control, and protect software assets
+Financial Management
+ to view the financial aspects of various assets
+Deployment Operations
+ to view and manage service instances
+All Service Management modules work together as a complete solution. You can personalize your instance when you add your
+own data, build forms, add business rules, modify workflows, and more to meet your organizational objectives.
+Related topics
+Glossary
+Roles and permissions
+Filters
+Views
+Service Management user interface
+SMAX 2022.11
+Page 
+457
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

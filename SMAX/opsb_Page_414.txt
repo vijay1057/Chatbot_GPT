@@ -1,0 +1,33 @@
+Networking
+OMT embedded Kubernetes
+Container
+ runtime
+See https://github.com/containerd/cri/blob/v1.11.1/docs/architecture.md and https://github.com/containernetworking/cni
+In this networking model every container has a single network interface eth0 which is mapped into the container from a virtual
+interface (veth) at the host level that is created for every container. These virtual interfaces are connected to a bridge-type
+interface "cni0" and a subnet from which the containers receive an IP address.
+Figure - host/container networking
+This model allows each container on a host to talk to every other container on the same host but not to a container running on
+another host.
+To allow cross-host communication requires setting up port forwarding and/or proxying.
+Cross-host communication is required in a Kubernetes cluster which almost always consists of multiple hosts.
+Cluster network configuration
+Figure - Cluster network diagram
+Network fabric for Kubernetes
+See: 
+https://kubernetes.io/docs/concepts/cluster-administration/networking/
+Setting up port forwarding across multiple containers, hosts and users isn't a viable model as the number of containers, hosts
+and users rises.
+Therefore Kubernetes requires a slightly different network fabric configuration.
+Kubernetes by itself won't work if you were to install it across multiple hosts without the configuration of some network fabric.
+The fabric provides the ability for each container on every host to talk to every other container on every other node.
+No network address translation (NAT) is required. The Kubernetes documentation words this nicely as three items:
+all containers can communicate with all other containers without NAT
+all nodes can communicate with all containers (and vice-versa) without NAT
+the IP that a container sees itself as is the same IP that others see it as
+SMAX 2022.11
+Page 
+414
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

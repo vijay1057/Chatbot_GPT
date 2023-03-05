@@ -1,0 +1,52 @@
+A user has forgotten their password for their
+email system
+SRM  
+(Service
+Request)
+A good candidate to automate
+A user can't connect to an application. 
+Investigation by the agent determines that
+the issue is caused by an   improper proxy
+definition on the user's machine.
+SRM  
+(Support
+Request)
+The issue isn't caused by the service provider
+Event Management detects that one of the
+servers in an application has   crashed. 
+Redundant systems keep the   application
+online, but users are taking longer than
+normal to login.
+Incident  
+Management
+While the service is still available, there is an impact on the
+ability to provide it
+A user calls in reporting that they are taking
+a long time to log into the   application.
+SRM  
+(Support
+Request) -
+with link to
+IM
+The Service Request Management process will be used to
+handle the consumer. They may want to be notified when
+the issue has been corrected, or may simply be satisfied by
+the explanation.  The Service Request is linked to the
+Incident to facilitate either.
+In each case we can use the definitions that we derived earlier to determine the correct process:
+Applying these definitions to any incoming issue should make it apparent which ITSM process needs to be followed to ensure
+that the service is being provided in the most efficient way possible.
+Service Request Management
+ encompasses the consumer facing processes that make up the expected, day
+to day activities involved in providing a service to an individual or group. The goal of Service Request
+Management is to ensure that the user can consume the service to their satisfaction.
+Incident Management
+ encompasses the processes used by the service provider to track and resolve any issue
+that impacts the ability of a user to consume the service.  The goal of Incident Management is to restore normal
+operation of a service as quickly as possible.
+SMAX 2022.11
+Page 
+385
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

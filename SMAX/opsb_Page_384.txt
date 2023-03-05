@@ -1,0 +1,55 @@
+Request vs. Incident
+In planning your IT Service Management (ITSM) solution, it's important to understand the differences between Service Request
+Management and Incident Management, as well as the types of processes served by each discipline. I know that users are
+often confused by these two types of management, so I want to clearly describe their differences to you.
+The overall goal of ITSM is to provide a business service that provides meaningful value to the users of that service.  It's
+important not only to define the service itself, but also several important sub-processes that the consumers have access to
+such as:
+How can someone become a user of the service?
+How can someone stop being a user of the service?
+How can someone ask questions about the usage of the service?
+How can someone make a complaint about the service?
+How can someone get help on an issue they are having with the service?
+How can someone request a modification to how they are using/receiving the service?
+How can someone can make a suggestion on how to improve the service?
+All of the above are part of the overall service definition.  The IT department expects the service consumers to use these
+processes as part of the day-to-day operation and consumption of the service.
+From these questions we can derive the high level definition of the Service Request Management process. 
+These activities can be defined at a high level as either Service Requests or Support Requests. 
+Service Requests are the set of pre-defined activities that can be performed against the service itself (such as increasing the
+size of a standard email mailbox, requesting additional memory for a virtual machine, or resetting a password for a specific
+application).  Service Requests will usually require the same type of information from the user each time (such as a user id or
+application name), and often lend themselves to automation.
+Support Requests, on the other hand, encompass those requests that haven't been pre-defined or even expected by the
+service owner.  This can include questions, suggestions or even complaints.  For many of these, a good Knowledge Base will
+allow a consumer to find answers on their own to their questions.  This removes the need for a service desk agent to manually
+respond to the request. 
+However, many times a support request involves a perceived issue that a user is having with the service.  Here we start to see
+some confusion over whether the issue should be processed by the Service Request or Incident Management department.  To
+clearly see where the issue belongs, we can compare the definition we have above with our definition of Incident Management:
+It's important to note that an issue that impacts the operation of a service may or may not be reported by a service
+consumer.  For most hardware or application issues, the incident will most likely be created directly by the service provider
+either manually or by some type of event management software.  However, for those Incidents that were either reported by a
+service consumer, or for those that affected a consumer that then reported it via a Service Request, both processes (IM and
+SRM) will need to be followed.  To understand this we need to look at the end goal of each process.
+The line between the two processes becomes more clearly defined at this point.  Using these definitions, one of the easiest
+ways to help determine if an issue needs to be handled by Incident Management is simply to determine whether or not the
+issue could affect the availability of the service as defined in any Service Level Agreements.  While this isn't the only
+determination that we might use, if the answer to this question is "yes" then the issue in question needs to be handled within
+Incident Management.
+Here are some examples that might be encountered, and which processes should be followed for each:
+Example
+Processes
+Comments
+Service Request Management encompasses the consumer-facing processes that make up the
+expected, day to day activities involved in providing a service to an individual or group.
+Incident Management encompasses the processes used by the service provider to track and resolve
+any issue that impacts the ability of a user to consume the service.
+The goal of Service Request Management is to ensure that the user can consume the service to their satisfaction.
+The goal of Incident Management is to restore normal operation of a service as quickly as possible.
+SMAX 2022.11
+Page 
+384
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

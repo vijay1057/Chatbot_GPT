@@ -1,0 +1,81 @@
+Failover
+ingress
+idm 
+infra-rabbitmq 
+smarta-search 
+itom-xservices-gateway 
+itom-xservices-platform 
+itom-xservices-serviceportal 
+itom-xservices-platform_nginx 
+itom-xservices-ui 
+itom-bo-ats 
+itom-bo-facade 
+itom-bo-login 
+itom-bo-user
+itom-bo-license
+itom-bo-config
+Load balancing
+idm 
+infra-rabbitmq 
+smarta-search 
+itom-xservices-gateway 
+itom-xservices-platform 
+itom-xservices-serviceportal 
+itom-xservices-platform_nginx 
+itom-xservices-ui 
+itom-bo-ats 
+itom-bo-facade 
+itom-bo-login 
+itom-bo-user
+itom-bo-license
+itom-bo-config
+Category
+Supported pods
+Upgrade
+The suite supports rolling updates: version update, and patch update. 
+Scaling
+The suite supports manual scaling only. 
+Type
+Supported pods
+Manual scaling
+Supported for the following pods:
+itom-xservices-serviceportal 
+itom-xservices-platform 
+itom-xservices-gateway
+idm
+infra-rabbitmq 
+smarta-search 
+itom-xservices_gateway 
+itom-xservices_platform 
+itom-xservices_serviceportal 
+itom-xservices_platform_nginx 
+itom-xservices_ui 
+itom-bo_ats 
+itom-bo_facade 
+itom-bo_login 
+itom-bo_user
+itom-bo-license
+itom-bo-config
+Itom-dnd-controller
+Itom-oo
+itom-oodesigner
+itom-dnd-operations-gateway
+itom-dnd-instance-management
+itom-dnd-platform    
+itom-dnd-platform-deploy-controller    
+itom-dnd-bootstrap-job    
+itom-image-catalog    
+itom-image-catalog-gateway
+Auto scaling
+N/A
+Note
+ Due to a known limitation, the itom-xruntime-platform-offline pod can't be manually scaled out, please
+make sure there is only one itom-xruntime-platform-offline pod in your environment.
+
+
+SMAX 2022.11
+Page 
+449
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

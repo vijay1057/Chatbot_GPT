@@ -1,0 +1,55 @@
+When containers are being started, they may need access to:
+Securely stored configuration data
+A server certificate to use for server processes
+Tokens and certificates are generated dynamically and on demand. The token and certificates are renewed periodically.
+The Pod specification for OMT AppHub and Suite containers contains annotations to get Vault tokens and server certificates.
+The patterns used for this are init (get token and certificate) and sidecar (renew token and certificate) containers.
+When a Pod starts, the init container is infused with a Vault access token. Then the init container requests a server certificate
+from Vault.
+While the Pod is running, a sidecar container continuously renews the short-lived Vault token and the longer-lived certificate.
+Micro Focus uses a Kubernetes-vault implementation to supply containers with access tokens. This init container code was
+updated to also generate server certificates.
+Secrets (passwords, sensitive data, any other data the suite deems requiring secure storage) can be stored in Vault or in
+Kubernetes secrets.
+Vault: Hashicorp Vault: 
+https://www.vaultproject.io/
+; data is encrypted at rest in ETCD (or NFS)
+Kubernetes secrets: 
+https://kubernetes.io/docs/concepts/configuration/secret/
+ which are encrypted at rest in ETCD on an
+OMT embedded Kubernetes cluster 
+https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/
+Accessing the secrets depends on the storage:
+Vault: MF uses the following authentication mechanism
+AppRole:
+Mechanism: 
+https://www.vaultproject.io/docs/auth/approle
+Implementation: 
+https://github.com/Boostport/kubernetes-vault
+Details for app ID aka app role and secret ID:
+App role: in Pod YAML
+Secret ID:
+Is a 128-bit purely random UUID
+Available in Kubernetes Secret (1 secret per approle)
+Kubernetes secrets: use the Kubernetes API through kubectl or REST API client
+Kubectl: 
+https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
+REST API client: token under /var/run/secrets/kubernetes.io/serviceaccount/. The permissions are governed by the
+role/rolebinding and/or clusterrole/clusterrolebinding of the service account that the Pod is running with.
+The interface for Pods to read/write secrets is in both of the storages the same:
+Get_secret / update_secret utilities in the container. These use either the Vault binary or Kubernetes REST API. The
+communication is always TLS-secured (TLS 1.2) HTTPS with a strong set of ciphers only.
+Use of customer certificates
+For OMT AppHub Ingress controller
+By default, the certificate used by the OMT AppHub Nginx (Ingress) that will be used to access OMT AppHub services on port
+5443 is issued from the self-generated root CA.
+If that is not acceptable, then a customer-issued certificate can be loaded. Refer to the OMT AppHub or Suite
+installation/administration guide for details.
+For Suite Ingress controller
+Suite installations will install a separate Nginx (Ingress) instance that listens on port 443.
+SMAX 2022.11
+Page 
+423
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

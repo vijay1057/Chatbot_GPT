@@ -1,0 +1,12 @@
+For Suite production use, Micro Focus recommends external databases.
+ 
+Note
+Setup, configuration, (high) availability of external databases are a customer responsibility.
+
+
+SMAX 2022.11
+Page 
+437
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

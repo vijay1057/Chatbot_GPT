@@ -1,0 +1,66 @@
+Deployment models
+Deployment options
+The following table shows the deployment options, based on whether or not you want to use the embedded Kubernetes
+bundled with OMT.
+Platform
+Uses OMT embedded K8S?
+AWS EKS
+No
+Azure AKS
+No
+Google EKS
+No
+Alicloud Container Service
+No
+Oracle Cloud
+No
+Red Hat Openshift
+No
+Rancher RKE
+No
+Bare metal or virtual machines inside customer datacenter
+Yes
+OMT can be deployed with or without embedded Kubernetes and selected infrastructure components for logging/monitoring
+and dashboarding, container image registry, volume provisioning (NFS).
+Deployment can occur on physical machines or virtual machines.
+OMT without embedded Kubernetes
+For installations on external Kubernetes instance (cloud or on-premise), use OMT without its embedded Kubernetes.
+OMT is installed directly onto a dedicated or shared external Kubernetes cluster. How such a cluster is made available depends
+on the cloud vendor or the customer in case of on-premise installation.
+In this setup, OMT only installs containerized components and does not install any of its embedded Kubernetes infrastructure.
+In cloud installations, the physical cluster setup inside the vendor's datacenter is opaque. Control plane nodes are typically off
+limits and/or not visible at all. In most environments, Pod scheduling isn't possible on control plane nodes.
+Command-line access to worker node may or may not be possible, again this depends on the vendor.
+OMT assumes that control plane and worker node access using command line SSH isn't possible and that the only access to an
+external Kubernetes instance is remote and via kubectl (possibly via a bastion (also known as jumpstation) host).
+OMT with embedded Kubernetes
+For on-premise installations use OMT with embedded Kubernetes.
+OMT is installed on regular Linux OS hosts. No special configuration except a set of prerequisite packages is required. Refer to
+the Suite installation documentation for the package prerequisites. Some Suites may have additional configuration
+requirements for the cluster hosts, please consult the Suite installation documentation.
+Micro Focus recommends minimal installations of the supported Linux distributions. Refer to the platform matrix for the
+supported Linux distributions.
+There is no requirement for Internet access for the servers that will host the OMT infrastructure. However, if the 1
+st
+ control
+plane server has Internet access (direct or via proxy) then this will improve the installation experience as the Suite container
+images can be downloaded directly on the node where they will need to be imported from into the local image registry.
+The majority of the OMT components are containerized. The container runtime, Kubernetes' Kubelet and a set of utility scripts
+run directly on the host OS.
+OMT configurations
+Without embedded Kubernetes
+The Kubernetes cluster configuration in terms of number of control plane and worker nodes and their size is defined by the
+customer and the cloud vendor. ITOM applications such as AppHub define resource requirements in terms of required CPU,
+RAM and external disk space.
+With embedded Containerd/Kubernetes
+OMT can be deployed in various configurations for various purposes: single node, multiple nodes and multiple nodes with
+multiple control plane nodes.
+The diagram below shows the four basic configurations and the typical use-cases.
+For production use the two rightmost configurations can be used, although only the rightmost multiple control plane with
+multiple workers has the highest level of high availability (HA). 
+SMAX 2022.11
+Page 
+408
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

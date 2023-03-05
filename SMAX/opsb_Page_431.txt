@@ -1,0 +1,60 @@
+If absent, the default value is “Always”.
+Pod specifications don't explicitly contain the restartPolicy setting so the above default is applied.
+This means that when containers inside pods crash, they will always be restarted. And the restart will always occur on the
+same node.
+Liveness probes
+On top of the default restart, Kubernetes can restart pods when a probe fails.
+Two probe types exist:
+Liveness: restart containers when a probe fails
+Readiness: only send traffic to a pod when all readiness probes for all containers for that pod probe succeed
+All components have liveness probes defined.
+Readiness probes do not contribute to HA but nevertheless most container will have readiness probes if they accept network
+traffic.
+Multiple component instances
+Additional high availability can be achieved by running multiple instances of a component connected to an external database
+(HA assumed) or connected to a cluster-local replicated database.
+The following components can deploy multiple instances: Vault, ETCD, IDM, Ingress controller, image registry
+Container resource requirements and limits
+Request/Limit
+All container specifications contain resource request and/or limit configurations. (*)
+Resource request: allows the Kubernetes scheduler to improve container scheduling based on available resources on the
+worker nodes.
+Resource limits: allows the host OOMKiller and Kubernetes Kubelet to stop and or evict pods that exceed allowed memory
+and throttle processes that use more CPU than their limit specifies.
+(*) Source: 
+https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+Resource request and limit helps in achieving high availability because:
+A container won't be scheduled to an already fully loaded node which may cause the node to run out of resources.
+A node won't be continuously overloaded if a container exceeds its memory and/or CPU limits.
+A container that's stopped or evicted because it has exceeded its memory limits may be rescheduled on another node
+that has a lower overall usage.
+Request and limit values are defined via the YAML specification and typically looks like below excerpt. The actual values vary
+from service to service.
+resources:
+  requests:
+    cpu: 100m
+    memory: 100Mi
+  limits:
+    cpu: 100m
+    memory: 200Mi
+The following services run on the host outside of Kubernetes’ control and may have limits set via systemd config file:
+Containerd, Kubelet.
+Kubelet pod eviction
+On OMT embedded Kubernetes nodes, Kubelet will start to evict pods when they use too much system resources.
+When Pods are evicted, they will be rescheduled to either the same node (provided sufficient resources have been reclaimed)
+or another node with sufficient available resources.
+Kubernetes details: see 
+https://kubernetes.io/docs/tasks/administer-cluster/out-of-resource
+Storage high availability
+Node local storage for Kubernetes code and runtime data
+To increase the level of HA, the control plane and worker nodes installation partition can be setup to be hosted on a form of
+fast local SSD storage or storage such as SAN or NAS arrays.
+Additionally, it's recommended to use logical volume management (LVM) in the local partitioning scheme for /opt so that the
+storage can be expanded very simply if the partition is in danger of running out of space.
+Persistent container storage
+SMAX 2022.11
+Page 
+431
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

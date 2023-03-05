@@ -1,0 +1,12 @@
+With OMT embedded Kubernetes
+(*2) Can be external DB.
+Blue arrow represents use of external interface.
+Simplifying the above diagram, we can see the overall building blocks when the embedded Kubernetes is used:
+The following two diagrams show a detailed component diagram and how these are split across controller and worker nodes.
+All of the Kubernetes infrastructure is visible here because of the use of the OMT embedded Kubernetes.
+SMAX 2022.11
+Page 
+396
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

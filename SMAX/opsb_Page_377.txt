@@ -1,0 +1,23 @@
+customization needed when using Gmail, as it uses the default ports. If using a different email server with non-default ports,
+the values on this form may need modification.
+Only authorized email addresses can create requests in Service Management Automation X using the email integration. If the
+domain of the sending email address is not in the authorized domain list, the email will not be accepted. The same is true for
+email accounts that do not belong to a valid user in Service Management Automation X. Even when the domain is added to the
+authorized domain, the email address must be associated to a valid user for a request to be created. You must add any
+domains that will be sending emails to the authorized domains.
+The actions Service Management Automation X will take when emails arrive in the Gmail inbox is defined in the configuration
+section. If the ‘New email action’ is set to ‘Create Request’, then a new request will be created.
+The inbox polling time is by default one minute but can be increased to any desired frequency. By default, the two Gmail
+folders created earlier are assumed to be named ‘Processed’ and ‘Errors’. If different folder names are desired, they may be
+defined here.
+It is possible to set a default offering on this form for all requests submitted through the email integration. If this dropdown is
+left blank, then no offering will be applied. However, the default can be assigned by selecting a value from the list. 
+Enable the ability for users to create requests and other actions using email in the feature settings configuration. If contacts
+need the ability to add requests, an agent must be assigned in the Email integration agent selection. The agent will appear as
+the Requested By value in the requests.  
+SMAX 2022.11
+Page 
+377
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,22 @@
+All of the internal Kubernetes resolution will be unaffected. Hostnames outside of the cluster (including the host nodes) will
+have to be statically specified.
+For this purpose, customers can specify a fixed hostname-to-IP list using a Kubernetes config map.
+Ports
+Open port requirements for OMT embedded Kubernetes are listed in the Prepare section in the product documentation.
+Applications
+Accessing application functionality can be via defined Ingress resources and its controller and/or directly via services exposed
+using nodePort or both.
+Applications may use:
+“clusterIP” services exposed via Ingress resource and Ingress controller in the suite namespace
+“nodePort” services available on a particular port on every cluster node
+A hybrid of both approaches.
+Refer to the application installation/administration guides for details.
+Figure - Cluster ingress
+Refer to the application installation/administration documentation for details on accessible end points.
+ 
+SMAX 2022.11
+Page 
+419
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,69 @@
+OPTIC
+IT Platforms for IT Transformation
+Seems like every software vendor has an IT platform today, and for good reasons. The right IT platform can support
+transformation efforts. Employees can more efficiently engage in self-service with a multitude of digital services and processes
+—such as requesting services with automated fulfillment. A good platform should reduce the need to build and maintain
+integrations, provide better insights through shared data and analytics, and reduce the user learning curve through a common
+UI and common best practices.
+But not all IT platforms are created equal. Many are blank slates that require custom coding—a job that creates technical debt
+for future maintenance, decreases the value of AI/ML, and drives up total cost of ownership. What’s more, teams must agree
+on best practices for implementing each process step and reconcile processes across multiple cloud and on-premises
+investments. IT platforms shouldn’t compound the drama.
+The Evolution of the Micro Focus ITOM Platform
+Micro Focus has announced a new brand for our ITOM platform
+. Known as OPTIC (The Operations Platform for Transformation,
+Intelligence, and Cloud), let’s address why we are rebranding now.
+The original Micro Focus “ITOM Platform” was launched in 2017, primarily to address the need to simplify installation and
+updates of our products using containers. Over the last four years, our platform technology has continued to evolve. With an
+increase in microservice-based shared services, we’ve unified approaches to identity management, single-sign on, container
+management, and have expanded integration capabilities through an API gateway. But the progress made in 2020 really took
+things to the next level.
+The theme in 2020 was “convergence”, which dramatically improves your experience. This progress led us to decide that our
+ITOM Platform needed a new name. Specific convergence capabilities that were delivered include:
+Convergence of the user experience
+With the release of 
+HCMX
+ and 
+Asset Management X
+ we have begun to standardize on the highly-intuitive 
+SMAX
+ interface for
+user self-service. All of our 
+Enterprise Service Management
+ products will eventually use this interface to support end users.
+Convergence of data and analytics
+The COSO Data Lake, which is being renamed the OPTIC Data Lake, simplifies the collection, normalization and storage of data
+from Micro Focus 
+Operations Bridge
+, 
+Network Operations Management
+, 
+Data Center Automation
+ and a massive number of
+third-party vendors. It enables common data analysis and data visualization for important operations tasks such as automated
+event correlation.
+Convergence of automation capabilities
+Micro Focus 
+Robotic Process Automation
+ and 
+Operations Orchestration
+ have come together to offer the best in both UI and API-
+based automated processes and workflows, to span multiple applications and digital transformation use cases.
+Convergence of discovery and topology mapping
+Micro Focus 
+Universal Discovery and Universal CMDB
+ are absolutely world-class at discovering and mapping hybrid IT assets.
+But in 2020, Micro Focus was able to provide a single instance across multiple Micro Focus products to discover and map
+hybrid IT assets across multi-cloud, containers, and on-premises IT using Smart Software Analytics to identify unrecognized
+software.
+In spite of the pandemic, 2020 was an epic year of delivery for our research and development teams, and that delivery
+justifies a new brand for our platform, OPTIC.
+The Micro Focus IT Platform Is Different
+Rather than trying to copy all the other platforms, Micro Focus has built OPTIC to help you transform without drama; harness
+built-in, unlimited-use intelligence at the core; and optimize your use of the cloud as a full partner.
+SMAX 2022.11
+Page 
+401
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

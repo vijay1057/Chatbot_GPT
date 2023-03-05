@@ -1,0 +1,47 @@
+Workflow
+This figure shows how to create compliance reports for analyzing your software license position using SAM.
+Out of the box, SAM provides a number of license metrics and license rules, which are essential in compliance calculations.
+This use case directly leverages an OOTB license metric and license rule to calculate license consumption. If your business
+scenario is more complex and requires creating new license metrics and license rules, see the 
+Advanced use 
+section of this
+topic.
+In case if you don’t have the necessary data for demo for testing purposes, you can deploy the SAM sample data in your
+environment planned to run SAM. See 
+Deploy sample data
+.
+Preparation
+Before calculating license compliance for a product, you need to synchronize the product family information from UCMDB to
+learn about the products deployed in your environment.
+By default, SAM synchronizes the product family at midnight every day. You can also manually start a synchronization task
+following these steps:
+1
+. 
+From the top menu, select 
+Products
+.
+2
+. 
+Click 
+Sync from CMS
+ to synchronize the product family from UCMDB.
+The time needed to complete the synchronization depends on how many installed software CIs are held in UCMDB.
+3
+. 
+Click the notification icon 
+ 
+in the upper-right corner to view the task status.
+4
+. 
+If the task completes successfully, click 
+ 
+to view the imported products.
+Once the products currently available in UCMDB have been imported, they can be used within SAM to create license
+models.
+Configurations
+SMAX 2022.11
+Page 
+466
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

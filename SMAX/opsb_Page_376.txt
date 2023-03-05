@@ -1,0 +1,21 @@
+Creating and configuring the email integration endpoint
+Once the credentials have been added to the OPB, you need to add the email integration endpoint through the Service
+Management Automation X UI. Navigate to the 
+Admin -> Integration -> Endpoints
+ page. Click ‘Add’ and select ‘email
+integration’ as the endpoint type and provide a name. The ‘Running on agent’ dropdown should contain the ‘email integration
+agent’ added earlier. Select it and then click ‘Add’. 
+Once added, click the ‘Configure’ button to add the connection details for the Gmail server. The Gmail IMAP server address
+is 
+imap.gmail.com
+ and the smtp server is 
+smtp.gmail.com
+. The recommended protocol to use is IMAPS. The Credentials
+dropdown should show the Gmail credentials added to the OPB in an earlier step.
+Any proxy configuration is performed in the ‘Advanced’ connection configuration section of the form. There is no specific
+SMAX 2022.11
+Page 
+376
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

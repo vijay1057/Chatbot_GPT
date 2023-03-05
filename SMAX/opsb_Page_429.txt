@@ -1,0 +1,66 @@
+High availability (HA)
+Overview
+High availability is the result applying/using the following technologies and configurations:
+Highly available redundant storage
+Highly available database instances
+Servers in active/active or active/passive configuration (with or without load balancing)
+Services in active/active or active/passive configuration (with or without load balancing)
+Intra-service data replication (clustering)
+Fast restart in case of failure of a single instance of a server providing a particular service
+Keep-alive monitoring
+Automatic restart on stopping
+OMT embedded Kubernetes and AppHub employ various techniques listed above to achieve HA for its foundational services.
+Not all foundational services have the same level of HA, and the level of achievable HA is dependent on the installation
+configuration: single or multiple control plane, single or multiple worker nodes.
+OMT embedded Kubernetes can be installed in 4 different configurations, where maximum HA is available only in MMMW:
+Single combined control plane + worker node (SCMW)
+Two nodes: single control plane, single worker (SMSW)
+Multiple workers: single control plane, multiple workers (SMMW)
+Multi-control plane: multiple control plane nodes, multiple worker nodes (MMMW)
+In the multiple-control plane node configuration, the level of HA is highest. In the single combined control plane + worker
+configuration, the level of HA is lowest.
+The level of HA is achieved by adding up all of the various techniques employed at different levels of the software stack, from
+bottom to top:
+Host + storage
+Containerd
+OMT embedded Kubernetes ETCD, Vault and Flannel
+Kubelet
+Kubernetes services (API server, controller manager, scheduler, DNS, etc)
+OMT AppHub and suite containers
+Each layer builds upon the previous layer and adds additional HA functionality.
+The following levels of HA are defined:
+Basic:
+Has Containerd HA
+No Kubernetes HA
+Mixed use of multiple instances and liveness probes
+None or partial use of external databases
+None or partial use of HA storage
+Intermediate:
+Has Containerd HA
+Has Kubernetes HA
+Mixed use of multiple instances and liveness probes
+None or partial use of external databases
+None or partial use of HA storage
+Highest:
+Has Containerd HA
+Has Kubernetes HA
+Heavy use of multiple instances and liveness probes
+External databases used (customer-supported clustered HA is assumed)
+HA storage
+Note about ITOM Suites
+All of the high availability (HA) aspects that apply to OMT AppHub containers executing on top of Kubernetes also
+apply to ITOM Suite containers when a suite is deployed and running on the underlying Kubernetes. For specific
+documentation and guidance for a particular ITOM Suite, refer to the Suite documentation.
+
+
+Note about OMT with and without embedded Kubernetes
+Below information discusses OMT with embedded Kubernetes. If OMT is installed on a external Kubernetes
+instance then the customer is responsible for configuring HA for the cluster control plane.
+
+
+SMAX 2022.11
+Page 
+429
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

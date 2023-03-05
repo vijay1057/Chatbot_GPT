@@ -1,0 +1,73 @@
+Elasticity
+What's elasticity?
+Elasticity is the way the cluster resources scale up and down in relation to resource demand.
+The Suite resource requirements vary according to a range of parameters, including but not limited to the number of entities
+managed, tasks or events processed and/or the number of concurrent users.
+Scaling may occur on various levels:
+Cluster: add, reconfigure or remove cluster nodes.
+Example: add one or more nodes as a result of scale up of a particular replication controller
+Kubernetes: scaling up or down of pods (through Kubernetes Deployments, Replication Controllers, Replica Sets or
+StatefulSets)
+Example: increase the number of replicas for a particular replication controller
+Suite capabilities: business use-case wrapper on top of Kubernetes and/or cluster scaling.
+Example: scale up a web server service results in scale up of particular (one or more) replication controllers.
+Suite installation: at installation time, one of various static deployment sizes can be selected to define the initial size of
+the Suite installation.
+So elasticity or scaling is layered and exhibits a possible ripple effect from top to bottom:
+Figure - Scaling ripple effect
+Scaling up a particular Suite capability requires scaling the Kubernetes controller that controls its deployment, which in turn
+may require scaling the cluster by adding, reconfiguring or removing nodes.
+Manual vs automatic elasticity
+Ideally it should be possible to scale Suite capabilities automatically based on various parameters such as usage patterns,
+time-of-day and others.
+Suite capabilities can be scaled manually by directly:
+Scaling the Kubernetes controller that controls their deployment
+Scaling the cluster
+Alternatively, Suites can use horizontal Pod auto-scaling to automatically scale services based on resource consumption.
+Suite capabilities are always scaled indirectly because a single capability is provided by a combination of containers.
+Level
+Directly / indirectly
+scaled
+Makes sense to scale
+independently?
+Can be scaled
+manually?
+Can scale
+automatically?
+Suite capability
+Indirect
+N/A
+Yes
+No
+Kubernetes
+controller
+Direct
+N/A
+Yes
+Yes using Pod horizontal
+auto scaling
+Cluster
+Direct
+Yes. Load will be better
+distributed.
+Yes
+No
+Suite installation scaling
+Suite installation scaling allows for selection of one of a set of predefined installation sizes.
+Typically these sizes are listed as: small, medium and large.
+The exact meaning of the size value differs from suite to suite. Refer to the Suite documentation for details on the installation
+sizes.
+Based on the selected size, the administrator needs to prepare a cluster with (just) enough nodes. Exactly how many nodes
+are needed is described in the Suite documentation.
+When the installation is running, the installation process will set an initial size for the Kubernetes controllers for each Suite
+Note
+Cluster nodes can always be added independently of any sizing specifications or resource demands and this will
+almost always have a positive effect on performance.
+
+
+SMAX 2022.11
+Page 
+440
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

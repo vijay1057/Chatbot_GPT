@@ -1,0 +1,15 @@
+(*) Can be deployed if customer does not have.
+Black boxes managed by customer, OMT uses public interface to it
+(*2) Can be external DB.
+Blue arrow represents use of external interface.
+Simplifying the above diagram, we can see the overall building blocks when the embedded Kubernetes is not used and the
+customer brings his own Kubernetes:
+The following two diagrams show a detailed component diagram and how these are split across controller and worker nodes.
+Black boxes represent customer-managed infrastructure that OMT knows is there and uses its public interfaces but for all
+intents and purposes we can't look inside.
+SMAX 2022.11
+Page 
+395
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

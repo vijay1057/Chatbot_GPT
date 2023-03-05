@@ -1,0 +1,39 @@
+Support tool
+support-dump tool
+OMT Tools capability includes a support tool that gathers the data discussed in the “Logs” chapter and adds additional data.
+The tool is located in <installation directory>/tools/support-tool and is called support-dump.
+Tool output
+The compressed file that the support tool generates is encrypted and password-protected with a chosen password:
+<installation directory>/tools/support-tool/dmp/support_data_YYYYMMDD-HHMMSS.aes
+It can be made readable again using the following command:
+dd if=<filename>.aes |openssl aes-256-ecb -d -k <your_password>|tar zxf -
+A log file is generated below <installation directory>/tools/support-tool/dmp.
+Refer to the Suite installation/administration guide for detailed information.
+Collected data and intended use
+The data is intended to be handed to Micro Focus support.
+The data is a mix of output from OS commands, crictl commands and log files.
+Its console output is also generated in report format.
+The following data is generated:
+OMT version information
+Containerd version information
+Kubernetes version information
+OMT components version information
+Running containers (ID, image status, node)
+Cluster nodes
+Kubernetes pods (namespace, name, status, uptime, IP, node)
+Containers by pod (namespace, pod, node, image, container, container ID)
+All suite deployments (including deleted ones) (suite, version, namespace, deployment status, install data, NFS info)
+Capability information of the deployed suite
+crictl inspect output for all containers
+Kubernetes cluster-info dump output
+kubelet describe of pods
+Dump of the suite installer database
+Dump of the suite deployment metadata
+Output of various OS commands listed in <installation directory>/tools/support-tool/conf/supportdump.config.
+ 
+SMAX 2022.11
+Page 
+446
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

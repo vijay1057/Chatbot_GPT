@@ -1,0 +1,15 @@
+Once started, confirm that the agent has been configured correctly by bringing up the Service Management Automation X
+Integration page and clicking on the agent just created. Confirm that the status is ‘Success’. If it did not connect successfully,
+try restarting the agent. If restarting does not correct the issue, consult the controller log located in the 
+C:\Program Files\Micro Foc
+us\On-Premises Bridge Agent\product\log\controller
+ directory for more information on connection issues.
+Adding the email integration credentials to the OPB
+After installing the agent, you must add the email integration credentials to the OPB so that the agent can connect to the
+Gmail account. This is done using the ‘Endpoint credentials manager’ of the OPB, available in the start menu.
+SMAX 2022.11
+Page 
+374
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

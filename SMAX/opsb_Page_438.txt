@@ -1,0 +1,71 @@
+Backup/restore and disaster recovery
+Data backup is a prerequisite to restore or disaster recovery.
+Accurately backing up all the data needed so it can be restored in case of a disaster is of paramount importance.
+Backup and restore
+Backup
+Containers provide the edge over classic product installation because of the standardized way of building and running
+containerized applications.
+All application components running in containers share the same common runtime and a similar and known way and place to
+store external data.
+In case of the OMT and Suites, backing up all of the data is simplified as it lives in only a handful known locations:
+Location
+Use
+Container runtime data
+directories
+Vault, flannel and Kubernetes
+OMT AppHub
+The attached volumes
+OMT AppHub NFS or Ceph external volume (container persisted configuration
+and data)
+Database files
+Configuration data
+Suite NFS or Ceph external volumes (container persisted configuration and data)
+Database files
+Configuration data
+OMT installation configuration
+data
+ETCD or local file system
+Restore
+Restoring saved data and existing or fresh Kubernetes cluster is supported.
+Refer to the documentation for detailed backup and restore instructions.
+Disaster recovery
+Using a backup of just ETCD and selected 1st control plane node configuration, a new fresh OMT embedded Kubernetes
+including running applications can be rebuilt.
+In a multiple worker node deployment, the system can tolerate worker node outages.
+On multiple-control plane node setups (3 control plane nodes) the ETCD database is distributed. It is possible to lose one
+control plane not and not lose high availability. If 2 or all control plane nodes are lost, the system can be recovered from a
+backup.
+Workers nodes are disposable. If a worker node crashes or dies, it can simply be reinstalled or replaced. The workload will be
+moved automatically by Kubernetes. The workload is shifted away from the downed nodes to healthy nodes. Kubernetes
+allows for prioritization and preemptive scheduling to keep the most important workloads running, until the downed nodes
+have been rebuilt or replaced.
+Control plane nodes need a little more care but in a highly available setup and with regular backups recovering from a one or
+two control plane node crash is not a major undertaking.
+What
+Backup ?
+Restore ?
+1
+st
+ control plane node
+Yes
+Yes
+NFS volume(s)
+Yes
+Yes
+External DB
+Yes
+Yes
+Secondary control plane node(s)
+No
+No ; add new
+Worker nodes
+No
+No ; add new
+Refer to the documentation for detailed steps for backup/restore and disaster recovery.
+ 
+SMAX 2022.11
+Page 
+438
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

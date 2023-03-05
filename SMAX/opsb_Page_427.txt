@@ -1,0 +1,72 @@
+Host storage
+Containerd storage driver
+See also “Containerd storage”.
+Local node storage, i.e. the local disks, is used extensively when running containers.
+The storage driver is backed by local storage. Micro Focus recommends fast storage backing such as SSD drives for the
+storage driver volumes.
+These are sparse files, so the size reported by “ls –l” for the individual files isn't the same as the actual size on disk. Sparse
+files show a difference between the logical size of a file (how a user would see the file size) and the physical size of a file (how
+much space the file actually occupies on disk).
+Additionally, an overlayfs storage driver uses the Copy-on-Write 
+https://en.wikipedia.org/wiki/Copy-on-write
+ technique to
+reduce the actual physical size of the container image storage as much as possible.
+ETCD
+Additional local node storage is used by ETCD, but only on the control plane nodes.
+A typical application deployment would require around 500 MB of ETCD storage. This can be more if more nodes and/or Suite
+capabilities are added.
+Other host storage
+Additional storage is needed for component and scripts logs.
+OMT storage
+The storage for OMT is split between:
+Node local storage for the Containerd, Kubernetes binaries and their runtime data
+Node local storage for the Containerd image cache
+Node local storage for hostPath and emptyDir directly attached container volumes
+External storage backed by an NFS server or Ceph cluster attached to containers via Persistent Volumes and persistent
+volume claims.
+For Containerd, Kubernetes, hostPath and emptyDir, see the previous chapters.
+OMT external storage
+The external storage for OMT is backed by NFS or Ceph volumes.
+Suites storage
+The storage for a installed Suite / products is split between:
+Node local storage for the Containerd image cache
+Node local storage for hostPath and emptyDir directly attached container volumes
+External storage backed by an NFS server or Ceph cluster attached to containers via Persistent Volumes and Persistent
+Volume Claims.
+Suite external storage
+The external storage for suites is backed by one or more NFS or Ceph volumes.
+For details of the contents of the external storage for Suites, refer to the Suite installation and administration guides.
+How applications connect to external storage
+Micro Focus uses the Kubernetes persistent volumes and persistent volume claim abstractions.
+External storage is configured using the Kubernetes persistent volume.
+Pods use persistent volume claims to request access to persistent volumes
+Persistent volumes must support ReadWriteMany ie this means external storage must be able to be connected to multiple
+cluster nodes at the same time (Many) and must support read and write (ReadWrite).
+Two modes to define volumes and claims are supported:
+1
+. 
+Kubernetes volume and claim objects are created and managed by OMT AppHub
+1
+. 
+During the installation, OMT AppHub will create the necessary Kubernetes objects allowing external storage to be
+accessed by Pods.
+2
+. 
+Kubernetes volumes objects are managed externally by a cluster administrator. Claim objects are created and managed
+by applications.
+1
+. 
+Before the installation starts, a cluster administrator:
+1
+. 
+Sets up static persistent volumes connected to external storage with the required Kubernetes storage class and
+size attributes set.
+2
+. 
+Or adds a Kubernetes storage class and associated a dynamic provisioner.
+SMAX 2022.11
+Page 
+427
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

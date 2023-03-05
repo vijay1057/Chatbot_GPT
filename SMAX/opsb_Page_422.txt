@@ -1,0 +1,39 @@
+Infrastructure (embedded K8S), OMT AppHub and suites are split into different certificate zones or realms:
+Realm
+acronym
+Name
+For components
+RIC
+Realm Internal Cluster
+CA and certs for K8S and AppHub namespace components
+RID
+Realm Internal
+Deployment
+CA and certs for components running in the suite namespace
+RE
+Realm External
+Cert loaded on NGINX controllers
+CUS
+Custom realm
+Any Pod can request creation of custom CA and certs from that for special
+purposes.
+Certificate and Vault token generation
+The below diagram shows:
+Creation of self-generated root CA (uses openssl). The validity period is 10 years.
+Creation of cluster communication certificates for base Kubernetes components (uses openssl). The validity period is 1
+year.
+Import of root CAs into the Vault pki backend
+Generation of Vault access tokens for secure configuration data access for remaining OMT AppHub and Suite containers
+(uses Vault). The validity is 30 minutes for an access token; inside the Pod the certificate is renewed automatically to
+prevent expiry. See also sidecar container and Kubernetes-vault chapters.
+Generation of server certificates for server processes inside remaining for OMT AppHub and Suite containers (uses Vault).
+The validity period is 1 year.
+Figure - Token and certificate components diagram for embedded Kubernetes
+Figure - Token and certificate components diagram for external Kubernetes
+Generating tokens and certificates for containers
+SMAX 2022.11
+Page 
+422
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

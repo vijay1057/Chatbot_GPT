@@ -1,0 +1,192 @@
+Layer infra
+to business
+application
+Component
+Containerized?
+Purpose
+Maintained
+by
+Supported
+by if OMT
+embedded
+Kubernetes
+Supported
+by if
+external
+Kubernetes
+Hosts
+Host OS
+No
+Base OS ; supported Linux distro
+Depends on
+chosen
+Linux distro
+Customer
+Customer
+Kubernetes
+infra
+Containerd
+No
+Container runtime
+CNCF
+Containerd
+Micro
+Focus
+Cloud
+vendor /
+customer
+Kubernetes
+infra
+Etcd
+Yes
+Configuration database for Vault and
+Kubernetes
+CoreOS
+Micro
+Focus
+Cloud
+vendor /
+customer
+Kubernetes
+infra
+Flannel
+Yes
+Network fabric for container-to-
+container communication
+CoreOS
+Micro
+Focus
+Cloud
+vendor /
+customer
+OMT
+reusable
+service
+Vault
+Yes
+Secure configuration data store ;
+certificate generation
+Hashicorp
+Micro
+Focus
+Micro
+Focus
+Kubernetes
+infra
+Kubelet
+No
+Primary node agent for Kubernetes
+Google
+Micro
+Focus
+Cloud
+vendor /
+customer
+Kubernetes
+infra
+Kube-proxy
+Yes
+kube-proxy enables the Kubernetes
+service abstraction by maintaining
+network rules on the host and
+performing connection forwarding.
+Google
+Micro
+Focus
+Cloud
+vendor /
+customer
+Kubernetes
+infra
+API server,
+controller
+and
+scheduler
+Yes
+Container orchestration
+Google
+Micro
+Focus
+Cloud
+vendor /
+customer
+OMT
+AppHub
+Metrics
+Server
+Yes
+Monitoring
+Google
+Micro
+Focus
+Cloud
+vendor /
+customer
+OMT
+AppHub
+Fluentbit
+Yes
+Log collection and forwarding.
+CNCF
+Micro
+Focus
+Cloud
+vendor /
+customer /
+Micro
+Focus
+OMT
+AppHub
+Prometheus
+Yes
+Monitoring
+CNCF
+Micro
+Focus
+Cloud
+vendor /
+customer /
+Micro
+Focus
+OMT
+AppHub
+Grafana
+Yes
+Dashboards
+CNCF
+Micro
+Focus
+Cloud
+vendor /
+customer /
+Micro
+Focus
+OMT
+AppHub
+All Micro
+Focus code
+Yes
+Install, update, monitoring,
+Micro Focus
+Micro
+Focus
+Micro
+Focus
+ITOM
+applications
+All Micro
+Focus Suite
+code
+Yes
+Business functionality application
+Micro Focus
+Micro
+Focus
+Micro
+Focus
+SMAX 2022.11
+Page 
+398
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

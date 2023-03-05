@@ -1,0 +1,71 @@
+The following table shows the highest level of HA that can be achieved depending in the installed configuration.
+Install configuration
+Can achieve HA level with
+embedded DB
+Can achieve HA level with external
+DB and HA storage
+Single combined control plane + worker node
+Basic
+Basic
+Two nodes: single control plane, single worker
+Basic
+Basic
+Multiple workers: single control plane, multiple
+workers
+Basic
+Basic/Intermediate
+Multi-control plane: multiple control plane
+nodes, multiple worker nodes
+Basic
+Highest
+HA summary
+An application service is highly available through a combination of the following individual techniques:
+Host service monitoring and restart
+Multiple cluster nodes
+Containerd container restart policy
+Kubernetes high availability configuration
+Kubernetes container restart policy
+Kubernetes liveness probe
+Multiple instances
+Using an embedded or external, highly-available database
+Highly available storage
+Host services monitoring
+The following services are run directly on the host:
+Containerd daemon
+Kubernetes Kubelet
+These processes run as systemd services and are monitored by the systemd services subsystem.
+When these processes crash, they will be automatically restarted.
+Multiple cluster nodes
+Multiple cluster nodes increase the level of high availability. If a cluster node goes down, the workload can be moved to other
+still functioning cluster nodes.
+Kubernetes high availability
+The Kubernetes project describes HA 
+for Kubernetes
+ requirements:
+Multiple control plane and multiple worker nodes
+A redundant, reliable data storage layer for Kubernetes
+Replicated Kubernetes API servers
+Multiple kube-DNS, controller, scheduler instances
+Leader election for controller and scheduler components
+Kubelet component on worker nodes talks to load-balanced control plane API server endpoint
+The OMT embedded Kubernetes supports all of the above Kubernetes HA requirements, if the platform is installed with
+multiple control plane nodes.
+OMT AppHub high availability
+See: 
+https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
+These services also can be configured for various levels of HA:
+Basic Kubernetes restart policy
+Kubernetes liveness probes
+Multiple instances
+Kubernetes basic restart policy
+Kubernetes will restart pods that crash. This can be influenced by configuring the restartPolicy setting in the pod specification.
+Note
+All foundational services have HA configuration or behavior.
+
+
+SMAX 2022.11
+Page 
+430
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

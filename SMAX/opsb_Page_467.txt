@@ -1,0 +1,69 @@
+For SAM to generate correct compliance reports, certain license and product configurations are required. For example, your
+desired license for covering the software installations, the license rule used to count the license usage against installations,
+and how the license can downgrade and upgrade to different versions.
+Such configurations can fall into two categories:
+For OOTB products, only license configurations are needed.
+For non-OOTB products, first you need to configure the license. If an existing license rule can be used on the product, link
+the license rule to that product and configure the compatibility matrix. If no license rules can be reused, you need to
+develop a new license rule.
+Configure the license
+In this step, you need to define your desired license for covering the software installations. First, create a license model with
+information that classifies the license, including the unit price, license metric, and covered products. Then, create a license
+that tells how many license rights are purchased and link it with the license model you created.
+Create a license model
+1
+. 
+From the top menu, select 
+License Models
+.
+2
+. 
+Click 
+ 
+New
+.
+3
+. 
+In the 
+New Asset Model
+ dialog box that appears, enter the required information, and then click 
+SAVE
+.
+In this example, we create a license model for the Microsoft Office Visio product. This is a desktop application that can run
+on both physical and OSE instances.
+4
+. 
+Click the ID of the new license model record.
+5
+. 
+On the General tab that appears:
+a
+. 
+In the Asset Model details section, click 
+Show more
+, and then specify the 
+Count per pack
+, 
+Pack price
+, and
+Currency 
+fields based on the software asset information as part of the contractual agreement with the vendor for
+their product. This information is used to calculate the cost of the license gap. Other fields are optional.
+b
+. 
+In the Software coverage section, specify the license metric and product version.
+For each product, you can only set one version. For cost-effectiveness, we recommend that you select the highest
+product version available for your license. Later you can configure the downgrade matrix to enable lower-version
+product installations to consume the higher-version license. See the 
+Maintain license compatibility matrix 
+section.
+In this example, we use the 
+Desktop Applications – Device License - Microsoft
+ license metric and add the latest
+version available Office Visio 2019 Pro.
+SMAX 2022.11
+Page 
+467
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

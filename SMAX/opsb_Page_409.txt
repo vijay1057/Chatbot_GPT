@@ -1,0 +1,31 @@
+Figure - OMT deployment configurations
+Bundling of suite and OMT
+In suite installations using Micro Focus bespoke installation mechanism, OMT is only installed when the 1st ITOM Suite is
+installed. The sole purpose of OMT is to manage the installation and lifecycle of an ITOM suite. The installation process of Suite
+and OMT has been merged into a seamless flow.
+In installs of a Helm-charted ITOM suite, and if the OMT embedded Kubernetes is used, then the embedded Kubernetes cluster
+is installed completely 1st, followed by creation of a deployment in which the ITOM suite is then installed using its Helm chart
+and the OMT AppHub or Helm CLI.
+Suite deployment architecture
+A Suite deployment is fully containerized. (*)
+Suite functionality is split into capabilities which themselves have been split into front- and backend services.
+A Suite deployment always also has installation, configuration and administration services.
+Actual services (front- or backend) are modeled using Kubernetes controllers such as Deployment or Replication Controllers.
+These deploy a number of Pods (1 to 
+n
+, the unit of scheduling in Kubernetes) which in turn consist of 1 to 
+n
+ containers.
+Each container runs (typically) a single process such as web server or a database engine.
+A simplified architecture may look like this:
+Figure - Simplified application architecture
+A sample deployment of a Suite is shown below.
+It shows how public endpoints are defined using Ingress rules and exposed via the Ingress controller and the resulting unified
+URL namespace that this creates. The Suite functionality is grouped into capabilities, implemented as front- and backend
+services.
+SMAX 2022.11
+Page 
+409
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

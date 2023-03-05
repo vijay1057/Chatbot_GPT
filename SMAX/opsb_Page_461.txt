@@ -1,0 +1,73 @@
+them.
+Offerings: End users can only view active and entitled offerings.
+Knowledge articles: End users can only view external and active and entitled knowledge articles.
+Service Portal also uses a learning feature to provide search results that include offerings used in requests related to the
+search query.
+Global search in Service Management
+As shown in the above table, more record types are searchable in Service Management than in Service Portal. Additionally,
+tenant administrators can now enable 
+Global search
+ for custom or more OOTB record types by configuring index fields.
+Agents can view all requests and offerings if they match the keyword and have a high rank, regardless of the 
+Requested by
+or 
+Requested for
+ person configured in the ticket.
+If a request has lower relevance to keywords in other records (such as Incident), then the request might not show up. This is
+because the results will show other record types as well. In other words, higher relevancy matches from other records will
+obscure lower-ranked request matches. However, when doing a global search, agents can also specify the record types. If
+requests are the desired record type, the agent can indicate this in the search filter.
+Search in Live Support
+Search in Live Support is designed to help agents search for solutions to resolve a ticket. There are two types of searches on
+the live support page:
+The upper part allows a database search by selecting a person or a location. In either case, a database query is issued to
+select matching requests where the 
+Requested by
+ or the 
+Location
+ field matches the search selection value. For
+example, if you select a person, you will see a list of recent requests submitted by this person.
+The lower part allows an Intelligent Data Operating Layer (IDOL) based search over a limited set of record types. This
+search has a lower matching threshold that allows 50 search results, compared with 30 results for global search in Service
+Management.
+The following table summarizes the differences between these two types of searches:
+Filter
+Search
+Search content
+Records in transaction databases
+Records indexed by IDOL
+Latency
+No
+The records become searchable right after they're created in the database.
+Yes
+The records aren't searchable until you create a document index in IDOL.
+Search criteria
+Structured queries (SQL), most complex and accurate
+Keyword-based search
+For more information about Live Support search, see 
+How to deal with a Live Support call
+.
+Indexed fields
+Only a selected number of fields can be used for keyword-based searches. Currently, these OOTB fields aren't configurable on
+UI. However, you can add new index fields to meet your business needs.
+Most of the record types indexed in IDOL are searchable by using Title, Description, and ID. Besides these fields, you can also
+search different record types with other indexed fields. The following table lists some fields you can use to search certain
+record types. Go to Studio for a full list of the indexed fields applicable for each record type.
+Record type
+Applicable indexed fields
+Person
+First name
+Last name
+Name
+Employee number
+Email
+Office phone number
+Mobile phone number
+Offering
+Public comments
+SMAX 2022.11
+Page 
+461
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,30 @@
+Suite user roles
+Service Management Automation X (SMAX) has the following roles:
+Suite administrator
+Has full access to the Suite Administration interface and IdM Admin Portal. The default user name is 
+suite-admin
+ whose
+initial password is specified during the suite installation. The suite-admin user can add additional suite administrators in
+the Suite Administration interface.
+Tenant administrator
+Has full administration control in the assigned tenant. For information about a list of management tasks that are
+performed by the tenant administrator, see 
+Service Management Administration
+.
+Agent
+Has access to the agent interface, as well as the Service Portal interface. Agents can be assigned different roles with
+permissions that enable them to complete their daily work. For example, the 
+Catalog Administrator
+ role manages the
+Service Catalog. For more information about roles, see 
+Roles
+.
+Service Portal user
+Has access to the Service Portal interface only. 
+ 
+SMAX 2022.11
+Page 
+388
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

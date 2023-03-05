@@ -1,0 +1,71 @@
+Updates
+Overview
+Moving to container-based delivery intends to also simplify the update experience for customers. Ideally, the customer
+experience for installation is simple:
+Install infrastructure
+Install a suite
+Use the suite
+At best, all the steps are easy. The outcome is a fully configured, integrated, working Suite. Similarly, the customer experience
+for update should be equally simple:
+A notification that there is some update available
+The update is applied
+The complexity involved with making installation and update simple is considerable.
+Updating the code is the easy part: swap a container image for another container image. The complexity comes with database
+schemas, data migration, configuration data and rollback.
+Definitions
+Releases occur every 6 months. The version naming scheme is therefore YYYY.MM[.Pn]
+An update is moving from one release to a next release. Updates can be skipped.
+A suite version consists of a set of images, each with its own version. Other versioned artifacts can be ZIP files, metadata files
+and Helm charts.
+Image versions may follow various numbering schemes:
+YYYY.MM with optional <build>
+Semantic versioning (with optional build number)
+Regardless of the versioning scheme for image tags, different update versions will be clearly distinguishable by their image
+tag value.
+Update types
+Typical
+Every suite update changes the image composition of a suite.
+Updates occur as and when bugs need to be fixed.
+Bigger updates occur every 3 or 6 months.
+Updates are provided via Docker Hub.
+Types, delivery, installation
+The following table lists the types of suite updates support.
+Update type
+Delivery
+Applied how?
+Updates
+Docker Hub
+OMT Management Portal, OMT AppHub, Helm CLI, script, manual
+Hotfix
+Support channel
+Helm CLI, script, manual
+Layer split
+The following runtime layers exist for OMT:
+Type
+Components in this layer
+Update how
+Delivery
+Non-
+containerized
+Containerd, Kubelet
+Script
+ZIP
+Kubernetes
+containerized
+API server, controller, scheduler
+Script
+ZIP
+OMT AppHub
+Management portal, Nginx ingress controller, IDM,
+PostgreSQL, Fluentd and others
+External script ; Helm CLI,
+images from Docker Hub
+Docker Hub
+for images
+ZIP for script
+SMAX 2022.11
+Page 
+433
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

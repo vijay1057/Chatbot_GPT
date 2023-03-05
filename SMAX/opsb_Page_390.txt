@@ -1,0 +1,91 @@
+CONTENTSTORE
+Content Store
+Indicates it's a DND Content Store role, which is used to access the 
+Content
+Management
+ area of DND. 
+OO
+Operation
+Orchestration
+(OO) 
+Indicates it's a role for access to OO Containerized, which is a standalone
+application that either works with DND or integrates with SMAX. See 
+Install OO
+Containerized (on-premises)
+, 
+Install OO Containerized on EKS
+, and 
+Install OO
+Containerized (AKS)
+.
+AUDIT
+Audit
+Indicates it's a role for access to Audit.
+Application field
+value
+Capability
+Notes
+When you save the role, the system automatically prefixes the role with the Application value. For example, 
+[ DND ]
+Administrator
+, or
+ [ OO ] Administrators.
+For each application, both the 
+Code
+ and 
+Name
+ field values must be unique. 
+The following are the mappings of role fields in the agent interface and in IdM.
+Field in the agent interface
+ Field in IdM
+Name
+Display name
+Code*
+Name
+Application
+Application
+Groups
+Groups don't need an Application attribute because they're associated with roles, which can have different Application values;
+however, groups have an "Authorized group" flag, which is automatically turned on when you assign one or more roles to a
+group. 
+When creating a group for any of the additional capabilities, select the 
+Functional
+ group type. 
+The following are the mappings of group fields in the agent interface and in IdM.
+Field in the agent interface
+ Field in IdM
+User principal name*
+Name
+Name
+Display name
+* The 
+User principal name
+ field doesn't allow space or any of the following special characters: 
+@;:=&<>#{}|`^~%'?"/[]
+.
+When you update an authorized group's properties in the agent interface, the only properties that the system can replicate to
+IdM are the group's name, group-role relationships, and group memberships.
+Different approaches for managing group memberships
+There are two ways for managing memberships for an authorized group: in the agent interface or in IdM.
+You manage memberships for a group in IdM when you want to use IdM's group rule feature to dynamically assign a large
+number of members to the group for the additional capabilities. Note that you use only IdM's group rule feature to
+manage group members
+, for other group management tasks, such as creating a group or changing the group name, you
+still do these in the agent portal.
+You manage memberships for a group in the agent interface when you want to directly assign members to the group.
+You can manage some groups in IdM and other groups in the agent interface.
+Use the tenant-level 
+Group Member Sync flag
+ and the group-level 
+Pull members from IdM flag
+ to control in which system group
+memberships are managed.
+For groups whose memberships are managed in the agent portal, group-member relationship changes are automatically
+replicated to IdM.
+For groups whose memberships are managed in IdM, a scheduled job periodically replicates the group-member relationship
+SMAX 2022.11
+Page 
+390
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

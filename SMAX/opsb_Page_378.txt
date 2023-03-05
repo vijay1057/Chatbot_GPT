@@ -1,0 +1,30 @@
+The integration should now be functioning and can be confirmed by looking at the endpoint status.
+The most common issues causing the task to fail:
+Incorrect login and password for the Gmail account.
+The IMAP settings are not configured on the email account.
+The less secure app setting is not enabled.
+The On-Premises Bridge agent is not running.
+Troubleshooting
+The OPB logs are in the 
+C:\Program Files\Micro Focus\On-Premises Bridge Agent\product\log
+ directory. This directory should contain a
+controller folder and an email-integration-domain folder. To make sure that the agent is running, look in the controller folder
+for the 
+controller.log
+ file. Look through the log for any errors -- most likely they will be related to a login and password not
+working.
+If the agent is running, look in the email integration folder for the 
+email-integration-domain.log.x.x
+ file. Look for the most
+recent file for any errors. There may be errors indicating that the Gmail account login or password is incorrect. There may also
+be errors indicating that the inbox cannot be found, which may indicate that the firewall is blocking a port.
+If the integration still doesn’t work, contact the 
+Micro Focus
+ Service Management Automation X Support team and create a
+ticket. Be sure that the OPB log and configuration files are included in the ticket.
+SMAX 2022.11
+Page 
+378
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

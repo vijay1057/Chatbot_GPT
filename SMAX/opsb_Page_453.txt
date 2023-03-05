@@ -1,0 +1,217 @@
+Comparison of SMA and Service Manager portals
+The following table compares the features of the SMA portals (SMA-SM Service Portal and SMAX Service Portal) and Service
+Manager portals (Service Manager Service Portal, Service Request Catalog, and Service Manager ESS).
+Category
+Feature
+SMA-SM Service Portal
+Service
+Manager
+Service
+Portal 9.62
+SM ESS 9.7x
+SMAX Service
+Portal
+Catalog
+browsing
+Offering entitlement
+rules (e.g. by
+location, by role,
+etc.)
+Yes, with limitations for SM
+entitlement:
+Access filter based on field in
+Service Manager interaction
+isn't supported (for agent use
+case).
+Partial. SM
+entitlement
+isn't
+supported,
+ACL defined
+in SMSP is
+supported.
+Yes
+Yes
+Catalog
+browsing
+Multi-level category
+navigation for
+offerings
+Yes
+Yes, up to 4
+levels in
+Browse
+Catalog
+Yes, no
+limitation
+Yes, only 2 levels
+Catalog
+browsing
+Show category
+image as
+background
+Yes
+No
+No
+Yes
+Catalog
+browsing
+Ordering of
+category tile
+Yes, support "Sort Order"
+defined in SM catalog
+management
+N/A
+N/A
+Yes
+Catalog
+browsing
+Background color of
+category tile
+No
+N/A
+N/A
+Yes
+Catalog
+browsing
+Color text in
+offering description
+Yes
+No
+Yes
+Yes
+Catalog
+browsing
+Rich text in offering
+description
+Yes
+Yes
+Yes
+Yes
+Catalog
+browsing
+Display table in
+offering description
+Yes
+No
+Yes
+Yes
+Catalog
+browsing
+Show/hide price to
+end user
+Yes
+Yes
+No
+Yes
+Catalog
+browsing
+Display
+attachments in
+offering
+Yes
+Yes
+Yes
+N/A
+Request
+submission
+Dynamic user
+option (dynamic
+options support
+value dependency,
+conditional
+visibility, and
+conditional
+mandatory)
+Yes
+Yes
+Yes
+Yes
+Request
+submission
+Support table
+lookup for user
+options
+Yes
+Yes
+Yes
+Yes
+Request
+submission
+Dynamic checkout
+form (service and
+support request)
+Yes
+Partial,
+support
+request only
+Yes
+Yes
+Request
+submission
+Service Manager
+variables and RAD
+functions defined in
+user options and
+checkout forms
+Partial, SM global variables
+(such as $lo.operator) and SM
+RAD functions (such as
+jscall()) are supported; 3
+thread variables are
+supported: $requested.for,
+$requested.for.dept and
+$requested.for.type
+No
+Yes
+N/A
+Request
+submission
+Configurable
+external dynamic
+data source via
+REST/SOAP
+Yes, JavaScript is supported
+for user options
+Yes
+No
+No
+Request
+submission
+Non-cart item for
+service offering
+Yes
+Yes
+Yes
+No
+Request
+submission
+Information-only
+item for service
+offering
+No
+No
+Yes
+No
+Request
+submission
+Show delivery
+target
+Yes
+No
+Yes
+No
+Request
+submission
+Configurable
+attachment type
+Yes
+Yes
+Yes
+Yes
+SMAX 2022.11
+Page 
+453
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,26 @@
+A new (binary) executable (such as these in the OMT ZIP distribution)
+An updated configuration file
+An updated YAML specification
+One or more updated images
+All (or subset) of the above
+The customer is notified via the Micro Focus (support) communication channels.
+Using the Management Portal, new metadata that identifies the update is loaded into the cluster.
+Using the Management Portal, the user can select the Update option for the installed Suite.
+A wizard will guide the user through the suite update process.
+Hotfixing Suites
+Micro Focus will provide updates through its support channels.
+These updates will contain updated binaries, configuration files, metadata, charts and scripts. Any images will be uploaded to
+Docker Hub.
+Customers are instructed to copy the bits to their admin workstation or to a cluster node and follow the suppied instructions to
+apply the change.
+ 
+Note
+The wizard process and the user experience for a suite update or upgrade are the same.
+
+
+SMAX 2022.11
+Page 
+435
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

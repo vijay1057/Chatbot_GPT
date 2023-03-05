@@ -1,0 +1,84 @@
+OMT AppHub
+Yes
+No
+Component
+Command line-based install
+UI-based install
+Suite installation - classic
+The steps to install OMT AppHub and one ITOM suite are as follows.
+With embedded Kubernetes
+Prepare systems for installation
+Download and unpack the OMT compressed archive.
+Download and unpack the metadata for the ITOM Suite
+Copy the bootstrap installation files to the 1
+st
+ control plane node.
+(optional) Configure the installation for control plane and worker nodes using the install.properties file. Alternatively
+installation options can also be specified on the command line.
+On the 1
+st
+ control plane node, start the installation of the ITOM Suite.
+Point a browser to port 3000 on the 1st control plane node to continue setting up the embedded Kubernetes and the ITOM
+suite.
+Refer to the Suite installation/administration guide for complete package prerequisites.
+Component
+Command line-based install
+UI-based install
+OMT 1
+st
+ control plane node
+Yes
+No
+OMT additional control plane nodes
+Yes
+No
+OMT worker node
+Yes
+Yes
+Suite
+Yes
+Yes
+OMT AppHub
+Yes
+Yes
+Without embedded Kubernetes
+Deploy/prepare an external Kubernetes instance
+Download and unpack the OMT compressed archive.
+Download and unpack the metadata for the ITOM Suite
+Bootstrap OMT AppHub into the external Kubernetes cluster.
+Connect to the suite installer using the supplied external load balancer FQDN on port 3000.
+Refer to the Suite installation/administration guide for complete package prerequisites.
+Component
+Command line-based install
+UI-based install
+Suite
+Yes
+Yes
+OMT AppHub
+Yes
+Yes
+Packaging
+Layers
+The OMT binaries are split and located on the Micro Focus Software Depot and on Docker Hub. Micro Focus endeavors to place
+a maximum number of binaries in Docker Hub. The binaries on the Micro Focus Software Depot are required for bootstrapping.
+The Micro Focus Software Depot binaries come as a single compressed and digitally signed archive.
+The remaining OMT binaries and the Suite binaries are located in Docker Hub. These binaries come as pre-packaged and
+digitally signed container images.
+All of the Suite code is hosted in Docker Hub. The container image repositories are private and require authentication (by
+Docker Hub) and authorization (by Micro Focus). All of the images are digitally signed.
+Docker Hub
+Authentication is provided by Docker Hub. Access requires a Docker Hub account. Micro Focus doesn't create or manage
+Docker Hub accounts, Micro Focus only authorizes Docker Hub accounts.
+Once a Docker Hub account has been created, and with a valid agreement in place with Micro Focus for Suite access, Micro
+Focus will authorize access to one or more Suite container image repositories.
+A typical suite uses anywhere from 10 to 100+ container image repositories.
+Helm chart
+An ITOM suite or product is described by a Helm chart. The Helm chart describes the composition of a suite and a set of
+runtime requirements such as volumes for persistent storage and also includes the deployment configuration for Kubernetes.
+By using th Helm CLI or the Micro Focus Apphub Helm chart installer, customers can deploy the ITOM suite or product.
+SMAX 2022.11
+Page 
+411
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

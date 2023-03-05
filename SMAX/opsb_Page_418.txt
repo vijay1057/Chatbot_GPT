@@ -1,0 +1,70 @@
+redefinition of a service to type nodePort.
+For example, to access the OMT AppHub Management Portal, an Ingress definition is created. Run: 
+kubectl describe ing mng-portal 
+-n core
+Name:             mng-portal
+Namespace:        core
+Address:
+Default backend:  default-http-backend:80 (<none>)
+TLS:
+  nginx-default-secret terminates hostname.mycompany.com
+Rules:
+  Host                  Path  Backends
+  ----                  ----  --------
+  hostname.mycompany.com
+                        /mngPortal   mng-portal:80 (<none>)
+                        /            mng-portal:80 (<none>)
+Annotations:
+  ingress.kubernetes.io/enable-cors:                 true
+  ingress.kubernetes.io/rewrite-target:              /
+  ingress.kubernetes.io/secure-backends:             true
+  kubectl.kubernetes.io/last-applied-configuration:  {"apiVersion":"extensions/v1beta1","kind":"Ingress","metadata":{"annotations":{"ingress.kubernetes.io/enable-cors":"true","ingress.kubernetes.io/rewrite-target":"/","ingress.kubernetes.io/secure-backends":"true"},"name":"mng-portal","namespace":"core"},"spec":{"rules":[{"host":"hostname.mycompany.com","http":{"paths":[{"backend":{"serviceName":"mng-portal","servicePort":80},"path":"/mngPortal"},{"backend":{"serviceName":"mng-portal","servicePort":80},"path":"/"}]}}],"tls":[{"hosts":["hostname.mycompany.com"],"secretName":"nginx-default-secret"}]}}
+Events:  <none>
+Both the / and /mngPortal URLs will redirect traffic to the mng-portal service port 80.
+TLS termination happens at the Ingress layer.
+The mng-portal service is defined as follows. Run: 
+kubectl describe svc mng-portal -n core
+Name:              mng-portal
+Namespace:         core
+Labels:            app=mng-portal
+Annotations:       kubectl.kubernetes.io/last-applied-configuration:
+                     {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"mng-portal"},"name":"mng-portal","namespace":"core"},"sp...
+Selector:          app=mng-portal
+Type:              ClusterIP
+IP:                172.17.17.246
+Port:              <unset>  80/TCP
+TargetPort:        9090/TCP
+Endpoints:         172.16.63.19:9090
+Session Affinity:  None
+Events:            <none>
+The service itself is of type ClusterIP so only visible externally when explicitly described by an Ingress rule.
+The cluster internal IP is 172.17.17.246.
+The actual Management Portal service is running inside a Pod with IP address 172.16.63.19 on port 9090.
+Ingress for suites components is configured in the same way.
+Egress
+All containers can talk to the outside world. They're only limited by firewall and network rules at the host and host network(s)
+level. Kubernetes network policies are not supported on OMT embedded Kubernetes.
+Name resolution (DNS)
+When a customer DNS resolution is available
+Inside the cluster, a container resolves a DNS names as follows:
+"<namespace>.svc.cluster.local",
+"svc.cluster.local",
+"cluster.local",
+"<search in host /etc/resolv.conf>"
+So if a container running in Kubernetes namespace “suite1” wants to talk to service svc1, then it will try the following path:
+svc1.suite1.svc.cluster.local",
+svc1.svc.cluster.local",
+svc1.cluster.local",
+svc1.<prefix(es)> from search statement in host /etc/resolv.conf
+When a customer DNS resolution isn't available
+Note
+OMT Apphub and ITOM suites use Ingress rules and Ingress controller and also expose their functionality via
+nodePort-type services or a combination of both.
+
+
+SMAX 2022.11
+Page 
+418
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

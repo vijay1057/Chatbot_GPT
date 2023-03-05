@@ -1,0 +1,64 @@
+Figure - Sample application deployment
+(*) During the transition phase from legacy monoliths to containerized deployment it's likely that some parts of the Suite
+installation still consist of classic installations. This hybrid mode will be addressed over time as the Suite components are re-
+architected so they can be deployed and run as a set of containerized microservices.
+Some suites may expose functionality directly via Kubernetes node ports. During the suite deployment, when a Kubernetes
+node port is created, the specified service will be available for access on the same port on every cluster node.
+Suite installation - Helm
+The steps to install OMT AppHub and one or more ITOM suites are as follows.
+Without embedded Kubernetes
+Deploy/prepare an external Kubernetes instance
+Download and unpack the OMT compressed archive.
+Download and unpack the installation metadata for the ITOM Suite
+(Optionally) Bootstrap OMT AppHub into the external Kubernetes cluster.
+Create a new deployment to hold the ITOM suite
+Run the Helm chart install to install the ITOM suite using the OMT AppHub or Helm CLI.
+Refer to the Suite installation/administration guide for complete package prerequisites.
+Component
+Command line-based install
+UI-based install
+Suite
+Yes
+Yes
+OMT AppHub
+Yes
+No
+With embedded Kubernetes
+Prepare Linux systems for installation
+Download and unpack the OMT compressed archive.
+Copy the bootstrap installation files to the 1
+st
+ control plane node.
+Configure the installation for control plane and worker nodes using the install.properties file and/or installation command
+line options.
+Configure an installation options file for silent install.
+On the 1
+st
+ control plane node, start the OMT installation. This will install a complete yet empty Kubernetes cluster with
+selected OMT capabilities.
+Create a new deployment to hold the ITOM suite
+Run the Helm chart install to install the ITOM suite using the OMT AppHub or Helm CLI.
+Refer to the Suite installation/administration guide for complete package prerequisites.
+Component
+Command line-based install
+UI-based install
+OMT 1
+st
+ control plane node
+Yes
+No
+OMT additional control plane nodes
+Yes
+No
+OMT worker node
+Yes
+Yes
+Suite
+Yes
+Yes
+SMAX 2022.11
+Page 
+410
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

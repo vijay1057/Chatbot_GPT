@@ -1,0 +1,199 @@
+Request
+submission
+Request on behalf
+(Requested for)
+Yes
+Yes, with
+limitation:
+·        Request
+on behalf for
+service
+offering only.
+·       
+Requested for
+at service
+request level
+and cart item
+level isn't
+supported.
+Yes
+Yes
+Request
+submission
+Modify existing
+request
+No
+No
+No
+Yes
+Request
+submission
+Re-submit pending
+or denied service
+request
+Yes
+No
+Yes
+No
+Request
+submission
+Smart ticketing
+Yes
+Note:
+ The text will be auto-
+extracted from the attached
+image into the ticket
+description.
+Yes
+Yes
+Note: 
+You may
+click 
+Image to
+Text
+ to extract
+the text from
+the attached
+image to the
+ticket
+description.
+Yes
+Request
+submission
+Support Regular
+Expression on user
+options
+Yes
+Yes
+No
+Yes
+Request
+submission
+Support Help Text
+on user options
+Yes
+Yes
+No
+Yes
+Request
+submission
+Support HTML
+format in user
+option label or user
+option help text
+Yes
+No
+No
+Yes
+Request
+tracking
+Cancel/Close
+service request and
+support request
+Yes
+Yes
+Yes
+Yes
+Request
+tracking
+Re-submit closed
+support request
+No
+No
+Yes
+No
+Request
+tracking
+Create new request
+based on exisitng
+request
+No
+Yes
+No
+No
+Request
+tracking
+Notification for
+unread comments
+from IT agent
+No
+Yes
+No
+No
+Request
+tracking
+User to service desk
+conversation on
+requests (by adding
+comments,
+bidirectional)
+Yes
+Yes
+Yes
+Yes
+Request
+tracking
+Customization of
+request detail page
+Yes
+Partial,
+support
+request only
+Yes
+Yes
+Request
+tracking
+Show requests with
+custom status in
+request list
+Yes
+Yes
+No
+Yes
+Request
+tracking
+Fulfillment progress
+tracking including
+SLA and line item
+Partial, support line item
+status only.
+No
+Partial, support
+line item status
+only
+Partial, support
+fulfillment
+progress only
+Request
+tracking
+View related
+fulfillment records
+No
+No
+Yes
+N/A
+Request
+tracking
+To-do list (approval,
+survey, perform
+action)
+Yes
+N/A
+N/A
+Yes
+Category
+Feature
+SMA-SM Service Portal
+Service
+Manager
+Service
+Portal 9.62
+SM ESS 9.7x
+SMAX Service
+Portal
+SMAX 2022.11
+Page 
+454
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

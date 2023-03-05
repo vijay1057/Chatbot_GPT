@@ -1,0 +1,60 @@
+capability.
+The initial number of cluster nodes and/or the size specification for the Kubernetes controllers can be manually adjusted after
+the installation. See Suite capabilities, controller and node scaling.
+Suite capabilities scaling
+To scale Suite capabilities up or down, refer to the Suite documentation.
+The Suite documentation explains how a particular Suite capability can be scaled by configuring the Kubernetes controllers
+scaling controls and/or adding or removing cluster nodes.
+Through the use of the Reconfigure it may be possible to scale a capability without requiring direct access to the Kubernetes
+controllers.
+Kubernetes controller scaling
+See also: 
+https://kubernetes.io/docs/concepts/
+ | Workloads | Controllers
+All Kubernetes controllers have ways to provide horizontal scaling.
+The exact how-to is controller-type specific. Refer to the Kubernetes documentation for details.
+The following table gives a brief overview of how to scale a Kubernetes controller.
+Controller
+Way to scale
+Replica Set
+Edit the replica set instance change the value for “replicas”.
+Deployment
+Edit the deployment instance change the value for “replicas”.
+StatefulSet
+Edit the replica set instance change the value for “replicas”.
+Daemon Set
+Scales automatically as nodes are added/remove by virtue of Daemon Set design and purpose.
+Cluster node scaling
+As a result of scaling a Suite capability and thus the Kubernetes controllers it may become necessary to add, reconfigure or
+remove a node.
+Add nodes: increase the number of nodes in the Kubernetes cluster.
+Reconfigure nodes: add CPU, memory or disk to existing nodes in the cluster.
+Delete nodes: remove nodes from the cluster
+Adding nodes
+Cluster nodes can be manually added using the Management Portal | ADMIN | Nodes | Add Node. Cluster nodes can also be
+added using the command line.
+Nodes provide computing resources in the form of CPU, memory and disk.
+Adding nodes allows the Kubernetes scheduler to distribute the container workload over a larger available set of computing
+resources, to cope with possible rising resource demands from the installed Suite.
+Once a node is added, it will be automatically used by the Kubernetes scheduler and workload will be scheduled on it.
+Reconfiguring nodes
+Note
+Some suites may not support install-time sizing. Refer to the Suite documentation to check the Suite installation
+supports this.
+
+
+Note
+The Suite documentation will provide information if a particular Kubernetes controller instance that's used within
+a Suite deployment for a particular capability supports manual or automatic scaling.
+
+
+Note
+Consider cluster nodes as cattle, not as pets.
+
+
+SMAX 2022.11
+Page 
+441
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

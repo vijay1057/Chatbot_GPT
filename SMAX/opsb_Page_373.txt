@@ -1,0 +1,25 @@
+Click 'ok' to proceed.
+The username and password in the ‘Setup authentication’ form is the account used to login to Service Management
+Automation X. The username combined with the OPB configuration file tells the agent how to connect to the Service
+Management Automation X tenant. Enter the authentication information and click next.
+Click the install button to initiate the installation.
+After the installation portion has completed you will need to complete the configuration of the agent by copying the ‘
+server-
+connection.conf
+’ file downloaded in the previous step to the conf folder of the OPB (by default located in the 
+C:\Program Files\M
+icro Focus\On-Premises Bridge Agent\product\conf
+ directory).
+Import the SMAX certificate into the On-Premises Bridge's trusted certificates. This must be done to successfully connect.
+For details, see 
+How to import the suite CA certificate to the OPB trusted keystore
+Once the certificate is imported and the ‘
+server-connection.conf
+’ has been copied, start the On-Premises Bridge service
+(this service is not started by default after the installation).
+SMAX 2022.11
+Page 
+373
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

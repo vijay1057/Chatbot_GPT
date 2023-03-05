@@ -1,0 +1,19 @@
+During the development cycle, the Helm chart is constructed so that when the development cycle is complete, the new version
+of the suite is described by it.
+The Helm chart is then provided as a download and the downloaded archive can be fed into OMT AppHub or Helm CLI.
+Suite metadata
+An ITOM suite is described by suite metadata. The metadata describes the composition of a suite and a set of runtime
+requirements such as volumes for persistent storage. The figure below shows the setup.
+During the development cycle, the suite metadata is constructed so that when the development cycle is complete, the new
+version of the suite is described by it.
+The metadata is then provided as a download and the downloaded archive can be fed into the installer.
+Obtaining container images
+Download
+Container images for ITOM suites and OMT AppHub are availabe through Docker Hub.
+The images can be downloaded from Docker Hub.
+SMAX 2022.11
+Page 
+412
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

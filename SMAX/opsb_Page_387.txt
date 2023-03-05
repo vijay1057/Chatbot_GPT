@@ -1,0 +1,38 @@
+Universal
+Discovery
+(UD)
+✓
+✓
+✓
+✓
+50 UD units are included in the SMAX and AMX product licenses,
+additional UD units can be purchased as add-on license capacity. 
+HCMX license doesn't have the 50 UD units included,  UD units can be
+purchased separately.
+Operations
+Orchestration
+(OO)
+✓
+✓
+✓
+✓
+2 concurrent OO workflows are included in the SMAX and AMX product
+licenses, additional concurrent OO workflows can be purchased as add
+on license capacity.
+5 concurrent OO workflows are included in the HCMX product license.
+Product
+SMAX
+Suite
+Express
+SMAX
+Suite
+Premium
+AMX
+HCMX 
+Note
+SMAX 2022.11
+Page 
+387
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

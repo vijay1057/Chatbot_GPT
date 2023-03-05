@@ -1,0 +1,50 @@
+5
+. 
+Click 
+Save
+.
+Link a license rule to a product
+To have the license consumption calculated, set the product to use the correct license rule after creating the license. To do
+this:
+1
+. 
+Go to the 
+Products 
+> 
+License rule settings
+ tab, and then configure a default rule for the product version.
+For your convenience, SAM also allows you to select a default license rule for all product versions. In this example, we use
+the 
+Licensing for desktop applications
+ license rule.
+Note:
+ For the calculation to work correctly, the license metric of the license rule must be the same as that configured for
+the license model.
+2
+. 
+Click 
+OK
+, and then click 
+Save
+.
+Configurations required for user-based licensing
+For device-based licensing, you can now start calculating license compliance.
+For the type of user-based licensing, you also need to configure the entitlement information before calculating license
+compliance.
+First, entitle users who can use the license by following these steps. See 
+Edit a license record
+ for more information.
+1
+. 
+Go to the 
+Licenses 
+page.
+2
+. 
+Select the license record you want to edit.
+SMAX 2022.11
+Page 
+470
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

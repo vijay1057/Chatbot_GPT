@@ -1,0 +1,36 @@
+Clusters can be scaled by reconfiguring the nodes. Administrators can upgrade the hardware like swapping CPUs, adding more
+RAM or upgrading the disks.
+Before nodes maintenance can be performed, a node must drained off all running containers and marked so that no new
+functionality will be scheduled for it.
+The following steps are need to be performed:
+Mark the node as un-schedulable - no new workload to be scheduled.
+Drain the node off all running workload
+Perform the required maintenance
+Mark the node as schedulable
+If the node is to be replaced completely then the steps are as follows:
+Mark the node as un-schedulable - no new workload to be scheduled.
+Drain the node off all running workload
+Delete the node from the cluster
+Decommission the old server
+Prepare the new server
+Install the node and add the node to the cluster
+Refer to the Suite documentation for details on how to perform these tasks.
+Deleting nodes
+Before nodes maintenance can be performed, a node must drained off all running containers and marked so that no new
+functionality will be scheduled for it.
+If the node is to be removed completely then the steps are as follows:
+Mark the node as un-schedulable - no new workload to be scheduled.
+Drain the node off all running workload
+Delete the node from the cluster
+Decommission the server
+ 
+Note
+Consider cluster nodes as cattle, not as pets.
+
+
+SMAX 2022.11
+Page 
+442
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

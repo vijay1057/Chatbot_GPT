@@ -1,0 +1,77 @@
+Containers need access to the host to change the host configuration (requires also privileged container)
+The “root” user inside the container has much less privileges than a regular “root” user, except in the case of a privileged
+container. See Privileged containers.
+Privileged containers
+In OMT embedded Kubernetes only Flannel runs with the privileged flag set to true in its YAML.
+To allow Kubernetes to start containers in privileged mode via the Pod specification, the Kubernetes API server needs to be
+configured to allow this.
+Pod specifications can't use the “privileged:true” flag in the securityContext configuration to allow a Pod to start its containers
+in privileged mode.
+User and privileged summary
+The Suite security guide may detail any exceptions.
+The following Kubernetes processes run non-containerized:
+Process
+Run as user
+Kubernetes Kubelet
+root
+Containerd daemon
+root
+Containerd configuration
+The Containerd daemon only listens on local host. No outside access is possible.
+Micro Focus doesn't require any special modifications of the host system or its kernel except those required to run Containerd.
+We may require more recent kernel versions depending on the host OS version. Review the compatibility matrix for details.
+Micro Focus is reducing the use of the “root” user as much as possible. The runtime use of privileged containers is limited. See
+Privileged containers.
+Providing access to additional capabilities for containers is restricted as much as possible. The following components get
+additional capabilities:
+Micro Focus has verified SELinux in the following modes: disabled, permissive, enforcing. See also chapter “SELinux”.
+Certificates and secure communication
+Installation
+At OMT embedded Kubernetes, OMT AppHub and Suite installation time, CAs are created to generate and sign certificates
+issued for:
+the OMT embedded Kubernetes and OMT AppHub internal services (RIC)
+the OMT AppHub and suite externally facing Nginx controllers (RE)
+the suite internal services (RID)
+The Suite may decide not to use the internal certificate generation feature and instead ask for customer-issued certificates.
+These can be loaded on the NGINX controllers for OMT AppHub and suite.
+Certificate deployment configurations
+The following table describes the possible certificate configurations:
+Case >
+Component
+v
+All internal PKI
+Ingress uses customer PKI issued certificate
+Containerd
+N/A
+N/A
+Etcd
+OpenSSL from internal CA RIC
+OpenSSL from internal CA RIC
+Vault
+OpenSSL from internal CA RIC
+OpenSSL from internal CA RIC
+Kubelet
+OpenSSL from internal CA RIC
+OpenSSL from internal CA RIC
+K8S API server
+OpenSSL from internal CA RIC
+OpenSSL from internal CA RIC
+Containers
+Vault (from imported internal CA RIC)
+Vault (from imported internal CA RIC)
+Ingress
+Vault (from imported internal CA RE)
+Customer PKI issued certificate manually loaded
+Comments
+Default installation case
+Recommended for production
+It's recommended to load the Ingress controller with a customer-generated certificate. OMT doesn't generate that certificate.
+The customer needs to use their PKI to generate and sign a certificate for the externally facing Nginx services: OMT AppHub
+and suite. See “Use of customer certificates”.
+Certificate zones
+SMAX 2022.11
+Page 
+421
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

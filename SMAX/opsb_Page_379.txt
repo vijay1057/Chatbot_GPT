@@ -1,0 +1,35 @@
+Working with Forms
+Every record type in SMAX has a pre-defined set of forms which the system uses when displaying information. The specific
+form (or sometimes forms) shown to the may depend on what phase of workflow the records is currently in or what action the
+user is taking. It's notpossible to create new forms. This restriction ensures a common look and behavior for all records of a
+certain type, leading to increased productivity for the end user as the fields are always in the same place for each record.
+While SMAX doesn't allow the creation of new forms, there are several methods available to customize a form based on
+specific requirements. The two primary methods involve business rules and models.
+Business Rules
+There are several business rule templates available that allow modifications to a form based on defined conditions. Which rule
+to use depends on the type of change you are trying to make. These rules include:
+Disabling a field
+Expanding a section
+Hiding a field
+Hiding a section
+Hiding a tab
+Restricting/allowing editing of fields
+Using the business rules, a common form can be modified based on criteria such as the current phase of the record, the model
+used, or any other information stored in the record itself. While there are too many examples of using the business rules to list
+here, the following represents some of the more common use cases.
+ 
+Hiding sections based on phase
+In the Change process, there is often different information needed at different times in the process. For example, there is
+specific information needed during the Review step of the process that's not meaningful for the earlier phases of the change.
+Here, the Hiding a section rule can be used to hide this information until needed.
+ 
+Note that a separate rule is used for the preview, full, and the calendar preview forms. 
+Once this rule is in place, the Review section isn't visible in the early phases of the change:
+ 
+but is visible for Changes that have reached the Review phase.
+SMAX 2022.11
+Page 
+379
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

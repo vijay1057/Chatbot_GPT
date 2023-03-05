@@ -1,0 +1,61 @@
+Manage software compliance using SAM
+Knowing the software license position is critical to any organization aiming to manage software spending and prevent audit
+issues. The Software Asset Management (SAM) capability allows you to create and analyze license compliance reports so that
+you can systematically manage, control your software assets, and make insightful business decisions.
+This use case describes how to navigate SAM, and how elements such as license, license rule, and license metric can be
+consumed to create and analyze compliance reports.
+This topic assumes that you have installed and enabled the SAM capability, and have deployed a Universal CMDB (UCMDB)
+environment with Universal Discovery (UD). If this isn’t the case, see 
+Install add-on capabilities
+ and 
+Enable SAM
+ to deploy SAM.
+Because the configuration items (CIs) discovered will vary between environments and with the introduction of new SAM
+features in each release, the screenshots in this document might slightly differ from yours.
+Key concepts and their relationships
+Vendor: A company offering software products for sale.
+Product family: A group of related software versions under the same product produced by the vendor.
+License model: A classification applied to license assets. Each license must be based on a specific license model. Key
+attributes defined in the license model are the cost attributes used to calculate the cost for compliance or overspending,
+and the related license metric and product.
+License metric: A metric that measures software usage and defines the consumption calculation algorithms. For a
+publisher, products are licensed under one or more metrics. Generally, you can measure the use of products licensed
+under the same metric with the same license rule.
+License: A document that provides legally binding guidelines for the use and distribution of the software product.  Each
+license must be based on a specific license model.  
+License rule: A set of license calculation formulas published by vendors. It can be used to count the number of licenses
+required in different scenarios based on data including hardware information and deployment information.
+Compatibility matrix: Information defined by software vendors for specifying the product version downgrade capability
+among different versions and editions. The upgrade matrix is also available for purchasing new licenses when they’re in
+shortage to cover the installations. License rules will consume the compatibility matrix during license consumption
+calculation.
+Compliance: Compares the software installed in your environment against what you are legally entitled to use so that you
+can view and report on over- or under-licensed software titles.
+The following figure shows the relationships among these concepts.
+Overview and navigation
+To access SAM, from the main menu of Service Management, choose 
+Run 
+> 
+Software Asset
+.
+To view certain SAM menus, you need to assign certain permissions for the 
+License
+ record type. For SAM Home and
+Compliance, you will need the View privilege. Other menus (Analysis, License Metrics, License Rules, and Products) require the
+Admin privilege. Out of the box, SMAX provides an 
+Asset & Configuration Administrator
+ role that has all the privileges
+needed for using the SAM capability. For how to assign permissions to a customized role, see 
+Roles
+.
+If you have full admin rights, clicking Software Asset opens the SAM Home menu, which gives an overview of the potential
+costs that a company could incur for license overspend and the products that are at risk due to insufficient licenses. If you are
+using SAM for the first time, the home screen won’t display any data. Once the system calculates license usage, the report
+widgets will be populated. The displaying data is driven by UD linked with license information created within SMAX. To
+navigate between SAM menus, click the arrow icon.
+SMAX 2022.11
+Page 
+465
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
