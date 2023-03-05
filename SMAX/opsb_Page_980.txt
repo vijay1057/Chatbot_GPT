@@ -1,0 +1,56 @@
+Uninstall Audit on AWS (EKS)
+To uninstall Audit service, perform the following tasks:
+Delete the Audit deployment
+1
+. 
+Log on to the bastion node.
+2
+. 
+Run the following command to remove the Audit release:
+helm uninstall <Audit
+ Release Name
+> -n <
+Namespace
+>
+where,
+<Audit Release Name>
+ is the Audit release that you want to uninstall
+<Namespace>
+ 
+is the namespace where you installed Audit
+3
+. 
+Go to the 
+$CDF_HOME/scripts
+ folder and run the following command:
+./cdfctl.sh deployment delete -d <Audit
+ 
+Deployment
+ 
+Name>
+where,
+<Audit Deployment Name>
+ is the name you specified for the deployment you created to install Audit.
+For example:
+./cdfctl.sh deployment delete -d audit-prod
+Remove persistent volumes
+If you created PVs based on the 
+itom-audit
+-pv.yaml
+ sample file, you can run the following command to delete the persistent
+volumes:
+kubectl delete -f itom-audit-pv.yaml
+Clean the EFS volumes
+Log on to the Elastic File System (EFS) server host and clear all the contents in the EFS volume directories that you created.
+For example:
+rm -rf /var/vols/itom/audit/auditns/vault/*
+rm -rf /var/vols/itom/audit/auditns/log/*
+Clean the databases
+The Audit uninstallation process doesn't remove the databases from the external PostgreSQL server. You need to remove the
+databases manually.
+SMAX 2022.11
+Page 
+980
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

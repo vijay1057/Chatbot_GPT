@@ -1,0 +1,100 @@
+kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=<storage_account_name> --from-literal=azurestorageaccountkey=<storage_account_key> -n core
+In these commands,
+<storage_account_name>
+ is the name of the created FileStorage account.
+<storage_account_key>
+ is the key you got in the previous step.
+7
+. 
+Copy and save the following script as 
+createPV.sh
+:
+#!/bin/bash
+SUITE_NAME='itsma'
+AZURE_SECRECT="azure-secret"
+STORAGE_TYPE="azurefile"
+STORAGE_CLASS="itom-fast"
+PV_DIR="/tmp/pvyamlsfolder"
+currentDir=$(pwd)
+SUITE_VOLUMES_JSON_LIST=""
+VOLUME_NUM=26
+VOLUME_SIZE="5Gi"
+CDF_VOLUMES="
+itom-vol
+itom-logging
+"
+CDF_FOR_SUITE_VOLUME="
+db-backup-vol
+"
+SUITE_VOLUMES="
+global-volume
+db-volume
+smartanalytics-volume
+"
+usage() {
+    echo "Usage: $0  [-n|--namespace <namespace>] [-gp|--generic-volume-path <generic_volume_path>]  [-u|--uid <UID>] [-g|--gid <GiD>] [-m|--metadata <suite_metadata_file_path>] [-s|--size <suite size>] [-v|--version <suite_version>] "
+    echo "       -n|--namespace            Name space."
+    echo "       -gp|--generic-volume-path Path of volumes for storing generic data."
+    echo "       -u|--uid                  Suite user UiD."
+    echo "       -g|--gid                  Suite user GiD."
+    echo "       -m|--metadata             Suite metadata file path."
+    echo "       -s|--size                 Suite Size. SMALL,MEDIUM,LARGE"
+    echo "       -v|--version              Suite version . 2022.11"
+    echo "       -h|--help                 Show help."
+    echo -e "
+Examples:
+1)   $0  -n core   -gp file1/var/vols/itom/itsma -u 1999 -g 1999 -m ../itsma-suite-metadata-xxx.xx.tgz -v 2022.11 -s SMALL
+2)   $0  -n itsma-xxx -gp file1/var/vols/itom/itsma   -u 1999 -g 1999 -m ../itsma-suite-metadata-xxx.xx.tgz v 2022.11 -s SMALL"
+exit 1
+}
+while [[ ! -z $1 ]] ; do
+    case "$1" in
+        -n|--namespace)
+        case "$2" in
+            -*) echo "-n|--namespace parameter requires a value. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-n|--namespace parameter requires a value. " ; exit 1 ; fi ; NAME_SPACE=$2 ; shift 2 ;;
+        esac ;;
+        -gp|--generic-volume-path)
+        case "$2" in
+            -*) echo "-gp|--generic-volume-path parameter requires a value. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-gp|--generic-volume-path parameter requires a value. " ; exit 1 ; fi ; GENERIC_PATH_VOLUME=$2 ; shift 2 ;;
+        esac ;;
+        -u|--uid)
+        case "$2" in
+            -*) echo "-u|--uid. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-u|--uid parameter requires a value. " ; exit 1 ; fi ; UiD=$2 ; shift 2 ;;
+        esac ;;
+         -g|--gid)
+        case "$2" in
+            -*) echo "-g|--gid. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-g|--gid parameter requires a value. " ; exit 1 ; fi ; GiD=$2 ; shift 2 ;;
+        esac ;;
+         -m|--metadata)
+        case "$2" in
+            -*) echo "-m|--metadata. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-m|--metadata parameter requires a value. " ; exit 1 ; fi ; METADATA=$2 ; shift 2 ;;
+        esac ;;
+         -s|--size)
+        case "$2" in
+            -*) echo "-s|--size. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-s|--size parameter requires a value. " ; exit 1 ; fi ; SUITE_SIZE=$2 ; shift 2 ;;
+        esac ;;
+         -v|--version)
+        case "$2" in
+            -*) echo "-v|--version. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-v|--version parameter requires a value. " ; exit 1 ; fi ; SUITE_VERSION=$2 ; shift 2 ;;
+        esac ;;
+        *|-*|-h|--help|/?|help) usage ;;
+    esac
+done
+if [ -z "$NAME_SPACE" ];then
+    echo "Abort installation because the '--namespace' is missing."
+    exit 1
+fi
+if [ -z "$GENERIC_PATH_VOLUME" ];then
+SMAX 2022.11
+Page 
+1027
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,90 @@
+Inter-communication between components
+The Kubernetes cluster, databases, and storage are kept in a private subnet, while other components such as the load
+balancer and bastion node are in a public subnet. For information about why public and private subnets are separated,
+see the "Architecture design considerations" section below.
+The load balancer works as the entrance of external traffic. It's usually bound with the site's SMA URL (for
+example 
+https://serviceportal.microfocus.com
+). Once end users open the URL in their browsers or mobile apps, after DNS
+resolution, the load balancer routes traffic from external applications to applications in the private subnet.
+DevOps engineers connect to the bastion node in a public subnet and then jump to the private network for cluster
+management. The bastion node in this scenario works as a Kubernetes client, database client, or NFS client for operation
+purposes.
+The applications reside inside the Kubernetes cluster in the private subnet. It uses ANF/Azure Files as its Persistent
+Volume and self-built database as its database, which are also in the private subnet.
+Architecture design considerations
+Security
+By separating the public and private subnets, the network infrastructure is able to provide:
+An additional layer of security.
+Independent routing tables configured for every private subnet to control the flow of traffic within and outside the
+Azure VNet.
+All OMT and suite components are located in the private subnet. NO direct Internet access is allowed.
+Employee Self-Service (ESS) users and IT agents can only connect to the specified ports (for example: 443) for business
+purposes. A typical traffic path is:
+End user/IT agent <-> Load balancer (public subnet) <-> AKS worker nodes (private subnet)
+DevOps engineers can connect to the bastion node in a public subnet and then jump to the private network for cluster
+management. Only a limited number of users can access the bastion node. A typical traffic path is:
+DevOps engineer <-> Bastion node (public subnet) <-> AKS cluster or NFS or DB (private subnet)
+Availability
+The control plane nodes and worker nodes are managed by AKS with a target SLA.
+An Azure Application Gateway and load balancer distribute the traffic across different worker nodes.
+Azure NetApp Files/Azure Files & Azure Disks provide storage access for different worker nodes.
+[Optional] Additional load balancer in front of SMAX
+According to your organization's network/security requirements, you may need to setup an additional load balancer in front of
+SMAX.
+Please enable websocket on the additional load balancer if you have installed one.
+Personas
+The installation process in a production environment involves different roles in your organization. For example, IT
+administrators manage physical or virtual machines for production use, and the person who will install the suite needs to
+request machines from an IT administrator, who will help prepare the requested machines. Typically the involved roles include:
+Role
+Responsibility
+Suite
+administrator
+The person with this role has to ensure the success of the entire installation including verification and
+post-installation tasks. This person must have a good understanding of the entire installation process,
+request support from other appropriate roles as needed, and complete the installation once the
+environment is ready for installation.
+Cloud
+administrator
+The person with this role manages resources on Azure. This person grants permissions and changes
+roles from the Azure portal.
+IT
+administrator
+The person with this role prepares physical or virtual machines as requested by the Suite Admin.
+Network
+administrator
+The person with this role manages network-related configuration for your organization. This person
+needs to perform network configuration tasks as requested by the Suite Admin.
+Storage
+administrator
+The person with this role plans and deploys all types of storage for your organization. This person
+needs to set up volumes required by the suite.
+Database
+administrator
+The person with this role prepares and configures databases for your organization. This person needs
+to manage databases as requested by the Suite Admin.
+Kubernetes
+Cluster
+administrator
+The person with this role manages Kubernetes for your organization. This person needs to create and
+manage the Kubernetes cluster as requested by the Suite Admin.
+Server
+administrator
+The person with this role performs server-related tasks for your organization. This person needs to
+build and configure the bastion node.
+Directory
+Services
+administrator
+The person with this role manages directory services for your organization. This person needs to import
+IDM metadata.
+Security
+administrator
+The person with this role manages security-related tasks for your organization. This person needs to
+prepare certificates and key pairs.
+SMAX 2022.11
+Page 
+992
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

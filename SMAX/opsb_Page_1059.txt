@@ -1,0 +1,150 @@
+Prepare external databases for CMS (AKS)
+CMS contains an internal (embedded) PostgreSQL database instance, which should be used for demonstration purposes only.
+You must use external databases in a production environment. In addition, you must use separate PostgreSQL databases
+instances for SMAX and the containerized CMS.
+For the CMS deployed on Azure, you need to set up an Azure flexible server as the database engine. This flexible server
+instance will be used as the external databases for the following CMS components:
+UCMDB Server
+AutoPass License Service (APLS)
+Set up an Azure flexible server
+To set up an Azure flexible server, follow these steps.
+1
+. 
+Go to the Azure portal (
+https://portal.azure.com
+).
+2
+. 
+Search for "Azure Database for PostgreSQL flexible servers" and open it.
+3
+. 
+Click 
+Create
+.
+4
+. 
+On the creation page, enter the following information.
+Project details
+Subscriptions
+: Enter your subscription ID. You can get it from the 
+Azure portal Home
+page
+ > 
+Subscriptions
+.
+Resource group
+: Enter the name of the resource group created in the prerequisite tasks. For example,
+myResourceGroup.
+Server details
+Server name
+: Enter a name for the flexible server. For example: 
+cmspghost
+.
+Region
+: Choose a region. Ideally, your database should be in the same region as your production environment.
+Workload type:
+ Select a workload type according to your needs.
+Compute + storage
+: Click 
+Configure server
+, then choose the compute size according to the 
+Sizing
+considerations for Azure deployment
+. Click 
+Save
+.
+Availability Zone
+: No preference.
+High availability
+  
+Check 
+Enable high availability
+ as needed.
+PostgreSQL Version
+: Choose the PostgreSQL version. For details about supported PostgreSQL versions, see
+Support matrix for Azure deployment
+.
+Administrator account
+Admin username
+: Name your database administrator. 
+Password
+: Set the password for the admin.
+Confirm password
+: Confirm the password.
+5
+. 
+Click 
+Next: Networking
+. Enter the following information.
+Connectivity method
+: Select 
+Private access(Vnet Integration) 
+>
+ Virtual network
+.
+Subscription: 
+Enter your subscription ID. You can get it from the 
+Azure portal Home page
+ > 
+Subscriptions
+.
+Virtual network:
+ Select the Vnet you created for the CMS production environment.
+Subnet:
+ Select a subnet different from the one you prepared for CMS. Or, enter a nonexistent subnet name and let
+the system create it. Please be aware that this subnet must be independent and can't be shared with other objects.
+6
+. 
+Click 
+Review + create
+.
+7
+. 
+Download the root CA. To do this, go to the 
+Azure Database for PostgreSQL flexible server
+ page, click the
+Networking
+ section, then click 
+Download SSL Certificate
+.
+You will need to select the 
+Use SSL connection
+ option and add this certificate to the 
+caCertificates 
+section when
+you 
+Create my-values.yaml (AKS)
+ during the CMS installation.  
+8
+. 
+Check and validate if the database is ready. You can either:
+After installing the PostgreSQL client on the bastion, run the following command to check the database:
+psql "host=<fqdn of flexible server> port=5432 dbname=postgres user=<postgres_admin> password=<password for admin> sslmode=verify-full sslrootcert=<full path of the root CA certificate>"
+Or use pgAdmin and use the bastion as the SSH Tunnel. With pgAdmin4 version 6.5+, you can do this by configuring
+the SSH Tunnel.
+Note:
+ If you want to use a plain connection instead of TLS to the flexible server, you can go to Server parameters and use
+require_secure_transport to turn off the SSL force.
+Set up PostgreSQL databases for CMS
+In a production environment, you must use external databases for the CMS application. The database user and database name
+information are required when you install CMS, and the database schema information is required for UCMDB Server, but
+optional for AutoPass. The default schema name will be used if there is no new schema name assigned.
+The databases must be empty so that CMS will initialize them during installation. The table below shows example database
+information prepared for the four components.
+Service
+DB User
+DB Name
+Schema (default)
+Important
+: This release no longer supports the method of installing PostgreSQL on a virtual machine on
+Azure. You must 
+Migrate from self-hosted PostgreSQL to Azure Flexible Server
+. 
+
+
+SMAX 2022.11
+Page 
+1059
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

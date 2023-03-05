@@ -1,0 +1,35 @@
+database for OMT IdM: manually or automatically. We recommend that you let the installer automatically create a database
+for you. To do this, later when you configure OMT database settings on the installation portal, select 
+PostgreSQL 
+and check
+the 
+If no database is found, create a database automatically 
+option (see 
+step 5
+ in 
+Select the deployment configuration
+).
+Make sure you have the root CA certificate of the flexible server available. You have already downloaded the root CA
+certificate in the step of creating the flexible server.
+You will need to select the 
+Use TLS connection
+ option and upload the certificate file during the installation.
+Make sure you have the following information available:
+the database host and port: the host and port of the flexible server.
+database name: specify a name for the database. The system will automatically create a database with this name. 
+the database admin user name and password: this is the administrator account you specified during the creation of
+the flexible server.
+During the suite installation, you need to specify the following information (see 
+Deploy the suite
+):
+the database host and port: the host and port of the flexible server.
+the database admin user name and password: this is the administrator account you specified during the creation of the
+flexible server.
+the root CA certificate of the flexible server. 
+The suite installer will automatically create databases needed for different components on the specified flexible server.
+SMAX 2022.11
+Page 
+1033
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

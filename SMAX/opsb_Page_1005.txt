@@ -1,0 +1,86 @@
+Technically, you can, but we recommend using CentOS. We use the bastion node as a jump box to connect to our Kubernetes
+cluster and other resources in the private subnet. Operating systems don't matter in this scenario. The SMA documentation
+provides steps that have been verified only on CentOS. So you can use the documentation for reference. 
+Can I delete the rule for port 3000 on the load balancer after SMA installation?
+Yes, you can. However, we don't recommend it, because you may need access to port 3000 again. For example, when you
+uninstall the suite and want to reinstall it.
+Can I use the same PostgreSQL server for all SMA services? 
+Yes, our sizing recommendations are provided assuming all SMA services use the same PostgreSQL server. You can follow the
+suite documentation to prepare a PostgreSQL server that meets the requirements. 
+Do I have to clean up the NFS server and PostgreSQL database before re-installation?
+Yes, you do. The NFS server and PostgreSQL database keep some data from the last installation.
+If you don't clean up the old data in the NFS volumes, some services can't start because of the old dirty data.
+On the other hand, during the suite installation, the suite installer automatically creates certain databases and users in
+the PostgreSQL server. If you don't clean up these databases and users from the PostgreSQL server, the next installation
+will fail.
+Why should I specify the max pods per node when creating a K8s cluster? How do I calculate this value?
+This parameter controls the maximum number of pods that are allowed to run on each node, so that you can balance your
+pods. If you can configure more nodes in the cluster than required in the sizing guide, you can adjust this parameter value. For
+example, for AKS, the value is 60. If the sizing guide states that you need to prepare 3 nodes for your specific sizing profile and
+you want to use 4 nodes for better stability, you can recalculate the parameter value as follows: 3*60/4 = 45. So you can
+specify a value of 45 to better balance the pods.
+ What kind of data is stored on NFS storage?
+Data
+Description
+Details
+Certificates
+Certificates for authentication and
+authorization
+The <global-volume>/certificate folder stores all certificate file for
+authentication/authorization between components in SMA.
+YAML files
+Kubernetes resources' YAML files
+The itom-vol-claim volume stores certain YAML templates used by
+OMT.
+The OMT core volume is used to retain infra component data such as
+suitedb, internal image registry, idm, and YAML templates.
+The SMA global volume stores all services' yaml files.
+Log files
+System, container, Kubernetes
+logs, and so on
+The itom-logging-vol volume stores OMT deployment log, container
+log. system log, and Kubernetes log.
+The SMA global volume stores all services logs.
+Attachments
+Attachments in your tickets
+The <global-volume>/share1 and <global-volume>/share2 folders
+store attachments in your tickets.
+Rabbitmq
+data
+Some message queue data
+The SMA rabbitmq volumes store some rabbitmq data related to
+message queuing.
+Search
+service data
+Data related to the search
+functionality
+For example: the SMA Smart Analytics volume.
+Database
+data
+Data in the DB volume when using
+the internal PostgreSQL service
+The itom-vol-claim volume stores suitedb data.
+The db-single-vol volume stores the internal PostgreSQL database
+data.
+AKS
+The following are questions specific to deployments on AKS.
+Do I really need 500 private IPs for SMA deployment on AKS?
+Yes. Azure recommends using the CNI network plugin for AKS, which allocates a private IP address for each pod in the same IP
+space as a worker node. A cluster of full capacity for SMA (plus the AKS system pods) has about 200 pods, which means 200
+IPs are needed. However, during the system upgrade, because of the rolling update strategy, the number of pods will be
+doubled. That's why 500 IPs are required to make sure the upgrade will succeed.
+What is the difference between a bastion node and the Azure bastion service?
+A 
+Bastion node
+ is simply a normal instance, which is configured to allow you to easily grant specific users 
+SSH access
+ to a
+server inside the Virtual Network so that the users can access your private resources.  
+The Azure bastion service is a new fully platform-managed PaaS service that you provision inside your virtual network. It
+provides secure and seamless connectivity to your virtual machines directly. 
+SMAX 2022.11
+Page 
+1005
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,41 @@
+Create a new deployment for CMS (AKS)
+You can use the tool provided by OMT to create a deployment to get namespace, default certificate, and service account
+prepared for installing an application by Helm charts.
+1
+. 
+Log in to the bastion node and navigate to the OMT installation directory:
+cd OMT_External_K8s_202x.xx-xxx/scripts/
+2
+. 
+Run the following commands to create an ITOM application deployment:
+./cdfctl.sh deployment create -t helm -d <CMS DEPLOYMENT NAME> [-n <CMS NAMESPACE>]
+The -n option is optional. If you don't specify this option, a namespace that uses the deployment name you specified for
+the -d option will be created. However, you can specify the -n option if you want to use a custom namespace.
+For example:
+./cdfctl.sh deployment create -t helm -d cms-prod
+A message that resembles the following is displayed to indicate that you have installed the application deployment
+successfully.
+Administrator password:
+[INFO] 2020-03-31 11:04:01 : Creating deployment ...
+[INFO] 2020-03-31 11:04:05 : Deployment name/UUID: helm2/80e666a0-f05e-41e5-8d49-76bbb102f31b
+[INFO] 2020-03-31 11:04:05 : Initialize the deployment ...
+Processing... this may take a while..
+[INFO] 2020-03-31 11:04:10 : Initialize finished.
+To view more options of the 
+cdfctl.sh
+ script, run 
+./cdfctl.sh deployment -h
+.
+View the installed deployments
+To view the installed applications, run the following command:
+./cdfctl.sh deployment get
+Your terminal resembles the following:
+UUID                                  NAME            NAMESPACE       STATUS              TYPE      MODE      APPLICATION      VERSION
+48cbcbbb-11ec-4821-9a36-4a7c1fee3ca8  demo-363W1      demo-363w1      INSTALL_FINISHED    PRIMARY   SUITE     demo         2020.08.001
+73402ef5-7750-4f2d-8340-1e097bc35b05  helm2           helm2           PHASE2_FINISHED     SECONDARY HELM      demo2        2020.08.002
+SMAX 2022.11
+Page 
+1054
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

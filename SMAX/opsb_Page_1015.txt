@@ -1,0 +1,180 @@
+Configure bastion
+Role
+Location
+IT / Server administrator
+Azure portal & Bastion node
+Bastion node supports both centos and ubuntu.
+To create a virtual machine as the bastion node, follow these steps: 
+1
+. 
+Log in to the Azure portal at 
+https://portal.azure.com
+.
+2
+. 
+Click 
+Virtual machines
+ > 
++ Create > + Virtual machine 
+.
+3
+. 
+Under 
+Basics
+, populate the following fields:
+Subscription
+: Select your subscription from the drop-down list.
+Resource group
+: Select the name of the resource group you created on the 
+Build AKS cluster
+ page. Do 
+NOT
+ use
+your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+Virtual machine name
+: Give a name to the bastion.
+Region
+: Select the same region as the created resource group.
+Image
+: Select a Linux image from the drop-down list. 
+Note
+ that if you will use 
+Azure Files
+ as the storage service,
+we recommend that you select a 
+CentOS 7.5 +
+ image for the bastion. See the Azure document 
+Use Azure Files with
+Linux
+ for more information.
+Size
+: Select 
+Standard B1ms
+. See details at 
+Sizing guide
+.
+Authentication type
+: Select an authentication method for the bastion admin and specify a username and a
+password / SSH key accordingly.
+Public inbound ports
+: Select 
+Allow selected ports
+ and 
+SSH (22)
+ from the drop-down list.
+4
+. 
+Under 
+Disks
+, select 
+Premium SSD
+ as 
+OS disk type
+.
+5
+. 
+Under 
+Networking
+, select the created VNet as 
+Virtual network
+ and the subnet created for the bastion as 
+Subnet
+.
+6
+. 
+Under 
+Management
+, select an account from the list or create a new account as Diagnostics storage account.
+7
+. 
+Leave the remaining settings as is and click 
+Review + create
+.
+8
+. 
+Review all the settings and click 
+Create
+ after confirmation. It will take several minutes for the virtual machine to be
+created.
+9
+. 
+After the VM is created, you need to adjust its OS disk size with these steps:
+a
+. 
+Stop the VM and select 
+Disks 
+under 
+Settings 
+from the left menu.
+b
+. 
+Under 
+OS disk 
+>
+ Disk name
+, click the name of your OS disk.
+c
+. 
+Select 
+Size + performance 
+under
+ Settings 
+from the left menu,
+ 
+change the 
+Custom disk size
+ to 
+100
+ GB, and
+then click 
+Resize
+.
+d
+. 
+Start the virtual machine, connect to it, and run command 
+df -h
+ to check if the disk size has been adjusted to a new
+size automatically. If not, use the 
+fdisk
+ command to make new disk space available for use. The first command
+below takes SSH key as an example of the bastion's authentication type. 
+ssh -i <private_key> <user_name>@<VM_public_IP>
+sudo bash
+fdisk /dev/sda
+d <enter>
+2 <enter>
+n <enter>
+p <enter>
+2 <enter>
+<enter>
+<enter>
+w <enter>
+partx -u /dev/sda2
+xfs_growfs /dev/sda2
+df -h  # confirm the size mount on / has changed to new size
+After the VM is ready, log on to the bastion and perform the following steps to configure the connectivity from 
+kubectl
+ to the
+AKS cluster:
+1
+. 
+Run the following commands to download 
+kubectl
+ and move it to 
+/bin
+:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod 755 kubectl
+sudo mv kubectl /bin
+2
+. 
+Install the Azure CLI by referring to the official Azure CLI installation guides. For example,
+To install the Azure CLI on CentOS Linux, run these commands:
+SMAX 2022.11
+Page 
+1015
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

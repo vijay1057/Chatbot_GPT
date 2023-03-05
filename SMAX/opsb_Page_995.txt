@@ -1,0 +1,12 @@
+Persistent storage
+Azure NetApp Files
+Azure Files & Azure Disks
+If you plan to install CMS on the same OMT cluster as the next deployment (SMA is the primary deployment), the required
+persistent storage is:
+Azure Files
+SMAX 2022.11
+Page 
+995
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

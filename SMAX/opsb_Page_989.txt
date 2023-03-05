@@ -1,0 +1,29 @@
+Install on Azure (AKS)
+This section describes how to install the 
+Service Management Automation (SMA)
+ suite on Azure using Azure Kubernetes
+Service (AKS).
+See the detailed 
+deployment checklist
+ for all the preparation, installation, and setup tasks to deploy SMA.
+Before you begin, ensure that you've reviewed the following planning topics for the AKS deployment:
+The overall 
+reference architecture
+.
+The 
+support matrix
+.
+The definition of 
+suite size
+ and the required 
+hardware resources
+.
+The most 
+frequently asked questions
+.
+SMAX 2022.11
+Page 
+989
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

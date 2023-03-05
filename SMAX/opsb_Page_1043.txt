@@ -1,0 +1,159 @@
+Check and download the container images
+On the 
+Download Images
+ page, the installer checks whether you have downloaded the required images. If not, the installer
+will guide you to download the missing images.  
+1
+. 
+On the 
+Download Images
+ page, click 
+Next
+.
+2
+. 
+On the 
+Check Image Availability
+ page, wait until the image check finishes.
+3
+. 
+If all the images are available in the registry, click 
+NEXT
+ to continue the infrastructure deployment.
+4
+. 
+If there are some images missing, click 
+NEXT
+ to continue the image download phase as below. 
+Download and upload the images
+1
+. 
+On the 
+Offline Download
+ page, click 
+NEXT
+.
+2
+. 
+After you are redirected to the 
+Start Download
+ page, follow the steps below to download and upload the images:
+a
+. 
+Before downloading and uploading the images, you need to generate the image set with the following steps:
+1
+. 
+Run the following command to change directory:
+cd <OMT_External_K8s_202x.xx-xxx>/tools/generate-download
+2
+. 
+Run the following command to display the command-line options for the 
+generate_download_bundle
+ command:
+./generate_download_bundle.sh -h
+3
+. 
+Run the 
+generate_download_bundle.sh
+ command together with the options required by your deployment. For
+example, run the following command. Replace all the placeholders with the actual values.
+./generate_download_bundle.sh -m <suite metadata> -s itsma -v <suite version> -o hpeswitom -d <offline-download.zip location>
+For example:
+./generate_download_bundle.sh -m /directory/containing/suite-metadata.tgz -s itsma -v 202x.xx -o hpeswitom -d /tmp
+Note that this example contains placeholder values.
+The 
+offline-download.zip
+ will be placed in the 
+/tmp
+ directory as specified. This file contains a list of the required
+images and will be used when you run the Python script to transfer the suite images in the later step.
+4
+. 
+Unzip the 
+/tmp/offline-download.zip
+ file and copy the 
+/tmp/offline-download/image-set.json
+ file to the <
+OMT_External_K8s_
+202x.xx-xxx>/scripts/
+ directory.
+b
+. 
+Then follow these steps to download and upload the images:
+1
+. 
+Download the 
+Cloud Deployment 1.2.10 
+package from the 
+ITOM Marketplace
+ website and unzip the package.
+2
+. 
+Copy the 
+smax-image-transfer.py
+ file from 
+.../Cloud Deployment 1.2.10/../byok
+ to 
+OMT_External_K8s_202x.xx-xxx/scripts
+.
+3
+. 
+Run the following commands to transfer the suite images from the source registry to your registry:
+cd OMT_External_K8s_202x.xx-xxx/scripts
+python3 smax-image-transfer.py -sr <source_registry> -su <source_username> -sp <source_password> -so <source_orgname> -tr <target_registry> -tu <target_username> -tp <target_password> -to <target_orgname>
+In these commands,
+<source_registry>
+ is the URL of the source registry. For example, 
+registry.hub.docker.com
+.
+<source_username>
+ is the username of the source docker registry. Obtain it from 
+Micro Focus
+ if you use
+Docker Hub; otherwise, contact the admin of the source registry.
+<source_password>
+ is the password of the source docker registry. Obtain it from 
+Micro Focus
+ if you use
+Docker Hub; otherwise, contact the admin of the source registry.
+<source_orgname>
+ is the organization name in the source docker registry. Use 
+hpeswitom
+ if you use
+Docker Hub; otherwise, contact the admin of the source registry.
+<target_registry>
+ is the URL of the target registry. If you don't have an Azure Container Registry, go to
+https://docs.microsoft.com/en-gb/azure/container-registry/
+ to create one in the same region as the AKS
+cluster.
+<target_username>
+ is the username of the target docker registry. Obtain it from the admin of the target
+registry.
+<target_password>
+ is the password of the target docker registry. Obtain it from the admin of the target
+registry.
+<target_orgname>
+ is the organization name in the target docker registry. Obtain it from the admin of the
+target registry.
+Verify the upload status on the installation portal
+1
+. 
+In the installation portal, click 
+NEXT
+ to check the number of uploaded images:
+a
+. 
+Click 
+More
+ to check the name of the remaining images to be uploaded.
+Note
+  Python 3 is required to run the Python script below. Make sure Python 3 is installed on the
+bastion. 
+
+
+SMAX 2022.11
+Page 
+1043
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,135 @@
+Additional hardware requirements for CGRO
+Use the table below to plan the additional hardware resources for Cost Governance and Resource Optimization (CGRO).
+Worker node
+AFS server
+Vertica database
+Configuration
+Storage
+Quantity
+Type
+Volume
+Configuration
+Storage
+Quantity
+Standard D8s
+v3
+Disk: 100
+GB
+(Premium
+SSD)
+1 ~ 2
+NetApp
+Files or
+Azure
+File
+Add storage to
+process/buffer one
+month of public cloud
+billing data (based on
+the size of an average
+month).
+Standard
+D8S_V3
+(Premium SSD)
+or Standard
+16S_V3
+(Premium SSD)
+Size according to the
+expected amount of
+cloud billing data:
+NumberOfMonths *
+AverageMonthlyData
+1-5
+(based
+on HA,
+desired
+Vertica 
+k-
+safety
+)
+Additional hardware requirements for SAM
+Use the table below to plan the additional hardware resources for Software Asset Management (SAM).
+SAM
+deployment
+size
+SMA control
+plane node
+SMA worker node
+AFS
+Type
+Volume
+Quantity
+Configuration
+Small
+Owned by
+Azure
+Standard
+D8s v3
+Disk: 100 GB
+(Premium SSD)
+1
+No additional storage is required for SAM. SAM
+shares the SMA storage resources.
+Medium
+Owned by
+Azure
+Standard
+D8s v3
+Disk: 100 GB
+(Premium SSD)
+1
+Large
+Owned by
+Azure
+Standard
+D8s v3
+Disk: 100 GB
+(Premium SSD)
+1
+Additional hardware requirements for CMS
+Native SACM and SAM require you to install CMS (UCMDB Server and CMS Gateway). You have two options:
+Classic CMS + Classic CMS Gateway
+Containerized CMS (which comes with the UCMDB Server and CMS Gateway)
+See 
+here
+ for the supported CMS versions in this release.
+Plan additional hardware resources for CMS: 
+If you plan to use classic CMS, install CMS Gateway on the UCMDB Server, and add the following minimal resources for CMS
+Gateway (for classic CMS hardware resource requirements, see 
+Classic CMS sizing recommendations
+):
+Deployment
+CPU
+RAM
+Disk Space
+All sizes
+4 cores
+2 GB (allocated for CMS Gateway only)
+100 GB
+If you plan to install the containerized CMS (as the next deployment on the same OMT), use the following guidelines to
+determine the additional hardware resources required for CMS.
+1. Determine the deployment size
+When installing CMS, you will need to select a deployment size: Small, Medium, or Large, so that the CMS deployment is
+automatically scaled according to the selected size. Use the following table to determine your deployment size.
+Deployment size 
+Small
+Medium
+Large
+Maximum number of CIs and Relationships in CMDB
+10 million
+30 million
+200 million
+2. Determine the hardware resource requirements
+The following table lists the minimum resources needed for setting up a CMS environment in the cloud.
+A standard deployment includes control plane nodes (owned by Azure), worker nodes, Azure Files as storage, and PostgreSQL
+as databases.
+Note
+: For Vertica HA configuration, follow the recommendations provided in vendor-specific documentation. 
+
+
+SMAX 2022.11
+Page 
+1000
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

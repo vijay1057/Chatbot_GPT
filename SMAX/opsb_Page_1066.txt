@@ -1,0 +1,136 @@
+ucmdbprobe.deployment.database.dbName
+No
+Data Flow Probe
+database name. Do not
+set it if
+probeEmbeddedDb
+ is
+true
+.
+dataflowprobe
+cms_ucmdb_probe_db
+ucmdbprobe.deployment.database.schema
+No
+Data Flow Probe
+database schema. Do not
+set it if
+probeEmbeddedDb
+ is
+true
+.
+probe
+probe
+Parameter
+Required
+Description
+Default
+Example
+Persistence parameters
+Parameter
+Required
+Description
+Default
+Example
+global.persistence.enabled
+No
+Enables dynamic PVC creation.
+ 
+In production environments, this
+parameter must be set to 
+true
+.
+true
+true
+global.persistence.dataVolumeName
+No
+Persistent volume (PV) for storing CMS
+data files.
+cms-
+data-
+volume
+global.persistence.dbVolumeName
+No
+Persistent volume (PV) for storing CMS
+database files. This parameter is not
+required if external databases are used.
+cms-
+db-
+volume
+global.persistence.configVolumeName
+No
+Persistent volume (PV) for storing CMS
+configuration files.
+cms-
+config-
+volume
+global.persistence.logVolumeName
+No
+Persistent volume (PV) for storing CMS
+log files.
+cms-
+log-
+volume
+global.persistence.dataVolumeStorageClassName
+No
+The storage class name of
+the automatically created PVC for CMS
+data files. The value must be the same
+as the storageClassName defined in the
+corresponding PV.
+Note
+: In AKS, you must set the value
+of this parameter to "cms-default".
+cms-
+default
+global.persistence.dbVolumeStorageClassName
+No
+The storage class name of the
+automatically created PVC for CMS
+database files. The value must be the
+same as the storageClassName defined
+in the corresponding PV. This
+parameter is not required if external
+databases are used.
+global.persistence.configVolumeStorageClassName
+No
+The storage class name of the
+automatically created PVC for CMS
+configuration files. The value must be
+the same as the storageClassName
+defined in the corresponding PV.
+Note
+: In AKS, you must set the value
+of this parameter to "cms-default".
+cms-
+default
+global.persistence.logVolumeStorageClassName
+No
+The storage class name of the
+automatically created PVC for CMS log
+files. The value must be the same as
+the storageClassName defined in the
+corresponding PV.
+Note
+: In AKS, you must set the value
+of this parameter to "cms-default".
+cms-
+default
+global.persistence.dataVolumeSize
+No
+The requested storage size of the
+automatically created PVC for CMS data
+files.
+5G
+global.persistence.dbVolumeSize
+No
+The requested storage size of the
+automatically created PVC for CMS
+database files. This parameter is not
+required if external databases are used.
+5G
+SMAX 2022.11
+Page 
+1066
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,71 @@
+Azure
+The address of an image in an Azure container registry includes the following elements:
+[loginUrl]/[namespace]/[artifact:][tag]
+loginUrl - The fully qualified name of the registry host. The registry host in an Azure container registry is
+in this format: 
+myregistry
+.azurecr.io (all lowercase). You must specify the loginUrl when using Docker or
+other client tools to pull or push artifacts to an Azure container registry.
+namespace - Slash-delimited logical grouping of related images or artifacts - for example, for a
+workgroup or app.
+artifact - The name of a repository for a particular image or artifact.
+tag - A specific version of an image or artifact stored in a repository.
+An organization name in our documentation refers to a "namespace" in Azure.
+For example, the full name of an image in an Azure container registry might look like the following:
+itomsma.azurecr.io/hpeswitomsandbox/itom-idm:1.26.0
+The organization name in this example is hpeswitomsandbox.
+GCP
+The address of an image in an GCP container registry includes the following elements:
+gcr.io/[your-project-id]/[image]:[tag]
+An organization name in our documentation refers to a "project-id" in GCR. A project-id is the ID of your
+Google Cloud project. For example, the full name of an image in GCR may look like the following:
+gcr.io/itom-smax-nonprod/itom-cdf-controller:0.2.0-005
+The organization name in this example is itom-smax-nonprod.
+AWS
+The address of an image in an AWS container registry includes the following elements:
+[aws_account_id].dkr.ecr.[region].amazonaws.com/[Repository name]:[tag]
+You can push images to ECR like this:
+114706266704.dkr.ecr.us-east-1.amazonaws.com/hpeswitomsandbox/itom-autopass-lms:latest
+In this example, the organization name for ECR is hpeswitomsandbox.
+Docker
+hub
+Organizations are collections of teams and repositories that can be managed together. SMA uses an
+organization name of "hpeswitom" to manage all SMA repositories.
+You can pull images from Docker Hub like this:
+itom-docker.shcartifactory.swinfra.net/hpeswitom/vault:0.12.0-0016
+The organization name for all Docker Hub repositories for SMA is hpeswitom.
+ Platform
+Image registry
+Is the load balancer working on layer 4 or layer 7?  Why do we need both layer 4 and layer 7 load balancers?
+Basically, we leverage solutions with both layer 4 and layer 7 load balancers. They work together to serve different purposes.
+A layer 7 load balancer is introduced for application level scenarios:
+Rule-based routing. In a production environment, there may be multiple applications behind the load balancer, such as
+SMA and HCM. You may need a load balancer to redirect you to different applications based on the context path. For
+example, requests against 
+www.microfocus.com/saw
+ and 
+www.microfocus.com/bo
+ should be redirected to SMA, and
+requests against 
+www.microfocus.com/hcm
+ to HCM.
+Working with a Web Application Firewall for security considerations
+Providing SSL/TLS encryption at the load balancer level
+A layer 4 load balancer is introduced for infrastructure and network level scenarios:
+A layer 4 load balancer can work with cloud-native Kubernetes so that it can notice any node-level changes and update its
+backend pool
+It provides the capacity for handling thousands to millions of requests with very low latency
+Is it possible for a worker node to run out of disk space over time?
+Yes, it's possible, but not very likely. There are always some unused files left on a worker node (for example, image files, old
+version resources). You can monitor your disk usage on a regular basis just in case. 
+Can I choose for a worker node an instance type other than the one required in the sizing guide? 
+Technically, you can, but with certain limitations. You can only choose an instance type with the same or a higher
+configuration than the requirements (disk size, CPU, etc) documented in the sizing guide, to avoid problems caused by
+resource insufficiency.
+Can I choose other operating systems than CentOS for the Bastion node? 
+SMAX 2022.11
+Page 
+1004
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

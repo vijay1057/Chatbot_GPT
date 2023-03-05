@@ -1,0 +1,90 @@
+1
+. 
+Save the content below as 
+audit-service-public-ingress.yaml
+ in the install directory (
+audit-20xx.xx
+):
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "
+audit-service-public-ingress
+"
+  namespace: <audit_namespace>
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/group.name: <application_loadbalancer_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=180
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+    alb.ingress.kubernetes.io/security-groups: <security_groups>
+  labels:
+    app: audit-ingress
+spec:
+  tls:
+  - hosts:
+    - <external_access_host>
+  rules:
+    - host:
+      http:
+        paths:
+          - backend:
+              service:
+                name: "audit-itom-ingress-controller-svc"
+                port: 
+                  number: 31051
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<audit_namespace>
+: The unique namespace of the Audit deployment. For example, 
+auditns
+.
+<application_loadbalancer_name>
+: Specify the name of the ALB you want to create. The name must consist of 
+lower
+case
+ alphanumeric characters, '-', or '.', and must start and end with an alphanumeric character. 
+<certificate_arn>
+: The
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+. See
+details in the
+ Prerequisites 
+section.
+<external_access_host>
+: The FQDN you've allocated for Audit Service. For example, 
+www.example.com
+. Go to AWS Route
+53 service and create a separate FQDN by creating a new record under the domain used for suite installation.
+<security_groups>
+: The security groups that this ALB belongs to (if you haven't configured security groups, delete this
+parameter from the YAML). Separated by commas. For  example, 
+sg-xxxx1, sg-xxx2.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f 
+audit-service-public-ingress
+.yaml
+Now an ALB gets created and the Audit Service ingress for port 443 gets bound to this ALB automatically.
+Bind an FQDN with Audit ALB
+After you create the ALB for Audit Service, bind the FQDN that you have allocated for Audit Service with this ALB in AWS Route
+53. Refer to the AWS documentation.
+SMAX 2022.11
+Page 
+973
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

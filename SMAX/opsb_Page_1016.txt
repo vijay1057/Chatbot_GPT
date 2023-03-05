@@ -1,0 +1,77 @@
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'
+sudo yum install azure-cli
+To install the Azure CLI on Ubuntu, run this command:
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+3
+. 
+Log in to the Azure CLI by running the command below and following the instructions in the command output:
+az login
+4
+. 
+Test the connectivity from 
+kubectl
+ to AKS cluster by running these commands:
+az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name> --subscription <subscription_name_or_id>  
+If the above command runs successfully, a file named 
+/home//.kube/config
+ will be created with cluster credentials. You can
+run the 
+kubectl get nodes
+ command to check nodes status.
+where:
+<resource_group_name>
+: Enter the name of the resource group you created on the 
+Build AKS cluster
+ page. Do 
+NOT
+ use
+your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+<kubernetes_cluster_name>
+: Enter the name of the created Kubernetes cluster.
+<subscription_name_or_id>
+: Enter your subscription name or ID. You can get it by navigating to the Azure portal 
+Home
+page > 
+Subscriptions
+.
+5
+. 
+Run the following commands to install Docker.
+To install Docker on Red Hat Enterprise Linux or CentOS Linux, run these commands:
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install -y docker-ce docker-ce-cli containerd.io
+To install Docker on Ubuntu, run these commands:
+sudo apt update
+sudo apt install docker.io
+6
+. 
+Enable Docker and empower to run Docker commands as non-root.
+sudo groupadd docker
+sudo usermod -a -G docker ${USER}
+sudo systemctl start docker
+sudo systemctl enable docker
+7
+. 
+Log out and log in again to the bastion to enable the Docker group.
+External references
+For information on how to connect to an Azure virtual machine, see 
+Connect to a VM
+.
+For information on how to install the Azure CLI, see 
+Azure CLI installation guides
+.
+Important 
+Do not customize any ClusterRoles (for example, cluster-admin) in the system to avoid potential
+issues. 
+
+
+SMAX 2022.11
+Page 
+1016
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

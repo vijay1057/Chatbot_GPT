@@ -1,0 +1,39 @@
+cd OMT_External_K8s_202x.xx-xxx/scripts
+python3 smax-image-transfer.py -sr <source_registry> -su <source_username> -sp <source_password> -so <source_orgname> -tr <target_registry> -tu <target_username> -tp <target_password> -to <target_orgname>
+In these commands,
+<source_registry>
+ is the URL of the source registry. For example, 
+registry.hub.docker.com
+.
+<source_username>
+ is the username of the source docker registry. Obtain it from 
+Micro Focus
+ if you use Docker Hub;
+otherwise, contact the admin of the source registry.
+<source_password>
+ is the password of the source docker registry. Obtain it from 
+Micro Focus
+ if you use Docker Hub;
+otherwise, contact the admin of the source registry.
+<source_orgname>
+ is the organization name in the source docker registry. Use 
+hpeswitom
+ if you use Docker Hub;
+otherwise, contact the admin of the source registry.
+<target_registry>
+ is the URL of the target registry. If you don't have an Azure Container Registry, go to
+https://docs.microsoft.com/en-gb/azure/container-registry/
+ to create one in the same region as the AKS cluster.
+<target_username>
+ is the username of the target docker registry. Obtain it from the admin of the target registry.
+<target_password>
+ is the password of the target docker registry. Obtain it from the admin of the target registry.
+<target_orgname>
+ is the organization name in the target docker registry. Obtain it from the admin of the target
+registry.
+SMAX 2022.11
+Page 
+1053
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

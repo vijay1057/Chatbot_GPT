@@ -1,0 +1,78 @@
+(Optional) Install containerized CMS (AKS)
+The Native SACM and SAM solutions require a 
+Micro Focus
+ CMS system to work with the suite. Once you have completed
+the suite installation, you can continue to install CMS on the same OMT cluster as the next deployment (the suite is the first
+deployment).
+Install the containerized CMS
+Perform the following steps to install the containerized CMS:
+Topic
+Description
+Plan
+Review the required resources and create a deployment plan for the installation of CMS with AKS:
+1
+. 
+Review 
+support matrix
+2
+. 
+Review 
+sizing considerations
+Prepare and deploy
+Prepare the required resources for the installation of CMS with AKS:
+1
+. 
+Download CMS charts package (AKS)
+2
+. 
+Download and upload images for CMS (AKS)
+3
+. 
+Create a new deployment for CMS (AKS)
+4
+. 
+Subscribe premium Azure Files for CMS
+5
+. 
+Prepare external databases for CMS (AKS)
+6
+. 
+Create CMS integration admin user in SMAX IdM (AKS)
+7
+. 
+Create my-values.yaml (AKS)
+8
+. 
+Generate vault secrets (AKS)
+9
+. 
+Install CMS on Azure
+10
+. 
+Configure the application gateway for CMS
+11
+. 
+Associate CMS SuperAdmin role (AKS)
+Uninstall
+Uninstall CMS on AWS with AKS
+Related topics
+Enable Native SACM
+Enable SAM
+Note
+: This task is optional. If you plan to use classic CMS, skip this step and follow the 
+classic CMS
+documentation
+ instead.
+Note
+ 
+You must install CMS on the same OMT on which SMA is installed.
+For this release, you must use separate PostgreSQL databases and storage service instances for SMAX and
+containerized CMS.
+
+
+SMAX 2022.11
+Page 
+1050
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

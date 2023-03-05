@@ -1,0 +1,90 @@
+Download and upload images for Audit collector
+Before you deploy the Audit collector, you need to download the required images from Docker Hub or other registries and then
+upload the images to your registry.
+Note:
+ If you have already uploaded images to your registry, skip this step.
+Generate the Image Set
+Before downloading and uploading the images, you need to generate the image set with the following steps on the bastion
+node:
+1
+. 
+Run the following command to change directory:
+cd /<OMT_External_K8s_202x.xx-xxx/tools/generate-download>
+2
+. 
+Run the following command to display the command line options for the 
+generate_download_bundle
+ command:
+./generate_download_bundle.sh -h
+3
+. 
+Run the command together with the options required by your deployment. For example, run the following command:
+./generate_download_bundle.sh --chart <audit collector helm chart file> -o <org name> [-d <destination dir>]
+Where:
+<audit collector helm chart file>: The absolute path to the downloaded Audit collector helm chart package.
+<org name>: The organization in the image registry that contains the images for installation. By default, it's
+"
+hpeswitom
+".
+<destination dir>: The directory where the output.zip file gets created. The default location is the current directory.
+Note
+: Running this command may take several minutes.
+The generate_download_bundle.sh compares the images needed by the suite with the images that already exist in the cluster
+and generates a .zip file, 
+offline-download.zip
+. This file enables you to download the required images from Docker Hub.
+For example:
+./generate_download_bundle.sh --chart Audit_Collector_Helm_Chart-2022.11/audit-collector/charts/audit-collector-1.0.0+20221100.51-SNAPSHOT.tgz -o hpeswitom -d /tmp
+You will find the 
+offline-download.zip
+ under the current working directory unless you specify "
+-d
+" option. You receive the
+following messages indicating that you have successfully generated the
+ offline-download.zip
+ file:
+[INFO] 2020-07-31 17:58:46 : ** Generating the offline image download bundle ...
+[INFO] 2020-07-31 17:58:50 : Completed generation of offline-download.zip in /tmp
+Then, you can find the image set file 
+image-set.json
+ in the current directory. This file contains a list of the required images
+and you will need this when you run the Python script to transfer the suite images in a later step.
+Create ECR repositories
+Before pushing images to Amazon Elastic Container Registry (ECR), you need to create a repository for each image. Make sure
+to save the 
+create_aws_repositories.py
+ script to 
+OMT_External_K8s_202x.xx-xxx
+ on the bastion (see 
+Create ECR
+repositories
+). Then, run the following command on the bastion to create ECR repositories in a preferred region:
+python create_aws_repositories.py -r <ecr_region> -o hpeswitom -i ./image-set.json
+Where:
+<ecr_region>
+ is the region where you will put your ECR repositories and it can be different from the region you selected to
+place all the prepared AWS resources. 
+Download and upload images
+1
+. 
+Copy the 
+smax-image-transfer.py
+ file from the following directory:
+Cloud Deployment x.x.x/byok
+ to 
+OMT_External_K8s_202x.xx-xxx/scripts
+2
+. 
+Run the following commands to retrieve the username and password of EC.
+If you've installed AWS CLI version 1 when configuring bastion:
+cd OMT_External_K8s_202x.xx-xxx/scripts
+dockerLogin=$(aws ecr get-login --no-include-email --region <ecr_region>)
+ecrUserName=$(echo $dockerLogin | awk '{print $4}')
+ecrUserPassword=$(echo $dockerLogin | awk '{print $6}')
+ecrURL=$(echo $dockerLogin | awk '{print $7}' | awk -F/ '{print $3}')
+SMAX 2022.11
+Page 
+983
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

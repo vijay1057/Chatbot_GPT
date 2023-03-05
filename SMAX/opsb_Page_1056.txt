@@ -1,0 +1,103 @@
+2
+. 
+Run the following command to test the performance of the Azure file share. 
+Do not proceed if the result can't meet
+the minimum requirement.
+dd if=/dev/zero of=/mnt/nfs/<cms_fileshare_name>/small.img bs=512 count=10000 oflag=dsync
+In this command, 
+<cms_fileshare_name>
+ is the name of the Azure file share for storing the 
+cms
+ data.
+The output looks as below:
+10+0 records in
+10+0 records out
+5120 bytes (5.1 kB, 5.0 KiB) copied, 0.0713496 s, 71.8 kB/s
+The minimum requirement for the CMS installation is 
+60 kB/s
+. Based on the performance tests, the command returns an
+output higher than 60 kB/s in most Azure regions.
+Any number smaller than that will cause the installation to fail. In this case, contact Azure support to fix the performance
+issue.
+3
+. 
+Run the following commands to create directories for the 
+cms
+ data:
+cd /mnt/nfs/<cms_fileshare_name>
+sudo mkdir  -p ./var/vols/itom/cms/cms-data-volume
+sudo mkdir  -p ./var/vols/itom/cms/cms-config-volume
+sudo mkdir  -p ./var/vols/itom/cms/cms-log-volume
+In these commands,
+<cms_fileshare_name>
+ is the name of the Azure file share for storing the 
+cms
+ data.
+4
+. 
+Copy and save the following script as 
+createCMSPV.sh
+:
+#!/bin/bash
+AZURE_SECRECT="azure-secret"
+STORAGE_TYPE="azurefile"
+STORAGE_CLASS="cms-default"
+PV_DIR="/tmp/cmspvyamlsfolder"
+SUITE_VOLUMES="
+cms-data-volume
+cms-config-volume
+cms-log-volume
+"
+usage() {
+    echo "Usage: $0  [-n|--namespace <namespace>] [-cp|--cms-volume-path <cms_volume_path>]"
+    echo "       -n|--namespace            Name space."
+    echo "       -cp|--cms-volume-path Path of volumes for storing cms data."
+    echo "       -u|--uid Suite user UiD."
+    echo "       -g|--gid Suite user GiD."
+    echo "       -h|--help                 Show help."
+    echo -e "
+Examples:
+1)   $0  -n core   -cp file1/var/vols/itom/cms
+2)   $0  -n cms    -cp file1/var/vols/itom/cms"
+exit 1
+}
+while [[ ! -z $1 ]] ; do
+    case "$1" in
+        -n|--namespace)
+        case "$2" in
+            -*) echo "-n|--namespace parameter requires a value. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-n|--namespace parameter requires a value. " ; exit 1 ; fi ; NAME_SPACE=$2 ; shift 2 ;;
+        esac ;;
+        -cp|--cms-volume-path)
+        case "$2" in
+            -*) echo "-cp|--cms-volume-path parameter requires a value. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-cp|--cms-volume-path parameter requires a value. " ; exit 1 ; fi ; CMS_PATH_VOLUME=$2 ; shift 2 ;;
+        esac ;;
+        -u|--uid)
+        case "$2" in
+            -*) echo "-u|--uid. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-u|--uid parameter requires a value. " ; exit 1 ; fi ; UiD=$2 ; shift 2 ;;
+        esac ;;
+        -g|--gid)
+        case "$2" in
+            -*) echo "-g|--gid. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-g|--gid parameter requires a value. " ; exit 1 ; fi ; GiD=$2 ; shift 2 ;;
+        esac ;;
+        *|-*|-h|--help|/?|help) usage ;;
+    esac
+done
+if [ -z "$NAME_SPACE" ];then
+Note 
+The 
+mountazurefile.sh
+ file is created when you 
+create premium Azure file shares for SMAX
+.
+
+
+SMAX 2022.11
+Page 
+1056
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

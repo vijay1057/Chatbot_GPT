@@ -1,0 +1,95 @@
+Deploy Audit on AWS (EKS)
+This section provides the steps required to install the Audit service on AWS (EKS).
+Generate vault secrets for the Audit charts
+Perform the following tasks to generate vault secrets for the Audit charts:
+1
+. 
+On the bastion node, navigate to the CDF installation directory:
+cd ITOM_Platform_Foundation_BYOK_20xx.xx.xxxxx/scripts/
+2
+. 
+Run the following command to generate vault secrets:
+./gen_secrets.sh -n <NAMESPACE> -c <AUDIT CHART FILE> -o <SECRETS YAML FILE>
+Where:
+<
+NAMESPACE
+>
+ is the unique namespace of the Audit deployment.
+<
+AUDIT CHART FILE
+>
+ is the tar file containing the Audit installation charts (audit-<version>.tgz).
+<
+SECRETS YAML FILE
+>
+ is the YAML file that stores the Audit secrets. Specify the file name (for example, 
+audit-
+secrets.yaml
+), and then the script will generate this YAML file after you run the script. You will need to use this file
+when you run the command to install Audit later.
+For example:
+/opt/cdf/scripts/gen_secrets.sh -n itomns -c audit-<version>.tgz -o audit-secrets.yaml
+3
+. 
+The 
+Micro Focus
+ Vault secret utility prompts you for the following passwords:
+Key
+Required
+Description
+audit-db-pass-key
+Yes
+Audit database password.
+audit-transport-user-pass-key
+Yes
+IDM Transport user password.
+idm-super-user-pass-key
+Yes
+IDM Super user password.
+Install Audit service
+To complete the deployment, you will need to install the Audit service using Helm.
+Run the following command:
+$helm install audit <Audit Service Chart> -n <NAMESPACE> -f values.yaml -f audit-secrets.yaml --set-file "caCertificates.cert_one\.crt"=/path/to/cert_one.crt --set-file "caCertificates.cert_two\.crt"=/path/to/cert_two.crt
+Where,
+<
+Audit Service Chart
+>
+ is the tar file containing the Audit installation charts.
+<
+NAMESPACE
+>
+ is the unique namespace you created for the Audit service.
+<
+VALUES YAML FILE
+>
+ is your 
+values.yaml 
+file with properties configured for the Audit deployment.
+The certificates are passed by using the --set-file option. In the below example, we can see IdM, DB, and Internal ALB
+certificates are passed.
+Note : The Internal ALB certificate is passed as the communication between Audit gateway and Audit engine is
+through internal ALB.
+For example:
+$helm install audit audit-<version>.tgz -n itomns -f values.yaml -f audit-secrets.yaml --set-file "caCertificates.RE_ca_idmcrt"=./RE_ca_idm.crt --set-file "caCertificates.RE_ca_dbcrt"=./RE_ca_db.crt --set-file "caCertificates.RE_ca_intAlb"=./RE_ca_intAlb.crt
+Verify the installation
+To verify if you have installed the Audit service successfully, do the following:
+1
+. 
+Log in to the bastion node.
+2
+. 
+Run the following command to make sure that all pods are ready:
+kubectl get pod -n <
+NAMESPACE
+> |grep -v 1/1|grep -v 2/2|grep -v 3/3|grep -v 4/4|grep -v Completed
+Where:
+<
+NAMESPACE
+>
+ is the namespace where you have deployed the Audit Helm chart.
+SMAX 2022.11
+Page 
+978
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

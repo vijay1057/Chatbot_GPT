@@ -1,0 +1,72 @@
+myResourceGroup
+.
+<kubernetes_cluster_name>
+: Enter the name of the Kubernetes cluster created in the previous step.
+Launch AKS cluster worker nodes for CMS
+This task is required only when you need to install CMS. See 
+Sizing guides (AKS)
+ for information about the additional AKS
+cluster worker nodes required to deploy CMS.
+To create worker nodes for the CMS installation, make sure you have the 
+Owner
+ role and run this command in the Azure Cloud
+Shell:
+az aks nodepool add -g <resource_group_name> -n <node_pool> --cluster-name <kubernetes_cluster_name> --node-vm-size <node-vm-size> --node-count <node-count> --mode System --labels Worker=cms role=loadbalancer
+where:
+<resource_group_name>
+: Enter the name of the resource group created in the prerequisite tasks. For example,
+myResourceGroup
+.
+<node_pool>
+: Specify the node pool name. The name should be different from the node pool name of the suite.
+<kubernetes_cluster_name>
+: Enter the name of the cluster created for the suite in the previous task.
+<node_vm_size>
+: Specify the size of virtual machines to create as Kubernetes nodes by referring to 
+Sizing guides (AKS)
+. For
+example, 
+Standard_D8s_v3
+.
+<node-count
+>
+: Specify the number of nodes in the Kubernetes node pool.
+ 
+After you create the worker nodes for CMS, you can run the following command to check whether the 
+cms 
+label is successfully
+assigned to the worker nodes:
+kubectl get nodes --show-labels
+Review the output to see if you can see
+ 
+Worker:cms
+ as the label for the worker nodes.
+External references
+For AKS information, see 
+AKS overview
+.
+For Azure Cloud Shell information, see 
+Azure Cloud Shell
+.
+For resource group information, see 
+Resource group
+.
+For information on Azure Container Registry , see 
+Azure Container Registry
+.
+For information on SKU types of Azure Container Registry, see 
+SKUs
+.
+For VNet and subnet information, see 
+Virtual network overview
+.
+For information on the supported Kubernetes versions in AKS, see 
+Supported Kubernetes versions in Azure Kubernetes
+Service
+.
+SMAX 2022.11
+Page 
+1014
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,96 @@
+            *)  if [[ -z $2 ]] ; then echo "-n|--namespace parameter requires a value. " ; exit 1 ; fi ; NAME_SPACE=$2 ; shift 2 ;;
+        esac ;;
+        -ns|--mount-path-ip)
+        case "$2" in
+            -*) echo "-ns|--mount-path-ip parameter requires a value. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-ns|--mount-path-ip parameter requires a value. " ; exit 1 ; fi ; NETAPPFILE_MOUNT_IP=$2 ; shift 2 ;;
+        esac ;;
+        -gp|--generic-volume-path)
+        case "$2" in
+            -*) echo "-gp|--generic-volume-path parameter requires a value. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-gp|--generic-volume-path parameter requires a value. " ; exit 1 ; fi ; GENERIC_PATH_VOLUME=$2 ; shift 2 ;;
+        esac ;;
+        -sp|--smarta-volume-path)
+        case "$2" in
+            -*) echo "-sp|--smarta-volume-path parameter requires a value. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-gp|--smarta-volume-path parameter requires a value. " ; exit 1 ; fi ; SMARTA_PATH_VOLUME=$2 ; shift 2 ;;
+        esac ;;
+        -m|--metadata)
+        case "$2" in
+            -*) echo "-m|--metadata. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-m|--metadata parameter requires a value. " ; exit 1 ; fi ; METADATA=$2 ; shift 2 ;;
+        esac ;;
+            -s|--size)
+        case "$2" in
+            -*) echo "-s|--size. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-s|--size parameter requires a value. " ; exit 1 ; fi ; SUITE_SIZE=$2 ; shift 2 ;;
+        esac ;;
+           -v|--version)
+        case "$2" in
+            -*) echo "-v|--version. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "-v|--version parameter requires a value. " ; exit 1 ; fi ; SUITE_VERSION=$2 ; shift 2 ;;
+        esac ;;
+        *|-*|-h|--help|/?|help) usage ;;
+    esac
+done
+if [ -z "$NAME_SPACE" ];then
+    echo "Abort installation because the '--namespace' is missing."
+    exit 1
+fi
+if [ -z "$NETAPPFILE_MOUNT_IP" ];then
+    echo "Abort installation because the '--mount-path-ip' is missing."
+    exit 1
+fi
+if [ -z "$GENERIC_PATH_VOLUME" ];then
+    echo "Abort installation because the '--generic-volume-path' is missing."
+    exit 1
+fi
+if [[ $NAME_SPACE =~ "itsma" ]] && [ -z "$SMARTA_PATH_VOLUME" ];then
+    echo "Abort installation because the '--smarta-volume-path' is missing."
+    exit 1
+fi
+if [ -z "$METADATA" ];then
+    echo "Abort installation because the '--metadata' is missing."
+    exit 1
+fi
+if [ -z "$SUITE_SIZE" ];then
+    echo "Abort installation because the '--size' is missing."
+    exit 1
+fi
+if [ -z "$SUITE_VERSION" ];then
+    echo "Abort installation because the '--version' is missing."
+    exit 1
+fi
+if [ -d $PV_DIR ];then
+    sudo rm -rf $PV_DIR
+fi
+sudo mkdir -p $PV_DIR
+echo "The pv yamls files can be found in $PV_DIR"
+#cd $PV_DIR
+######netappfile pv yaml teamplate
+cat>netappfilepvtemplate.yaml<<EOF
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{provide_pv_name}}
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: {{volume_size}}
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: {{provide_pvc_claim_name}}
+    namespace: ${NAME_SPACE}
+  nfs:
+    path: /{{path_volume}}/{{provide_volume_folder_name}}
+    server: ${NETAPPFILE_MOUNT_IP}
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: cdf-default
+SMAX 2022.11
+Page 
+1022
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

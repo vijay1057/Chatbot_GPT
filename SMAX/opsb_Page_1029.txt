@@ -1,0 +1,105 @@
+replaceCdfPvTemplate(){
+    local volumeName=$1
+    sed -i -e s!{{path_volume}}!${GENERIC_PATH_VOLUME}!g $PV_DIR/$volumeName.yaml
+    if [[ $volumeName == "itom-vol" ]]
+    then
+        sed -i -e s/{{volume_size}}/5Gi/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_volume_folder_name}}/${NAME_SPACE}/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pvc_claim_name}}/$volumeName-claim/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pv_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+    elif [[ $volumeName == "itom-logging" ]]
+    then
+        sed -i -e s/{{volume_size}}/5Gi/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pvc_claim_name}}/$volumeName-vol/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_volume_folder_name}}/$volumeName-vol/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pvc_claim_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pv_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+    elif [[ $volumeName == "db-backup-vol" ]]
+    then
+         sed -i -e s/{{volume_size}}/5Gi/g $PV_DIR/$volumeName.yaml
+         sed -i -e s/{{provide_pv_name}}/${NAME_SPACE}-$volumeName/g $PV_DIR/$volumeName.yaml
+         sed -i -e s/{{provide_pvc_claim_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+         sed -i -e s/{{provide_volume_folder_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+    else
+         echo "Wrong pv volume name, so exit"
+         exit 1
+     fi
+}
+replaceSuitePvTemplate(){
+  local volumeName=$1
+  getSuiteVolumeSize $volumeName
+    #local volumeSize=$VOLUME_SIZE
+  sed -i -e s/{{volume_size}}/${VOLUME_SIZE}/g $PV_DIR/$volumeName.yaml
+  sed -i -e s/{{provide_pv_name}}/${NAME_SPACE}-$volumeName/g $PV_DIR/$volumeName.yaml
+  sed -i -e s/{{provide_pvc_claim_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+  sed -i -e s/{{provide_volume_folder_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+  sed -i -e s!{{path_volume}}!${GENERIC_PATH_VOLUME}!g $PV_DIR/$volumeName.yaml    
+   # sed -i -e s/cdf-default/${STORAGE_CLASS}/g $volumeName.yaml
+    
+  if [[ $volumeName =~ "smartanalytics-" ]]
+  then
+      sed -i -e '/mfsymlinks/a\  - nobrl'  $PV_DIR/$volumeName.yaml        
+  fi
+}
+createCdfPv(){
+    local pvList=$@
+    for i in $pvList
+    do
+        cp azurepvtemplate.yaml $PV_DIR/$i.yaml
+        replaceCdfPvTemplate $i
+        kubectl create -f $PV_DIR/$i.yaml
+    done
+}
+createSuitePv(){
+    local pvList=$@
+    for j in $pvList
+    do
+        cp azurepvtemplate.yaml $PV_DIR/$j.yaml
+        replaceSuitePvTemplate $j
+        kubectl create -f $PV_DIR/$j.yaml
+    done
+}
+getAllVolumeForByok
+if [[ $NAME_SPACE == "core" ]]
+then
+    createCdfPv ${CDF_VOLUMES}
+    createCdfPv ${CDF_FOR_SUITE_VOLUME}
+elif [[ $NAME_SPACE =~ "itsma" ]]
+then
+    createSuitePv ${SUITE_VOLUMES}
+else
+    echo "please use the right namespace"
+    exit 1
+fi
+8
+. 
+Check if a file named 
+/<root>/.kube/config
+ with cluster credentials exists. If not, follow these steps:
+a
+. 
+Log in to the Azure CLI by running the command below and following the instructions in the command output:
+sudo az login
+b
+. 
+Run the following command to get the required permission to run the Kubernetes commands:
+sudo az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name> --subscription <subscription_name_or_id>
+In this command,
+<resource_group_name>
+: Enter the name of the resource group you created on the 
+Build AKS cluster
+ page. Do
+NOT
+ use your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+<kubernetes_cluster_name>
+: Enter the name of the created Kubernetes cluster.
+<subscription_name_or_id>
+: Enter your subscription name or ID. You can get it by navigating to the Azure portal
+SMAX 2022.11
+Page 
+1029
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

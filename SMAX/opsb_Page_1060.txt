@@ -1,0 +1,67 @@
+UCMDB Server
+cms_ucmdb
+cms_ucmdb_db
+ucmdb
+APLS
+cms_autopass
+cms_autopass_db
+public
+Service
+DB User
+DB Name
+Schema (default)
+Below are sample SQL commands for creating a user and a database for a service:
+1
+. 
+Log in to the bastion node and then run the following command to connect to the PostgreSQL instance. Replace value
+placeholders such as <postgres admin> with the actual value.
+psql "host=<fqdn of flexible server> port=5432 dbname=postgres user=<postgres admin> password=<password for admin> sslmode=verify-full sslrootcert=<full path of the root CA certificate>"
+2
+. 
+Run the following commands to create the databases and the users used by UCMDB Server and AutoPass:
+CREATE USER <USERNAME> PASSWORD '<PASSWORD>';
+grant <USERNAME> to <PostgresSQL admin>;
+CREATE DATABASE <DBNAME> OWNER <USERNAME>;   
+For example:
+# For UCMDB
+CREATE USER cms_ucmdb PASSWORD '<PASSWORD>';
+grant cms_ucmdb to <PostgresSQL admin>;
+CREATE DATABASE cms_ucmdb_db OWNER cms_ucmdb; 
+# For APLS 
+CREATE USER cms_autopass PASSWORD '<PASSWORD>';
+grant cms_autopass to <PostgresSQL admin>;
+CREATE DATABASE cms_autopass_db OWNER cms_autopass; 
+3
+. 
+Run the following commands to create the schemas used by UCMDB Server and AutoPass: 
+\c <DBNAME>
+CREATE SCHEMA <DBSCHEMA> AUTHORIZATION <USERNAME>;
+ALTER USER <USERNAME> SET search_path TO <DBSCHEMA>;
+For example:
+# For UCMDB
+ (Required):
+\c <ucmdb_db>
+CREATE SCHEMA <ucmdb_schema> AUTHORIZATION <ucmdb_user>;
+ALTER USER <ucmdb_user> SET search_path TO <ucmdb_schema>;
+# For APLS
+ (Optional) :
+\c <autopass_db>
+CREATE SCHEMA <autopass_schema> AUTHORIZATION <autopass_user>;
+ALTER USER <autopass_user> SET search_path TO <autopass_schema>;
+Note  
+<PASSWORD>
+ for database user should follow the following complexity defined by the Vault secret
+utility:
+At least 8 characters long
+Alphanumeric characters
+At least one lower case letter
+At least one upper case letter
+At least one digit
+
+
+SMAX 2022.11
+Page 
+1060
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

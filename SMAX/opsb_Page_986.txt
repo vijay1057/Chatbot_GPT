@@ -1,0 +1,102 @@
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-itsma-config
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-cgro
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-itsma-throttling
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-autopass
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-chat
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-virtual-agent
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-idm
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-pgha
+ Labels:       deployment.microfocus.com/approle-name=itsma-wkyr2-itom-sam
+2
+. 
+Note down any one of the 
+approle-name
+, for example, 
+itsma-wkyr2-itom-itsma-certificate
+.
+Audit collector NFS configuration
+Parameter
+Description
+Required
+Default
+Example
+auditCollector.nfs.collectionDelay
+The time gap (in minutes) between every audit file
+collection (collection interval).
+Yes
+60
+60 
+auditCollector.nfs.subpath
+The subPath is the directory/subPath to the PVC
+path. For example, if PVC is pointing to 
+/var/vols/itom
+/itsma
+ and subPath is 
+audit
+, then the Audit
+collector collects the files from the NFS path 
+/var/vol
+s/itom/itsma/audit
+. Audit producer should create this
+path.
+Yes
+Not
+defined
+audit
+Audit engine configuration
+Parameter
+Description
+Required
+Default
+Example
+auditCollector.auditengine.url
+The audit
+engine URL.
+Yes
+Not
+defined
+https://audit.esm.{cluster-
+name}.aws.itsma-ng.net/audit-service-
+engine
+IdM user configuration
+Parameter
+Description
+Required
+Default
+Example
+auditCollector.idm.integrationUser
+The user that's used to send audit to the
+Audit service. This user can be same as
+the Audit producer's integration user.
+Yes
+Not
+defined
+suite-
+admin
+auditCollector.idm.integrationUserOrgName
+The  organization that the integration
+user belongs to.
+Yes
+Not
+defined
+sysbo
+PVC
+Parameter
+Description
+Required
+Default
+Example
+auditCollector.pvc
+The PVC that's common between the Audit producer and Audit
+collector as these two apps work on the same directory.
+Yes
+Not
+defined
+global-
+volume
+SMAX 2022.11
+Page 
+986
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

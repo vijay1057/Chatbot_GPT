@@ -1,0 +1,143 @@
+Suite size
+(sizing
+profile)
+CMS control plane
+node
+CMS worker node
+CMS AFS
+CMS Database
+Type
+Volume
+Quantity
+Type
+Volume
+Type
+Storage
+Quantity
+Small
+Owned by Azure
+Standard
+D8s v3
+Disk: 100
+GB
+(Premium
+SSD)
+2 
+[4]
+Azure File
+(Premium)
+1 TB / 1
+TB
+Standard
+D8S_V3
+(Premium
+SSD) 
+[2]
+200
+GB
+1
+Medium
+Owned by Azure
+Standard
+D8s v3
+Disk: 100
+GB
+(Premium
+SSD)
+3 
+[4]
+Azure File
+(Premium) 
+[3]
+1 TB / 1
+TB
+Standard
+D16S_V3
+(Premium
+SSD) 
+[2]
+400
+GB
+1
+Large
+Owned by Azure
+Standard
+D8s v3
+Disk: 100
+GB
+(Premium
+SSD)
+4 
+[4]
+Azure File
+(Premium) 
+[3]
+1 TB / 1
+TB
+Standard
+D16S_V3
+(Premium
+SSD) 
+[2]
+800
+GB
+1
+Tuning configurations
+​​​
+Ingress and xruntime-ui tuning
+When you use Azure Files as the storage service and login or other operations are loading too many static resources, check if
+the response time of static resources is slow and scale out pairs of the 
+ingress
+ and 
+xruntime-ui
+ pods if needed:
+1
+. 
+Log in to the service portal and press 
+F12
+ to access the developer console. Check the response time of each static
+resource as shown in the screenshot below:
+2
+. 
+If the response time of many static resources is more than 10s, run the following command to open the ingress configmap
+and add the 
+$request
+ field to log format as shown in the screenshot below:
+kubectl edit cm itom-nginx-ingress-configmap -n <namespace>
+Note 
+Details of the resources required for the Large profile are currently not available. 
+
+
+Note
+1
+. 
+The volume sizes may grow on a daily basis. Check 
+Disk usage
+ below for more details.
+2
+. 
+Azure Database for PostgreSQL Flexible Server is supported and recommended. See more details in
+the 
+Support matrix for Azure deployment
+.
+3
+. 
+Check the 
+Minimal Azure File Service Level
+ below for the details to prepare Azure File for SMA. It's not
+recommended to deploy the large size using Azure File.
+4
+. 
+This is the minimum resources requirements for SMA deployment. According to sizing definition benchmark
+results, our lab tests indicate the average CPU utilization is 40~60%, and the memory utilization is 60~75%.
+If one node is down, it may cause services to be unavailable. From node high availability consideration, you
+are recommended to add at least one additional node or more depending on your actual environments such
+as ticket size, user access rate, and integrations.
+
+
+SMAX 2022.11
+Page 
+1001
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

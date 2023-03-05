@@ -1,0 +1,134 @@
+Component
+Database
+owner
+Database names
+Service
+Management
+maas_admin
+maas_admin, maas_template, xservices_ems, xservices_mng, xservices_rms, xie,
+and scheduler
+Suite
+Administration
+bo_db_user
+bo_ats, bo_user, bo_config, and bo_license
+Smart Analytics
+smarta
+smartadb
+IdM
+idm
+idm
+Autopass
+autopass
+autopassdb
+SAM
+sam
+sam
+7
+. 
+On the 
+Suite Admin Settings
+ page, specify an initial password for the following users, and click 
+Next
+:
+suite-admin
+: the user account used to access the Suite Administration interface.
+bo-integration@dummy.com
+: This is an internal integration user of the suite system. This user is used for internal
+integration, such as for synchronizing data between tenants and the suite administration interface (which is named
+"Suite Administration").
+8
+. 
+A warning appears, asking you to confirm if you want to start the installation process. Click 
+YES
+. The installation progress
+appears on the screen. You can log on to the bastion node and run the 
+kubectl get pods --namespace <namespace>
+ command
+to check the installation progress in the backend. You can run 
+kubectl get ns
+ to find the namespace of the suite ("itsma-
+xxxxx"). 
+9
+. 
+The suite installer starts installing the suite services, followed by post-installation actions. When the installer has
+completed the post-installation actions, the 
+Next
+ button becomes active. Click 
+Next
+. A 
+Congratulations
+ screen is
+displayed. Click 
+Finish
+. The OMT Management Portal opens. 
+Note
+: If the screen indicates any of the post-installation
+actions fails, see 
+Post-installation actions failed
+. 
+Configure the application gateway  
+Role
+Location
+Suite administrator
+Azure portal
+Step 1: Bind the load balancer with rules in the application gateway
+1
+. 
+Open the application gateway that you created.
+2
+. 
+Click 
+Backend Pools
+ > 
++Add
+ to create a new backend pool for 5443:
+Provide the following information:
+Name
+: Enter a name.
+Add backend pool without targets
+: Select 
+No
+.
+Target type
+: Select 
+IP address or FQDN
+.
+Target
+: Enter the IP address of the load balancer created for port 5443. You can get the IP address by using the 
+kube
+ctl get svc portal-ingress-controller-svc -n core | grep -v EXTERNAL-IP |awk '{print $4}'
+ command.
+3
+. 
+Click 
+Add
+.
+4
+. 
+Repeat the steps above to configure a backend pool for port 443. Note that for port 443 you can get the load balancer's IP
+address by running the 
+kubectl get svc itom-nginx-ingress-svc -n $(kubectl get namespaces|grep itsma|head -n 1|awk '{print $1}') | grep -
+v EXTERNAL-IP |awk '{print $4}'
+ command.
+Step 2: Configure listeners for ports 5443 and 443
+First, get the server certificate provided by OMT. You will need to use this certificate for the listeners that you will create for
+ports 5443 and 443. To do this, run the following commands on the bastion node:
+1
+. 
+Create the server certificate :
+kubectl get secret nginx-default-secret -n$(kubectl get namespaces|grep itsma|head -n 1|awk '{print $1}') -o json  | jq .data.'"tls.crt"' -r | base64 -d > server.crt
+Note   
+All these passwords must contain 10 to 16 characters from all the following categories:
+At least one uppercase letter
+At least one lowercase letter
+At least one digit
+At least one special character from the following: 
+,:/._?&%=+-[]()
+
+
+SMAX 2022.11
+Page 
+1047
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

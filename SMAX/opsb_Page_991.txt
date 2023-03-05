@@ -1,0 +1,60 @@
+Before you begin
+To orchestrate and manage resources efficiently, the suite uses Kubernetes as the platform to provide a reliable approach to
+scheduling resources and empower the application to be more fault-tolerant. Cloud-native Kubernetes platforms make
+the provisioning and management of Kubernetes much easier. With the cloud-native Kubernetes, the suite can serve
+customers in a secure, resilient, and simple way.
+On Azure, the cloud-native Kubernetes solution is Azure Kubernetes Service (AKS).
+Reference architecture
+The following reference architecture provides an overview of the process of deploying the suite on AKS.
+Benefits of using AKS
+AKS provides the following benefits:
+There are no more control plane nodes. The cluster has a guaranteed SLA provided by Azure at a lower cost.
+Managed worker nodes require a lower operational cost of cluster management.
+Cloud-native services are leveraged as much as possible to ease the management experience and reduce operational cost
+Azure Container Registry (ACR) is used as container image storage;
+Azure NetApp Files/Azure Files and Azure Disks are used as persistent storage for the suite product.
+Components
+SMA
+: the suite product shipped and running in the form of containers and managed by Kubernetes.
+Kubernetes
+: open-source software that allows you to deploy and manage containerized applications at scale.
+Bastion node
+: a node that sits in a public subnet. It's used to connect to resources in a private subnet (such as
+Kubernetes, databases, and storage) to perform tasks such as deployment, persistent volume setup, database setup,
+upgrade, and troubleshooting.
+Azure Kubernetes Service (AKS)
+: a fully managed service provided by Azure. Once provisioned, the service is ready to
+work as a Kubernetes platform for you.
+Azure NetApp Files (ANF)
+: a managed NFS service that stores data such as search engine storage, attachments,
+certificates, and logs used by containerized applications in Kubernetes. The storage is called Persistent Volume (PV) in
+Kubernetes.
+Azure Files Premium and Azure Disks
+: as an alternative to ANF, 
+Azure Files Premium
+ is a managed Server
+Message Block (SMB) service that stores data attachments, certificates, and logs used by containerized applications in
+Kubernetes; 
+Azure Disks 
+offers high-performance and highly durable block storage for search engine and RabbitMQ. The
+storage is called Persistent Volume (PV) in Kubernetes.
+Database
+ 
+(self-hosted)
+: stores transactional data and metadata used by containerized applications in Kubernetes.
+Azure Container Registry (ACR)
+: a managed Docker registry service that's secure, scalable, and reliable. The suite
+applications are shipped as container images, which are stored in an ACR.
+Load Balancer
+: used to route traffic from external to internal applications deployed on Kubernetes. Load balancers
+triggered from the Kubernetes service are able to discover the backend worker node change and always fit into the latest
+status of the worker node pool.
+Application Gateway
+: used to route traffic from external to internal applications deployed on Kubernetes; meanwhile, it
+comes with layer 7 load balancing features like SSL offloading.
+SMAX 2022.11
+Page 
+991
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

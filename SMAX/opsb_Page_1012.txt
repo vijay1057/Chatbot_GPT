@@ -1,0 +1,113 @@
+Build AKS cluster
+To use the Azure Kubernetes Service (AKS) to install and manage the suite on Azure, you need to perform the following
+prerequisite tasks and then create an AKS cluster. 
+Prerequisites
+Role
+Location
+Cloud administrator & IT / Network administrator
+Azure Cloud Shell
+Before creating the AKS cluster, follow these steps to prepare all the required resources:
+1
+. 
+Log in to the Azure portal at 
+https://portal.azure.com
+.
+2
+. 
+Open the Azure Cloud Shell by clicking the shell icon 
+ 
+in the header bar and select 
+Bash
+ when prompted.
+3
+. 
+Run the following command to create a resource group:
+az group create --name <resource_group_name> --location <location>
+where:
+<resource_group_name>
+: Give a name to this resource group, for example, 
+myResourceGroup
+.
+<location>
+: Specify a location for this resource group. For example, 
+westus2
+.
+4
+. 
+Run the following command to create a virtual network (VNet) and a subnet for AKS:
+az network vnet create -g <resource_group_name> -n <vnet_name> --address-prefix <vnet_CIDR> --subnet-name <subnet_name> --subnet-prefix <subnet_CIDR>
+where:
+<resource_group_name>
+: Type the name of the resource group created in the previous step, for example,
+myResourceGroup.
+<vnet_name>
+: Give a name to this virtual network.
+<vnet_CIDR>
+: Specify a CIDR notation for this virtual network. For example, 
+10.1.0.0/16
+.
+<subnet_name>
+: Give a name to this subnet for AKS.
+<subnet_CIDR>
+: Specify a CIDR notation for this subnet. In the next section when you create an AKS cluster, you will
+need to specify a network plugin. If you choose to use the 
+azure
+ plugin, make sure this subnet for AKS contains 
+at
+least 500
+ IP addresses (See 
+Why 500 IPs are required?
+). For example, 
+10.1.10.0/23
+. 
+5
+. 
+Collect the AKS subnet ID by running the following command. You may get more than one subnet ID in this step, however,
+you will need the one for 
+AKS
+ when creating an AKS cluster.
+az network vnet subnet list --vnet-name <vnet_name> -g <resource_group_name> -o json | grep 'subnets' | awk '{print $2}' | sed 's/,//g' | sed 's/"//g'| sed 2d
+where:
+<vnet_name>
+: Enter the name of the created virtual network.
+<resource_group_name>
+: Enter the name of the resource group created in step 3, for example, 
+myResourceGroup
+.
+6
+. 
+Prepare subnets for bastion, database and FileStorage. You need to create three more subnets under the same created
+virtual network.
+For bastion
+: 
+az network vnet subnet create -n <subnet name>  -g -<resource_group_name>  --vnet-name <vnet_name> --address-prefixes <subnet_CIDR> 
+For database
+: 
+az network vnet subnet create -n <subnet name>  -g -<resource_group_name>  --vnet-name <vnet_name> --address-prefixes <subnet_CIDR> --delegations  "Microsoft.DBforPostgreSQL/flexibleServers" 
+(optional) If you choose NetApp as File Storage, you need prepare subnet for it: 
+az network vnet subnet create -n <subnet name>  -g -<resource_group_name>  --vnet-name <vnet_name> --address-prefixes <subnet_CIDR>  --delegations  "Microsoft.Netapp/volumes", 
+Important
+ You must place all the created resources in the same VNet to prevent performance issues caused
+by network latency, including resource group, AKS cluster, bastion, Azure Files, Azure NetApp Files, PostgreSQL,
+etc.
+And do 
+NOT
+ route the internal traffic inside this VNet out to another VNet (for example, a firewall VNet). That is,
+make sure all the traffic between the created resources is within the same VNet.
+AKS isn't compatible with 
+Azure Security Center
+ very well. Therefore, if you enable 
+Azure Security Center
+ on
+a subscription, there will be disk IOPS spikes on all worker nodes of all AKS clusters in the subscription. See 
+Disk
+IOPS spikes on AKS worker nodes
+ for the solution.
+
+
+SMAX 2022.11
+Page 
+1012
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

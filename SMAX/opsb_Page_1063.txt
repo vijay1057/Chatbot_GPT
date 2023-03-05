@@ -1,0 +1,122 @@
+global.securityContext.fsGroup
+No
+This parameter
+specifies the
+operating system
+group ID that's used
+to run the process in
+the container. 
+Note:
+ The value
+can't be changed
+after installation.
+1999
+200001
+global.nodeSelector
+No
+This parameter
+specifies the nodes to
+run the process in the
+container. Set the
+corresponding node
+selector tags if you
+want the CMS
+services to run only
+on the specified
+nodes.
+The label of the CMS
+worker node specified
+here must be the
+same as the one
+when you 
+Launch AKS
+cluster worker nodes
+for CMS
+.
+Worker: label
+Worker: cms
+Parameter
+Required
+Description
+Default
+Example
+Shared IdM parameters
+For better user management between SMAX and CMS, configure the following parameters for CMS to use the SMAX IdM
+("shared IdM") to manage CMS users.
+Parameter
+Required
+Description
+Default
+Example
+global.idm.internal
+Yes
+This parameter specifies whether CMS uses
+internal IdM or external IdM. When CMS is
+deployed with SMAX, the value must be 
+false
+ for
+CMS to use SMAX IdM as the shared IdM.
+false
+false
+global.idm.idmAuthUrl
+Yes
+URL that's used by suite applications to redirect
+the browser to the IdM login screen.
+https://<SMA-
+FQDN>:443/idm-
+service
+global.idm.idmServiceUrl
+Yes
+URL that's used by suite applications to
+communicate with IdM, such as requesting the
+request token, calling IdM APIs, and so on.
+https://<SMA-
+FQDN>:443/idm-
+service
+global.idm.idmIntegrationAdmin
+Yes
+Name of the CMS integration admin user name
+created in 
+Create CMS integration admin user in
+the suite IdM
+.
+cms-integration-
+admin
+global.idm.tenant
+Yes
+IdM tenant organization name that's mapped to
+CMS Provider Customer, which is only used for
+non-business management, so the value should be
+sysbo
+.
+sysbo
+sysbo
+Networking parameters
+The networking configuration parameters are set by Load Balancer for accessing the CMS application user interfaces. Make
+sure that you allocate an FQDN for CMS (for example, via 
+Quickstart: Create an Azure DNS zone and record using the Azure
+portal
+) if you don't have one, and prepare a new certificate for this FQDN.
+Parameter
+Required
+Description
+Default
+Example
+global.externalAccessHost
+Yes
+Set the value to the FQDN of the load
+balancer.
+cms.example.com
+global.externalAccessPort
+Yes
+Set the value to the listening port on the
+load balancer for accessing the CMS
+application user interfaces.
+9443
+443
+SMAX 2022.11
+Page 
+1063
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

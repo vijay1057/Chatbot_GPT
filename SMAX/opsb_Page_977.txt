@@ -1,0 +1,97 @@
+auditService.replicas
+The number of Audit service pods that need to be
+running
+No
+2
+auditService.database.user
+The external DB user.
+Yes
+Not
+defined
+auditService.database.jdbcUrl
+The external DB database jdbcUrl.
+Yes
+Not
+defined
+auditService.hpa.maxReplicas
+Maximum number of pods for hpa to trigger
+Optional
+10
+auditService.hpa.minReplicas
+Minimum number of pods for hpa to trigger
+Optional
+2
+auditService.hpa.targetCPUUtilizationPercentage
+Threshold percentage for hpa
+Optional
+75
+Parameter
+Description
+Required
+Default
+IDM user configuration
+Parameter
+Description
+Required
+Default
+auditService.idm.superUser
+The user that is used to call IDM APIs to create the required
+groups, roles, and permissions. The user on IDM has to have
+the admin/super user privilege.
+Yes
+Not
+defined
+auditService.idm.superUserOrgName
+The super user organization.
+Yes
+Not
+defined
+Audit gateway configuration
+Parameter
+Description
+Required
+Default
+auditGateway.deployment.auditPublicIdmEntryPoint
+The external IDM URL.
+Yes
+Not
+defined
+auditGateway.deployment.auditInternalIdmEntryPoint
+The internal IDM URL.
+Yes
+Not
+defined
+auditGateway.deployment.auditTransportUser
+The external IDM transport username.
+Yes
+Not
+defined
+auditGateway.deployment.auditEndPoint
+The Audit service end point.
+Pass the integration/internal ALB FQDN and
+port.
+Otherwise this end point is generated using
+the
+global.externalAccessHost and
+global.externalAccessPort
+Yes
+Not
+defined
+auditGateway.hpa.maxReplicas
+Maximum number of pods for hpa to trigger
+Optional
+10
+auditGateway.hpa.minReplicas
+Minimum number of pods for hpa to trigger
+Optional
+2
+auditGateway.hpa.targetCPUUtilizationPercentage
+Threshold percentage for hpa
+Optional
+75
+SMAX 2022.11
+Page 
+977
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

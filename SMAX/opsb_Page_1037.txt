@@ -1,0 +1,166 @@
+Step 1: Create an Azure application gateway
+After the bootstrap installation, follow these steps to create an Azure application gateway.
+1
+. 
+Create an application gateway from the 
+Azure portal
+.
+2
+. 
+Populate the following basics settings:
+Subscription
+: Select your subscription.
+Resource group
+: Use the same one as your VNet and VMs.
+Application gateway name
+: Enter a descriptive name.
+Region
+: Select the same region as your VNet.
+Tier
+: Select 
+Standard V2
+.
+Under 
+Configure virtual network
+, select your VNet for the environment and prepared subnet for Application
+gateway.
+3
+. 
+On the 
+Frontends
+ page, set 
+Frontend IP address type
+ to 
+Public
+. Click 
+Add new
+ for the public IP address and enter a
+name for it, and then click 
+OK
+. 
+Note
+: With the Application Gateway v2 SKU, you can only use public frontend IP
+configuration. Private frontend IP configuration is currently not enabled for this SKU.
+4
+. 
+Click 
+Next: Backends >
+.
+Step 2: Configure a backend pool for port 3000
+To configure a backend pool for port 3000:
+1
+. 
+On the 
+Backends
+ page, click 
+Add a backend pool
+ to create a new backend pool for port 3000.
+2
+. 
+Provide the following information:
+Name
+: Enter a name.
+Add backend pool without targets
+: Select 
+No
+.
+Target type
+: Select 
+IP address or FQDN
+.
+Target
+: Enter the IP address of the load balancer for port 3000. You can obtain the IP address by running the 
+kubectl 
+get svc frontend-ingress-controller-svc -n core| grep -v EXTERNAL-IP |awk '{print $4}'
+ command. 
+Note
+: If you fail to get the IP
+address, see 
+Fail to configure a load balancer (AKS)
+ for troubleshooting information.
+3
+. 
+Click 
+Add
+.
+4
+. 
+Click 
+Next: Configuration >
+.
+Step 3: Add a routing rule
+On the 
+Configuration
+ page, follow these steps to add a routing rule.
+1
+. 
+Select 
+Add a routing rule
+.
+2
+. 
+In the window that opens, enter a name for the rule.
+3
+. 
+A routing rule requires a listener. Click the 
+Listener
+ tab to create a listener with the following settings:
+Priority
+: Set as 
+30
+.
+Listener name
+: Enter a name for the listener.
+Frontend IP
+: Select 
+Public
+ to choose the public IP that you created for the frontend.
+Protocol
+: Select 
+HTTPS
+.
+Port
+: Enter 
+3000
+.
+In the 
+HTTPS Settings
+ section,
+a
+. 
+First, create a certificate for the environment and export a pfx file from the certificate by following these steps:
+i
+. 
+Skip this step if you already have 
+server.crt
+ and 
+server.key
+ files for the hostname. If you don't, generate a
+certificate with these commands:
+export hostname="{HOSTNAME}"
+echo US>response.txt
+echo CA>>response.txt
+echo Palo Alto>>response.txt
+echo EntIT Software LLC, a Micro Focus company>>response.txt
+echo Support>>response.txt
+echo $hostname>>response.txt
+echo http://www.microfocus.com/cmdb>>response.txt
+echo challenge>>response.txt
+echo SMAX AKS Gateway SSL Certificate>>response.txt
+openssl req -passout pass:<server_csr_password> -new -out server.csr < response.txt
+mv privkey.pem server.key
+configure anything other than the resources required on this page. Or else, your configurations might get lost
+after the suite upgrade.
+
+
+Note
+ When performing the following steps on the Azure portal, if you see any parameters on the UI that are
+not mentioned in the steps, use their default value. 
+
+
+SMAX 2022.11
+Page 
+1037
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

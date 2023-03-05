@@ -1,0 +1,97 @@
+Download container images (AKS)
+Before you deploy the suite, you need to download the suite images from Docker Hub or other registries and then upload the
+images to your registry.
+Generate the image set
+Before downloading and uploading the images, you need to generate the image set with the following steps on the bastion
+node:
+1
+. 
+On the bastion node, navigate to the OMT installation directory:
+cd OMT_External_K8s_202x.xx-xxx/tools/generate-download
+2
+. 
+Run the following command to display the command-line options for the 
+generate_download_bundle
+ command:
+./generate_download_bundle.sh -h
+3
+. 
+Run the command together with the options required by your deployment. For example, run the following command:
+./generate_download_bundle.sh --chart <CMS helm chart file> -o <org name> [-d <destination dir>]
+Where:
+<CMS helm chart file>
+: The absolute path to the downloaded CMS helm chart package.
+<org name>
+: The organization in the image registry that contains the images for installation. By default, it is
+"hpeswitom".
+<destination dir>
+: The directory where the output .zip file is created. The default location is the current directory.
+The generate_download_bundle.sh compares the images needed by the suite with the images that already exist in the
+cluster, and generates a .zip file, 
+offline-download.zip
+, that enables you to download the required images from Docker
+Hub. The 
+offline-download.zip
+ is placed under the current working directory unless the "
+-d
+" option is specified.
+For example:
+./generate_download_bundle.sh --chart CMS_Helm_Chart-202x.xx/cms-helm-charts/charts/cms-1.x.0+202x0x00.xxx.tgz -o hpeswitom -d /tmp
+You receive the following messages indicating that you have successfully generated the offline-download.zip file:
+[INFO] 2020-07-31 17:58:46 : ** Generating the offline image download bundle ...
+[INFO] 2020-07-31 17:58:50 : Completed generation of offline-download.zip in /tmp
+The offline-download.zip will be placed in the
+ /tmp
+ directory as specified. This file contains a list of the required images
+and will be used when you run the Python script to transfer the suite images in the later step.
+4
+. 
+Unzip the 
+/tmp/offline-download.zip
+ file and copy the 
+/tmp/offline-download/image-set.json
+ file to the <
+OMT_External_K8s_202x.xx-xxx
+>/scripts/
+ directory.
+Download and upload images
+To download and upload the generated images, follow the steps below:
+1
+. 
+Download the 
+Cloud Deployment 1.2.10 
+package from the 
+ITOM Marketplace
+ website and unzip the package.
+2
+. 
+Copy the 
+smax-image-transfer.py
+ file from 
+.../Cloud Deployment 1.2.10/../byok
+ to 
+OMT_External_K8s_202x.xx-xxx/scripts
+.
+3
+. 
+Run the following commands to transfer the suite images from the source registry to your registry:
+Note
+ As the containerized CMS will be installed together with SMAX, we recommend that you upload CMS images
+together with that of SMAX. If you have already uploaded images to your registry, skip this step.
+Note:
+ To follow the steps in this section, you must have installed the 
+zip
+ Linux command on the node where you
+run the 
+generate_download_bundle.sh
+ script.
+Note
+  Python 3 is required to run the Python script below. Make sure Python 3 is installed on the bastion. 
+
+
+SMAX 2022.11
+Page 
+1052
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,11 @@
+Install and configure Vertica database
+If you plan to install CGRO, you must install and configure the Vertica database as a prerequisite. For information, refer
+to 
+Install and configure Vertica database
+.
+SMAX 2022.11
+Page 
+1034
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

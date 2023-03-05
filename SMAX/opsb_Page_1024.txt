@@ -1,0 +1,119 @@
+    done
+}
+createSuitePv(){
+    local pvList=$@
+    for j in $pvList
+    do
+        cp netappfilepvtemplate.yaml $PV_DIR/$j.yaml
+        replaceSuitePvTemplate $j
+        kubectl create -f $PV_DIR/$j.yaml
+    done
+}
+getAllVolumeForByok
+if [[ $NAME_SPACE == "core" ]]
+then
+    createCdfPv ${CDF_VOLUMES}
+    createCdfPv ${CDF_FOR_SUITE_VOLUME}
+elif [[ $NAME_SPACE =~ "itsma" ]]
+then
+    createSuitePv ${SUITE_VOLUME_NAMES}
+else
+    echo "please use the right namespace"
+    exit 1
+fi
+6
+. 
+Check if a file named 
+/<root>/.kube/config
+ with cluster credentials exists. If not, follow these steps:
+a
+. 
+Log in to the Azure CLI by running the command below and following the instructions in the command output:
+sudo az login
+b
+. 
+Run the following command to get the required permission to run the Kubernetes commands:
+sudo az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name> --subscription <subscription_name_or_id>
+In this command,
+<resource_group_name>
+: Enter the name of the resource group you created on the 
+Build AKS cluster
+ 
+page. Do
+NOT
+ use your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+<kubernetes_cluster_name>
+: Enter the name of the created Kubernetes cluster.
+<subscription_name_or_id>
+: Enter your subscription name or ID. You can get it by navigating to the Azure portal
+Home
+ page > 
+Subscriptions
+.
+7
+. 
+Run the following command to create Persistent Volumes for OMT:
+chmod 755 createnetappfilePV.sh
+sudo ./createnetappfilePV.sh  --namespace core  -ns <mount_path_ip> -gp <generic_volume_path>/var/vols/itom/itsma -m <suite_metadata_path> -v <suite_version> -s <suite_size>
+In these commands,
+<mount_path_ip>
+ is the IP address of the Azure NetApp Files.
+<generic_volume_path>
+ is the mount path without the IP address. For example, if the mount path is
+10.1.3.4:/generic
+, your 
+<generic_volume_path>
+ should be 
+generic
+.
+<suite_metadata_path>
+ is the directory of the suite metadata. For example, 
+/root/itsma-suite-metadata-xxx.xx.tgz
+.
+<suite_version>
+ is the suite version. For example, 
+2022.11
+.
+<suite_size>
+ is the deployment size of the suite. Use one of the following values:
+ 
+SMALL
+, 
+MEDIUM
+, or 
+LARGE
+.
+You can find your 
+<mount_path_ip>
+ and 
+<generic_volume_path>
+ by navigating to the Azure portal > 
+Azure NetApp Files 
+>
+the NetApp Files instance you created > 
+Volumes
+.
+External references
+For Azure NetApp Files information, see 
+NetApp Files
+.
+For Diagnostics storage account information, see 
+Storage account
+.
+Note
+ You will continue to create Persistent Volumes for the suite after you log in to the installation portal
+and upload the suite metadata. For details, see 
+Step 3 on the 
+Select the deployment configuration
+ page
+.
+
+
+SMAX 2022.11
+Page 
+1024
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

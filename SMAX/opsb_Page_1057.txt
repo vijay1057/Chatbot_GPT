@@ -1,0 +1,98 @@
+    echo "Abort installation because the '--namespace' is missing."
+    exit 1
+fi
+if [ -z "$CMS_PATH_VOLUME" ];then
+    echo "Abort installation because the '--cms-volume-path' is missing."
+    exit 1
+fi
+if [ -z "$UiD" ];then
+    echo "Abort installation because the '--uid' is missing."
+    exit 1
+fi
+if [ -z "$GiD" ];then
+    echo "Abort installation because the '--gid' is missing."
+    exit 1
+fi
+if [ -d $PV_DIR ];then
+    sudo rm -rf $PV_DIR
+fi
+sudo mkdir -p $PV_DIR
+echo "The pv yamls files can be found in $PV_DIR"
+cd $PV_DIR
+###azure file pv yaml template
+cat>azurepvtemplate.yaml<<EOF
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{provide_pv_name}}
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 1Mi
+  azureFile:
+    secretName: ${AZURE_SECRECT}
+    shareName: {{path_volume}}/{{provide_volume_folder_name}}
+    secretNamespace: ${NAME_SPACE}
+  mountOptions:
+  - dir_mode=0775
+  - uid=${UiD}
+  - gid=${GiD}
+  - mfsymlinks
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: cms-default
+  volumeMode: Filesystem
+EOF
+replaceSuitePvTemplate(){
+    local volumeName=$1
+    sed -i -e s!{{path_volume}}!${CMS_PATH_VOLUME}!g $volumeName.yaml
+    if [[ $volumeName =~ "cms" ]]
+    then
+         sed -i -e s/1Mi/5Gi/g $volumeName.yaml
+         sed -i -e s/{{provide_pvc_claim_name}}/$volumeName/g $volumeName.yaml
+         sed -i -e s/{{provide_volume_folder_name}}/$volumeName/g $volumeName.yaml
+         sed -i -e s/{{provide_pv_name}}/$volumeName/g $volumeName.yaml
+         sed -i -e '/mfsymlinks/a\  - nobrl' $volumeName.yaml
+         sed -i -e s!{{path_volume}}!${CMS_PATH_VOLUME}!g $volumeName.yaml
+    else
+         echo "Wrong pv volume name, so exit"
+         exit 1
+     fi
+}
+createSuitePv(){
+    local pvList=$@
+    for i in $pvList
+    do
+        cp azurepvtemplate.yaml $i.yaml
+        replaceSuitePvTemplate $i
+        kubectl create -f $i.yaml
+    done
+}
+if [[ $NAME_SPACE == "core" ]]
+then
+    createCdfPv ${CDF_VOLUMES}
+elif [[ $NAME_SPACE =~ "cms" ]]
+then
+    createSuitePv ${SUITE_VOLUMES}
+else
+    echo "please use the right namespace"
+    exit 1
+fi
+5
+. 
+Check if a file named 
+/<root>/.kube/config
+ with cluster credentials exists. If not, follow these steps:
+1
+. 
+Log in to the Azure CLI by running the command below and following the instructions in the command output:
+sudo az login
+2
+. 
+Run the following command to get the required permission to run the Kubernetes commands:
+SMAX 2022.11
+Page 
+1057
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

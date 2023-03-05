@@ -1,0 +1,123 @@
+Medium
+Owned by
+Azure
+Standard
+D8s v3
+Disk: 100
+GB
+(Premium
+SSD)
+4*
+Azure NetApp
+Files
+(Premium)***
+4 TB*****
+Standard
+D16S_V3
+(Premium
+SSD)******
+400
+GB
+1
+Azure File
+(Premium) &
+Azure Disks****
+1 TB for Azure File
++ 1 TB at most for
+Azure Disks
+Notes:
+* This is the minimum resources requirements for SMA deployment. According to sizing definition benchmark results, our lab
+tests indicate the average CPU utilization is 40 ~ 60%, and the memory utilization is 60 ~ 75%. If one node is down, it may
+cause services to be unavailable. From node high availability consideration, it's recommended that you add at least one
+additional node or more depending on your actual environments such as ticket size, user access rate, and integrations.
+** The volume sizes may grow on a daily basis. Check 
+Disk usage
+ below for more details.
+Disk usage
+Number of requests in database
+AFS size
+100 K
+160 GB
+300 K
+600 GB
+If you use Azure Files as storage, Azure Disks are used to store the Smart Analytics and RabbitMQ data, which will provision
+disk dynamically and consume 1 TB of disk usage at most.
+*** Check the 
+Minimal Azure NetApp Files Service Level
+ below for the details to prepare Azure NetApp Files for SMA. The
+volume quota is used to reserve better performance on storage.
+Minimal Azure NetApp Files Service Level
+Suite size (sizing
+profile)
+Minimal Azure NetApp File Service
+Level
+Volume Quota
+Small
+Standard
+>=4 TB (3 TB quota for Smart Analytics, 1 TB quota for
+OMT and SMA)
+Medium
+Premium
+>=4 TB (2 TB quota for Smart Analytics, 2 TB quota for
+OMT and SMA)
+**** Check the 
+Minimal Azure File Service Level
+ below for the details to prepare Azure File for SMA. It's not recommended
+to deploy the large size using Azure Files.
+Minimal Azure Files Service Level
+Suite size (sizing profile)
+Minimal Azure File Service Level
+Volume Quota
+Small
+Premium
+>=1 TB
+Medium
+Premium
+>=1 TB
+***** 4 TB is the minimum allowed size for Azure NetApp Files. See 
+Set up a capacity pool
+ for more information.
+****** Azure Database for PostgreSQL Flexible Server is supported and recommended. See more details in 
+Support matrix for
+Azure deployment
+.
+The sizes are for your reference only. They may vary depending on your ticket size, user access rate, integrations, and more.
+Hardware requirements for bastion
+The following table lists the minimum resources needed for setting up a bastion in the cloud for CentOS.
+Bastion instance type
+Boot disk type
+Boot disk size
+Bastion OS
+Standard B1ms
+Premium SSD
+100 GB
+Centos 7.5 + (x86_64)
+Notes:
+ You can switch to better instance types for better performance.
+Additional hardware requirements for OO
+The following sizing requirements denote the target deployment size for a dedicated OO database, based on the number of
+tenants. This is not based on concurrent users.
+To deploy OO for a 5-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+To deploy OO for a 20-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+ 
+Target
+size
+Number of
+OO tenants
+AKS nodes configuration for OO
+OO AFS 
+OO Database on Azure DB for PostgreSQL - Flexible server
+SMAX 2022.11
+Page 
+997
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

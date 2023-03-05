@@ -1,0 +1,150 @@
+AKS VM
+type
+Configuration
+Storage
+Quantity
+Configuration
+Additional
+storage
+ Type
+vCPU
+Memory
+Storage
+Quantity
+max_connections
+Small
+1 to 5
+Standard
+D8s v3
+8 vCPU
+32 GB
+RAM
+100 GB
+2
+OO
+shares
+the
+same
+AFS
+server
+with
+the
+suite.
+500
+GB
+Standard 
+D4s_v3
+(Premium SSD)**
+4
+16 GB
+750 GB ~ 5 TB
+Medium
+6 to 20
+Standard
+D8s v3
+8 vCPU
+32 GB
+RAM
+100 GB
+8
+OO
+shares
+the
+same
+AFS
+server
+with
+the
+suite.
+500
+GB
+Standard D16s_v3
+(Premium SSD)**
+16
+64 GB
+750 GB ~ 5 TB
+#The max_connections value for the OO database should be set to 1400 or more.
+##The max_connections value for the OO database should be set to 5710 or more.
+**Azure Database for PostgreSQL Flexible Server is supported and recommended. See more details in the 
+Support matrix for
+Azure deployment
+.
+Additional hardware requirements for DND & OO
+The system requirements for SMA and Design and Deploy (DND) can be planned while installing SMA or at a later point when
+you are deploying DND on an existing SMA setup. 
+First, make sure that you have determined your SMA deployment size by using the table in the "SMA size definitions" section. 
+Then, use the following table to determine your DND deployment size. Note that this table is applicable to a single DND
+instance. If you will enable DND for multiple tenants (one DND Instance for each tenant), you need to determine the
+deployment size of each individual DND instance. 
+DND
+deployment
+size
+Small
+Medium
+Large
+Notes
+Number of
+cloud
+subscriptions
+per hour
+30
+60
+-
+The numbers in the table are meant to be approximate for a given deployment
+environment, but not exact. For example, a Small environment may only create 5
+offerings, or 10 per category, although the table lists a representative number of
+20. In your anticipated environment, you may find the expected numbers of
+tenants to span multiple profile definitions (for example, the number of active
+subscriptions may fit the Small deployment, while the number of offerings may fit
+the Medium profile). In such a case, select the profile that seems most
+representative of your anticipated environment, with the number of total
+subscriptions of particular importance. The sizing configuration is based on the
+results of in-house performance testing against these deployment environments.
+In general, you should find the need to tune the configuration parameters after
+the installation, as the components can be scaled manually as needed, to support
+the size of the environment you have specified.
+Number of
+active
+subscriptions
+1,000
+7,500
+-
+Number of
+canceled
+subscriptions
+10,000
+50,000
+-
+Number of
+offerings per
+category
+20
+20
+-
+Total
+number of
+designs
+35
+75
+-
+Use the table below to plan the additional hardware resources for each individual DND instance. The additional hardware
+resources for DND are the total of the additional hardware resources for all DND instances. The table includes the hardware
+requirements for OO also as it is required for DND. 
+For OO, choose one of the following options for setting up a database:
+Note
+: For AFS and Postgres HA configuration, follow the recommendations provided in vendor-specific
+documentation. Example: To configure Postgres HA, see 
+High Availability PostgreSQL with Patroni
+.
+
+
+Important: 
+When you are installing DND functionality on an existing setup, you need to reconfigure the
+hardware resources as per the recommendations given in the below tables to accommodate the required
+additional resources. 
+SMAX 2022.11
+Page 
+998
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

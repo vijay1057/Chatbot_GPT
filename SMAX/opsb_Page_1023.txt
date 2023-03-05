@@ -1,0 +1,96 @@
+  volumeMode: Filesystem
+EOF
+getAllVolumeForByok(){
+    SUITE_VOLUMES_JSON_LIST=""
+    if [ ! -f ${METADATA} ]; then
+        echo "fatal" "${METADATA} not found"
+    fi
+    if [ -z "$SUITE_VERSION" ];then
+        echo "fatal" "SUITE_VERSION is empty!"
+    fi
+    if [[ "${METADATA}" != "" ]] ; then
+        #mkdir -p ${currentDir}/suite-metadata
+        tar -xzf ${METADATA} -C ${currentDir}
+        SUITE_VOLUMES_JSON_LIST=$(cat ${currentDir}/suite-metadata/suite_feature/${SUITE_NAME}/${SUITE_VERSION}/${SUITE_NAME}_suitefeatures.${SUITE_VERSION}.json|jq  '.volumes')
+        VOLUME_NUM=`echo $SUITE_VOLUMES_JSON_LIST | jq '.|length'`
+        SUITE_VOLUME_NAMES=$(echo ${SUITE_VOLUMES_JSON_LIST}| jq -r '.[].name')            
+    fi
+}
+getSuiteVolumeSize(){
+  volumeName=$1
+  for i in `seq $VOLUME_NUM`
+  do 
+     i=`expr $i - 1`
+     volume_name=$(echo ${SUITE_VOLUMES_JSON_LIST}| jq -r ".[$i].name")
+     if [ "$volume_name" = "$volumeName" ] ; then
+         volumeMap=$(echo ${SUITE_VOLUMES_JSON_LIST}| jq -r ".[$i]")
+       VOLUME_SIZE=$(echo $volumeMap| jq .size.$SUITE_SIZE)
+       return 0
+     fi
+  done
+  return 1
+}
+replaceCdfPvTemplate(){
+    local volumeName=$1
+    sed -i -e s!{{path_volume}}!${GENERIC_PATH_VOLUME}!g $PV_DIR/$volumeName.yaml
+    if [[ $volumeName == "itom-vol" ]]
+    then
+        sed -i -e s/{{volume_size}}/5Gi/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_volume_folder_name}}/${NAME_SPACE}/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pvc_claim_name}}/$volumeName-claim/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pv_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+    elif [[ $volumeName == "itom-logging" ]]
+    then
+        sed -i -e s/{{volume_size}}/5Gi/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pvc_claim_name}}/$volumeName-vol/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_volume_folder_name}}/$volumeName-vol/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/{{provide_pv_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+    elif [[ $volumeName == "db-backup-vol" ]]
+    then
+         sed -i -e s/{{volume_size}}/5Gi/g $PV_DIR/$volumeName.yaml
+         sed -i -e s/{{provide_pv_name}}/${NAME_SPACE}-$volumeName/g $PV_DIR/$volumeName.yaml
+         sed -i -e s/{{provide_pvc_claim_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+         sed -i -e s/{{provide_volume_folder_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+    else
+         echo "Wrong pv volume name, so exit"
+         exit 1
+    fi
+}
+replaceSuitePvTemplate(){
+    local volumeName=$1
+    getSuiteVolumeSize $volumeName
+    sed -i -e s/{{volume_size}}/${VOLUME_SIZE}/g $PV_DIR/$volumeName.yaml
+    sed -i -e s/{{provide_pv_name}}/${NAME_SPACE}-$volumeName/g $PV_DIR/$volumeName.yaml
+    sed -i -e s/{{provide_pvc_claim_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+    sed -i -e s/{{provide_volume_folder_name}}/$volumeName/g $PV_DIR/$volumeName.yaml
+    if [[ $volumeName =~ "-smarta-" ]]
+    then
+        sed -i -e s/ReadWriteMany/ReadWriteOnce/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/cdf-default/${STORAGE_CLASS}/g $PV_DIR/$volumeName.yaml
+        sed -i -e s!{{path_volume}}!${SMARTA_PATH_VOLUME}!g $PV_DIR/$volumeName.yaml
+    elif [[ $volumeName =~ "rabbitmq-" ]]
+    then
+        sed -i -e s/ReadWriteMany/ReadWriteOnce/g $PV_DIR/$volumeName.yaml
+        sed -i -e s/cdf-default/${STORAGE_CLASS}/g $PV_DIR/$volumeName.yaml
+        sed -i -e s!{{path_volume}}!${GENERIC_PATH_VOLUME}!g $PV_DIR/$volumeName.yaml
+    
+    elif [[ $volumeName =~ "smartanalytics-" ]]
+    then
+        sed -i -e s!{{path_volume}}!${SMARTA_PATH_VOLUME}!g $PV_DIR/$volumeName.yaml
+    else
+        sed -i -e s!{{path_volume}}!${GENERIC_PATH_VOLUME}!g $PV_DIR/$volumeName.yaml
+    fi
+}
+createCdfPv(){
+    local pvList=$@
+    for i in $pvList
+    do
+        cp netappfilepvtemplate.yaml $PV_DIR/$i.yaml
+        replaceCdfPvTemplate $i
+        kubectl create -f $PV_DIR/$i.yaml
+SMAX 2022.11
+Page 
+1023
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,242 @@
+2
+. 
+Get the server certificate key:
+kubectl get secret nginx-default-secret -n$(kubectl get namespaces|grep itsma|head -n 1|awk '{print $1}') -o json  | jq .data.'"tls.key"' -r | base64 -d > server.key
+3
+. 
+Export the server certificate to a PFX file:
+openssl pkcs12 -export -out certificate.pfx -inkey server.key -in server.crt
+When prompted, enter a password for the 
+certificate.pfx
+ file.
+4
+. 
+Copy the 
+certificate.pfx
+ file to the local drive of the machine on which you will launch the Azure portal. 
+Configure a separate listener for each port as follows:
+1
+. 
+Click 
+Listeners
+, and then click 
++Add listener
+ to create a listener for port 5443.
+2
+. 
+Provide the following information:
+Listener name
+: Enter a name for the listener.
+Frontend IP
+: Select 
+Public
+ to choose the public IP address you created for the frontend.
+Port
+: Enter 
+5443
+.
+Protocol
+: Select 
+HTTPS
+.
+Choose a certificate
+: Select 
+Create new
+, and then select 
+Upload a certificate
+ to upload the 
+certificate.pfx
+ 
+file
+that you created:
+PFX certificate file
+: select the 
+certificate.pfx
+ 
+file
+Cert name
+: specify a name for the certificate
+Password
+: enter the password you specified when exporting the 
+certificate.pfx
+ 
+file
+Additional settings
+:
+Listener type
+: Select 
+Basic
+.
+Error page URL
+: Select 
+No
+.
+3
+. 
+Click 
+Add
+.
+4
+. 
+Repeat the steps above for port 443. All of the settings are the same except the port number.
+Step 3: Configure Backend settings for ports 5443 and 443
+Create a separate backend setting for each port as follows:
+1
+. 
+Click 
+Backend settings
+ > 
++ Add
+ to create an Backend setting for port 5443.
+2
+. 
+Provide the following information:
+Backend settings name
+: Enter a name.
+Backend protocol
+: Choose 
+HTTPS
+.
+Backend port
+: Enter 
+5443
+.
+Choose a certificate
+: select 
+Select existing
+, choose the 
+RE_ca.cer
+ file that you 
+created for port 3000
+ and click 
++
+Add certificate
+.
+Override with new hostname
+: Select 
+Yes
+, choose 
+Override with specific domain name
+, and then enter your
+external access hostname.
+Request time-out (seconds)
+: Enter 
+180
+.
+Use custom probe
+: select 
+No
+. You will create a custom probe in a later step.
+3
+. 
+Click 
+Save
+. The Backend settings configuration for port 5443 is completed.
+4
+. 
+Repeat the steps above for port 443, use the same settings for port 5443, except that you need to enter 
+443
+ for the
+backend port and select the existing 
+RE_ca.cer
+ file 
+created for port 3000
+ (no need to create a new certificate).
+Step 4: Add a routing rule for each port
+Configure a separate routing rule for each of the ports (5443 and 443).
+1
+. 
+Click 
+Rules
+, and then click 
++Request routing rule
+ to create a rule for port 5443.
+2
+. 
+Select 
+Add a rule
+ in the Routing rules column.
+3
+. 
+In the 
+Add a routing rule
+ window that opens, enter a name for the rule. Set 
+Priority 
+for 443 as 10 and priority for 5443
+as 20.
+4
+. 
+A routing rule requires a listener. On the 
+Listener
+ tab, in the 
+Listener
+ field, select the listener that you created for port
+5443.
+5
+. 
+On the 
+Backend targets
+ tab, select 
+Backend pool
+ as the target type, and then in the 
+Backend target
+ field select the
+backend pool that you created for port 5443.
+6
+. 
+In the 
+Backend settings
+ field, select the Backend setting that you created for port 5443.
+7
+. 
+Click 
+Save
+. The configuration for port 5443 is completed.
+8
+. 
+Repeat the steps above to configure a routing rule for port 443 by selecting the listener and backend pool that you
+created for port 443.
+Step 5: Configure health probes for the ports
+Configure a separate probe for each of the ports (5443 and 433) as follows:
+1
+. 
+Click 
+Health probes
+, click 
++Add
+ to create a health probe for port 5443.
+2
+. 
+Provide the following information:
+Name
+: Enter a name.
+Protocol
+: Select 
+HTTPS
+.
+Host
+: Enter your external access hostname.
+Path
+: Enter 
+/
+.
+Interval (seconds)
+: Enter 
+30
+.
+Timeout (seconds)
+: Enter 
+5
+.
+Unhealthy threshold
+: Enter 
+15
+.
+Backend settings
+: Select the one that you created for port 5443.
+SMAX 2022.11
+Page 
+1048
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

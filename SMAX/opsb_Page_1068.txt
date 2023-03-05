@@ -1,0 +1,49 @@
+caCertificates
+Yes
+The content of the SMAX CA certificate encoded by base64.
+To get the content of the SMAX CA certificate on Azure, follow
+these steps:
+1
+. 
+Access SMAX from a web
+browser: 
+https://<SMAX_External_Access_Host>:443
+.
+2
+. 
+Click the lock icon before the URL on the address bar.
+3
+. 
+Export the site root certificate to a file with the Base-64
+encoded X.509 (.CER) format. 
+To encode the certificate as base64, run the following
+command:
+echo -e "caCertificates:\n  smax.crt: |\n    $(base64 -w 0 smax.crt)" > /tm
+p/certificates.yaml
+Then, copy the content with the encoded certificate in the
+/tmp/certificates.yaml
+ file to
+ my-values.yaml
+.
+You must keep the original format of the certificate without
+adding any spaces or changing the indentation.
+Example:
+caCertificates:
+  smax.crt: |
+    <certificate content 
+base64 encoded>
+See the example in
+the screenshot
+after this table.
+Parameter
+Required
+Description
+Default
+Example
+Certificate example:
+SMAX 2022.11
+Page 
+1068
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

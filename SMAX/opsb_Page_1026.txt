@@ -1,0 +1,101 @@
+Role
+Location
+Storage administrator
+Bastion node
+Once the Azure file share is ready, log on to the bastion and set up volumes to store the generic data by following these steps:
+1
+. 
+Install the NFS client on the bastion:
+sudo yum install -y nfs-utils cifs-utils
+2
+. 
+Copy and save the following script as 
+mountazurefile.sh
+:
+#!/bin/bash
+MOUNTPOINT=/mnt/nfs/$3
+sudo mkdir -p $MOUNTPOINT
+if [ ! -d "/etc/smbcredentials" ]; then
+sudo mkdir /etc/smbcredentials
+fi
+if [ ! -f "/etc/smbcredentials/$1.cred" ]; then
+    sudo bash -c "echo username=$1 >> /etc/smbcredentials/$1.cred"
+    sudo bash -c "echo password=$2 >> /etc/smbcredentials/$1.cred"
+fi
+sudo chmod 600 /etc/smbcredentials/$1.cred
+sudo bash -c "echo //$1.file.core.windows.net/$3 $MOUNTPOINT cifs nofail,vers=3.0,credentials=/etc/smbcredentials/$1.cred,dir_mode=0775,file_mode=0775,serverino,mfsymlinks,uid=$4,gid=$5 >> /etc/fstab"
+sudo mount -t cifs //$1.file.core.windows.net/$3 $MOUNTPOINT -o vers=3.0,credentials=/etc/smbcredentials/$1.cred,dir_mode=0775,file_mode=0775,serverino,mfsymlinks,uid=$4,gid=$5
+3
+. 
+Run the following command to mount the Azure file share for the 
+generic
+ data to bastion:
+sudo ./mountazurefile.sh  <storage_account_name> <storage_account_key> <generic_fileshare_name> <system_user_id> <system_group_id>
+In this command,
+<storage_account_name>
+ is the name of the created FileStorage account.
+<storage_account_key>
+ is the key you got when creating the Azure file share.
+<generic_fileshare_name>
+ is the name of the Azure file share for storing the 
+generic
+ data.
+<system_user_id>
+ and 
+<system_group_id>
+: specify an operating system user ID and group ID that are used to run the
+process in the container, respectively. Both values must be 1999 or a number between 100000 and 2000000000.
+4
+. 
+Run the following commands to create directories for the 
+generic
+ data:
+cd /mnt/nfs/<generic_fileshare_name>
+sudo mkdir  -p var/vols/itom/itsma/core
+sudo mkdir  -p var/vols/itom/itsma/db-backup-vol
+sudo mkdir  -p var/vols/itom/itsma/db-single-vol
+sudo mkdir  -p var/vols/itom/itsma/global-volume
+sudo mkdir  -p var/vols/itom/itsma/db-volume
+sudo mkdir  -p var/vols/itom/itsma/smartanalytics-volume
+sudo mkdir  -p var/vols/itom/itsma/itom-logging-vol
+In these commands,
+<generic_fileshare_name>
+ is the name of the Azure file share for storing the 
+generic
+ data.
+5
+. 
+Run the following command to test the performance of the Azure file share. 
+Do not proceed if the result can't meet
+the minimum requirement.
+dd if=/dev/zero of=/mnt/nfs/<general_fileshare_name>/small.img bs=512 count=10000 oflag=dsync
+In this command, 
+<general_fileshare_name>
+ is the name of the Azure file share for storing the 
+generic
+ data.
+The output looks as below:
+10+0 records in
+10+0 records out
+5120 bytes (5.1 kB, 5.0 KiB) copied, 0.0713496 s, 
+71.8 kB/s
+The minimum requirement for the suite installation is 
+60 kB/s
+. Based on the performance tests, the command returns an
+output higher than 60 kB/s in most Azure regions.
+Any number smaller than that will cause the installation to fail, in which case you have two options:
+Considering using 
+Azure NetApp Files
+.
+Contact Azure support to fix the performance issue.
+6
+. 
+Run the following commands to create a namespace for OMT and generate the secret under the OMT namespace for
+Kubernetes to access the Azure file share:
+kubectl create ns core
+SMAX 2022.11
+Page 
+1026
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

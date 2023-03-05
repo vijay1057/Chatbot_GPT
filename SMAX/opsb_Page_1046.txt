@@ -1,0 +1,157 @@
+Deploy the suite
+At the 
+Configure/Deploy
+ phase, the installer starts to deploy the suite. Follow these steps to configure and deploy the suite.
+1
+. 
+Accept the security agreement, and then click 
+Next
+.
+Note
+: Once you have accepted the agreement, a legal-agreement-YYYYMMDDHHMM.txt file is generated in the following
+directory on the NFS server: <itom-vol-claim>/suite-install/itsma/output/. Here is an example: /var/vols/itom/core/suite-
+install/itsma/output/legal-agreement-202007011403.txt.
+2
+. 
+The 
+Suite Installation Configuration
+ page shows which capabilities will be installed and which deployment size will be
+used. Click 
+Next
+.
+3
+. 
+On the 
+Configure Database 
+page, switch on the 
+External Database
+ button to configure external databases for the
+suite.
+4
+. 
+Create a configuration for each external database server so that you can assign the configuration to one or more suite
+components in the next step. To create database configurations, follow these steps:
+a
+. 
+Click 
+Add
+ at the upper right corner of the screen.
+b
+. 
+Specify a unique name (for example, suite-db1) for the database configuration and then click 
+SAVE
+.
+c
+. 
+Specify the database connection settings.
+Setting
+Description
+Example
+PostgreSQL
+Server
+Host Name
+or IP
+Address
+Enter the fully qualified domain name or IP address of the external
+PostgreSQL database server.
+sma-
+pg.mycompany.net
+PostgreSQL
+Server Port
+Enter the communication port of the external PostgreSQL database server.
+5432
+Username
+and
+Password
+Enter the user name and password of the DBA user account that you have
+already created. The suite will use the PostgreSQL DBA accounts to create
+databases and database owners for the suite components.
+postgres /
+passwordpostgres
+TLS 1.2
+If the PostgreSQL database server requires TLS connections, perform the
+following steps:
+1
+. 
+Select the 
+TLS 1.2
+ option.
+2
+. 
+Upload your PostgreSQL CA certificate file (in PEM format) to the suite.
+The CA certificate can be single-level or multi-level. If multi-level, the
+CA certificate must include the entire CA certificate chain (that is, the
+root CA certificate, second CA certificate, and third CA certificate). To
+upload the PostgreSQL CA certificate file, either drag and drop the file
+from your local drive to the box or browse to the file.
+3
+. 
+Wait until the file upload is complete.
+4
+. 
+Select an SSL mode from the list:
+verify-ca
+: the client will verify that the server is trustworthy by
+checking the certificate chain up to a trusted certificate authority
+(CA).
+verify-full
+: the client will also verify that the server hostname
+matches the common name in the server certificate. The SSL
+connection will fail if the server certificate can't be verified. This
+mode is recommended in most security-sensitive environments.
+Notes
+:
+By deselecting the 
+TLS
+ 
+1.2
+ option, you are disabling or bypassing
+security features, thereby exposing the system to increased security
+risks. By using the non-TLS option, you understand and agree to
+assume all associated risks and hold 
+Micro Focus
+ harmless for the same.
+You have the option to enable PostgreSQL SSL after the installation. For
+details, see 
+Enable SSL connections to external PostgreSQL after suite
+installation
+.
+d
+. 
+Click 
+SAVE
+.
+e
+. 
+Repeat the steps above to create more database configurations if needed.
+f
+. 
+Check that the screen displays a list of database configurations that you have created.
+5
+. 
+For each suite component, select a database configuration from the list. When done, click 
+Test
+ to make sure that you can
+connect to the databases.
+Note that if you specify an unsupported database, the database connection test will not pass. After the test passes, click
+NEXT
+.
+6
+. 
+For each suite component, the suite installer will automatically create one or more databases and one database owner on
+the specified external PostgreSQL database server. The installer creates each database in a private schema. The
+following table lists these automatically created databases and database owners.
+On the 
+Suite Database Owner Settings
+ page, you need to specify an initial password for the suite database owner.
+Note  
+The PostgreSQL CA certificate file name should not
+contain special characters.
+
+
+SMAX 2022.11
+Page 
+1046
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

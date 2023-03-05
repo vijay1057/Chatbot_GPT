@@ -1,0 +1,201 @@
+openssl x509 -passin pass:<server_csr_password> -in server.csr -out server.crt -req -signkey server.key -days 3650
+In these commands, 
+{HOSTNAME}
+ is the external access host of the suite. Or you can use this command 
+exp
+ort hostname="*.sma-ng.com"
+.
+ii
+. 
+After the certificate is ready, export a pfx file from the certificate with this command:
+openssl pkcs12 -export -passin pass:<server_csr_password> -passout pass:<server_pfx_password> -out server.pfx -inkey server.key -in server.crt
+b
+. 
+Then, click 
+Upload a certificate
+ to upload the certificate you created.
+c
+. 
+Cert name
+: Enter a name for the certificate.
+d
+. 
+PFX certificate file
+: Select the pfx file you exported from the certificate.
+e
+. 
+Password
+: Enter the password that you specified for the pfx file.
+In the 
+Additional settings
+ section
+:
+Listener type
+: Select 
+Basic
+.
+Error page url
+: Select 
+No
+.
+4
+. 
+Select the 
+Backend targets
+ tab, and then select the backend pool that you created for port 3000.
+5
+. 
+In 
+Backend settings
+, click 
+Add new
+ to create a backend setting for port 3000.
+Run the following commands on the bastion node to create an 
+RE_ca.cer
+ file, which will be used when you configure a
+backend setting for port 3000.
+kubectl get cm -n core public-ca-certificates -o json |sed -n '/"RE_ca.crt": "-----BEGIN CERTIFICATE-----/p'|sed 's/\\n//g'|sed 's/ //g' |sed 's/"RE_ca.crt":"-----BEGINCERTIFICATE-----/-----BEGIN CERTIFICATE-----\n/g' |sed 's/-----ENDCERTIFICATE-----",/\n-----END CERTIFICATE-----/g' > RE_ca.cer
+Follow these steps to add a backend setting:
+a
+. 
+Click 
+Add new
+.
+b
+. 
+Enter a name for the backend setting.
+c
+. 
+Provide the following information:
+Backend protocol
+: Choose 
+HTTPS
+.
+Backend port
+: Enter 
+3000
+.
+CER certificate
+: Choose the 
+RE_ca.cer
+ certificate file that you created.
+Request time-out (seconds)
+: Enter 
+180
+.
+Override with new hostname
+: Select 
+Yes
+, choose 
+Override with specific domain name
+, and then enter
+your external access hostname.
+Create custom probes
+: Select 
+Yes
+. A custom probe is automatically created. You will configure this custom
+probe in the next step.
+d
+. 
+Click 
+Add
+.
+6
+. 
+Click 
+Next: Tags >
+7
+. 
+Click 
+Next: Review+create >
+, and wait until the validation has passed.
+8
+. 
+Click 
+Create
+. The application gateway will be created in several minutes.
+Step 4: Configure a health probe for 3000
+1
+. 
+Open the application gateway that you created in the previous step.
+2
+. 
+Click 
+Health probe
+.
+3
+. 
+Open the custom health probe created in the previous step.
+4
+. 
+Configure the following parameters:
+Protocol
+: Select 
+HTTPS
+.
+Host
+: Enter your external access hostname.
+Path
+: Enter 
+/
+.
+Interval (seconds)
+: Enter 
+30
+.
+Timeout (seconds)
+: Enter 
+5
+.
+Unhealthy threshold
+: Enter 
+15
+.
+Backend settings
+: Choose the one you created for port 3000.
+5
+. 
+Deselect 
+I want to test the backend health before adding the health probe
+.
+6
+. 
+Click 
+Add
+.
+Step 5: Check the backend health for port 3000
+1
+. 
+Open the application gateway that you created.
+2
+. 
+Click 
+Backend health
+.
+3
+. 
+Make sure that the 
+Status
+ value is 
+Healthy
+ for port 3000. This indicates that the application gateway has been
+configured successfully.
+Bind the external access hostname with the application gateway
+Role
+Location
+Suite administrator
+DNS provider
+After configuring the application gateway, to allow users to access the suite services with the external access hostname, you
+need to bind the hostname with the static IP address of the created application gateway.
+To find your application gateway's IP address, navigate to the Azure portal > 
+Application gateways
+, click your application
+gateway name, and find the IP address under 
+Frontend public IP address
+.
+SMAX 2022.11
+Page 
+1038
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

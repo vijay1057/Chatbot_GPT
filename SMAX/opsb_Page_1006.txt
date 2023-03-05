@@ -1,0 +1,41 @@
+The following table describes the difference between a bastion node and Azure bastion service.
+Bastion node
+Azure bastion service
+Management
+A normal instance, managed by the customer. The
+customer needs to configure the instance according
+to their security or other requirements.
+Fully managed by the Azure platform
+Connection
+Using SSH and RDP with public IP addresses
+Enables you to log in to your Azure virtual
+machines and avoid public Internet exposure using
+SSH and RDP with private IP addresses only
+Public IP
+address
+Usually have public IP addresses exposed to the
+internet.
+No public IP address exposed
+Can I change the instance type of a worker node after AKS cluster creation?
+Yes, you can. You can edit your VM's size individually. However, Azure doesn't recommend changing the instance type on the
+worker node directly. The recommended procedure and best practice is to add a second agentpool to the cluster and choose
+the new VM Size you want for that new agentpool. Then you can delete the old one. For details,
+see 
+https://docs.microsoft.com/en-us/azure/aks/use-multiple-node-pools
+.
+Can I use Kubenet network plugins other than Azure Container Networking Interface (CNI) when setting up an AKS
+cluster? Why?
+Yes.  Both Kubenet and Azure CNI are certified for SMA with AKS. See the 
+best practices
+ recommended by Azure to choose the
+plugins based on your needs. 
+For Azure File, can I use standard Azure File Service Level?
+No. You can only use the premium size, because only Premium meets the performance requirements. So Premium is
+the minimum required Azure File Service Level in our sizing requirements. Using the standard level will cause performance
+issues. 
+SMAX 2022.11
+Page 
+1006
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

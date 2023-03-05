@@ -1,0 +1,99 @@
+Subscribe premium Azure Files for CMS
+This release only supports Azure Files as the storage service of CMS on Azure.
+Follow the steps in this section to create and configure Azure file shares.
+Create premium Azure file shares
+Role
+Location
+Storage Admin
+Bastion node
+To create and configure premium Azure file shares for CMS, log on to the bastion and follow these steps:
+1
+. 
+Run the following command to get the key of the created FileStorage account:
+az storage account keys list \
+    --resource-group <resource_group_name> \
+    --account-name <storage_account_name> \
+    --query "[0].value" | tr -d '"'
+In this command,
+<resource_group_name>
+ is the name of the resource group you created on the 
+Build AKS cluster
+ page. Do 
+NOT
+use your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+<storage_account_name>
+ is the name of the created FileStorage account when you 
+create premium Azure file
+shares for SMAX
+.
+2
+. 
+Create an Azure file share for CMS by running the following command. 
+az storage share create \
+--account-name <storage_account_name> \
+--account-key <storage_account_key> \
+--name "<cms_fileshare_name>" \
+--quota <share_quota>
+In this command,
+<storage_account_name>
+ is the name of the created FileStorage account when you 
+create premium Azure file
+shares for SMAX
+.
+<storage_account_key>
+ is the key you got in the previous step.
+<cms_fileshare_name>
+: Specify a name of the Azure file share for CMS. For example, 
+cms
+.
+<share_quota>
+: Specify the size of the share (
+in GB
+) by referring to 
+Sizing recommendations
+. Must be greater than
+0, and less than or equal to 5 TB (5120).
+Configure CMS volumes
+Role
+Location
+Storage Admin
+Bastion node
+Once the Azure file share for CMS is ready, log on to the bastion and set up volumes to store all CMS data by following these
+steps:
+1
+. 
+Run the following command to mount the Azure file share for storing the CMS data to bastion:
+sudo ./mountazurefile.sh  <storage_account_name> <storage_account_key> <cms_fileshare_name> <SYSTEM_USER_ID> <SYSTEM_GROUP_ID>
+In these commands,
+<storage_account_name>
+ is the name of the created FileStorage account when you 
+create premium Azure file
+shares for SMAX
+.
+<storage_account_key>
+ is the key you got when creating Azure file shares.
+<cms_fileshare_name>
+ is the name of the Azure file share for storing the 
+cms 
+data.
+<SYSTEM_USER_ID>
+ and 
+<SYSTEM_GROUP_ID>
+: specify an operating system user ID and group ID that are used
+to run the process in the container, respectively. Both values must be 1999 or a number between 100000 and
+2000000000. 
+Note
+ The FileStorage account to use CMS Azure file share is the same one that you created when you 
+create
+premium Azure file shares for SMAX
+.
+
+
+SMAX 2022.11
+Page 
+1055
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

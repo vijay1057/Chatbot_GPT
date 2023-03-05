@@ -1,0 +1,23 @@
+Uninstall Audit collector on AWS (EKS)
+To uninstall Audit collector, perform the following tasks:
+Delete the Audit collector
+1
+. 
+Log on to the bastion node.
+2
+. 
+Run the following command to remove the Audit collector:
+helm uninstall audit-collector -n <Audit Producer Namespace>
+Where:
+<Audit Producer Namespace> is the namespace where you installed the Audit producer.
+Clean the NFS volumes
+Log on to the NFS server host and clear all the contents in the NFS volume directories that you have created for the Audit
+collector.
+For example:
+rm -rf /var/vols/itom/itsma/logs/audit-collector/*
+SMAX 2022.11
+Page 
+988
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

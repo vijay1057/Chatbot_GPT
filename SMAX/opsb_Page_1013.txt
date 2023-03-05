@@ -1,0 +1,118 @@
+For Application gateway
+: Prepare a subnet which only contain your application gateway. 
+az network vnet subnet create -n <subnet name>  -g -<resource_group_name>  --vnet-name <vnet_name> --address-prefixes <subnet_CIDR>
+Create an AKS cluster
+Role
+Location
+IT / Kubernetes Cluster administrator
+Azure Cloud Shell
+To build an AKS cluster for the suite installation, make sure you have the 
+Owner
+ role and run this command in the Azure Cloud
+Shell:
+az aks create \
+ --resource-group <resource_group_name> \
+ --name <kubernetes_cluster_name> \
+ --node-count <node_number> \
+ --max-pods 60 \
+ --dns-name-prefix <dns_prefix_name> \
+ --node-vm-size <node_vm_size> \
+ --network-plugin <network_plugin> \
+ --node-osdisk-size <node_disk_size> \
+ --nodepool-labels Worker=label role=loadbalancer \
+ --generate-ssh-keys \
+ --load-balancer-sku standard \
+ --vm-set-type VirtualMachineScaleSets \
+ --subscription <subscription_id> \
+ --vnet-subnet-id <subnet_id> \
+ --uptime-sla \
+ --kubernetes-version <kubernetes_version>
+ --enable-managed-identity 
+where:
+<resource_group_name>
+: Enter the name of the resource group created in the prerequisite tasks. For example,
+myResourceGroup
+.
+<kubernetes_cluster_name>
+: Give a name to this Kubernetes cluster.
+<node_number>
+: Specify the number of nodes in the Kubernetes node pool by referring to 
+Sizing on Azure
+.
+<dns_prefix_name>
+: Enter the prefix for created hostnames. If not specified, generate a hostname using the managed
+cluster and resource group names.
+<node_vm_size>
+: Specify the size of virtual machines to create as Kubernetes nodes by referring to 
+Sizing on Azure
+. For
+example, 
+Standard_D8s_v3
+.
+<network_plugin>
+: Specify the network plugin to create as this Kubernetes cluster's network model. You can use 
+azure
+ or
+kubenet
+.
+ 
+<node_disk_size>
+: Specify the size (
+in GB
+) of the OS disk for each node in the node pool by referring to 
+Sizing on Azure
+. For
+example, 
+100
+.
+<subscription_id>
+: Type your subscription ID. You can get it by navigating to the Azure portal 
+Home
+ page >
+Subscriptions
+.
+<subnet_id>
+: Type the AKS subnet ID collected in the prerequisite tasks. For example,
+/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.Network/virtualNetworks/xxx/subnets/xxx
+.
+<kubernetes_version>
+: Specify a 
+supported AKS version
+. You can get all the Kubernetes versions supported in a location by
+running 
+az aks get-versions --location <location> --output table
+. 
+--enable-managed-identity: Enables a system-assigned identity. AKS will create a system-assigned kubelet identity in the
+Node resource group if you do not specify your own kubelet managed identity. To specify your own managed identity,
+see 
+Use a pre-created kubelet managed identity
+You can verify the AKS cluster status by running the following commands:
+az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name>
+kubectl get nodes
+where:
+<resource_group_name>
+: Enter the name of the resource group created in the prerequisite tasks. For example,
+Tip   
+ To choose an 
+azure
+ or 
+kubenet
+ network plugin, refer to the 
+best practices
+ recommended by
+Azure for more information.
+According to the Azure documentation, "Kubenet is suitable for small development or test workloads, as you
+don't have to create the virtual network and subnets separately from the AKS cluster. Simple websites with
+low traffic, or to lift and shift workloads into containers, can also benefit from the simplicity of AKS clusters
+deployed with kubenet networking. For most production deployments, you should plan for and use Azure CNI
+networking. You can also configure your own IP address ranges and virtual networks using kubenet (see this
+Azure document
+)."
+
+
+SMAX 2022.11
+Page 
+1013
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,47 @@
+Download CMS charts package (AKS)
+You need to download the tar file from the website to the bastion node that you created during the SMA installation. To do so,
+follow these steps:
+1
+. 
+Download the 
+CMS_Helm_Chart-202x.xx.zip 
+file from the 
+Software Licenses and Downloads
+ website.
+2
+. 
+Copy the file to a temporary directory on the bastion node. 
+3
+. 
+Unzip the package:
+unzip CMS_Helm_Chart-202x.xx.zip
+4
+. 
+Untar the CMS chart package:
+cd CMS_Helm_Chart-202x.xx/
+tar -xvzf cms-helm-charts-202x.xx.tgz
+The following table describes the essential files inside the CMS chart package:
+Name
+File
+CMS helm chart file
+CMS_Helm_Chart-202x.xx/cms-helm-charts/charts/cms-1.x.0+20xxxx00.xxx.tgz
+Example PV yaml file
+For production environment:
+CMS_Helm_Chart-202x.xx/cms-helm-charts/samples/cms-pv.yaml
+For demo environment:
+CMS_Helm_Chart-202x.xx/cms-helm-charts/samples/cms-pv-demo.yaml
+Example values.yaml file
+For production environment:
+CMS_Helm_Chart-202x.xx/cms-helm-charts/samples/values.yaml
+For demo environment:
+CMS_Helm_Chart-202x.xx/cms-helm-charts/samples/values-demo.yaml
+For shared IdM (SMAX IdM) environment (non-FIPS mode):
+CMS_Helm_Chart-202x.xx/cms-helm-charts/samples/values-with-smax.yaml
+For shared IdM (SMAX IdM) environment (FIPS mode):
+CMS_Helm_Chart-202x.xx/cms-helm-charts/samples/values-fips-with-smax.yaml
+SMAX 2022.11
+Page 
+1051
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

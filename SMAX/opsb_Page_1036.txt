@@ -1,0 +1,117 @@
+Deploy bootstrap
+Perform the following steps to deploy the bootstrap.
+Before you start the installation, you need to allocate an external access hostname for the suite if you don't have one.
+See 
+Azure official documentation
+ for help.
+Install the bootstrap
+Role
+Location
+Suite administrator
+Bastion node
+Follow these steps to start the bootstrap installation:
+1
+. 
+Log in to the bastion node and navigate to the OMT installation directory:
+cd OMT_External_K8s_202x.xx-xxx
+2
+. 
+Run 
+openssl vesion
+ to check whether 
+OpenSSL 
+has been installed. If not, run the following command to install it.
+sudo yum install openssl
+3
+. 
+Run the following command:
+./install  --registry-url <registry_url> \
+           --registry-username <registry_username> \
+           --registry-password <registry_password> \
+           --registry-orgname <registry_orgname> \
+           -P <initial_password_for_login_omt_portal> \
+           --external-access-host <external_access_host> \
+           --k8s-provider azure \
+           --system-user-id <system_user_id> \
+           --system-group-id <system_group_id> \
+           --db-user <external_db_username> \
+           --db-password <external_db_password> \
+           --db-url <external_db_url> \
+           [--db-crt <external_db_certificate>] \
+           --loadbalancer-info "azure-load-balancer-internal=true" \
+           [--storage-class-mappings "itom-fast=azuredisk-premium"]
+Where:
+<registry_url>
+: your Azure Container Registry URL.
+<registry_username>
+ and 
+<registry_password>
+: the Azure Container Registry credentials. You can get them by
+navigating to the Azure portal > 
+Container registries
+ > 
+Access keys
+.
+<registry_orgname>
+: the organization in the image registry that contains the images (the default value is
+hpeswitom
+).
+<initial_password_for_login_omt_portal>
+: an initial password for the OMT 
+admin
+ user. 
+Wrap the password with single
+quotes. 
+You will need it during the suite installation.
+<external_access_host>
+: the external access hostname allocated for the suite. You will bind it with the load balancer's
+IP in a later step.
+<system_user_id>
+ and 
+<system_group_id>
+: must be the same as the user ID and group ID that you specified when
+configuring the NFS volumes (see 
+Subscribe NetApp Files
+ or 
+Subscribe premium Azure Files
+).
+We strongly recommend that you use an 
+external database for the OMT API Server
+ with an SSL connection in a production
+environment. To do so, include the following parameters:
+<external_db_username>: 
+The login user name of the external database for the OMT API Server. For example,
+cdfapiserver
+.
+<external_db_password>
+: The login password of the external database for the OMT API Server. For example,
+mypassword
+.
+<external_db_url>
+: The DB URL for connections to the external database for the OMT API Server.  For example,
+jdbc:postgresql://mypghost
+.
+postgres.database.azure.com
+:5432/cdfapiserverdb
+.
+<external_db_certificate>
+: The path to the certificate file of the external database for the OMT API Server for SSL
+encryption. This parameter is required only if the external database for OMT API Server uses SSL.
+<storage-class-mappings>
+: This parameter is optional and is only needed if you use Azure Files & Azure Disks as your
+storage service.
+Configure an Azure application gateway with the load balancer
+Role
+Location
+Suite administrator
+Azure portal
+Important
+ The Azure application gateway you will create is dedicated to the SMA suite only. Please do not
+
+
+SMAX 2022.11
+Page 
+1036
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

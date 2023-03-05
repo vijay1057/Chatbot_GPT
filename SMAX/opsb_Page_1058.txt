@@ -1,0 +1,61 @@
+sudo az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name> --subscription <subscription_name_or_id>
+In this command,
+<resource_group_name>
+: Enter the name of the resource group you created on the 
+Build AKS cluster
+ page.
+Do 
+NOT
+ use your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location
+>
+.
+<kubernetes_cluster_name>
+: Enter the name of the created Kubernetes cluster.
+<subscription_name_or_id>
+: Enter your subscription name or ID. You can get it by navigating to the Azure
+portal 
+Home
+ page > 
+Subscriptions
+.
+6
+. 
+Run the following command to generate the secret under the CMS namespace for Kubernetes to access the Azure file
+shares:
+kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=<storage_account_name> --from-literal=azurestorageaccountkey=<storage_account_key> -n <cms_namespace>
+In this command,
+<storage_account_name>
+ is the name of the FileStorage account created.
+<storage_account_key>
+ is the key you obtained for the FileStorage account created.
+<cms_namespace> 
+is the cms namespace.
+7
+. 
+Run the following command to create Persistent Volumes for CMS:
+chmod 755 createCMSPV.sh
+sudo ./createCMSPV.sh  -n <cms_namespace> -cp <cms_file_share_name>/var/vols/itom/cms -u <SYSTEM_USER_ID> -g <SYSTEM_GROUP_ID> 
+In these commands,
+<cms_namespace>
+ is the unique namespace of the CMS deployment when you 
+Create a new deployment for CMS
+.
+<cms_file_share_name>
+ is the name of the Azure file share for storing 
+cms 
+data. 
+<SYSTEM_USER_ID>
+ and 
+<SYSTEM_GROUP_ID>
+: specify the operating system user ID and group ID respectively
+that are used to run the process in the container. Both values must be 1999 or a number between 100000 and
+2000000000.
+For example: 
+./createCMSPV.sh -n cms -cp cms/var/vols/itom/cms -u 1999 -g 1999
+SMAX 2022.11
+Page 
+1058
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

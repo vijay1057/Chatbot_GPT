@@ -1,0 +1,114 @@
+    local MOUNTED_PV=${MOUNT_POINT}/${VOLUME_FOLDER_NAME}/${NFS_PARENT}/${VOLUME}
+    if [ ! -d ${MOUNTED_PV} ]; then
+        mkdir -p ${MOUNTED_PV}
+    fi
+    chown -R ${SUITE_USER_UID}:${SUITE_USER_GID} ${MOUNTED_PV}
+    chmod g+w ${MOUNTED_PV}
+    chmod g+s ${MOUNTED_PV}
+    chmod u+w ${MOUNTED_PV}
+    chmod u+s ${MOUNTED_PV}
+    popd
+}
+mountNFS ${GENERIC_VOLUME_PATH}
+mountNFS ${SMARTA_VOLUME_PATH}
+for i in "${arr1[@]}"; do
+    make_volume ${i} ${GENERIC_VOLUME_PATH}
+done
+for i in "${arr2[@]}"; do
+    make_volume ${i} ${SMARTA_VOLUME_PATH}
+done
+3
+. 
+Run the following commands to configure volumes:
+chmod 755 createNFS.sh
+sudo ./createNFS.sh <mount_path_ip> <generic_volume_path> <smarta_volume_path> <system_user_id> <system_group_id>
+In this command,
+<mount_path_ip>
+ is the IP address of the Azure Netapp file.
+<generic_volume_path>
+ is the mount path without the IP address. For example, if the mount path is
+10.1.3.4:/generic
+, your 
+<generic_volume_path>
+ should be 
+generic
+.
+<smarta_volume_path>
+ is the mount path without the IP address. For example, if the mount path is
+10.1.3.4:/smarta
+ your 
+<smarta_volume_path>
+ should be 
+smarta
+.
+<system_user_id>
+ and 
+<system_group_id>
+: specify the operating system user ID and group ID respectively that are
+used to run the process in the container. Both values must be 1999 or a number between 100000 and 2000000000
+(for example, UID=100001 and GID=100002). 
+You can find your 
+<mount_path_ip>
+, 
+<generic_volume_path>
+, and 
+<smarta_volume_path>
+ by navigating to the Azure portal >
+Azure NetApp Files
+ > the created NetApp Files instance > 
+Volumes
+.
+4
+. 
+Run the following commands to create a namespace for OMT
+：
+kubectl create ns core
+5
+. 
+Copy and save the following script as 
+createnetappfilePV.sh
+:
+#!/bin/bash
+#set -x
+SUITE_NAME='itsma'
+STORAGE_CLASS="itom-fast"
+PV_DIR="/tmp/pvyamlsfolder"
+currentDir=$(pwd)
+SUITE_VOLUME_NAMES=""
+SUITE_VOLUMES_JSON_LIST=""
+VOLUME_NUM=26
+VOLUME_SIZE="5Gi"
+CDF_VOLUMES="
+itom-vol
+itom-logging
+"
+CDF_FOR_SUITE_VOLUME="
+db-backup-vol
+"
+usage() {
+    echo "Usage: $0  [-n|--namespace <namespace>] [-ns|--mount-path-ip <mount_path_ip>] [-gp|--generic-volume-path <generic_volume_path>] [-sp|--smarta-volume-path <smarta_volume_path>] [-m|--metadata <suite_metadata_file_path>] [-s|--size <suite size>] [-v|--version <suite_version>]"
+    echo "       -n|--namespace            Name space."
+    echo "       -ns|--mount-path-ip       The mount path IP of Azure Netappfile"
+    echo "       -gp|--generic-volume-path Path of volumes for storing generic data."
+    echo "       -sp|--smarta-volume-path  Path of volumes for storing smart analytics data."
+    echo "       -m|--metadata             Suite metadata file path."
+    echo "       -s|--size                 Suite Size. SMALL,MEDIUM,LARGE"
+    echo "       -v|--version              Suite version. 2022.11"
+    echo "       -h|--help                 Show help."
+    echo -e "
+Examples:
+1)   $0  -n core   -ns 10.1.1.4 -gp file1/var/vols/itom/itsma -m /root/itsma-suite-metadata-xxx.xx.tgz -v 2022.11 -s SMALL
+2)   $0  -n itsma-xxx -ns 10.1.1.4 -gp file1/var/vols/itom/itsma  -sp file2/var/vols/itom/itsma -m ../itsma-suite-metadata-xxx.xx.tgz -v 2022.11 -s SMALL"
+exit 1
+}
+while [[ ! -z $1 ]] ; do
+    case "$1" in
+        -n|--namespace)
+        case "$2" in
+            -*) echo "-n|--namespace parameter requires a value. " ; exit 1 ;;
+SMAX 2022.11
+Page 
+1021
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

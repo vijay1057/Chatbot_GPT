@@ -1,0 +1,121 @@
+Sizing considerations for Azure deployment
+The performance information provided here is based on tests in an out-of-box environment and for your reference only. Your
+implementation may consume more resources or require more resources to perform in an acceptable manner.
+SMA size definitions
+When you run the suite installer, you will need to select a suite size: 
+Small
+, 
+Medium
+, or 
+Large
+. Different suite sizes require
+different hardware configurations. 
+The following table describes the available suite sizes.
+Suite size
+Small
+Medium
+Large
+Notes
+Maximum
+number of
+concurrent
+users (including
+both ESS and IT
+agent users)
+100~400
+400~1000
+1000~3000
+Concurrent users are active users who have logged in to the system
+to perform operations and consume system resources. There are
+two types of concurrent users, service portal users and IT agent
+users. Workload for each user type is defined as:
+For service portal users: After logging in to the system, each
+portal user has an about 30 minutes duration session on the
+system and will create 1 ~ 2 orders or requests.
+For IT agent users: IT agent users have a longer session
+duration, and each of them will be active for about 1.5 hours
+after logon and handle 4 ~ 6 tickets.
+Based on the above workload assumption, the business operation
+throughput can be calculated. For example, for 400 service portal
+users, the number of newly created orders or requests will be 800 ~
+1600 per hour, while for 400 IT agent users, the number of handled
+tickets will be 1000 ~ 1600 per hour. If you have a much larger
+business operation throughput than the numbers provided here,
+consider adding more worker nodes.
+Notes:
+The sizing numbers are based on an assumption that there are only
+standard SMA tenant users. If you are using one or more Service
+Manager tenants or using both SMA and Service Manager tenants,
+user count conversion is needed.
+In general, 1 Service Manager user = 0.7 standard SMA users,
+because a Service Manager tenant consumes only Service Portal in
+the container when SMA is integrated with external Service
+Manager.
+For example, if an SMA deployment needs to support 400 Service
+Manager tenant concurrent users and 100 SMA tenant concurrent
+users, the actual user count is: 400 X 0.7 + 100 = 380. So you need
+to select the Small size.
+Maximum
+number of
+records in
+Smart Analytics
+1 Million
+2 Million
+2~4 Million
+Hardware requirements for SMA (SMA only)
+The following table lists the minimum resources needed for setting up an SMA environment in the cloud.
+A standard deployment includes control plane nodes (owned by Azure), worker nodes, NetApp Files or Azure Files & Azure
+Disks as storage, and PostgreSQL as databases.
+Note
+: Details of the resources required for the Large profile are currently not available. 
+Suite size
+(sizing
+profile)
+SMA
+control
+plane
+node
+SMA worker node
+SMA AFS
+SMA Database
+Type
+Volume
+Quantity
+Type
+Volume**
+Type
+Storage
+Quantity
+Small
+Owned by
+Azure
+Standard
+D8s v3
+Disk: 100
+GB
+(Premium
+SSD)
+3*
+Azure NetApp
+Files
+(Standard)***
+4 TB***** 
+Standard
+D8S_V3
+(Premium
+SSD)******
+200
+GB
+1
+Azure File
+(Premium) &
+Azure Disks****
+1 TB for Azure File
++ 1 TB at most for
+Azure Disks
+SMAX 2022.11
+Page 
+996
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,154 @@
+Create external databases
+When deployed on Azure, the suite uses Azure Database for PostgreSQL Flexible Server as the database engine. This flexible
+server instance is a fully managed database server for the OMT IdM, OMT API Server, and the suite in a production
+environment.
+OMT uses two databases:
+One for the OMT IdM. This database is normally referred to as the "OMT database." You will need to configure this
+database later in the installation portal (see 
+Select the deployment configuration
+).
+One for the OMT API Server. You will need to specify this database when deploying the bootstrap (see 
+Deploy bootstrap
+). 
+When specifying a password for the OMT IDM database user, make sure that the password meets the following requirements:
+Contains 10-16 characters
+Contains at least one uppercase letter (A-Z)
+Contains at least one lowercase letter (a-z)
+Contains at least one of these special characters: 
+,\:/. _?&%=+-[]()
+Contains at least one digit (0-9)
+Set up an Azure flexible server
+To set up an Azure flexible server, follow these steps.
+1
+. 
+Go to the Azure portal (
+https://portal.azure.com
+).
+2
+. 
+Search for "Azure Database for PostgreSQL flexible servers" and open it.
+3
+. 
+Click 
+Create
+.
+4
+. 
+On the creation page, enter the following information.
+Project details
+Subscriptions
+: Enter your subscription ID. You can get it from the 
+Azure portal Home
+page
+ > 
+Subscriptions
+.
+Resource group
+: Enter the name of the resource group created in the prerequisite tasks (see 
+Build an AKS
+cluster
+). For example, myResourceGroup.
+Server details
+Server name
+: Enter a name for the flexible server. For example: 
+mypghost
+.
+Region
+: Choose a region. Ideally, your database should be in the same region as your production environment.
+Workload type:
+ Select a workload type according to your needs.
+Compute + storage
+: Click 
+Configure server
+, then choose the compute size according to the 
+Sizing
+considerations for Azure deployment
+. Click 
+Save
+.
+Availability Zone
+: Select a value as needed. See the Azure documentation for instructions. 
+High availability
+  
+Check 
+Enable high availability
+ as needed. Selecting this option will enable zone redundant high availability
+across availability zones.
+PostgreSQL Version
+: Choose the PostgreSQL version. For details about supported PostgreSQL versions, see
+Support matrix for Azure deployment
+.
+Administrator account
+Admin username
+: Name your database administrator. 
+Password
+: Set the password for the admin.
+Confirm password
+: Confirm the password.
+5
+. 
+Click 
+Next: Networking
+. Enter the following information.
+Connectivity method
+: Select 
+Private access(Vnet Integration) 
+>
+ Virtual network
+.
+Subscription: 
+Enter your subscription ID. You can get it from the 
+Azure portal Home page
+ > 
+Subscriptions
+.
+Virtual network:
+ Select the Vnet you created for the SMA production environment.
+Subnet:
+ Select the subnet prepared for 
+PostgreSQL
+.
+6
+. 
+Click 
+Review + create
+.
+7
+. 
+Download the root CA. To do this, go to the 
+Azure Database for PostgreSQL flexible server
+ page, click the
+Networking
+ section, then click 
+Download SSL Certificate
+.
+You will need to select the 
+Use TLS connection
+ option and upload this certificate in the IdM database configuration step
+during the installation.
+8
+. 
+Check and validate if the database is ready. First, install the PostgreSQL client on the bastion if you haven't done so by
+running the following commands.
+sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+#Specify the postgresql version. 
+sudo yum install -y postgresql<
+PostgreSQL_Version
+>.x86_64 
+Where: 
+<PostgreSQL_Version>
+ is the postgresql version. It should be the same as the PG server. 
+Important:
+ This release no longer supports the method of installing PostgreSQL on a virtual machine on
+Azure. For an existing installation with self-hosted PostgreSQL on an Azure virtual machine, you must 
+Migrate
+from self-hosted PostgreSQL to Azure Flexible Server
+. 
+
+
+SMAX 2022.11
+Page 
+1031
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

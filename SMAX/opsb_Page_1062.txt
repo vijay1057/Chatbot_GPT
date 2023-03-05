@@ -1,0 +1,105 @@
+Create custom values.yaml file (AKS)
+You need to create a 
+my-
+values.yaml
+ file with the configuration information for your CMS deployment in the bastion node.
+Create and configure my-values.yaml
+You can create and configure a custom
+ 
+my-
+values.yaml 
+file based on the sample file (
+values-with-smax.yaml
+) provided
+in the CMS charts package.
+1
+. 
+Create a copy of the sample file.
+cp CMS_Helm_Chart-202x.xx/cms-helm-charts/samples/values-with-smax.yaml my-values.yaml
+2
+. 
+Edit the 
+my-values.yaml
+ file using any editor and provide the required values in the file.
+Configurable parameters
+The configurable parameters supported by the CMS chart are grouped into the following categories.
+Generic parameters
+Parameter
+Required
+Description
+Default
+Example
+acceptEula
+Yes
+You must accept EULA
+to deploy CMS
+false
+true
+global.docker.registry
+Yes
+Amazon Elastic
+Container Registry
+(ECR) where CMS
+docker images are
+stored.
+localhost:5000
+registry.dkr.ecr.region.amazonaws.com
+global.docker.orgName
+Yes
+Amazon Elastic
+Container Registry
+(ECR) organization
+name
+hpeswitom
+hpeswitom
+global.securityContext.user
+No
+This parameter
+specifies the
+operating system user
+ID that's used to run
+the process in the
+container. The value
+of this parameter and
+the ID of the NFS
+folder owner must be
+the same. 
+Note:
+ The value
+can't be changed
+after installation.
+1999
+100001
+Note
+: When creating your my-values.yaml file, keep the following in mind:
+You need to set the 
+global.externalAccessPort
+ parameter to the port for CMS.
+You need to set the 
+global.externalAccessHost
+ parameter to the FQDN for CMS.
+As CMS is installed as the next deployment of SMAX, you need to use the shared IdM (SMAX IdM) to manage
+CMS users. To do this, make sure that the 
+global.idm.internal
+ parameter to 
+false. 
+ Additionally, you also
+need to configure the parameters as described in the 
+SMAX integration parameters
+ section.
+
+
+Important  
+This 
+my-values.yaml
+ file contains critical configuration information. Many administrative
+operations are based on this file, for example, CMS version upgrade, and enabling TLS connection to databases.
+The file must be securely stored and backed up regularly.
+
+
+SMAX 2022.11
+Page 
+1062
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

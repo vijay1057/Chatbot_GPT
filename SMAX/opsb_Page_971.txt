@@ -1,0 +1,28 @@
+Launch RDS for Audit service
+Use the SMAX Relational Database Service (RDS) instance and create a database for the Audit service.
+Set up PostgreSQL database for Audit service on the RDS instance
+Make sure you enable SSL on the PostgreSQL because Audit uses SSL to communicate with PostgreSQL.
+Below are sample SQL commands for creating a user and a database for a service:
+1
+. 
+Log in to the bastion node and then run the following command to connect to the PostgreSQL instance:
+psql -h <RDSEndpointAddress> -p <RDSEndpointPort> -U <postgres admin> -d postgres
+2
+. 
+Run the following commands to create the databases and the users used by the Audit service:
+CREATE USER <USERNAME> PASSWORD '<PASSWORD>';
+grant <USERNAME> to <PostgresSQL admin>;
+CREATE DATABASE <DBNAME> OWNER <USERNAME>;   
+<PASSWORD>
+ for the database user should be at least 16 characters long and have alphanumeric characters, at least
+one lower case letter, at least one upper case letter, and at least one digit.
+For example,
+CREATE USER auditdbuser PASSWORD 'Password@Audit1234';
+grant auditdbuser to postgres;
+CREATE DATABASE auditdb OWNER auditdbuser; 
+SMAX 2022.11
+Page 
+971
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

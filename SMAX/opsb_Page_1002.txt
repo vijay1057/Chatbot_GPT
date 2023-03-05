@@ -1,0 +1,29 @@
+3
+. 
+Access the ingress access log, locate the correct static resources, and check the response time as shown in the
+screenshot below:
+4
+. 
+If the response time is still more than 10s, you can scale out pairs of the 
+ingress
+ and 
+xruntime-ui
+ pods by running the
+following commands:
+kubectl scale deploy itom-nginx-ingress-deployment --replicas=<number> -n <namespace>
+kubectl scale deploy itom-xruntime-ui --replicas=<number> -n <namespace>
+In these commands, <number> is the replicas number you want to reach by scaling out and <namespace>is your suite
+namespace.
+Note
+: One pair of 
+ingress
+ and 
+xruntime-ui
+ pods can support 8~15 concurrent users' login in one minute. Scale out
+these two pods according to your requirement.
+SMAX 2022.11
+Page 
+1002
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

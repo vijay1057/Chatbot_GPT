@@ -1,0 +1,119 @@
+Subscribe premium Azure Files and Azure Disks
+This release supports 
+NetApp Files
+ or 
+Azure Files & Azure Disks
+ as the storage service on Azure.
+Due to the unstable performance of Azure Files, it's highly recommended that you deploy the suite using NetApp Files
+(see 
+Subscribe NetApp Files
+).
+If you still plan to use Azure Files & Azure Disks as the storage service, you need to:
+1
+. 
+Create an Azure file share and configure the volumes to store the 
+generic
+ data (all data of OMT and the suite except
+search engine and RabbitMQ). 
+Make sure you test the performance before proceeding 
+(see step 4 in the 
+Configure
+volumes
+ section below).
+2
+. 
+Create a StorageClass for Azure Disks to store the
+ search engine and RabbitMQ
+ data. During installation, persistent
+volumes belonging to this class will be provisioned dynamically and corresponding Azure Disks will be automatically
+created. 
+Create premium Azure file share
+Role
+Location
+Storage administrator
+Bastion node
+To create and configure premium Azure file share, log on to the bastion and follow these steps:
+1
+. 
+Run the following command to create a FileStorage account:
+az storage account create \
+    --resource-group <resource_group_name> \
+    --name <storage_account_name> \
+    --location <location> \
+    --sku Premium_LRS \
+    --kind FileStorage
+In this command,
+<resource_group_name>
+ is the name of the resource group you created on the 
+Build AKS cluster
+ page. Do 
+NOT
+ use
+your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+<storage_account_name>
+: Define a name for this FileStorage account.
+<location>
+ is the location of the created resource group. For example, 
+westus2
+.
+2
+. 
+Run the following command to get the key of the created FileStorage account:
+az storage account keys list \
+    --resource-group <resource_group_name> \
+    --account-name <storage_account_name> \
+    --query "[0].value" | tr -d '"'
+In this command,
+<resource_group_name>
+ is the name of the resource group you created on the 
+Build AKS cluster
+ page. Do 
+NOT
+ use
+your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+<storage_account_name>
+ is the name of the created FileStorage account.
+3
+. 
+Create an Azure file share for storing the 
+generic
+ data (all data of OMT and the suite except search engine and
+RabbitMQ) by running the following command.
+az storage share create \
+--account-name <storage_account_name> \
+--account-key <storage_account_key> \
+--name "<fileshare_name>" \
+--quota <share_quota>
+In this command,
+<storage_account_name>
+ is the name of the created FileStorage account.
+<storage_account_key>
+ is the key you got in the previous step.
+<fileshare_name>
+: Specify a name for the Azure file share to store the 
+generic
+ data.
+<share_quota>
+: Specify the size of the share (
+in GB
+) by referring to 
+Sizing recommendations
+. Must be greater than 0,
+and less than or equal to 5 TB (5120).
+Configure volumes
+Note
+ For information about storage sizing and management, see 
+Manage persistent storage for the suite
+.
+
+
+SMAX 2022.11
+Page 
+1025
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

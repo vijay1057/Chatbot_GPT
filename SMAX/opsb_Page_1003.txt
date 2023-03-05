@@ -1,0 +1,51 @@
+AKS deployment FAQs
+This topic answers certain most frequently asked questions about deploying the suite in an AKS environment.
+General
+The following are general questions that apply to all supported cloud platforms.
+Can I use machine types other than those specified in the sizing guide?
+No.
+One VM with 8vCPU can have better performance than 2 VMs with 4vCPU in some scenarios. VMs have their own limitations,
+so you can't improve system performance simply by adding more VMs. Additionally, all our sizing recommendations, tuning
+and tests are based on certain requirements for each node. You can't guarantee the performance if using VMs that don't meet
+the requirements for a node.
+Can I share storage between development and test environments?
+Technically, you can. However, we don't recommend it.
+This is because all our sizing recommendations, tuning and tests are based on an assumption that each environment uses
+their dedicated storage. Sharing the same storage between two environments may cause the environments to interfere with
+each other, leading to poor stability and performance.  
+Can I start with fewer worker nodes and add more later?
+Technically, you can. However, we strongly recommend that you install the suite according to our sizing recommendations. By
+providing enough worker nodes, you can avoid installation failures because of insufficient resources. 
+What version of Kubernetes should I choose? Always the latest?
+We use EKS, AKS, or GKE to fully manage Kubernetes in the suite. When you create or update the Kubernetes cluster, you
+need to select a Kubernetes version. Each release of Kubernetes may have some changes that may affect SMA deployment.
+For this reason, we verify a new Kubernetes version before SMA can adopt it. The latest version and any other versions that
+we haven't certified may be incompatible with SMA.
+Always select the Kubernetes version that's described in the suite installation documentation. This version has been certified
+for the current SMA version.  
+What is the minimum disk requirement for SMA?
+We provide sizing recommendations for SMA deployment on different cloud platforms. The sizing recommendations provide
+the minimum resources needed for setting up an SMA environment on each cloud. You must install SMA according to the sizing
+recommendations to avoid installation failures caused by resource insufficiency; otherwise, even if you have successfully
+installed the suite, issues may still occur when the suite is running.
+Can I change the SMA sizing profile dynamically after installation?
+Yes, you can, but only as part of a suite upgrade process. That is, you need to change the deployment size first and then
+upgrade the suite to a newer version. The new deployment size takes effect only when the suite upgrade process is
+completed. For details, see 
+Upgrade the suite (managed Kubernetes)
+.
+Can SMA share the Kubernetes cluster with other products?
+No.  When SMA shares the Kubernetes cluster with other products, they will compete for resources, which will impact the
+system stability and performance. Additionally, sharing the same Kubernetes cluster may cause incompatibility and security
+problems, because the products may require different versions of Kubernetes.
+What's the organization name for an image repository?
+An organization is a collection of teams and repositories that can be managed together.
+All the images for SMA in each release should be pushed to the same organization. 
+ Platform
+Image registry
+SMAX 2022.11
+Page 
+1003
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

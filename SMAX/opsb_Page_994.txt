@@ -1,0 +1,59 @@
+Support matrix for Azure deployment
+Cloud deployments and on-premises deployments of the suite basically share the same support matrix (see 
+Support matrix for
+on-premises deployment
+), except for the following aspects.
+Supported environments
+Cloud environment (Azure)
+Docker image registry
+Azure Container Registry (ACR)
+Managed Kubernetes clusters
+Azure Kubernetes Service (AKS) v 1.23.x, 1.24.x
+Helm
+Helm 3.9.x
+Operating systems
+Worker nodes: Linux (Managed by AKS)
+Ubuntu
+Databases
+A cloud-based suite production environment requires an external database instance. 
+Self-managed PostgreSQL on Azure virtual machines is obsoleted.
+OMT and the suite
+The following table lists the supported databases for OMT and the suite (IdM, Suite Administration, Service
+Management, Autopass, DND, CGRO, and SAM).
+Cloud Provider
+Database Service
+Azure
+Supports the following for OMT and the suite: 
+Azure Database for PostgreSQL Flexible Server 14.x, 13.x, 12.x, 11.x
+Vertica 10.0.x with SSL enabled for CGRO
+Operation Orchestration (OO) Containerized
+The table below lists the supported and certified databases for Operations Orchestration(OO) Containerized. You will need a
+database for OO Containerized only if you are going to install DND capability.
+OO Containerized external database version
+PostgreSQL versions 14.x, 13.x, 12.x, 11.x
+CMS
+If you plan to install CMS on the same OMT cluster as the next deployment (SMA is the primary deployment), the table below
+lists the supported and certified databases.
+Cloud
+Provider
+Database Service
+CMS components requiring external
+databases
+Azure
+Azure Database for PostgreSQL Flexible Server 14.x, 13.x,
+12.x, 11.x
+UCMDB Server
+AutoPass License Service (APLS)
+Important: 
+We always recommend that you follow the installation instructions and install the 
+latest
+ version
+of the suite. If you have a reason to install an older release, please contact the Product Management team.
+
+
+SMAX 2022.11
+Page 
+994
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

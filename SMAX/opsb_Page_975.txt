@@ -1,0 +1,119 @@
+6
+. 
+(Optional) For 
+Certificate chain
+, paste the PEM encoded certificate chain.
+7
+. 
+Click 
+Next 
+>
+ Review and import 
+>
+ Import.
+Create an Ingress for integration between Audit service and SMAX 
+AWS ALB helps end users to access the Audit service from web browsers. You need to create an Application Load Balancer for
+integration and add a listener to the ALB for Audit service and SMAX respectively during the creation.
+Step 1: Create an Ingress for Audit service integration
+To create an Ingress for Audit service integration, follow these steps:
+1
+. 
+Save the content below as 
+audit-service-internal-ingress.yaml 
+in the install directory (
+audit-20xx.xx
+):
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "audit-integration-ingress"
+  namespace: <audit_namespace>
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/group.name: <integration_alb_name>
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS": 31050}]'
+    alb.ingress.kubernetes.io/backend-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTPS
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/success-codes: 200-399
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout_seconds=180
+    alb.ingress.kubernetes.io/certificate-arn: <certificate_arn>
+    alb.ingress.kubernetes.io/security-groups: <security_groups>
+  labels:
+    app: audit-ingress
+spec:
+  tls:
+  - hosts:
+    - <integration_hostname>
+  rules:
+    - host:
+      http:
+        paths:
+          - backend:
+              service:
+                name: "audit-itom-ingress-controller-svc"
+                port: 
+                  number: <ingress_controller_port>
+            path: /*
+            pathType: ImplementationSpecific
+Replace the following with the actual values:
+<audit_namespace>
+: The unique namespace of the Audit deployment. For example, 
+audit
+ns
+.
+<integration_alb_name>
+: Specify the name of the ALB to you want to create.
+<certificate_arn>: The
+ resource name
+ of the prepared certificate. For
+example, 
+arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012
+. See
+details in the
+ Prerequisites 
+section above.
+<integration_hostname>
+: The FQDN you've allocated for integration. For example, 
+www.example-integration.com
+. Go to
+AWS Route 53 service and create a separate FQDN by creating a new record under the domain used for suite installation.
+<security_groups>
+: The security groups that the ALB belongs to (if you haven't configured security groups, delete this
+parameter from the YAML). The inbound rule should allow the traffic to pass. The security group should be the same as
+the one in 
+smax-integration-ingress.yaml
+. Additionally, to allow the inbound traffic from the security group for the
+integration ALB, make sure that you also add an inbound rule to the security group for the node cluster.
+<ingress_controller_port>
+: The port number of the Ingress controller for the Audit deployment. Use the same port number
+to set the 
+global.nginx.httpsPort
+ parameter in your 
+values.yaml 
+file. For example, 
+31051
+.
+2
+. 
+Run the following command to apply the saved YAML file:
+kubectl create -f audit-service-internal-ingress.yaml
+Bind an FQDN with the integration ALB
+After you create the ALB for Audit Service, bind the FQDN that you have allocated for Audit Service with this ALB in AWS Route
+53. Refer to the AWS documentation.
+Important 
+ The name must consist of 
+lower case
+ alphanumeric characters, '-', or '.', and must start and
+end with an alphanumeric character. 
+
+
+SMAX 2022.11
+Page 
+975
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

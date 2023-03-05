@@ -1,0 +1,115 @@
+If you want to connect to the external PostgreSQL by using TLS, configure the following parameters:
+Parameter
+Required
+Description
+Default
+Example
+global.database.tlsEnabled
+No
+Enable TLS connection to database server.
+Set it to 
+true 
+if you want to enable TLS.
+false
+true
+caCertificates
+No
+The content of the database server CA certificate
+encoded by base64.
+Run the following command on a Linux system to
+encode the CA certificate:
+base64 < pg-ca.pem
+caCertificates:
+  postgresql.crt: |
+    <certificate content
+    base64 encoded>
+  probe-postgresql.crt: |
+    <certificate content
+    base64 encoded>
+See the screenshot
+below.
+ucmdbserver.deployment.
+database.tlsCert
+No
+(Required when 
+tlsEnabled 
+is 
+true
+) The name of
+the key for
+the PostgreSQLcertificate defined in the
+ 
+caCertificates
+ parameter.
+Note
+: You need to manually insert this parameter
+in
+the 
+my-values.yaml
+ file.
+ postgresql.crt
+ucmdbprobe.deployment.
+database.tlsCert
+No
+(Required when 
+tlsEnabled 
+is 
+true
+) The name of
+the key for
+the external PostgreSQL database certificate
+defined
+in the 
+caCertificates 
+parameter.
+Note
+: You need to manually insert this parameter
+in
+the 
+my-values.yaml
+ file.
+probe-postgresql.crt
+For more information about the PostgreSQL CA certificate, see 
+Enable TLS connections to external PostgreSQL
+.
+Data Flow Probe database parameters
+If you plan to deploy CMS with the containerized Data Flow Probe, you need to configure the following database parameters;
+otherwise, skip them.
+Parameter
+Required
+Description
+Default
+Example
+ucmdbprobe.deployment.database.probeEmbeddedDb
+No
+true
+ (default): The
+PostgreSQL database
+embedded in the
+containerized Data
+Flow Probe is used
+false
+: The external
+PostgreSQL database
+is used by the
+containerized Data
+Flow Probe 
+true
+false
+ucmdbprobe.deployment.database.user
+No
+Data Flow Probe
+database user. Do not set
+it if 
+probeEmbeddedDb
+is 
+true
+.
+probe
+cms_ucmdb_probe
+SMAX 2022.11
+Page 
+1065
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

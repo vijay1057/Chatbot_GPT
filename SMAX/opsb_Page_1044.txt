@@ -1,0 +1,23 @@
+b
+. 
+Click 
+Check Again
+ to see the updated details of the uploaded images.
+2
+. 
+When all the images are successfully uploaded, click 
+Next
+ to go to the 
+Prepare
+ page. After you click 
+Next
+, you can't go
+back to the 
+Download
+ page. 
+SMAX 2022.11
+Page 
+1044
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

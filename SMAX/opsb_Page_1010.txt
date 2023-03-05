@@ -1,0 +1,24 @@
+Installation tasks (AKS)
+This section contains all the mandatory and optional tasks to install the suite in an AKS environment.
+Activate Docker Hub account
+Build AKS cluster
+Configure bastion
+Download the required installation packages
+Subscribe NetApp Files
+ or 
+Subscribe premium Azure Files and Azure Disks
+Create external databases
+(Optional) Install and configure Vertica database
+Transfer images beforehand
+Deploy bootstrap
+Select the deployment configuration
+Check and download the container images
+Deploy the infrastructure services
+Deploy the suite
+(Optional) Install containerized CMS (AKS)
+SMAX 2022.11
+Page 
+1010
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

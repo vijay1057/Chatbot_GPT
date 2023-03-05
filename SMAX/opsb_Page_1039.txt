@@ -1,0 +1,13 @@
+External references
+For more information about NSG rules of a resource group, see 
+Create NSG rules
+.
+For more information about Application Gateway, see 
+Azure Application Gateway
+.
+SMAX 2022.11
+Page 
+1039
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

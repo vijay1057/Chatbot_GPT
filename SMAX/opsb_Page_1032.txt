@@ -1,0 +1,97 @@
+After installing the PostgreSQL client on the bastion you can perform either of the below steps:
+Run the following command to check the database:
+psql "host=<fqdn of flexible server> port=5432 dbname=postgres user=<postgres_admin> password=<password for admin> sslmode=verify-full sslrootcert=<full path of the root CA certificate>"
+Use pgAdmin and use the bastion as the SSH Tunnel. With pgAdmin4 version 6.5+, you can do this by configuring the
+SSH Tunnel.
+Note:
+ If you want to use a plain connection instead of TLS to the flexible server, you can go to Server parameters and use
+require_secure_transport to turn off the SSL force.
+Set up a PostgreSQL database for OMT API Server on the flexible server
+Role
+Location
+Suite administrator
+Bastion node
+In a production environment, you must create an external PostgreSQL database for the OMT API Server exclusively. To do this,
+later you will need to specify the related options while you run the 
+install
+ command (see 
+Deploy bootstrap
+).
+Follow the steps below to set up the non-public schema external PostgreSQL database, as OMT doesn't support public schema
+for the external PostgreSQL database. This requires database administrator credentials When creating the Azure Flexible
+Server instance, you have already specified an administrator account, which is referred to as 
+<postgres_admin> 
+in the
+steps below.
+1
+. 
+Log in to the bastion node and then run the following command to connect to the PostgreSQL instance. Replace <postgres
+admin> with the actual value.
+psql "host=<fqdn of flexible server> port=5432 dbname=postgres user=<
+postgres_admin
+> password=<password for admin> sslmode=verify-full sslrootcert=<full path of the root CA certificate>"
+2
+. 
+Run the following commands:
+CREATE USER cdfapiserver login PASSWORD 'mypassword';
+grant cdfapiserver to <postgres admin>;
+CREATE DATABASE cdfapiserverdb WITH owner=cdfapiserver;
+\c cdfapiserverdb;
+ALTER SCHEMA public OWNER TO cdfapiserver;
+ALTER SCHEMA public RENAME TO cdfapiserver;
+REVOKE ALL ON SCHEMA cdfapiserver from public;
+GRANT ALL ON SCHEMA cdfapiserver to cdfapiserver; 
+ALTER USER cdfapiserver SET search_path TO cdfapiserver;
+The example commands above perform the following operations:
+creating an external database and a user for OMT API Server
+changing the public schema and revoking the public role of the database
+setting 
+search_path
+ from public to non-public
+cdfapiserver
+ is the database login user name. Replace it with your actual value. 
+mypassword
+ is the database login password. Replace it with your actual value. Make sure the password is wrapped
+in single quotes.
+cdfapiserverdb
+ is the database name. Replace it with your actual value. 
+3
+. 
+Make sure the external database is empty, which means the database doesn't contain any database objects, such as
+tables, procedures, and views.
+4
+. 
+When your database is ready, make a record of the following information. You will need this information during the
+installation at the 
+Deploy bootstrap
+ step.
+Database user
+Database user's password
+Database URL, which consists of the database host, port, and database name. 
+Database root CA certificate
+For example:
+--db-user cdfapiserver \
+--db-password mypassword \
+--db-url jdbc:postgresql://mypghost.postgres.database.azure.com:5432/cdfapiserverdb \
+--db-crt /home/centos/DigiCertGlobalRootCA.crt \
+Prepare for the automatic creation of PostgreSQL databases for OMT IdM and the suite
+on the flexible server
+During the OMT installation, the installation portal UI will let you choose an 
+out-of-the-box
+ PostgreSQL or
+an 
+external
+ PostgreSQL for the OMT IdM. You must use an external database for the OMT IdM in a production
+environment. For an external PostgreSQL, the installation portal provides two options for configuring an external PostgreSQL
+Note
+: If the second command above fails, run 
+sudo yum install update
+ , and then rerun the failed command.
+
+
+SMAX 2022.11
+Page 
+1032
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

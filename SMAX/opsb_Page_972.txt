@@ -1,0 +1,144 @@
+Configure load balancer for Audit service
+To access Audit service, you need to create an Application Load Balancer (ALB) and configure the listener for Audit service on
+this ALB. The diagram below depicts how the integration ALB sets up the connection between SMAX and Audit:
+Prerequisites
+Before creating and configuring an ALB, assign an FQDN for Audit service (for example, via 
+AWS route 53 services
+) if you don't
+have one. You also need to prepare a new certificate using one of the following methods or else unexpected errors might occur
+at later steps.
+Request a certificate
+If you want to request a new certificate, follow these steps:
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+All services
+ > 
+Security, Identity, & Compliance
+ > 
+Certificate Manager
+3
+. 
+If you see the 
+firstrun
+ page, click 
+Get Started
+.
+4
+. 
+Click 
+Request a certificate
+.
+5
+. 
+Select 
+Request a public certificate
+ and click 
+Request a certificate
+.
+6
+. 
+Specify your target domain name. Use an asterisk (*) to request a wildcard certificate to protect several sites in the same
+domain. For example, 
+*.testaudit-ng.org .
+7
+. 
+Click 
+Next
+.
+8
+. 
+Select 
+DNS validation
+ or 
+Email validation
+ according to your permission.
+9
+. 
+Click 
+Review
+ and then click 
+Confirm and request
+.
+10
+. 
+Click 
+Continue
+.
+11
+. 
+Finish the certificate validation based on the method you just selected. For more information,
+see 
+https://docs.aws.amazon.com/console/acm/validation
+.
+12
+. 
+Save the Amazon Resource Name (ARN) of the certificate as you will use it while creating the Audit ingress YAML.
+Import a certificate
+If you want to use a customized certificate, follow these steps:
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+All services
+ > 
+Security, Identity, & Compliance
+ > 
+Certificate Manager
+3
+. 
+If you see the 
+firstrun
+ page, click 
+Get Started
+.
+4
+. 
+Click 
+Import a certificate
+.
+5
+. 
+For 
+Certificate body
+, paste the Privacy Enhanced Mail (PEM) encoded certificate to import.
+6
+. 
+For 
+Certificate private key
+, paste the PEM encoded, unencrypted private key that matches the certificate's public key.
+7
+. 
+(Optional) For 
+Certificate chain
+, paste the PEM encoded certificate chain.
+8
+. 
+Click 
+Next 
+>
+ Review and import 
+>
+ Import.
+Create an Ingress for Audit Service
+You need to create an Ingress for Audit Service with port 443:
+Important:
+ Currently, services integrated with AWS Certificate Manager support only the 
+RSA_1024
+ and 
+R
+SA_2048
+ algorithms.
+
+
+SMAX 2022.11
+Page 
+972
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

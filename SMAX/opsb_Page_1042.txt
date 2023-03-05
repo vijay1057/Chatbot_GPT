@@ -1,0 +1,43 @@
+13
+. 
+On the 
+File Storage
+ page, click 
+Next
+ directly. The system validates the volume configurations and then proceeds to the
+next screen if the validation succeeds. If the validation fails, you need to check the volumes' configurations and then click
+Next
+ again. Note that the validation process may take a few minutes.
+14
+. 
+A warning appears. Click 
+Yes
+ to continue with the deployment.
+After you click 
+Yes
+, you can't go back to the 
+Select
+ phase.
+ Note   
+If you use the 
+Azure Files & Azure Disks
+ solution, the system will automatically create all the
+PVCs with StatefulSets replicas set to the maximum value. You can delete the unused PVs, PVCs, and Azure
+disks to save costs. For example, for StatefulSet 
+smarta-saw-con
+ with 
+1
+ replicas, you can keep the PV, PVC,
+and Azure disk only for 
+smarta-saw-con-0
+ and delete the ones for pods: 
+smarta-saw-con-1/2/3/4/5
+.
+
+
+SMAX 2022.11
+Page 
+1042
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

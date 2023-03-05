@@ -1,0 +1,106 @@
+Home
+ page > 
+Subscriptions
+.
+9
+. 
+Run the following command to create Persistent Volumes for 
+OMT
+:
+chmod 755 createPV.sh
+sudo ./createPV.sh  --namespace core  -gp <generic_file_share_name>/var/vols/itom/itsma -u <system_user_id> -g <system_group_id> -m <suite_metadata_path> -v <suite_version> -s <suite_size>
+In these commands,
+<generic_file_share_name>
+ is the name of the Azure file share for storing 
+generic
+ data. You can find it by navigating to
+the Azure portal > 
+Storage accounts
+ > your storage account > 
+File shares
+ > your 
+generic
+ file share name.
+<system_user_id>
+ and 
+<system_group_id>
+: specify the operating system user ID and group ID respectively that are
+used to run the process in the container. Both values must be 1999 or a number between 100000 and 2000000000. 
+<suite_metadata_path>
+ is the directory of the suite metadata. For example, 
+/root/itsma-suite-metadata-xxx.xx.tgz
+.
+<suite_version>
+ is the suite version. For example, 2022.11.
+<suite_size>
+ is the deployment size of the suite. Use one of the following values: 
+SMALL
+, 
+MEDIUM
+, or 
+LARGE
+.
+Create a StorageClass for Azure Disks
+Role
+Location
+Storage administrator
+Bastion node
+A StorageClass defines how persistent volumes belonging to the class will be provisioned dynamically. To use Azure Disks to
+store the search engine and RabbitMQ data, you need to create a StorageClass for it with the following steps. 
+1
+. 
+Save the script below as 
+azuredisk-premium-sc.yaml
+:
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+    kubernetes.io/cluster-service: "true"
+  name: azuredisk-premium
+parameters:
+  cachingmode: ReadOnly
+  kind: Managed
+  storageaccounttype: Premium_LRS
+allowVolumeExpansion: true
+provisioner: disk.csi.azure.com
+reclaimPolicy: Retain
+volumeBindingMode: Immediate
+2
+. 
+Run the following command on the bastion to create a StorageClass for Azure Disks:
+kubectl create -f azuredisk-premium-sc.yaml
+External references
+For Azure Files information, see 
+Azure Files
+.
+For the pricing information about premium/standard Azure Files storage, see 
+Storage pricing
+.
+For storage account information, see 
+Storage account
+.
+For Azure Disks information, see 
+Azure Disks
+.
+For Storage Class information, see 
+Storage Classes
+.
+Note   
+You will continue to create Persistent Volumes for 
+the suite
+ after you log in to the installation
+portal and upload the suite metadata. For details, see 
+Step 3 on the 
+Select the deployment configuration
+page
+.
+
+
+SMAX 2022.11
+Page 
+1030
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,164 @@
+6
+Subscribe premium Azure Files and Azure Disks to store the
+OMT and suite data on Azure. 
+Bastion node
+Storage administrator
+Subscribe
+premium
+Azure
+Files and
+Azure
+Disks
+7
+Prepare a virtual machine and install PostgreSQL on it as the
+database engine. This PostgreSQL instance will be used as the
+external databases for OMT IdM, OMT API Server, and the
+suite in a production environment.
+Azure portal and
+PostgreSQL server
+IT / Server
+administrator
+and Database
+administrator
+Create
+external
+database
+s
+8
+Required only for the CGRO capability.
+Prepare an internal Vertica datastore component to store
+CGRO data.
+PostgreSQL server
+Database
+administrator
+(Optional)
+Install
+and
+configure
+Vertica
+database
+9
+Download the suite images from the image registry and
+import them to your own registry beforehand.
+Bastion node 
+Suite administrator
+Transfer
+images
+beforeha
+nd
+Sr
+No.
+Task
+Where to perform
+Role
+How to
+perform
+Install the suite
+Complete these tasks to install the suite.
+Sr
+No.
+Task
+Where to perform
+Role
+How to perform
+1
+Use the
+ ./install
+ command to install OMT and create a
+load balancer. Then configure an Azure application
+gateway to work with the created load balancer.
+Bastion node 
+Suite
+administrator
+Deploy bootstrap
+2
+Log in to the installation portal and select capabilities
+and features for your deployment.
+If you need SMA only, select 
+SMA
+ only on the
+Capabilities
+ page.
+If you need one or more add-on capabilities,
+select them along with 
+SMA
+ on the
+Capabilities
+ page.
+Installation portal 
+Suite
+administrator
+Select the deployment
+configuration
+3
+The installer checks if images are ready. If not,
+transfer the images from the image registry to your
+own registry as required.
+Installation portal 
+Suite
+administrator
+Check and download the
+container images
+4
+Complete the OMT deployment on the installation
+portal.
+Installation portal 
+Suite
+administrator
+Deploy the infrastructure
+services
+5
+Install the suite from the installation portal and
+configure the application gateway for the OMT
+management portal and the suite portal.
+Installation portal
+and Azure portal
+Suite
+administrator
+Deploy the suite
+6
+Required only if you want to install the DND
+capability or to use it for OO integration.
+Continue to install Operations Orchestration
+Containerized on the same OMT cluster as a
+secondary deployment. 
+Bastion node
+Suite
+administrator
+(Optional)
+Install 
+Operations
+Orchestration
+Containerized on
+Azure(AKS)
+ 
+7
+Required only if you want to install the SAM
+capability or the Native SACM solution.
+Continue to install containerized CMS on the same
+OMT cluster as the next deployment, or install classic
+CMS. 
+Bastion node or
+the Windows or
+Linux server for
+CMS
+Suite
+administrator
+(Optional) Install
+containerized CMS
+ or
+(Optional) Install classic
+CMS
+.
+8
+Check the pod status to see if the pods are running. 
+Bastion node
+Suite
+administrator
+Verify the installation
+SMAX 2022.11
+Page 
+1008
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

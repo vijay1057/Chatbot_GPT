@@ -1,0 +1,33 @@
+Deploy the infrastructure services
+At the 
+Prepare
+ phase, the installation portal deploys the infrastructure services. Follow these steps to complete the OMT
+deployment.
+1
+. 
+The 
+Deployment of Infrastructure Services
+ page lists the core foundation services in the deployment. After the
+deployment finishes, click 
+Next
+.
+2
+. 
+On the 
+Preparation Complete
+ page, click 
+Next
+ to complete the preparation.
+This will take you to the 
+Configure/Deploy
+ phase in the installation portal. After you click 
+Next
+, you can't go back to the
+Prepare
+ phase.
+SMAX 2022.11
+Page 
+1045
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

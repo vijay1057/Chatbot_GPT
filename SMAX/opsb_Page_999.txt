@@ -1,0 +1,164 @@
+To set up OO with a common database, you can choose to connect OO to the same database instance as the rest of the
+suite components. For hardware requirements, see the table below 
+Standard hardware requirements with a
+common database.
+Important:
+OO supports the database servers recommended by the rest of the suite components (that is, Standard D8S_V3), and
+if you choose to connect OO to the same database server as the rest of the suite components, make sure the
+common database server sums up both OO and the suite requirements. 
+OO shares the same 
+AFS
+ server with the suite.
+To determine standard hardware requirements with a dedicated database for OO, see 
+Additional hardware
+requirements for OO Containerized with a dedicated database
+ section.
+To deploy OO for a 5-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+To deploy OO for a 20-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+ 
+Standard hardware requirements with a common database
+DND
+deployment
+size
+Number
+of OO
+tenants
+SMA
+control
+plane
+node
+SMA worker node
+AFS
+ DND and OO database -
+PostgreSQL
+Type
+Volume
+Quantity
+Additional
+configuration
+Configuration
+Storage
+Quantity
+max_connections
+Small
+1 to 5
+Owned
+by Azure
+Standard
+D8s v3
+Disk: 100 GB
+(Premium
+SSD)
+3 ~ 4*
+500 GB
+DND and OO
+share
+AFS server
+with the
+suite.
+Standard 
+D16s_v3
+#
+(Premium SSD)**
+1
+TB ~
+5.2
+TB
+1
+3400
+#
+Medium
+6 to 20
+Owned
+by Azure
+Standard
+D8s v3
+Disk: 200 GB
+(Premium
+SSD)
+9 ~ 10*
+Standard
+D32s_v3
+(Premium SSD)**
+1.6
+TB ~
+5.8
+TB
+1
+7710
+##
+* This is the minimum resources requirements for the deployment. According to the sizing definition benchmark results, our lab
+tests indicate the average CPU utilization is 40 ~ 60%, and the memory utilization is 60 ~ 75%. If one node is down, it may
+cause services to be unavailable. From node high availability consideration, it's recommended that you add at least one
+additional node or more depending on your actual environments such as ticket size, user access rate, and integrations.
+#The 
+max_connections
+ value for the combined database should be equal to or greater than 3400.
+##The
+ max_connections
+ value for the combined database should be equal to or greater than 7710.
+**Azure Database for PostgreSQL Flexible Server is supported and recommended. See more details in the 
+Support matrix for
+Azure deployment
+.
+Additional hardware requirements for OO Containerized with a dedicated database
+The following sizing requirements denote the target deployment size for a dedicated OO database, based on the number of
+tenants. This is not based on concurrent users.
+Target size
+Number of OO tenants
+Database
+Configuration
+Storage
+Quantity
+max_connections
+Small
+1 to 5
+Standard D4s_V3 (Premium SSD)**
+750 GB ~ 5 TB
+1
+1400
+#
+Medium
+6 to 20
+Standard D16s_v3
+(Premium SSD)**
+750 GB ~ 5 TB
+1
+5710
+##
+#The max_connections value for the combined database should be equal to or greater than 1400
+##The 
+max_connections
+ value for the combined database should be equal to or greater than 5710
+**Azure Database for PostgreSQL Flexible Server is supported and recommended. See more details in the 
+Support matrix for
+Azure deployment
+.
+Note
+: For AFS and Postgres HA configuration, follow the recommendations provided in vendor-specific
+documentation. Example: To configure Postgres HA, see 
+High Availability PostgreSQL with Patroni
+.
+
+
+Note
+: For Postgres HA configuration, follow the recommendations provided in vendor-specific documentation.
+Example: To configure Postgres HA, see 
+High Availability PostgreSQL with Patroni
+.
+
+
+SMAX 2022.11
+Page 
+999
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,123 @@
+Create application load balancer for Audit service
+To enable SMAX and the Audit service to work together on AWS, you can configure an internal Application Load Balancer (ALB)
+between the Ingress service of SMAX and the Ingress service of Audit. This best practice enables you to isolate internal
+integration from external access. The diagram below depicts how the integration ALB sets up the connection between SMAX
+and Audit:
+Here are the details of the port:
+Type: Ingress listener port for integration
+Component: Audit
+Example: 31050 
+Prerequisites
+Prepare a certificate
+You will need a certificate for the ALB to achieve the integration between SMAX and Audit service. You can generate the
+certificate using 
+AWS Certificates Manager
+, which AWS recommends. Before creating and configuring an ALB, you need to
+prepare a new certificate using one of the following methods:
+Request a certificate
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+Services
+ > 
+Certificate Manager
+.
+3
+. 
+Click 
+Request a certificate
+.
+4
+. 
+Select 
+Request a public certificate
+ and click 
+Request a certificate
+.
+5
+. 
+Specify your target domain name. You can use an asterisk (*) to request a wildcard certificate to protect several sites in
+the same domain. For example, 
+*.testsma-ng.org.
+6
+. 
+Click 
+Next
+.
+7
+. 
+Select 
+DNS validation
+ or 
+Email validation
+ according to your permission.
+8
+. 
+Click 
+Review
+ and then click 
+Confirm and request
+.
+9
+. 
+Click 
+Continue
+.
+10
+. 
+Finish the certificate validation based on the method you just selected. For more information,
+see 
+https://docs.aws.amazon.com/console/acm/validation
+.
+11
+. 
+Save the Amazon Resource Name (ARN) of the certificate as it you will require it while creating the Audit ingress YAML.
+Import a certificate
+1
+. 
+Log in to the AWS Management Console in your target region.
+2
+. 
+Navigate to 
+Services
+ > 
+Certificate Manager
+.
+3
+. 
+Click 
+Import a certificate
+.
+4
+. 
+For 
+Certificate body
+, paste the Privacy Enhanced Mail (PEM) encoded certificate.
+5
+. 
+For 
+Certificate private key
+, paste the PEM encoded, unencrypted private key that matches the certificate's public key. 
+Note: 
+The target domain name (CN name) of the certificate must be the domain or full name of the FQDN you
+will bind with the ALB in a later step.
+
+
+Important: 
+Currently, services integrated with AWS Certificate Manager support only the 
+RSA_1024
+ and 
+R
+SA_2048
+ algorithms.
+
+
+SMAX 2022.11
+Page 
+974
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

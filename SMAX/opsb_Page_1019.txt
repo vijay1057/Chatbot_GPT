@@ -1,0 +1,169 @@
+Subscribe NetApp Files
+This release supports 
+NetApp Files
+ or 
+Azure Files & Azure Disks
+ as the storage service on Azure.
+To deploy the suite using Azure Files and Azure Disks, refer to 
+Subscribe premium Azure Files & Azure Disks
+.
+To use Azure NetApp Files as the storage service, perform the following steps.
+Set up Azure NetApp Files
+Role
+Location
+Storage administrator
+Bastion node & Azure portal
+Before you start, you need to register for NetApp Files and NetApp Resource Provider with your subscription information. If you
+haven't registered, follow these steps.
+1
+. 
+Run these commands on the bastion:
+az login
+#Specify the subscription that has been allowlisted for Azure NetApp Files
+az account set --subscription <subscription_id>
+#Register the Azure Resource Provider
+az provider register --namespace Microsoft.NetApp --wait
+where:
+<subscription_id>
+: You can get your subscription ID by navigating to the Azure portal 
+Home
+ page > 
+Subscriptions
+.
+After registration, follow these steps to create an Azure NetApp Files instance:
+1
+. 
+Log in to the Azure portal at 
+https://portal.azure.com
+.
+2
+. 
+Click 
+Azure NetApp Files
+ > 
++ Create
+.
+3
+. 
+Give a name to the new NetApp account and populate the following fields:
+Subscription
+: Select your subscription from the drop-down list.
+Resource group
+: Select the name of the resource group you created on the 
+Build AKS cluster
+ 
+page. Do 
+NOT
+ use
+your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+Location
+: Select the same location as the created resource group and AKS cluster.
+4
+. 
+Click 
+Create
+.
+5
+. 
+Go to Azure NetApp Files, from the item list, click your created NetApp Files account.
+6
+. 
+Click 
+Capacity pools
+ > 
++ Add pool
+ and populate the following fields:
+Name
+: Give a name to the new capacity pool.
+Service level
+: Select a service level according to 
+Sizing guide
+.
+Size (Tib)
+: Type 
+4
+. See details at 
+Sizing guide
+. 
+QoS Type
+: Leave as 
+Auto
+.
+7
+. 
+Click 
+Create
+ to create your capacity pool.
+8
+. 
+Create a volume for storing the 
+Smart Analytics
+ data.
+a
+. 
+Click
+ Volumes
+ > 
++ Add volume
+.
+Under 
+Basics
+, populate the following fields:
+Volume name
+: Give a name to the new volume.
+Capacity pool
+: Select the created capacity pool.
+Quota (GiB)
+: Type a quota, size according to 
+Sizing recommendation
+.
+Virtual network
+: Select the created virtual network.
+Delegated subnet
+: Select the subnet created for NetApp Files. 
+Note that a subnet of CIDR
+192.168.0.0/24 will cause the installation failure
+.
+Under 
+Protocol
+, select 
+NFS
+ as protocol type and type a File path as the export path for NFS volumes. Select
+NFSv4.xx
+ as the NFS version.
+b
+. 
+Leave the remaining settings as is and click 
+Review + create
+.
+c
+. 
+Review all the settings and click 
+Create
+ after confirmation.
+9
+. 
+Run the previous step again to create a volume for storing 
+generic
+ data (all data of OMT and the suite except Smart
+Analytics).
+Configure volumes
+Role
+Location
+Storage administrator
+Bastion node
+Once the NetApp Files instance is ready, log on to the bastion and set up volumes to store global data, Smart Analytics data,
+Note
+ For information about storage sizing and management, see 
+Manage persistent storage for the suite
+.
+
+
+SMAX 2022.11
+Page 
+1019
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,148 @@
+Select the deployment configuration
+Log in to the installation portal
+1
+. 
+Copy the installation portal URL to a supported browser. The URL uses the following format: 
+https://<external_access_host>:30
+00
+.
+2
+. 
+Log in to the installation portal with the administrator credentials that you created in the bootstrap installation:
+Username: 
+admin
+Password: the password you set up when running the bootstrap installation command
+3
+. 
+Click 
+LOGIN
+.
+If you exit the installation portal at any point, the installation process pauses. The next time you log in to the portal, the
+installation process resumes from the point where you stopped earlier. 
+Select the deployment configuration
+In the installation portal, configure the deployment.
+1
+. 
+Select the suite metadata package on your local machine, and then click 
+UPLOAD
+.
+2
+. 
+Choose the 
+2022.11
+ version, and then click 
+NEXT
+.  
+3
+. 
+Log on to the bastion and create Persistent Volumes for the suite with the following commands:
+a
+. 
+Check if a file named 
+/<root>/.kube/config
+ with cluster credentials exists. If not, log in to the Azure CLI by running the
+command below and following the instructions in the command output:
+sudo az login
+Then, run the following command to get the required permission to run the Kubernetes commands:
+sudo az aks get-credentials --resource-group <resource_group_name> --name <kubernetes_cluster_name> --subscription <subscription_name_or_id>
+In this command,
+<resource_group_name>
+ is the name of the resource group you created on the 
+Build AKS cluster
+ page. Do 
+NOT
+use your cluster's resource group name with the format 
+MC_<resource_group>_<aks_cluster_name>_<location>
+.
+<kubernetes_cluster_name>
+ is the name of the created Kubernetes cluster.
+<subscription_name_or_id>
+ is your subscription name or ID. You can get it by navigating to the Azure portal 
+Home
+page > 
+Subscriptions
+.
+b
+. 
+Select one of the following options to create Persistent Volumes for the suite.
+If you use 
+Azure Files & Azure Disks
+ as the storage service:
+First, you need to generate the secret under the suite namespace for Kubernetes to access the Azure file shares:
+kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=<storage_account_name> --from-literal=azurestorageaccountkey=<storage_account_key> -n <suite_namespace>
+In this command,
+<storage_account_name>
+ is the name of the FileStorage account created.
+<storage_account_key>
+ is the key you obtained for the FileStorage account created.
+<suite_namespace>
+ is the suite namespace created automatically by OMT (for example: 
+itsma-etgsg
+). You
+can find it by running command 
+kubectl get ns |grep itsma-
+.
+Then, create Persistent Volumes for the suite by running the script you saved at the 
+Configure volumes
+ step:
+sudo ./createPV.sh  -n <suite_namespace> -gp <generic_file_share_name>/var/vols/itom/itsma -u <system_user_id> -g <system_group_id> -m <suite_metadata_path> -v <suite_version> -s <suite_size>
+In this command,
+<suite namespace>
+ is the suite namespace created automatically by OMT (for example: 
+itsma-etgsg
+). You
+can find it by running command 
+kubectl get ns |grep itsma-
+.
+<generic_file_share_name>
+ is the name of the Azure file share for storing the 
+generic
+ data.
+<system_user_id>
+ and 
+<system_group_id>
+: enter the 
+<system_user_id>
+ and 
+<system_group_id>
+ values
+ 
+that you
+specified previously in 
+Subscribe premium Azure Files & Azure Disks
+.
+<suite_metadata_path>
+ is the directory of the suite metadata. For example, 
+/root/itsma-suite-metadata-
+xxx.xx.tgz
+.
+<suite_version>
+ is the suite version.
+<suite_size>
+ is the deployment size of the suite. Use one of the following values: 
+SMALL
+, 
+MEDIUM
+, or 
+LAR
+GE
+.
+You can find them by navigating to the Azure portal > 
+Storage accounts
+ > your storage account > 
+File
+shares
+ > your Azure file share name.
+If you use 
+Azure NetApp Files 
+as the storage service:
+Create Persistent Volumes for the suite by running the script you saved at the 
+Configure volumes for NetApp
+Files
+ step:
+SMAX 2022.11
+Page 
+1040
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
