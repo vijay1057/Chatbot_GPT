@@ -1,0 +1,40 @@
+1
+. 
+Log in to your database server with the administrator credentials.
+psql -h <host> -p <port> -U <PostgreSQL admin>
+2
+. 
+Run the following commands to create the databases and the users, by substituting the exemplified database names,
+database users, and their respective passwords of each component with the desired values.
+OO Central:
+CREATE ROLE oocentraldbuser LOGIN ENCRYPTED PASSWORD 'oocentraldbuserPass' NOSUPERUSER INHERIT CREATEDB CREATEROLE;
+CREATE DATABASE oocentraldb WITH owner=oocentraldbuser;
+GRANT CREATE ON DATABASE oocentraldb TO oocentraldbuser;
+OO UI:
+CREATE ROLE oouidbuser LOGIN ENCRYPTED PASSWORD 'oouidbuserPass';
+CREATE DATABASE oouidb WITH owner=oouidbuser;
+GRANT CREATE ON DATABASE oouidb TO oouidbuser;
+OO Controller:
+CREATE ROLE oocontrollerdbuser LOGIN ENCRYPTED PASSWORD 'oocontrollerdbuserPass';
+CREATE DATABASE oocontrollerdb WITH owner=oocontrollerdbuser;
+GRANT CREATE ON DATABASE oocontrollerdb TO oocontrollerdbuser;
+OO Scheduler:
+CREATE ROLE ooschedulerdbuser LOGIN ENCRYPTED PASSWORD 'ooschedulerPass';
+CREATE DATABASE ooschedulerdb WITH owner=ooschedulerdbuser;
+GRANT CREATE ON DATABASE ooschedulerdb TO ooschedulerdbuser;
+AutoPass:
+CREATE ROLE aplsdbuser LOGIN ENCRYPTED PASSWORD 'aplsdbuserPass';
+CREATE DATABASE aplsdb WITH owner=aplsdbuser;
+GRANT CREATE ON DATABASE aplsdb TO aplsdbuser;
+Grant CONNECT to all database users to their respective databases:
+GRANT CONNECT ON DATABASE oocentraldb TO oocentraldbuser;
+GRANT CONNECT ON DATABASE oouidb TO oouidbuser;
+GRANT CONNECT ON DATABASE oocontrollerdb TO oocontrollerdbuser;
+GRANT CONNECT ON DATABASE ooschedulerdb TO ooschedulerdbuser;
+GRANT CONNECT ON DATABASE aplsdb TO aplsdbuser;
+SMAX 2022.11
+Page 
+747
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

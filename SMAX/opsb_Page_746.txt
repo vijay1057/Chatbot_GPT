@@ -1,0 +1,106 @@
+Prepare external database for OO
+To prepare the PostgreSQL database for Operations Orchestration Containerized (OO Containerized), perform the following
+tasks:
+Install the PostgreSQL database
+You can use a PostgreSQL database server for OO Containerized. Please see the PostgreSQL documentation for installation
+details. 
+It's strongly recommended to host the database server on a 
+physical machine
+, and it should be an independent server
+without other applications running on it.
+If the database server machine is a virtual machine, you must have a dedicated resource as a database server.
+Set the database servers to the same time zone, daylight savings settings, and time as the OO servers.
+Install OO in the same LAN as the database servers (without a proxy and firewalls between them). Otherwise, your
+system's performance may get impacted.
+Set the machine's system resources where you install PostgreSQL database according to the on-premises deployment
+sizing guide.
+Configure the database server
+Configure the PostgreSQL database server​​​​​​
+1
+. 
+(Optional) Enable TLS connections for the database server. For details, see 
+Enable TLS connections to external
+PostgreSQL
+.
+Both SSL modes (
+verify-full
+ and 
+verify-ca
+) are supported. For details, see the PostgreSQL documentation.
+2
+. 
+In the 
+postgresql.conf
+ file, configure the following parameters: 
+Parameter
+Value
+effective_cache_size
+7.5 GB
+maintenance_work_mem
+256 MB
+max_connections
+1400
+shared_buffers
+4.5 GB
+work_mem
+300 MB
+listen_addresses
+'*'
+The default value of the 
+listen_addresses
+ parameter is "
+localhost
+", which means only localhost can connect to the
+PostgreSQL instance. Set 
+listen_addresses = '*'
+ to allow remote connections.
+If you share the database server with other suite components, make sure to add the OO database configuration
+requirements to the suite's database configuration options.
+3
+. 
+Configure encoding and locale. Make sure that the PostgreSQL instance uses the following encoding and locale settings:
+Encoding: UTF8
+LC_COLLATE: en_US.UTF-8
+LC_CTYPE: en_US.UTF-8
+Create OO database users and database names
+In the OO application, the following components require databases:
+OO Central
+OO UI
+OO Controller
+OO Scheduler
+AutoPass License Service (AutoPass)
+In the production environment, you must use external databases for the OO application. Enter the database users and
+database names during OO installation using the Helm parameters. 
+The databases must be empty so that OO will initialize them during installation. The table below shows example database
+information prepared for the following components:
+Service
+Database User
+Database Name
+Schema 
+OO Central
+oocentraldbuser
+oocentraldb
+oo_cen_core
+OO UI
+oouidbuser
+oouidb
+public
+OO Controller
+oocontrollerdbuser
+oocontrollerdb
+public
+OO Scheduler
+ooschedulerdbuser
+ooschedulerdb
+oo_sch_core
+AutoPass
+aplsdbuser
+aplsdb
+public
+Below are sample SQL commands for creating a user and a database for a service for the PostgreSQL database:
+SMAX 2022.11
+Page 
+746
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

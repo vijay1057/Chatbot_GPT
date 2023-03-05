@@ -1,0 +1,119 @@
+3
+. 
+Extract the .zip package to a directory.
+4
+. 
+Set up the HTTP/HTTPS proxy, if you can't access the image registry. For example, you can run the following commands to
+set the HTTP/HTTPS proxy. Replace the placeholders with your actual server and port. 
+export http_proxy="<http://PROXY_SERVER:PORT>"
+export https_proxy="<https://PROXY_SERVER:PORT>"
+5
+. 
+Log in to the node where you place the 
+offline-download.zip
+ file. Then go to the directory into which you extracted the 
+offline-
+download.zip
+ package.
+6
+. 
+Run the following command:
+ 
+./downloadimages.sh [-r <image repository URL>][-u <username>][-d <image download directory>] [-c on|off] [-o <org name>]
+Where:
+<image repository URL>: Specify the 
+-r
+ option if you want to download the images from a repository other than
+Docker Hub.
+Replace <
+username
+> with the Docker Hub username.
+If you don't specify the credentials here, you will be prompted to specify them when you run the command.
+<image download directory>: The directory where the container images will be downloaded. The default value is
+/var/opt/cdf/offline.
+The 
+-c
+ option is used to verify the digital signature of the images during the download. The default setting is off,
+which doesn't verify the signature.
+<org name>
+: The organization in the image registry that contains the images for installation. By default, this is 
+hpeswit
+om.
+ This option is mandatory if you aren't using the default organization name.
+To see the full list of options for the downloadimages.sh command, run the following command:
+./downloadimages.sh –h
+The command also has a 
+-p
+ option to provide your password. The 
+-p
+  option doesn't support single quotes (that is, don't
+include single quotes in the password).
+The download process may take several hours, depending on your selections and the Internet connection speed. In the
+meantime, you can close this window and return later.
+Transfer the images to the control plane node
+This step is only required if the control plane node can't access Docker Hub. Follow the instructions on 
+Transfer container
+images
+ page to transfer the downloaded images to a specified image directory on the control plane node. Then, click 
+NEXT
+.
+Upload the images
+1
+. 
+Log on to one of the control plane nodes.
+2
+. 
+On the control plane node, go to the 
+$CDF_HOME/scripts/
+ directory. Run the following command:
+cd $CDF_HOME/scripts
+3
+. 
+Run the following command to upload the suite images to the local registry:
+./uploadimages.sh [-u <username>]  [-d <image download directory>] [-o <org name>]
+Where:
+Replace <
+username
+> with the registry username.  Use the "registry-admin" user for the local registry. The local
+registry refers to the default registry or the registry URL that's "localhost:5000."
+If you don't specify the credentials here, you will be prompted to specify them when you run the command.
+<image download directory>: The directory where the container images will be downloaded. The default value is
+/var/opt/cdf/offline. The 
+-d
+ option is the image directory where you placed the images you have downloaded. Specify
+the 
+-d 
+option if the images aren't available in the 
+/var/opt/cdf/offline/
+ directory. You can use the 
+-d
+ option multiple
+Note
+By selecting the -p option, you are disabling or bypassing security features, thereby exposing the system to
+increased security risks. By using this option, you understand and agree to assume all associated risks and hold
+Micro Focus harmless for the same.
+Micro Focus encourages you to use some other password options, which aren't provided by Micro Focus. By
+implementing the -p option, you may expose the system to increased security risks. You understand and agree to
+assume all associated risks and hold Micro Focus harmless for the same. It remains at all times your sole
+responsibility to assess its own regulatory and business requirements. Micro Focus doesn't represent or warrant
+that its products comply with any specific legal or regulatory standards applicable to you in conducting your
+business.
+
+
+Note
+: The images will be uploaded by the 
+uploadimages.sh
+ script later. The image upload requires up to 2 times of
+the image size space in the target image directory. For example, if you choose to use the
+default 
+/var/opt/cdf/offline
+ directory, ensure that you have 2 times of the OMT and suite image size space under 
+/var
+/opt/cdf/offline
+ directory of the control plane node.  
+SMAX 2022.11
+Page 
+681
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

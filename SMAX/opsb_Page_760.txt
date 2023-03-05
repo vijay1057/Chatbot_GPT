@@ -1,0 +1,81 @@
+Install OO Containerized on-premises
+Perform the following tasks to deploy Operations Orchestration Containerized.
+On the control plane node, run the following command:
+helm install <
+OO INSTALL NAME>
+ <
+OO CHART FILE>
+ --namespace <
+OO NAMESPACE>
+ -f <
+values.yaml>
+ -f <
+oo_size_values.yaml> --set-file "caCertificates.cert_one\.crt"=/path/to/cert_one.crt
+Where:
+<
+OO INSTALL NAME
+> =
+ the unique release name that you need to specify for the OO deployment. You need to use the
+same release name as specified here when you upgrade OO in the future.
+<
+OO CHART FILE
+> = 
+the absolute path of the OO chart file
+<
+OO NAMESPACE
+> = 
+unique namespace of the OO deployment. Use the namespace that you specified in the 
+Create a new
+deployment for OO
+ topic.
+<values.yaml
+ > = the path to OO 
+v
+alues.yaml 
+file configured as part of preparation step 
+Create and configure
+values.yaml file
+.
+<oo_size_values.yaml>
+ = the path to OO sizing configuration file. It can be any of these: 
+The file created as part of preparation step 
+Create and configure oo_size_values.yaml file
+. 
+The 
+/samples/oo_sizing/oo_default_sizing.yaml
+ sizing file that's available for a five tenants sizing. Use this file to deploy OO with
+a default sizing required for five tenants. 
+The 
+/samples/oo_sizing/oo_20tenants_sizing.yaml
+ that's available for a 20 tenants sizing.
+<--set-file>
+ = These are optional arguments because they address one way of having OO trust specific
+certificates. Depending on your choice during the preparation of OO 
+values.yaml 
+(see 
+SMAX integration parameters
+):
+If you opted for providing the required certificates at OO install time, then you are required to do so using the 
+--set-
+file
+ parameter.
+If you provided the certificates directly in the OO 
+values.yaml
+, then don't use the 
+--set-file
+ parameter with the Helm
+install command.
+For example:
+helm install oo oo-1.0.x+2022xx01.xx/oo-helm-charts/charts/oo-1.0.x+2022xx01.xx.tgz --namespace oo -f values.yaml -f oo_size_values.yaml --set-file "caCertificates.cert_one\.crt"=/path/to/cert_one.crt
+You can run the command mentioned earlier with the 
+--dry-run
+ argument to simulate an installation. It's useful to validate the
+content in the 
+values.yaml
+ file before a real installation.
+SMAX 2022.11
+Page 
+760
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

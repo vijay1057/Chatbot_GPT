@@ -1,0 +1,14 @@
+3
+. 
+Run the following command to create persistent volume claims:
+  kubectl create -f oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/on_premises/claims.yaml
+4
+. 
+Run the following command to verify the volume creation:
+  kubectl get pvc -n <oo_namespace>
+SMAX 2022.11
+Page 
+745
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

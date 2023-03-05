@@ -1,0 +1,111 @@
+Generate sensitive data for OO
+The outcome of this step is the creation of a Kubernetes secret named 
+oo-secret
+, that holds the required sensitive data OO
+needs to be installed: the passwords of the database users created during the preparation steps and the suite IDM integration
+passwords. 
+The name of this Kubernetes secret is by default referenced in the OO values.yaml file (at the Helm parameter
+global.initSecrets
+), and at the time of OO install it's data is automatically consumed by the deployed OO pods.
+Use the 
+gen_secrets.sh
+ tool from OMT to prepare the sensitive data.
+1
+. 
+Run the following command on the control plane node:
+$CDF_HOME/scripts/gen_secrets.sh -n <
+OO namespace
+> -c <
+OO chart file
+>
+Where:
+<OO namespace>
+ is the unique namespace of the OO deployment. Use the namespace that you specified in the
+Create a new deployment for OO
+ topic.
+<OO chart file>
+ is the absolute path of the OO chart file
+For example:
+$CDF_HOME/scripts/gen_secrets.sh -n oo-prod -c OO_Helm_Chart-2022.11/oo-helm-charts/charts/oo-1.0.3+20221101.xx.tgz
+2
+. 
+The Vault secret utility prompts you for the following passwords. 
+Key
+Required?
+Description
+idm_admin_adm
+in_password
+Yes
+Provide the password of the oo-integration-admin user. This user was created as part of
+preparation step 
+Create OO integration admin user in SMAX IdM
+.
+OO_CENTRAL_D
+B_PASS
+Yes
+The password of OO Central database user which was created as part of preparation
+step 
+Prepare external databases for OO
+.
+OO_AUTOPASS_
+DB_PASS
+Yes
+The password of AutoPass database user which was created as part of preparation step
+Prepare external databases for OO
+.
+OO_IDM_DB_PAS
+S
+No
+Ignore this request, as it belongs to a beta feature of OO which isn't yet available. 
+Press 
+ENTER
+ when prompted for this data. Doing so, it will generate a random string
+which isn't used by OO.
+OO_CONTROLLE
+R_DB_PASS
+Yes
+The password of OO Controller database user which was created as part of preparation
+step 
+Prepare external databases for OO
+.
+ITOM_DB_PASS
+WD_KEY
+No
+Ignore this request, as it belongs to a beta feature of OO which isn't yet available. 
+Press 
+ENTER
+ when prompted for this data. Doing so, it will generate a random string
+which isn't used by OO.
+IDM_SIGNING_K
+EY
+Yes
+The SMAX IdM Signing Key which was obtain as part of preparation step 
+Get connection
+details for connecting to the IdM service of SMAX
+.
+idm_transport_a
+dmin_password
+Yes
+Provide the password of the suite IDM transport user. The password was obtained as
+part of preparation step 
+Get connection details for connecting to the IdM service of
+SMAX
+.
+OO_UI_DB_PASS
+Yes
+The password of OO UI database user which was created as part of preparation step
+Prepare external databases for OO
+.
+OO_SCHEDULER
+_DB_PASS
+Yes
+The password of OO Scheduler database user which was created as part of preparation
+step 
+Prepare external databases for OO
+.
+SMAX 2022.11
+Page 
+750
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

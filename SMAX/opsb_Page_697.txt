@@ -1,0 +1,48 @@
+You need two external load balancers to handle traffic from outside users and internal integration traffic between the suite and
+CMS. They are both application load balancers. 
+The following diagram illustrates the network structure of option 2.  
+The following table describes the supported FQDN and port configurations for this option. 
+Configuration
+Example 1
+Example 2
+Using the same port (443) and different FQDNs for the suite and
+CMS. Note that the two FQDNs must have different domains
+(different portions after their first portion).
+Suite: smax.example-domain-
+1.com:443
+CMS: cms.example-domain-
+2.com:443
+Note
+: the network structure
+diagram for option 2 uses this
+example configuration.
+Suite:
+a.b.c:443
+CMS:
+d.a.b.c:443
+Using the same FQDN and different ports for the suite (port 443)
+and CMS (port other than 443)
+Suite: myhost.example-
+domain.com:443
+CMS: myhost.example-
+domain.com:3443
+N/A
+Note
+: Using the same port (443) and different FQDNs that have the same domain (the same portions after their first portion).
+For example, you can't use a.b.c for the suite and e.b.c for CMS.
+Option 3
+This option applies if you have set up a high-availability environment by using multiple control plane nodes and use an HA
+virtual IP (defined in 
+install.properties
+) to leverage Keepalived's high-availability feature instead of using an external load
+balancer. This option takes advantage of Keepalived to load balance the traffic for the suite and CMS in a multi-deployment
+scenario.
+With an HA virtual IP configured, Keepalived handles end user traffic as before, and you can use this HA virtual IP for setting
+up an integration between CMS and the suite. That said, you don't need to configure any load balancers.
+The following table describes the supported FQDN and port configuration for this option. 
+SMAX 2022.11
+Page 
+697
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

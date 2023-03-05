@@ -1,0 +1,52 @@
+(Optional) Set up a reverse proxy server in a DMZ
+network
+Role
+Location
+Network Administrator
+Reverse proxy server
+A demilitarized zone (DMZ) is a perimeter network between an organization's internal private network and the external public
+network, usually the Internet. It isolates and protects the local area network (LAN) from untrusted external traffic, adding extra
+layer of security to the organization's network. 
+If your organization's network includes a DMZ, any access from the Internet must go through a DMZ device that acts as a
+reverse proxy. In this document, we assume that you use a reverse proxy server as the DMZ device.
+The following diagram illustrates a Service Management Automation deployment in a corporate network with a DMZ. 
+In this case, you need to complete the following tasks before the suite installation: 
+1
+. 
+Determine the reverse proxy server's public DNS record name. This record should be used by the suite application
+exclusively. For example: itsma.apps.yourcompany.com.
+2
+. 
+Make sure the reverse proxy server's public DNS record is propagated.
+3
+. 
+Determine the worker node address, which can be the FQDN or IP address.
+4
+. 
+Set up an L4 reverse proxy on the reverse proxy server using any L4 reverse proxy solutions. Take Nginx with the stream
+module enabled as an example, you need to append the following code to the end of the nginx.conf file:
+stream {
+          server {
+              listen 443;       
+              proxy_pass suite_443;       
+      }        
+      server {       
+              listen 5443;       
+              proxy_pass suite_5443;       
+          }       
+               
+              
+          upstream suite_443 {       
+              server <worker node address or virtual IP address>:443;       
+      }       
+      upstream suite_5443 {       
+              server <worker node address or virtual IP address>:5443;       
+          }       
+              
+      } 
+SMAX 2022.11
+Page 
+688
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

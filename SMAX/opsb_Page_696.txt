@@ -1,0 +1,72 @@
+containerized CMS. 
+2
+. 
+Prepare a separate NFS server and separate PostgreSQL database server, and required worker nodes for CMS, according
+to your CMS sizing profile. 
+3
+. 
+Add the worker nodes to the OMT cluster. For details, see 
+Add or remove a machine from a cluster
+.
+Determine your load balancing option
+Follow the instructions below to select a load balancing option according to your network structure. 
+There are three load balancing options as described below. However, you need to work with your IT administrator or network
+administrator to develop a detailed solution according to your network structure. The diagrams below are examples for your
+reference only.
+Option 1 is for the scenario where your IT policy requires that any access from the Internet must go through a DMZ
+network and all traffic for CMS integration purposes must not go through the network. So it is more secure than the other
+options. It's the most recommended one if all of the three options work for you.
+Options 2 and 3 are for the scenario where your IT policy has no limitations on inbound and outbound traffic. Since the
+network isn't isolated from the Internet, these options aren't so secure as option 1. However, both of them are easy to set
+up, especially option 3, which requires no operational cost.
+Option 1
+You need three load balancers, all of which are application load balancers that work through network layer 7:
+Two external load balancers in a DMZ network to handle Internet inbound traffic: one for end users to access the
+suite and OMT from the Internet, and the other for end users to access CMS from the Internet. 
+An internal load balancer to handle only integration traffic between the suite and CMS in your private network.
+The following diagram illustrates the network structure of option 1. 
+The following table describes the supported FQDN and port configurations for this option. 
+Configuration
+Example 1
+Example 2
+Using the same port (443) and different FQDNs for the suite and
+CMS. Note that the two FQDNs must have different domains
+(different portions after their first portion).
+Note
+: The internal load balancer uses different ports for the
+suite and CMS (ports 443 and 3443 in the diagram are only
+examples and can be changed). 
+Suite:  smax.example-
+domain-1.com:443
+CMS: cms.example-domain-
+2.com:443
+Note
+: the network structure
+diagram for option 1 uses this
+example configuration.
+Suite:
+a.b.c:443
+CMS:
+d.a.b.c:443
+Using the same FQDN and different ports for the suite (port 443)
+and CMS (port other than 443)
+Suite myhost.example-
+domain.com:443
+CMS: myhost.example-
+domain.com:3443
+N/A
+Note
+: Using the same port (443) and different FQDNs that have the same domain (the same portions after their first portion).
+For example, you can't use a.b.c for the suite and e.b.c for CMS.
+Option 2
+Note 
+Load balancing options described in this document use ports 443 (which you must not change to
+another port unless otherwise stated) and 3443 (which is only an example and can be changed to your own). 
+
+
+SMAX 2022.11
+Page 
+696
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

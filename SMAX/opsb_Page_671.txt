@@ -1,0 +1,94 @@
+Install OPTIC Management Toolkit (on-premises)
+When installing OPTIC Management Toolkit (OMT), you need to use a database server. OMT uses two databases:
+cdfapiserver-db
+: This database is for the OMT-apiserver service. It can be either the PostgreSQL instance that is embedded
+in OMT or an external PostgreSQL database. To use an external PostgreSQL database for cdfapiserver-db, you need to
+specify related database parameters when running the 
+install
+ script, as described in the tables below.
+cdfidm
+-db
+: This database is normally referred to as the "OMT database", which is used for OMT IdM. It can be either the
+PostgreSQL instance that is embedded in OMT or an external database. You will need to configure this database later on
+the installation portal.
+In a production environment, we strongly recommend that you use an external PostgreSQL database server with TLS for OMT.
+The following tables indicate the installation options as applicable to production or not accordingly. 
+To install OPTIC Management Toolkit (OMT), follow these steps:
+1
+. 
+Log on to the control plane node as a root user. If you are a non-root (sudo) user, ensure that you already have the
+permission to install.
+2
+. 
+Run the following command to navigate to the temporary installation directory where the installation packages are
+located:
+cd <OMT_Embedded_K8s_202x.xx-xxx>
+3
+. 
+Run one of the commands in the table below. Replace <nfs-server> with the NFS server where you created the volume
+"itom-vol-claim" for the OMT core. Enter the IPv4 address or hostname for the NFS server. "localhost“ is not supported for
+the NFS server. Replace <nfs-directory> with the directory you created for volume "itom-vol-claim". For example, replace
+<nfs-directory> with 
+/var/vols/itom/core
+. See more details in "Configure NFS volumes". If you do not specify the 
+-m
+ option,
+you will be asked to upload a suite metadata file on the OMT installation portal later.
+Note: 
+If you want to skip warnings during the installation, use the option 
+--skip-warning
+.
+You can run the install script as the root user or a sudo user. See the following tables for the commands.
+For the root user
+Option
+Command
+Applicable
+to
+production
+Install the suite with no
+advanced settings
+specified
+./install -m /<suite metadata directory>/<suite metadata>.tgz --nfs-server <nfs-server> --
+nfs-folder <nfs-directory>
+ 
+For example:
+./install -m /root/workspaces/
+itsma-suite-metadata-202x.xx-bxx.tgz
+ --nfs-server 19
+2.0.2.0 --nfs-folder /var/vols/itom/core
+No
+Install the suite with an
+external 
+cdfapiserver-db
+database
+./install -m /<suite metadata directory>/<suite metadata>.tgz --nfs-server <nfs-server> --
+nfs-folder <nfs-directory> --db-user <cdfapiserver_db_user> --db-password <cdfapiserver_
+db_password> --db-url <cdfapiserver_db_url_or_connection_string> [--db-crt <cdfapiserver
+_db_cert>]
+ 
+For example:
+For an external PostgreSQL database: 
+./install -m /root/workspaces/itsma-suite-metadata-202x.xx-bxx.tgz --nfs-server 192.0.2.0 -
+-nfs-folder /var/vols/itom/core --db-user cdfapiserveruser --db-password Mypassword --db-ur
+l jdbc:postgresql://mydatabase.myhost.com:5432/cdfapiserverdb --db-crt /tmp/mydb_ca.crt
+Yes
+Install the suite with
+container images
+directly from an external
+image repository
+./install -m /<suite metadata directory>/<suite metadata>.tgz --nfs-server <nfs-server> --
+nfs-folder <nfs-directory> --registry-url <image_registry_URL> [--registry-ca
+<external_registry-ca>] [--registry-orgname<registry organization name>] [--registry-user
+name<registry user name>] [--registry-password<registry password>] 
+ 
+For example:
+./install -m /root/workspaces/itsma-suite-metadata-202x.xx-bxx.tgz --nfs-server 192.0.2.0 -
+-nfs-folder /var/vols/itom/core --registry-url imagehost.mycompany.com --registry-ca /tmp/c
+a.crt--registry-orgname hpeswitom
+No
+SMAX 2022.11
+Page 
+671
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

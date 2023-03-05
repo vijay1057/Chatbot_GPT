@@ -1,0 +1,72 @@
+Go to 
+DEPLOYMENT
+ > 
+Deployments
+, and then locate the installed suite instance. Check that the deployment status
+is 
+Installed
+, and click the More Actions icon to make sure that the 
+Change
+ option is available. If the deployment
+status is 
+Installing
+ or the 
+Change
+ option isn't available, the installer failed to perform the post-installation actions.
+2
+. 
+Log in to a control plane node as the root user or a sudo user.
+3
+. 
+Run the following command to get the namespace of the suite:
+kubectl get ns
+For each suite installation, OMT assigns a namespace of "itsma-xxxxx" (xxxxx refers to a randomly generated string).
+Note that you can also enable tab completion of the suite namespace so that you can skip this step and use the Tab key
+on your keyboard to automatically complete the suite namespace. For details, see 
+Enable tab completion of the suite
+namespace
+.
+4
+. 
+Run the following command to make sure that all the suite pods are ready.
+kubectl get pod --all-namespaces|grep -v 1/1|grep -v 2/2|grep -v 3/3|grep -v 4/4|grep -v Completed
+This command returns a list of abnormal pods. When it returns no results, all the suite pods are ready. If any pods aren't
+ready, see 
+Troubleshoot installation
+.
+There are a few other commands that you can run to find if the suite has been installed successfully and is running
+correctly.
+Run the command “
+kubectl describe node
+” to display system information for the control plane nodes and worker
+nodes. The information will show if the CPU, memory, or hard drive space is insufficient.  Messages indicating problems
+will be visible so that you can make any needed adjustments.
+In order to make sure that the platform and the suite installation has completed, run “
+kubectl get pods --all-
+namespaces
+”. The output will list all the pods and their status.  If the pods are listed as “running” then they were
+successfully installed.  If the pods are listed in any other states, such as “CrashLoopBackOff” or “Error”, there is most
+likely an issue. 
+5
+. 
+Clear your browser cache.
+6
+. 
+Verify that you can log in to the Suite Administration interface:
+https://<EXTERNAL_ACCESS_HOST>/bo (user name: 
+suite-admin
+; password: specified during the suite installation)
+The suite installation is now complete. You can continue with 
+post-installation tasks
+.        
+Related topics
+Next topic: 
+(Optional) Set up Access Server for a DMZ network
+Previous topic: 
+Prepare the control plane nodes and worker nodes
+SMAX 2022.11
+Page 
+687
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

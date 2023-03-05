@@ -1,0 +1,96 @@
+Deploy the suite
+Once OMT is ready for use, you have arrived at the 
+Configure/Deploy
+ phase of the installation wizard. In this phase, you will
+deploy the suite on OMT.
+During the suite installation, you will be asked to specify several passwords. All passwords must meet the following
+requirements:
+Is 10 to 16 characters long
+Contains at least one uppercase letter (A~Z)
+Contains at least one lowercase letter (a~z)
+Contains at least one digit (0~9)
+Contains at least one special character from the following: 
+,:/._?&%=+-[]()
+Don't refresh the browser during the suite installation. 
+Install the suite
+To install the suite, follow these steps:
+1
+. 
+Accept the security agreement, and then click 
+Next
+.
+Note
+: Once you have accepted the agreement, a 
+legal-agreement-YYYYMMDDHHMM.txt
+ file is generated in the following
+directory on the NFS server: <itom-vol-claim>/suite-install/itsma/output/. Here is an example: /var/vols/itom/core/suite-
+install/itsma/output/legal-agreement-202010211403.txt.
+2
+. 
+The Suite Installation Configuration page displays which capabilities will be installed and which deployment size will be
+used. Click 
+Next
+.
+3
+. 
+On the database configuration page, switch on the 
+External Database
+ button to configure external databases for the
+suite. The suite components can use the same database server or different ones.
+4
+. 
+Create a configuration for each external database server so that you can assign the configuration to one or more suite
+components in the next step. To create one or more database configurations, follow these steps:
+1
+. 
+Click 
+Add
+ at the upper right corner of the screen.
+2
+. 
+Specify a unique name (for example, 
+suite-db1
+) for the database configuration, and then click 
+SAVE
+.
+3
+. 
+Select the database type: 
+PostgreSQL
+.
+4
+. 
+Specify the database connection settings.
+ 
+Setting
+Description
+Example
+PostgreSQL
+Server Host
+Name or IP
+Address
+Enter the fully qualified domain name or IP address of the external PostgreSQL
+database server.
+sma-
+pg.myco
+mpany.
+net
+PostgreSQL
+Server Port
+Enter the communications port of the external PostgreSQL database server.
+5432
+Username
+and
+Password
+Enter the username and password of the DBA user account that you have already
+created. The suite will use the PostgreSQL DBA accounts to create databases and
+database owners for the suite components.
+postgres
+/
+postgres
+SMAX 2022.11
+Page 
+684
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,90 @@
+1
+. 
+On the control plane node, copy and save the following scripts as 
+cms_shared_idm_vault_secret.sh
+:
+#!/bin/bash
+description() {
+    echo "--------------------------------------------------"
+    echo "-- Micro Focus Shared IdM Vault-secrets Utility --"
+    echo "--------------------------------------------------"
+    echo " "
+}
+usage() {
+    echo "Usage: $0  [-p|--password <cms_integration_admin_password>] [-n|--namespace <cms_namespace>]"
+    echo "       -p|--password             Password when creating CMS integration admin user in suite IdM."
+    echo "       -n|--namespace            Namespace when generating vault secrets."
+    echo "       -f|--file                 The cms-secrets.yaml file."
+    echo "       -h|--help                 Show help."
+    echo -e " "
+exit 1
+}
+while [[ ! -z $1 ]] ; do
+    case "$1" in
+        -p|--password)
+        case "$2" in
+            -*) echo "The -p|--password parameter requires a value. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "The -p|--password parameter requires a value. " ; exit 1 ; fi ; integration_admin_password=$2 ; shift 2 ;;
+        esac ;;
+         -n|--namespace)
+        case "$2" in
+            -*) echo "-n|--namespace. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "The -n|--namespace parameter requires a value. " ; exit 1 ; fi ; cms_namespace=$2 ; shift 2 ;;
+        esac ;;
+         -f|--file)
+        case "$2" in
+            -*) echo "-f|--file. " ; exit 1 ;;
+            *)  if [[ -z $2 ]] ; then echo "The -f|--file parameter requires a value. " ; exit 1 ; fi ; file_location=$2 ; shift 2 ;;
+        esac ;;
+        *|-*|-h|--help|/?|help) usage ;;
+    esac
+done
+if [ -z "$integration_admin_password" ];then
+    echo "Abort! The value of <cms_integration_admin_password> is missing."
+    exit 1
+fi
+if [ -z "$cms_namespace" ];then
+    echo "Abort! The value of <cms_namespace> is missing."
+    exit 1
+fi
+if [ -z "$file_location" ];then
+    echo "Abort! The value of <file_location> is missing."
+    exit 1
+fi
+function get_suite_namespace(){
+  echo "$(kubectl get cm -n core suite-conf-cm-itsma -o jsonpath='{.data.suite\.namespace}')"
+}
+function get_secret() {
+    local key=${1}
+    local role=${2}
+    local ITOM_BO_UI_POD=$(kubectl get pods -n ${NAMESPACE} | grep -m1 itom-bo-login | awk '{print $1}')
+    PASSWORD=$(kubectl exec -it ${ITOM_BO_UI_POD} -n ${NAMESPACE} -c itom-bo-login -- bash -c "/bin/get_secret ${key} ${role}")
+    PASSWORD=${PASSWORD//PASS=/}
+    echo ${PASSWORD%$'\r'}
+}
+declare NAMESPACE=$(get_suite_namespace)
+declare HPSSO_INIT_STRING=$(get_secret "lwsso_init_string_secret_key" "itom-itsma-config")
+declare HPSSO_INIT_STRING_KEY=$(echo -n $HPSSO_INIT_STRING|base64)
+declare IDM_SIGNING=$(get_secret "idm_token_signingkey_secret_key" "itom-itsma-config")
+declare IDM_SIGNING_KEY=$(echo -n $IDM_SIGNING|base64)
+declare CMS_INTEGRATION_ADMIN_PASSWORD_KEY=$(echo -n $integration_admin_password|base64)
+declare IDM_TRANSPORT_USER_PASSWORD=$(get_secret "idm_transport_user_password_secret_key" "itom-idm")
+declare IDM_TRANSPORT_USER_PASSWORD_KEY=$(echo -n $IDM_TRANSPORT_USER_PASSWORD|base64)
+get_smax_idm_related_keys(){
+    echo "===== Get suite IdM Related Keys ====="
+    echo "Getting four suite IdM related keys."
+    if [ "$HPSSO_INIT_STRING_KEY" ];then
+    echo "Get HPSSO_INIT_STRING_KEY successfully."
+    else
+    echo "Fail to get HPSSO_INIT_STRING_KEY."
+    fi
+    if [ "$IDM_SIGNING_KEY" ];then
+    echo "Get IDM_SIGNING_KEY successfully."
+    else
+    echo "Fail to get IDM_SIGNING_KEY."
+SMAX 2022.11
+Page 
+728
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,94 @@
+Create a deployment for CMS
+You can use the tool provided by OMT to create a deployment, which gets a namespace, default certificate, and service
+account prepared for installing an application by Helm charts.
+1
+. 
+Log on to the first control plane as a root user. If you want to install OMT as sudo user, follow the instructions in "Configure
+sudo access" to give the user related installation permissions first and then perform the following steps.
+2
+. 
+Run the following commands to create an ITOM application deployment.
+cd $CDF_HOME/scripts
+./cdfctl.sh deployment create -d 
+<CMS DEPLOYMENT NAME>
+ [-n 
+<CMS NAMESPACE>
+]
+For example:
+cd $CDF_HOME/scripts
+./cdfctl.sh deployment create -d cms-prod
+The 
+-n
+ option is optional. If you do not specify this option, the value defaults to the deployment name (the value of the 
+-
+d
+ option). You can run the 
+./cdfctl.sh deployment -h
+ command to view other options.
+When the application deployment is successful, "Successfully created deployment 
+<name>
+" is printed to the console.
+(Optional) Create custom certificates
+Log in to the first control plane node as a root user or non-root user. Then, perform the following steps to use the external
+certificates:
+1
+. 
+Upload the custom certificates and key to a directory on the first control plane node. For example: 
+/tmp/ca.crt
+, 
+/tmp/server.cr
+t
+, and 
+/tmp/server.key
+.
+The supported certificate format is 
+.pem
+ (base-64 encoded)
+If the certificate is signed by a multiple level certificate authority, the CA cert file should be concatenated with the
+following order: 
+-----BEGIN CERTIFICATE-----
+<intermediate-level-1>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<intermediate-level-2>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<intermediate-level-n>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<root.crt>
+-----END CERTIFICATE-----
+There are no empty line between certificates
+2
+. 
+Run the following commands to check the custom certificates:
+$CDF_HOME/scripts/certCheck -ca <CA cert directory>/<CA cert file> -cert <cert file directory>/<cert file> -key <private key directory>/<private key> -host <external access hostname> 
+For example:
+$CDF_HOME/scripts/certCheck -ca /tmp/ca.crt -cert /tmp/server.crt -key /tmp/server.key  -host fqdn1.example.com
+Where:
+The 
+<CA cert directory>/<CA cert file>
+  is your CA certificate file in the absolute path format.
+The 
+<cert file directory>/<cert file>
+ is your server certificate in the absolute path format.
+The 
+<private key directory>/<private key>
+ is your private key in the absolute path format.
+The 
+certCheck
+ script checks the following: 
+Whether the certificates and key files are well-encoded in PEM.
+Whether the certificates match with the private key file.
+Whether the certificates have been expired.
+Whether the certificates have been revoked basing on a CRL distribution point.
+Whether the certificate subject common name or SAN name matches with its FQDN.
+If your terminal resembles the following, you have passed the certificate checking.
+[root@sh ~]# $CDF_HOME/scripts/certCheck -ca /tmp/ca.crt -cert /tmp/server.crt -key /tmp/server.key -host fqdn1.example.com
+success
+SMAX 2022.11
+Page 
+724
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

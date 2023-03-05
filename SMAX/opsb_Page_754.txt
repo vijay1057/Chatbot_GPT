@@ -1,0 +1,132 @@
+SMAX integration parameter
+Enter the FQDN of the public access point of SMAX. 
+Parameter
+Required
+Description
+Default
+Example
+global.sma
+xFqdn
+Yes
+The FQDN and port of the public load balancer for accessing SMAX.
+N/A
+smax.examp
+le.com:443
+caCertificat
+es
+Yes
+The content of the SMAX CA certificate or the content of the Database
+server's certificate in a base64 encoded form. 
+To get the content of the SMAX CA certificate, see 
+Get the suite CA certificate
+.
+You must keep the original format of the certificate without adding any spaces
+or changing the indentation.
+The certificates that OO must trust are mandatory. You can specify these certificates in two ways:
+At Helm install time via command line.
+At OO install time via Helm parameter 
+caCertificates
+ in 
+values.yaml
+.
+Providing these certificates via the Helm parameter 
+caCertificates
+ in OO 
+values.yaml
+ is optional. 
+Regardless of the method
+you chose, these certificates must be either the 
+server certificates
+ or the 
+root CA
+ that generated the server certificates. 
+In
+addition, the certificates must be in a 
+PEM
+ format (base64 encoded). 
+In comparison:
+The advantage of 
+Option #1
+ is that it's faster and easier than Option #2, but it doesn't add the certificate content to the
+OO values.yaml file.
+The advantage of 
+Option #2
+ is that it adds the certificate(s) content in the OO values.yaml file which provides you with
+a faster way of tracking these certificates at a later point in time, by checking the values.yaml file directly. 
+Add the certificates at install time in CLI
+Add the certificates at Helm install time using the 
+--set-file
+ arguments. 
+For example: 
+helm install [...] --set-file "caCertificates.smax_lb\.crt"=/path/to/smax_lb.crt --set-file "caCertificates.oo_db\.crt"=/path/to/oo_db.crt
+Note that:
+[...]
+ is a placeholder for other Helm install related parameters. For more information, see 
+Install OO Containerized on-
+premises
+.
+Make sure not to miss the escape character before the dot in the 
+--set-file
+ argument - eg:
+"caCertificates.smax_lb
+\
+.crt"
+You can use multiple -
+-set-file
+ arguments, according to the amount of certificate(s) OO requires to trust.
+Add certificates using the Helm parameter
+1
+. 
+Run the following command to add this parameter in OO values.yaml:
+<OMT_External_K8s_202x.xx.xxxxx>/bin/yq e '.caCertificates = "placeholder"' -i <path/to/values.yaml>
+Where:
+<OMT_External_K8s_202x.xx.xxxxx>
+ = installation directory of OMT
+<path/to/values.yaml>
+ = the path of OO values.yaml
+Make sure that:
+You use the command line tool 
+yq
+ that's part of OMT 
+202x.xx
+ and not from the OS 
+$PATH
+. The version of 
+yq
+ that
+comes with OMT is 4.6.1, and the syntax of the command doesn't work with older versions of 
+yq.
+2
+. 
+Open 
+values.yaml 
+in a text editor, delete "placeholder" from parameter 
+caCertificates
+, and specify the content of the
+certificates as given below:
+caCertificates:
+  smax_lb.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIFLTCCAxWgAwIBAgIUEgAXHFYWniNO5iq5E7q8UIiLdfswDQYJKoZIhvcNAQEL
+    [...]
+    gLMaj435og1CxyQMf5qt+m6DqVXjQR/wPfHUNz6S0aON
+    -----END CERTIFICATE-----
+  # Only if TLS is enabled with the external database
+  oo_db.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIIFLTCCAxWgAwIBAgIUEgAXHFYWniNO5iq5E7q8UIiLdfswDQYJKoZIhvcNAQEL
+    [...]
+    gLMaj435og1CxyQMf5qt+m6DqVXjQR/wPfHUNz6S0aON
+    -----END CERTIFICATE----- 
+For each certificate, the key index name represents the name of the certificate. In the example, 
+smax_lb.crt 
+is the
+certificate used for SMA Application Load Balancer and 
+oo_db.crt 
+is the certificate used for the external database OO
+SMAX 2022.11
+Page 
+754
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

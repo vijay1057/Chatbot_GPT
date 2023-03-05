@@ -1,0 +1,73 @@
+In the production environment, you must use the external databases for the CMS application. The database user and database
+name information is required when you install CMS. The database schema information is required for UCMDB Server, and Data
+Flow Probe; but optional for AutoPass. A default schema name will be used if there is no new schema name assigned. 
+The databases must be empty so that CMS will initialize them during installation. The table below shows example database
+information prepared for the following components.
+Service
+DB User
+DB Name
+Schema 
+UCMDB Server
+cms_ucmdb
+cms_ucmdb_db
+cms_ucmdb_schema
+APLS
+cms_autopass
+cms_autopass_db
+cms_autopass_schema
+Data Flow Probe 
+cms_ucmdb_probe
+cms_ucmdb_probe_db
+cms_ucmdb_probe_schema
+Below are sample SQL commands for creating a user and a database for a service:
+1
+. 
+Log in to your PostgreSQL database server with the administrator credentials.
+psql -h <host> -p <port> -U <PostgreSQL admin>
+2
+. 
+Run the following commands to create the databases and the users used by UCMDB Server, AutoPass, and Data Flow
+Probe:
+CREATE USER <USERNAME> PASSWORD '<PASSWORD>';
+CREATE DATABASE <DBNAME> OWNER <USERNAME>;
+For example:
+# For UCMDB
+CREATE USER cms_ucmdb PASSWORD '<PASSWORD>';
+CREATE DATABASE cms_ucmdb_db OWNER cms_ucmdb;
+# 
+For APLS 
+CREATE USER cms_autopass PASSWORD '<PASSWORD>';
+CREATE DATABASE cms_autopass_db OWNER cms_autopass;
+# For Data Flow Probe
+CREATE USER cms_ucmdb_probe PASSWORD '<PASSWORD>';
+CREATE DATABASE cms_ucmdb_probe_db OWNER cms_ucmdb_probe;
+ 
+3
+. 
+Run the following commands to create the schemas used by UCMDB Server, and Data Flow Probe: 
+\c <DBNAME>
+CREATE SCHEMA <DBSCHEMA> AUTHORIZATION <USERNAME>;
+ALTER USER <USERNAME> SET search_path TO <DBSCHEMA>;
+For example:
+# For UCMDB
+\c cms_ucmdb_db
+CREATE SCHEMA cms_ucmdb_schema AUTHORIZATION cms_ucmdb;
+ALTER USER cms_ucmdb SET search_path TO cms_ucmdb_schema;
+Probe.
+Note 
+<PASSWORD>
+ for the database user meet the following complexity requirements defined by the
+Micro Focus Vault secret utility:
+Length: at least 8 characters
+Alpha numeric characters
+At least 1 lower case letter
+At least 1 upper case letter
+At least 1 digit
+
+
+SMAX 2022.11
+Page 
+713
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

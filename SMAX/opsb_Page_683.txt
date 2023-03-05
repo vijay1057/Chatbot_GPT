@@ -1,0 +1,62 @@
+Prepare the control plane and worker nodes
+In the Prepare phase, the installation portal deploys OPTIC Management Toolkit (OMT) on the control plane and worker nodes
+in preparation for the suite installation. Follow these steps to complete the OMT deployment.
+To configure a multiple-control plane node node deployment, make sure the control plane nodes are able to communicate with
+each other.
+This takes you to the Configure and Deploy phase on the installation portal. After you click 
+NEXT
+, you can't go back to the
+Prepare phase.
+1
+. 
+The 
+Deployment of Infrastructure Nodes
+ page lists the control plane and worker nodes that are being deployed. A
+green check mark is displayed next to each node after it is successfully deployed. Wait until all the nodes have green
+check marks, and then click 
+NEXT
+ to continue.
+If any node doesn't have a green check mark:
+1
+. 
+Click the 
+slice
+ icon (
+ 
+ 
+) beside the node name to view the details of the errors.
+2
+. 
+Solve the errors, and then run the following command on the node that failed:
+/${CDF_HOME}/uninstall.sh
+3
+. 
+Click 
+RETRY
+.
+2
+. 
+The 
+Deployment of Infrastructure Services
+ page lists the core foundation services that are being deployed. After the
+deployment is complete, click 
+NEXT
+.
+3
+. 
+On the 
+Preparation Complete
+ page, click 
+NEXT
+ to complete the preparation.
+Related topics
+Next topic: 
+Deploy the suite
+Previous topic: 
+Download the container images
+SMAX 2022.11
+Page 
+683
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

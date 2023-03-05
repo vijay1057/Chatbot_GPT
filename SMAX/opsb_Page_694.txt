@@ -1,0 +1,29 @@
+(Optional) Install containerized CMS
+The Native SACM and SAM solutions require a 
+Micro Focus
+ CMS system to work with the suite. Once you have completed
+the suite installation, you can continue to install CMS on the same OMT cluster as the next deployment (the suite is the first
+deployment). The following diagram shows the multi-deployment structure.
+Using Multi-Customer mode
+Customer in UCMDB is a data isolation mechanism. The Multi-Customer solution enables the management of multiple
+separated customers on a single CMDB instance, with a complete separation of data between the customers. The following is a
+high-level overview of the Multi-Customer architecture.
+Important:
+ UCMDB and SMAX both have the concept of "tenant," but it's important not to mix up the ideas of
+UCMDB tenants and SMAX tenants. SMAX tenants correspond with UCMDB customers, while SMAX data domains
+correspond with UCMDB tenants. When you have multiple tenants in SMAX, each of them needs to be associated
+with a UCMDB customer.
+SMAX concepts
+Correlated UCMDB concepts
+SMAX tenant
+UCMDB customer
+SMAX data domain
+UCMDB tenants
+
+
+SMAX 2022.11
+Page 
+694
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

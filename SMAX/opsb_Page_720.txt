@@ -1,0 +1,119 @@
+For more information about the PostgreSQL CA certificate, see 
+Enable TLS connections to external PostgreSQL
+.
+Data Flow Probe database parameters
+If you plan to deploy CMS with the containerized Data Flow Probe, you need to configure the following database parameters,
+otherwise, skip them.
+Parameter
+Required
+Description
+Default
+Example
+ucmdbprobe.deployment.database.
+probeEmbeddedDb
+No
+true
+ (default): The
+PostgreSQL database
+embedded in the
+containerized Data
+Flow Probe is used
+false
+: The external
+PostgreSQL database
+is used by the
+containerized Data
+Flow Probe 
+true
+false
+ucmdbprobe.deployment.database.user
+No
+Data Flow Probe
+database user. Required
+when
+probeEmbeddedDb
+ is
+false
+.
+probe
+cms_ucmdb_probe
+ucmdbprobe.deployment.database.dbName
+No
+Data Flow Probe
+database name. Required
+when
+probeEmbeddedDb
+ is
+false
+.
+dataflowprobe
+cms_ucmdb_probe_db
+ucmdbprobe.deployment.database.schema
+No
+Data Flow Probe
+database schema.
+Required when
+probeEmbeddedDb
+ is
+false
+.
+probe
+cms_ucmdb_probe_schema
+Persistence parameters
+Parameter
+Required
+Description
+Default
+Example
+global.persistence.enabled
+No
+Enables dynamic PVC creation.
+ 
+In production environments, this
+parameter must be set to 
+true
+.
+true
+true
+global.persistence.dataVolumeName
+No
+Persistent volume (PV) for storing CMS
+data files.
+cms-
+data-
+volume
+global.persistence.dbVolumeName
+No
+Persistent volume (PV) for storing CMS
+database files. This parameter is not
+required if external databases are used.
+cms-
+db-
+volume
+global.persistence.configVolumeName
+No
+Persistent volume (PV) for storing CMS
+configuration files.
+cms-
+config-
+volume
+global.persistence.logVolumeName
+No
+Persistent volume (PV) for storing CMS
+log files.
+cms-
+log-
+volume
+global.persistence.dataVolumeStorageClassName
+No
+The storage class name of
+the automatically created PVC for CMS
+data files. The value must be the same
+as the storageClassName defined in the
+corresponding PV.
+SMAX 2022.11
+Page 
+720
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

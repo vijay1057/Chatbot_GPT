@@ -1,0 +1,124 @@
+global.idm.idmServiceUrl
+Yes
+URL that's used by suite applications to
+communicate with IdM, such as requesting the
+request token, calling IdM APIs, and so on.
+https://<SMA-
+FQDN>:443/idm-
+service
+global.idm.idmIntegrationAdmin
+Yes
+Name of the CMS integration admin user name
+created in 
+Create CMS integration admin user in
+the suite IdM
+.
+cms-integration-
+admin
+global.idm.tenant
+Yes
+IdM tenant organization name that's mapped to
+CMS Provider Customer, which is only used for
+non-business management, so the value should be
+sysbo
+.
+sysbo
+sysbo
+Networking parameters
+The networking configuration parameters are set differently based on if a load balancer is set up for accessing the CMS
+application user interfaces.
+With a load balancer for accessing the CMS application user interface
+Parameter
+Required
+Description
+Default
+Example
+global.externalAccessHost
+Yes
+Set the value to the FQDN of the load
+balancer.
+cms.example.com
+global.externalAccessPort
+Yes
+Set the value to the listening port on the
+load balancer for accessing the CMS
+application user interfaces.
+9443
+3443
+itom-ingress-
+controller.nginx.service.httpsPort
+No
+Set it to a value that does not conflict with
+other applications deployed in the same
+cluster. For example, if SMAX and CMS are
+deployed in the same cluster, this
+parameter must be set to a value different
+than SMAX.
+ 
+If the parameter is not set, it will take the
+value of the 
+global.externalAccessPort
+parameter.
+Without a load balancer for accessing the CMS application user interfaces
+Parameter
+Required
+Description
+Default
+Example
+global.externalAccessHost
+Yes
+Set the value to the FQDN of the control
+plane node.
+cms.example.com
+global.externalAccessPort
+Yes
+Set it to a value that does not conflict with
+other applications deployed in the same
+cluster. For example, if SMAX and CMS are
+deployed in the same cluster, this
+parameter must be set to a value different
+than SMAX.
+9443
+3443
+itom-ingress-
+controller.nginx.service.httpsPort
+No
+Do not set any value for this parameter.
+Database parameters
+The database parameters are configured differently based on whether the internal PostgreSQL is used.
+Parameter
+Required
+Description
+Default
+Example
+global.database.internal
+No
+true
+: Deploy a PostgreSQL instance in the namespace of CMS
+deployment and use it in CMS services as the database server.
+ 
+false
+: Use external databases as required in a production
+environment.
+false
+false
+Note 
+This setup applies to single-control plane node deployment only.
+
+
+Note 
+ The internal PostgreSQL is used for demo environments only. If
+the 
+global.database.internal
+ parameter is set to true, you also need to set
+ global.database.createDb
+ to
+true so that you can use the internal PostgreSQL.
+
+
+SMAX 2022.11
+Page 
+718
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

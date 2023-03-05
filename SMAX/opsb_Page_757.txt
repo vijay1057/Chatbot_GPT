@@ -1,0 +1,93 @@
+Support for configuring up to five tenants
+This configuration is mandatory, and it enables OO to support up to five tenants.
+Copy and save the following as 
+oo_size_values.yaml 
+at the same location as the main values.yaml
+ 
+configured earlier.
+global:
+  deploymentType: install
+oocentral:
+  deployment:
+    replicas: 1
+    # JVM Heap memory usage
+    initMemory: 4096
+    maxMemory: 4096
+    # CPU usage
+    cpuRequest: 1000
+    cpuLimit: 2000
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 5120
+      limits:
+        memory: 5120
+oocontroller:
+  deployment:
+    replicas: 1
+    # JVM Heap memory usage
+    initMemory: 1536
+    maxMemory: 1536
+    # CPU usage
+    cpuRequest: 500
+    cpuLimit: 1000
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 2048
+      limits:
+        memory: 2048
+    ooras:
+      # JVM Heap memory usage
+      initMemory: 3072
+      maxMemory: 3072
+      # CPU usage
+      cpuRequest: 1000
+      cpuLimit: 1000
+      # Container memory request/limit
+      resources:
+        requests:
+          memory: 3840
+        limits:
+          memory: 3840
+ooui:
+  deployment:
+    replicas: 1
+    # JVM Heap memory usage
+    initMemory: 1536
+    maxMemory: 1536
+    # CPU usage
+    cpuRequest: 1000
+    cpuLimit: 1000
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 2048
+      limits:
+        memory: 2048
+ooscheduler:
+  deployment:
+    replicas: 1
+    # JVM Heap memory usage
+    initMemory: 2048
+    maxMemory: 2048
+    # CPU usage
+    cpuRequest: 1000
+    cpuLimit: 1500
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 2560
+      limits:
+        memory: 2560
+oodownloader:
+  deployment:
+    replicas: 1
+    # JVM Heap memory usage
+    initMemory: 1536
+SMAX 2022.11
+Page 
+757
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,156 @@
+example: 
+db1.myhost.com
+ and 
+5432
+.
+Database name
+: enter 
+itom-cdf-idm
+.
+User
+ and 
+Password
+: enter the name and password of your PostgreSQL admin user that has the "Superuser"
+role. Don't use 
+non-UTF-8
+ characters such as "£" for the password.
+3
+. 
+If your database requires Transport Layer Security (TLS), select 
+Use TLS connection
+, and then click 
+Upload
+ to
+upload your database server certificate or the database server CA certificate in PEM format: upload your database
+server certificate if using a self-signed certificate; otherwise, upload your database CA certificate, which must be a
+concatenated file that contains the root CA certificate and all intermediate CA certificates in the certificate chain.
+The installer will automatically create an empty database using the database information you entered. The installer will
+also create a "cdfidm" user and set the "cdfidm" user as the database owner. After the installation, you can update this
+external database configuration by running script 
+$CDF_HOME/bin/updateExternalDbInfo
+ with the 
+--dbadmin
+ option.
+Click 
+NEXT
+.
+Select the deployment size
+On the 
+Deployment Size
+ page, select a deployment size (Small, Medium, or Large), and then click 
+NEXT
+. For details, see 
+Plan
+the deployment
+.
+Configure the connection
+1
+. 
+On the 
+Connection
+ page, enter the external access hostname and port that you will use to access the suite user
+interface.
+For an installation with only one control plane node, the external hostname and port fields are automatically filled. By
+default, the external hostname is the hostname of the first control plane node.
+For an installation with more than one control plane node enter a fully-qualified domain name (FQDN) that's resolved
+to the virtual IP address of the external hostname. Provide the host names based on the following criteria:
+Configuration of control plane nodes
+Corresponding value in install.properties
+Control plane nodes in the same
+subnet
+Hostname must resolve to the value specified in HA_VIRTUAL_IP
+parameter
+Control plane nodes are in different
+subnets
+Hostname must resolve to the value specified in
+LOAD_BALANCER_HOST parameter
+2
+. 
+To use custom certificates, select 
+Use custom certificates
+. You get additional options to choose the certificate format.
+When using custom certificates, you must import the Certification Authority (CA) certificates into the browser from where
+you will log on to the Management Portal.
+3
+. 
+Choose a certificate format.
+If you choose the 
+PKCS#1 or PKCS#8
+ option:
+1
+. 
+Select a 
+CA certificate
+. This is a root certificate.
+2
+. 
+Select a 
+Server certificate
+. The supported certificate formats are: .crt, .cer, and .pem file.
+3
+. 
+Select a key file. The supported private key formats are 
+PKCS1
+ and 
+PKCS8
+. For other formats, please convert
+them to the supported formats. 
+4
+. 
+Enter the private key password for the encrypted private key file. Don't use non-UTF-8 characters, such as "£".
+The root certificate is the only root certificate that must be trusted and from the parent domain.
+The server certificate must be a certificate chain. It must contain the origin server certificate (server.crt)
+and all intermediate certificates. The root certificate/CA is optional for the server certificate.
+The server certificate must be in the following sequence: the original server certificate, the intermediate
+certificated, and the root certificate. Merge all the certificates into a certificate chain.
+If you didn't specify the private key password, the OMT installer will use the PKCS#12 file password as a
+key password.
+If you choose the 
+PKCS#12
+ option:
+1
+. 
+Choose a CA .crt file for a CA certificate.
+2
+. 
+Select a .pfx file for the PKCS#12 file.
+3
+. 
+Enter the PKCS#12 file password. Don't use non-UTF-8 characters, such as "£".
+4
+. 
+Enter the private key password. Don't use non-UTF-8 characters, such as "£".
+You can also update the certificates on the Management Portal after the installation. Click 
+NEXT
+.
+Add control plane nodes
+1
+. 
+If you have specified a value for the 
+HA_VIRTUAL_IP
+ or 
+LOAD_BALANCER_HOST
+ parameter in the install.properties file, the
+Master High Availability
+ option is available. To configure more than one control plane node, select the 
+Make master
+highly available
+ option. Otherwise, click 
+NEXT
+ to add worker nodes.
+2
+. 
+Provide the following information on the 
+Add Master Node
+ page:
+Note:
+ Usually you should ensure that you've stored the hostname (FQDN) in the Common Name (CN) field
+and the Subject Alternative Name (SAN) field of the certificate. However, if the access to the cluster is
+through an application load balancer, the certificate can't contain the hostname. In that case, you can skip
+the pop-up warning message and keep on deploying.
+SMAX 2022.11
+Page 
+677
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

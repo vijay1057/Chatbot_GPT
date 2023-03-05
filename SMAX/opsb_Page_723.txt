@@ -1,0 +1,63 @@
+cmsgateway.deployment.smax.host
+Yes
+The FQDN of the load balancer for accessing
+the SMAX APIs
+smax.example.com
+cmsgateway.deployment.smax.port
+Yes
+The listening port on the load balancer for
+accessing the SMAX APIs
+443
+443
+cmsgateway.deployment.sam.host
+(For SAM
+only)
+Yes
+The FQDN of the load balancer for accessing
+the SAM APIs. The value of this parameter is
+the same as that of
+the 
+cmsgateway.deployment.smax.host
+parameter.
+smax.example.com
+caCertificates
+Yes
+The content of the SMAX CA certificate
+encoded by base64.
+To get the content of the SMAX CA
+certificate, see 
+Get the suite CA certificate
+.
+To encode the certificate as base64, run the
+following command:
+echo -e "caCertificates:\n  smax.crt: |\n    $(base64 -
+w 0 smax.crt)" > /tmp/certificates.yaml
+Then, copy the content with the encoded
+certificate in the 
+/tmp/certificates.yaml
+file to
+ my-values.yaml
+.
+You must keep the original format of the
+certificate without adding any spaces or
+changing the indentation.
+Example:
+caCertificates:
+  smax.crt: |
+    <certificate content 
+base64 encoded>
+See the example in
+the screenshot
+after this table.
+Parameter
+Required
+Description
+Default
+Example
+Certificate example:
+SMAX 2022.11
+Page 
+723
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

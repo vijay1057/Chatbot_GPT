@@ -1,0 +1,87 @@
+Configure file storage
+On the File Storage page, a list of NFS volumes required for the OMT and suite installation shows up. Before you proceed,
+make sure that you have already configured the required NFS shares for OMT and the suite, and the exported NFS folders are
+empty.
+Two file system types are available for each NFS volume:
+Self-Hosted NFS
+: A distributed file system that allows a client to access the files on the remote server over a network
+like local storage. In this case, the installer will check for the available mount points and mount the shared remote
+directory to a local directory. Select this type for on-premises deployment.
+Managed NFS
+: A remote file system such as EFS, and NetApp. In this case, the installer will mount the shared remote
+directory to a local directory.
+To configure the file storage, perform the following steps:
+1
+. 
+Configure the first volume:
+a
+. 
+Select the 
+Self-Hosted NFS
+ or 
+Managed 
+NFS 
+file system type. 
+b
+. 
+Enter the NFS server host FQDN or IP address.
+c
+. 
+If you selected 
+Self-Hosted NFS
+, select the NFS volume path from the drop-down list; if you selected 
+Managed
+NFS
+, enter the NFS volume path. 
+2
+. 
+Although you can repeat the steps above to manually configure the rest of the NFS volumes, we recommend using the
+Auto-fill
+ button if all NFS volumes that you have exported meet the following conditions:
+are on the same NFS server
+are located in the same parent folder ("<base directory>")
+follow the same export path naming rule: <base directory>/<volume label on the web UI>
+Once you have turned on the 
+Auto-fill
+ button, the installer automatically configures the remaining NFS volumes for you
+as follows:
+File Server
+: same as the NFS hostname that you provided for the first volume
+Exported Path
+: <base directory>/<volume label on the web UI>. For example, if the <base directory> you
+provided is 
+/var/vols/itom/itsma/
+, and the current volume's display label is 
+db-backup-vol
+, the installer
+automatically populates the export path field with 
+/var/vols/itom/itsma/db-backup-vol
+.
+3
+. 
+Click 
+Next.
+ The system validates the volume configurations and then proceeds to the next screen if the validation
+succeeds. If the validation fails, you need to reconfigure the volumes and then click 
+Next
+ again.
+Note
+: The validation process may take a few minutes.
+4
+. 
+A warning shows up. Click
+ Yes 
+to confirm that you are ready to start deploying the control plane nodes and worker
+nodes.   
+Note
+After you click 
+Yes
+, you can't go back to the Select phase.
+
+
+SMAX 2022.11
+Page 
+679
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

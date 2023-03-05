@@ -1,0 +1,14 @@
+# For APLS
+\c cms_autopass_db
+CREATE SCHEMA cms_autopass_schema AUTHORIZATION cms_autopass;
+ALTER USER cms_autopass SET search_path TO cms_autopass_schema;
+# For Data Flow Probe
+\c cms_ucmdb_probe_db
+CREATE SCHEMA cms_ucmdb_probe_schema AUTHORIZATION cms_ucmdb_probe;
+ALTER USER cms_ucmdb_probe SET search_path TO cms_ucmdb_probe_schema;
+SMAX 2022.11
+Page 
+714
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

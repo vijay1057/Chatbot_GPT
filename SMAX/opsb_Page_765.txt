@@ -1,0 +1,58 @@
+Uninstall OO Containerized
+To uninstall OO Containerized, perform the following tasks:  
+Delete the OO Containerized deployment
+1
+. 
+Log on to the control plane node as root or a sudo user.
+2
+. 
+Run the following command to remove the OO release:
+helm uninstall <OO release name> -n <OO namespace>
+Where:
+<
+OO release name
+>
+ is the OO release that you want to uninstall
+<OO namespace>
+ 
+is the namespace where you installed OO
+3
+. 
+Go to the 
+$CDF_HOME/scripts
+ folder and run the following command:
+./cdfctl.sh deployment delete -d <OO DEPLOYMENT NAME>
+Where, 
+<
+OO deployment name
+>
+ is the name you specified for the deployment you created to install OO.
+For example:
+./cdfctl.sh deployment delete -d oo-prod
+Remove persistent volumes
+If you created persistent volumes and persistent volume claims based on the 
+oo
+-pv.yaml
+ sample files, run the following
+command to delete the volumes and claims:
+kubectl delete -f /path/to/oo-pv.yaml
+kubectl delete -f /path/to/oo-pvc.yaml
+Clean the NFS volumes
+Log on to the NFS server host and clear all the contents in the NFS volume directories that you created in the 
+Create NFS
+volumes 
+step.
+For example:
+rm -rf /var/vols/itom/oo/*
+If external databases are used, no need to delete the 
+db_volume
+.
+Clean the databases
+The OO uninstallation process doesn't remove the databases from the external PostgreSQL server. You need to remove the
+databases manually.
+SMAX 2022.11
+Page 
+765
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

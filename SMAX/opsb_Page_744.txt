@@ -1,0 +1,99 @@
+Prepare persistent volumes for OO
+Operations Orchestration (OO) Containerized installation requires below Persistent Volumes (PVs) and Persistent Volume
+Claims (PVC). PVs are pieces of storage relevant to NFS volumes, and PVCs are requests for a piece of storage on a volume. 
+Currently, the way OO Containerized uses persistent storage is by providing the names of the required PVCs at OO install time
+via Helm parameters, which means that both PVs and PVCs must be created upfront.
+Component
+Persistent volume
+name
+Persistent volume claim
+name
+Description
+OO
+oo-config-vol
+oo-config-pvc
+Used for storing configuration files.
+OO
+oo-data-vol
+oo-data-pvc
+Used for storing data files.
+OO
+oo-logs-vol
+oo-logs-pvc
+Used for storing all logs except OO RAS logs.
+OO
+oo-data-export-vol
+oo-data-export-pvc
+Used for storing database exported data before
+purging.
+OO
+oo-ras-logs-vol
+oo-ras-logs-pvc
+Used for storing OO RAS logs.
+Create Persistent Volumes
+1
+. 
+Navigate to the OO chart package directory. For example:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/on_premises/
+2
+. 
+Open the 
+volumes.yaml
+ 
+file with a text editor, add the below information in each volume template then save the file:
+The FQDN of the NFS server.
+The NFS directory path that you provided during the creation of the NFS volumes.
+The Storage Class Name that needs to be used with the OO volumes.
+3
+. 
+Run the following command to create persistent volumes:
+  kubectl create -f oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/on_premises/volumes.yaml
+4
+. 
+Run the following command to verify the volume creation:
+  kubectl get pv | grep oo
+Create Persistent Volume Claims
+1
+. 
+Navigate to the OO chart package directory. For example:
+  cd oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/samples/persistent_storage/on_premises/
+2
+. 
+Open the 
+claims.yaml
+ 
+file with a text editor, provide the below information in each volume claim template, and then
+save the file:
+The namespace where OO will be deployed. You provided the namespace as part of the preparation step in 
+Create a
+new deployment for OO
+.
+The name of the volume that the PVC is bound to.
+If you have used a Storage Class Name during the creation of the OO volumes, then provide the name(s) of the
+Storage Class for each PVC to bound to the corresponding volume.
+Note
+:
+By default, the 
+storageClassName
+ attribute of the PVs is empty.
+If you have one or more storageClasses that you want the OO volumes to use, then add the Storage
+Class Names for each volume.
+You can use a different Storage Class name for each individual volume, or the same Storage Class
+Name for all volumes.
+
+
+Note:
+The relationship between the OO volume claims and OO volumes is the following:
+oo-config-pvc -> oo-config-vol
+oo-data-pvc -> oo-data-vol
+oo-logs-pvc -> oo-logs-vol
+oo-data-export-pvc -> oo-data-export-vol
+oo-ras-logs-pvc -> oo-ras-logs-vol
+
+
+SMAX 2022.11
+Page 
+744
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

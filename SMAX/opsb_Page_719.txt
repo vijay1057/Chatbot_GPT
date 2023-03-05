@@ -1,0 +1,157 @@
+Configure the following parameters if the external database is used (that is, 
+global.database.internal
+ is set to 
+false
+). 
+Parameter
+Required
+Description
+Default
+Example
+global.database.createDb
+Yes
+It must be set to 
+false
+.
+false
+false
+global.database.host
+Yes
+Database server host name
+db.example.com
+global.database.port
+Yes
+Database server port
+5432
+global.database.admin
+No
+Do not specify or uncomment
+this parameter when you use
+the external PostgreSQL
+database.
+Note
+: This parameter is
+required only when you use
+the internal PostgreSQL
+database.
+ 
+It specifies the
+admin user when creating the
+internal PostgreSQL database
+(
+createDb
+ is 
+true
+). If the
+admin user account does not
+exist, an admin user with the
+specified name (for example,
+dbadmin) will be created. 
+ucmdbserver.deployment.database.user
+Yes
+UCMDB database user
+ucmdb
+cms_ucmdb
+ucmdbserver.deployment.database.dbName
+Yes
+UCMDB database name
+ucmdb
+cms_ucmdb_db
+ucmdbserver.deployment.database.schema
+Yes
+UCMDB database schema
+ucmdb
+cms_ucmdb_schema
+autopass.deployment.database.user
+Yes
+AutoPass database user
+autopass
+cms_autopass
+autopass.deployment.database.dbName
+Yes
+AutoPass database name
+autopass
+cms_autopass_db
+autopass.deployment.database.schema
+No
+AutoPass database schema
+public
+cms_autopass_schema
+TLS parameters for external PostgreSQL
+If you want to connect to the external PostgreSQL by using TLS, configure the following parameters:
+Parameter
+Required
+Description
+Default
+Example
+global.database.tlsEnabled
+No
+Enable TLS connection to database server.
+Set it to 
+true 
+if you want to enable TLS.
+false
+true
+caCertificates
+No
+The content of the database server CA certificate
+encoded by base64.
+Run the following command on a Linux system to
+encode the CA certificate:
+base64 < pg-ca.pem
+caCertificates:
+  postgresql.crt: |
+    <certificate content
+    base64 encoded>
+  probe-postgresql.crt: |
+    <certificate content
+    base64 encoded>
+See the screenshot
+below.
+ucmdbserver.deployment.
+database.tlsCert
+No
+(Required when 
+tlsEnabled 
+is 
+true
+) The name of
+the key for
+the PostgreSQLcertificate defined in the
+ 
+caCertificates
+ parameter.
+Note
+: You need to manually insert this parameter
+in
+the 
+my-values.yaml
+ file.
+ postgresql.crt
+ucmdbprobe.deployment.
+database.tlsCert
+No
+(Required when 
+tlsEnabled 
+is 
+true
+) The name of
+the key for
+the external PostgreSQL database certificate
+defined
+in the 
+caCertificates 
+parameter.
+Note
+: You need to manually insert this parameter
+in
+the 
+my-values.yaml
+ file.
+probe-postgresql.crt
+SMAX 2022.11
+Page 
+719
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

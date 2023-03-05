@@ -1,0 +1,114 @@
+tion_Node
+ directory on the new worker node:
+ 
+scp -r ${itomvol_nfsserver}:${itomvol_nfspath}/pack/images $TMP_FOLDER/ITOM_Suite_Foundation_Node
+9
+. 
+Run the following command to navigate to the 
+ITOM_Suite_Foundation_Node
+ directory on the new worker node:
+ 
+cd $TMP_FOLDER/ITOM_Suite_Foundation_Node
+10
+. 
+Run the following command to install the worker node. Replace 
+--virtual-ip ${HA_VIRTUAL_IP}
+ with the 
+--load-balancer-host ${LO
+AD_BALANCER_HOST}
+ option if you configured the 
+LOAD_BALANCER_HOST
+ parameter. 
+    ./install \
+--node-host <FQDN or IP of new worker node> \
+--node-type "worker" \
+--auto-configure-firewall ${AUTO_CONFIGURE_FIREWALL} \
+--cdf-namespace $CDF_NAMESPACE \
+--etcd-endpoint ${ETCD_ENDPOINT} \
+--kubelet-home ${KUBELET_HOME} \
+--enable-fips ${ENABLE_FIPS} \
+--pod-cidr ${POD_CIDR} \
+--pod-cidr-subnetlen ${POD_CIDR_SUBNETLEN} \
+--registry-url ${SUITE_REGISTRY} \
+--registry-orgname ${REGISTRY_ORGNAME} \
+--service-cidr ${SERVICE_CIDR} \
+--system-group-id ${SYSTEM_GROUP_ID} \
+--system-user-id ${SYSTEM_USER_ID} \
+--k8s-user-id ${K8S_USER_ID} \
+--k8s-group-id ${K8S_GROUP_ID} \
+--etcd-user-id ${ETCD_USER_ID} \
+--etcd-group-id ${ETCD_GROUP_ID} \
+--k8s-master-ip ${API_SERVER} \
+--k8s-provider ${K8S_PROVIDER} \
+--fail-swap-on ${FAIL_SWAP_ON} \
+--flannel-backend-type ${FLANNEL_BACKEND_TYPE} \
+--ha-virtual-ip ${HA_VIRTUAL_IP} \
+--cdf-home ${CDF_HOME} \
+--master-api-ssl-port ${MASTER_API_SSL_PORT} \
+--runtime-home ${RUNTIME_CDFDATA_HOME} \
+--tmp-folder ${TMP_FOLDER} \
+--all-certs-dir ${TMP_FOLDER}
+11
+. 
+When all worker nodes are deployed, log in to the first control plane node and run the following commands to clean up the
+generateCerts.sh
+ script and temporary certificates directory:
+source /etc/profile.d/itom-cdf.sh
+rm -rf $CDF_HOME/ssl/tmp-all-certs
+Complete suite installation
+Perform the steps below to complete the suite installation.
+1
+. 
+If you want to deploy multiple control plane nodes with 
+HA_VIRTUAL_IP
+, restart Keepalived on the first control plane node
+with the following steps. 
+1
+. 
+Log in to the first installed control plane node.
+2
+. 
+Run the following command:
+kubectl  rollout restart ds --namespace kube-system itom-cdf-keepalived
+2
+. 
+Enter 
+https://<first control plane node FQDN>:3000
+ into a browser and log into the installation portal to complete
+the suite installation.
+Notes
+:
+The value of the 
+<FQDN or IP of new worker node>
+ placeholder must be the same as the value when you
+ran the 
+generateCerts.sh
+ script.
+Add the 
+--flannel-iface <ipv4 or interface name>
+ option to set up multiple network interfaces.
+Add the 
+--aws-eip ${AWS_EIP}
+ and 
+--aws-region ${AWS_REGION}
+ options and use the 
+HA_VIRTUAL_IP
+ parameter
+instead of the
+ LOAD_BALANCE_HOST
+ parameter if you are installing OMT on AWS.
+Add the 
+--crt-http-proxy
+ or 
+--crt-https-proxy
+ options to set up the HTTPS or HTTP proxy.
+Add the 
+--crt-no-proxy ${CRT_NO_PROXY}
+ option to specify the IPv4 addresses, FQDNs, and domain names
+that don't need a proxy for Containerd.
+SMAX 2022.11
+Page 
+693
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

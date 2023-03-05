@@ -1,0 +1,57 @@
+Prepare persistent volumes for CMS
+CMS installation in Helm mode requires below Persistent Volumes (PVs). PVs are relevant to NFS volumes. In the production
+environment, you must use the external databases for the CMS application, then PV for 
+cms-db-volume
+ is not needed. 
+Component
+Persistent volume name
+Description
+CMS
+cms-config-volume
+PV for configuration
+CMS
+cms-data-volume
+PV for data
+CMS
+cms-log-volume
+PV for logs
+CMS
+cms-db-volume(optional)
+PV for internal database, only for demo use
+If you already have the PVs available for use, you need to ensure that the storageClassName attribute of the PVs is the same
+as the storage class name in the 
+values.yaml
+ file. In the later step, you will need to specify the name of PV to be bound with
+one of the persistent volume claims (PVCs).
+If you want to create the required PVs from scratch, perform the following tasks:
+1
+. 
+Navigate to the CMS chart package directory. For example:
+cd CMS_Helm_Chart-2022.11/cms-helm-charts/samples/
+2
+. 
+Open the 
+cms-pv.yaml 
+file with a text editor, provide the FQDN of the NFS server and the NFS directory path that you
+provided during the creation of the NFS volumes, and then save the file.
+3
+. 
+Run the following command to create persistent volumes:
+kubectl create -f CMS_Helm_Chart-2022.11/cms-helm-charts/samples/cms-pv.yaml
+4
+. 
+Run the following command to verify the volume creation:
+kubectl get pv |grep cms
+Note 
+By default, the storageClassName attribute of the PVs is empty. If you change the value, make sure
+that the storageClassName attribute of the PVs is the same as the storage class name in the 
+values.yaml
+file so that the PVs and PVCs can be bound together.
+
+
+SMAX 2022.11
+Page 
+711
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

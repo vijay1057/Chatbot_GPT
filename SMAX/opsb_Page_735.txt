@@ -1,0 +1,64 @@
+Download the OO chart packages
+Download the zip file from the software website to a control plane node. Follow these steps:
+1
+. 
+Download the 
+.
+zip
+ file from the 
+Software Licenses and Downloads
+ website.
+2
+. 
+Copy the file to a temporary directory on a control plane node. 
+3
+. 
+Unzip the package:
+unzip 
+oo-1.0.x+2022xx01-xx
+.zip
+The following table describes the essential files inside the OO Containerized chart package:
+Name
+File
+OO Helm chart file
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/oo-helm-charts/charts/oo-1.0.x+202
+2xx01.xx.tgz
+Example persistent volume and persistent
+volume claims yaml files
+Persistent volume templates:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/
+oo-helm-charts/samples/persistent_
+storage/on_premises/volumes.yaml
+Persistent volume claims templates:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/
+oo-helm-charts/samples/persistent_
+storage/on_premises/claims.yaml
+Persistent volume 
+Readme
+ file:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/
+oo-helm-charts/samples/persistent_s
+torage/
+on_premises/
+README
+Example sizing configuration files based on the
+number of tenants 
+Recommended sizing configuration files:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/
+oo-helm-charts/samples/sizing/oo_de
+fault_sizing.yaml
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/
+oo-helm-charts/samples/sizing/oo_2
+0tenants_sizing.yaml
+Sizing 
+Readme 
+file:
+oo-1.0.x+2022xx01-xx/oo-1.0.x+2022xx01.xx/
+oo-helm-charts/samples/sizing/READ
+ME
+SMAX 2022.11
+Page 
+735
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

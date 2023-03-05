@@ -1,0 +1,105 @@
+Deploy cluster nodes without SSH access
+If the cluster nodes have no SSH access, perform the following steps to deploy additional control plane nodes and worker
+nodes.
+Deploy two additional control plane nodes
+The steps below describe how to create an additional control plane node from the back end server when the control plane
+node servers have no SSH access. Perform the full sequence of steps two times to deploy two additional control plane nodes.
+1
+. 
+Run the following command on the first control plane node to back up the 
+cdf-cluster-host
+ configmap:
+ source /etc/profile.d/itom-cdf.sh
+ cd $TMP_FOLDER
+ kubectl get cm cdf-cluster-host -n $CDF_NAMESPACE  -o json | jq -r .data |jq -r "to_entries|map(\"\(.key)=\(.value|tostring)\")|.[]" > basic_config.env;
+ echo "itomvol_nfsserver=$(kubectl get pv itom-vol -o json | jq -r '.spec.nfs.server')" >>basic_config.env;
+ echo "itomvol_nfspath=$(kubectl get pv itom-vol -o json | jq -r '.spec.nfs.path')" >>basic_config.env;
+ sed -i -e "s/^/export /g" basic_config.env;
+ source basic_config.env;
+2
+. 
+Run the 
+generateCerts.sh
+ script on the first control plane nodes to generate the certificate files.
+cd $CDF_HOME/scripts
+./generateCerts.sh -t master -n <FQDN or IPv4 of new control plane node>
+3
+. 
+Run the following command to copy the 
+basic_config.env
+ and 
+pre-check.sh
+ scripts in the 
+$CDF_HOME/scripts
+ directory and all
+generated certificates in the 
+$CDF_HOME/ssl/tmp-all-certs
+ directory from the first control plane node to the 
+<TMP_FOLDER>
+directory on the new control plane node. Replace 
+<new control plane node>
+ with the new control plane node hostname.
+Make sure that you create the 
+<TMP_FOLDER>
+ directory on the new control plane node before you run the command.
+scp $TMP_FOLDER/basic_config.env $CDF_HOME/scripts/pre-check.sh $CDF_HOME/ssl/tmp-all-certs/* <new control plane node>:$TMP_FOLDER
+4
+. 
+Log in to the new control plane node and run the following command to source the file:
+cd <TMP_FOLDER> && source ./basic_config.env
+5
+. 
+Run 
+pre-check.sh
+ script on the new control plane node. If you configured the 
+LOAD_BALANCER_HOST
+ parameter in the
+install.properties file, replace 
+--virtual-ip ${HA_VIRTUAL_IP}
+ with the 
+--load-balancer-host ${LOAD_BALANCER_HOST}
+ option.
+    sh pre-check.sh \
+--node-type master \
+--node-host <FQDN or IP of new control plane node> \
+--cdf-home ${CDF_HOME} \
+--api-server ${API_SERVER} \
+--api-port ${MASTER_API_SSL_PORT} \
+--ca-file ${TMP_FOLDER}/ca.crt \
+--cert-file ${TMP_FOLDER}/kubectl-kube-api-client.crt \
+--key-file ${TMP_FOLDER}/kubectl-kube-api-client.key \
+--network-address ${NETWORK_ADDRESS} \
+--flannel-backend-type ${FLANNEL_BACKEND_TYPE} \
+--tmp ${TMP_FOLDER} \
+--fail-swap-on ${FAIL_SWAP_ON} \
+--k8s-provider ${K8S_PROVIDER} \
+--auto-configure-firewall ${AUTO_CONFIGURE_FIREWALL} \
+--runtime-home ${RUNTIME_CDFDATA_HOME} \
+--virtual-ip ${HA_VIRTUAL_IP} \
+--enable-fips $ENABLE_FIPS \
+--fips-entropy-threshold $FIPS_ENTROPY_THRESHOLD \
+-l ${TMP_FOLDER}/pre-check.log \
+--integrated
+Note:
+ This topic contains legacy terms that aren't yet fully removed from OMT. Instances of “master” in this
+topic refer to the control plane or to the control plane nodes.
+Notes
+:
+The value of the 
+<FQDN or IP of new control plane node>
+ placeholder must be the same as the value when
+you ran the 
+generateCerts.sh
+ script.
+Add the 
+--user <nonroot username>
+ option to use a non-root user to create the node.
+Add the 
+--flannel-iface <ipv4 or interface name>
+ option to set up multiple network interfaces.
+SMAX 2022.11
+Page 
+690
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

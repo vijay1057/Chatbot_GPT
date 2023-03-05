@@ -1,0 +1,50 @@
+./setupNFS.sh /var/vols/itom/cms/log_volume true 100001 200001
+5
+. 
+The permission of each folder must be set to 755. If it is not, run the following command to change the permissions:
+chmod -R 755 <path to shared folder>
+For example, run the following commands:
+chmod -R 755 /var/vols/itom/cms/data_volume
+chmod -R 755 /var/vols/itom/cms/conf_volume
+chmod -R 755 /var/vols/itom/cms/log_volume
+Related topics
+Create a custom values.yaml file
+Important 
+The values of 
+<user>
+ and 
+<fsGroup>
+ configured here must be the same as the values for the
+global.securityContext.user
+ and
+ global.securityContext.fsGroup
+ parameters when you create
+your custom 
+my-values.yaml
+ file for the CMS deployment in the later step.  That is, if you use the values in
+this example (
+100001 
+for <user> and 
+200001 
+for <fsGroup>) instead of the default value 
+1999
+, you must
+also change the values for 
+global.securityContext.user
+ and
+ global.securityContext.fsGroup 
+to
+100001 
+and 
+200001 
+in your custom 
+my-values.yaml
+ file.
+
+
+SMAX 2022.11
+Page 
+710
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

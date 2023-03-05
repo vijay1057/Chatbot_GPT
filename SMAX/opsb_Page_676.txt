@@ -1,0 +1,147 @@
+Select deployment configuration
+After logging in to the installation portal, follow the steps below to select parameters and features for your deployment.
+Review the deployment summary
+On the 
+Summary
+ page, review the deployment information, select a version you want to install from a drop-down list, and
+then click 
+NEXT
+.
+Select suite version and capabilities
+1
+. 
+In the Version field, select 
+2022.11
+, and then click 
+Next
+.
+2
+. 
+Accept the license agreements and data policy, and then click 
+Next
+.
+3
+. 
+Select the 
+Express
+ or 
+Premium
+ edition.
+4
+. 
+The following capabilities show up. Select your desired capabilities and then click 
+Next
+.
+Product
+capability
+Description
+Notes
+Service
+Management
+Automation
+(SMA)
+Provides the core business functionality of SMAX: Service Management (the
+agent interface), Service Portal (self-service user interface), and Suite
+Administration (suite administrator interface). 
+Mandatory for all new
+installations
+Service
+Manager
+Portal
+Service
+(SMPS)
+Services required to integrate an external Service Manager system with
+SMA Service Portal.
+Mandatory
+for 
+SMA-
+SM
+ customers
+Needed only for
+SMAX customers
+who want to
+additionally
+deploy one or
+more Service
+Manager tenants
+Design and
+Deploy
+(DND)
+SMAX Cloud Management offers the DND capability. The DND capability
+enables customers to make new cloud service offerings based on published
+service designs available to consumers. 
+For Cloud
+Management
+Optional for
+SMAX customers
+Requires a
+separate HCMX
+license
+Cost
+Governance
+and
+Resource
+Optimization
+(CGRO)
+CGRO enables you to optimize your cloud spending and simplify
+configuration with various Cloud providers. With CGRO, you can review your
+public cloud costs to get a clearer understanding of your activity and usage
+of public cloud resources.
+Note
+: the CGRO installation has a dependency on DND. If you select
+CGRO, you must select DND as well.
+For Cloud
+Management
+Optional for
+SMAX customers
+Requires a
+separate HCMX
+license
+Has a
+dependency on
+DND
+Software
+Asset
+Management
+(SAM)
+With the hardware and software data discovered by UD and license data
+retrieved from SMAX, the new SAM capability enables you to calculate and
+analyze license compliance for the software applications that you are using
+in your organization. This will reduce the risk of non-compliance and
+improve visibility into your financial and operational decisions.
+Optional for SMAX
+customers
+Select the OMT database
+On the 
+Database
+ page, select one of the following options to configure a database. If you select a PostgreSQL database,
+make sure that the external database that OMT is going to use is empty (has no database objects) before you begin the
+installation.
+Out-of-the-box PostgreSQL
+: Select this option if you want to configure an embedded database. 
+Note
+: Use this option to set up an environment for demonstration purposes only. Don't select this option in a production
+environment. 
+PostgreSQL
+: Select this option if you want to configure an external PostgreSQL database server. To use this option, do
+the following:
+1
+. 
+Select the 
+If no database is found, create a database automatically
+ option.
+2
+. 
+Enter the following information:
+Database Host
+ and 
+Port
+: enter the hostname and port of the external PostgreSQL database server. For
+When configuring the external access hostname and port for the suite, don't change the Port field value from the
+default value (443). You must use port 443 for the suite.
+SMAX 2022.11
+Page 
+676
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

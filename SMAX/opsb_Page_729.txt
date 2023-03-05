@@ -1,0 +1,83 @@
+    fi
+    if [ "$CMS_INTEGRATION_ADMIN_PASSWORD_KEY" ];then
+    echo "Get idm_integration_admin_password successfully."
+    else
+    echo "Fail to get idm_integration_admin_password."
+    fi
+    if [ "$IDM_TRANSPORT_USER_PASSWORD_KEY" ];then
+    echo "Get idm_transport_admin_password successfully."
+    else
+    echo "Fail to get idm_transport_admin_password."
+    fi
+    
+}
+update_cms_secret(){
+    echo "===== Find cms-secrets.yaml Location ====="
+    if [ -e $file_location ]; then
+    echo "Successful"
+    else
+    echo "Fail to find cms-secrets.yaml."
+    fi
+    echo "===== Update cms-secrets.yaml File ====="
+    sed -i -e "s/HPSSO_INIT_STRING_KEY.*$/HPSSO_INIT_STRING_KEY: ${HPSSO_INIT_STRING_KEY}/g" $file_location
+    sed -i -e "s/IDM_SIGNING_KEY.*$/IDM_SIGNING_KEY: ${IDM_SIGNING_KEY}/g" $file_location
+    sed -i -e "s/idm_integration_admin_password.*$/idm_integration_admin_password: ${CMS_INTEGRATION_ADMIN_PASSWORD_KEY}/g" $file_location
+    sed -i -e "s/idm_transport_admin_password.*$/idm_transport_admin_password: ${IDM_TRANSPORT_USER_PASSWORD_KEY}/g" $file_location
+}
+main(){
+    description
+    get_smax_idm_related_keys
+    update_cms_secret
+}
+main
+2
+. 
+Configure permission for the script:
+chmod 755 cms_shared_idm_vault_secret.sh
+3
+. 
+Run the following command to execute the 
+cms_shared_idm_vault_secret.sh 
+script:
+./cms_shared_idm_vault_secret.sh -p <
+CMS INTEGRATION ADMIN PASSWORD
+> -n <
+CMS NAMESPACE
+> -f <S
+ECRETS YAML FILE
+>
+Where,
+<
+CMS INTEGRATION ADMIN PASSWORD
+>
+ is the IdM integration admin password is the password you set in 
+Create CMS
+integration admin in suite IdM
+ for 
+cms-integration-admin
+.
+<
+CMS NAMESPACE
+>
+ is the unique name of the namespace for the CMS deployment. 
+<
+SECRETS YAML FILE
+> 
+is the YAML file that stores the CMS secrets. Specify the YAML file (for example, 
+cms-
+secrets.yaml
+) when you run the 
+gen_secrets.sh
+ script to generate vault secrets for the CMS charts in the previous
+step. 
+After you successfully run the script, the following keys are updated:
+IDM_SIGNING_KEY
+HPSSO_INIT_STRING_KEY
+idm_integration_admin_password
+idm_transport_admin_password
+SMAX 2022.11
+Page 
+729
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

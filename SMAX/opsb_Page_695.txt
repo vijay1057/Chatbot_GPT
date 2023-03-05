@@ -1,0 +1,64 @@
+Category of customers in UCMDB
+You can have the following three categories of customers:
+Default customer
+Consumer customer
+Provider customer
+Default customer
+When the UCMDB server is installed, a default customer is created. The default customer is with customer ID 1, and the
+customer name and display label are "Default Client." All the OOTB content will be loaded into this default customer. 
+Provider customer
+In the Multi-Customer mode, the Provider customer is a system-level customer used to administer the UCMDB application and
+manage Consumer customers. You must have one and only one Provider customer in the system. Do not use the Provider
+customer to manage any business data. For details, see 
+Manage the Provider customer
+.
+Consumer customer
+A Consumer customer is a normal customer that consumes the data within its own customer territory. In a Multi-Customer
+implementation, there might be a number of Consumer customers.
+Using converged authorization solution
+The converged authorization solution enables the SMAX tenant admin to manage CMS users, roles, and groups from one single
+user interface (the SMAX agent portal) when CMS is deployed together with SMAX. While CMS permissions are still managed in
+UCMDB UI, the solution removes the need for the suite admin to access the IdM Admin Portal for managing CMS roles, groups,
+and users, and therefore streamlines the tenant admin's user administration workflow and reduces the maintenance cost. 
+The CMS user management flow under the converged authorization solution is as follows:  
+  
+When the system provisions a CMS customer, the CMS out-of-the-box (OOTB) roles with CMS built-in permissions are
+automatically seeded in IdM. The application field of these seeded CMS roles is "CMDB".  The suite admin can do CMS pre-
+authorization for the SMAX tenant admin in IdM by creating a CMS admin group and associating the CMS OOTB 
+SuperAdmin
+role and the tenant admin user to this group, so that the SMAX tenant admin can access CMS with the highest privilege of this
+CMS customer. After the suite admin enables Native SACM for the tenant, SMAX automatically replicates the seeded CMS
+OOTB roles and the CMS admin group from IdM to the SMAX agent interface.  
+The following describes the CMS installation process by using the converged authorization solution. This process includes the
+following steps:
+1
+. 
+Prepare NFS and PostgreSQL servers and add worker nodes
+2
+. 
+Configure load balancers according to your network structure
+3
+. 
+Install CMS
+Prepare NFS and PostgreSQL servers and add worker nodes
+You need to use a separate NFS server and PostgreSQL server for CMS, instead of using the same servers for the suite. 
+Before you begin, prepare separate servers for CMS installation: 
+1
+. 
+Determine the hardware resources (worker nodes, NFS server, and PostgreSQL server) that are required for your CMS
+deployment. For details, see 
+Additional hardware resources for CMS
+. Note that the sizing recommendations are based on
+the consideration that the suite needs to use a classic data flow probe instead of the probe embedded in the
+Note 
+In the out-of-the-box system, as soon as two or more customers exist in a UCMDB server, the default
+customer is referred to as the Provider customer. In this release, the default customer (that is, customer 1) must
+be used as the Provider customer in the Multi-Customer mode. 
+
+
+SMAX 2022.11
+Page 
+695
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

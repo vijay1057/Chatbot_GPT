@@ -1,0 +1,122 @@
+global.persistence.dbVolumeStorageClassName
+No
+The storage class name of the
+automatically created PVC for CMS
+database files. The value must be the
+same as the storageClassName defined
+in the corresponding PV. This
+parameter is not required if external
+databases are used.
+global.persistence.configVolumeStorageClassName
+No
+The storage class name of the
+automatically created PVC for CMS
+configuration files. The value must be
+the same as the storageClassName
+defined in the corresponding PV.
+global.persistence.logVolumeStorageClassName
+No
+The storage class name of the
+automatically created PVC for CMS log
+files. The value must be the same as
+the storageClassName defined in the
+corresponding PV.
+global.persistence.dataVolumeSize
+No
+The requested storage size of the
+automatically created PVC for CMS data
+files.
+5G
+global.persistence.dbVolumeSize
+No
+The requested storage size of the
+automatically created PVC for CMS
+database files. This parameter is not
+required if external databases are used.
+5G
+global.persistence.configVolumeSize
+No
+The requested storage size of the
+automatically created PVC for CMS
+configuration files.
+5G
+global.persistence.logVolumeSize
+No
+The requested storage size of the
+automatically created PVC for CMS log
+files.
+5G
+Parameter
+Required
+Description
+Default
+Example
+CMS deployment parameters
+Parameter
+Required
+Description
+Default
+Example
+global.size
+Yes
+Deployment size of CMS application
+(demo/small/medium/large)
+demo
+small
+global.cms.timeZone
+No
+The time zone used in timestamps of messages
+produced in CMS log files.
+ 
+The time zones have unique names in the form
+Area/Location
+. The supported values are described in
+this website: 
+List of tz database time zones
+UTC
+Asia/Shanghai
+global.cms.deployProbe
+No
+Deploy the Data Flow Probe in the OMT cluster if 
+true
+.
+true
+false
+global.cms.deployGateway
+No
+Deploy the CMS Gateway in the OMT cluster if 
+true
+.
+By default, this parameter isn't listed in the sample file,
+and the system uses the default value (
+true
+). This is
+because the component is required when you deploy
+CMS with SMAX. Don't manually set this parameter to
+false
+.
+true
+true
+global.cms.deployDfpInstaller
+No
+Deploy the Data Flow Probe installers for downloading
+in the OMT cluster if 
+true
+. 
+By default, this parameter isn't listed in the sample file,
+and the system uses the default value (
+true
+). It's
+recommended that you keep the default value and
+deploy the component without manually setting the
+parameter to 
+false
+.
+true
+true
+SMAX 2022.11
+Page 
+721
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

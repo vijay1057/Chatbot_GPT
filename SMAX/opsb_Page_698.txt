@@ -1,0 +1,96 @@
+Configuration
+Example 
+Using the same FQDN and different ports for the suite (port
+443) and CMS (port other than 443).
+Suite:myhost.example-domain.com:443
+CMS: myhost.example-domain.com:3443
+Note
+: the network structure diagram for option 3 uses
+this example configuration. 
+Note
+: Using the same FQDN and the same port (443) for both the suite and CMS isn't supported for option 3. 
+Configure load balancers
+Follow the instructions below to implement one of the load balancing options described above according to your needs.
+Prerequisites
+Meet the following prerequisites before you proceed.
+Port requirements
+: make sure that the following ports are open for load balancing: 5443, 443, and the other port you
+need (for example:3443).
+Load balancing requirements for CMS:
+  
+  # Allow websocket connections
+proxy_set_header Upgrade $http_upgrade;      
+proxy_set_header Connection "upgrade";
+SSL requirements
+: OMT supports only the following SSL ciphers for inbound connections. Make sure that the external
+balancer hosts support at least one of the ciphers listed here.
+ECDHE-RSA-AES128-GCM-SHA256
+ECDHE-RSA-AES256-GCM-SHA384
+ECDHE-RSA-AES128-SHA256
+ECDHE-RSA-AES256-SHA384
+ECDHE-ECDSA-AES128-GCM-SHA256
+ECDHE-ECDSA-AES256-GCM-SHA384
+ECDHE-ECDSA-AES128-SHA256
+ECDHE-ECDSA-AES256-SHA384
+Option1: Configure Load balancers in a DMZ network
+Perform the following steps.
+Install the Nginx server
+Install three Nginx servers on different hosts. For details, see the Nginx documentation. 
+Install one Nginx server in the DMZ for the suite and OMT (referred to as 
+nginx-smax
+). Bind the external access host
+name of the suite to the Nginx server IP. This must be the same external access host name that you have configured in
+the installation portal UI (see 
+Select deployment configuration
+).
+Install one Nginx server in the DMZ for CMS (referred to as 
+nginx-cms
+). 
+Install one Nginx server in a private network for integration (referred to as 
+nginx-integration
+).
+Prepare certificates for each Nginx server
+In a production environment, you are recommended to configure your own Nginx certificate for OMT and the suite, which must
+be signed by your corporate CA or a third-party CA.
+1
+. 
+Prepare a server certificate (
+server.crt)
+ and server key (
+server.key)
+ separately for each of the three Nginx server
+FQDNs, and use CN=<access host> when generating the server certificate: 
+For 
+nginx-smax
+,
+ 
+<access host> is the external access host that's bound with the IP address of nginx-smax.
+For 
+nginx-cms
+, <access host> is the CMS Nginx server hostname.
+For 
+nginx-integration
+, <access host> is the integration Nginx server hostname.
+2
+. 
+Copy your certificate files to the corresponding Nginx host. You will need to configure the file paths in the nginx.conf file in
+a later step.
+Configure Nginx
+Configure the three Nginx servers: nginx-smax
+, 
+nginx-cms, and nginx-integration.
+Configure nginx-smax
+Make sure the Nginx configuration file (nginx.conf) contains the following settings.
+http {
+Note
+ The procedures below use Nginx as an example. If you want to use other load balancers, use the
+guidelines below for reference. Since there are different versions of the Nginx server, this section doesn't discuss
+how to install the Nginx server. 
+
+
+SMAX 2022.11
+Page 
+698
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

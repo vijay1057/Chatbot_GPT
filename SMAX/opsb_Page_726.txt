@@ -1,0 +1,88 @@
+Generate vault secrets
+Generate vault secrets for the CMS charts
+On the control plane node, perform the following tasks to generate vault secrets for the CMS charts:
+1
+. 
+Run the following command:
+$CDF_HOME/scripts/gen_secrets.sh -n <
+CMS NAMESPACE
+> -c <
+CMS CHART FILE
+> -o <
+SECRETS YAML FILE
+>
+Where:
+For example:
+/opt/cdf/scripts/gen_secrets.sh -n cms-prod -c CMS_Helm_Chart-202x.xx/cms-helm-charts/charts/cms-1.x.0+20xxxx00.xxx.tgz -o cms-secrets.yaml
+<
+CMS NAMESPACE
+>
+ is the unique namespace of the CMS deployment. Use the namespace that you specified in the
+"Create a new deployment for CMS" topic.
+<
+CMS CHART FILE
+>
+ is the tar file containing the CMS installation charts (
+cms-1.x.0+20xxxx00.xxx.tgz
+)
+<
+SECRETS YAML FILE
+>
+ is the YAML file that stores the CMS secrets. Specify the file name (for example, 
+cms-
+secrets.yaml
+), and then the script will generate this YAML file after you run the script. You will need to use this file
+when you run the command to install CMS later.
+2
+. 
+The Vault secret utility will prompt you for the following passwords. 
+Key
+Required?
+Description
+ITOM_DB_PASSWD_KEY
+No
+Internal PostgreSQL database root password.
+idm_db_password
+No
+IdM database password.
+IDM_SIGNING_KEY
+No
+IdM signing key.
+HPSSO_INIT_STRING_KEY
+No
+LWSSO init string.
+Important 
+Useless in the current scenario because the
+internal PostgreSQL database is only for deploying CMS in the
+demo mode. However, in this version, you must enter
+an arbitrary value conforming to the password policy to pass
+the check by the script.
+
+
+Important 
+Useless in the current scenario because when
+using the shared IdM solution, CMS uses the suite IdM. Press
+Enter
+ to get a random value and continue.
+
+
+Important 
+Useless in the current scenario because when
+using the shared IdM solution, CMS uses the suite IdM. Press
+Enter
+ to get a random value and continue.
+
+
+Important 
+Useless in the current scenario because when
+using the shared IdM solution, CMS uses the suite IdM. Press
+Enter
+ to get a random value and continue.
+
+
+SMAX 2022.11
+Page 
+726
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

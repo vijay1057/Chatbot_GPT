@@ -1,0 +1,52 @@
+Import OO CA certificate into the suite
+After the OO installation is completed, you must import the OO CA certificate into the suite before you can deploy the OO
+capability in Suite Administration.
+To do this, follow these steps:
+1
+. 
+Get the OO CA certificate by following the document 
+Get OO CA certificate
+.
+2
+. 
+Rename the 
+.CER
+ file to 
+.crt
+ file using command line.
+3
+. 
+Change the ownership of the file 
+OO certificate 
+by using the command 
+chown <SYSTEM_USER_ID>:
+<SYSTEM_GROUP_ID> <path-to-global-volume>/certificate/source/.
+  
+For 
+<system_user_id>
+ and 
+<system_group_id>
+: specify an operating system user ID and group ID respectively that are
+used to run the process in the container. Both values must be 1999 or a number between 100000 and 2000000000 (for
+example, UID=100001 and GID=100002).
+4
+. 
+Copy the saved 
+.crt 
+file into 
+<path-to-global-volume>/certificate/source/
+. Example of 
+<path-to-global-volume>:
+ /var/vols/ito
+m/global-volume
+5
+. 
+Restart the platform pods by running the following commands:
+kubectl rollout restart deployment -n <ITSMA_NAMESPACE> itom-xruntime-platform
+kubectl rollout restart deployment -n <ITSMA_NAMESPACE> itom-xruntime-platform-offline
+SMAX 2022.11
+Page 
+763
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

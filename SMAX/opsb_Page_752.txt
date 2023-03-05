@@ -1,0 +1,168 @@
+Parameter
+Required
+Description
+Example
+global.idm.idmA
+uthUrl
+Yes
+This is the public URL of SMAX IdM service.
+https://<SUITE-FQDN
+>:443/idm-service
+global.idm.idmT
+ransportUser
+Yes
+The name of the IDM transport admin user configured in the suite's IDM
+service. In the SMA suite, the name of this user is 
+idmTransportUser.
+idmTransportUser
+global.idm.supe
+rUser
+Yes
+The name of the OO integration admin user name created in 
+Create OO
+integration admin user in SMAX IdM
+.
+oo-integration-
+admin
+global.idm.tena
+nt
+Yes
+IdM parent tenant organization name where 
+global.idm.superUser
+ resides. For
+SMA and HCMX, the name of this organization is 
+sysbo
+.
+sysbo
+Networking parameters
+The networking configuration parameters are set differently based on if a load balancer is setup for accessing the OO
+application user interfaces.
+With a load balancer for accessing the OO application user interface
+:
+Parameter
+Required
+Description
+Default
+Example
+global.exte
+rnalAccessH
+ost
+Yes
+Set the value to the FQDN of the load balancer.
+oo.exam
+ple.com
+global.exte
+rnalAccessP
+ort
+Yes
+Set the value to the listening port on the load balancer for accessing the OO
+application user interfaces.
+9443
+9443
+global.ngin
+x.httpsPort
+No
+This is the https port of the Nginx ingress controller deployed by OO. You must
+configure the port number you set at this parameter as the target port for
+routing the OO requests from the load balancer towards the OO Nginx ingress
+controller.
+Set it to a value that doesn't conflict with other applications deployed in the
+same cluster. For example, if SMAX and OO are deployed in the same cluster,
+you must set this parameter to a value different than SMAX.
+ 
+If the parameter isn't set, it will take the value of
+the 
+global.externalAccessPort
+ parameter.
+9443
+9443
+Without a load balancer for accessing the OO application user interfaces
+:
+This setup applies to a single control plane node deployment only.
+Parameter
+Required
+Description
+Default
+Example
+global.exte
+rnalAccessH
+ost
+Yes
+Set the value to the FQDN of the control plane node.
+oo.exam
+ple.com
+global.exte
+rnalAccessP
+ort
+Yes
+Set it to a value that doesn't conflict with other applications deployed in the
+same cluster. For example, if SMAX and OO are deployed in the same cluster,
+you must set this parameter to a value different than SMAX.
+9443
+9443
+global.ngin
+x.httpsPort
+No
+Don't set any value for this parameter.
+9443
+9443
+Database parameters
+Configure the following parameters to set up the connection to the external database server:
+Parameter
+Required
+Description
+Default
+Example
+global.database.type
+Yes
+Currently OO supports only PostgreSQL database
+engines. Set value to 
+postgresql
+.
+postgresql
+global.database.host
+Yes
+Database server hostname
+db.host.co
+m
+global.database.port
+Yes
+Database server port
+5432
+global.database.tlsEnabled
+No
+Required only when you enable TLS connection for the
+external database
+false
+true
+global.database.oocontroller.dbNa
+me
+Yes
+OO Controller database name
+oocontroller
+db
+oocontroller
+db
+global.database.oocontroller.user
+Yes
+OO Controller database user
+oocontroller
+dbuser
+oocontroller
+dbuser
+global.database.ooui.dbName
+Yes
+OO UI database name
+oouidb
+oouidb
+global.database.ooui.user
+Yes
+OO UI database user
+oouidbuser
+oouidbuser
+SMAX 2022.11
+Page 
+752
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

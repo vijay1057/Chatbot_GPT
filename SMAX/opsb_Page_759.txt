@@ -1,0 +1,44 @@
+ooscheduler:
+  deployment:
+    replicas: 2
+    # JVM Heap memory usage
+    initMemory: 6144
+    maxMemory: 6144
+    # CPU usage
+    cpuRequest: 1000
+    cpuLimit: 1500
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 8192
+      limits:
+        memory: 8192
+oodownloader:
+  deployment:
+    replicas: 1
+    # JVM Heap memory usage
+    initMemory: 1536
+    maxMemory: 1536
+    # CPU usage
+    cpuRequest: 500
+    cpuLimit: 1000
+    # Container memory request/limit
+    resources:
+      requests:
+        memory: 2048
+      limits:
+        memory: 2048
+autopass:
+  deployment:
+    replicas: 2
+    # JVM MAX Heap memory limit
+    maxAPLSmemory: 6144
+    # CPU usage
+    cpuRequest: 2000
+    cpuLimit: 4000
+SMAX 2022.11
+Page 
+759
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

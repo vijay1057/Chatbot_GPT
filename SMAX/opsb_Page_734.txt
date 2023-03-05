@@ -1,0 +1,102 @@
+(Optional) Install Operations Orchestration Containerized
+Operations Orchestration (OO) embedded in Design and Deploy (DND) has been removed. You must migrate from OO
+embedded in DND to OO Containerized before you can use the DND capability. 
+OO Containerized is a capability that enables seamless automation and orchestration of repeatable IT operations across
+teams, tools, and environments. On installing OO Containerized, you will get OO Central with an Internal OO Remote Action
+Service (RAS). The internal OO RAS is deployed automatically for each OO Central tenant in a tight coupling framework during
+the tenant deployment process. 
+Additionally, you can install the following components depending on your requirement.
+External RAS
+ - To achieve high availability of RASes, you can install an external RAS apart from the internal RAS that is
+available on installation OO Containerized. 
+OO Workflow Designer
+ - OO Workflow Designer is a web-based environment for authoring flows, which is available as a
+standalone product that can be deployed either on a Windows or Linux server. Flows are authored in the CloudSlang
+language and run in OO Central. 
+You can run a script so that the OPB download center in the SMAX UI displays direct download links for OO RAS and OO
+Workflow Designer. See 
+Enable direct download of OO RAS and OO Workflow Designer from the SMAX UI
+.
+For more information, see 
+Install external RAS
+ and 
+Install Workflow Designer
+. 
+Together, the components of OO enable you to manage various services and devices across the organization and across their
+life cycle.
+The following table contains a summary of  instructions for installing Operations Orchestration (OO) containerized on on-
+premises
+Topic
+Description
+Plan
+Review the required resources and create a deployment plan for OO Containerized:
+1
+. 
+Plan the deployment
+2
+. 
+System requirements
+Prepare and deploy
+Prepare the required resources for the installation of OO:
+1
+. 
+Download OO charts package
+2
+. 
+Download OO container images
+3
+. 
+Upload OO container images to a registry
+4
+. 
+Create a new deployment for OO
+5
+. 
+Create NFS volumes for OO
+6
+. 
+Prepare persistent volumes for OO
+7
+. 
+Prepare external database for OO
+8
+. 
+Get connection details for connecting to the IdM service of SMAX
+9
+. 
+Create OO integration admin user in SMAX IdM
+10
+. 
+Generate sensitive data for OO
+11
+. 
+Create my-values.yaml for OO
+12
+. 
+Install OO Containerized on-premises
+13
+. 
+Verify OO installation
+Post-installation tasks
+Import OO CA certificate into the suite
+Uninstall
+Uninstall OO
+Install additional OO Components
+1
+. 
+Install an External OO RAS
+2
+. 
+Install an OO Workflow Designer
+Related topics
+After completing the installation and post-installation tasks, enable OO Containerized for a tenant so that the tenant can
+consume OO Containerized. For details, see 
+Enable OO Containerized.
+ 
+The installation of OO Containerized is mandatory for DND capability. 
+SMAX 2022.11
+Page 
+734
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,110 @@
+Deploy worker nodes
+Follow the steps below to install a worker node. Repeat the steps to install more worker nodes.
+1
+. 
+Run the following commands on the first control plane node to generate certification files for the new worker node:
+ 
+cd $CDF_HOME/scripts
+./generateCerts.sh -t worker -n <FQDN or IPv4 of new worker node>
+2
+. 
+Run the following command to copy the 
+basic_config.env
+ and 
+pre-check.sh
+ files in the 
+$CDF_HOME/scripts
+ directory and all
+generated certificates in the 
+$CDF_HOME/ssl/tmp-all-certs
+ directory from the first control plane node to the
+ <TMP_FOLDER>
+directory on the new worker node. Replace the 
+<new worker node>
+ placeholder with the new worker node hostname. Make
+sure that you create the 
+<TMP_FOLDER>
+ directory on the new worker node before you run the command.
+scp $TMP_FOLDER/basic_config.env $CDF_HOME/scripts/pre-check.sh $CDF_HOME/ssl/tmp-all-certs/* <new worker node>:$TMP_FOLDER
+3
+. 
+Log in to the new worker node and run the following command to source the file:
+cd <TMP_FOLDER> && source ./basic_config.env
+4
+. 
+Run 
+pre-check.sh script
+ on the new worker node:
+    sh pre-check.sh \
+--node-type worker \
+--node-host <FQDN or IP of new worker node> \
+--cdf-home ${CDF_HOME} \
+--api-server ${API_SERVER} \
+--api-port ${MASTER_API_SSL_PORT} \
+--ca-file ${TMP_FOLDER}/ca.crt \
+--cert-file ${TMP_FOLDER}/kubectl-kube-api-client.crt \
+--key-file ${TMP_FOLDER}/kubectl-kube-api-client.key \
+--network-address ${NETWORK_ADDRESS} \
+--flannel-backend-type ${FLANNEL_BACKEND_TYPE} \
+--tmp ${TMP_FOLDER} \
+--fail-swap-on ${FAIL_SWAP_ON} \
+--k8s-provider ${K8S_PROVIDER} \
+--auto-configure-firewall ${AUTO_CONFIGURE_FIREWALL} \
+--runtime-home ${RUNTIME_CDFDATA_HOME} \
+--enable-fips $ENABLE_FIPS \
+--fips-entropy-threshold $FIPS_ENTROPY_THRESHOLD \
+-l ${TMP_FOLDER}/pre-check.log \
+--integrated
+5
+. 
+Run the following command to check if the NFS server is accessible from the node.
+mount -t nfs <nfs server>:<nfs server exported folder>  <local folder>
+For example: 
+mount -t nfs nfsserver.local.net:/var/vols/itom/core /mnt
+Create the local folder before running the mount command. If mount successfully, remember to unmount the local folder.
+If mount failed, check the NFS server and client configuration.
+6
+. 
+Run the following command to copy the OMT 
+add-node
+ bundles in the 
+<itom-vol>
+ directory on the NFS server to the 
+<TMP_F
+OLDER> 
+temporary directory on the new worker node:
+scp ${itomvol_nfsserver}:${itomvol_nfspath}/pack/*.tar.gz $TMP_FOLDER
+7
+. 
+Run the following commands to untar the OMT package:
+ 
+ tar -zxvf ITOM_Suite_Foundation_Node_docker.tar.gz;
+ tar -zxvf ITOM_Suite_Foundation_Node_k8s.tar.gz;
+ tar -zxvf ITOM_Suite_Foundation_Node_cdf.tar.gz;
+ tar -zxvf ITOM_Suite_Foundation_Node_comm.tar.gz;
+8
+. 
+Run the following command to copy the OMT images in the 
+<itom-vol>
+ directory on the NFS server to the 
+ITOM_Suite_Founda
+Notes
+:
+The value of the 
+<FQDN or IP of new worker node>
+ placeholder must be the same as the value when you
+ran the 
+generateCerts.sh
+ script.
+Add the 
+--user <nonroot username>
+ option to use a non-root user to create the node.
+Add the 
+--flannel-iface <ipv4 or interface name>
+ option to set up multiple network interfaces.
+SMAX 2022.11
+Page 
+692
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

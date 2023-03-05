@@ -1,0 +1,105 @@
+   Checking range overlap of POD_CIDR and host network ........... [ PASS ]
+   Checking SYSTEM_USER_ID and SYSTEM_GROUP_ID ................... [ PASS ]
+ If you haven't prepared the servers and configured the required parameters in the 
+install.properties
+ file, warning
+messages, or error messages that resemble the following will prompt you to complete the required configurations before
+you start the installation:
+ Checking http proxy settings on this node ..................... [ WARNING ]
+  (http_proxy=web-proxy.example.company.net:8080
+  https_proxy=web-proxy.example.company.net:8080 exists, and missing items:
+  localhost,127.0.0.1,domain-name(mycompany.com) should be added into 'no_proxy'.)
+Checking overlayfs device is used on containerd ............... [ PASS ]
+Checking kernel parameters .................................... [ FAIL ]
+(Current kernel parameter(net.bridge.bridge-nf-call-ip6tables) is 0.
+Please change to 1.)
+Checking command conntrack .................................... [ WARNING ]
+(Command conntrack isn't found in the PATH:
+"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/root/
+OMT_Embedded_K8s
+_202x.xx.xxxx/bin". For production use, it is STRONGLY
+recommended to install the command.)
+Checking DNS servers resolution on this node .................. [ WARNING ]
+ (command nslookup isn't found; cannot validate the DNS resolution.)
+ Checking command htpasswd ..................................... [ FAIL ]
+(Command htpasswd isn't found in the PATH:
+"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin:/root/
+OMT_Embedded_K8s
+_202x.xx.xxxx/bin". Please install/configure the command.)
+Checking SYSTEM_USER_ID and SYSTEM_GROUP_ID ................... [ WARNING ]
+(SYSTEM_USER_ID is 1024, SYSTEM_GROUP_ID is 1024; suggested value of two
+IDs should be equal to 1999 or between 100000 and 2000000000.)
+Checking containerd service not installed ..................... [ FAILED ]
+(Find service file "containerd.service" or folder "containerd.service.d"
+under /usr/lib/systemd/system. Uninstall the containerd service and remove
+the service file and the folder.)
+   Checking containerd service not installed ..................... [ FAILED ]
+(Find service file "containerd.service" or folder "containerd.service.d"
+under /etc/systemd/system/multi-user.target.wants. Uninstall the
+containerd service and remove the service file and the folder.)
+Checking kubelet service not installed ........................ [ FAILED ]
+(Find service file "kubelet.service" or folder "kubelet.service.d" under
+/usr/lib/systemd/system. Uninstall the kubelet service and remove the
+service file and the folder.)
+ Checking kubelet service not installed ........................ [ FAILED ]
+(Find service file "kubelet.service" or folder "kubelet.service.d" under
+/etc/systemd/system/multi-user.target.wants. Uninstall the kubelet service
+and remove the service file and the folder.)
+ Checking DNS servers resolution on this node .................. [ FAILED ]
+(DNS server(s) 192.0.2.0  connection timed out; no server(s) could be
+reached. This may cause hostname resolution problems in kubernetes
+cluster. Please remove 192.0.2.0  from /etc/resolv.conf and configure
+the valid nameserver.)
+Checking HA_VIRTUAL_IP unreachable ............................ [ FAILED ]
+(Virtual ip 127.0.0.2 is already in use.)
+ Checking folder /opt/cdf is empty ...................... [ WARNING ]
+(Folder /opt/cdf isn't empty. Either clean this folder manually or
+explicitly skip the warning, the installer will clean this folder.)
+ Checking swap is disabled ..................................... [ FAIL ]
+(Swap is enabled on this node. You can disable swap process with command
+'swapoff -a' and disable swap permanently from /etc/fstab. Or set the
+value of FAIL_SWAP_ON to false. Consult the installation documentation for
+guidance on running cluster nodes with swap on or off.)
+Checking supported SSH auth methods: PermitRootLogin not set .. [ WARNING ]
+(To enable password login, set 'PasswordAuthentication yes' and
+'PermitRootLogin yes'. To enable public key login, set
+'PubkeyAuthentication yes' and 'PermitRootLogin prohibit-password'. Then
+restart sshd.)
+Follow the instructions to fix all the checking items with error messages. You can also refer to the troubleshooting section
+for more detailed solutions.
+For the warning messages, we recommend you also follow the instructions to fix the settings. If you aren't sure about your
+DNS resolution setting, install command 
+nslookup
+. You can run 
+yum install bind-utils
+ to install this command.
+However, you can ignore the warning messages and continue the installation if you are sure about the related settings.
+To continue with the installation, enter 
+Y
+. To abort the installation, enter 
+N
+. Complete the required configurations, and
+then restart the installation.
+5
+. 
+Enter and then confirm a password for the cluster administrator. Do not use non-UTF-8 characters, such as "£".
+6
+. 
+A message that resembles the following is displayed to indicate that you have configured the installation successfully. The
+message contains the URL of the installation portal.
+Successfully completed configuring the ITOM Core Platform on this server!
+[NODE:myhost.mycomany.com] installation completed.
+[INFO] 2020-07-31T10:44:34+08:00 INFO :  : 1) Please enter the URL https://myhost.mycomany.com:3000 in your browser and log on to the installation portal with the created administrator credentials (login name: admin) to complete the installation.                             
+                               2) When extending nodes, please make sure the provided user has permission to execute scripts under the temporary directory '/tmp' on the nodes. 
+2020-07-31T15:16:30+08:00 INFO : [NODE:myhost.mycomany.com] installation completed
+7
+. 
+Run the following commands to initialize the OMT environment variable in the current shell:
+source /opt/cdf/bin/env.sh
+source /etc/profile.d/itom-cdf.sh
+SMAX 2022.11
+Page 
+674
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

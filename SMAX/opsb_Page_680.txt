@@ -1,0 +1,121 @@
+Download the container images
+If you have specified the external image registry URL while you run the 
+install
+ script, all the required images have been
+downloaded and uploaded. You don't need to perform the download and upload steps.
+If you didn't specify the external image registry URL while you run the 
+install
+ script, you must download the suite images from
+the image registry and import them to a local registry. When the control plane node doesn't have public Internet access (either
+directly or through a proxy), you must prepare an additional Linux download machine that can access the public Internet to
+download the images.
+Steps if you already downloaded the container images
+If you have already downloaded the container images, follow these steps:
+1
+. 
+When you reach the the 
+Download Images
+ page, run the 
+$CDF_HOME/scripts/uploadimages.sh 
+script
+ 
+to upload the suite
+images to the local registry. 
+2
+. 
+Return to the installation portal, and then click 
+Next
+. 
+3
+. 
+On the 
+Check Image Availability
+ page, wait till the image check is finished.
+4
+. 
+Do one of the following to progress:
+If all images are available in the registry, click 
+NEXT
+ to continue the infrastructure deployment. 
+If some images are missing from the registry, click 
+NEXT
+, and then refer to the "Steps if you didn't already download
+the container images" section below.
+Steps if you didn't already download the container images
+If you didn't follow the steps to download the container images earlier, follow the steps in this section.
+Import images
+1
+. 
+On the 
+Download Images
+ page, click 
+Next
+.
+2
+. 
+On the 
+Check Image Availability
+ page, wait till the image check is finished.
+3
+. 
+Do one of the following to progress:
+If all images are available in the registry, click 
+NEXT
+ to continue the infrastructure deployment. 
+If some images are missing from the registry, click 
+NEXT
+, and then refer to the "Steps if you didn't already download
+the container images" section below.
+Download the images
+1
+. 
+On the Offline Download page, click 
+NEXT
+.
+2
+. 
+If any of the control plane nodes can access Docker Hub directly, right-click the 
+Get the download script
+package
+ link, and then copy the link address. On the control plane node, run the following command to download the
+script package directly to the control plane node:
+ 
+wget <pasted_link_to_script_package>
+If none of the control plane nodes can access Docker Hub, click the 
+Get the download script package
+ link to download
+the 
+offline-download.zip
+ file to your localhost. Then, transfer the 
+offline-download.zip
+ file to a download machine that can
+access Docker Hub. You will later download the images to this download machine.
+Note:
+ This topic contains legacy terms that aren't yet fully removed from OMT. Instances of “master” in this
+topic refer to the control plane or to the control plane nodes.
+Note: 
+If some images are missing from the registry but you can't download them now (for example, if you
+are experiencng network issues), you can select the 
+Ignore
+ option, and then click 
+NEXT
+ to continue the
+infrastructure deployment. However, you won't be able to install the suite until all required images are in the
+local registry. To do this, follow the steps in the "Start to download the suite images" topic. When you have
+downloaded the images, follow the steps in the "Upload the images" section below. 
+Note: 
+If some images are missing from the registry but you can't download them now (for example, if you
+are experiencng network issues), you can select the 
+Ignore
+ option, and then click 
+NEXT
+ to continue the
+infrastructure deployment. However, you won't be able to install the suite until all required images are in the
+local registry. To do this, follow the steps in the "Start to download the suite images" topic. When you have
+downloaded the images, follow the steps in the "Upload the images" section below. 
+SMAX 2022.11
+Page 
+680
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

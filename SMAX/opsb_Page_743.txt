@@ -1,0 +1,39 @@
+the external databases for OO.
+1
+. 
+Log on to the NFS server as a root or sudo user.
+2
+. 
+Copy the OMT installation package to a temporary directory on the NFS server.
+3
+. 
+Run the following command to unzip the OMT installation package:
+unzip <OMT2xxx-xxx-15001-embedded-K8s.zip>
+4
+. 
+Navigate to the 
+OMT2xxx-xxx-15001-embedded-K8s/cdf/scripts
+ directory, and then run the following command:
+./setupNFS.sh <shared volume> true <user> <fsGroup>
+For example:
+./setupNFS.sh /var/vols/itom/oo/oo_config_vol true 100001 200001
+./setupNFS.sh /var/vols/itom/oo/oo_data_vol true 100001 200001
+./setupNFS.sh /var/vols/itom/oo/oo_logs_vol true 100001 200001
+./setupNFS.sh /var/vols/itom/oo/oo_data_export_vol true 100001 200001
+./setupNFS.sh /var/vols/itom/oo/oo_ras_logs_vol true 100001 200001
+5
+. 
+The permission of each folder must be set to 755. If it's not, run the following command to change the permissions:
+chmod -R 755 <path to shared folder>
+For example, run the following commands:
+chmod -R 755 /var/vols/itom/oo/oo_config_vol
+chmod -R 755 /var/vols/itom/oo/oo_data_vol
+chmod -R 755 /var/vols/itom/oo/oo_logs_vol
+chmod -R 755 /var/vols/itom/oo/oo_data_export_vol
+chmod -R 755 /var/vols/itom/oo/oo_ras_logs_vol
+SMAX 2022.11
+Page 
+743
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

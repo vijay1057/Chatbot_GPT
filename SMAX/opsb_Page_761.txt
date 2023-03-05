@@ -1,0 +1,21 @@
+Verify OO installation
+To verify OO Containerized installation, do the following:
+1
+. 
+Log in to the control plane node.
+2
+. 
+Run the following command to make sure that all OO pods are ready.
+kubectl get pod -n <OO namespace> |grep -v 1/1|grep -v 2/2|grep -v 3/3|grep -v 4/4|grep -v Completed
+Where:
+<
+OO namespace
+>
+ is the namespace where you deploy the OO chart.
+This command returns a list of pending pods. When it returns no results, all OO pods are ready.
+SMAX 2022.11
+Page 
+761
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

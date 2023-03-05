@@ -1,0 +1,107 @@
+shown on the installation portal later while you configure the file storage. The expected value is a plain or fixed-point
+integer with one of the following suffixes: E, P, T, G, M, K, Ei, Pi, Ti, Gi, Mi, Ki. For example, 10Gi or 100.5M.
+--backup-vol-size
+ The size of the PV and PVC for the pg-backup component. This size will be shown on the installation
+portal later while you configure the file storage. The expected value is a plain or fixed-point integer with one of the
+following suffixes: E, P, T, G, M, K, Ei, Pi, Ti, Gi, Mi, Ki. For example, 10Gi or 100.5M.
+--capabilities
+ Set this option to 
+"Monitoring=false."
+ You can install the ITOM Monitoring Pack after the suite
+installation. See 
+Enable the monitoring capability
+.
+--registry-ca
+ Specifies the path of trusted CA root certificate (bas64 X.509 format) of the external registry. 
+You can also use the command-line options to specify the parameters in the install.properties file when you run the 
+./instal
+l
+ command. When you do this, the value that you specify by using a command-line option takes precedence over any
+value that is already defined in the install.properties file. To view the list of options for the 
+./install
+ command, run the
+following command:
+./install -h
+4
+. 
+Messages that resemble the following indicate the start of installation:
+2020-07-31T11:21:47+08:00 INFO : [NODE:myhost.mycompany.com] * initializing
+2020-07-31T11:21:47+08:00 INFO : Start node pre-check before ITOM core platform installation
+Check node hardware configurations
+   Checking required memory 8 GB ................................. [ PASS ]
+   Checking required CPU number 2 ................................ [ PASS ]
+   Checking required free space 28 GB under /cdftest ............ [ PASS ]
+   Checking overlayfs device is used on containerd ............... [ PASS ]
+Check operation system user permission
+   Checking installation is running with root or sudo user ....... [ PASS ]
+Check operation system network related settings
+   Checking firewalld status ..................................... [ WARNING ]
+(The firewalld service is enabled on this node. The required firewall
+settings will be configured automatically during the node deployment.
+Disable the firewall auto configuration by setting the value of
+'AUTO_CONFIGURE_FIREWALL' to 'false'. Refer to the administration guidance
+for setup the firewall settings manually.)
+   Checking port 2380 ............................................ [ PASS ]
+   Checking port 4001 ............................................ [ PASS ]
+   Checking port 3000 ............................................ [ PASS ]
+   Checking port 5444 ............................................ [ PASS ]
+   Checking port 5443 ............................................ [ PASS ]
+   Checking port 8200 ............................................ [ PASS ]
+   Checking port 8201 ............................................ [ PASS ]
+   Checking port 8443 ............................................ [ PASS ]
+   Checking port 5000 ............................................ [ PASS ]
+   Checking port 10248 ........................................... [ PASS ]
+   Checking port 10249 ........................................... [ PASS ]
+   Checking port 10250 ........................................... [ PASS ]
+   Checking port 10251 ........................................... [ PASS ]
+   Checking port 10252 ........................................... [ PASS ]
+   Checking port 10256 ........................................... [ PASS ]
+   Checking port 10257 ........................................... [ PASS ]
+   Checking port 10259 ........................................... [ PASS ]
+   Checking port 8472 ............................................ [ PASS ]
+   Checking localhost is resolved to 127.0.0.1 in /etc/hosts ..... [ PASS ]
+   Checking node hostname resolving in /etc/hosts ................ [ PASS ]
+   Checking DNS servers resolution on this node .................. [ PASS ]
+   Checking default route exists on this server .................. [ PASS ]
+   Checking http proxy settings on this node ..................... [ PASS ]
+Check operation system basic settings
+   Checking operating system version ............................. [ PASS ]
+   Checking kernel parameters .................................... [ PASS ]
+   Checking command showmount .................................... [ PASS ]
+   Checking command curl ......................................... [ PASS ]
+   Checking command unzip ........................................ [ PASS ]
+   Checking command conntrack .................................... [ PASS ]
+   Checking command checkmodule .................................. [ PASS ]
+   Checking command semodule_package ............................. [ PASS ]
+   Checking command semodule ..................................... [ PASS ]
+   Checking command java ......................................... [ PASS ]
+   Checking package device-mapper-libs ........................... [ PASS ]
+   Checking package libgcrypt .................................... [ PASS ]
+   Checking package libseccomp ................................... [ PASS ]
+   Checking package libtool-ltdl ................................. [ PASS ]
+   Checking package nfs-utils .................................... [ PASS ]
+   Checking package systemd-libs ................................. [ PASS ]
+   Checking package container-selinux ............................ [ PASS ]
+   Checking package net-tools .................................... [ PASS ]
+   Checking package bash-completion .............................. [ PASS ]
+   Checking package socat ........................................ [ PASS ]
+   Checking package tar .......................................... [ PASS ]
+Check operation system other settings
+   Checking swap is disabled ..................................... [ WARNING ]
+(The value of FAIL_SWAP_ON is false. Consult the installation
+documentation for guidance on running cluster nodes with swap on or off.)
+   Checking containerd service not installed ..................... [ PASS ]
+   Checking kubelet service not installed ........................ [ PASS ]
+Check ITOM core platform related settings
+   Checking folder RUNTIME_CDFDATA_HOME '/runtimedata' is empty .. [ PASS ]
+   Checking CDF_HOME ............................................. [ PASS ]
+   Checking parameter POD_CIDR ................................... [ PASS ]
+   Checking parameter POD_CIDR_SUBNETLEN ......................... [ PASS ]
+   Checking parameter SERVICE_CIDR ............................... [ PASS ]
+   Checking range overlap of POD_CIDR and SERVICE_CIDR ........... [ PASS ]
+SMAX 2022.11
+Page 
+673
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

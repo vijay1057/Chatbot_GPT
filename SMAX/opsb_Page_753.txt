@@ -1,0 +1,159 @@
+global.database.oocentral.dbNam
+e
+Yes
+OO Central database name
+oocentraldb
+oocentraldb
+global.database.oocentral.user
+Yes
+OO Central database user
+oocentraldb
+user
+oocentraldb
+user
+global.database.ooscheduler.dbNa
+me
+Yes
+OO Scheduler database name
+ooscheduler
+db
+ooscheduler
+db
+global.database.ooscheduler.user
+Yes
+OO Scheduler database user
+ooscheduler
+dbuser
+ooscheduler
+dbuser
+autopass.deployment.database.db
+Name
+Yes
+AutoPass database name
+aplsdb
+aplsdb
+autopass.deployment.database.us
+er
+Yes
+AutoPass database user
+aplsdbuser
+aplsdbuser
+autopass-migration.deployment.d
+atabase.dbName
+Yes
+AutoPass Migration database name - the same as
+Autopass database name
+aplsdb
+aplsdb
+autopass-migration.deployment.d
+atabase.user
+Yes
+AutoPass Migration database user- the same as
+Autopass database user
+aplsdbuser
+aplsdbuser
+Parameter
+Required
+Description
+Default
+Example
+Persistence parameters
+Parameter
+Required
+Description
+Example
+global.persistence.configVolumeClaim
+Yes
+Name of the PVC created for OO configuration files
+oo-config-pvc
+global.persistence.dataVolumeClaim
+Yes
+Name of the PVC created for OO data files
+oo-data-pvc
+global.persistence.logVolumeClaim
+Yes
+Name of the PVC created for OO logs
+oo-logs-pvc
+global.persistence.dataExportVolumeClaim
+Yes
+Name of the PVC created for database exports
+oo-data-export-pvc
+global.persistence.rasLogVolumeClaim
+Yes
+Name of the PVC created for OO RAS logs
+oo-ras-logs-pvc
+Database maintenance retention period
+This is optional.
+The OO flows for database purging don't work with the current version of OO. However, to keep the database size under
+control, OO deploys a Kubernetes job at install time, set to run each day at 
+00:00 GMT
+. Its purpose is to purge the OO
+executions data that's older than 365 days.
+In other words, all OO execution data that's older than 365 days is automatically purged from the database by this Kubernetes
+job. 
+All data gets exported from the database and copied to NFS before deletion. The path in the NFS where the data gets exported
+is 
+<oodata-maintenance-and-export-volume-path>/oo_data_export_vol
+.
+The data retention period is configurable and controlled by the Helm parameter 
+oodata-maintenance-and-export.deployment.data.rete
+ntionDays
+.
+Minimum value is 28, and the values must be in multiples of 14. For example: 28, 42, 56, etc.
+You can configure the retention period after installation, by manually editing the Kubernetes job. You can find more details
+in 
+Change OO Database Maintenance Job retention interval
+ section.
+This parameter is 
+not present 
+in the 
+values.yaml
+ file of OO, you need to manually add the parameter in the file, and set
+the desired retention period.
+1
+. 
+Open values.yaml
+ in a text editor
+2
+. 
+Search
+ for Helm key index 
+oodata-maintenance-and-export
+3
+. 
+Add 
+parameter 
+data.retentionDays
+like below, and set it to the desired value. For example:
+oodata-maintenance-and-export:
+  deployment:
+    data: 
+      retentionDays: 42 # value must be in multiple of 14. For example: 28, 42, 56, etc.
+    rbac:
+      # See the description at 'global.rbac' key index
+      # default: itom-oo-data-maintenance-serviceaccount
+      serviceAccount:
+Parameter
+Required
+Description
+Default
+Example
+oodata-maintenance-an
+d-export.deployment.da
+ta.retentionDays
+No
+The OO execution data retention period in days. All data that's
+older than the amount of  days specified at this parameter will be
+automatically purged by the OO data maintenance Kubernetes job.
+Minimum value is 28, and the values must be in multiple of 14. For
+example: 28, 42, 56, etc.
+parameter
+doesn't
+exist
+42
+SMAX 2022.11
+Page 
+753
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

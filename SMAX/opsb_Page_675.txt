@@ -1,0 +1,45 @@
+If you do not perform this step, you may receive error messages that state that OMT environment variables (such as 
+K8S_
+HOME
+) don't exist in the current shell.
+If you receive some errors while you run the installation commands, see the "Troubleshoot installation " topic for the
+troubleshooting details. You can also check the installation log under the 
+$TMP_FOLDER 
+directory.
+After you have fixed the errors, run the installation commands again to continue the OMT installation. However, when you re-
+run the installation command, make sure you use the same installation command with the same options and configurations.
+The 
+install
+ script automatically runs a precheck before deploying the nodes. However, if you want to run a standalone precheck
+on the control plane node, see the "Perform preliminary checks" topic.
+Log in to the installation portal
+1
+. 
+Copy the installation portal URL to a supported browser. The URL uses the following format: 
+https://<external access host>:30
+00
+.
+2
+. 
+Log in to the installation portal with the cluster administrator credentials that you provided when you ran the 
+./install
+command:
+Username: 
+admin
+Password: the password you provided
+3
+. 
+Click 
+LOG IN
+.
+If you exit the installation portal at any point, the installation process is paused. The next time you log on to the portal, the
+installation process resumes from the point where you had stopped earlier.
+Related topics
+Configure the install.properties file
+Configure NFS volumes
+SMAX 2022.11
+Page 
+675
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

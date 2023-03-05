@@ -1,0 +1,142 @@
+1
+. 
+Enter the host name or IPv4 address of the control plane node. You must use the same server name format for all
+cluster nodes: either host name or IP address. You can enter the default host name. The host name must resolve to
+an IPv4 address. If it's resolved to both an IPv4 address and an IPv6 address, either contact the IT admin to delete the
+resolved IPv6 address or enter the IPv4 address. Click 
+Ignore warning
+ to ignore the host checking errors. If you use
+a customized host name, the host name must follow one of the hostname rules defined in 
+Host Naming Rules and
+RFC Documents
+.
+2
+. 
+Enter a user name. This must be the root user or a sudo user with the correct installation permission.
+3
+. 
+Choose the verification mode as Password or Key-based and then enter your password or upload a private key file
+respectively. Don't use non-UTF-8 characters for the password, such as "£". If you choose Key-based, you must first
+enter a username and then upload a private key file when connecting the node with a private key file. Make sure that
+the content of the public key is added into the 
+authorized_keys
+ file on the control plane node which you want to add.
+4
+. 
+Scroll down to the 
+Advanced Settings
+ and type the storage device information. Choose 
+Overlayfs
+ as the device
+type if the file system of 
+$CDF_HOME
+ is either "ext4" or "xfs" with "ftype=1". 
+5
+. 
+Enter the Flannel IFace value if the control plane node has more than one network adapter. This must be a single
+IPv4 address or name of the interface for Container inter-host communication. This is an optional step.
+6
+. 
+Click 
+Save
+. The installer performs a system check before adding the control plane node. If an error occurs, the
+control plane node configuration isn't saved.
+3
+. 
+Repeat the steps above to add the third control plane node.
+4
+. 
+Click 
+NEXT
+.
+Add worker nodes
+1
+. 
+On the 
+Worker Nodes configuration
+ page, select the 
+Allow suite workload to be deployed on the control plane
+node
+ option to deploy the workload on the control plane node (we recommend this option only for test environments and
+not for production environments). Otherwise, click 
+ 
+to add a worker node. The 
+Worker Node Detail
+ window is
+displayed.
+1
+. 
+Choose the required type. The node type is related to the sizing requirements of the node. The installer later will then
+check whether the available sizing matches the node type you have chosen.
+2
+. 
+Enter the FQDN or IPv4 address of a worker node. You must use the same server name format as the control plane
+nodes for all the worker nodes: either host name or IP address. The host name must resolve to an IPv4 address. If it's
+resolved to both an IPv4 address and an IPv6 address, contact the IT admin to delete the resolved IPv6 address, or
+enter the IPv4 address. If you use a customized host name, the host name must follow one of the hostname rules
+defined in Host Naming Rules and RFC Documents.
+3
+. 
+Type the User Name. This must be the root user or a sudo user with the correct installation permission.
+4
+. 
+Choose a verification mode as Password or Key-based, and then enter your password or upload a private key file.
+Don't use non-UTF-8 characters for the password, such as "£". If you are using a key-based authentication, you must
+first enter a user name and then upload a private key file when connecting the node with a private key file. Make
+sure that the content of the public key is added into the authorized_keys file on the worker node which you want to
+add.
+5
+. 
+Scroll down to the 
+Advanced Settings
+ and type the storage device information. Choose 
+Overlayfs
+ as the device
+type if the file system of 
+$CDF_HOME
+ is either "ext4" or "xfs" with "ftype=1". 
+6
+. 
+Type the Flannel IFace value if the worker node has more than one network adapter.
+7
+. 
+Ensure that the 
+Skip resource check
+ option is clear. The best practice is to not skip resource checking.
+8
+. 
+Click 
+Save
+.
+9
+. 
+Repeat the steps above to add more worker nodes.
+2
+. 
+Click 
+NEXT
+.
+Make sure you don't delete any pod while you are adding control plane nodes and worker nodes or installing the suite, even
+when the pod status is "Completed". For example, you mustn't delete any pod that resembles the following:
+NAMESPACE    NAME                                        READY  STATUS            RESTARTS   AGE    IP             NODE                  NOMINATED NODE   READINESS GATES
+core         cdf-add-node-1555502049787                  0/1     Completed         0         8h      192.16.0.1       control1.mycompany.com      <none>          <none>
+After the installation, if you use the command 
+kubectl delete pod <pod name> 
+to delete the pods in “Completed” status, all the
+historical logging information associated with the execution of this pod will be deleted as well.
+Note
+If you want to change the network adapter, you should add the new node and remove the old one instead
+of changing the Kubernetes configurations manually. 
+
+
+Note
+If you want to change the network adapter, you should add the new node and remove the old one instead
+of changing the Kubernetes configurations manually. 
+
+
+SMAX 2022.11
+Page 
+678
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,95 @@
+idm_admin_admin_password
+No
+CMS admin user password.
+idm_sysadmin_admin_password
+No
+CMS sysadmin user password.
+idm_audit_integration_password
+No
+IdM audit integration password.
+If you use the Audit service for CMS, enter the password of the user
+used for the audit integration. 
+Otherwise, just p
+ress 
+Enter
+ to get a
+random value and continue.
+For more information about enabling CMS Audit, see 
+Enable Audit for
+CMS
+.
+autopass_db_password
+Yes
+Autopass database password.
+Enter the password that you use when you create the database.
+See
+ Create CMS database users and databases
+.
+ucmdb_server_db_password
+Yes
+UCMDB Server database password.
+Enter the password that you use when you create the database.
+See
+ Create CMS database users and databases
+.
+ucmdb_master_key
+No
+UCMDB master key.
+Press 
+Enter
+ to get a random value and continue.
+This key is required only if you're reinstalling CMS with an existing
+CMS database that is used by the previous CMS installation.
+ucmdb_probe_pg_probe_password
+Yes if you
+deploy a
+probe
+Data flow probe database password.
+Enter the password that you use when you create the database.
+See
+ Create CMS database users and databases
+.
+However, if you don’t deploy the data flow probe, in this version, you
+still need to enter an arbitrary value conforming to the password
+policy to pass the check by the script.
+Key
+Required?
+Description
+Update CMS secret with suite IdM secrets
+With the shared IdM solution, you need to update 
+cms-secret 
+with suite IdM secrets so that you can deploy CMS as the next
+deployment of SMAX with the right secrets.
+You can create a 
+cms_shared_idm_vault_secret.sh 
+to help you get IdM related keys from SMAX and update the keys for
+CMS secret.
+To do this, follow these steps:
+Important 
+Useless in the current scenario because when
+using the shared IdM solution, CMS and SMAX share the
+administer account 
+suite-admin
+.
+However, in this version, you must enter an arbitrary value
+conforming to the password policy to pass the check by the
+script.
+
+
+Important 
+Useless in the current scenario because when
+using the shared IdM solution, CMS and SMAX share the
+administer account 
+suite-admin
+.
+However, in this version, you must enter an arbitrary value
+conforming to the password policy to pass the check by the
+script.
+
+
+SMAX 2022.11
+Page 
+727
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

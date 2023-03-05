@@ -1,0 +1,119 @@
+6
+. 
+Run the following command to check if the NFS server is accessible from the node.
+mount -t nfs <nfs server>:<nfs server exported folder>  <local folder>
+For example: 
+mount -t nfs nfsserver.local.net:/var/vols/itom/core /mnt
+Create the local folder before running the mount command. If mount successfully, remember to unmount the local folder.
+If mount failed, check the NFS server and client configuration.
+7
+. 
+Run the following command to copy the OMT 
+add-node
+ bundles in the 
+<itom-vol>
+ directory on the NFS server to the 
+TMP_FO
+LDER>
+ temporary directory on the new control plane node:
+scp ${itomvol_nfsserver}:${itomvol_nfspath}/pack/*.tar.gz $TMP_FOLDER
+8
+. 
+Run the following commands to untar the OMT package:
+tar -zxvf ITOM_Suite_Foundation_Node_docker.tar.gz;
+tar -zxvf ITOM_Suite_Foundation_Node_k8s.tar.gz;
+tar -zxvf ITOM_Suite_Foundation_Node_cdf.tar.gz;
+tar -zxvf ITOM_Suite_Foundation_Node_comm.tar.gz;
+9
+. 
+Run the following command to copy the OMT images in the 
+<itom-vol>
+ directory on the NFS server to the 
+ITOM_Suite_Founda
+tion_Node
+ directory on the new control plane node:
+scp -r ${itomvol_nfsserver}:${itomvol_nfspath}/pack/images $TMP_FOLDER/ITOM_Suite_Foundation_Node
+10
+. 
+Run the following command to navigate to the 
+ITOM_Suite_Foundation_Node
+ directory on the new control plane node:
+cd $TMP_FOLDER/ITOM_Suite_Foundation_Node
+11
+. 
+Run the following command to install the control plane node. Replace 
+--virtual-ip ${HA_VIRTUAL_IP}
+ with the 
+--load-balancer-hos
+t ${LOAD_BALANCER_HOST}
+ option if you configured the 
+LOAD_BALANCER_HOST
+ parameter. 
+    ./install \
+--node-host <FQDN or IP of new control plane node> \
+--node-type "master" \
+--auto-configure-firewall ${AUTO_CONFIGURE_FIREWALL} \
+--cdf-namespace $CDF_NAMESPACE \
+--etcd-endpoint ${ETCD_ENDPOINT} \
+--kubelet-home ${KUBELET_HOME} \
+--keepalived-nopreempt ${KEEPALIVED_NOPREEMPT} \
+--keepalived-virtual-router-id ${KEEPALIVED_VIRTUAL_ROUTER_ID} \
+--keepalived-advert-int ${KEEPALIVED_ADVERT_INT} \
+--enable-fips ${ENABLE_FIPS} \
+--pod-cidr ${POD_CIDR} \
+--pod-cidr-subnetlen ${POD_CIDR_SUBNETLEN} \
+--registry-url ${SUITE_REGISTRY} \
+--registry-orgname ${REGISTRY_ORGNAME} \
+--service-cidr ${SERVICE_CIDR} \
+--system-group-id ${SYSTEM_GROUP_ID} \
+--system-user-id ${SYSTEM_USER_ID} \
+--k8s-user-id ${K8S_USER_ID} \
+--k8s-group-id ${K8S_GROUP_ID} \
+--etcd-user-id ${ETCD_USER_ID} \
+--etcd-group-id ${ETCD_GROUP_ID} \
+--k8s-master-ip ${API_SERVER} \
+--k8s-provider ${K8S_PROVIDER} \
+--fail-swap-on ${FAIL_SWAP_ON} \
+--flannel-backend-type ${FLANNEL_BACKEND_TYPE} \
+--ha-virtual-ip ${HA_VIRTUAL_IP} \
+--cdf-home ${CDF_HOME} \
+--master-api-ssl-port ${MASTER_API_SSL_PORT} \
+--runtime-home ${RUNTIME_CDFDATA_HOME} \
+--tmp-folder ${TMP_FOLDER} \
+--all-certs-dir ${TMP_FOLDER}
+Notes
+:
+The value of the 
+<FQDN or IP of new control plane node>
+ placeholder must be the same as the value when
+you ran the 
+generateCerts.sh
+ script.
+Add the 
+--flannel-iface <ipv4 or interface name>
+ option to set up multiple network interfaces.
+Add the 
+--aws-eip ${AWS_EIP}
+ and 
+--aws-region ${AWS_REGION}
+ options and use the 
+HA_VIRTUAL_IP
+ parameter
+instead of the
+ LOAD_BALANCE_HOST
+ parameter if you are installing OMT on AWS.
+Add the 
+--crt-http-proxy
+ or 
+--crt-https-proxy
+ options to set up the HTTPS or HTTP proxy.
+Add the 
+--crt-no-proxy ${CRT_NO_PROXY}
+ option to specify the IPv4 addresses, FQDNs, and domain names
+that don't need a proxy for Containerd.
+SMAX 2022.11
+Page 
+691
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

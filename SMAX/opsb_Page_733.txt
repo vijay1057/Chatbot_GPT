@@ -1,0 +1,68 @@
+Uninstall CMS
+To uninstall CMS, perform the following tasks:
+Delete the CMS deployment
+1
+. 
+Log on to the control plane node as root or a sudo user.
+2
+. 
+Run the following command to remove the CMS release:
+helm uninstall <
+CMS RELEASE NAME
+> -n <
+CMS NAMESPACE
+>
+Where:
+<
+CMS RELEASE NAME
+>
+ is the CMS release that you want to uninstall
+<CMS NAMESPACE>
+ 
+is the namespace where you installed CMS
+3
+. 
+Go to the 
+$CDF_HOME/scripts
+ folder and run the following command:
+./cdfctl.sh deployment delete -d <
+CMS DEPLOYMENT NAME
+>
+Where:
+<
+CMS DEPLOYMENT NAME
+>
+ is the name you specified for the deployment you created to install CMS.
+For example:
+./cdfctl.sh deployment delete -d cms-prod
+Remove persistent volumes
+If you created PVs based on the 
+cms-pv.yaml
+ sample file as documented in 
+Create persistent volumes
+, you can run the
+following command to delete the persistent volumes:
+kubectl delete -f cms-pv.yaml
+Clean the NFS volumes
+Log on to the NFS server host and clear all the contents in the NFS volume directories that you created in the 
+Create NFS
+volumes 
+step.
+For example:
+rm -rf /var/vols/itom/cms/data_volume/*
+rm -rf /var/vols/itom/cms/conf_volume/*
+rm -rf /var/vols/itom/cms/log_volume/*
+rm -rf /var/vols/itom/cms/db_volume/*
+Clean the databases
+The CMS un-installation process does not remove the databases from the external PostgreSQL server. You need to remove the
+databases manually.
+Note 
+ If external databases are used, no need to delete the db_volume.
+
+
+SMAX 2022.11
+Page 
+733
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

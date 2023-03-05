@@ -1,0 +1,105 @@
+Install the suite with an
+external cdfapiserver-db
+database and with
+container images
+directly from an external
+image repository
+./install -m /<suite metadata directory>/<suite metadata>.tgz --nfs-server <nfs-server> --
+nfs-folder <nfs-directory> --db-user <cdfapiserver_db_user> --db-password <cdfapiserver_
+db_password> --db-url <cdfapiserver_db_url> [--db-crt <cdfapiserver_db_cert>] --registry-
+url <image_registry_URL> [--registry-ca <external_registry-ca>] [--registry-orgname<regis
+try organization name>] [--registry-username<registry user name>] [--registry-password<r
+egistry password>]
+For example:
+For an external PostgreSQL database: 
+./install -m /root/workspaces/itsma-suite-metadata-202x.xx-bxx.tgz --nfs-server 192.0.2.0 -
+-nfs-folder /var/vols/itom/core --db-user cdfapiserveruser --db-password Mypassword --db-ur
+l jdbc:postgresql://mydatabase.myhost.com:5432/cdfapiserverdb --db-crt /tmp/mydb_ca.crt 
+--registry-url  imagehost.mycompany.com 
+--registry-ca /tmp/ca.crt 
+--registry-orgname 
+hpeswitom
+Yes
+Option
+Command
+Applicable
+to
+production
+For a sudo user
+Option
+Command
+Applicable
+to
+production
+Install the suite with no
+advanced settings
+specified
+sudo ./install -m /<suite metadata directory>/<suite metadata>.tgz --nfs-server <nfs-serv
+er> --nfs-folder <nfs-directory>
+ 
+For example:
+sudo ./install -m /root/workspaces/itsma-suite-metadata-202x.xx-bxx.tgz --nfs-server 192.0.
+2.0 --nfs-folder /var/vols/itom/core
+No
+Install the suite with an
+external 
+cdfapiserver-db
+database
+sudo ./install -m /<suite metadata directory>/<suite metadata>.tgz --nfs-server <nfs-serv
+er> --nfs-folder <nfs-directory> --db-user <cdfapiserver_db_user> --db-password <cdfapis
+erver_db_password> --db-url <cdfapiserver_db_url_or_connection_string> [--db-crt <cdfapi
+server_db_cert>]
+ 
+For example:
+For an external PostgreSQL database: 
+sudo ./install -m /root/workspaces/itsma-suite-metadata-202x.xx-bxx.tgz --nfs-server 192.0.
+2.0 --nfs-folder /var/vols/itom/core --db-user cdfapiserveruser --db-password Mypassword --
+db-url jdbc:postgresql://mydatabase.myhost.com:5432/cdfapiserverdb --db-crt /tmp/mydb_c
+a.crt
+Yes
+Install the suite with the
+container images
+directly from the
+external image
+repository
+sudo ./install -m /<suite metadata directory>/<suite metadata>.tgz --nfs-server <nfs-serv
+er> --nfs-folder <nfs-directory> --registry-url <image_registry_URL> [--registry-ca <extern
+al_registry-ca>] [--registry-orgname<registry organization name>] [--registry-username<re
+gistry user name>] [--registry-password<registry password>] 
+ 
+For example:
+sudo ./install -m /root/workspaces/itsma-suite-metadata-202x.xx-bxx.tgz --nfs-server 192.0.
+2.0 --nfs-folder /var/vols/itom/core --registry-url imagehost.mycompany.com --registry-ca /t
+mp/ca.crt --registry-orgname hpeswitom
+No
+Install the suite with an
+external cdfapiserver-db
+database and with
+container images
+directly from an
+external image
+repository
+sudo ./install -m /<suite metadata directory>/<suite metadata>.tgz --nfs-server <nfs-serv
+er> --nfs-folder <nfs-directory> --db-user <cdfapiserver_db_user> --db-password <cdfapis
+erver_db_password> --db-url <cdfapiserver_db_url> [--db-crt <cdfapiserver_db_cert>] --reg
+istry-url <image_registry_URL> [--registry-ca <external_registry-ca>] [--registry-orgname<
+registry organization name>] [--registry-username<registry user name>] [--registry-passwo
+rd<registry password>]
+For example:
+ 
+For an external PostgreSQL database: 
+sudo ./install -m /root/workspaces/itsma-suite-metadata-202x.xx-bxx.tgz --nfs-server 192.0.
+2.0 --nfs-folder /var/vols/itom/core --db-user cdfapiserveruser --db-password Mypassword --
+db-url jdbc:postgresql://mydatabase.myhost.com:5432/cdfapiserverdb --db-crt /tmp/mydb_c
+a.crt --registry-url imagehost.mycompany.com --registry-ca /tmp/ca.crt --registry-orgname 
+hpeswitom
+Yes
+In addition, you can also specify the following options:
+--logging-vol-size
+ The size of the PV and persistent volume claim (PVC) for the Fluentd component. This size will be
+SMAX 2022.11
+Page 
+672
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

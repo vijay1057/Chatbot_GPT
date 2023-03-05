@@ -1,0 +1,55 @@
+Install the containerized CMS as the next deployment on the same OMT 
+Perform the following steps to install CMS on the same OMT on which the suite is installed:
+1
+. 
+Download the CMS charts package
+2
+. 
+Download container images for CMS
+3
+. 
+Upload container images for CMS to a registry
+4
+. 
+Configure NFS volumes for CMS
+5
+. 
+Prepare persistent volumes for CMS
+6
+. 
+Prepare external databases for CMS
+7
+. 
+Create CMS integration admin user in the suite IdM
+8
+. 
+Create my-values.yaml
+9
+. 
+Create a deployment for CMS
+10
+. 
+Generate vault secrets
+11
+. 
+Install CMS on OMT
+12
+. 
+Verify the installation
+13
+. 
+Associate CMS SuperAdmin role
+Related topics
+Enable Native SACM
+Enable SAM
+Uninstall containerized CMS
+SACM
+ and 
+Enable SAM
+.
+SMAX 2022.11
+Page 
+703
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

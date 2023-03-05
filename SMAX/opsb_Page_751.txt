@@ -1,0 +1,113 @@
+Create my-values.yaml for OO
+You need to create a custom
+ values.yaml
+ file with the configuration information for your Operations Orchestration
+Containerized deployment.
+Create and configure values.yaml file
+1
+. 
+Extract the OO chart archive file.
+tar -xvf oo-1.0.x+2022xx01.xx/oo-helm-charts/charts/oo-1.0.x+2022xx01.xx.tgz
+2
+. 
+Create a copy of the 
+values.yaml
+ file.
+cp oo-1.0.x+2022xx01.xx/oo-helm-charts/charts/oo/values.yaml /path/to/copied_oo_values.yaml
+3
+. 
+Edit the copied 
+values.yaml
+ file using any text editor and enter the required values in the file.
+Configurable parameters
+The configurable parameters supported by the OO chart are grouped into the below categories.
+Generic parameters
+Networking parameters
+Shared IdM parameters
+Database parameters
+Persistence parameters
+(Optional) Database maintenance retention period
+SMAX integration parameters
+Monitoring parameters
+While OO chart 
+values.yaml
+ file contains additional Helm parameters, use only the parameters described in this section with
+the OO installation. All others handle experimental or serve debug purposes which, if configured at OO install time, will prevent
+or impact future OO upgrades.
+Generic parameters
+Parameter
+Required
+Description
+Default
+Example
+acceptEula
+Yes
+You must accept EULA to deploy OO.
+false
+true
+global.docker
+.registry
+No
+Docker registry where OO docker images are stored.
+ 
+If you use the external registry, set it to the URL of the registry, otherwise
+leave the value as is for OO pods to pull images from the local registry. 
+localho
+st:5000
+External reg
+istry: registr
+y.example.
+com:443
+global.docker
+.orgName
+No
+Name of the docker organization in the registry where OO images exist.
+hpeswit
+om
+hpeswitom
+global.securit
+yContext.use
+r
+No
+This parameter specifies the operating system user ID used to run the
+process in the container. The value of this parameter and the ID of the NFS
+folder owner must be the same. 
+When using big values, use the value in double quotes.
+See 
+https://github.com/helm/helm/issues/1707
+ for more information. For
+example: 
+user: "1999"
+You can't change this value after installation.
+1999
+1999
+global.securit
+yContext.fsGr
+oup
+No
+This parameter specifies the operating system group ID used to run the
+process in the container.
+When using big values, use the value in double quotes.
+See 
+https://github.com/helm/helm/issues/1707
+ for more information. For
+example: 
+user: "1999"
+You can't change this value after installation.
+1999
+1999
+Shared IdM parameters
+OO integrates with the suite IDM service. At these parameters, enter the IDM connection details.
+Important
+: This 
+values.yaml
+ file contains critical configuration information. The file must be securely stored
+and backed up. 
+
+
+SMAX 2022.11
+Page 
+751
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

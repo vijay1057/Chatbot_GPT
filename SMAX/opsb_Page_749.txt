@@ -1,0 +1,118 @@
+Create OO integration admin user in SMAX IdM
+Create the OO Containerized integration admin user
+The OO Containerized integration admin user is responsible for performing integration between OO and IdM. OO uses the
+credential of the OO integration admin user to synchronize groups and roles from IdM to OO.
+You can create the OO integration admin user in the suite IdM portal by following the instructions below:
+1
+. 
+Log in to the suite IdM (
+https://
+<External_Access_Host>
+/idm-admin
+) with a 
+suite-admin
+ account, navigate to
+the 
+SYSBO 
+IDM organization, and then click it.
+2
+. 
+Go to 
+Users
+ in the navigation pane, and click   
+ 
+  on the toolbar. The 
+ADD USER
+ page opens.
+3
+. 
+Create the OO-IDM integration admin user using the following values and then click 
+SAVE
+.
+Field
+(*required)
+Description
+Name *
+Name of the new user. To avoid confusion later, enter the user name as 
+oo-integration-
+admin
+. 
+Display Name *
+Display name of the new user. Use 
+oo-integration-admin
+ in this case.
+Password *
+Specifies a password for the OO integration admin user.
+Type *
+Select 
+SYSTEM
+.
+Password Policy
+Leave the field empty.
+User Attributes
+Leave empty.
+4
+. 
+Click 
+SAVE.
+Associate group
+1
+. 
+In the suite IdM (
+https://
+<External_Access_Host>
+/idm-admin
+) , access the 
+SYSBO 
+organization.
+2
+. 
+Go to 
+Groups
+ in the navigation pane, click the 
+administrators
+ group, and then click   
+ 
+ in the toolbar. The 
+Group
+Settings
+ page opens.
+3
+. 
+Scroll down to the 
+Users
+ section, for the 
+Associated Users
+ field, search for and click the 
+oo-integration-admin
+ user
+to associate it to the group. 
+4
+. 
+Click 
+SAVE
+. 
+Now the OO integration user 
+oo-integration-admin
+ is created successfully in suite IdM under the 
+SYSBO
+ organization. This
+credential will be used later.
+Note
+:
+ When selecting type 
+SYSTEM
+, if a user hasn't been assigned a password policy, a "
+defaultFor=SYST
+EM
+" password policy will be applied upon clicking 
+SAVE
+. 
+
+
+SMAX 2022.11
+Page 
+749
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

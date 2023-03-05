@@ -1,0 +1,38 @@
+5
+. 
+Make sure the FQDN of the reverse proxy server is the same as the external access host name of the SMA suite (you've
+been asked to 
+enter this host name
+ from the installation portal previously). The following table provides an example DNS
+setting. 
+DNS record name
+DNS record
+type
+DNS value
+External access host name (for example:
+myhost.mycompany.com)
+A (IPv4
+address)
+IP address of the reverse proxy
+server
+[Optional] Additional load balancer in front of SMAX
+According to your organization's network/security requirements, you may need to setup an additional load balancer in front of
+SMAX.
+Please enable websocket on the additional load balancer if you have installed one.
+Related topics
+Next topic: 
+Post-installation tasks
+Previous topic: 
+Deploy the suite
+For information about how to configure an external access host name for the suite, see 
+Select deployment configuration
+Note
+ The ngx_stream_core_module module is available only in version 1.9.0 or later.
+
+
+SMAX 2022.11
+Page 
+689
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

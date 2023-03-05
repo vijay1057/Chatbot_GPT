@@ -1,0 +1,23 @@
+Get connection details for connecting to the IdM service
+of SMAX
+This topic contains instructions to get the connection details to connect with the IdM service of SMAX.
+Use this information during the preparation of the sensitive data required by OO installation. 
+Obtain the password for the IdM transport user and IdM signing key
+Run the following commands to obtain the password from SMAX's vault for the user 
+idmTransportUser
+.
+Get SMAX namespace:
+SMAX_NS=$(echo `kubectl get ns | grep itsma | awk '{print $1}'`) && echo $SMAX_NS
+Get SMAX's IdM pod name:
+SMAX_IDM_POD=$(echo `kubectl get pods -n $SMAX_NS | grep -m1 idm- | head -1 | awk '{print $1}'`) && echo $SMAX_IDM_POD
+Get the password for SMAX's IdM user 
+idmTransportUser:
+TRANSPORT_PASS=$(kubectl exec -it $SMAX_IDM_POD -n $SMAX_NS -c idm -- bash -c "/bin/get_secret idm_transport_admin_password_secret_key" | awk -F= '{print$2}') && echo $TRANSPORT_PASS
+Get the IdM signing key:
+IDM_SIGNING_KEY=$(kubectl exec -it $SMAX_IDM_POD -n $SMAX_NS -c idm -- bash -c "/bin/get_secret idm_token_signingkey_secret_key itom-bo" | awk -F= '{print$2}') && echo $IDM_SIGNING_KEY
+SMAX 2022.11
+Page 
+748
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

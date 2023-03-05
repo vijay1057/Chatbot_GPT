@@ -1,0 +1,64 @@
+Download the CMS chart package
+You need to download the tar file from the Software website to a control plane node. To do so, do the following:
+1
+. 
+Download the 
+CMS_Helm_Chart-
+2022.11
+.zip
+ file from the 
+Software Licenses and Downloads
+ website.
+2
+. 
+Copy the file to a temporary directory on a control plane node. 
+3
+. 
+Unzip the package:
+unzip CMS_Helm_Chart-
+2022.11
+.zip
+4
+. 
+Untar the CMS chart package:
+cd CMS_Helm_Chart-
+2022.11
+/
+tar -xvzf cms-helm-charts-
+2022.11
+.tgz
+The following table describes the essential files inside the CMS chart package:
+Name
+File
+CMS helm chart file
+CMS_Helm_Chart-
+2022.11
+/cms-helm-charts/charts/cms-1.7.0+20221100.xxx.tgz
+Example PV yaml file
+For production environment:
+CMS_Helm_Chart-
+2022.11
+/cms-helm-charts/samples/cms-pv.yaml
+For demo environment:
+CMS_Helm_Chart-
+2022.11
+/cms-helm-charts/samples/cms-pv-demo.yaml
+Example values.yaml file
+For production environment:
+CMS_Helm_Chart-
+2022.11
+/cms-helm-charts/samples/values.yaml
+For demo environment:
+CMS_Helm_Chart-
+2022.11
+/cms-helm-charts/samples/values-demo.yaml
+For shared IdM (Suite IdM) environment:
+CMS_Helm_Chart-
+2022.11
+/cms-helm-charts/samples/values-with-smax.yaml
+SMAX 2022.11
+Page 
+704
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

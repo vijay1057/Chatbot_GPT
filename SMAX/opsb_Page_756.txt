@@ -1,0 +1,64 @@
+To specify a custom certificate for OO:
+1
+. 
+Have the custom certificate(s) you want to use with OO in a 
+.pem
+ format (base64 encoded).
+2
+. 
+Upload the custom certificate(s) and key to a directory on control plane node.
+3
+. 
+Open 
+values.yaml
+ in a text editor
+4
+. 
+Search for Helm parameters 
+global.tls.crt
+ and 
+global.tls.key
+5
+. 
+Change the name of parameter 
+global.tls.
+crt
+ to 
+global.tls.
+cert
+ and save the file
+ 
+You must change the parameter name to specify custom certificate for OO.
+6
+. 
+Set the certificate(s) content at Helm parameter 
+global.tls.cert
+ and the content of the key at Helm parameter 
+global.tls.key
+.
+If the certificate is signed by a multiple level certificate authority, concatenate the certificate in the following order: 
+-----BEGIN CERTIFICATE-----
+<server-certificate>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<intermediate-level-1>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<intermediate-level-2>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<intermediate-level-n>
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+<root.crt>
+-----END CERTIFICATE-----
+Make sure that there are no empty line between certificates
+You must include the content of the certificate(s) and key in double quotes. For example:
+Create and configure oo_size_values.yaml file
+This additional values.yaml file indicates the size of OO in terms of the amount of resources each OO component utilizes.
+SMAX 2022.11
+Page 
+756
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

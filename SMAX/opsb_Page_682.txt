@@ -1,0 +1,78 @@
+times when the images are in different directories. However, if you have specified the 
+-l
+ option to "false", then you
+can only specify one image directory. The images can be the images download by the 
+downloadimages.sh
+. Only the
+.tar, .tgz, and .tar.gz images are supported. Make sure the image file type matches the file extension. 
+<org name>
+: The organization in the image registry that contains the images for installation. By default, this is 
+hpeswit
+om.
+ This option is mandatory if you aren't using the default organization name.
+To see the full list of options for the 
+uploadimages.sh
+ command, run the following command:
+./uploadimages.sh -h 
+The 
+-p
+ option is the password of the "registry-admin" user. The initial value of the "registry-admin" password is the
+password you set while you run the 
+install
+ to install OMT. You can also change the registry-admin password with the script
+$CDF_HOME/scripts/updateLocalRegistryInfo.sh
+.
+4
+. 
+Wait until the images are successfully uploaded. Your terminal resembles the following:
+Upload-process successfully completed.
+Verify the upload status on the installation portal
+1
+. 
+On the installation portal, check the number of uploaded images.
+1
+. 
+Click 
+MORE
+ to check the name of the remaining images to be uploaded.
+2
+. 
+Click 
+CHECK AGAIN
+ to see the updated details of the uploaded images.
+2
+. 
+When all the files are successfully uploaded, click 
+NEXT
+ to go to the 
+Prepare
+ page. After you click 
+NEXT
+, you can't go
+back to the 
+Download
+ phase.
+Related topics
+Next topic: 
+Prepare the control plane nodes and worker nodes
+Previous topic:
+Select deployment configuration
+(Optional) Download container images beforehand (on-premises)
+Note: 
+By selecting the -p option, you are disabling or bypassing security features, thereby exposing the
+system to increased security risks. By using this option, you understand and agree to assume all associated
+risks and hold Micro Focus harmless for the same.
+Micro Focus encourages you to use some other password options, which aren't provided by Micro Focus. By
+implementing the -p option, you may expose the system to increased security risks. You understand and
+agree to assume all associated risks and hold Micro Focus harmless for the same. It remains at all times your
+sole responsibility to assess its own regulatory and business requirements. Micro Focus doesn't represent or
+warrant that its products comply with any specific legal or regulatory standards applicable to you in
+conducting your business.
+
+
+SMAX 2022.11
+Page 
+682
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

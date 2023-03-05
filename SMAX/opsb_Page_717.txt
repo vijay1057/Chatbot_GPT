@@ -1,0 +1,109 @@
+global.securityContext.user
+No
+This parameter specifies the operating
+system user ID that is used to run the
+process in the container.
+1999
+100001
+global.securityContext.fsGroup
+No
+This parameter specifies the operating
+system group ID that is used to run the
+process in the container.
+1999
+200001
+global.nodeSelector
+No
+This parameter specifies the nodes to run
+the process in the container. Set the
+corresponding node selector tags if you
+want the CMS services to run only on the
+specified nodes.
+The label specified here must be the same
+as the label of the worker node created for
+CMS.
+Worker: label
+Worker: cms
+Parameter
+Required
+Description
+Default
+Example
+Shared IdM parameters
+For better user management between SMAX and CMS, configure the following parameters for CMS to use the SMAX IdM
+("shared IdM") to manage CMS users.
+Parameter
+Required
+Description
+Default
+Example
+global.idm.internal
+Yes
+This parameter specifies whether CMS uses
+internal IdM or external IdM. When CMS is
+deployed with SMAX, the value must be 
+false
+ for
+CMS to use SMAX IdM as the shared IdM.
+false
+false
+global.idm.idmAuthUrl
+Yes
+URL that's used by suite applications to redirect
+the browser to the IdM login screen.
+https://<SMA-
+FQDN>:443/idm-
+service
+Important 
+The value of this
+parameter and the ID of the NFS folder
+owner (the value of 
+<user>
+ when
+creating the CMS NFS volumes) must
+be the same. For example, if you use
+100001 
+instead of 
+1999 
+when
+creating NFS, you must also use
+100001 
+as the value for this
+parameter. 
+
+
+Note
+ The value cannot be changed
+after installation.
+
+
+Important 
+The value of this
+parameter and the group ID (the value
+of 
+<fsGroup>
+ when creating the CMS
+NFS volumes) must be the same. For
+example, if you use 
+200001
+ instead of
+1999 
+when creating NFS, you must
+also use 
+2
+00001 
+as the value for this
+parameter. 
+
+
+Note
+ The value cannot be changed
+after installation.
+
+
+SMAX 2022.11
+Page 
+717
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
