@@ -1,0 +1,54 @@
+The design will be published.
+Build Service Catalog
+Persona
+Location
+Peter - DND Administrator
+Service Management Portal
+After publishing the design it needs to be added to the Service Catalog. Follow the below steps to add the published design to
+the Service Catalog.
+Add new Category in catalog
+From the main menu, select 
+Plan > Service Catalog > Catalog
+. In the Category pane, add a category or select an existing
+category.
+To add a category:
+1
+. 
+Select 
+Add
+. The New Category dialog box is displayed.
+2
+. 
+Enter a Display label as AWS Offerings.
+3
+. 
+Enter a Description. 
+4
+. 
+Select a Background Image, Background Color, and Image, and enter a Display order and URL, as required. For detailed
+information, see How to design category tiles for the Service Portal.
+5
+. 
+Select 
+Save
+.
+Add Service Definition
+In the Service Definition pane, select 
+Add
+. Fill in the following details. 
+1
+. 
+Display label
+2
+. 
+Select the appropriate 
+Subtype
+3
+. 
+Catalog description
+SMAX 2022.11
+Page 
+493
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

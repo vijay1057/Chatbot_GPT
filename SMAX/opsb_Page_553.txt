@@ -1,0 +1,157 @@
+Hardware requirements for other options
+If none of the typical deployment options described previously meets your needs, use the following guidelines.
+How to calculate hardware resources
+You can determine your hardware requirements as follows:
+1
+. 
+Use the deployment size definitions for the SMA capability to determine the SMA deployment size and required hardware
+resources (see 
+Hardware requirements for option 1
+). Use this hardware resource requirement as a basis. 
+2
+. 
+Use the deployment size definitions for each of the other desired capabilities to determine their deployment size and
+additional hardware resources required. 
+3
+. 
+Calculate the total hardware resources required by adding up the requirements for all capabilities, and add resources as
+needed: worker nodes, CPU, RAM, and disk storage. Note that when calculating how many worker nodes are needed, keep
+in mind that all worker nodes must have the same hardware specification provided here because Kubernetes schedules
+pods across all of the worker nodes. 
+Additional hardware resources for add-on capabilities and CMS
+Use the following information to calculate the additional hardware resources for each add-on capability. 
+Additional hardware requirements for SAM
+Use the table below to plan the additional hardware resources for SAM. 
+SAM
+deployment
+size
+Actual
+utilization
+Worker node
+NFS
+Database
+Configuration
+Storage
+Quantity
+Configuration
+Configuration
+Small
+4CPU
+8G RAM
+8CPU
+32G
+RAM
+ 
+140 GB
+1
+No additional storage is
+required for SAM. SAM
+shares SMA storage
+resources.
+No additional configuration
+or storage is required for
+SAM. SAM shares SMA
+resources.
+Medium
+4CPU
+8G RAM
+Large
+4CPU
+12G
+RAM
+Additional hardware requirements for OO Containerized
+The following sizing requirements denote the target deployment size for a dedicated OO database, based on the number of
+tenants. This is not based on concurrent users.
+To deploy OO for a 5-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+To deploy OO for a 20-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+Target size
+Number
+of OO
+tenants
+Worker node
+NFS
+Database
+max_connections
+Configuration
+Storage
+Quantity
+Additional
+configuration
+Additional
+storage
+Additional
+configuration
+Additional
+storage
+Small
+1 to 5
+8 CPU 32
+G RAM
+100 G
+2
+OO
+shares
+the
+same
+NFS
+server
+with the
+suite
+500 G
+2
+CPU
+16
+GB
+RAM
+750
+GB
+~ 5
+TB
+1400
+#
+Medium
+6 to 20
+8 CPU 32
+G RAM
+100 G
+8
+OO
+shares
+the
+same
+NFS
+server
+with the
+suite
+500 G
+8
+CPU
+64
+GB
+RAM
+750
+GB
+~ 5
+TB
+5710
+##
+Note
+ For more information about NFS storage sizing, see 
+Manage persistent storage for the suite
+.
+
+
+SMAX 2022.11
+Page 
+553
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

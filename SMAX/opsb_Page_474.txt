@@ -1,0 +1,26 @@
+If a new license metric needs to be used over and above the OOTB metrics, you can create one. See 
+License metrics
+. Once
+saved, the new publisher is added to the publisher list. The new metric can be used with any license rules that require this
+algorithm to work out license usage.
+License rules
+In the current version of SAM, more than 20 rules come out of the box. More rules will be generated and published with later
+releases of SAM. In most cases for the majority of vendors, the OOTB rules should be sufficient. If new rules are required, you
+can either create new or clone existing rules depending on your business requirements.
+For more information on how to create a new rule or clone one, see 
+License rules
+.
+Troubleshoot
+For SAM-related issues, you can check the topics in 
+Troubleshoot SAM
+.
+If the issue persists, contact the Service Management Automation X support team and create a ticket. Be sure to include all
+relevant log files from SAM and SMAX when raising the support ticket.
+Related topics
+New SAM
+SMAX 2022.11
+Page 
+474
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

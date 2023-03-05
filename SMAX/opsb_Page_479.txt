@@ -1,0 +1,21 @@
+ 
+ 
+6
+. 
+Click 
+ 
+ to generate a PDF file and view a summary of the expenses.
+Troubleshoot
+If you fail to get the analysis view as expected, check whether the following requirements are met and modify the
+configurations accordingly:
+The budget line and the incurred expense lines have the same accounting period.
+The cost center of the expense lines matches the cost center linked to the budget center record of the budget line.
+The cost type of the expense lines matches the cost type linked to the budget type record of the budget line.
+Related topics
+Financial Management
+SMAX 2022.11
+Page 
+479
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

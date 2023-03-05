@@ -1,0 +1,60 @@
+Change priority
+The priority of the change, based on business needs, automatically calculated by Service Management.
+Change process owner
+A change management default role: the person who is accountable for all change related activities. Functions as the
+champion, advocate, and design leader of change management.
+Change proposal
+A document including:
+A high-level description of the significant change or potential new service introduction.
+The corresponding business case.
+The expected implementation schedule.
+Change proposals are typically created by service portfolio management, and are passed to change management for
+authorization.
+The change proposal allows change management to assess the potential impact on other services, other shared resources,
+and the overall change schedule, and determine if the change is feasible. The assessment results in either authorization or
+rejection of the change proposal.
+Change record
+A record containing the particulars of the change. Each change record documents the life cycle of a single change. A change
+record is created for every request for change received, even those that are subsequently rejected.
+Change requestor
+A change management default role: the person who submits a request for change, starting the change process.
+Change schedule
+The Schedule tab in each change record includes the following sections:
+Change calendar - displays the change, when scheduled, and time periods. (Time periods may include maintenance times,
+blackout times, work schedules, holidays, and events.)
+Scheduled times - details of the scheduled times for the change. For example, scheduled start and end time.
+Actual times - details of the actual times for the change. For example, actual start and end time.
+Change task
+A change task is a unit of work in a change record workflow, assigned to a person or a group. A task may be automatic or
+manual.
+Change task assignee
+A change management default role: the person who is responsible for closing assigned change tasks.
+CI type
+A CI type is a category used to classify CIs. The CI type identifies the required attributes and relationships that comprise a
+configuration record. CI Types include:
+Actual service
+Device
+Service component
+System element
+Configuration item - OO
+[Operation Orchestration (OO)] CIs are OO objects (filters, scriptlets, system properties, and so on) that you can use to process
+operation results, create reports, and facilitate the running of flows.
+Configuration Item - SMA
+Any components or other service assets that need to be managed in order to deliver an IT service. Information about each CI is
+recorded in the configuration record in the configuration management system and is maintained throughout its lifecycle by
+service asset and configuration management. CIs are under the control of Change Management. CIs typically include IT
+services, hardware, software, buildings, people, and formal documentation such as process documentation, and service level
+agreements.
+Configuration management
+The process responsible for ensuring that the assets required to deliver services are properly controlled, and that accurate and
+reliable information about those assets is available when and where it's needed. This information includes details of how the
+assets have been configured, and the relationships between assets.
+Configuration Management Database (CMDB)
+A database used to store configuration records throughout their lifecycle. The configuration management system maintains
+one or more configuration management databases, and each database stores attributes of CIs, and relationships with other
+SMAX 2022.11
+Page 
+521
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

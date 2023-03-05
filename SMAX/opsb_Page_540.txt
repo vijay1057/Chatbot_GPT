@@ -1,0 +1,104 @@
+Can use either classic CMS or containerized CMS. 
+Containerized CMS supports fewer installation platforms than SMAX. For information about supported platforms,
+see 
+Deploy Native SACM
+. 
+For the Native SACM support matrix, see the 
+integration support matrix
+. 
+Traditional OPB-based integration (deprecated and might be obsoleted in a future release)
+To learn more, see 
+Integrate with external UCMDB
+. 
+Must use classic CMS.
+For the support matrix of this integration, see the 
+integration support matrix
+. 
+Classic OO or OO Containerized
+Think about which edition of Operations Orchestration (OO) you will need. 
+If you want to use any Cloud Management capabilities, which are Design and Deploy (DND), Cost Governance and
+Resource Optimization (CGRO), and Image Aggregation (IA), you must install OO Containerized.
+If you don't need any Cloud Management capabilities, you can install either classic OO or OO Containerized. 
+To-Do list
+The following is a checklist of tasks that you need to perform in different phases: before the installation, during the installation,
+and after the installation. 
+Pre-installation phase (on-premises only)
+Task No.
+Task
+Doc links
+1
+Configure NFS shares
+Configure NFS volumes
+2
+OS and database tuning
+Check system parameters
+Perform pre-installation tuning
+Prepare external databases
+Installation phase
+Environment
+type
+Task
+On-premises
+Follow the 
+on-premises installation instructions
+ in combination with the screen prompts provided in the
+installation portal UI, which is available through https://<server>:3000 after the OMT installation. 
+EKS
+Follow the 
+EKS installation instructions
+ in combination with the screen prompts provided in the installation
+portal UI, which is available through https://<server>:3000 after the OMT installation. 
+AKS
+Follow the 
+AKS installation instructions
+ in combination with the screen prompts provided in the installation
+portal UI, which is available through https://<server>:3000 after the OMT installation. 
+GCP
+Follow the 
+GCP installation instructions
+ in combination with the screen prompts provided in the
+installation portal UI, which is available through https://<server>:3000 after the OMT installation. 
+OpenShift
+Follow the 
+OpenShift installation instructions
+ in combination with the screen prompts provided in the
+installation portal UI, which is available through https://<server>:3000 after the OMT installation. 
+Post-installation phase
+Task
+No.
+Task
+Doc links
+1
+Verify the installation
+Verify the installation
+2
+Administer the suite
+Configure the suite in Suite Administration
+3
+Set up SAML
+Set up SAML authentication
+4
+Tune the system
+Perform post-installation tuning
+5
+Perform performance
+tuning
+Review the system performance on a regular basis and apply the relevant tasks to
+tune as needed:
+Performance and Stability tuning tips
+Monitoring Kubernetes
+7
+Implementation
+Implementation checklist
+Note
+ OO Containerized is available as a Helm charts package, which you can install as a standalone
+application on the same OMT instance as SMAX. Currently, OO Containerized supports deployments only on the
+following platforms: on-premises, AWS with EKS, and Azure with AKS. 
+
+
+SMAX 2022.11
+Page 
+540
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

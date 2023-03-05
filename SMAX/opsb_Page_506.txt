@@ -1,0 +1,66 @@
+Create an account
+1
+. 
+Go to Accounts and select New. Configure the following parameters and select Save to create a new account.
+a
+. 
+Shared Service type
+b
+. 
+Name
+c
+. 
+DB user login identifier
+d
+. 
+Customer – Select the customer which you have created in the prior step.
+Configure users
+Create the following users for this use case
+Derek as a tenant administrator with user name HCMX_admin_user1
+HCMX_OO_user1 – Operations Orchestration admin user
+HCMX_transport_user1 – Integration user
+HCMX_admin_user1 – tenant administrator
+1
+. 
+Go to User and select New. Fill in the following details.
+a
+. 
+Account – select the account created earlier
+b
+. 
+Role – Select the value Account User
+c
+. 
+Login name - HCMX_admin_user1
+d
+. 
+First name - HCMX
+e
+. 
+Last name – user1
+f
+. 
+Email – Give a valid email as it will be used to reset the password
+g
+. 
+Authentication type - DB
+2
+. 
+Save the user details.
+3
+. 
+Activate the user by selecting 
+Active
+. 
+4
+. 
+Select 
+Reset password
+. The reset password link will be sent to the email id given while creating the user. Reset the
+password by accessing the link given in the mail and following the instructions.
+SMAX 2022.11
+Page 
+506
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

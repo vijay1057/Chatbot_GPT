@@ -1,0 +1,97 @@
+Hardware requirements for deployment option 1: SMA
+only
+The SMA capability is mandatory for all deployment options. If you plan to use deployment option 1 (which includes SMA
+only), plan your hardware resources as follows.
+Determine your SMA deployment size
+Determine your SMA deployment size according to the 
+SMA size definitions
+. 
+Plan the hardware resources
+Use the following table to plan the required hardware resources.
+SMA
+deployment
+size
+Concurrent
+users
+Control plane node
+Worker node
+NFS
+Configuration
+Storage
+Quantity
+Configuration
+Storage
+Quantity
+Configuration
+Storage*
+Quantity
+Configuration
+Storage
+Small
+100~400
+4 CPU
+12 G
+RAM
+200 G
+3 (HA)
+8 CPU
+32 G
+RAM ~
+8 CPU
+40 G
+RAM
+140 G
+2
+4 CPU
+12 G
+RAM
+681 G
+1
+Medium
+400~1000
+4 CPU
+16 G
+RAM
+200 G
+3 (HA)
+8 CPU
+32 G
+RAM
+140 G
+3 ~ 4
+4 CPU
+16 G
+RAM
+1263 G
+1
+Large
+1000~3000
+8 CPU
+32 G
+RAM
+200 G
+3 (HA)
+8 CPU
+32 G
+RAM
+140 G
+6 ~ 9
+4 CPU
+16 G
+RAM
+2481 G
+1
+* For more information about NFS storage sizing, see 
+Manage persistent storage for the suite
+.
+For more information on database settings, see 
+Prepare external PostgreSQL
+.
+Related topics
+Plan the deployment
+SMAX 2022.11
+Page 
+550
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

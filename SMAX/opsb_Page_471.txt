@@ -1,0 +1,105 @@
+3
+. 
+On the 
+General 
+tab page, go to the 
+User list
+ section.
+4
+. 
+Click 
+Add 
+or the grid icon 
+ 
+.
+5
+. 
+Select the users as needed.
+6
+. 
+Click 
+Save
+.
+The added users are entitled to use the license. By default, one user can consume one license.
+Then, assign an owner to the device. See 
+Edit a device record
+ for more information.
+1
+. 
+From the main menu, select 
+Build
+ > 
+Service Asset & Configuration
+.
+2
+. 
+From 
+SACM Home
+, select 
+Devices
+.
+3
+. 
+Select the device record you want to edit or view.
+4
+. 
+On the 
+General
+ tab page, go to the 
+Overview 
+section.
+5
+. 
+Assign an owner to the device as needed.
+6
+. 
+Click 
+Save
+.
+Calculation
+You can 
+define a scheduler
+ to calculate license compliance periodically. In this use case, we manually start a product
+synchronization job.
+1
+. 
+On the 
+Products 
+page, search for Office Visio and select that row.
+2
+. 
+Click
+ 
+ 
+.
+SMAX will create a task to run in the background. SAM will then run a calculation using the license details, license model,
+license rules, and the number of discovered software applications to determine how the product is being used across the
+infrastructure.
+3
+. 
+Click the notification icon 
+ 
+in the upper-right corner to view the task status.
+Compliance
+When the calculation task completes successfully, you can now view and analyze the license compliance position of the
+product.
+View compliance report
+To view software compliance at the product and product version levels, follow these steps:
+1
+. 
+Go to the 
+Compliance 
+menu to view the license compliance of Office Visio.
+ 
+In this example, we can see that the Office Visio application is in noncompliant state, and four versions of the software
+exist in your environment. These versions are 2019 Pro, 2016 Pro, 2019 Std, and 2016 Std, as shown in the compatibility
+matrix.
+2
+. 
+Click the compliance card to view the license details for each product version.
+SMAX 2022.11
+Page 
+471
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

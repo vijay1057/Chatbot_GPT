@@ -1,0 +1,65 @@
+PPM process include each of the following: Total expected cost, consumption of resources (human or otherwise), expected
+timeline and schedule of investment, expected nature, magnitude, timing of benefits to be realized, and relationships or
+interdependencies with other projects in the portfolio.
+Projected data
+Data copied from fields in an existing (source) record to identically named fields in a newly opened (target) record.
+Projected Service Outage (PSO)
+A document that identifies the effect of planned changes, maintenance activities, and test plans on agreed service levels.
+Q
+Queue
+The approvals queue displays the approvals that require your attention, and the tasks queue displays the manual tasks that
+are assigned to you.
+R
+Raw result
+The raw result is 
+all
+ of the operation’s return code, data output, and error strings.
+Release management
+Release management is the process that includes planning, designing, building, configuring and testing hardware and software
+releases, to create a defined set of release components - changes. Key activities include planning, preparation, scheduling,
+training, documentation, distribution, and installation of the release. In short, release management enables you to plan,
+schedule, and control multiple changes and additions to existing services.
+Remediation
+Actions taken to recover after a failed change or release. Remediation may include back-out, invocation of service continuity
+plans, or other actions designed to enable the business process to continue.
+Response
+Responses are the possible outcomes of an operation. For example, a 
+Read Web Page
+ operation may have three possible
+responses:
+The web page can’t be found
+ (failure)
+The page is there and the desired text is present
+ (success)
+The page is there but the text isn’t present
+ (partial success - needs another action)
+Result
+Results are 
+output
+ produced by a step in a flow. For each step, you decide which of the operation's outputs you want to retain.
+Outputs are not automatically retained in the flow. If they were, this could affect performance, by slowing down the flow with
+unnecessary data.
+Request
+A request for products and services. Unlike changes, requests affect only the person making the request, or a subordinate
+group of employees. Examples include password resets, individual PC upgrades, and new employee setup.
+Request for Change (RFC)
+A formal proposal for a change to be made. It includes details of the proposed change, and may be recorded on paper or
+electronically. The term is often misused to mean a change record, or the change itself.
+Request management
+The process responsible for managing the lifecycle of all service requests.
+Resource
+A generic term that includes IT infrastructure, people, money, or anything else that might help to deliver an IT service.
+Resources are considered to be assets of an organization.
+Response time
+A measure of the time taken to complete an operation or transaction. Used in capacity management as a measure of IT
+infrastructure performance, and in incident management as a measure of the time taken to answer the phone, or to start
+diagnosis.
+Review
+An evaluation of a change, problem, process, project etc. Reviews are typically carried out at predefined points in the lifecycle,
+and especially after closure. The purpose of a review is to ensure that all deliverables have been provided, and to identify
+SMAX 2022.11
+Page 
+529
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

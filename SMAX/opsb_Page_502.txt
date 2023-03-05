@@ -1,0 +1,88 @@
+Call an IaC Gateway API to set up an integration between IaC Gateway and Infracost using the API Key you registered with
+Infracost.
+https://<hostName>/iac-controller/v1/<tenantId>/integration/infracost
+HTTP POST Method
+Basic Authentication
+Username - The username of the HTTP basic authentication. This user must be a member of the 
+DND
+Administrators
+ group.
+Password – The password for HTTP basic authentication.
+Request Body
+name – User specified name of the Infracost integration.
+apiKey – API key you received after installing and registering with Infracost.
+proxyConfig – This section is optional if you are not behind a proxy server.
+host – Hostname of your proxy server.
+port – Port of your proxy server.
+username – Option parameter if you need to authenticate with your proxy server.
+password – Option parameter if you need to authenticate with your proxy server.
+Set up additional configurations options within ESM
+Set up additional configuration options within ESM to get the estimated cost on the request. 
+To do this, add a business rule in Studio to Request: 
+1
+. 
+Log in to the agent interface with the Tenant Admin account, and navigate to 
+Administration
+ > 
+Studio
+.
+2
+. 
+Choose the 
+Request
+ record type from the drop-down list, and choose the 
+Processes and Rules
+ tab.
+3
+. 
+In the top-level Request, add a business rule in the "After change" section.
+a
+. 
+Click the 
++Add
+ button and choose “
+If…Then
+” Rule.
+b
+. 
+In the Actions section, choose 
+Set multiple fields
+, and then click 
+OK
+.
+c
+. 
+For the 
+If 
+expression, add 
+If
+${entity.RequestsOffering.Service.DisplayLabel=='IAC_SERVICE_DEFINITION'}
+.
+d
+. 
+In the 
+Set field values
+ section, add the following fields:
+Currency: set Expression Language and add 
+${entity.UserOptions.CostCurrency_c}
+Recurring period: set Expression Language and add 
+${entity.UserOptions.RecurringPeriod_c}
+Recurring price: set Expression Language and add 
+${entity.UserOptions.RecurringPrice_c}
+Price: set Expression Language and add 
+${entity.UserOptions.InitialPrice_c}
+4
+. 
+Click 
+OK
+ and then click the pencil icon and add a description for the rule.
+5
+. 
+Move the Business Rule that you just created under the out-of-the-box Business Rule for Pricing by clicking the up arrows. 
+Integrate cost estimation into the Financial Management module
+SMAX 2022.11
+Page 
+502
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,60 @@
+OO Primary output
+The primary output is the output used to populate the step's primary result. The primary output supplies a value to an input
+whose assignment is the 
+Previous Step’s Result
+.
+Operational Level Agreement (OLA)
+An agreement between an IT service provider and another part of the same organization. It supports the IT service provider’s
+delivery of IT services to customers and defines the goods or services to be provided and the responsibilities of both parties.
+For example, there could be an operational level agreement:
+Between the IT service provider and a procurement department to obtain hardware in agreed times
+Between the service desk and a support group to provide incident resolution in agreed times.
+Operational report
+Reports that reflect real-time data for a record type. They are generated on the fly and don't count toward the tenant's report
+quota.
+Order record
+A record that defines basic ordering information such as assignee, vendor, required dates, coordinator and description. An
+order doesn't contain detailed parts information.
+P
+Phase
+Phases and metaphases reflect the stages of a workflow. The phases are connected by transitions.
+Post Implementation Review (PIR)
+A PIR is a formal project review used to answer the question: "Did we achieve what we set out to do and, if not, what should be
+done?" For major changes, there can be several PIRs scheduled over time. A PIR checks whether benefits have been achieved
+and identifies opportunities for further improvement. Without a PIR, you can't effectively demonstrate that your investment
+was worthwhile.
+Priority
+A category used to identify the relative importance of an incident, problem or change. Priority is based on impact and urgency,
+and is used to identify required times for actions to be taken. For example, the service level agreement may state that Priority
+2 incidents must be resolved within 12 hours.
+In Service Management, priority is determined by the average of the impact and urgency.
+Proactive problem management
+Part of the problem management process. The objective of proactive problem management is to identify problems that might
+otherwise be missed. Proactive problem management analyzes incident records and uses data collected by other IT service
+management processes to identify trends or significant problems.
+Problem
+A cause of one or more incidents. The cause isn't usually known at the time a problem record is created, and the problem
+management process is responsible for further investigation.
+Problem management
+The process responsible for managing the lifecycle of all problems. Problem management proactively prevents incidents from
+happening and minimizes the impact of incidents that can't be prevented.
+Problem record
+A record containing the details of a problem. Each problem record documents the lifecycle of a single problem.
+Process
+A structured set of activities designed to accomplish a specific objective. A process takes one or more defined inputs and turns
+them into defined outputs. It may include any of the roles, responsibilities, tools and management controls required to reliably
+deliver the outputs. A process may define policies, standards, guidelines, activities and work instructions if they are needed.
+Production environment
+A controlled environment containing live CIs used to deliver IT services to customers.
+Project and Portfolio Management (PPM)
+PPM is a term used by project managers and project management organizations to describe methods for analyzing and
+collectively managing a group of current or proposed projects. Each project is based on several key characteristics. The
+primary objective of the PPM process is to determine the optimal mix and sequencing of proposed projects to best achieve the
+overall goal. This is typically expressed in terms of economic measures, business strategy goals, or technical strategy goals
+while honoring constraints imposed by management or external real-world factors. Typical attributes of projects analyzed in a
+SMAX 2022.11
+Page 
+528
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

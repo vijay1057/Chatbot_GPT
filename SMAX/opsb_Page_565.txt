@@ -1,0 +1,26 @@
+Disk Space Requirements for Vertica
+In addition to actual data stored in the database, Vertica requires disk space for several data reorganization operations, such
+as 
+mergeout
+ and 
+managing nodes
+ in the cluster. For best results, Vertica recommends that disk utilization per node be no
+more than sixty percent (60%) for a 
+K-Safe=1
+ database to allow such operations to proceed.
+In addition, disk space is temporarily required by certain query execution operators, such as hash joins and sorts, in the case
+when they cannot be completed in memory (RAM). Such operators might be encountered during queries, recovery, refreshing
+projections, and so on. The amount of disk space needed (known as 
+temp space
+) depends on the nature of the queries,
+amount of data on the node and number of concurrent users on the system. By default, any unused disk space on the data
+disk can be used as temp space. However, Vertica recommends provisioning temp space separate from data disk space.
+See Also
+Configuring Disk Usage to Optimize Performance
+.
+SMAX 2022.11
+Page 
+565
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

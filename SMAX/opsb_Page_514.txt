@@ -1,0 +1,86 @@
+Use case: OPB endpoints of Design and Deploy
+This document covers the use case for the following On-Premises Bridge (OPB) endpoint types of Design and Deploy:
+LDAP Query: Fetch values from the LDAP server.
+JDBC Query: Fetch data from a database server.
+File system: Fetch the content from a file.
+REST Executor 1.0: Fetch the data made available in a REST API. 
+Note
+: The response size limit currently is 128 KB.
+Use case: Eve, as a Service Designer, can make use of the data provided by the above OPB endpoints in a dynamic list
+property. For this, she needs the OPB endpoints configured in Agent Portal. After configuring an endpoint, she can use the
+same in dynamically listing the data in the configuration option properties of service design.
+The following user roles are involved in this use case:
+User role
+Responsibilities
+Tenant Admin
+Configure OPB endpoints
+Service Designer
+Create configuration option dynamic list properties in service design using OPB endpoints
+Service Portal User
+Request for a cloud service offering from the Service Portal
+Prerequisites
+Ensure to complete the following prerequisites:
+Install and add an OPB Agent
+Configure OPB endpoints
+Install and add an OPB Agent
+Install an OPB Agent on-premises
+To use the DND endpoints, you need to download and install the latest OPB agent.
+For Windows, refer to 
+Download and install the OPB (Windows)
+.
+For Linux, refer to 
+Download and install the OPB Agent (Linux)
+.
+Add an agent
+For Windows, refer to 
+Add an agent (Windows)
+.
+For Linux, refer to 
+Add an agent (Linux)
+.
+Configure OPB endpoints
+Perform the following tasks in the given order to configure the OPB endpoints.
+1
+. 
+Specify endpoint credentials using Endpoint Credentials Manager in OPB agent server.
+2
+. 
+Add an endpoint in Agent Portal.
+3
+. 
+Configure an endpoint in Agent Portal.
+Specify endpoint credentials using Endpoint Credentials Manager on OPB agent server
+For Windows:  See 
+How to specify credentials (Windows)
+For Linux: See 
+How to specify credentials (Linux)
+Different versions of the LDAP support different types of 
+securityAuthentication
+, consumed in the Javascript as shown in the
+below examples:
+Value
+Description
+none
+Use no authentication (anonymous).
+In the Credentials Manager, you can provide dummy values for credentials, as these are mandatory values.
+simple
+Simple user name and password authentication. In the Credentials Manager, provide the user name and
+password.
+Important: 
+When specifying the credentials, select the respective endpoint types listed below:
+JDBC: 
+JDBC Query
+LDAP: 
+LDAP Query
+File system: 
+File System
+REST API: 
+REST Executor Domain 1.0
+For File System, do not leave the user and password fields blank. You can even specify dummy values as
+these are mandatory values and are required when configuring the endpoint.
+SMAX 2022.11
+Page 
+514
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

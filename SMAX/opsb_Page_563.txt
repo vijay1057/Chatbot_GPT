@@ -1,0 +1,21 @@
+The storage format type at your backup and temporary directory locations must support fcntl lockf (POSIX) file locking.
+You can view the file systems in use on your nodes by querying the system table 
+STORAGE_USAGE
+.
+Vertica users have successfully deployed other file systems, Vertica cannot guarantee or desired outcomes on all storage
+format types. In certain support situations, you may be asked to migrate to a recommended storage format type to help with
+troubleshooting or to fix an issue.
+Vertica Analytic Database supports Linux Volume Manager (LVM) on all supported operating systems. Your LVM version must
+be 2.02.66 or later, and must include device-mapper version 1.02.48 or later. For information on requirements and
+restrictions, see the section, 
+Vertica Support for LVM.
+Note
+: For the Vertica I/O profile, the ext4 file system is considerably faster than ext3.
+
+
+SMAX 2022.11
+Page 
+563
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,55 @@
+OMT is based on an enterprise-grade container-based orchestration software that manages the application lifecycle, including
+installation, upgrades, and scaling. Additional cloud-native technologies are also being used to offer an end-to-end secure
+delivery and management of those applications.
+OMT Bootstrap
+An OMT self-starting process, which loads OMT's basic components. Customers can use an "install" script in the OMT
+installation package to start the process at the Deploy phase.
+OMT Management Portal
+An application that allows users to manage OMT cluster configuration and applications. You can access it via
+https://{ACCESS_HOST_NAME}:5443
+.
+Certificate
+Data file that enables verification of digital identity and ownership and subsequent setup of secure communication.
+Cluster
+A set of the computer system that's connected electronically so that from the outside they can be viewed as a single system. A
+cluster is a set of physical or virtual machines and other infrastructure resources used by Kubernetes to run your applications.
+Config map
+A Kubernetes object that holds configuration data.
+Configuration files
+A non-executable file that holds configuration data.
+Container
+A way to package applications and just their required libraries and configuration which abstracts them from the underlying
+operating system and allows them to run anywhere.
+Control plane node
+The node or nodes that form the Kubernetes control plane. Control plane nodes run the cluster management components.
+Typically, either one or three (in an HA deployment) nodes form the control plane.
+Docker
+Docker (specifically, Docker Engine) is a software technology providing operating-system-level virtualization also known as
+containers.
+Daemon sets
+A Kubernetes controller that schedules/runs/maintains a single instance of a specified container image on every cluster node.
+Deployment
+An installation of an ITOM suite or service.
+External/private Docker registry
+A repository holding container images.
+Etcd
+A key/value configuration database.
+External access host
+A Fully Qualified Domain Name (FQDN) with which you can access the OMT cluster service from locations outside the cluster.
+This FQDN must be resolved to a valid network address.
+External image registry
+Cluster-external container image registry. A place where container images are stored so that they can be retrieved by
+container engines running on cluster nodes.
+External load balancer
+An external load balancer balances the outside traffic to all control plane nodes or worker nodes for the OMT services and suite
+services.
+First deployment
+The very first deployment that contains a set of cluster-wide services that aren't present in subsequent additional
+deployments.
+First control plane node
+SMAX 2022.11
+Page 
+534
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

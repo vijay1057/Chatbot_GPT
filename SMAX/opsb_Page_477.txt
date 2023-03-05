@@ -1,0 +1,151 @@
+1
+. 
+Go to the 
+Cost Centers
+ page.
+2
+. 
+Click 
+Add a cost center
+.
+3
+. 
+In the dialog box that appears, specify the name, internal code, and other fields as needed.
+4
+. 
+Click 
+SAVE
+.
+In this example, we create a cost center named 
+RnD cost center
+.
+5
+. 
+Go to the 
+Budget Centers
+ page, and then click the ID of the 
+RnD budget center
+ record you created.
+6
+. 
+Click 
+Cost Centers
+, and then click 
+Add
+.
+7
+. 
+Link the 
+RnD cost center
+ record to the budget center you created, and then click 
+OK
+.
+Note:
+ You can link a cost center to one and only one budget center.
+8
+. 
+Save the settings.
+For more information on how to create and edit a cost center, see 
+Cost Centers
+.
+Create a cost type and link it to the budget type
+1
+. 
+Go to the 
+Cost Types
+ page.
+2
+. 
+Click 
+New
+.
+3
+. 
+In the dialog box that appears, specify the name, type, and internal code for the new cost as needed.
+4
+. 
+Click 
+SAVE
+.
+In this example, we create a cost type named 
+HW cost
+.
+5
+. 
+Go to the 
+Budget Types
+ page, and then click the ID of the 
+HW budget
+ record you created.
+6
+. 
+Click 
+Cost Types
+, and then click 
+Add
+.
+7
+. 
+Link the 
+HW cost
+ record to the budget type you created.
+8
+. 
+Save the settings.
+For more information on how to create and edit a cost type, see 
+Cost Types
+.
+Create expense lines
+To view the 
+Expense Lines
+ menu item in Financial Management, make sure that the tenant admin turns on 
+Enable
+expense line
+ in 
+Administration 
+> 
+Configuration 
+> 
+Application Settings.
+After you enable the use of expense lines, go to the Financial Management module again, and you will find that the 
+Expense
+Lines
+ menu appears in the menu list.
+To create an expense line:
+1
+. 
+Go to the 
+Expense Lines
+ page.
+2
+. 
+Click 
+New
+.
+3
+. 
+In the dialog box that appears, specify the name, amount, currency, and expense date for the new expense line, and
+whether it’s a credit or debit. Set the 
+Cost center
+ and 
+Cost type
+ fields to 
+RnD cost center
+ and 
+HW cost
+,
+respectively.
+4
+. 
+Click 
+SAVE
+.
+5
+. 
+Repeat these steps if you want to create multiple expense lines.
+SMAX 2022.11
+Page 
+477
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

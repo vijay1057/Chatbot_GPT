@@ -1,0 +1,178 @@
+Deploy the suite on-premises
+This section provides information required to install and configure the 
+Service Management Automation (SMA) suite 
+in
+an on-premises environment, including the preparation, installation, and setup tasks.
+Before you begin, ensure that you have the deployment architecture planned and have the servers allocated as the control
+plane and worker nodes.
+The following table provides a list of tasks that you must complete in the given order. A user can have multiple roles.
+Prepare
+Complete these preparation tasks before installing the suite.
+Sr
+No.
+Task
+Where to perform
+Role
+How to
+perform
+1
+Prepare a valid Docker Hub account to download the
+product images from Docker Hub.
+Any client that has Internet
+connectivity
+Any
+Activate
+your
+Docker Hub
+account
+2
+Prepare external databases for OPTIC Management
+Toolkit (OMT) and the suite in a production
+environment.
+Database server
+Database
+administrator
+Prepare
+external
+databases
+3
+Required only for the CGRO capability.
+Prepare an internal Vertica datastore component to
+store CGRO data.
+Database server
+Database
+administrator
+(Optional)
+Install and
+configure
+Vertica
+database
+4
+Configure sudo access to use a non-root user for
+installation.
+All control plane nodes and
+worker nodes
+System
+administrator
+Configure
+SUDO
+access
+5
+Set up SELinux so that you can write policies to allow
+a certain behavior on a node.
+All control plane nodes and
+worker nodes
+System
+administrator
+Set up
+SELinux
+6
+Download and extract OMT and suite packages.
+First control plane node
+Suite
+administrator
+Download
+the
+required
+installation
+packages
+7
+Perform a preliminary check to check whether your
+prepared nodes meet some basic requirements of
+OMT installation. 
+All control plane nodes and
+worker nodes
+System
+administrator
+Perform
+preliminary
+checks
+8
+Update the system configurations to meet the
+deployment requirements.
+All control plane nodes, worker
+nodes, and the NFS server
+System
+administrator
+Update
+some
+system
+configurati
+ons
+9
+OMT components require the whole cluster node time
+in sync. Make sure that time is synchronized on all
+nodes required for deployment.
+All control plane nodes, worker
+nodes, NFS servers, load
+balancers, and database servers
+System
+administrator
+Synchroniz
+e time
+10
+Check if the default gateway address is set. If
+not, add a default gateway.
+All control plane nodes and
+worker nodes
+System
+administrator
+Check the
+default
+gateway
+setting
+11
+Check if the network settings meet the deployment
+requirements.
+All control plane nodes, worker
+nodes, NFS servers, and database
+servers
+System
+administrator
+Check the
+network
+settings
+12
+Check the host names and set up hostname
+resolutions.
+All control plane nodes and
+worker nodes
+System
+administrator
+Check the
+host names
+and set up
+hostname
+resolutions
+13
+Skip this step if you want to download and upload
+images later from the installation portal.
+Download the suite images from the image registry
+and import them to your own registry beforehand.
+First control plane node (if it has
+Internet access) or an additional
+Linux machine that has Internet
+access
+Suite
+administrator
+(Optional)
+Download
+container
+images
+beforehand
+14
+Configure the install.properties file before running
+the installer.
+First control plane node
+Suite
+administrator
+Configure
+the
+install.prop
+erties file
+SMAX 2022.11
+Page 
+568
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,63 @@
+Deployment Resource Providers are management platforms that offer centralized control over the infrastructure and resources
+used in a cloud computing environment. Follow the below sections to configure deployment resource providers and run a
+resource synchronization.
+Configure Provider
+Follow the below steps to configure AWS providers.
+1
+. 
+From the main menu, go to 
+Administration > Utilities > Providers > Deployment Resource Providers
+. 
+2
+. 
+Select 
+Amazon AWS
+.
+3
+. 
+In the 
+Properties tab
+ set the proxy details.
+4
+. 
+Select the gear icon and select 
+Edit
+.
+5
+. 
+Fill in the Access Point Configuration details in the 
+Edit Resource Provider
+ screen
+Service Access Point
+Access Key ID
+Secret Access Key
+Confirm Secret Access Key
+6
+. 
+Tick the check box to enable the provider.
+Perform resource synchronization for AWS provider
+1
+. 
+Go to the 
+Main Menu > Administration > Providers > Deployment Resource Providers > Amazon AWS
+> Resource Pool
+ tab and select 
+Create
+.
+2
+. 
+Fill in the following details 
+Display Name
+Known By Provider As
+3
+. 
+Select
+ Resource Synchronization Action. Select 
+EC2 Resource Sync v2.0
+ for AWS provider.
+SMAX 2022.11
+Page 
+491
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

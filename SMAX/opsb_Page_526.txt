@@ -1,0 +1,67 @@
+Entered by the person running the flow, at the start of the flow
+Interaction
+An interaction is the record of the contact between a user and the Service Desk when a user requests assistance or requests a
+service. An interaction typically results in logging an Incident or Service Request.
+K
+Key performance indicator (KPI)
+A metric that's used to help manage an IT service, process, plan, project, or other activity. KPIs measure the achievement of
+critical success factors. Many metrics may be measured, but only the most important of these are defined as KPIs and used to
+actively manage and report on the process, IT service, or activity. They should be selected to ensure that efficiency,
+effectiveness, and cost effectiveness are all managed.
+Knowledge management
+The process responsible for sharing perspectives, ideas, experience and information, and for ensuring that these are available
+to the right people, in the right place and at the right time. The knowledge management process enables informed decisions,
+and improves efficiency by reducing the need to rediscover knowledge.
+Known error
+A problem that has a documented root cause and a workaround. Known errors are created and managed throughout their
+lifecycle by problem management. Known errors may also be identified by development or suppliers.
+L
+Lists
+There are two types of lists:
+Volatile lists. Created when defining a user option inside an offering or model.
+Non-volatile lists. Created in the list management module.
+Live support
+A module in service request management for dealing with telephone support calls. With the appropriate configuration and an
+integrated CTI system, Live Support provides you with key information and tools that can help to efficiently process new
+service and support requests and inquiries received by telephone. For example, if your system is appropriately configured,
+when you receive a call from a user, Service Management can automatically identify the caller's details and recent requests.
+M
+Managed NFS
+It's an NFS server that is managed by a third-party supplier such as AWS EFS.
+Managed Kubernetes/K8s
+It refers to a Kubernetes distribution managed by other providers (AWS, Azure, GCP, or OpenShift) and fully supported by 
+Micro
+Focus
+. 
+Micro Focus
+ has its own Kubernetes platform, OPTIC Management Toolkit (OMT), which embeds the community Kubernetes.
+The SMA suite can be deployed either on the Embedded Kubernetes of OMT or Managed Kubernetes. 
+Metaphase
+A portion of a workflow that includes one or more phases.
+Micro Focus
+ Identity Manager (IDM)
+The 
+Micro Focus
+ Identity Manager (IDM) refers to the the identity management service that handles user authentication and
+authorization. This is a shared service between multiple 
+Micro Focus
+ products and can enable a Single Sign On solution for the
+components of these products.
+Micro Focus
+ Identity Manager Admin (IDM Admin)
+The 
+Micro Focus
+ Identity Manager Admin (IDM Admin) is the administration web interface for the IDM service. With IDM Admin
+you can manage users, groups, roles and advanced configuration for you identity management service, including LDAP, SAML
+and OAUTH authentication methods.
+Model
+A repeatable way of dealing with a particular type of change, incident, or problem. A model defines specific steps to be
+followed for a particular type of record. Some models may be very complex with many steps. Other models can be simple to
+expedite closure. For example, a complex change model might require multiple levels of authorization (such as a major
+software release). The simplest incident model has a quick resolution (such as a password reset).
+SMAX 2022.11
+Page 
+526
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

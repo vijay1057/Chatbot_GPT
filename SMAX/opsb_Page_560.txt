@@ -1,0 +1,205 @@
+The table below uses a checkmark to indicate supported languages.
+Language
+Service Portal
+and mobile app
+Agent
+interface
+Suite
+Administration
+My
+Home
+Smart
+virtual
+agent
+Normal
+virtual
+agent
+CMS
+Online
+help
+AutoPass
+license
+manager
+OMT
+Management
+Portal
+English
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+English
+(UK)
+✓
+✓
+✓
+✓
+Arabic
+✓
+✓
+✓
+Brazilian
+Portuguese
+✓
+✓
+✓
+✓
+✓
+Danish
+✓
+✓
+✓
+✓
+Dutch
+✓
+✓
+✓
+✓
+French
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+German
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+Greek
+✓
+✓
+✓
+✓
+Hebrew
+✓
+✓
+✓
+Italian
+✓
+✓
+✓
+✓
+✓
+Japanese
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+Korean
+✓
+✓
+✓
+✓
+✓
+Norwegian
+✓
+✓
+✓
+✓
+Polish
+✓
+✓
+✓
+✓
+Turkish
+✓
+✓
+✓
+✓
+Russian
+✓
+✓
+✓
+✓
+✓
+Simplified
+Chinese
+✓
+✓
+✓
+✓
+✓
+Spanish
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+Swedish
+✓
+✓
+✓
+✓
+Virtual agent language support
+The smart virtual agent allows the use of multiple language models within one single tenant.
+The normal virtual agent uses an IDOL engine that can provide answers in all languages that the suite supports, based on
+content found in Knowledge, Catalog, Q&A, and Public Requests records.
+Arabic/Hebrew support
+The agent interface supports a right-to-left (RTL) layout for RTL languages. However, there are some limitations for certain UI
+elements in the RTL layout:
+RTL support isn’t available for the Expression Language. The related UI elements are always left-to-right aligned when you
+view or edit the expressions.
+RTL support isn’t available for some chart elements.
+When a long text string is being truncated due to overflowing, the truncated text is left-to-right aligned.
+RTL support isn’t available on the 
+Smart Analytics Settings
+ and  
+Virtual Agent Settings
+ pages.
+In RTL mode, you can't drag and drop columns in a grid view.
+In RTL mode, if you have the Remove action and Add action for grid columns in one operation, for example, if you remove
+a column and add another column and then save the changes, the newly added column appears on the right side.
+When the email receiver's language is set as Arabic or Hebrew, the "From email", "From name", and "Subject" fields in an
+email template won't be converted to the RTL layout. This is because the three fields are defined in Studio rather than in
+the email template. 
+The DSL expression in the RTL email template isn't properly displayed, for example: 
+{entity.Description:}$
+, but this layout
+issue won't affect the expression parse.
+Optical character recognition (OCR)
+The OCR feature supports all languages that the Service Portal supports.
+OMT Management Portal
+The OMT Management Portal always supports the English character set in addition to the character set of the local operating
+system. For example, if you install OMT in a French environment, you can use both the English and French character sets.
+Integrations
+The suite supports integrations with many 
+Micro Focus
+ software products and third-party products. To view the support matrix
+information of these integrations, visit the 
+Integration Central
+ website. 
+Related topics
+For information about deployment sizing recommendations, see 
+Plan the deployment
+.
+SMAX 2022.11
+Page 
+560
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

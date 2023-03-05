@@ -1,0 +1,67 @@
+var request = {
+    UriSuffix: '/user/passwd',
+    method: 'GET',
+    strategy : new ESMEndpoint('<
+my_rest_api_endpoint
+>'),
+    params: {
+        my: 'param',
+        another: 'param'
+    },
+    headers: {
+        'Content-Type': 'application/json',
+        'My-Header': 'someValue'
+    },
+    data: 'some body message'
+};
+var response = HTTPClient.call(request);
+var responseBody;
+if (response.error) {
+    responseBody = "error: "+response.error;
+} else {
+    responseBody = "ok: "+response.body;
+}
+availableValues = [{
+        'value': responseBody,
+        'displayName': 'Response body',
+        'description': 'Another value',
+        'initialPrice': '23',
+        'recurringPrice': '3'
+    },
+    {
+        'value': response.status,
+        'displayName': 'Status',
+        'description': 'Response Status',
+        'initialPrice': '23',
+        'recurringPrice': '3'
+    },
+    {
+        'value': response.statusCode,
+        'displayName': 'Status code',
+        'description': 'Response Status Code',
+        'initialPrice': '23',
+        'recurringPrice': '3'
+    }];
+For more sample Javascript files, see the 
+.js
+ files available on the 
+Configuration options 
+tab
+. 
+Related topics
+For information on using SMA endpoints, see 
+Use endpoints
+For information on creating Configuration Options, see 
+Create configuration option properties
+For information on creating dynamic options properties, see 
+Configure parameters for dynamic properties list
+For information on how to add or edit a service design, see 
+Service Designer
+For information on how to add and manage scripts, see 
+Manage scripts
+SMAX 2022.11
+Page 
+517
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

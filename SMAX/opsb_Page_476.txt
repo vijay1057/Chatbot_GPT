@@ -1,0 +1,126 @@
+4
+. 
+Click 
+SAVE
+.
+In this example, we create an accounting period for the third quarter of FY2021 (2021Q3) and another one for the fourth
+quarter of FY2021 (2021Q4).
+For more information on how to create and edit an accounting period, see 
+Accounting Periods
+.
+Create a budget center
+1
+. 
+Go to the 
+Budget Centers
+ page.
+2
+. 
+Click 
+New
+.
+3
+. 
+In the dialog box that appears, enter the values for your new budget center as required.
+4
+. 
+Click 
+SAVE
+.
+In this example, we create a budget center named 
+RnD budget center
+.
+For more information on how to create and edit a budget center, see 
+Budget Centers
+.
+Create a budget type
+1
+. 
+Go to the 
+Budget Types
+ page.
+2
+. 
+In the dialog box that appears, specify the name and internal code for the new budget type.
+3
+. 
+Click 
+SAVE
+.
+In this example, we create a budget type named 
+HW budget
+.
+For more information on how to create and edit a budget type, see 
+Budget Types
+.
+Create a budget
+1
+. 
+Go to the 
+Budgets 
+page.
+2
+. 
+Click 
+New
+.
+3
+. 
+In the dialog box that appears, specify the name and internal code for the new budget, and select the 
+RnD budget
+center
+ record you created in the previous step for the 
+Budget center
+ field.
+4
+. 
+Click 
+SAVE
+.
+In this example, we create a budget named 
+RnD hardware budget
+.
+For more information on how to create and edit a budget, see 
+Budgets
+.
+Create budget lines
+1
+. 
+Go to the 
+Budget Lines
+ page.
+2
+. 
+Click 
+New
+.
+3
+. 
+In the dialog box that appears, specify the name, accounting period, and amount of budgeted cost for the new budget
+line. Set 
+Budget type
+ and 
+Budget
+ to 
+HW budget
+ and 
+RnD hardware budget
+, respectively.
+4
+. 
+Click 
+SAVE
+.
+In this example, we create two budget lines. One is a hardware budget line of an amount of 70,000 US dollars for 2021Q3
+(Q3 RnD hardware budget line), and the other is of an amount of 30,000 US dollars for 2021Q4 (Q4 RnD hardware budget
+line).
+For more information on how to create and edit a budget line, see 
+Budget Lines
+.
+Create a cost center and link it to the budget center
+SMAX 2022.11
+Page 
+476
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

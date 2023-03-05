@@ -1,0 +1,28 @@
+8
+. 
+Click the
+ CI Type
+ and in the Condition drop-down choose 
+Include <CI Type Name> in the query
+.
+9
+. 
+Make sure the 
+By CI types
+ radio button and the check box 
+Apply this condition recursively
+ are chosen.
+10
+. 
+Click 
+OK
+ and then the 
+Save
+ Icon on the top left.
+The figure below shows an example of Amazon EC2 Config.
+SMAX 2022.11
+Page 
+504
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

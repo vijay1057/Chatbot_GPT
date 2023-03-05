@@ -1,0 +1,63 @@
+Service request management enables you to create, escalate, fulfill, and monitor service requests. Service requests can be
+either support requests or service requests. If you don't select a relevant catalog offering, Service Management opens a
+generic support request.
+Severity
+An attribute in incident management and problem management that describes the degree of impact on the user when the
+issue occurs. Severity can also indicate the number of users affected. For example, a server crash that caused loss of data
+would be of critical severity.
+Shopping cart
+A system for users in the 
+Service Portal
+ to collect and submit requests for multiple goods and services. As each item is added
+to or removed from the cart, the total number of items is updated and displayed beside the cart image. The user can click the
+cart image to edit, duplicate, or remove items, and to submit them.
+Software Asset Management (SAM)
+The process responsible for tracking and reporting the use and ownership of software assets throughout their lifecycle.
+Software asset management is part of an overall service asset and configuration management process. This process isn't
+described in detail within the core ITIL publications.
+SAM is the practice of integrating people, processes, and technology to allow software licenses and usage to be tracked,
+evaluated, and managed. The goal of SAM is to reduce IT expenses, human resource overhead, and risks inherent to owning
+and managing software assets. This includes, but isn't limited to, maintaining software license compliance, tracking inventory
+and usage of software assets, and maintaining policies and procedures surrounding the definition, deployment, configuration,
+use, and retirement of software assets. SAM represents the software component of IT Asset Management (ITAM), including
+hardware asset management. SAM is linked to ITAM due to the concept that, without effective inventory hardware controls,
+efforts to control the software are significantly inhibited.
+Standard change
+A pre-authorized change that's low risk, relatively common and follows a procedure or work instruction – for example, a
+password reset or provision of standard equipment to a new employee. Requests for change aren't required to implement a
+standard change, and they are logged and tracked using a different mechanism, such as a service request.
+Status
+The name of a required field in many types of records. It shows the current stage in the lifecycle of the associated CI, incident,
+problem etc.
+Suite Administration
+A user interface for a suite administrator to manage, configure, and operate the suite.
+Suite metadata
+SMA suite metadata is a configuration package that contains suite's release information (suite version, image tags, etc). You
+need it to start your suite installation.
+Supplier
+A third party responsible for supplying goods or services that are required to deliver IT services. Examples of suppliers include
+commodity hardware and software vendors, network and telecom providers, and outsourcing organizations.
+Support request
+Support requests encompass those requests that haven't been predefined or expected by the service owner. This can include
+questions, suggestions, or even complaints.
+Survey management
+Survey management enables you to create surveys to be sent to end users, and to consume the data collected by the surveys.
+T
+Task
+The work processes necessary to complete a change. For example, a change to replace a hard drive with a larger model might
+include these tasks: ordering the new drive, backing up the old drive, and installing the new drive.
+Tasks must belong to a change. Task start and end dates, if specified, must fall within the start and end dates of the parent
+change. Tasks are classified by categories. Tasks can be broken into phases, if that level of discrimination is necessary. Work
+can't proceed to the next phase until all tasks beneath it are complete.
+Time period
+Service Management's time period management module enables users with the appropriate permissions to create, edit, and
+manage time periods for use in change and service level management. You can create maintenance, blackout, work schedule,
+holiday, and event time periods. Time management helps users plan implementation of changes, so as to minimize disruption,
+and maximize the efficient use of resources. Service Management uses work schedule time periods in service level
+management calculations.
+SMAX 2022.11
+Page 
+532
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

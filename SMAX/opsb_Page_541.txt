@@ -1,0 +1,51 @@
+Install on-premises
+This section describes how to install the suite in an on-premises setup.
+See the detailed 
+deployment checklist
+ for all the preparation, installation, and setup tasks to deploy SMA.
+Before you begin, ensure that you've reviewed the following planning topics for the on-premises deployment:
+Choose a 
+deployment option
+ and 
+calculate the deployment sizes
+.
+System requirements
+.
+Check the file system requirements
+.
+Persona
+The installation tasks involve more than one role. The primary role is of the suite administrator. The suite administrator
+coordinates with the rest of the roles to complete the installation. The following table describes for what each role is
+responsible.
+Role
+Responsibility
+Suite
+administrator
+A suite administrator must successfully execute the entire installation including verification and post-
+installation tasks. This person must have a good understanding of the entire installation process, request
+support from other appropriate roles as needed, and complete the installation once the environment is
+ready for installation.
+System
+administrator
+A system administrator prepares physical or virtual machines as requested by the suite administrator.
+Network
+administrator
+A network administrator manages network configurations for the organization. This person needs to
+perform network configuration tasks as requested by the suite administrator.
+Storage
+administrator
+A storage administrator plans and deploys all types of storage for the organization. This person needs to
+set up one or more NFS servers required by SMA.
+Database
+administrator
+A database administrator manages databases for the organization. This person needs to prepare
+databases.
+Related topics
+Post-installation tasks
+Uninstall OMT and the suite
+SMAX 2022.11
+Page 
+541
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

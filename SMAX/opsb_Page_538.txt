@@ -1,0 +1,109 @@
+Install
+This topic provides an overview of the installation options and considerations and a To-Do list of tasks before, during, and after
+the installation.
+Before you begin
+Before you begin, think about the following questions. 
+SaaS, on-premises, cloud, or OpenShift?  
+SMAX is available as a 
+SaaS solution
+ worldwide; however, should your organization prefer you can deploy the solution on the
+following types of platforms:
+On-premises: install on physical or virtual machines.
+Public cloud: install on a public cloud–Amazon Web Services (AWS) with EKS, Microsoft Azure with AKS, or Google Cloud
+Platform (GCP). To learn more, read 
+EKS deployment FAQs
+, 
+AKS deployment FAQs
+, and 
+GCP deployment FAQs
+.
+OpenShift: install on OpenShift Container Platform.
+You use one of the two OPTIC Management Toolkit (OMT) installation packages to install the suite:
+On-premises: Use the "Embedded-K8s" package to install the suite with the Kubernetes distribution embedded in OMT.
+This type of deployment is also referred to as "embedded Kubernetes" deployment. 
+Public cloud or OpenShift: Use the "External-K8s" package to install the suite with a Kubernetes distribution provided by a
+cloud platform or OpenShift. This type of deployment is also referred to as "managed Kubernetes" deployment.
+The following table describes each party's areas of responsibility when the suite is running on these platforms.
+Shared responsibility model
+Category
+SaaS
+On-premises
+Public cloud
+OpenShift
+Users
+Customer
+Customer
+Customer
+Customer
+Data
+Customer
+Customer
+Customer
+Customer
+Application
+Micro Focus
+Micro Focus
+Micro Focus
+Micro Focus
+Kubernetes
+Micro Focus
+Micro Focus
+Cloud provider
+Red Hat
+OS
+Micro Focus
+Customer
+Cloud provider
+Red Hat
+Virtualization
+Micro Focus
+Customer
+Cloud provider
+Customer
+Persistent Volumes (NFS)
+Micro Focus
+Customer
+Cloud provider
+Customer
+Databases
+Micro Focus
+Customer
+Cloud provider
+Customer
+Load balancers
+Micro Focus
+Customer
+Cloud provider
+Customer
+Network
+Micro Focus
+Customer
+Cloud provider
+Customer
+Physical hardware infrastructure
+Micro Focus
+Customer
+Cloud provider
+Customer
+Note
+: Always follow the installation instructions and install the 
+latest
+ version of SMA. If you have a reason to
+install an older release, please contact Micro Focus SMA Product Management.
+
+
+Important: 
+We encourage the customer to implement network security controls that are not provided by
+Micro Focus. By not implementing appropriate network security controls you may be exposing the system to
+increased security risks. You understand and agree to assume all associated risks and hold Micro Focus harmless
+for the same. It remains at all times the Customer's sole responsibility to assess its own regulatory and business
+requirements. Micro Focus does not represent or warrant that its products comply with any specific legal or
+regulatory standards applicable to Customer in conducting Customer's business.
+
+
+SMAX 2022.11
+Page 
+538
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

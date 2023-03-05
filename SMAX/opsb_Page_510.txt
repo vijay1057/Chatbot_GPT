@@ -1,0 +1,95 @@
+ 
+2
+. 
+In the Deploy tenant popup, select 
+Deploy
+.
+3
+. 
+You can check the status of the deployment in the 
+Tenants
+ screen.
+Enable the CGRO capability
+To enable CGRO, perform the following tasks:
+As a Suite Administrator (Stephen)
+: 
+Configure the user. For the detailed steps, see 
+Configure authorization for DND
+.
+As a Tenant Administrator (Derek)
+:
+1
+. 
+Log in to 
+Service Portal
+ and
+ 
+open the 
+Agent Interface
+.
+2
+. 
+Go to 
+Application Settings
+.
+3
+. 
+In 
+Experience Mode, 
+select 
+Cloud Management
+.
+4
+. 
+Ensure that 
+Enable
+ 
+Cost Governance and Resource Optimization
+ toggle feature is set to
+ On
+.
+5
+. 
+Save the settings
+6
+. 
+Refresh the browser. You can now see the CGRO menu options.
+Configure a CGRO Provider 
+Persona
+Location
+Derek
+Suite Management Portal
+Create a cost reporting integration
+1
+. 
+Go to 
+Administration->Providers->Cloud Cost Data Providers.
+2
+. 
+On the 
+Integrations
+ page, click either the 
+Add Integration
+ button (if no integrations exist) or
+ 
+the  
+ 
+ icon on the
+right pane to add an additional integration.
+3
+. 
+Select the cloud provider for which you want to create a cost reporting integration and click 
+Next
+.
+4
+. 
+Based on the selected provider, provide the following details:
+A
+. 
+Amazon AWS:
+SMAX 2022.11
+Page 
+510
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

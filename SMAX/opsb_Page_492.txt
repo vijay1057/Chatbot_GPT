@@ -1,0 +1,54 @@
+4
+. 
+Select
+ Create
+ after selecting the action.
+5
+. 
+Select 
+gear icon > Synchronize
+.
+ 
+6
+. 
+To check the status of resource synchronization go to the 
+Main Menu > Run > Automation Operations
+.
+  
+ 
+If you encounter any error, rectify it and run the synchronization again.
+Create and publish an AWS EC2 instance cloud offering design
+A service offering is created when you publish a design. You can use out-of-the-box (OOTB) designs or create a design of your
+own depending on your requirements. For this use case, we will be using an OOTB design.
+1
+. 
+From the main menu, go to 
+Build > Design
+.
+2
+. 
+In the Service Designer tab, select 
+AWS EC2 Compute Advanced
+. 
+3
+. 
+In the Versions tab and select the version.
+4
+. 
+Select the 
+gear icon
+ >
+Publish
+.
+5
+. 
+Select 
+Yes 
+on the confirmation screen.
+ 
+SMAX 2022.11
+Page 
+492
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

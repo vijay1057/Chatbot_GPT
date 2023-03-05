@@ -1,0 +1,12 @@
+System requirement for Vertica node
+This section provides information about the hardware and software requirements for Vertica installation as in the following
+topics.
+Vertica server
+General Hardware and OS Requirements and Recommendations
+Disk space requirement
+SMAX 2022.11
+Page 
+561
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

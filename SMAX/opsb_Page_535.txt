@@ -1,0 +1,55 @@
+The control plane node where you run the install command.
+Helm installation
+An installation of an ITOM suite or service using Helm charts.
+High availability
+A system characteristic to provide higher levels of uptime.
+IdM
+Micro Focus
+ technology providing authentication and authorization services.
+Image
+A stored instance of a container that holds a set of software needed to run an application.
+Ingress
+A Kubernetes object that's processed by an Ingress controller which in turn provides inbound access for clients to the
+application services running inside the cluster.
+Installation Portal
+OMT provides a graphical user interface ("installation portal") for the suite administrator to deploy the suite. You need to first
+get the installation portal ready and then use that portal. You can access it via 
+https://{ACCESS_HOST_NAME}:3000/
+ during the
+installation process.
+Internal load balancer
+The internal load balancer is used for internal traffic among all control plane nodes and worker nodes. It balances the traffic to
+all control plane nodes for the internal services which would be accessed by all nodes of the cluster. Usually, these services
+aren't accessible for users outside of the cluster. So the internal load balancer should also not be accessible for outside users
+and we just use an internal load balancer for it.
+Job
+A Kubernetes object describing a one-time execution of a script or program.
+Kubectl
+A command-line tool for communicating with a Kubernetes API server.
+Kubernetes
+An open-source system for automating deployment, scaling, and management of containerized applications
+Kubernetes API
+The application that serves Kubernetes functionality through a RESTful interface and stores the state of the cluster.
+kube-apiserver
+A component on the control plane node that exposes the Kubernetes API. It's the front-end for the Kubernetes control plane.
+Kubelet
+The node agent that's responsible for running the containers scheduled to that node.
+Kube proxy
+A network proxy that runs on every cluster node.
+Logging
+Logs are the list of events that are logged by cluster or application.
+Label
+A key/value pair that can be set on most any Kubernetes object.
+Load balancer
+Distributes network load across multiple endpoints. Load balancers provide load balancing when the traffic hits one of the
+cluster nodes and is routed by kube-proxy and/or the in-cluster NGINX instances to the backend pods. The keepalived provides
+failover if a control plane node runs into error. A load balancer acts as a reverse proxy and distributes network or application
+traffic across the cluster nodes. A load balancer is used to increase capacity (concurrent users) and reliability of applications.
+Load registry
+Cluster-internal container image registry. A place where container images are stored so they can be retrieved by container
+SMAX 2022.11
+Page 
+535
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

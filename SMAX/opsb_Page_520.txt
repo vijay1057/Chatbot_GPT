@@ -1,0 +1,57 @@
+Change
+The addition, modification or removal of anything that could affect on IT services.
+The scope should include changes to all architectures, processes, tools, metrics, and documentation, as well as changes to IT
+services and other CIs.
+Change Advisory Board (CAB)
+A group of people that advises the Change Manager in the assessment, prioritization, and scheduling of Changes.
+This board is usually made up of representatives from all areas within the IT organization, the business, and third parties
+such as suppliers.
+Change analytics
+An analysis of change management KPI performance. The change analytics feature:
+Displays a graphical analysis.
+Offers insights based on the available data, and suggestions for improvements in change management.
+Can be configured to help sharpen the analysis.
+Change approver
+A change management default role: the person who evaluates and authorizes (or rejects) a request for change.
+Change assignee
+A Change Management default role: the person responsible for an assigned change.
+Change calendar
+The change calendar displays changes and time periods, and allows you to view, schedule, and manage changes in a Gantt
+chart. Each change record also includes an individual Change Calendar, displayed in the Schedule tab of the record.
+Change category
+A change category is assigned to a change record to classify change records. The change category affects the availability of
+change models for selection.
+Cost center
+A cost center is a business unit that's only responsible for the costs that it incurs. The cost center is the main dimension to
+aggregate the actual cost. Its performance is usually measured through the comparison between the incurred and budgeted
+costs.
+Change coordinator
+A change management default role: the person who coordinates all requests for changes throughout their lifecycle.
+Change management
+The process responsible for controlling the lifecycle of all changes, enabling beneficial changes to be made with minimal
+disruption to IT Services.
+The ITIL term for the process of controlling changes to an organization's infrastructure to minimize the disruption of
+services.
+The application used to request, manage, approve, and control changes to an organization's infrastructure.
+A change generally affects multiple users or business units. Examples include changes to the network environment, facilities,
+or telephony. For user requests for products and services, refer to Request Management.
+Change manager
+A change management default role: the person who manages changes and functions as the point of escalation.
+Change model
+A repeatable way of dealing with a particular kind of change.
+A change model may be very complex, with many steps requiring authorization. For example, a major software release. Or a
+change model may be simple, with no authorization required. For example, a password reset.
+When a new change record is created, the selection of a Service Management change model pre-populates fields, and may
+create the tasks necessary to complete a change request.
+Change owner
+A change management default role: the person who reviews and manages assigned changes.
+Change phase
+The change workflow is the end-to-end process from the change creation to the change closure. The workflow is determined by
+the change type (Standard, Normal, or Emergency) and consists of metaphases. Each metaphase has one or more subordinate
+phases. A change record life cycle consists of progress through change phases.
+SMAX 2022.11
+Page 
+520
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

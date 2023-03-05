@@ -1,0 +1,116 @@
+Vertica server
+Supported Operating Systems and Operating System Versions
+Micro Focus
+ supports the Vertica Analytic Database 10.0.x running on the following 64-bit operating systems and versions on
+x86_x64 architecture. 
+In general, 
+Micro Focus
+ provides support for the Vertica Analytic Database, not its host operating system, hardware, or other
+environmental elements. However, 
+Micro Focus
+ makes an effort to ensure the success of its customers on recent versions of
+the following popular operating systems for the x86_64 architecture.
+When there are multiple minor versions supported for a major operating system release, 
+Micro Focus
+ recommends that you
+run Vertica on the latest minor version listed in the supported versions list. For example, if you run Vertica on a Red Hat
+Enterprise Linux 7.x release, 
+Micro Focus
+ recommends you upgrade to or be running the latest supported RHEL 7.x release.
+Platform
+Processor
+Supported Versions
+Known Issues
+Red Hat Enterprise Linux / CentOS
+x86_64
+6.x: all
+7.x: all with known
+issues
+8.x: all with known
+issues
+7.7 and higher
+:
+Install
+the 
+netstat
+ package
+manually with the
+following command:
+yum install net-tools
+8.x
+:
+To successfully
+create a database,
+install
+the 
+libnsl
+ package:
+dnf install libnsl
+To create R
+extensions,
+manually install the 
+libgfortran4
+ package.
+Download the
+applicable package
+from the 
+CentOS
+Linux and Stream
+releases page
+.
+SUSE Linux Enterprise Server
+x86_64
+12 SP2 and higher
+15.x: all
+openSUSE
+x86_64
+42.3
+Amazon Linux
+x86_64
+2.0 on Amazon
+Machine Instances
+(AMIs)
+Oracle Enterprise Linux (Red Hat compatible kernels only)
+x86_64
+6.x: all
+7.x: all
+Debian Linux
+x86_64
+8.5, 8.9, 
+10.x
+Ubuntu
+x86_64
+14.04 LTS and
+higher 
+Recommended Storage Format Types
+Choose the storage format type based on deployment requirements. Vertica recommends the following storage format types
+where applicable:
+ext3
+ext4
+NFS for backup
+XFS
+Amazon S3 Standard for communal storage and related backup tasks when running in Eon Mode
+Vertica does not support or recommend in-place upgrades
+from one major version to another major version. For
+example, you cannot perform in-place upgrades from
+RHEL/CentOS 6.x to RHEL/CentOS 7.x, or from RHEL/CentOS
+7.x to RHEL/CentOS 8.x. For information on how to upgrade
+to Red Hat Enterprise Linux 7, see 
+Upgrading Your Operating
+System on Nodes in Your Vertica Cluster
+. For information on
+changes to the operating system for Red Hat Enterprise
+Linux 7, see the 
+Red Hat Enterprise Linux 7 documentation
+.
+TensorFlow is not supported on 6.x.
+Vertica support for CentOS is based on testing done on Red
+Hat Enterprise Linux. Vertica continues to support CentOS,
+but testing and troubleshooting will be performed with the
+associated RedHat version.
+SMAX 2022.11
+Page 
+562
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,88 @@
+feature for failover support when deploying multiple control plane nodes.
+Follow the rules listed in the table below for the Flannel back end type and HA availability configuration. 
+Subnets of nodes
+Flannel back end
+type        
+HA availability               
+               
+A control plane node and worker nodes are in the same subnet 
+ 
+host-gw 
+or
+ vxlan
+N/A
+A control plane node and worker nodes are in different subnets
+ 
+vxlan 
+N/A
+Control plane nodes and worker nodes are in the same subnet
+ 
+host-gw 
+or
+ vxlan 
+HA virtual IP or load
+balancer 
+Control plane nodes are in the same subnet but the whole cluster nodes
+are in different subnets
+vxlan 
+HA virtual IP or load
+balancer 
+Control plane nodes are in different subnets 
+ 
+vxlan 
+Load balancer 
+Limitations
+The external access host FQDN of the suite environment must contain at least three portions (for example:
+myhost.mydomain.mynet
+). An FQDN of two portions (for example: 
+myhost.mynet
+) isn't supported.
+Kubernetes
+Version 1.25
+Databases
+In a production environment, you must use the following external databases. 
+Component
+Supported database
+OMT API Server
+PostgreSQL 14.x, 13.x, 12.x, 11.x for
+Linux
+OMT IdM
+Suite IdM, Suite Administration, Service Management and Smart
+Analytics, and Autopass
+PostgreSQL 14.x, 13.x, 12.x, 11.x for
+Linux
+SAM
+PostgreSQL 14.x, 13.x, 12.x, 11.x for
+Linux
+DND
+PostgreSQL 14.x, 13.x, 12.x, 11.x for
+Linux
+CGRO
+Both of the following databases are
+required:
+PostgreSQL 14.x, 13.x, 12.x, 11.x for
+Linux
+Vertica 10.0.x with SSL enabled
+Containerized CMS
+PostgreSQL 14.x, 13.x,12.x, 11.x
+Operations Orchestration (OO) Containerized 
+PostgreSQL 14.x, 13.x, 12.x, 11.x
+For the performance and functionality of the system, the external database must meet the requirements described in 
+Prepare
+external databases
+.
+Note
+Ensure that the cluster nodes are still in the same subnet after installation.
+
+
+Important
+: The internal PostgreSQL databases are deprecated and might be removed from the suite binaries
+in a future release.
+
+
+SMAX 2022.11
+Page 
+557
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

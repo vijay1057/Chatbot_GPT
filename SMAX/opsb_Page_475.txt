@@ -1,0 +1,79 @@
+Budget control using the Financial Management module
+Following a budget or spending plan helps an organization make full use of the buying and investing opportunities. The
+Financial Management module allows you to plan, execute, monitor, and control your budgets and expenditure in an efficient
+and effective way.
+This use case provides step-by-step instructions on how to manage your financial resources by comparing the actual
+expenditure incurred to the planned budget. With the budget and expense information, you can identify the corrective actions
+that are required to reach your financial goals.
+Concepts
+Here, we list some key concepts for you to get started:
+Fiscal year: enables you to specify a 12-month period as a fiscal year for your company
+Accounting period: enables you to specify any period of time within a fiscal year to cover a set of financial statements
+Budget center: enables you to manage and analyze the budgets and their allocation in an organization
+Budget: enables you to create, maintain, and track your budgeted costs
+Budget type: defines the different kinds of budgets based on common characteristics
+Cost center: aggregates the actual cost incurred in an organization
+Cost type: categorizes the expense types from a financial perspective
+Budget line: defines the amount of planned expenditure for some budget types in a given accounting period
+Expense line: enables you to track and manage costs, both incurred or projected
+Navigate to Financial Management
+1
+. 
+Sign in to Service Management.
+2
+. 
+From the main menu, choose 
+Run 
+> 
+Financials
+.
+This opens the Financial Management module. Service Management uses role-based 
+permissions
+ so that you can
+complete a task that's appropriate to your role. The tenant administrator manages and assigns these permissions. By
+default, the Financial Manager role is assigned to Financial Management.
+Workflow
+This diagram shows the workflow of budgetary control using Financial Management.
+Create a fiscal year
+1
+. 
+Go to the 
+Fiscal Years
+ page.
+2
+. 
+Click 
+New
+.
+3
+. 
+In the dialog box that appears, specify the name, start date, and end date for the new fiscal year.
+4
+. 
+Click 
+SAVE
+.
+In this example, we create a fiscal year for 2021 starting from January 1 to December 31. 
+For more information on how to create and edit a fiscal year, see 
+Fiscal Years
+.
+Create an accounting period
+1
+. 
+Go to the 
+Accounting Periods
+ page.
+2
+. 
+Click 
+New
+.
+3
+. 
+In the dialog box that appears, specify the name, fiscal year, start date, and end date for the new accounting period.
+SMAX 2022.11
+Page 
+475
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

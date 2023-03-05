@@ -1,0 +1,61 @@
+Service Desk
+The single point of contact between the service provider and the users. A typical service desk manages incidents and service
+requests, and also handles communication with the users.
+Service hours
+An agreed time period when a particular IT service should be available. For example, "Monday–Friday 08:00 to 17:00 except
+public holidays." Service hours should be defined in a service level agreement.
+Service level
+Measured and reported achievement against one or more service level targets. The term is sometimes used informally to
+mean service level target.
+Service Level Agreement (SLA)
+An agreement between an IT service provider and a customer. A service level agreement describes the IT service, documents
+service level targets, and specifies the responsibilities of the IT service provider and the customer. A single agreement may
+cover multiple IT services or multiple customers.
+Service level management
+The process responsible for negotiating achievable service level agreements and ensuring that these are met. It's responsible
+for ensuring that all IT service management processes, operational level agreements and underpinning contracts are
+appropriate for the agreed service level targets. Service level management monitors and reports on service levels, holds
+regular service reviews with customers, and identifies required improvements.
+Service Level Target (SLT)
+A commitment that's documented in a service level agreement. Service level targets are based on service level requirements,
+and are needed to ensure that the IT service can meet business objectives. They should be SMART, and are usually based on
+key performance indicators.
+Service Management
+Agent interface of SMAX where:
+IT agents manage support requests, service requests, incidents, changes, problems and so on.
+Tenant admins perform administrative tasks.
+Service operation
+A stage in the lifecycle of a service. Service operation coordinates and carries out the activities and processes required to
+deliver and manage services at agreed levels to business users and customers. Service operation also manages the technology
+that's used to deliver and support services. Service operation includes the following processes: event management, incident
+management, request fulfillment, problem management, and access management. Service operation also includes the
+following functions: service desk, technical management, IT operations management, and application management. Although
+these processes and functions are associated with service operation, most processes and functions have activities that take
+place across multiple stages of the service lifecycle.
+Service package
+Two or more services that have been combined to offer a solution to a specific type of customer need or to underpin specific
+business outcomes. A service package can consist of a combination of core services, enabling services and enhancing
+services. A service package provides a specific level of utility and warranty. Customers may be offered a choice of utility and
+warranty through one or more service options.
+Service Portal
+Provides one centralized location for all employee issues related to IT. Enables users to independently request support, search
+a self-help knowledge base, and browse a service catalog.
+Service portfolio
+The complete set of services that's managed by a service provider. The service portfolio is used to manage the entire lifecycle
+of all services, and includes three categories: service pipeline (proposed or in development), service catalog (live or available
+for deployment), and retired services.
+Service portfolio management
+The process responsible for managing the service portfolio. Service portfolio management ensures that the service provider
+has the right mix of services to meet the required business outcomes at an appropriate level of investment. Service portfolio
+management considers services in terms of the business value that they provide.
+Service request
+Service requests are the set of predefined activities that can be performed against the service itself (such as increasing the
+size of a standard email mailbox, requesting additional memory for a virtual machine, or resetting a password for a specific
+application).
+Service request management
+SMAX 2022.11
+Page 
+531
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

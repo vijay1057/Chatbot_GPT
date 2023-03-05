@@ -1,0 +1,93 @@
+Enable IaC Gateway in HCMX
+The services that enable the functionality of IaC Gateway (IaCGw) are shipped with the ESM platform. IaC Gateway
+gives customers who are developing Infrastructure as Code (IaC) using Terraform the ability to store Terraform state files in
+ESM’s database. Storing these state files in ESM’s database gives Operation teams and other users of the ESM platform
+visibility into Terraform deployments in three ways:
+First, through subscriptions that get created based on Terraform state files
+Second, cost estimation through a third-party provider
+Third, if Native SACM is enabled, through the ability to see realized CI Topologies in CMS and in the Native SACM UI based
+on those state files that contain cloud resources. If a customer has the ability to run Universal Discovery, further
+enhancements and enrichment to those CI Topologies will be made.
+This topic describes the following:
+How to enable IaC Gateway in HCMX
+How to configure your Terraform configuration file to leverage HCMX in ESM as a Terraform State backend
+How to use the IaCGw "Request On Behalf" functionality
+How to configure an out-of-the-box report that leverages subscriptions created by IaC Gateway
+CMS prerequisite steps if Native SACM is enabled
+How to enable a third-party cost integration that can provide a cost estimation based on your Terraform plan
+Known issues with IaC Gateway
+Enablement of IaC Gateway
+You can enable IaCGw by configuring your Terraform configuration file to utilize ESM as the backend to store Terraform state
+files through Terraform HTTP backend configuration. Once you have configured a Terraform configuration file to use ESM, the
+first instantiation of a Terraform state file being stored in the ESM platform will trigger an underlying automated flow that
+creates the scaffolding necessary to create a subscription in ESM based on that state file. The following is the ordered flow that
+this process follows:
+1
+. 
+It creates a Category with the name of 
+IAC_CATALOG
+ if one doesn’t exist by that name.
+2
+. 
+It creates a Service Definition with the name of 
+IAC_SERVICE_DEFINTION
+ if one doesn’t already exist by that name.
+3
+. 
+It creates and publishes a Service Design with the name of 
+IAC_SERVICE_DESIGN
+ if one doesn’t exist by that name.
+4
+. 
+It creates an Offering with the name of 
+IaC Terraform Offering
+ if one doesn’t exist by that name. This offering is based
+on the aggregated service design in step 3 above.
+The Offering is configured with a status of 
+Unpublished
+ and has the Service Desk Group and Expert Group fields set to
+the value of 
+ECAB Group
+ to enable subscription requests to be processed automatically.
+5
+. 
+On successful Terraform state save and creation of a request, a Subscription is created based on the Terraform State file. 
+6
+. 
+If Native SACM has been enabled within ESM, once a subscription has been created, a representative CMS topology
+is created based on the resources from the Terraform plan.
+Enablement of IaCGw as Terraform state backend
+IaCGw supports the Terraform HTTP backend specification, so you can configure IaCGw as the state backend for a Terraform
+plan file. Below is an example of the required block within a terraform state file, and an explanation of each of the fields of the
+required HTTP backend configuration, which you must specify in a Terraform plan to enable integration with IaCGw.
+Important 
+The Offering Status is intentionally set to 
+Unpublished
+ to prevent the accidental ordering of
+the offering by a subscriber in the Service Portal and to prevent an agent from issuing requests for this
+offering in the Agent Interface. Changing the Offering Status to something other than Unpublished can result
+in unexpected behavior when users directly interact with the Offering to create a request through the Service
+Portal or Agent Interface.
+
+
+Important 
+ All interactions through a Request (Create, Modify, and Cancel) with the Offering and/or
+subscription should be done through the Terraform CLI and a Terraform state file configured to use IaC as its
+backend (which will be discussed later), or through direct integration with IaCGw APIs.
+
+
+Note
+This feature is still evolving and doesn't support some CIs and relationships.
+If you change the name of the category, service definition, service design, or offering after it has been
+created, the next 
+Terraform apply
+ operation will result in the recreation of the item with the expected
+name.
+
+
+SMAX 2022.11
+Page 
+499
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

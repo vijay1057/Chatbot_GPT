@@ -1,0 +1,49 @@
+6
+. 
+In the 
+Group
+ tab, select 
+OO_ADMINISTRATORS
+, and then select the Edit icon.
+7
+. 
+In the Associated Users field, add Peter as OO administrator.
+Configure user role for menu visibility
+Persona
+Location
+Derek - Tenant Administrator
+Service Management Portal
+Follow the below steps to authorize Peter to access the DND menus.
+1
+. 
+Log in to Service Management as a Derek, navigate to 
+Administration > People > ROLES
+.
+2
+. 
+Select 
+CMP Agent 
+from the left pane.
+3
+. 
+Verify the following options are enabled.
+General
+Log in to the application
+Permission to manage Service Design and Deployment
+Reports and View
+Create public reports
+Define schedule tasks for email reports
+ Create public favorite views
+Record Type
+Service Definition - Create, view, and update are enabled
+Provider - Create, view, update, and delete are enabled. If any of the options aren't visible, you can add it using 
+ 
+ button.
+Administration menu visibility
+Ability to view all administration modules
+SMAX 2022.11
+Page 
+489
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,102 @@
+3
+. 
+Click 
+New
+ on the upper right-hand corner, and choose 
+Operational raw data report
+.
+4
+. 
+Fill in the required fields:
+Report name – Specify a report name. For example, 
+IaCGw Subscription Report
+.
+Record Type – Choose 
+Subscription
+ from the drop-down list.
+5
+. 
+Create 
+Filter By
+:
+Filter By – Select 
+Based on service definition
+Add Value – “IAC_SERVICE_DEFINITION”
+6
+. 
+Update 
+Columns
+:
+Remove the 
+Infrastructure and peripheral
+ and 
+Device
+ columns by clicking the “x” to the right of the item in the
+list.
+Optionally, if you want to add Cost related columns, click in the Columns box and add the following columns:
+Initial charge
+Recurring charge
+Recurring period
+Currency
+7
+. 
+Click 
+Save
+.
+8
+. 
+By default, the report has an Access setting of Private. You can change the Access setting to Public if desired. To do this,
+go to the 
+Details
+ tab in the Report properties panel at the right, change the Access setting, and then click 
+Save
+.
+CMS configuration prerequisites
+This section describes a prerequisite step that you must perform within CMS if you have Native SACM enabled. The purpose of
+this step is to avoid issues with Business Service CI uniqueness because it’s possible to create services with the same name as
+IaC Gateway. This step requires the use of the UCMDB Local Client to interact with UCMDB. See 
+How to install the Local Client
+.
+To deactivate the service name uniqueness constraint, do the following:
+1
+. 
+Log in to the UCMDB UI using the Local Client or through the browser.
+2
+. 
+Navigate to the 
+CI Type Manager
+ and make sure you are in the CI Types view.
+3
+. 
+Navigate the tree structure to find 
+Business Service CI
+.
+4
+. 
+Double click to get Details and in the Identification section choose “
+No Identification
+”.
+5
+. 
+Save and exit.
+Optional step: enable cost estimation for Terraform Plan
+IaC Gateway supports the optional ability to estimate the cost of an input Terraform state. This calculation uses a third-party
+service called
+ 
+Infracost, and supports native AWS, Azure, and GCP resources provisioned through Terraform.
+Below are the steps to enable Infracost cost estimation on a tenant within IaC Gateway and allow it to be propagated into ESM.
+Install Infracost
+Install Infracost, register, and set up an API Key to get access. For details, see
+ Install Infracost
+.
+Set up integration between IaC Gateway and Infracost
+Note 
+This value will show up after the first instantiation of the Terraform state file being stored in ESM.
+
+
+SMAX 2022.11
+Page 
+501
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,88 @@
+Field
+Description
+address
+URL of the REST endpoint. The <> notations indicate values that you must substitute in the
+URL.
+hostName
+The external hostname of ESM.
+tenantId
+The ID of the ESM tenant on which IaCGw is deployed and enabled.
+stateName
+The unique name of the Terraform state to be stored in IaCGw. The 
+stateName
+ must also be
+a valid URI path and can’t contain forward slashes.
+lock_address
+URL of the lock REST endpoint.
+unlock_address
+URL of the unlock REST endpoint.
+lock_method
+The HTTP method to use when locking.
+unlock_method
+The HTTP method to use when unlocking.
+username
+The username of the HTTP basic authentication. This user must be a member of the 
+DND
+Administrators
+ group. The username format: 
+<tenantId>/<username>
+. 
+password
+The password for HTTP basic authentication. The recommended approach is using the
+environment variable “TF_HTTP_PASSWORD” to pass in the password to the configuration file
+HTTP Backend section.
+skip_cert_verification
+Whether to skip TLS verification.
+After adding the required HTTP backend configuration to your Terraform plan file, run the 
+terraform init 
+command to
+configure Terraform to use IaCGw as the Terraform state backend for this configuration file. After running 
+terraform init
+, you
+can use the standard 
+terraform plan
+, 
+terraform apply
+, and 
+terraform destroy
+ commands for this configuration file, with
+IaC Gateway serving as the state backend. The first time the Terraform state is saved into IaCGw, the scaffolding creation
+process discussed in the "Enablement of IaC Gateway" section automatically occurs.
+Using the IaCGw "Request On Behalf" functionality
+IaCGw also supports the concept of Request On Behalf of another user. This feature allows a request to be made on behalf of
+another user, resulting in the ESM resources being associated with the other user. For example, you would have a service
+account make the request on behalf of another user. To enable this, you would pass in another query parameter on the
+address field in the Terraform HTTP backend configurations to specify the user. In the example below, the
+RequestUsername
+ value of 
+OnBehalfOfUser
+ must be a valid ESM service portal user. The username must be a user that's
+a member of the 
+DND Administrators
+ group. See the example below for the HTTP Backend configuration section of your
+Terraform configuration file.
+Optional step: configure a basic IaCGw subscription report
+To make basic subscription reports visible within the agent interface, you can create a report within ESM based on the IaC
+Service Definition. Below are the steps to configure an IaCGw subscription report.
+1
+. 
+As the tenant admin, log in to the agent interface within ESM.
+2
+. 
+Navigate to 
+Reports
+.
+Note
+ In the example above, the given Terraform state name,  
+demoVcenter 
+is locked to an owner the first
+time we save the state as that user. The owner is either the OnBehalfOfUser if specified, or if not specified, is the
+username provided in the HTTP backend block.
+
+
+SMAX 2022.11
+Page 
+500
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

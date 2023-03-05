@@ -1,0 +1,89 @@
+Field
+Description
+Location
+Enter the URL of the remote server to which you want to direct the REST call, including the
+protocol, host, port, and root context, if any.
+Example: 
+https://mydomain:port/<my_context>
+Credentials
+Endpoint credentials (created as part of the 
+Specify endpoint credentials using Endpoint
+Credentials Manager on OPB agent server
+ task above).
+Use the endpoint in Service Design
+You can use the endpoints in a Service Design to populate the dynamic values. For information on creating dynamic options
+properties, see 
+Configure parameters for dynamic properties list
+For information on creating Configuration Options, see 
+Create configuration option properties
+. Select or create the Javascript
+that will determine the values that should be presented to a user in the Service Portal. 
+When configuring the parameter, ensure you use the 
+ESMEndpoint(<endpoint_name>)
+ as shown in the sample scripts below.
+The value within '<>' in the sample files below represents the endpoint name with which you created the OPB endpoint.
+Sample Javascript of JDBC endpoint
+var availableValues = [];
+var client = new SQLClient(new ESMEndpoint('<
+jdbc_endpoint
+>'));
+var response = client.call('SELECT name FROM mytable', []);
+var obj = JSON.parse(response.body);
+obj.forEach(function(obj) {
+    var availableRow = {
+        'value': obj.name,
+        'displayName': obj.name
+    };
+    availableValues.push(availableRow);
+});
+Sample Javascript of LDAP endpoint
+var client = new LDAPClient();
+var request = {
+    protocol: 'ldap',
+    securityAuthentication: 'none',
+    strategy: new ESMEndpoint("<
+LDAP_endpoint
+>"),
+        readTimeout: '10000',
+    connectTimeout: '10000',
+    params: {
+        userSearchBase: 'dc=example,dc=com',
+        userSearchFilter: '(&(objectClass=person)(givenname=consumer))',
+        // For each row in response, bring only attributes mentioned in 'attributeFilter'
+        // In case of multiple attributes, use comma delimiter
+        attributeFilter: 'givenName, displayName'
+    },
+    searchControls: {
+        scope: 'SUBTREE_SCOPE',
+        timeLimit: 1000
+    }
+};
+var response = client.call(request);
+debug(response);
+var availableValues = [];
+for(var row in response.data) {
+    var availableRow = {
+        'displayName' : response.data[row].get('uid'),
+        'value' : response.data[row].get('uid') + ', ' + response.data[row].get('mail')
+    };
+    availableValues.push(availableRow);
+}
+Sample Javascript of file system endpoint
+var file = new FileStorage(new ESMEndpoint("<
+file_esm_endpoint
+>"));
+content = file.readAll("fileSubDirectory/sample.txt");
+var availableValues = [
+    {
+        'displayName': content,
+        'value': content
+    }];
+Sample 
+Javascript of
+ REST executor 1.0 endpoint
+SMAX 2022.11
+Page 
+516
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

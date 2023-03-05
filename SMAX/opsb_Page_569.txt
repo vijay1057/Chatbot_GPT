@@ -1,0 +1,170 @@
+15
+Configure a storage driver to store and manage the
+images and containers on your host.
+All control plane nodes and
+worker nodes
+System
+administrator
+Configure a
+storage
+driver
+16
+Check if the SSH configurations meet the deployment
+requirements.
+All control plane nodes and
+worker nodes
+System
+administrator
+Check the
+SSH
+configurati
+ons
+17
+Export NFS volumes to store OMT and suite data.
+NFS server
+Storage
+administrator
+Configure
+NFS
+volumes
+18
+Disable on-access security scan
+First control plane node
+Suite
+administrator
+Disable on-
+access
+security
+scans
+19
+Export logs to a remote destination, if using log
+locations other than the NFS server.
+First control plane node
+Suite
+administrator
+Export logs
+to a remote
+destination
+20
+Perform pre-installation tuning tasks required in
+production environments for optimized system
+performance while avoiding useless overhead.
+All control plane nodes, worker
+nodes, NFS servers, and database
+servers
+System
+administrator
+Perform
+pre-
+installation
+tuning
+21
+If you want to install OMT and a suite with an
+external registry, download and upload the container
+images to the external registry before you run the 
+ins
+tall
+ script.
+First control plane node
+Suite
+administrator
+(Optional)
+Upload
+images to
+an external
+registry
+Sr
+No.
+Task
+Where to perform
+Role
+How to
+perform
+Install the suite
+Complete these tasks to install the suite.
+Sr
+No.
+Task
+Where to perform
+Role
+How to perform
+1
+Install OMT in an on-premises environment as a
+root user. 
+First control plane
+node
+Suite
+administrator
+Install ITOM Container
+Deployment Foundation
+2
+Log in to the installation portal and select
+capabilities and features for your deployment.
+If you need SMA only, select 
+SMA
+ only on
+the 
+Capabilities
+ page.
+If you need one or more add-on
+capabilities, select them along with 
+SMA
+on the 
+Capabilities
+ page.
+Installation portal
+Suite
+administrator
+Select the deployment
+configuration
+3
+The installer checks if the images are ready. If
+not, transfer the images from the image
+registry to your own registry as required.
+Installation portal
+Suite
+administrator
+Download the container
+images
+4
+Complete the OMT deployment on the
+installation portal.
+Installation portal
+Suite
+administrator
+Prepare the control plane
+nodes and worker nodes
+5
+Deploy the suite from the installation portal.
+Installation portal
+Suite
+administrator
+Deploy the suite
+6
+If your organization's network includes a DMZ,
+s
+et up the reverse proxy server to work with the
+suite.
+Reverse proxy server
+Network
+administrator
+(Optional) Set up the
+reverse proxy server in a
+DMZ network
+7
+Required only if you want to enable the
+DND capability.
+Install Operations Orchestration(OO)
+Containerized on the same OMT cluster as a
+secondary deployment.
+Control plane node
+Suite
+administrator
+Install OO Containerized
+on-premises
+SMAX 2022.11
+Page 
+569
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

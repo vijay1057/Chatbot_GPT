@@ -1,0 +1,106 @@
+ 
+ 
+Deploy the tenant
+1
+. 
+Select 
+Deploy
+.
+2
+. 
+In the Deploy tenant popup, select Deploy. This will start the deployment process.
+3
+. 
+Check the status of the deployment in the Tenants screen. On successful deployment, the tenant will become Active.
+Deploy OO capability
+The suite admin needs to deploy the OO capability on a tenant before deploying Design and Deploy (DND) capability. To
+deploy the OO capability on a tenant: 
+1
+. 
+Log in to Suite Administration as suite-admin: https://<External Access Host>/bo.
+2
+. 
+Click 
+Tenants
+ and then open the tenant.
+3
+. 
+Select the 
+Capability settings
+ tab, and then click 
+Deploy new capability
+.
+4
+. 
+In the 
+Capability
+ field, select 
+Operations Orchestration
+. 
+5
+. 
+Enter the 
+OO integration URL
+ and 
+OO login URL
+.
+For on-premises deployment, the 
+OO integration URL
+ and 
+OO login URL 
+are in the
+format 
+https://<OO_HOST>:<OO_PORT>
+. For example, enter 
+https://myoohost.example.com:9443
+ in both
+URL fields. 
+6
+. 
+Click 
+Next
+. The system starts the validation of the URLs you entered.
+The URLs must start with https or http and mustn't contain a trailing slash (/).
+The system can connect to the OO controller in the backend by using the OO integration URL you entered. 
+7
+. 
+If the URLs have passed the validation, a note appears below the URLs, indicating that it's impossible to remove the OO
+capability once deployed. Select the checkbox for the note and then select 
+Deploy
+. 
+8
+. 
+The deployment starts. You can check the deployment progress on the 
+Operation history
+ tab of the tenant.
+9
+. 
+Wait several minutes until the deployment is 
+Done
+. 
+10
+. 
+If the tenant admin has never logged in to the Agent interface, ask the tenant admin to log in: 
+https://<External Access Host>/
+saw/dashboard?TENANTID=<Tenant ID>
+. This is because the system needs to replicate the relationship between the tenant
+admin user and the OO Administrators group from IdM to the Agent interface, and so you need to make sure that the
+tenant admin user already exists in the Agent interface. 
+11
+. 
+Set 
+Enable capability
+ to 
+On
+.
+12
+. 
+Click 
+Save
+.
+SMAX 2022.11
+Page 
+486
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

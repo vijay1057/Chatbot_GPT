@@ -1,0 +1,74 @@
+General Hardware and OS Requirements and
+Recommendations
+Hardware Recommendations
+The 
+Vertica Analytics Platform
+ is based on a massively parallel processing (MPP), shared-nothing architecture, in which the
+query processing workload is divided among all nodes of the Vertica database. 
+Micro Focus
+ highly recommends using a
+homogeneous hardware configuration for your 
+Vertica
+ cluster; that is, each node of the cluster should be similar in CPU, clock
+speed, number of cores, memory, and operating system version.
+Note that 
+Micro Focus
+ has not tested 
+Vertica
+ on clusters made up of nodes with disparate hardware specifications. While it is
+expected that a 
+Vertica
+ database would functionally work in a mixed hardware configuration, performance will most certainly
+be limited to that of the slowest node in the cluster.
+Detailed hardware recommendations are available in 
+Recommendations for Sizing Vertica Nodes and Clusters
+ (formerly the
+Vertica Hardware Planning Guide).
+Platform OS Requirements
+You must verify that your servers meet the platform requirements described in 
+Vertica Server and Vertica Management
+Console
+.
+Verify Sudo
+Vertica
+ uses the sudo command during installation and some administrative tasks. Ensure that sudo is available on all hosts
+with the following command:
+# which sudo
+/usr/bin/sudo
+If sudo is not installed, on all hosts, follow the instructions in 
+How to Enable sudo on Red Hat Enterprise Linux
+.
+When you use sudo to install 
+Vertica
+, the user that performs the installation must have privileges on all nodes in the cluster.
+Configuring sudo with privileges for the individual commands can be a tedious and error-prone process; thus, the 
+Vertica
+documentation does not include every possible sudo command that you can include in the sudoers file. Instead, 
+Vertica
+recommends that you temporarily elevate the sudo user to have all privileges for the duration of the install.
+To allow root sudo access on all commands as any user on any machine, use visudo as root to edit the 
+/etc/sudoers
+ file and add
+this line:
+## Allow root to run any commands anywhere
+root   ALL=(ALL) ALL 
+After the installation completes, remove (or reset) sudo privileges to the pre-installation settings.
+Deploy 
+Vertica
+ as the only active process on each host—other than Linux processes or software explicitly
+approved by 
+Vertica
+. 
+Vertica
+ cannot be colocated with other software. Remove or disable all non-essential
+applications from cluster hosts.
+Note
+See the sudoers and visudo man pages for the details on how to write/modify a sudoers file.
+
+
+SMAX 2022.11
+Page 
+564
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,58 @@
+Data domain segmentation
+Data domain segmentation in Service Management provides the ability to restrict the visibility of specific records and actions
+(such as tasks and approvals) to specific people, roles, or groups. Data domain segmentation is composed of two parts:
+Assignment of permissions to view particular data domains to a person, role, or group.
+Assignment of data domains to records.
+Definitive Media Library (DML)
+One or more locations in which the definitive and authorized versions of all software CIs are securely stored. The definitive
+media library may also contain associated CIs such as licenses and documentation. It's a single logical storage area even if
+there are multiple locations. The definitive media library is controlled by service asset and configuration management and is
+recorded in the configuration management system.
+Development environment
+An environment used to create or modify IT services or applications. Development environments aren't typically subjected to
+the same degree of control as test or live environments.
+Device
+A general classification for both assets and CIs.
+Draft phase
+In Knowledge Management, when a new article or news item is created, it's added to the list in the Draft phase. The article or
+news item must be reviewed, and then published internally or externally before users can view it.
+In Idea and Proposal Management, when a new idea is created, it may be saved as a draft. If this is done, the idea enters the
+Draft phase.
+E
+EA
+Enterprise Agreement: Microsoft Azure contractual arrangement and APIs used for billing report data.
+Effectiveness
+A measure of whether the objectives of a process, service or activity have been achieved. An effective process or activity is
+one that achieves its agreed objectives. See also key performance indicator.
+Efficiency
+A measure of whether the right amount of resources has been used to deliver a process, service, or activity. An efficient
+process achieves its objectives with the minimum amount of time, money, people, or other resources. See also key
+performance indicator.
+Emergency change
+A change that must be introduced as soon as possible – for example, to resolve a major incident or implement a security
+patch. The change management process will normally have a specific procedure for handling emergency changes.
+Emergency Change Advisory Board (ECAB)
+A subgroup of the change advisory board that makes decisions about emergency changes. Membership may be decided at the
+time a meeting is called, and depends on the nature of the emergency change.
+Encryption domains
+You can encrypt specific record type fields via the creation of Encryption domains. This enables you to restrict access to
+sensitive information to selected users.
+Enrichment rules
+Rules used to automatically assign values to record fields when data is imported. For example, an enrichment rule can set the
+asset-model, the vendor, and the brand of a device record according to the value populated in the inventoried model attribute
+of the device.
+Entitlement rules
+Rules used to restrict offerings, knowledge articles, service definitions, categories, and custom themes in the 
+Service Portal
+ to
+limited audiences in specified locations, and belonging to specified user groups.
+Escalation
+Transferring an incident, problem or change to a technical team with a higher level of expertise to assist in an escalation.
+Event
+A change of state that has significance for the management of an IT service or other CIs. The term is also used to mean an
+SMAX 2022.11
+Page 
+523
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

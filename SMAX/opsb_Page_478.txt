@@ -1,0 +1,41 @@
+In this example, we create three expense lines. Two expense lines with a combined amount of 80,000 US dollars occurred
+in Q3, and the other is worth 20,000 US dollars that will occur in Q4. 
+For more information on how to create and view an expense line, see 
+Expense Lines
+.
+You can configure cost allocation rules to generate expense lines automatically. See 
+Cost Allocation
+.
+Compare expenditure with budget
+1
+. 
+Go to the 
+Budgets 
+page, and then click the ID of the 
+RnD hardware budget 
+record.
+2
+. 
+Click 
+Budget lines
+.
+You will find that the budget analysis view appears on the right.
+3
+. 
+Hover over the stacked bar to view the expenditure within the budget, the remaining budget, and the overspend amount. 
+In this example, hardware expenditure in Q3 has exceeded the budget by 10,000 US dollars. You need to consider this
+data when making future expenditure commitments.
+4
+. 
+Click the bar to view the associated expense lines.
+5
+. 
+To know if projected expenses lines are within the hardware budget planned for Q4, compare the remaining budget
+amount for Q4 and the expense line amount in the same accounting period.
+In our example, the planned hardware expenditure is less than what is budgeted.
+SMAX 2022.11
+Page 
+478
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

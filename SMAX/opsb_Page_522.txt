@@ -1,0 +1,69 @@
+CIs.
+Configuration Management System (CMS)
+A set of tools, data, and information used to support service asset and configuration management.
+The CMS:
+Is part of an overall service knowledge management system, and includes tools for collecting, storing, managing,
+updating, analyzing and presenting data about all CIs and their relationships.
+May also include information about incidents, problems, known errors, changes and releases.
+Configuration record
+A record containing the details of a CI. Each configuration record documents the lifecycle of a single CI. Configuration records
+are stored in a configuration management database and maintained as part of a configuration management system.
+Contacts
+Contacts are an enterprise-wide address book of internal and external individuals, stakeholders, vendor liaisons, or others who
+might have a business relationship with the organization.
+Content pack
+A content pack is a file containing operations, flows, actions (Java-based, .Net, or CloudSlang based), localization data, and CIs.
+Content packs are deployed to the Central server and stored in the database. A content pack can be created in OO Workflow
+Designer or OO Studio by an author, or it can be provided by 
+Micro Focus
+ or a third party.
+Micro Focus
+ provides a wide range of content packs with prepackaged flows, out-of-the-box integrations, and orchestration of
+multiple systems. The content packs are available from ITOM Marketplace.
+Content permission
+Content permission is permission to view or run individual flows or the flows in a particular folder. Users who have been
+assigned a specified role will be able to access the flows according to the content permissions assigned to their role.
+For example, users with the 
+Administrator
+ role may be entitled to view and run all the flows in the system, while users with
+the 
+User
+ role may be entitled to run certain flows, and have view permission for others.
+Context
+The context is a container that holds various values that can be exchanged with a step at various points. There are two kinds
+of context:
+Local context
+ exists for the duration of the step.
+Global context
+ exists for the duration of the flow.
+You can pass values to and from the local or global context.
+Contract management
+Contract management or contract administration is the management of contracts made with vendors.
+Contract management includes negotiating the terms and conditions in contracts, and ensuring compliance with the terms and
+conditions, as well as documenting and agreeing on any changes or amendments that may arise during the implementation or
+execution of the contract.
+Control Objectives for Information and related Technology (COBIT)
+The acronym for Control Objectives for Information and related Technology (COBIT). COBIT is a set of best practices for IT
+management created by the Information Systems Audit and Control Association (ISACA) and the IT Governance Institute (ITGI).
+The framework provides managers, auditors, and IT users with a set of generally accepted measures, indicators, processes,
+and best practices to assist them in maximizing the benefits and developing IT governance and control in a company.
+CloudSlang
+CloudSlang (
+CloudSlang.io
+) is an open source environment for process automation, which provides a textual language (YAML
+over Python), a lightweight engine (which can be embedded in a Java process or run via a command line), and a content
+library. All the CloudSlang code, including documentation and content, are available in GitHub CloudSlang repositories. Score
+is a general-purpose Java-based open-source orchestration engine, which is process-based, embeddable, lightweight, scalable,
+and multilingual. The CloudSlang language is a YAML (version 1.2) based language for describing a workflow that can be run
+by Score engine. The supported file extensions are: .sl, .sl.yaml and .sl.yml.
+CUR
+Cost and Usage Reports (Amazon billing report data). 
+D
+DAH server
+Distributed Action Handler (DAH) server is one component in Smart Analytics.
+SMAX 2022.11
+Page 
+522
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

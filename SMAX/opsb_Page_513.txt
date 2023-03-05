@@ -1,0 +1,14 @@
+AWS reserved instances
+Review the suggested Platform, Offering Class, Tenancy, Term and Payment Option atop the tabular data. Then, for each
+Instance Type within the table, review the suggested quantity and Instance Type. If desired, use the AWS Management
+Console (EC2) to purchase the recommended RI.
+Azure reservations
+Review the suggested Scope, Location, Term and Payment Option atop the tabular data. Then, for each VM Size within the
+table, review the suggested quantity and VM Size. If desired, use the Microsoft Azure Portal to purchase the recommended
+reservation.
+SMAX 2022.11
+Page 
+513
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

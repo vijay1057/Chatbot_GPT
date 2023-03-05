@@ -1,0 +1,118 @@
+i
+. 
+Connection Name
+ -- Identifier for the AWS integration, e.g., "My AWS DEV Account".
+ii
+. 
+Access Key ID
+ -- AWS access key with (at least) read permissions to the S3 bucket storing CUR data.
+iii
+. 
+Secret Access Key
+ -- AWS secret access key to pair with the access key ID.
+iv
+. 
+Billing Bucket Name
+ -- Name of S3 bucket designated during report creation which stores data.
+v
+. 
+Billing Report Path
+ -- Full folder path to S3 bucket specified during CUR report definition.
+B
+. 
+Microsoft Azure:
+i
+. 
+Connection Name
+ -- Identifier for the Azure integration, e.g., "My Microsoft EA".
+ii
+. 
+Azure Enrollment Number
+ -- Microsoft Enterprise Agreement enrollment number.
+iii
+. 
+Azure Bearer Token
+ -- Microsoft EA Reports API Access Key.
+5
+. 
+Check the 
+I require a proxy server to connect to this provider
+ box to use a proxy server to connect to the cloud
+provider. You can either use the system default proxy server (configured in Back Office) or use a custom proxy server
+here.
+6
+. 
+Collection History Cutoff
+: Optional. By default, all available billing data if fetched from the cloud provider. For Azure,
+Microsoft preserves three years of history (dated from present day). For AWS, Amazon introduced Cost and Usage reports
+in 2015 and the available data depends when the CUR reports being configured were first created. If, in either case, you
+wish to limit the amount of data, select a collection start date so that your collection only gathers data from the specified
+date. For example, selecting January 2020 will fetch data from that point to the present day -- and into the future. There is
+no end date.
+7
+. 
+Click 
+Finish
+.
+Generate reports
+To generate an AWS report
+:
+1. From the 
+Dashboard
+, click 
+My Dashboard
+ and select 
+Cost Governance
+ under 
+Run
+.
+2. Under 
+AWS Reports 
+in the left pane, click the required option. For information on the options, see 
+Reports
+overview
+ below.
+The report appears in the right pane.
+Reports overview
+The AWS report, at a higher level, is classified as below. Based on what option you select, you can further drill down to analyze
+your cloud spends.
+Overall
+EC2 compute
+RDS
+S3 Storage
+Overall
+Provides a summary of cloud spends, based on the following:
+Spend by product
+This report provides a view of the spend for each type of Amazon Product. This report can help you determine which products
+comprise the majority of the spend for a given period and how the trend of spend for a product varies over time. Amazon
+Products appear in the legend in descending order of spend.
+Spend by region
+This report provides a view of the spend for each Amazon region. Regions reported as Not Applicable are typically tax-related
+fees not tied to a specific Region. Amazon pricing varies by region. This report can help you see in which regions most of the
+spend is incurred and may help reveal possibilities for cost saving by switching to a cheaper region. Amazon regions appear in
+the legend in descending order of spend.
+Spend by usage account ID
+This report provides a view of the spend for each Amazon Account ID. Accounts may be management accounts or member
+accounts. This report can help you see for which accounts most of the spend is incurred. Amazon Account IDs appear in the
+legend in descending order of spend.
+EC2 compute reports
+Provides information on EC2 compute instances based on the following metrics.
+Instances by Instance Type
+This report provides a view of the number of Amazon EC2 compute instances created in a given period, grouped by Instance
+Type. Amazon pricing varies significantly by Instance Type. This report can help you see which Instance Types are created the
+most in your organization and may help reveal possibilities for cost saving by switching to a cheaper Instance Type. Instance
+Types appear in the legend in descending order of the number of instances of that type that were created.
+Instances by purchase option
+This report provides a view of the number of Amazon EC2 compute instances created in a given period, grouped by Purchase
+Option. Amazon pricing varies significantly by Purchase Option. This report can help you see which Purchase Options were
+used the most in your organization and may help reveal possibilities for cost saving by switching to a cheaper Purchase
+Option. Purchase Options appear in the legend in descending order of the number of instances of that option that were
+created.
+Spend by instance type
+This report provides a view of the spend associated with the Amazon EC2 compute instances, grouped by Instance Type.
+SMAX 2022.11
+Page 
+511
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,107 @@
+Hardware requirements for option 3: SMA DND OO CGRO
+If you plan to use deployment option 3 (SMA + DND + OO + CGRO), plan your hardware resources as follows. 
+To set up OO with a common database, you can choose to connect OO to the same database instance as the rest of the suite
+components. For hardware requirements, see the below table 
+Standard hardware requirements with a common
+database.
+To deploy OO for a 5-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+To deploy OO for a 20-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+Standard hardware requirements with a common database
+Target size
+Concurrent
+users
+Number
+of OO
+tenants
+Control plane node
+Worker node
+NFS
+Configuration
+Storage
+Quantity
+Configuration
+Storage
+Quantity
+Configuration
+Storage*
+Quantity
+Configuration
+Storage
+Small
+100~400
+1 to 5
+4 CPU 12 G
+RAM
+200 G
+3 (HA)
+8 CPU 32 G
+RAM ~ 8 CPU
+40 G RAM
+400 ~
+500 G
+7 ~ 8
+12 CPU 28 G
+RAM
+1.7 TB
+Medium
+400~1000
+6 to 20
+4 CPU 16 G
+RAM
+200 G
+3 (HA)
+8 CPU 32 G
+RAM
+400 ~
+500 G
+14 ~ 15
+12 CPU 32 G
+RAM
+2.3 TB
+#The max_connections value for the combined database should be equal to or greater than 3400.
+##The 
+max_connections
+ value for the combined database should be equal to or greater than 7710.
+*For more information about NFS storage sizing, see 
+Manage persistent storage for the suite
+.
+For more information on database settings, see 
+Prepare external PostgreSQL
+.
+Related topics
+Plan the deployment
+Note: 
+To use the Cloud Management functionality, you need to enable the OO, DND, and CGRO capabilities.
+The following table assumes that the OO, SMA, and DND capabilities have the same deployment size. If this isn't
+the case, see 
+Hardware requirements for other options
+ instead.
+
+
+Note
+To determine standard hardware requirements with a dedicated database for OO, see
+ 
+Additional hardware
+requirements for OO containerized
+.
+ 
+For NFS, Postgres and Vertica database HA configuration, follow recommendations provided in vendor-
+specific documentation. Example: To configure Postgres HA, see 
+High Availability PostgreSQL with Patroni
+.
+
+
+SMAX 2022.11
+Page 
+552
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

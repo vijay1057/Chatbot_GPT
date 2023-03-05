@@ -1,0 +1,85 @@
+Cloud Management - Govern costs and optimize
+resources
+Stephen wants to control cloud costs and optimize resources. He needs cloud usage reports and recommendations to decide
+on scaling up or scaling down subscriptions and reservations.
+The following personas will be involved in this use case.
+Stephen
+Suite administrator
+Configure a tenant to enable the Cost Governance and Resource Optimization
+capability
+Derek
+Tenant
+Administrator
+Administer tenant and configure user authorization 
+Stephen
+Suite administrator
+Configure cloud cost providers
+Generate subscription reports
+Prerequisites
+HCMX is installed with DND and CGRO capability. For more information on how to plan the system requirements, prepare the
+environment and install HCMX, see 
+Install HCMX
+.
+Configure suite administration
+Persona
+Location
+Stephen
+Suite Administration Portal
+Configure an email service
+You need to configure the 
+Email service
+ to receive notifications. 
+To configure an email service:
+1
+. 
+Log in to the suite administration portal with the URL in the format https://<hostname>/bo. Example: https://smax-
+master.esmlab.net/bo/
+2
+. 
+Go to 
+Configuration > Email
+, configure the following parameters, and select 
+Test Connection
+.
+a
+. 
+Mail server host
+b
+. 
+SMTP server port
+c
+. 
+Mail Protocol
+d
+. 
+Certificate
+3
+. 
+Once the test connection is successful, select 
+Save
+. The Email configuration will be saved. 
+Create customer, account, and users 
+A user is associated with an account which in turn is associated with a customer. Follow the below steps to create a customer,
+account, and users.
+Create a customer
+1
+. 
+Go to the 
+Customers
+ tab and select 
+New
+. Fill in the following parameters and select 
+Save
+ to create a new customer.
+a
+. 
+Full name - HCMX_Customer1
+b
+. 
+Short name - Customer1
+SMAX 2022.11
+Page 
+505
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

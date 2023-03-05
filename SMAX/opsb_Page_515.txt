@@ -1,0 +1,142 @@
+Add an endpoint in Agent Portal
+1
+. 
+From the main menu, select 
+Administration > Utilities > Integration
+. Click the 
+Endpoints
+ tab.
+2
+. 
+Click 
+Add
+.
+3
+. 
+Enter the endpoint details.
+Field
+Description
+Endpoint type
+Select the appropriate endpoint type.
+Endpoint name
+Enter a name for the endpoint.
+Running on agent
+Select an agent from the drop-down list which was created as part of adding an agent.
+4
+. 
+Click 
+Add
+.
+Configure an endpoint in Agent Portal
+1
+. 
+For SSL-based communication related to JDBC, LDAP, and Rest Executor endpoints, ensure you have imported the
+certificate authority (CA certificate) to OPB trust store, into the following path: 
+<OPB installed path>/product/util/3rd-party/jre/lib/
+security/cacerts
+ using the syntax below:
+a
+. 
+Run the following command to import the CA certificate: 
+<OPB installed path>/product/util/3rd-party/jre/bin/keytool -importcert
+-keystore
+  
+<OPB installed path>/product/util/3rd-party/jre/lib/security/cacerts -alias "<<certificate alias>>" -file
+/<<myjdbcservercert>>.cer 
+b
+. 
+Run the following command to restart the OPB agent: 
+<Agent_installation_directory>/bin/OpbAgent.bat restart
+2
+. 
+From the main menu, select 
+Administration > Utilities > Integration
+.
+3
+. 
+Click the 
+Endpoints
+ tab.
+4
+. 
+Select the endpoint you want to configure and click 
+Configure
+. The 
+Endpoint Configuration
+ dialog box opens.
+5
+. 
+Enter the endpoint details:
+a
+. 
+JDBC Query
+Field
+Description
+JDBC URL
+JDBC URL Examples:
+jdbc:postgresql://<host_name> or <ip_address>:5432/mydb
+jdbc:oracle:thin:@//<host_name> or <ip_address>:1521:XE
+jdbc:sqlserver://<host_name> or <ip_address>:1433/mydb
+ 
+Credentials
+Endpoint credentials (created as part of the task 
+Specify endpoint credentials using
+Endpoint Credentials Manager on OPB agent server
+ above).
+Note that only Postgres with SSL is supported.
+For Oracle and SQL servers, ensure that you have copied the JDBC driver 
+.jar
+ file of the respective database to 
+<OPB i
+nstalled path>/product/domain/jdbc-query/lib
+  and restarted the OPB agent service.
+b
+. 
+LDAP Query
+Field
+Description
+LDAP URL
+Specify the LDAP URL in the following format if the LDAP is SSL enabled: ldap(s)://<host_name>
+or <ip_address>:<port>.
+Example for SSL-based URL: 
+ldaps://<host_name> or <ip_address>:636
+Example for non-SSL URL: 
+ldap://<host_name> or <ip_address>:389
+For SSL-based URLs, u
+se only FQDN in the URL.
+Credentials
+Endpoint credentials (created as part of the 
+Specify endpoint credentials using Endpoint
+Credentials Manager on OPB agent server
+ task above).
+You can use the attribute filter to bring only the mentioned attributes in response, to limit the LDAP response size. 
+For information, refer to the sample LDAP endpoint Javascript provided below.
+ 
+c
+. 
+File system:
+Field
+Description
+File base
+path
+The base path of the file from which you want the system to read the data.
+This is only applicable to the files physically available in the OPB agent server.
+The file can reside anywhere on the system.
+Examples:
+Linux: /usr/tmp
+Windows: C:\Temp
+Credentials
+Endpoint credentials (created as part of the 
+Specify endpoint credentials using Endpoint
+Credentials Manager on OPB agent server
+ task above).
+The file system endpoint supports read operations only.
+d
+. 
+REST Executor 1.0
+SMAX 2022.11
+Page 
+515
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

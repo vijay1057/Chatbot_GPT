@@ -1,0 +1,154 @@
+8
+Required only if you want to install the
+SAM capability or the Native SACM
+solution.
+Continue to install containerized CMS on the
+same OMT cluster as the next deployment
+, or
+install classic CMS. 
+Control plane node or
+the Windows or Linux
+server for CMS
+Suite
+administrator
+(Optional) Install
+containerized
+CMS
+ or 
+(Optional) Install
+classic CMS
+.
+9
+If the cluster nodes have no SSH access, deploy
+additional control plane nodes and worker
+nodes.
+First and extended
+control  plane nodes
+Suite
+administrator
+Deploy cluster nodes
+without SSH access
+10
+Check the pod status to see if the pods are
+running. 
+Control plane node
+Suite
+administrator
+Verify the installation
+11
+Perform database-related and tuning tasks after
+installation.
+Control plane
+nodes and database
+server
+Database
+administrator
+and suite
+administrator
+Post-installation tasks
+Sr
+No.
+Task
+Where to perform
+Role
+How to perform
+Set up tenants
+After installing the suite, perform the following initial setup tasks to use the suite.
+Sr
+No.
+Task
+Where to
+perform
+Role
+How to perform
+1
+Tasks for suite administrators to perform in
+Suite Administration.
+Suite
+Administration
+Suite
+administrator
+Tenant setup tasks for suite
+administrators
+2
+Tasks for tenant administrators to perform in
+Service Management.
+Service
+Management
+Tenant
+administrators
+Tenant setup tasks for tenant
+administrators
+Install add-on capabilities
+Skip this section if you don't want to install add-on capabilities or if you've already installed them during the suite installation.
+Install add-on capabilities on top of an existing suite if you didn't select them from the installation portal when deploying the
+suite. 
+Sr
+No.
+Task
+Where to perform
+Role
+How to perform
+1
+Install the 
+SMPS
+, 
+DND
+,
+ CGRO
+, and 
+SAM 
+capabilities on
+top of an existing suite.
+OMT
+Management
+Portal
+Suite
+administrator
+Install add-on
+capabilities
+Configure add-on capabilities
+Skip this section if you don't want to install add-on capabilities.
+Configure and enable add-on capabilities if you've installed them during or after the suite installation.
+Sr
+No.
+Task
+Where to perform
+Role
+How to perform
+1
+Enable the SAM capability.
+ Suite Administration
+Suite administrator and
+tenant administrator
+Enable SAM
+2
+Required only if you
+need to enable DND.
+Enable Operations
+Orchestration Containerized
+ Suite Administration
+Suite administrator and
+tenant administrator
+Enable OO Containerized in
+Suite Administration
+3
+Enable the DND capability.
+Suite Administration
+and Service Management
+Suite administrator and
+tenant administrator
+Enable DND
+4
+Enable the CGRO capability.
+ Suite Administration
+and Service Management
+Suite administrator and
+tenant administrator
+Enable CGRO
+SMAX 2022.11
+Page 
+570
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

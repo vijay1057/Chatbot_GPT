@@ -1,0 +1,73 @@
+Instance Types appear in the legend in descending order of spend.
+Spend by product family
+This report provides a view of the spend associated with the Amazon EC2 compute instances, grouped by Product Family. EC2
+Instances charges differ based on the aspect of the EC2 usage. This report provides additional insight into the breakdown of
+spend for your Amazon EC2 usage. Product Families appear in the legend in descending order of spend.
+Spend by purchase option
+This report provides a view of the spend associated with Amazon EC2 compute instances, grouped by Purchase Option.
+Amazon pricing varies significantly by Purchase Option. This report can help you determine whether the most cost-effective
+Purchase Options are being used in your organization. Purchase Options appear in the legend in descending order of spend.
+RDS reports
+Provides information on RDS compute instances based on the following metrics.
+Instances by instance type
+This report provides a view of the number of RDS compute instances created in a given period, grouped by Instance Type.
+Amazon pricing varies significantly by Instance Type. This report can help you see which Instance Types are created the most
+in your organization and may help reveal possibilities for cost saving by switching to a cheaper Instance Type. Instance Types
+appear in the legend in descending order of the number of instances of that type that were created.
+Spend by instance type
+This report provides a view of the spend associated with the RDS compute instances, grouped by Instance Type. Instance
+Types appear in the legend in descending order of spend.
+S3 storage
+Provides information on S3 storage buckets based on the following metrics.
+Buckets by Region
+This report provides a view of the number of Amazon S3 buckets created in a given period, grouped by Region. Amazon S3
+storage pricing varies significantly by Storage class and Region. This report can help you see which Region the storage
+buckets are created the most in your organization and may help reveal possibilities for cost saving by switching to a cheaper
+Region. Region appears in the legend in descending order of the number of S3 buckets on that Region that were created.
+Spend by Region
+This report provides a view of the spend associated with the Amazon S3 buckets, grouped by Region. Region appears in the
+legend in descending order of spend.
+Optimize resource using insights
+Cloud insights are cost-saving recommendations calculated by 
+Micro Focus
+, synthesized from multiple data sources and
+sorted by calculated savings, from most to least.
+Cloud insights help you understand how you might reduce and optimize your cloud spend in the following ways:
+Insights score: Tells you how you are doing when it comes to optimizing your cloud spend. Higher the score, better the
+control you have on your cloud spend.
+Top recommendations: Target the highest priced (on-demand) spending, often greatly reduced through reserving cloud
+capacity. This takes into account your historical billing data and makes recommendations to purchase plans that best suit
+your needs.
+Coverage chart: Indicates how much of your spending lacks the potential benefit of reserved capacity discounts, over the
+last 90 days. 
+Micro Focus
+ also suggests a target coverage percentage.
+Expiring reservations: Alerts you to potential lost savings or allows you to confirm existing phase-out plans.
+Cloud insight configuration status
+The insight configuration status gives a snapshot of when the last recommendation became available, and when the next
+recommendation is expected, for each configured cloud provider. Insights are recalculated as new billing data becomes
+available from cloud providers. In the case of AWS, this can be several times daily. For Azure, it's once daily.
+View insights
+To view insights, from the 
+Dashboard
+, click 
+My Dashboard
+ and select 
+Insights
+ under 
+Run
+.
+Recommendation details show the full list of suggested cloud cost optimizations. The list appears sorted by potential savings.
+Cloud providers are intermixed. This means if your largest potential savings is in AWS, you will see AWS listed first. The list can
+be filtered by individual cloud providers.
+Potential savings are calculated as the difference between the pay-as-you-go price and the cost of the reservation. Each
+recommendation contains information suited to purchasing reserved capacity, specific to the cloud provider.
+Each recommendation displays a combination of values and then a tabular set of quantities to purchase for various VM types.
+The recommendations can involve concepts such as normalized units which, when purchased in the correct combination, can
+yield better results. Review recommendations carefully and adapt as appropriate for your environment.
+SMAX 2022.11
+Page 
+512
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

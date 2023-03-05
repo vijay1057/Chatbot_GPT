@@ -1,0 +1,107 @@
+HCMX_OO_User1 – Operations Orchestration admin user
+1
+. 
+Create an OO user by filling in all the details required.
+a
+. 
+Account – select the account created earlier
+b
+. 
+Role – Select the value Account User
+c
+. 
+Login name - HCMX_OO_user1
+d
+. 
+First name - HCMXOO
+e
+. 
+Last name – user1
+f
+. 
+Email – Give a valid email as it will be used to reset the password
+g
+. 
+Authentication type - DB
+HCMX_transport_user1 – CGRO integration user
+1
+. 
+Create an integration user by filling in all the details. 
+a
+. 
+Account – select the account created earlier
+b
+. 
+Role – Select the value Integration User
+c
+. 
+Login name - HCMX_transport_user1
+d
+. 
+First name - HCMX
+e
+. 
+Last name – user1
+f
+. 
+Email – Give a valid email as it will be used to reset the password
+g
+. 
+Authentication type - DB
+2
+. 
+Save the user details.
+3
+. 
+Activate the user by selecting 
+Active
+.
+4
+. 
+Reset the password for the user. The reset password link will be sent to the email id given while creating the user.
+ 
+Configure the HCMX license
+You will need an HCMX license to access the Cloud Management functionality. 
+To create, upload, and assign an HCMX license:
+Create or upload a license
+1
+. 
+Go to 
+Licenses
+ and select 
+New
+. 
+2
+. 
+Provide the following details and select 
+Save
+.
+a
+. 
+Name – HCMX License1
+b
+. 
+Edition/License – Select 
+Cloud Management
+ as the license type.
+Create a license pool
+1
+. 
+Go to 
+License
+> 
+Pools
+ > 
+New
+.
+2
+. 
+Provide the following details and select 
+Save
+.
+SMAX 2022.11
+Page 
+507
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

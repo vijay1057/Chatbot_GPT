@@ -1,0 +1,45 @@
+Cloud Management - Design and deploy cloud offerings
+Eve, an enterprise developer, requires an AWS EC2 instance cloud offering for running an application on Amazon Web Services
+(AWS). She can go to the consolidated Service Portal, browse for the offering, and request it.
+For the AWS EC2 instance to be available in the Service Portal as a cloud offering, you should design, publish, and configure it.
+The following personas are involved in getting the AWS EC2 instance cloud offering to be available in the Service Portal.
+Persona
+Responsibilities
+Stephen - 
+Suite administrator
+Configure tenant and enable Design and Deploy (DND) capability
+Derek - 
+Tenant Administrator
+Administer tenant and configure user authorization
+Add Aggregation Provider
+Peter - 
+DND Administrator
+Create and publish an AWS EC2 Instance design
+Add the published design to the catalog
+Approve a service request
+Eve - 
+Service Portal User/
+Enterprise Developer
+Request for a cloud service offering from the Service Portal
+Accept the cloud offering
+The personas are limited to the above for this use case. However, you can configure different users to take up various
+responsibilities according to your requirement. For example, the DND administrator role can be further split into various roles
+like Service Designer and Catalog Administrator. For more information on roles and authorization, see 
+Configure authorization
+for DND
+Prerequisites
+Hybrid Cloud Management X (HCMX) is available with Design and Deploy (DND) capability. For more information on how to
+plan the system requirements, prepare the environment and install HCMX, see 
+Install HCMX
+.
+Use case workflow
+The below illustration gives the workflow for configuring the product, publishing an AWS EC2 design, and requesting it from the
+Service Portal.
+Follow the below sections for detailed steps. 
+Configure Suite Administration
+SMAX 2022.11
+Page 
+480
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

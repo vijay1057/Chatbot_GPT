@@ -1,0 +1,100 @@
+Check the file system requirements
+Role
+Location
+Privileges required
+System administrator
+All nodes
+Root or sudo
+The OMT installation requires a certain amount of free space on the control plane nodes and worker nodes to deploy the
+services. To install OMT successfully, you must make sure the directories and devices of the cluster nodes have enough free
+space. The following table lists the directories and devices that the OMT installer will check before the installation. 
+You can use the default directories in the table below. You can also specify custom directories by configuring the related
+parameters in the 
+install.properties
+ file or by specifying the necessary command line options when you run the install
+command. 
+Make sure you use the absolute path for the corresponding directory. The following table provides a reference for the
+directories that are required on each of the servers and the required space.
+Directory
+Equivalent directory
+Node
+Free space
+required
+during
+installation
+Description
+/opt/cdf
+To specify your own directory, modify
+the CDF_HOME parameter in the
+install.properties file
+Control
+plane
+50G
+This is the OMT installation directory.
+When the overlayfs storage driver is
+used, this directory is where the
+container and pod storage is going
+to be located.
+The disk usage will grow over time.
+Worker
+50G
+/var/opt/kubernetes
+Run the following command to specify
+your own directory:
+./downloadimages.sh --dir 
+Control
+plane
+50G
+This directory includes the OMT
+images and all the suite images.
+The subdirectory
+/offline/suite_images can be
+removed after the suite images are
+uploaded.
+/tmp
+To specify your own directory, follow
+one of the steps below:
+Modify the TMP_FOLDER
+parameter in install.properties
+Run the following command
+during the installation:
+./install.sh --tmp-folder 
+Control
+plane
+10G
+You can download OMT packages to
+this folder and unzip the packages
+there. You can remove the files in
+this folder once OMT is installed.
+Worker
+10G
+/var
+N/A
+Control
+plane
+10G
+Worker
+10G
+/var/lib/kubelet
+N/A
+Control
+plane
+10G
+The “kubelet” agent daemon is
+installed on all Kubernetes hosts to
+manage container creation and
+termination.
+Worker
+10G
+Directory structure for installation and runtime data
+The following sections are a conceptual overview of the directory structure and storage space requirements to help you set up
+a server or a virtual machine for the installation. All Linux systems use space under the root filesystem (“/”).
+/ (root filesystem)
+This is the root directory, which is used for various Linux operating system functions.
+/tmp
+SMAX 2022.11
+Page 
+566
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

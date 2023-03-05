@@ -1,0 +1,19 @@
+View subscription details
+View the status of the request in the Service Portal.
+1
+. 
+In the Service Portal, go to 
+Your Request
+. Select the service request submitted to see the status of the request.
+2
+. 
+To get the details of the subscription created go to Service Portal > Service and Assets.
+3
+. 
+Select the subscription to see the details.
+SMAX 2022.11
+Page 
+497
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

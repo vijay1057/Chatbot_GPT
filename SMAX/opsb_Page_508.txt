@@ -1,0 +1,44 @@
+a
+. 
+Name - HCMX_Licensepool
+b
+. 
+Description
+  
+Add the license to the license pool
+1
+. 
+Go to the license created earlier.
+2
+. 
+In the License pool property, select the license pool created in the earlier section.
+Create and configure a tenant for CGRO
+The CGRO capability needs be enabled on a tenant. You can create a new tenant or enable CGRO on an existing tenant. The
+below section outlines steps to create a new tenant and enable CGRO. If you are using an existing tenant make sure that the
+backend type of tenant is SMAX.
+Create a tenant
+1
+. 
+Go to Tenant > New.
+2
+. 
+Fill in the following details
+a
+. 
+Account – Select the account (HCMX_Account1) created in one of the previous sections.
+b
+. 
+Backend type – Select SMAX
+c
+. 
+Name – Give a name for the tenant. Example - HCMX_Account1_tenant
+d
+. 
+Type – Select the type of tenant you want to create.
+ 
+SMAX 2022.11
+Page 
+508
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

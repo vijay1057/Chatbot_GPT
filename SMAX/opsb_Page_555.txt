@@ -1,0 +1,77 @@
+If you plan to install the containerized CMS (as the next deployment on the same OPTIC Management Toolkit (OMT)), use the
+following guidelines to determine the additional hardware resources required for CMS.
+1
+. 
+Determine the CMS deployment size.
+Deployment size
+Small
+Medium
+Large
+Maximum number of CIs and Relationships in CMDB
+10 million
+30 million
+200 million
+2
+. 
+Determine the additional hardware requirements according to your CMS deployment size.
+Size
+Worker node
+NFS
+Database
+Configuration
+Storage
+Quantity
+Configuration
+Storage
+Quantity
+Configuration
+Storage
+Quantity
+Small
+8CPU 32G
+RAM
+140G
+2
+4CPU 16G
+RAM
+200G
+1
+8CPU 32G
+RAM
+200G
+1
+Medium
+8CPU 32G
+RAM
+140G
+3
+4CPU 16G
+RAM
+300G
+1
+16CPU 64G
+RAM
+400G
+1
+Large
+8CPU 32G
+RAM
+140G
+4
+4CPU 16G
+RAM
+400G
+1
+24CPU 96G
+RAM
+800G
+(SSD)
+1
+Related topics
+Plan the deployment
+SMAX 2022.11
+Page 
+555
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

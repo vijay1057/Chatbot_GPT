@@ -1,0 +1,64 @@
+5
+. 
+Select the published offering that needs to be added to the catalog.
+  
+3
+. 
+Select 
+Next 
+and define a display label for the offering.
+4
+. 
+Save the aggregated offering. The offering can be updated with necessary approvals, entitlements/audience, pricing, user
+options, etc before making it active.
+5
+. 
+Select the drop-down and select 
+Activate
+. The offering will be activated.
+Request AWS cloud offering from the Service Portal
+Persona
+Location
+Eve - Service Portal User 
+Service Portal
+1
+. 
+Log in to Service Portal and select the category where the aggregated service offering is available.
+2
+. 
+Select the offering and select 
+Request Service
+.
+3
+. 
+The service offering details page will be displayed. Fill in the details and select the option from the drop-down. The options
+in the drop-down are only available when Resource Synchronization for a provider is successfully completed. For steps to
+initiate the resource synchronization, see section 
+Perform resource synchronization for AWS provider
+.
+4
+. 
+Submit the request after filling in the necessary details.
+Approve the service request
+Persona
+Location
+Peter - DND Administrator
+Service Management Portal
+To approve the service request follow the below steps
+1
+. 
+From the Main menu, go to Run > Service Request. 
+2
+. 
+Select the service request from the list.
+3
+. 
+Fill in the following details on the service request details page
+Current assignment
+Service desk group
+SMAX 2022.11
+Page 
+495
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

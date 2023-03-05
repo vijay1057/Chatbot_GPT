@@ -1,0 +1,59 @@
+opportunities for improvement.
+Reviewers
+Personnel who can examine the tasks and phases of a change, but who don't have approval authority.
+Risk
+A possible event that could cause harm or loss, or affect the ability to achieve objectives. A risk is measured by the probability
+of a threat, the vulnerability of the asset to that threat, and the impact it would have if it occurred. Risk can also be defined as
+uncertainty of outcome, and can be used in the context of measuring the probability of positive outcomes as well as negative
+outcomes.
+Role
+A set of responsibilities, activities, and authorizations.
+Role permission
+A permission is a predefined ability to perform a task.
+Root cause
+The underlying or original cause of an incident or problem.
+Routing definition
+An automatic routing solution for routing records to the correct groups based on the information contained in the record. It can
+also be used to specify the values that appear in the drop-down list for a selected group field for a record, based on the path
+defined in the selected routing definition. The routing definitions module enables you to create and edit a visual routing
+definition which is easy to read and maintain.
+S
+Self-hosted NFS
+It's an NFS server that's hosted on a virtual machine and managed by the customer directly. Its opposite is a managed NFS.
+Self-hosted PostgreSQL
+It's a PostgreSQL server that's hosted on a virtual machine and managed by the customer directly.
+Service
+A means of delivering value to customers by facilitating outcomes customers want to achieve without the ownership of specific
+costs and risks. The term "service" is sometimes used as a synonym for core service, IT service or service package.
+Service Asset and Configuration Management (SACM)
+SACM is the process that's responsible for ensuring that the assets required to deliver services are properly controlled, and
+that accurate and reliable information about those assets is available when and where it's needed. This information includes
+details of how the assets have been configured and the relationships between assets.
+Service management administrators and other personnel need current information about business services and devices to
+close defects, fulfill change requests, and solve problems. Most business services depend on hardware and software to run
+efficiently. When there is an outage, the interruption can affect the entire organization, a special group, or just a few
+individuals.
+Service catalog
+The service catalog contains services arranged by category. The services are further divided into service offerings and support
+offerings. The content in the service catalog is displayed on the home page of the 
+Service Portal
+.
+Service catalog management
+The process responsible for providing and maintaining the service catalog and for ensuring that it's available to those who are
+authorized to access it.
+Service contract
+A contract to deliver one or more IT services. The term is also used to mean any agreement to deliver IT services, whether this
+is a legal contract or a service level agreement.
+Service design
+A stage in the lifecycle of a service. Service design includes the design of the services, governing practices, processes and
+policies required to realize the service provider’s strategy and to facilitate the introduction of services into supported
+environments. Service design includes the following processes: design coordination, service catalog management, service
+level management, availability management, capacity management, IT service continuity management, information security
+management, and supplier management. Although these processes are associated with service design, most processes have
+activities that take place across multiple stages of the service lifecycle.
+SMAX 2022.11
+Page 
+530
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

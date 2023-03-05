@@ -1,0 +1,63 @@
+Create Users
+After creating a customer and account, create the following users for this use case.
+Eve - who will be Service Portal User
+Derek- who will be a tenant administrator
+Peter - who will be a Design and Deploy (DND) administrator
+Create an Operations Orchestration Administrator and a DND integration user.
+OO_admin - Operations Orchestration administrator
+DND_Integration_admin - Integration user
+Eve - Service Portal user
+1
+. 
+Go to 
+Users
+ and select 
+New
+. Fill in the following details.
+Account - Select the 
+Cloud Design Acc
+ created earlier. 
+Role - Select 
+Account User
+Login name - Eve
+First name - Eve
+Last name - Jack
+Email - Give a valid email address. 
+Authentication type - DB
+2
+. 
+Save the user details.
+3
+. 
+Activate the user by selecting 
+Active
+. 
+4
+. 
+Select the 
+Reset password
+. A reset password link will be sent to the email id configured while creating the user. Reset
+the password by accessing the link given in the mail. Don't set the password with a double-quote ("), forward-slash (/), or
+backslash (\) as these special characters aren't supported.
+Derek - Tenant administrator
+1
+. 
+Go to 
+Users
+ and select 
+New
+. Fill in the following details.
+Account - Select the account created earlier
+Role - Select 
+Account User
+Login name - Derek
+First name - Derek
+Last name - H
+Email - Enter a valid email. A password reset link will be sent to this email address
+Authentication type - DB
+SMAX 2022.11
+Page 
+482
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

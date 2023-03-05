@@ -1,0 +1,11 @@
+A directory containing data, which containers can access.
+Worker node
+See node. Suites and applications run on the worker nodes.
+Workloads
+Workloads are objects you use to manage and run your containers on the cluster.
+SMAX 2022.11
+Page 
+537
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

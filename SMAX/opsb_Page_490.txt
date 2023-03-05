@@ -1,0 +1,92 @@
+Follow the below steps to generate Key chain
+1
+. 
+Launch the Service Portal using the tenant URL. 
+2
+. 
+From the main menu, go to 
+Administration > Application Settings
+.
+3
+. 
+To create your tenant key chain:
+Select 
+Create tenant key chain.
+Type and confirm your Passcode. The passcode of the key chain must be 10 to 20 characters long containing at least
+one upper case character, at least one lower case character, and at least one number. 
+Select 
+OK
+.
+Create and publish Amazon Web Service (AWS) Instance Cloud Offering 
+Persona
+Location
+Peter - DND Administrator
+Service Management Portal
+Configure Application settings
+1
+. 
+Launch the Service Portal using the tenant URL and log in using the DND administrator credentials.  The user id will be
+Peter
+ and the password will be the one you had set while resetting the password.
+2
+. 
+Select 
+Agent Interface
+. This will take you to the Service Management portal.
+3
+. 
+From the main menu, go to 
+Administration
+ > 
+Application Settings
+. Verify the following options are set.
+Experience mode - Add 
+Cloud Management
+ option.
+Enable Service Design and Deployment - Set it to 
+On.
+Enable Aggregation - Set it to 
+On
+Add DND as aggregation Provider
+You need to add DND as an aggregation provider for the published design to be available for consumption. To add an
+aggregation provider:
+1
+. 
+From the main menu, go to
+ Administration > Providers > Aggregation Providers
+.
+2
+. 
+Select 
+New
+.
+3
+. 
+On the New Provider page, fill in the following details and select Save.
+Basic
+Properties
+Title field
+Give a descriptive name for the new provider
+System
+type 
+Service Design and Deployment. After the System Type is selected,
+additional General and Integration user sections are displayed.
+General
+URL
+Type the URL of the provider system.
+The URL must be 
+https://itom-dnd-controller-svc:8444/dnd
+Integration
+user
+Login
+name
+Give the DND integration user name 
+DND_Integration
+Give the DND integration user’s password
+Configure AWS Deployment Resource Provider
+SMAX 2022.11
+Page 
+490
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,127 @@
+Day 1 or day 2 installation?
+SMAX offers product capabilities as described in the following table. During the suite installation, you can select which product
+capabilities to install. For each new installation ("day 1 installation"), the 
+Service Management Automation
+(SMA)
+ capability is mandatory, and the rest are optional. You can choose to install all needed capabilities through day 1
+installation or install partial capabilities through day 1 installation and then optionally install more after day 1 (that is, through
+"day 2 installation"). 
+The day 2 installation functionality gives you the flexibility to install product capabilities at different time points and
+allows you to install new capabilities introduced in the current release after upgrading from the previous release. The day 1
+and day 2 installation processes are similar. The 
+Service Management Automation (SMA)
+ capability is mandatory for each
+new installation, and the other ones (also referred to as "add-on capabilities") are optional in a new installation. You can install
+add-on capabilities at a later time from the OPTIC Management Toolkit (OMT) Management Portal after the suite is installed,
+and you can also use this mechanism to install new capabilities introduced in the current release after upgrading from a
+previous release.
+Product
+capability
+Description
+Notes
+Service
+Management
+Automation
+(SMA)
+Provides the core business functionality of SMAX: Service Management (the
+agent interface), Service Portal (self-service user interface), and Suite
+Administration (suite administrator interface). 
+Mandatory for all new
+installations
+Service
+Manager
+Portal
+Service
+(SMPS)
+Services required to integrate an external Service Manager system with SMA
+Service Portal.
+Mandatory for
+SMA-SM
+ customers
+Needed only for
+SMAX customers
+who want to
+additionally deploy
+one or more
+Service Manager
+tenants
+Design and
+Deploy
+(DND)
+SMAX Cloud Management offers the DND capability. The DND capability
+enables customers to make new cloud service offerings based on published
+service designs available to consumers. 
+Image Aggregation and Content Store capabilities are part of DND.
+Image Aggregation (IA) showcases cloud service templates from the
+marketplace portals of AWS, Microsoft Azure, and vCenter. As a cloud business
+service manager, you can use the Aggregator to instantly create and offer new
+services from these templates without having to create an automation asset.
+Content Store enables customers to download the latest content packages or
+capsules published on the ITOM Marketplace and use the Content Store to
+easily install them into the HCMX suite. Customers can also use the Content
+Store to install custom content packages or capsules.
+For Cloud
+Management
+Optional for SMAX
+customers
+Requires a
+separate HCMX
+license
+Cost
+Governance
+and
+Resource
+Optimization
+(CGRO)
+CGRO enables you to optimize your cloud spending and simplify configuration
+with various Cloud providers. With CGRO, you can review your public cloud
+costs to get a clearer understanding of your activity and usage of public cloud
+resources.
+Note
+: the CGRO installation has a dependency on DND. If you select CGRO,
+you must select DND as well.
+For Cloud
+Management
+Optional for SMAX
+customers
+Requires a
+separate HCMX
+license
+Has a dependency
+on DND
+Software
+Asset
+Management
+(SAM)
+With the hardware and software data discovered by UD and license data
+retrieved from SMAX, the new SAM capability enables you to calculate and
+analyze license compliance for the software applications that you are using in
+your organization. This will reduce the risk of non-compliance and improve
+visibility into your financial and operational decisions.
+Optional for SMAX
+customers
+Native SACM or traditional CMS integration?
+SMAX can work with CMS to manage configuration items in your environment. CMS consists of Universal CMDB and Universal
+Discovery. To learn more about CMS, see 
+Configuration Management System
+. 
+CMS ships with the following editions:
+Classic CMS: an executable for Windows (.exe) or Linux (.bin) installation, installed as a standalone application in a classic
+(non-containerized) manner
+Containerized CMS: a Helm charts package, installed as a standalone application on the same OMT instance as SMAX
+Which edition to use depends on how you want SMAX to integrate with CMS: through the 
+Native SACM solution
+,
+or through 
+traditional OPB-based integration
+. 
+Native SACM
+This is the recommended solution. To learn more, see 
+Get started with Native SACM
+. 
+SMAX 2022.11
+Page 
+539
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

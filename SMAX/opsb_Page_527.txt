@@ -1,0 +1,66 @@
+N
+Normal change
+A change that's not an emergency change or a standard change. Normal changes follow the defined steps of the change
+management process.
+Notification
+A message delivered in an on-screen active note, the form window's status bar, or the mail file.
+A message sent externally, using email or fax.
+O
+Offering
+The services in the service catalog are divided into service offerings and support offerings. Offerings are used by the service
+request agents in the service request management module. When an agent opens a request, he can select an offering to
+channel the request directly to the correct team for handling.
+On-Premises Bridge
+The 
+On-Premises Bridge
+ is a platform that enables communication between on-premises applications and Service Management
+- in both directions. Because on-premises applications are located behind firewalls, initiating a connection from Service
+Management to an on-premises application isn't possible; therefore, a "bridge" component is required.
+Operations Orchestration (OO) Containerized
+OO Containerized is a capability that enables seamless automation and orchestration of repeatable IT operations across
+teams, tools, and environments.
+OO Central
+OO Central is the runtime environment of OO. It is used for running flows, monitoring the various runs, and generating reports.
+OO Content
+OO contains an out-of-box content library with over 4,000 flows and operations, accelerator packs, and integrations.
+OO Designer project
+An OO Designer project is a directory in OO Workflow Designer, containing the flows and operations that a flow author is
+working on. In order to create a flow, a flow author must be working within a project.
+Every project contains two folders:
+Library
+ - holds all the flows and operations in that project.
+Configuration
+ - holds other OO objects (filters, scriptlets, system properties, and so on) that you can use to process
+operation results, create reports, and facilitate the running of flows
+When flow authors complete a project, they package it into a content pack for promotion to the Central server.
+Operations Orchestration RAS
+RAS is a remote action server, containing a worker and a remote protocol for connecting with Central.
+Operations Orchestration Workflow Designer
+OO Workflow Designer is a web-based authoring environment for creating and modifying flows using CloudSlang language.
+OO flow
+An OO flow refers to a flow from Operations Orchestration. An OO flow is a set of linked actions that automate health checks,
+troubleshooting or any other repetitive IT support tasks. For more information about OO flows, refer to the Operations
+Orchestration documentation.
+OO Operation
+An operation holds the 
+inputs
+, 
+outputs
+, 
+responses
+, and other properties that are required to perform a certain action.
+Operations are available for the flow author to use as steps inside a flow. A rich set of out-of-the-box operations is available
+with OO Workflow Designer
+OO Output
+Outputs are data produced by operations—for example, success code, output string, error string, or failure message.
+OO Output fields
+In a 
+subflow
+ (a flow within a flow), output fields are used to store a step's results so that the result data is accessible to
+operations, transitions, and prompts in the parent flow.
+SMAX 2022.11
+Page 
+527
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

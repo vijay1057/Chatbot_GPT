@@ -1,0 +1,62 @@
+Mozilla Firefox 105 (64-bit), ESR 102.3 (64-bit)  
+Apple Safari 16.0
+Microsoft Edge 105 (Chromium based)
+Service Management and Service Portal
+The following are the supported platforms and browsers for the Service Management and Service Portal interfaces. 
+Platform
+Browser
+Windows 10
+Latest Edge and Chromium-based Edge
+Latest Chrome
+Latest Firefox
+Windows 7 and 8 (not RT)
+Latest Chrome
+Latest Firefox
+Apple iPad 9.7"
+Safari
+Samsung Galaxy Tab & Galaxy Note
+Latest Chrome
+If using a tablet:
+Only the People module is available under Administration.
+Only landscape mode is supported.
+In addition to the supported operating systems, browsers, and devices, the use of the following platforms is safe, which harms
+neither the suite nor the device. However, there may be display issues or a lack of usability. Before you report an issue about
+any of the following browsers or devices, try to reproduce it on a supported browser and device first.
+Platform
+Browser
+Windows
+Other Chromium-based browsers, such as Yandex
+Windows 7 and 8 (not RT)
+Chrome - the two versions prior to the latest version
+Firefox - the two versions prior to the latest version
+Mac OS 10.8 and later
+Chrome - two latest versions
+Firefox, only for the Service Portal
+Android tablets running Android version 7.0 and later
+Chrome - the latest version and the two prior major
+versions
+Android smartphones running Android version 7.0
+and later
+Chrome - the latest version and the two prior major
+versions, only for the Service Portal
+iPhone, and iPad mini
+Safari, only for the Service Portal
+Suite Administration and CMS
+The following browsers are supported for the Suite Administration interface and CMS (UCMDB and UCMDB Browser).
+Latest Firefox
+Latest Chrome
+Mobile app
+See 
+Support matrix of the mobile app
+.
+Screen resolution
+1600 x 900
+1280 x 1024
+1920 x 1200, or higher
+Language support
+SMAX 2022.11
+Page 
+559
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

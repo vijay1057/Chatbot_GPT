@@ -1,0 +1,80 @@
+Persona
+Location
+Stephen - Suite Administrator
+Suite Administration Portal
+Follow the below steps to create and configure a tenant with Design and Deploy (DND) capability.
+Configure email 
+Follow the below steps to configure the Email settings to receive notifications. 
+1
+. 
+Access the suite administration portal with the URL in the format
+ https://<hostname>/bo. 
+Example: 
+https://smax-
+master.esmlab.net/bo/
+2
+. 
+Log in using the out-of-the-box suite administration user 
+suite-admin
+. The password for 
+suite-admin 
+is set during the
+installation of the product.
+3
+. 
+Go to 
+Configuration > Email. 
+Enter the values for the following properties and select 
+Test Connection
+.
+Mail server host - SMTP hostname
+SMTP server port - SMTP server port
+Mail Protocol - Select Mail Protocol as 
+SMTP
+Certificate  - Select 
+Plain
+4
+. 
+Once Test Connection is successful, select 
+Save
+.
+Create Customer, Account, and Users 
+A user is associated with an account which in turn is associated with a customer. Follow the below steps to create a customer,
+account, and user.
+Create a customer
+1
+. 
+Go to the 
+Customers
+ tab and select
+ New
+. Fill in the following parameters and select 
+Save 
+to create a new customer.
+Full name - 
+Cloud Design Offering
+Short name - 
+CD Offering
+Create Account
+1
+. 
+Go to 
+Accounts
+ and select 
+New
+. Configure the following parameters and select Save to create a new account.
+Shared Service type - 
+Standard
+Name - 
+Cloud Design Acc
+DB user login identifier - 
+Login Name
+Customer - Select the customer (
+Cloud Design Offering) 
+created in the prior step.
+SMAX 2022.11
+Page 
+481
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

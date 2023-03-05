@@ -1,0 +1,41 @@
+This directory is used by the operating system as a temporary location and is used for some application files. The minimum
+recommended size for this directory is 10 GB on all of your systems. In the install.properties setup file, it's possible to specify
+an alternative location for temporary installation files (TMP_FOLDER), which would reduce this requirement if for some reason
+/tmp must be smaller.
+Directory to contain the offline download of the images
+The installation process requires you to download the images to the first control plane node or download them on a separate
+Containerd system and copy them to the first control plane node. You can specify a directory for the download images or use
+the default directory /var/opt/cdf/offline. The image processing done by 
+uploadimages.sh
+ requires up to 2 times of the image
+size in the target directory. This space is required only temporarily on the first control plane node and not needed on any other
+node. You can remove the images once the installation is done. If you choose to use the default /var/opt/cdf/offline directory,
+then ensure that you have the 2 times of the OMT and suite image size under /var/opt/cdf/offline under the first control plane
+node.
+OMT home and OMT runtime directory
+These can be in any location of your choice. By default they're both under /opt (/opt/cdf and /opt/cdf/data). If you choose to
+install into a different home location or change the runtime directory location, then you need to edit the corresponding 
+CDF_HO
+ME
+ and the 
+RUNTIME_CDFDATA_HOME
+ parameters in the 
+install.properties
+ file to point to the directories you wish to use. You can
+configure those parameters along with others while completing the preparation tasks.
+When the OMT runtime directory (specified for 
+RUNTIME_CDFDATA_HOME) 
+uses a different directory from $CDF_HOME, the disk
+requirement for the 
+RUNTIME_CDFDATA_HOME
+ specified directory is only for the use of  "overlayfs". 
+We recommend leaving these as the default. 
+Related topics
+Plan the deployment
+System requirements
+SMAX 2022.11
+Page 
+567
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

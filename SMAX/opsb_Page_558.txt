@@ -1,0 +1,67 @@
+NFS
+Supported NFS versions
+NFS v4.0, v4.1, v4.2
+NFS storage types
+Self-hosted NFS storage (Linux-based)
+Managed NFS storage
+See 
+Configure NFS volumes
+.
+LDAP servers
+You can configure LDAP authentication in the IdM Admin Portal or configure LDAP integration by using the OPB Agent. 
+LDAP authentication in IdM
+Technically, LDAP authentication in the IdM Admin Portal supports all external LDAP servers. The following are certified LDAP
+servers:
+OpenLDAP 
+Microsoft Active Directory 
+OPB-based LDAP integration
+The supported LDAP servers are:
+Microsoft Active Directory 2012
+Microsoft Active Directory 2016
+Microsoft Active Directory 2019
+Microsoft Active Directory 2022
+Apache DS 2.0
+On-Premises Bridge (OPB)
+You can install the On-Premises Bridge (OPB) Agent on the following operating systems.
+Operating systems
+Minimum
+memory
+Minimum free disk space
+required
+Number of
+vCPUs
+Windows
+Windows (64-bit) 2022, 2019, 2016, 2012
+4 GB
+80 GB
+4
+Linux
+Red Hat Enterprise Linux x86_64: 7.9, 8.4,
+8.6
+CentOS x86_64: 7.9
+4 GB
+80 GB
+4
+Federated Identity technologies
+This release supports the following federated identity technologies, using the IdM service embedded in the suite as a Service
+Provider (SP). 
+SAML 2.0
+Technically, the suite supports all SAML 2.0 compliant Identity Providers (IdPs). The following IdPs are the ones certified in the
+lab: 
+Microsoft ADFS 3,0, 4.0
+Azure AD
+OAuth 2.0
+Technically, the suite supports all OAuth 2.0 compliant Identity Providers (IdPs). The following IdPs are the ones certified in the
+lab:
+MITREid Connect
+Google
+Browsers
+See the following for supported browsers.
+OMT
+Google Chrome 105
+SMAX 2022.11
+Page 
+558
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

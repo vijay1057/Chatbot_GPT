@@ -1,0 +1,63 @@
+alert or notification created by any IT service, CI or monitoring tool. Events typically require IT operations personnel to take
+actions, and often lead to incidents being logged.
+Event management
+The process responsible for managing events throughout their lifecycle. Event management is one of the main activities of IT
+Operations.
+The objective of ITIL Event Management is to make sure CIs and services are constantly monitored. Event Management aims
+to filter and categorize events, in order to decide the appropriate required actions, if any.
+Expression Language
+The Expression Language is a language that enables you to construct meaningful expressions that can be entered in different
+parts of the user interface. It includes logical and mathematical expressions, as well as object properties and functions.
+External Access FQDN/external access host/EXTERNAL_ACCESS_HOST
+The FQDN that end-users use to access the SMA suite. This FQDN should be available from your DNS provider.
+F
+Field
+A single data element within a database dictionary record. For example, name is a field in the operator database dictionary
+record, and its value for one user might be Joe. A field is equivalent to a column in a Relational Database Management System
+(RDBMS).
+Financial management
+A generic term used to describe the function and processes responsible for managing an organization’s budgeting, accounting
+and charging requirements. Enterprise financial management is the specific term used to describe the function and processes
+from the perspective of the overall organization. Financial management for IT services is the specific term used to describe the
+function and processes from the perspective of the IT service provider.
+Service Management's Financial Management module helps you manage money in an efficient and effective way, so as to
+align with enterprise strategy and achieve business objectives. It assists with budget planning and the execution, monitoring,
+and control of financial resources.
+Floating users
+Operators authorized to log in to Service Management, based on the number of floating seats available in the license pool.
+A floating user ID may log in to Service Management more than once; however, each time a user is logged in to the system,
+that user counts as a floating user for that Service Management system. When the maximum number of floating users licensed
+to a given system are concurrently logged in, no more floating users can connect to that system.
+Flow
+A flow is the composition of 
+steps
+ and 
+transitions
+ together forming a set of actions that are linked by decision-making logic in
+order to automate tasks. For example, health checks, troubleshooting, or any other repetitive IT support tasks. Flows are
+created in OO Workflow Designer and then run in OO Central.
+Flow run
+A flow run is a single execution of a 
+flow
+ in Central. Flow runs collect data, enabling you to analyze the performance of your IT
+system.
+Form editor
+Enables you to view and edit Service Management forms.
+Fulfillment
+Performing activities to meet a need or requirement – for example, by providing a new IT service, or meeting a service request.
+G
+Group
+An administrator can create and manage user groups. Groups are useful for making assignments, identifying Level 1, Level 2,
+or Level 3 support groups, or assignment groups. After you create a new user, you can add the user to one or more
+assignment groups. Role assignments can be automatic if you assign one or more roles directly to the group and then add a
+user to that group. The user inherits those group role assignments.
+Group alias
+Group aliases let you separate between assigning an operation to a worker during authoring time and in the run time
+environment. In OO Workflow Designer, the author can define an operation to execute on a group alias rather than a worker
+group. In Central, the Op Admin maps the group alias to the actual worker group.
+SMAX 2022.11
+Page 
+524
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

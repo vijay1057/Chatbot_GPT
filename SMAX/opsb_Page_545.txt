@@ -1,0 +1,22 @@
+SMA + SAM + containerized CMS
+Option 3. Install SMA +DND + OO + CGRO
+Use this option if you plan to install the SMA together with the DND and CGRO capabilities (which the Cloud Management
+functionality requires). 
+The installation of 
+Operations Orchestration(OO) Containerized
+ is mandatory for 
+DND
+ to work. After installing DND,
+install and enable OO Containerized. See 
+Install OO on-premises
+ and 
+Enable OO Containerized
+.
+The following diagram illustrates the architecture of this deployment option. 
+Installing and enabling OO Containerized should be completed before enabling DND in the suite administration.
+SMAX 2022.11
+Page 
+545
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

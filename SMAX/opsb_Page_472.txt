@@ -1,0 +1,31 @@
+From the cards, we can see that Office Visio 2019 Pro is compliant. However, for Office Visio 2019 Standard, no licenses
+are available, but 12 license points have already been consumed. To avoid audit issues, you need to remove the
+unnecessary installations and purchase licenses as required.
+3
+. 
+Click the card to drill down to the consumption summary of the selected product version.
+The information you see will depend on the licensing type of the product.
+For products of the user-based licensing type, the user interfaces will be different. For more information, see 
+Compliance
+.
+Analyze license compliance
+To analyze software compliance per device. follow these steps:
+1
+. 
+From the top menu, select 
+Analysis
+.
+2
+. 
+Click the 
+Consumption analysis
+ card to view the compliance information of each product.
+3
+. 
+Locate Office Visio in the product list.
+SMAX 2022.11
+Page 
+472
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

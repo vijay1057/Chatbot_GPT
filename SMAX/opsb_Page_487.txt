@@ -1,0 +1,73 @@
+Note
+ If the 
+OO integration UR
+L is invalid, an error occurs. Normally, this won't happen unless you have changed this
+URL by mistake after the previous URL validation in step 6. In this case, correct the wrong URL and then click 
+Test
+Connection 
+to validate this URL again and then click 
+Save
+.
+13
+. 
+Ask the tenant admin to do the following:
+1
+. 
+Check that the seeded roles and groups are replicated to the Agent interface:
+Roles (
+Administration
+ > 
+People
+ > 
+Roles
+): OO Administration Role, and OO End User Role.
+ 
+Groups (
+Administration
+ > 
+People
+ > 
+Groups
+): OO Administrators and OO End Users.
+2
+. 
+Check that the tenant admin user is assigned to the
+ OO Administrators
+ group.
+Deploy DND capability
+Follow the below steps to deploy the capability.
+1
+. 
+Select the tenant and go to 
+Capabilities Settings > Deploy new capability
+. A popup will be displayed.
+2
+. 
+Select 
+Design and Deploy
+ and select 
+Next
+.
+3
+. 
+In the 
+Config and deploy
+ screen set the users as below
+DND administrator - B, Peter
+DND transport user - Admin, DND_Integration
+4
+. 
+ Check the checkbox and select 
+Deploy
+.
+4
+. 
+The status of the tenant deployment can be seen in the 
+Operations History
+ tab.
+SMAX 2022.11
+Page 
+487
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,68 @@
+H
+Hot topic analytics
+Service Management's hot topic analytics helps support agents to analyze:
+Questions and requests submitted by 
+Service Portal
+ users.
+The types of information that 
+Service Portal
+ users are looking for.
+Hot topic analytics reviews the search strings that were entered by the users as well as the questions asked. It also analyzes
+how users treated the generated search results, looking at which search results were further drilled into, and so on.
+The hot topic analytics maps display a graphical view of important areas of interest that have arisen through the 
+Service
+Portal
+.
+Hard copied operation
+In a 
+hard copy
+ of an operation, the copy is directly linked to the action plugin in the same way that the original operation was.
+When the action plugin jar file is updated—for example if the name of the JAR or the class is changed—this needs to be
+updated in all the hard copied operations.
+I
+Idea & Proposal management
+Service Management's idea and proposal management module enables users to directly collect feedback from the service
+consumer, which ensures continuous improvement of the IT service and drives innovation. With social collaboration, ideas can
+evolve to proposals or changes after being categorized, reviewed, and approved. When an approved idea is in place, a
+proposal or change record can be easily created in Service Management with a few simple clicks. When the proposal is
+created, it's entered in the project and portfolio management domain.
+Impact
+A measure of the effect of an incident, problem, or change on business processes. Impact is often based on how service levels
+will be affected. Impact and urgency are used to assign priority.
+Incident
+An unplanned interruption to an IT service or reduction in the quality of an IT service. Failure of a CI that has not yet affected
+service is also an incident – for example, failure of one disk from a mirror set.
+Incident management
+The process responsible for managing the lifecycle of all incidents. Incident management ensures that normal service
+operations are restored as quickly as possible and the business impact is minimized.
+Incident model
+An incident model, is a method of predefined steps to handle the incident management process. The model includes steps to
+take, chronological order of the steps, who is responsible for each step, a time scale, and escalation procedures. In addition,
+the model ideally includes necessary activities required to preserve evidence, such as security and capacity-related incidents.
+Some incidents occur frequently and require a quick and consistent manner of registration. For this reason, you can create
+predefined incident models or interaction models that include values for attributes, such as description, priority, impact, and
+service. You can then apply the predefined models to incidents as they occur.
+Incident record
+A record containing the details of an incident. Each incident record documents the lifecycle of a single incident.
+Information Technology Infrastructure Library (ITIL)
+A set of best-practice publications for IT service management. Owned by the Cabinet Office (part of HM Government), ITIL
+gives guidance on the provision of quality IT services and the processes, functions and other capabilities needed to support
+them. The ITIL framework is based on a service lifecycle and consists of five lifecycle stages (service strategy, service design,
+service transition, service operation and continual service improvement), each of which has its own supporting publication.
+There is also a set of complementary ITIL publications providing guidance specific to industry sectors, organization types,
+operating models and technology architectures.
+Information Technology Service Management (ITSM)
+The implementation and management of quality IT services that meet the needs of the business. IT service management is
+performed by IT service providers through an appropriate mix of people, process and information technology.
+Input
+Inputs give the operation the data that it needs to act upon. For example, an operation to check a web page needs to know
+which page to check and what text to look for.
+Inputs can be:
+Set to a specific value
+Obtained from information gathered by another step
+SMAX 2022.11
+Page 
+525
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

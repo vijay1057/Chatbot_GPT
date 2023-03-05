@@ -1,0 +1,30 @@
+Plan for on-premises
+The following table provides an overview of the topics covered in the Plan section:
+Topic
+Description
+Plan the
+deployment
+Collect and evaluate data from your current environment to determine the following:
+Suite deployment option that suits your environment the best
+Size and complexity of your suite deployment
+System
+requirements
+Based on your deployment plan, review the system requirements for the installation of suite. At
+the conclusion of this phase, you must have the following resources in place:
+Control plane node(s) required to control the logic of service deployment
+Worker node(s) to run suite services
+NFS server to store OMT and suite data
+Relational database
+Check the file
+system
+requirements
+Lists the required directories and free space needed in each directory
+Related topics
+Next topic: 
+Plan the deployment
+SMAX 2022.11
+Page 
+542
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

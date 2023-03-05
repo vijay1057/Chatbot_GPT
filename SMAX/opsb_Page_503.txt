@@ -1,0 +1,79 @@
+An optional step is to integrate the cost estimation into the Financial Management module of ESM. This might give you
+additional tracking and some estimated cost insights. For information about an additional overview and the setup steps,
+see 
+Financial Management
+.
+Known Issues of IaC Gateway
+There might be certain scenarios that you get into where after the Terraform state file is saved into IaC Gateway and the
+request is issued to ESM, the request gets stuck, and IaC Gateway never gets a subscription id from ESM.
+If you run into this issue, you can resolve it by issuing a couple of APIs calls.
+API calls
+First, run a GET API call to retrieve Terraform state file data out of the database to ensure that the state entries are there in
+the database, and then run a DELETE API call to remove the state entries from the database.
+1
+. 
+Run a GET API call to retrieve Terraform state data to validate that the Terraform state entry is in the database.
+https://<hostName>/iac-controller/v1/<tenantId>/ terraform/<terraform-state-name>/backend
+GET Method
+Basic Authentication
+Partial example output from GET Call:
+Username - The username of the HTTP basic authentication. This user must be a member of the 
+DND
+Administrators
+ group.
+Password – The password for HTTP basic authentication.
+2
+. 
+Run a DELETE API call to remove entries from the database.
+https://<hostName>/iac-controller/v1/<tenantId>/ terraform/<terraform-state-name>/backend
+DELETE Method
+Basic Authentication
+Username - The username of the HTTP basic authentication. This user must be a member of the 
+DND
+Administrators
+ group.
+Password – The password for HTTP basic authentication.
+Optional step
+Some of the CIs may not show up in the Native SACM UI because they aren't included in the out-of-the-box configuration of
+CMS.
+If you find that there are discrepancies between the topology in CMS and what's in Native SACM, you can change the out-of-
+the-box configuration to add those CIs to be included in ESM. 
+1
+. 
+Log in to the UCMDB UI using the local client or through the browser.
+2
+. 
+Navigate to 
+Modeling Studio
+ on the left-side navigation.
+3
+. 
+Make sure you are in the Resources view, click 
+Resources 
+on the top of the screen.
+4
+. 
+In the tree view, expand SMAX Topology and double click 
+SMAX_Direct_Linked_CI
+.
+5
+. 
+Click the 
+Direct_Linked_CI
+ Icon in the canvas and click 
+Edit
+ in the lower right corner.
+6
+. 
+Click the 
+Element Type
+ view on the top right area.
+7
+. 
+In the tree view on the left side, find the CI Type that you want to add.
+SMAX 2022.11
+Page 
+503
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

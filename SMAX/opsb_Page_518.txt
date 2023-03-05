@@ -1,0 +1,63 @@
+Glossary
+A
+Action
+An action is a software component invoked by the OO run time in order to achieve a certain task. An action can be developed
+using the Java or Python programming language. Actions are packaged in the form of a .JAR files and can be used as the basis
+for 
+operations
+. In addition to the actions developed by OO, an action can be developed at your own site or provided by a third
+party vendor aiming to extend the capabilities of OO.
+Agreement
+An agreement is a document describing a formal understanding between two or more parties. An agreement isn't legally
+binding unless it forms a contract.
+AKS
+Azure Kubernetes Service (AKS), a highly available, secure, and fully managed Kubernetes service.
+Amazon EKS
+Amazon EKS is a managed service that makes it easy for you to run Kubernetes on AWS without needing to install and operate
+your own Kubernetes control plane or worker nodes.
+Analytic report
+Reports that reflect historical data for a record type over time. They are calculated according to a defined schedule and can
+include calculated fields. Analytic reports can be set as active or inactive; the active reports are counted toward the quota
+defined for the tenant.
+Application Portfolio Management
+The Application Portfolio Management module enables the assessment and prioritization of the current application portfolio,
+and determines which applications need to be modernized. This module is the first step towards application transformation.
+Approval
+Official agreement by an approver, or an approval group, to accept the risk, cost, and responsibility to implement a change or
+complete a task. The System Administrator defines membership in an approval group in each user’s record according to their
+User Role. Change requests and tasks have approval requirements. Approvals enhance the Change Management ability of an
+organization.
+Asset
+An asset is a generic term referring to any resource used in service delivery. An asset can be any potential resource or
+capability that contributes to the delivery of a service. Assets can be any one of the following types: Applications, Financial
+Capital, Information, Infrastructure, Knowledge Management, Organization, People, Hardware, Software, or Process.
+Information Technology (IT) assets that need to be individually managed are also  Configuration Items (CIs).
+Asset Management
+A generic activity or process responsible for tracking and reporting the value and ownership of assets throughout their
+lifecycle.
+Attribute
+A piece of information about a CI. Examples are name, location, version number, and cost. Attributes of CIs are recorded in a
+configuration management database (CMDB) and maintained as part of a configuration management system (CMS).
+Availability
+The ability of an IT service or other CI to perform its agreed function when required as defined in the Service Level Agreement
+(SLA). Availability is determined by reliability, service availability, performance, and security. Availability is usually calculated
+as a percentage. This calculation is often based on agreed service time and downtime. It's best practice to calculate the
+availability of an IT Service using measurements of the business output.
+AWS GovCloud
+AWS GovCloud (US) is designed to address specific regulatory and compliance requirements of US government agencies at the
+federal, state, and local level, as well as contractors, educational institutions, and other U.S. customers that run sensitive
+workloads in the cloud. Beyond the assurance programs applicable to all AWS Regions, the AWS GovCloud (US) Regions allow
+customers to adhere to U.S. International Traffic in Arms Regulations (ITAR), Federal Risk and Authorization Management
+Program (FedRAMP), and Department of Defense (DoD) Cloud Computing Security Requirements Guide (SRG) Impact Levels 2,
+4, and 5. Visit the 
+Compliance Programs page
+ for a complete list of U.S. compliance standards supported by AWS GovCloud
+(US). ref: 
+https://aws.amazon.com/govcloud-us/faqs/
+B
+SMAX 2022.11
+Page 
+518
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,107 @@
+See 
+Hardware requirements for option 3
+. 
+Hardware requirements for other options
+If none of the options described earlier suits your environment, see 
+Hardware requirements for other options
+.
+Hardware configuration and system tuning recommendations
+The following are some system tuning recommendations.
+CPU processor and I/O recommendations
+For Processor type, Intel Xeon E5, E7 or peers are recommended. For Processor speed, a processor frequency higher than 1.9
+GHz is recommended for non-production environments, and a processor frequency of 2.3 GHz or higher is recommended for
+production environments. A higher speed will certainly bring in performance improvements.
+Note
+: Some new processor types with a frequency lower than 2.3 GHz can also achieve acceptable system performance. For
+your reference, the following are processor types that you can use in a production environment:
+Intel® Xeon® 8171M 2.1GHz (Skylake)
+Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell)
+Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell)
+You can switch to SSD for storage purposes, which provides a higher I/O speed and bandwidth. This is typical for a Large
+deployment.
+Configure DRS for virtual machines hosting the suite
+When using VMware to deploy the suite, don't allow automated migration for the virtual machines used by the suite (the
+control plane nodes, worker nodes, NFS server, and database server), which may cause unexpected downtime. You must
+configure Distributed Resource scheduler (DRS) as follows:
+If your cluster consists of only virtual machines for the suite: Configure DRS to be “Manual” so that with vMotion turned
+on, migration of the VMs doesn’t happen unless triggered manually.
+If your cluster consists of virtual machines for the suite and other applications: Configure DRS to be “Automated,” enable
+individual virtual machine automation levels, and then set the automation level for each of the virtual machines hosting
+the suite to "Manual," so that only these selected machines are not migrated to other ESX hosts. 
+Reserve CPU and memory resources for virtual machines
+Once you have created the virtual machines, reserve the CPU and Memory resources for SMA. Don't share the resources with
+other virtual machines.
+To reserve CPU allocation for a virtual machine:
+1
+. 
+From the vSphere Web Client, locate and right-click the virtual machine, and then select 
+Edit Settings
+.
+2
+. 
+Configure the following settings and then click 
+OK
+:
+Reservation
+: Guaranteed CPU allocation for this virtual machine (in MHz or GHz). Move the slider bar to the far right
+to reserve the maximum allowed CPU allocation.
+Limit
+: Upper limit for this virtual machine’s CPU allocation. Select 
+Unlimited
+ to specify no upper limit.
+Shares
+: Select 
+Normal
+.
+To fully reserve the memory allocation on a virtual machine:
+1
+. 
+Power off the virtual machine.
+2
+. 
+In the vSphere Client, right-click the virtual machine from the inventory and select 
+Edit Settings
+.
+3
+. 
+In the Virtual Machine Properties window, select the 
+Resources
+ tab and select 
+Memory
+.
+4
+. 
+In the Resource Allocation panel, select the 
+Reserve all guest memory (All locked)
+ check box.
+5
+. 
+Click 
+OK
+.
+Network latency
+If you need to achieve high availability by locating the Kubernetes cluster nodes (control plane nodes and worker nodes) in
+different zones, the recommended network latency between the cluster nodes is 1 millisecond (ms) or less for best
+performance and stability.     
+System tuning configurations
+There are pre-installation and post-installation tuning configurations that have been tested for optimal performance while
+avoiding any useless overhead. For details, see 
+Perform pre-installation tuning
+ and 
+Perform post-installation tuning
+.
+Plan resources for OData integration 
+Before starting to use the OData integration, please read 
+Sizing guide for OData integration
+ to determine if you need
+additional Datahub pods, read-only platform pods, and additional worker nodes.
+Related topics
+For information on Vertica disk space requirements, see 
+Disk Space Requirements for Vertica
+(Optional) Install containerized CMS
+SMAX 2022.11
+Page 
+549
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

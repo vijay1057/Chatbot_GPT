@@ -1,0 +1,67 @@
+Note
+: CGRO needs a Vertica database.
+Calculate the capability deployment sizes
+The following are size definitions for the SMA, SAM, and DND capabilities, and sizing considerations for the CGRO capability. 
+SMA size definitions
+During the installation, you will need to select a deployment size: 
+Small
+, 
+Medium
+, or
+ Large
+, so that the suite installer
+automatically scales the suite deployment according to the selected size. Use the following table to calculate your deployment
+size.  
+ 
+Deployment Size
+Small
+Medium
+Large
+Notes
+Maximum number
+of concurrent
+users (including
+both Service Portal
+users and IT agent
+users)
+100 ~
+400
+400 ~
+1000
+1000
+~
+3000
+Concurrent users are active users who have logged in to the system to
+perform operations and consume system resources. There are two types of
+concurrent users: service portal users and IT agent users. The workload for
+each type of users is as follows:
+Service portal users: After logging in to the system, each portal user
+has a session duration of about 30 minutes on the system. They create
+1 ~ 2 orders or requests.
+IT agent users: IT agent users have a longer session duration, and each
+of them is active for about 1.5 hours after login and handles 4 ~ 6
+tickets.
+Calculate the business operation throughput based on the workload
+assumption described earlier in this topic. For example, for 400 service
+portal users, the number of newly created orders or requests will be 800 ~
+1600 per hour, while for 400 IT agent users, the number of handled tickets
+will be 1000 ~ 1600 per hour. If you have a much larger business operation
+throughput than the numbers provided here, consider adding more worker
+nodes.
+User count conversion
+:
+The user count numbers assume that you will have only SMAX tenant
+users. Conduct user count conversion if you plan to deploy both SMAX
+tenants and Service Manager tenants. 
+In general, 1 Service Manager user is equal to 0.7 SMAX users, because a
+Service Manager tenant consumes only Service Portal in the container.
+Example
+: If your SMA deployment needs to support 400 Service Manager
+tenant concurrent users and 100 SMAX tenant concurrent users. , the actual
+user count is: 400 X 0.7 + 100 = 380. So you need to select the Small size.
+SMAX 2022.11
+Page 
+546
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

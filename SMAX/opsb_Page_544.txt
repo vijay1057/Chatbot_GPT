@@ -1,0 +1,68 @@
+Cost
+Governance
+and
+Resource
+Optimization
+(CGRO)
+CGRO enables you to optimize your cloud spending and
+simplify configuration with various Cloud providers. With
+CGRO, you can review your public cloud costs to get a clearer
+understanding of your activity and usage of public cloud
+resources.
+Note
+: the CGRO installation has a dependency on DND. If you
+select CGRO, you must select DND as well.
+For Cloud Management
+Optional for SMAX customers
+Requires a separate HCMX license
+Has a dependency on DND
+Software
+Asset
+Management
+(SAM)
+With the hardware and software data discovered by UD and
+license data retrieved from SMAX, the new SAM capability
+enables you to calculate and analyze license compliance for
+the software applications that you are using in your
+organization. This will reduce the risk of non-compliance and
+improve visibility into your financial and operational decisions.
+Optional for SMAX customers
+Capability
+Description
+Notes
+Add-on capabilities require extra hardware resources. 
+CMS installation considerations
+Also, SMA offers the SAM and Native SACM solutions, both of which require (and share) an integration with the Configuration
+Management System (CMS). For more information about Native SACM and SAM, see 
+Enable SAM
+ and 
+Enable Native SACM
+.
+Decide on which of the following types of CMS you want to use:
+Classic CMS (traditional, non-containerized CMS)
+Containerized CMS (installed through Helm as the next deployment on the same OMT cluster)
+Typical deployment options
+The following are typical deployment options based on capability combinations for different use cases:
+Option 1: SMA only
+Option 2: SMA + SAM + CMS
+Option 3: SMA +DND + OO + CGRO
+Each capability has its own deployment size definitions. Sizing recommendations are available for each option, based on an
+assumption that all capabilities of the option have the same deployment size (Small, Medium, or Large).  
+If none of the deployment options meets your needs, you can calculate your hardware requirements by manually adding up all
+hardware resources required for your desired capabilities. 
+Option 1. Install SMA only
+Use this option if you plan to install only the SMA capability. The following diagram illustrates the architecture of this
+deployment option. 
+ 
+ 
+Option 2. Install SMA + SAM  + CMS
+Use this option if you plan to install the SMA and SAM capabilities (and optionally enable Native SACM). The following diagrams
+illustrate the architecture of this deployment option, using classic CMS or the standalone containerized CMS, respectively. 
+To use the SAM and Native SACM solutions, you need to integrate SMA with CMS (UCMDB Server and CMS Gateway). 
+SMA + SAM + classic CMS
+SMAX 2022.11
+Page 
+544
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

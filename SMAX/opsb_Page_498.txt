@@ -1,0 +1,19 @@
+4
+. 
+The details of the subscription will be displayed. From the Actions drop-down select Manage service instance.
+5
+. 
+The service instance details will be displayed.
+6
+. 
+Select the components to see the details. For this use case, the IP Address and hostname is required to log into the AWS
+instance provisioned. To get these details, select the option Amazon Server Template 18.2.1.
+7
+. 
+The AWS instance is provisioned and it's ready for use. Use the hostname to log into the AWS instance.
+SMAX 2022.11
+Page 
+498
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

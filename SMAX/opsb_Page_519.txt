@@ -1,0 +1,62 @@
+Bastion node/ Bastion server
+A jumpbox hosted on a network specifically designed and configured to withstand attacks. It's mainly for operation and
+maintenance purposes.
+Breach
+A failure to meet the objectives specified in a Service Level Agreement.
+Bundle
+A bundle is a group of items available within a Service Catalog offering.
+Business impact
+A measure of the effect of an incident, problem, or change on business processes. Impact is often based on how service levels
+will be affected. Business impact and urgency are used to assign priority.
+The Service Management business impact values are as follows:
+Enterprise
+Site or department
+Multiple users
+Single user
+Business rule
+Business rules are the building blocks from which the business logic of a workflow is constructed. You can define business rules
+for records, processes, metaphases, phases, and transitions.
+Business services
+An Information Technology (IT) service that directly supports a specific business process, as opposed to an infrastructure
+service that is used internally by the IT service provider and isn't visible to the Business. Services can be grouped into business
+service groups that include CIs, documents, resources, or any other components that comprise a defined business service. The
+services can then be delivered to business customers by Business Units, such as the delivery of financial services to customers
+of a bank, or products to customers in a retail store. Successful delivery of business services often depends on one or more IT
+services.
+C
+Calculated fields
+Calculated fields are user-defined fields that contain information based on a formula, calculation, or evaluation of an
+expression. Service Management includes several calculated field templates with parameters. To define a calculated field for a
+record type, you select a template and supply a value for each parameter. The calculated field can then be added to analytic
+reports for that record type.
+Capacity management
+The process responsible for ensuring that IT services and the IT infrastructure are able to meet agreed capacity and
+performance requirements in a cost-effective and timely manner. Capacity management considers all resources required to
+deliver services and is concerned with meeting both the current and future capacity and performance needs of the business.
+Capacity management includes the following sub-processes:
+Business capacity management
+Service capacity management
+Component capacity management
+Capacity Management Database (CDB)
+A CDB consists of one or more databases that serve as a repository for holding multiple types of data used by its
+subprocesses. The core infrastructure record, the Configuration Management Database (CMDB), provides information about
+the state of CIs and the relationships between CIs. By providing performance and resource information about the (CIs), a CDB
+works with the CMDB to provide a complete and reliable view of the IT infrastructure.
+Capital item
+A capital item is an asset or fixed asset, also referred to as a CI. The CI is registered and managed in the general ledger for
+depreciation and investment. The item is managed by the organization from the perspective of total value. A capital item has
+attributes such as:
+Book value depreciation schema
+Depreciation start date
+Accumulated depreciation
+Residual value
+Category
+The named group of things that have something in common. Categories are used to group similar things. For example, cost
+types are used to group similar types of cost, and Incident categories are used to group similar types of incidents.
+In a Service Catalog context, a category describes similar services and offerings that users can select from a catalog.
+SMAX 2022.11
+Page 
+519
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

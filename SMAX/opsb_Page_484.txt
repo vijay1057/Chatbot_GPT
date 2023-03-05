@@ -1,0 +1,49 @@
+2
+. 
+Save the user details.
+3
+. 
+Activate the user by selecting 
+Active
+.
+4
+. 
+Reset the password for the user. The reset password link will be sent to the email id given while creating the user. Don't
+set the password with a double-quote ("), forward-slash (/), or backslash (\) as these special characters aren't supported.
+Configure Cloud Management License
+A Cloud Management license is needed to access the Cloud Management functionality. Follow the below steps to create a
+license.
+Create a license
+1
+. 
+Go to 
+Licenses
+ and select 
+New
+.
+2
+. 
+Fill in the following details and select Save.
+Name - 
+HCMX License1
+Edition/License - Select
+ Cloud Management
+ as the license type.
+Create license pool
+1
+. 
+Go to 
+License-Pools > New.
+2
+. 
+Fill in the following details and select 
+Save.
+Name - HCMX_Licensepool
+Description
+  
+SMAX 2022.11
+Page 
+484
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

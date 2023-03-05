@@ -1,0 +1,55 @@
+Total Cost of Ownership (TCO)
+A form of full cost accounting. It's a financial estimate designed to help consumers and enterprise managers assess direct and
+indirect costs commonly related to software or hardware. The total cost includes all financial consequences of owning a CI or
+asset. For example, in addition to the initial purchase price, the total cost includes maintenance, accommodation charges,
+potential opportunity costs, training costs, consumables required, internal and external support, and interest on capital.
+Time series report
+The time series report displays a sequence of data obtained by analyzing a group of items over a defined period of time. 
+When you select a time field as the primary or secondary level group, the report will display a series of values at defined
+successive time intervals. If any of the time intervals has no data, the report will display 0 as the value for that time interval.
+The time fields are fields with the logical type as 'DATE' and 'DATE_TIME'.
+Transition
+The progression from one phase to another in a workflow. A transition may be automatic or manual.
+U
+Underpinning Contract (UC)
+A contract between an IT service provider and a third party. The third party provides goods or services that support the
+delivery of an IT service to a customer. The underpinning contract defines targets and responsibilities that are required to
+meet agreed service level targets in one or more service level agreements.
+Urgency
+A measure of how long it will be until an incident, problem, or change has a significant impact on the business. For example, a
+high-impact incident may have low urgency if the impact will not affect the business until the end of the financial year. Impact
+and urgency are used to assign priority.
+V
+Vendor management
+Vendors are companies that provide your company with goods or services. Vendors can be internal or external, vendors,
+suppliers, distributors, service providers, cloud service providers, or wholesalers.
+In Service Management, you manage vendors in the vendor management module.
+View
+A view is a list of records produced by a search or filter operation.
+W
+Workaround
+Reducing or eliminating the impact of an incident or problem for which a full resolution isn't yet available – for example, by
+restarting a failed CI. Workarounds for problems are documented in known error records. Workarounds for incidents that don't
+have associated problem records are documented in the incident record.
+Workflow
+A workflow is an end-to-end process from the record creation to its closure. The building blocks of the workflow are
+metaphases, phases and transitions.
+OMT glossary
+Annotation
+Key/Value type metadata that can be specified on Kubernetes object to help identification, management or add-on
+functionality. An example of such annotations are the Kubernetes-vault definitions used to configure authentication tokens and
+certificates.
+API server
+A server application that provides an API to provide information and/or perform a set of tasks. An example is the Kubernetes
+API server that exposes an API to view and change the cluster state.
+AutoPass
+Micro Focus
+ product license control and metering technology.
+OMT
+ITOM OPTIC Management Toolkit (OMT) is a platform built for the containerized IT Operations Management (ITOM) portfolio.
+SMAX 2022.11
+Page 
+533
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

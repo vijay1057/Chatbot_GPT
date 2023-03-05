@@ -1,0 +1,19 @@
+Assign a tenant admin
+Go to the Tenants and select the tenant that has been created. In the select General tab, for Tenant admin select the user
+(Example: HCMX_admin_user1) created in the earlier sections. Save the changes.
+ 
+ 
+Assign a license to the tenant
+Go to Licenses > Add. Select the license pool and the license that needs to be assigned. Save the changes.
+ 
+ 
+Deploy the tenant
+1
+. 
+Select Deploy. This will start the deployment process.
+SMAX 2022.11
+Page 
+509
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

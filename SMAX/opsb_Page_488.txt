@@ -1,0 +1,69 @@
+5
+. 
+It will take some time for DND to be deployed successfully. Though the operation history indicates that DND is deployed
+successfully, the DND content installation may still be in progress.
+6
+. 
+To check the content installation status, log in to the OMT management portal (
+https://<EXTERNAL_ACCESS_HOST>:5443
+),
+select 
+CLUSTER > Dashboard > Workloads > Pods
+, and then check the status of the DND content installation pod 
+ito
+m-dnd-content-install-xxx-xxx.
+7
+. 
+You need to wait around 1.5 hours for the content installation to be completed.
+8
+. 
+After the capability and content are deployed, go to  
+Capabilities Settings,
+ and set the 
+Enable capability
+ toggle to
+On.
+9
+. 
+The URL displayed in the tenant details screen is used to launch the Service portal for the tenant. 
+Configure authorization for DND administrator
+By default, the tenant administrator has the privilege to access the Design and Deploy (DND) menus and data and doesn't
+require separate authorization.
+Additionally, the suite administrator can also authorize other users to access the DND menus.
+Peter is configured as the DND administrator. Follow the below steps to authorize Peter to access DND menus and Data.
+Authorize user as DND administrator in IDM
+Persona
+Location
+Stephen - Suite Administrator
+Suite Administration Portal
+1
+. 
+Log in to 
+Suite Administration
+ (
+https://<External_Access_Host>/bo
+) as the suite admin and get the 
+account ID
+ for the
+DND enabled tenant, such as 635912367. The account ID of the newly created tenant is the same as the tenant ID.
+2
+. 
+Select 
+IdM settings
+ in the tenant details page 
+3
+. 
+In the 
+Group
+ tab, select 
+DND_ADMINISTRATORS
+, and then select the Edit icon.
+4
+. 
+In the Associated Users field, add Peter as DND administrator.
+SMAX 2022.11
+Page 
+488
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

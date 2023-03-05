@@ -1,0 +1,137 @@
+Hardware requirements for option 2: SMA SAM CMS
+If you plan to use deployment option 2 (
+SMA
+ with 
+SAM
+ and 
+Native SACM
+ enabled), you need to determine the hardware
+resources required for both SMA and CMS by following these two steps.
+Step 1: Determine the hardware requirements for SMA
+Determine the hardware requirements for the SMA and SAM capabilities, according to the 
+SMA
+ and 
+SAM
+ size definitions.
+Target size
+Concurrent
+users
+Control plane node
+Worker node
+NFS
+Configuration
+Storage
+Quantity
+Configuration
+Storage
+Quantity
+Configuration
+Storage*
+Quantity
+Configuration
+Storage
+Quantity
+Small
+100 ~ 400
+4 CPU
+12 G
+RAM
+200 G
+3 (HA)
+8 CPU
+32 G
+RAM ~
+8 CPU
+40 G
+RAM
+140 G
+3
+4 CPU
+12 G
+RAM
+681 G
+1
+8 CPU
+32 G
+RAM
+Medium
+400 ~
+1000
+4 CPU
+16 G
+RAM
+200 G
+3 (HA)
+8 CPU
+32 G
+RAM
+140 G
+4 ~ 5
+4 CPU
+16 G
+RAM
+1263 G
+1
+16 CPU
+48 G
+RAM ~
+16 CPU
+96 G
+RAM
+Large
+1000 ~
+3000
+8 CPU
+32 G
+RAM
+200 G
+3 (HA)
+8 CPU
+32 G
+RAM
+140 G
+7 ~ 10
+4 CPU
+16 G
+RAM
+2481 G
+1
+24 CPU
+64 GB ~
+32 CPU
+128 G
+RAM
+* For more information about NFS storage sizing, see 
+Manage persistent storage for the suite
+.
+Step 2: Plan additional hardware resources for CMS
+Plan the additional hardware resources required for CMS according to whether you will use a classic CMS or the containerized
+CMS. For details, see 
+Additional hardware requirements for CMS
+. 
+Related topics
+Plan the deployment
+(Optional) Install containerized CMS (on-premises)
+Note
+ 
+The following table assumes both capabilities have the same size. If the two capabilities have different
+deployment sizes, see 
+Hardware requirements for other options
+ instead.
+
+
+Tip
+  You can deploy SMA and CMS in different deployment sizes. For SMA in 
+large
+ size, you can deploy CMS
+in 
+medium
+ size.
+
+
+SMAX 2022.11
+Page 
+551
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

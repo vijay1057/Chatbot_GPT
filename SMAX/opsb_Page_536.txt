@@ -1,0 +1,51 @@
+engines running on cluster nodes.
+Control plane node
+A cluster node that runs the cluster management components. Formerly known as "master node".
+Management portal
+An application that allows users to manage OMT cluster configuration and applications.
+Multiple deployments
+Multiple individual installations of an ITOM suite and/or services or multiple suites and/or services on the same OMT
+Kubernetes cluster.
+Namespace
+The Kubernetes way to partition a single cluster into multiple virtual clusters.
+Network File System (NFS)
+A distributed file system protocol.
+Node
+A node is a worker machine in Kubernetes. A node is a physical or virtual machine running Kubernetes, onto which pods can be
+scheduled. A Kubernetes cluster consists of two types of resources:
+The master coordinates the cluster
+Nodes are the workers that run applications
+A node is a VM or a physical computer that serves as a worker machine in a Kubernetes cluster. Each node has a Kubelet,
+which is an agent for managing the node and communicating with the Kubernetes master.
+Persistent volumes
+A Kubernetes object providing access to some form of persistent storage such as network file systems or local disks.
+Persistent volume claim
+An API object that represents a piece of storage in the cluster. Available as a general, pluggable resource that persists beyond
+the lifecycle of any individual pod.
+Pod
+One or more containers. This is the unit of scheduling in Kubernetes. A pod represents a set of the running container on your
+cluster.
+Replication Controller
+A Kubernetes object that defines and ensures running a specified number of instances of a pod.
+Replica Set
+Next-gen Replication Controller.
+Scheduler
+A control plane node component that schedules pods to nodes.
+StatefulSet
+A Kubernetes object that defines and ensures running a specified number of instances of a pod, with guarantees for order and
+uniqueness.
+Secret
+A Kubernetes object allowing for secure storage of sensitive configuration information.
+Selector
+A way to filter resources.
+sysctl
+sysctl is a semi-standardized interface for reading or changing the attributes of the running Unix kernel.
+Vault
+Hashicorp Vault is the secure storage and certificate generation technology used in OMT.
+Volume
+SMAX 2022.11
+Page 
+536
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

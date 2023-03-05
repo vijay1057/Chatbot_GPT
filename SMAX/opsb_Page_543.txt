@@ -1,0 +1,104 @@
+Plan the deployment
+Your deployment plan varies depending on the product components ("capabilities") that you choose to deploy and the size of
+your environment. To create a deployment plan: 
+1
+. 
+Choose a deployment option
+2
+. 
+Choose a deployment size
+3
+. 
+Calculate the hardware resource requirements
+Choose a deployment option
+Capability installation considerations
+SMA offers a number of capabilities to meet different business needs. During the suite installation, you can select the
+capabilities according to your business needs. The following table lists the available capabilities. The SMA capability is
+mandatory, and the other ones are optional and you can install them at a later time on top of an existing installation (they're
+therefore referred to as "add-on capabilities"). 
+Capability
+Description
+Notes
+Service
+Management
+Automation
+(SMA)
+Provides the core business functionality of SMAX: Service
+Management (the agent interface), Service Portal (self-service
+user interface), and Suite Administration (suite administrator
+interface). 
+Mandatory for all new installations
+Service
+Manager
+Portal
+Service
+(SMPS)
+Services required to integrate an external Service Manager
+system with SMA Service Portal.
+Mandatory for 
+SMA-SM
+ customers
+Needed only for SMAX customers
+who want to additionally deploy one
+or more Service Manager tenants
+Design and
+Deploy
+(DND)
+SMAX Cloud Management offers the DND capability. The DND
+capability enables customers to make new cloud service
+offerings based on published service designs available to
+consumers. 
+Image Aggregation and Content Store capabilities are part of
+DND.
+Image Aggregation (IA) showcases cloud
+service templates from the marketplace portals of AWS,
+Microsoft Azure, and vCenter. As a cloud business service
+manager, you can use the Aggregator to instantly create and
+offer new services from these templates without having to
+create an automation asset.
+Content Store enables customers to download the latest
+content packages or capsules published on the ITOM
+Marketplace and use the Content Store to easily install them
+into the HCMX suite. Customers can also use the Content
+Store to install custom content packages or capsules.
+For Cloud Management
+Optional for SMAX customers
+Requires a separate HCMX license
+Before enabling and using the
+Design and Deploy functionality,
+you should install and enable
+Operations Orchestration(OO)
+Containerized capability. For more
+information, see 
+Install OO on-
+premises
+ and 
+Enable OO
+Containerized
+.
+Important
+The sizing recommendations are the minimum dedicated resources required for running the suite (lab tests
+indicate the average CPU usage is 40 ~ 60%, and memory usage is 75 ~ 85%). The sizing recommendations
+below don't consider the following:
+Any other applications that you may run in the environment, especially high resource-consuming
+software such as antivirus or mining software
+The extra load as the volume of tickets in the system increases over time
+For node high availability, better system performance, and stability in production, you can add one or two
+extra worker nodes. This is important especially if you have a different user load, business throughput, and
+data volume size or if you're uncertain about your business needs.
+You must use external databases in a production environment. Using a physical database server for the suite
+can help you achieve optimal performance.
+In a production environment, to avoid a single point of failure, use three control plane nodes to achieve high
+availability supported by the failover mechanism of the suite. The sizing information below has taken this
+recommendation into account. However, if you still want to deploy only one control plane node, use the same
+hardware configurations (worker nodes, database, and NFS storage) as described below, except that you use
+one control plane node instead of three. Meanwhile, you need to follow the backup procedures as described
+in the backup and restore section.
+
+
+SMAX 2022.11
+Page 
+543
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

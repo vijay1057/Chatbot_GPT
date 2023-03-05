@@ -1,0 +1,29 @@
+4
+. 
+After the assignment is complete, the service request fulfillment will start. Wait for the fulfillment to get completed.
+Refresh to see a notice indicating that a notification is sent to the user for acceptance. Once the fulfillment process starts
+the DND administrator can monitor the status of the deployment on the Instance Management page.
+View the status in Deployment Operations
+To see the status of the request in Deployment Operations. 
+1
+. 
+In the Service Management Portal, from the main menu go to Administration > Deployment Operations > Instance
+Management.
+2
+. 
+View the status of the service request. Once the service request is fulfilled, the service instance will be in active state.
+View service request details and accept the solution
+Persona
+Location
+Eve - Service Portal User
+Service Portal
+Accept the solution
+On the successful fulfillment of the Service Request, a notification will be sent to Eve for accepting the solution offered.
+Go to the Service Portal as Eve and accept the offering.
+  
+SMAX 2022.11
+Page 
+496
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

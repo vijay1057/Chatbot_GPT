@@ -1,0 +1,110 @@
+Maximum number
+of records in
+Smart Analytics
+1
+Million
+2
+Million
+2 ~ 4
+Million
+Deployment Size
+Small
+Medium
+Large
+Notes
+SAM size definitions
+Use the following table to calculate your SAM deployment size. 
+Deployment size
+Small
+Medium
+Large
+Note
+Maximum number of
+concurrent calculation
+jobs
+15
+15
+15
+For each tenant, the maximum number of concurrent jobs is 3.
+For multiple tenants, at most 15 jobs can run at the same time.
+When you enable the SAM capability for more than 5 tenants, the
+maximum number of concurrent jobs is equal to or larger than 18 (6
+x 3). In this case, you need to schedule the calculation jobs so that
+less than 15 jobs are running at the same time.
+Maximum number of
+installed software
+applications in concurrent
+calculation jobs
+< 1
+million
+< 2
+million
+< 3
+million
+For details, see “
+How to calculate your SAM deployment size.
+”
+How to calculate your SAM deployment size
+Follow these steps to choose an appropriate SAM profile:
+1
+. 
+Choose the maximum number of installed software applications that you want to calculate such as Windows Server and
+Windows Desktop OS, which usually have the largest volume size in a production environment.
+You can use the 
+INSTALLED SOFTWARE
+ report on the dashboard of CMS UI to learn about the total number of your
+installed software, as shown in the following figure.
+ 
+ 
+2
+. 
+Run calculation jobs separately for products of large volume sizes. By default, SAM supports three concurrent jobs.
+For example, if you have 200,000 (0.2 M) per tenant devices deployed with Windows Desktop OS, you can choose either of the
+following options:
+Option 1: Schedule calculation jobs for Windows Desktop OS separately
+Option 2: Schedule three concurrent calculation jobs for three products that have the same volume size as Windows
+Desktop OS
+Single tenant mode:
+Option
+Total number of installed software applications
+Profile
+Option 1
+0.2 M
+Small
+Option 2
+0.2 M x 3 = 0.6 M
+Small
+Multi-tenancy mode: 
+For 5 or more tenants, assume all tenants run calculation jobs for Windows Desktop OS at the same time: 
+Option
+Total number of installed software
+applications
+Profile
+Suggestion
+Option
+1
+0.2 M x 5 = 1 M
+Medium
+Schedule calculation jobs separately for different tenants.
+You can choose the 
+Small
+ profile. 
+Option
+2
+0.2 M x 3 x 5 = 3 M
+Large
+Schedule calculation jobs separately for Windows
+Desktop OS.
+Schedule calculation jobs separately for different
+tenants.
+You can choose the 
+Medium
+ or 
+Large
+ profile.
+SMAX 2022.11
+Page 
+547
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

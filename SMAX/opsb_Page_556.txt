@@ -1,0 +1,80 @@
+System requirements
+The Kubernetes instance embedded in OPTIC Management Toolkit (OMT) is also known as the "embedded Kubernetes." When
+planning a new installation or an upgrade of an existing deployment that uses the embedded Kubernetes, review the following
+support matrix information.
+Compute environments
+You can deploy the OPTIC Management Toolkit (OMT) cluster in the following computing environments.
+Bare metal
+See below for the supported operating systems.
+Hypervisors
+Virtualization – see below
+Virtual Machine host operating systems - see below
+Virtualization support
+VMware ESXi 6.5, 6.7, and 7.0. Updates to these versions are supported. 
+Microsoft Hyper-V on Windows Server 2016, Microsoft Hyper-V Server 2016, Windows Server 2019, and Microsoft Hyper-V
+Server 2019. Updates to these versions are supported. 
+Operating systems
+The control plane and worker node hosts must use the same operating system. OMT supports the following operating systems.
+Operating system
+Architecture type
+Versions
+Red Hat Enterprise Linux
+x86_64
+7.9, 8.4, 8.6
+CentOS
+x86_64
+7.9
+Oracle Linux
+x86_64
+7.9, 8.5, 8.6
+Ensure that 
+bash
+ and 
+openssl
+ are installed in the operating system.
+Network identification
+OMT supports IPv4 (host names must also resolve to IPv4 addresses). IPv6 isn't supported (host names can't resolve to
+IPv6 addresses).
+Static IP addresses: each node must have a static IP address while you reboot, stop, start, or restart the node.
+If you are configuring high availability, which requires multiple control plane nodes, you must set up one of the following:
+Load balancer
+: Configure a load balancer that's separate from the OMT environment to serve as the external
+access host.
+HA virtual IP
+: Assign an extra IPv4 address to use as the virtual IP. You may need to contact your IT administrator to
+add a DNS entry for this IP. Its FQDN is used as the external access host. OMT uses the Keepalived high availability
+Important
+: Always follow the installation instructions and install the 
+latest
+ version of the suite. If you have a
+reason to install an older release, please contact 
+Micro Focus Product Management
+. 
+
+
+Important
+: Not all of the above versions support all of the Linux distributions and versions that OMT supports.
+You must make sure that the version of the virtualization platform you will use supports the specific Linux version
+that you will use. To do this, refer to the following ESXi and Microsoft websites:
+For ESXi: 
+https://www.vmware.com/resources/compatibility/search.php?deviceCategory=software
+For Hyper-V: 
+https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/supported-oracle-linux-
+virtual-machines-on-hyper-v
+Note
+: VMware is the only validated platform. Other virtualization platforms (such as Hyper-V) are technically
+supported but haven't been validated by 
+Micro Focus
+. When using VMware to deploy the suite, don't allow
+automated migration for virtual machines hosting the suite, to avoid unexpected downtime. For more information,
+see 
+Configure DRS for virtual machines hosting the suite
+.
+
+
+SMAX 2022.11
+Page 
+556
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,155 @@
+#The max_connections value for the combined database should be equal to or greater than 1400
+#
+.
+##The 
+max_connections
+ value for the combined database should be equal to or greater than 5710
+##
+.
+Additional hardware requirements for DND and OO
+Use the following table to determine your DND and OO deployment size. 
+To set up OO with a common database, you can choose to connect OO to the same database instance as the rest of the suite
+components. For hardware requirements, see the table 
+Standard hardware requirements with a common database.
+Standard hardware requirements with a common database 
+DND
+deployment
+Size
+Number
+of OO
+tenants
+Worker node
+NFS
+Suite
+Database
+- PostgreSQL
+max_connections
+Configuration
+Storage
+Quantity
+Additional
+Configuration
+Additional
+configuration
+Additional
+storage
+Small
+1 to 5
+8 CPU 32
+G RAM
+240 G
+3 ~ 4
+500 G
+16 CPU 96
+GB ~ 112
+GB
+950
+G ~
+5.2 T
+3400
+#
+Medium
+6 to 20
+9 ~10
+24 CPU
+112 GB ~
+176 GB
+1.1 T
+~ 5.4
+T
+7710
+##
+#The max_connections value for the combined database should be equal to or greater than 3400
+##The 
+max_connections
+ value for the combined database should be equal to or greater than 7710
+Additional hardware requirements for CGRO
+Plan hardware resources based on some estimation of your average monthly cloud billing data size. Use the following table as
+a reference. 
+Worker node
+NFS server
+PostgreSQL database
+Vertica database
+Configuration
+Storage
+Quantity
+Configuration
+Storage
+Quantity
+Configuration
+Storage
+Quantity
+Configuration
+Storage
+Quantity
+8CPU 32G
+RAM
+140G
+1 ~ 2
+8CPU 16G
+RAM
+500 GB
+(+500
+GB/year for
+Azure or
+AWS
+governance
+reports)
+No
+additional
+NFS
+server is
+required.
+CGRO
+can share
+the same
+NFS
+server of
+SMA.
+CGRO doesn't require
+additional PostgreSQL server
+resources. It can share the SMA
+PostgreSQL server resources
+because of its small data size.
+4CPU 32G 
+RAM ~ 8CPU
+64G RAM
+250 G~
+500 G
+1
+Additional hardware requirements for CMS
+If using a classic CMS
+If you plan to use classic CMS, install CMS Gateway on the UCMDB Server, and add the following minimal resources for CMS
+Gateway (for classic CMS hardware resource requirements, see 
+Classic CMS sizing recommendations
+):
+Deployment
+CPU
+RAM
+Disk Space
+All sizes
+4 cores
+2 GB (allocated for CMS Gateway only)
+100 GB
+If using the containerized CMS
+Note
+: 
+You can configure a dedicated database server for OO. Using a physical database server for the OO
+application helps in achieving optimal performance. For hardware requirements, see 
+Additional hardware
+requirements for OO Containerized
+ above.
+
+
+Note
+: For NFS and Vertica database HA configuration, follow the recommendations provided in vendor-specific
+documentation.
+ 
+
+
+SMAX 2022.11
+Page 
+554
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

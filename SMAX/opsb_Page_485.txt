@@ -1,0 +1,42 @@
+Add the license to the license pool
+1
+. 
+Go to the license created earlier.
+2
+. 
+In the License pool property, select the license pool created in the earlier section.
+Create and configure a tenant
+The DND capability needs to be enabled on a tenant. Create a new tenant or enable DND on an existing tenant. The below
+section gives steps to create a new tenant and enable DND. If an existing tenant is being used make sure that the backend
+type of tenant is SMAX.
+Create a Tenant
+1
+. 
+Go to 
+Tenant > New
+.
+2
+. 
+Fill in the following details
+Account - Select the account (
+Cloud Design Acc
+) created in one of the previous sections.
+Backend type - Select SMAX.
+Name - Give a name for the tenant. Example - DND_tenant.
+Type - Select the type of tenant.
+Assign tenant admin
+Go to 
+Tenants
+ and select the tenant that has been created. Select Derek as the tenant admin. Save the changes.
+ 
+ 
+Assign a license to the tenant
+Go to 
+Licenses > Add.
+ Select the license pool and the license that was created earlier. Save the changes.
+SMAX 2022.11
+Page 
+485
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

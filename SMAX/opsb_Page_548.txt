@@ -1,0 +1,115 @@
+DND size definitions 
+Use the following table to calculate your DND deployment size. Note that this table applies to one DND instance. If you will
+enable DND for multiple tenants (one DND Instance per tenant), you need to calculate the deployment size of each individual
+DND instance. 
+DND
+deployment
+size
+Small
+Medium
+Large
+Notes
+Number of
+cloud
+subscriptions
+per hour
+30
+60
+-
+The numbers in the table are approximate for a given deployment environment,
+but not exact. For example, a Small environment may only create 5 offerings, or
+10 per category, although the table lists a representative number of 20. In your
+anticipated environment, you may find the expected numbers of tenants to span
+multiple profile definitions (for example, the number of active subscriptions may
+fit the Small deployment, while the number of offerings may fit the Medium
+profile). In such a case, select the profile that seems most representative of your
+anticipated environment, with the number of total subscriptions of particular
+importance. The sizing configuration is based on the results of performance lab
+tests in these deployment environments. In general, you should find the need to
+tune the configuration parameters after the installation, as you can manually
+scale the components as needed, to support the size of the environment you have
+specified.
+Number of
+active
+subscriptions
+1,000
+7,500
+-
+Number of
+canceled
+subscriptions
+10,000
+50,000
+-
+Number of
+offerings per
+category
+20
+20
+-
+Total number
+of designs
+35
+75
+-
+CGRO size definitions
+The sizing for CGRO primarily relies on the volume of billing data under management. This, of course, increases with the
+number of tenants, yet each tenant may have significantly different volumes of data. CGRO runs a single set of Kubernetes
+pods for all tenants and doesn't require extra instances per tenant.
+The volume of billing data most directly affects the amount of database storage needed in Vertica. However, processing the
+data also consumes CPU and memory. CGRO scales vertically, so increasing the size (CPU/memory) for workers is an effective
+strategy for larger volumes of data. Adding extra workers can help when insufficient resources are available in a small worker
+pool. Keep in mind that adding multiple worker nodes specifically for CGRO isn't effective.
+Use the number of tenants and an estimation of an average monthly data volume for cloud billing records as a proxy to select
+between Small, Medium, and Large deployment sizes. Regard the accompanying Vertica database as independent of the base
+deployment sizes and adjust it to accommodate the data volume. Said another way, a single-tenant deployment may run in a
+small Kubernetes cluster, yet still require a large amount of storage for data in Vertica. The following table is a rough
+guideline. 
+Number of CGRO Tenants
+Average Monthly Data
+Profile
+1–3
+<15 million records
+Small
+4–7
+15–50 million records
+Medium
+> 7
+>50 million records
+Large
+The size of the Vertica storage should be able to accommodate the desired volume of cloud billing data that you would like to
+store. Keep in mind that Vertica sizing is dependent on:
+the amount of historical data. AWS keeps billing data in perpetuity; Azure, for 3 years. More Vertica storage is necessary
+when longer history exists. For example, use a 6x, 12x, 36x or even larger (for AWS) multiplier (against the average
+monthly data size) to estimate the needed Vertica space.
+the volume of cloud activity. For example, provisioning hundreds of EC2 instances per hour on a regular basis will require
+more storage than more limited usage.
+Operations Orchestration size definition
+The OO sizing is measured by the number of tenants you want to deploy.
+To deploy OO for a 5-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+To deploy OO for a 20-tenant support, use the 
+oo_size_values.yaml
+ file provided 
+here
+.
+Calculate your hardware requirements
+Calculate your hardware requirements according to your deployment option and deployment size. 
+Hardware requirements for option 1  (SMA) 
+See 
+Hardware requirements for option 1
+.  
+Hardware requirements for option 2 (SMA + SAM + CMS) 
+See 
+Hardware requirements for option 2
+. 
+Hardware requirements for option 3 (SMA + DND + OO + CGRO)
+SMAX 2022.11
+Page 
+548
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

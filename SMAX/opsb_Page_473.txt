@@ -1,0 +1,33 @@
+For device-based licensing and user-based licensing, the data you see might be different. In this example, all devices that
+have Office Visio installed appear in the Devices section on the right of the page.
+If the license model is more complex, you can look at the 
+Number of processors
+ and 
+Cores per processor
+ columns.
+This information helps you understand how each device is configured and how that could potentially impact the license
+consumption points for each software license they create.
+4
+. 
+Click a device to understand how it’s consuming the product:
+General tab: This page gives the same level of details shown on the previous page listing all the devices but now
+specific to the device that you selected.
+Deployment tab: This page gives additional details about the deployment of the software. You can see the type of
+machine that has the product installed (in this example, virtual machine), the version of the software installed, and
+the installation path of the software as discovered by UCMDB.
+Consumption tab: This page gives details of what rule is being used and how many consumption points are used by
+this device. It also gives details about the software license. If it was associated with a contract in the Contract
+Management module in SMAX, it will also show the details of the contract along with start and end dates.
+For products of the user-based licensing type, the user interfaces will be different. For more information, see 
+Analysis
+.
+Advanced use
+License metrics
+Out of the box, SAM comes with some major publishers for using with license rules. One is the generic publisher, which can
+deal with the license models of most vendors.
+SMAX 2022.11
+Page 
+473
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

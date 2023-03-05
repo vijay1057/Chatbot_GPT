@@ -1,0 +1,76 @@
+4
+. 
+Save the service definition.
+5
+. 
+From the Main menu, go to 
+Build > Service Catalog > Service Definition
+ tab.
+6
+. 
+Select the service definition added and scroll to 
+Catalog
+ field and select the catalog 
+AWS Offering
+ from the drop down.
+7
+. 
+select 
+Build 
+and 
+Save 
+the changes.
+ 
+8
+. 
+Once the build is complete, select 
+Operate
+ and 
+Save
+. The Service Catalog will be available in the Service Portal.
+Add Service Offering
+1
+. 
+From the Main menu, go to 
+Build > Service Catalog.
+2
+. 
+In the 
+Catalog tab
+, select the catalog 
+AWS Offering
+ created earlier.
+ 
+The 
+Service Definitions 
+defined for the catalog
+will be displayed.
+3
+. 
+Select the 
+Service Definition
+ for which you want to add the Service Offering. Select the 
+Service Definition for AWS
+Offering 
+created earlier.
+4
+. 
+List of offerings will be displayed. Select 
+Add >
+ 
+Add an aggregated offering
+. The New Aggregated Offering dialog box
+is displayed.  If you can not see 
+Add aggregated offering
+,  make sure 
+Enable Aggregation
+ is set to
+ On 
+in
+Application settings.
+SMAX 2022.11
+Page 
+494
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
