@@ -1,0 +1,77 @@
+Alternatively, change the owner for each NFS directory. For example: 
+chown -R 1999:1999 /var/vols/itom/core
+...
+chown -R 1999:1999 /var/vols/itom/itsma-smarta-sawmeta-con-a-1
+9
+. 
+In the 
+/etc/exports
+ file, export the NFS directories. 
+If you're using the same base directory for all NFS volumes, add one line for the base directory: 
+<base directory> *
+(rw,sync,anonuid=1999,anongid=1999,root_squash)
+. For example:
+/var/vols/itom *(rw,sync,anonuid=1999,anongid=1999,root_squash)
+Alternatively, add the following line for each NFS directory: 
+<NFS volume export path> *(rw,sync,anonuid=
+<SYSTEM_USER_ID>,anongid=<SYSTEM_GROUP_ID>,root_squash
+). For example:
+/var/vols/itom/core *(rw,sync,anonuid=1999,anongid=1999,root_squash)
+...
+/var/vols/itom/itsma-smarta-sawmeta-con-a-1 *(rw,sync,anonuid=1999,anongid=1999,root_squash)
+10
+. 
+Run the following command:
+exportfs -ra
+11
+. 
+Check the exported NFS volumes:
+showmount -e
+Limit access to the exported NFS folders
+Role
+Location
+Privileges required
+System administrator
+NFS server
+Root or sudo
+We strongly recommend that you limit access to the exported NFS directories to a specific host or hosts in a subnet. All control
+plane nodes and worker nodes must have the access to the exported NFS directories. To do this, follow these steps:
+1
+. 
+On the NFS server, open the 
+/etc/exports
+ file, and then add the following line for each exported directory to which you want
+to limit access:
+<path to shared directory> <host IP1>(rw,sync,anonuid=<SYSTEM_USER_ID>,anongid=<SYSTEM_GROUP_ID>,root_squash)
+<path to shared directory> <host IP2>(rw,sync,anonuid=<SYSTEM_USER_ID>,anongid=<SYSTEM_GROUP_ID>,root_squash)
+For example, you add the following line:
+/var/vols/itom/core 192.0.0.2(rw,sync,anonuid=1999,anongid=1999,root_squash)
+/var/vols/itom/core 192.0.0.3(rw,sync,anonuid=1999,anongid=1999,root_squash)
+You can also allow hosts in a specific subnet to access the exported NFS directories. To do this, add the following line for
+each exported directory to which you want to limit access:
+ 
+<shared directory1> <IP of subnet host>(rw,sync,anonuid=<SYSTEM_USER_ID>,anongid=<SYSTEM_GROUP_ID>,root_squash)
+<shared directory2>; <IP of subnet host>(rw,sync,anonuid=<SYSTEM_USER_ID>,anongid=<SYSTEM_GROUP_ID>,root_squash)
+For example, you add the following line:
+/var/vols/itom/itom-logging-vol 192.0.2.0/16(rw,sync,anonuid=1999,anongid=1999,root_squash)
+/var/vols/itom/core 192.0.2.0/16(rw,sync,anonuid=1999,anongid=1999,root_squash)
+2
+. 
+Save the 
+/etc/exports
+ file, and then run the following command: 
+exportfs -r
+Each time you add a new node to the cluster, make sure the IPv4 address or hostname of this node is in the allowable address
+list to grant the node access to the shares.
+Important
+ For best security, we strongly recommend that you limit access to exported NFS folders by
+replacing * in the configuration lines with specific IP addresses as described in the "Limit access to the
+exported NFS folders" section below. 
+
+
+SMAX 2022.11
+Page 
+663
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

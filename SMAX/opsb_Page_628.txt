@@ -1,0 +1,151 @@
+Perform preliminary checks
+The 
+pre-check.sh
+ script will check a lot of items of your Kubernetes cluster nodes, including the swap setting. Note that the
+suite requires you to enable swap on each control plane node or worker node, and you can ignore the warning that indicates
+swap isn't disabled on your node.
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes and worker nodes
+Root or sudo
+The preliminary checking of a node is optional. However, we recommend that you perform a preliminary check on all the
+control plane nodes and worker nodes before you perform the preparation tasks to check whether your prepared nodes meet
+some basic requirements of OPTIC Management Toolkit (OMT) installation. 
+You can use the 
+pre-check.sh
+ script to do a test-run of the nodes that you prepare for the installation, and correct potential
+issues you may meet during installation. 
+Checking items
+The 
+pre-check.sh
+ script can check the following items:
+ 
+Items
+Details
+Firewall
+configuration
+If the firewalld service has been enabled, you will receive a warning message to inform you how to
+disable the auto firewall configuration function. 
+CDF_HOME
+ setting
+Checks whether the installation directory for the OMT binaries is empty.  If it's not empty, you will
+receive a warning message.  
+Checks the free disk space of the installation directory for the OMT binaries.
+By default, the OMT installation directory is
+ /opt/cdf
+. You can override this by setting the 
+$CDF_HOM
+E 
+environment variable.  If you specify the 
+--cdf-home
+ parameter, then this will take precedence
+over 
+$CDF_HOME
+.
+RUNTIME_CDFDATA_H
+OME
+ setting
+Checks the free disk space of the directory for the OMT runtime data.
+By default, the directory for the OMT runtime data is 
+/opt/cdf/data
+. You can override this by setting
+the 
+$RUNTIME_CDFDATA_HOME 
+environment variable.  If you specify the 
+--runtime-home
+ parameter,
+then this will take precedence over 
+$RUNTIME_CDFDATA_HOME
+.
+Overlayfs setting
+Checks if the current node matches the requirement of using 
+overlayfs
+ as the storage driver.
+CPU, memory, disk
+setting
+Checks if the CPU, memory, and disk on this node match the sizing requirements.
+Temporary
+directory sizing
+By default, the temp directory is 
+/tmp
+. You can override this by setting the 
+$TMP_FOLDER
+environment variable.  If you specify the 
+--tmp
+ parameter, then this will take precedence over 
+$TM
+P_FOLDER
+.
+POD_CIDR
+, 
+SERVER_C
+IDR
+ configuration
+Checks the format of 
+POD_CIDR
+ and  
+SERVER_CIDR.
+Checks the capacity of the subnet base on the 
+POD_CIDR
+ setting.
+Checks the capacity of the subnet base on the 
+SERVICE_CIDR
+ setting.
+Checks the network overlap between 
+POD_CIDR
+ and host network,  
+POD_CIDR
+ and 
+SERVICE_CIDR
+.
+Non-root user
+name
+If you provide a username with the --user option, the script will check the configurations of this
+user in 
+/etc/sudoers
+ file.
+Port availability
+Checks all the availability of the required ports.
+Required packages
+or commands 
+Checks whether all required commands or packages are installed.
+Host name
+resolution
+Checks the availability of DNS servers on this node.
+Checks the IP address and hostname in the 
+/etc/hosts
+ file.
+Swap setting
+Checks if the swap has been enabled on the node. Checks the related kubelet startup parameter.
+The installation
+status
+of Containerd
+and Kubernetes
+Checks if the node has already installed Containerd and Kubernetes service.
+HTTP Proxy settings
+Checks if the 
+http_proxy
+, 
+https_proxy
+, and 
+no_proxy
+ have been set on this node.
+System parameters
+Checks if the 
+net.bridge.bridge-nf-call-iptables
+,
+ net.bridge.bridge-nf-call-ip6tables
+, and
+net.ipv4.ip_forward
+ parameter equal to 1.
+Note:
+ This topic contains legacy terms that aren't yet fully removed from OMT. Instances of “master” in this
+topic refer to the control plane or to the control plane nodes.
+SMAX 2022.11
+Page 
+628
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

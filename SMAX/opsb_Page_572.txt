@@ -1,0 +1,37 @@
+Installation tasks (on-premises)
+This section contains all the mandatory and optional tasks to install the suite in an on-premises environment.
+Activate Docker Hub account (on-premises)
+Prepare external databases
+(Optional) Install and configure Vertica databases
+Configure SUDO access
+Set up SELinux
+Download required installation packages
+Perform preliminary checks
+Update some system configurations
+Synchronize time
+Check the default gateway setting
+Check the network settings
+Check the host names and set up hostname resolutions
+(Optional) Download container images beforehand
+Configure the install.properties file
+Configure a storage driver
+Check the SSH configurations
+Configure NFS volumes
+Disable on-access security scan
+Export logs to a remote destination
+Perform pre-installation tuning
+(Optional) Upload images to an external registry
+Install ITOM Container Deployment Foundation (on-premises)
+Select deployment configuration
+Download the container images
+Prepare the control plane and worker nodes
+Deploy the suite
+(Optional) Set up a reverse proxy server for a DMZ network
+(Optional) Install containerized CMS
+Deploy cluster nodes without SSH access
+SMAX 2022.11
+Page 
+572
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

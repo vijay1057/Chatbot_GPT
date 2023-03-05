@@ -1,0 +1,95 @@
+/CentOS 8. 
+2 VMs for Patroni and PostgreSQL
+These two VMS need to meet hardware requirements described in 
+Plan the deployment
+.
+2 VMs for HAProxy. Each VM must have a configuration of 4 vCPU, 16GB RAM.
+In the following procedure, 
+pg_node1 
+and 
+pg_node2 
+refer to the two VMs for PostgreSQL, and 
+etcd1
+, 
+etcd2, 
+and 
+etcd3
+refer to the Etcd hosts. 
+Prepare super user permission
+You must have super user permission on these VMs. Run the installation commands as root.
+Prepare a virtual IP address for HAproxy
+Prepare an IP address as the virtual IP address of the HAproxy hosts.
+Allow specific inbound ports for the VMs
+Run the following commands for different VMs to allow the specific inbound ports.
+1
+. 
+On the two Patroni & Postgresql hosts, run the following commands:
+firewall-cmd --add-port={5432,8008}/tcp --permanent
+firewall-cmd --reload
+2
+. 
+On  the two HAProxy hosts, run the following commands:
+firewall-cmd --add-port={5000,6000,7000}/tcp --permanent
+firewall-cmd --reload
+3
+. 
+On the three Etcd cluster hosts, run the following commands:
+firewall-cmd --add-port={2379,2380}/tcp --permanent
+firewall-cmd --reload
+Install Etcd
+Install Etcd on each of the three hosts.
+1
+. 
+Download the Etcd rpm file, and then run the following command to install Etcd:
+rpm -ihv etcd-3.2.21-2.el8.x86_64.rpm
+2
+. 
+Modify the 
+/etc/etcd/etcd.conf
+ file. Locate and uncomment the following parameters, and make sure you update the
+highlighted values to reflect yours.
+For the file on etcd1
+: 
+[Member]
+ETCD_LISTEN_PEER_URLS="http://
+<etcd1 host address>
+:2380"
+ETCD_LISTEN_CLIENT_URLS="http://
+<etcd1 host address>
+:2379,http://localhost:2379"
+ETCD_NAME="
+etcd1
+"
+[Clustering]
+ETCD_INITIAL_ADVERTISE_PEER_URLS="http://
+<etcd1 host address>
+:2380"
+ETCD_ADVERTISE_CLIENT_URLS="http://
+<etcd1 host address>
+:2379"
+Note
+Etcd requires three VMs. You don't need to use dedicated VMs for Etcd; instead, use shared VMs for Etcd: the two
+VMs for PostgreSQL, and one VM for HAProxy.
+All of the VMs must have the same operating system and version. For example, if the two hosts for HAProxy are
+running on RHEL 8 and CentOS 8 respectively, the HA setup will fail. 
+
+
+Note
+ You can change the ports if you use different ports on the Etcd service, Postgresql service, Patroni
+service, and HAProxy service (if used). The default ports for these services are as follows:
+Service Etcd Ports: 2379, 2380
+Service Postgresql Port: 5432
+Service Patroni Port: 8008
+Service HAProxy Port: 5000, 6000, 7000
+The following example uses Red Hat Enterprise Linux release 8.2, Patroni 2.1.3, PG12, Etcd 3.3.11, Keepalived
+2.1.5-6, and HAProxy1.8.27/F5 load balancer as example versions. 
+The parameters in the example are set for 2000 concurrent users for SMAX. Be sure to change the parameters
+according to your environment. 
+
+
+SMAX 2022.11
+Page 
+580
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

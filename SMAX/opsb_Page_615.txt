@@ -1,0 +1,95 @@
+TZ Environment Variable
+This topic details how to set or change the TZ environment variable and update your tzdata package. If this variable is not set,
+then the installer reports this issue with the identifier: 
+S0305
+.
+Before installing 
+Vertica
+, update the tzdata package for your system and set the default time zone for your database
+administrator account by specifying the 
+TZ
+ environmental variable. If your database administrator is being created by the 
+insta
+ll_vertica
+ script, then set the 
+TZ
+ variable after you have installed 
+Vertica
+.
+Update tzdata Package
+The tzdata package is a public-domain time zone database that is pre-installed on most Linux systems. The tzdata package is
+updated periodically for time-zone changes across the world. 
+Micro Focus
+recommends that you update to the latest tzdata
+package before installing or updating 
+Vertica
+.
+Update your tzdata package with the following command:
+RedHat based systems: 
+yum update tzdata
+Debian and Ubuntu systems:
+ apt-get install tzdata
+Setting the Default Time Zone
+When a client receives the result set of a SQL query, all rows contain data adjusted, if necessary, to the same time zone. That
+time zone is the default time zone of the initiator node unless the client explicitly overrides it using the SQL 
+SET TIME ZONE
+command described in the 
+SQL Reference Manual
+. The default time zone of any node is controlled by the 
+TZ 
+environment
+variable. If 
+TZ 
+is undefined, the operating system time zone.
+If your operating system timezone is not set to the desired timezone of the database then make sure that the Linux
+environment variable 
+TZ
+ is set to the desired value on all cluster hosts.
+The installer returns a warning if the TZ variable is not set. If your operating system timezone is appropriate for your database,
+then the operating system timezone is used and the warning can be safely ignored.
+Setting the Time Zone on a Host
+You can set the time zone several different ways, depending on the Linux distribution or the system administrator’s
+preferences.
+To set the system time zone on Red Hat and SUSE Linux systems, edit:
+/etc/sysconfig/clock
+To set the 
+TZ
+ variable, edit, 
+/etc/profile
+, or 
+/home/dbadmin/.bashrc
+ or 
+/home/dbadmin/.bash_profile
+ and add the following line
+(for example, for the US Eastern Time Zone):
+export TZ="America/New_York"
+For details on which timezone names are recognized by 
+Vertica
+, see the appendix: 
+Using Time Zones With Vertica
+.
+The 
+TZ
+ variable must be set to the same value on all nodes in the cluster.
+If you explicitly set the 
+TZ 
+environment variable at a command line before you start the 
+Administration Tools
+, the
+current setting will not take effect. The Administration Tools uses SSH to start copies on the other nodes, so each
+time SSH is used, the 
+TZ 
+variable for the startup command is reset. 
+TZ 
+must be set in the
+ .profile
+ or 
+.bashrc
+ files
+on all nodes in the cluster to take affect properly.
+SMAX 2022.11
+Page 
+615
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

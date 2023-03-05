@@ -1,0 +1,89 @@
+   Checking localhost is resolved to 127.0.0.1 in /etc/hosts ..... [ PASS ]
+   Checking node hostname resolving in /etc/hosts ................ [ PASS ]
+   Checking DNS servers resolution on this node .................. [ PASS ]
+   Checking flannel interface .................................... [ SKIP ]
+   Checking http proxy settings on this node ..................... [ PASS ]
+Check operation system basic settings
+   Checking operating system version ............................. [ PASS ]
+   Checking kernel parameters .................................... [ PASS ]
+   Checking command showmount .................................... [ PASS ]
+   Checking command curl ......................................... [ PASS ]
+   Checking command unzip ........................................ [ PASS ]
+   Checking command conntrack .................................... [ WARNING ]
+(Command conntrack is not found in the PATH:
+"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/kubernetes/bin:/opt
+/kubernetes/bin:/root/bin". For production use, it is STRONGLY recommended
+to install the command.)
+   Checking command java ......................................... [ PASS ]
+   Checking package device-mapper-libs ........................... [ PASS ]
+   Checking package libgcrypt .................................... [ PASS ]
+   Checking package libseccomp ................................... [ PASS ]
+   Checking package libtool-ltdl ................................. [ PASS ]
+   Checking package nfs-utils .................................... [ PASS ]
+   Checking package systemd-libs ................................. [ PASS ]
+   Checking package container-selinux ............................ [ PASS ]
+   Checking package net-tools .................................... [ PASS ]
+   Checking package bash-completion .............................. [ PASS ]
+   Checking package socat ........................................ [ PASS ]
+   Checking package tar .......................................... [ PASS ]
+   Checking supported SSH auth methods: PermitRootLogin not set .. [ WARNING ]
+(To enable password login, set 'PasswordAuthentication yes' and
+'PermitRootLogin yes'. To enable public key login, set
+'PubkeyAuthentication yes' and 'PermitRootLogin prohibit-password'. Then
+restart sshd.)
+Check operation system other settings
+   Checking swap is disabled ..................................... [ FAILED ]
+   Checking containerd service not installed ..................... [ FAILED ]
+(Found a pre-existing systemd file "containerd.service" or folder
+"containerd.service.d" under /usr/lib/systemd/system. Uninstall the
+containerd service and remove the service file and the folder.)
+   Checking containerd service not installed ..................... [ FAILED ]
+(Found a pre-existing systemd file "containerd.service" or folder
+"containerd.service.d" under /etc/systemd/system/multi-user.target.wants.
+Uninstall the containerd service and remove the service file and the
+folder.)
+   Checking kubelet service not installed ........................ [ FAILED ]
+(Found a pre-existing systemd file "kubelet.service" or folder
+"kubelet.service.d" under /usr/lib/systemd/system. Uninstall the kubelet
+service and remove the service file and the folder.)
+   Checking kubelet service not installed ........................ [ FAILED ]
+(Found a pre-existing systemd file "kubelet.service" or folder
+"kubelet.service.d" under /etc/systemd/system/multi-user.target.wants.
+Uninstall the kubelet service and remove the service file and the folder.)
+   Checking the permission of temporary folder /tmp .............. [ PASS ]
+Check ITOM core platform related settings
+   Checking folder RUNTIME_CDFDATA_HOME '/opt/kubernetes/data' is empty ... [ WARNING ]
+(Folder /opt/kubernetes/data is not empty.)
+   Checking CDF_HOME ............................................. [ WARNING ]
+(/opt/kubernetes is not empty. Either clean this folder manually or
+explicitly skip the warning and then the installer will clean this folder.)
+   Checking parameter POD_CIDR ................................... [ PASS ]
+   Checking parameter POD_CIDR_SUBNETLEN ......................... [ PASS ]
+   Checking parameter SERVICE_CIDR ............................... [ PASS ]
+   Checking range overlap of POD_CIDR and SERVICE_CIDR ........... [ PASS ]
+   Checking range overlap of POD_CIDR and host network ........... [ PASS ]
+   Checking SYSTEM_USER_ID and SYSTEM_GROUP_ID ................... [ SKIP ]
+Check the output on your terminal and resolve the errors according to the instructions in the 
+Install
+ section of this help.
+For the passed items, you may be able to skip related sections. However, if you change these settings before you run the
+install command, the install script will take the latest values you updated as the checking items.
+For the warning items, read the instructions carefully and make the corresponding changes if needed. 
+For the skipped items, you can check if you have the corresponding values. For example, you can add the 
+--uid
+[UID] 
+option to check your specified SYSTEM_USER_ID.
+For the failed items, read the related instructions in the 
+Install
+ section and make the corresponding changes.
+Related topics
+Next topic: 
+Update some system configurations
+Previous topic: 
+Download required installation packages
+SMAX 2022.11
+Page 
+630
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

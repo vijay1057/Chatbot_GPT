@@ -1,0 +1,28 @@
+Swap Space Requirements
+Vertica
+ requires at least 2 GB swap partition regardless of the amount of RAM installed on your system. The installer reports
+this issue with identifier 
+S0180
+.
+For typical installations 
+Vertica
+ recommends that you partition your system with a 2GB primary partition for swap regardless of
+the amount of installed RAM. Larger swap space is acceptable, but unnecessary.
+If you do not have at least a 2 GB swap partition then you may experience performance issues when running 
+Vertica
+.
+You typically define the swap partition when you install Linux. See your platform’s documentation for details on configuring the
+swap partition.
+Note
+Do not place a swap file on a disk containing the 
+Vertica
+ data files. If a host has only two disks (boot and data),
+put the swap file on the boot disk.
+
+
+SMAX 2022.11
+Page 
+598
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

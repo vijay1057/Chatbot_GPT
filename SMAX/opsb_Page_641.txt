@@ -1,0 +1,17 @@
+Note
+In a later step, you also need to configure 
+KUBE_DNS_HOSTS
+ parameter in the 
+install.properties
+ file on the first
+control plane node. For details, see 
+Configure the install.properties file
+.
+
+
+SMAX 2022.11
+Page 
+641
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

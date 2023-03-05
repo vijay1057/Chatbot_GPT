@@ -1,0 +1,44 @@
+Your terminal resembles the following:
+[root@sh ~]# sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+2
+. 
+Open the SELinux configuration file 
+/etc/sysconfig/selinux
+ with a supported editor,  set 
+SELINUX=disabled
+, and then save the
+configuration file.
+3
+. 
+Reboot the server to disable SELinux.
+4
+. 
+After the reboot, run the following command to check the SELinux status:
+sestatus
+Policy modules loaded during installation
+The installer will automatically load the 
+selinux-addition.te
+ policy module on the control plane nodes and worker nodes
+regardless of the SELinux status to prevent the 
+dbus
+ service from blocking the Containerd service.
+Related topics
+Next topic: 
+Download the installation packages
+Previous topic: 
+Configure SUDO access
+SMAX 2022.11
+Page 
+625
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

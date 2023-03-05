@@ -1,0 +1,105 @@
+(Optional) Upload images to an external registry
+Note that when generating the download bundle, you need to replace 
+-s <suite_name>
+ with 
+-s itsma
+ in the command line. 
+If you want to install OPTIC Management Toolkit (OMT) and a suite with an external registry, you must download and upload
+the container images to the external registry before you run the 
+install
+ script.
+Generate the download bundle
+1
+. 
+Run the following command to change directory:
+cd /<OMT_Embedded_K8s_202x.xx-xxx>/tools/generate-download>
+2
+. 
+Run the following command to display the command line options for the 
+generate_download_bundle
+ command:
+./generate_download_bundle.sh -h
+3
+. 
+Run the 
+generate_download_bundle.sh
+ command together with the options required by your deployment. For example, run
+the following command. Replace all the placeholders with the actual values.
+./generate_download_bundle.sh -m <suite metadata> -s <suite name> -v <suite version> -o hpeswitom -d <offline-download.zip location>
+For example:
+./generate_download_bundle.sh -m /directory/containing/suite-metadata.tgz -s itsma -v 202x.xx -o hpeswitom -d /tmp
+The 
+offline-download.zip
+ will be placed in the 
+/tmp
+ directory as specified.
+4
+. 
+You receive messages indicating that you have successfully generated the 
+offline-download.zip
+ file:
+[INFO] 2020-04-30 17:58:46 : ** Generating the offline image download bundle ...
+[INFO] 2020-04-30 17:58:50 : Completed generation of offline-download.zip in /tmp
+The generated file contains the image download tool package. This tool downloads the OMT and suite images.
+Download the OMT and suite images
+1
+. 
+Log on to the first control plane node. If the first control plane node can't access Docker Hub, transfer the  
+offline-download.z
+ip
+  file to a Linux server that can access Docker Hub.
+2
+. 
+Extract the .zip package to a directory. If you can't access Docker Hub directly, set up the HTTP/HTTPS proxy. For
+example, run the following commands to set the HTTP/HTTPS proxy. Replace the placeholders with your actual server and
+port. 
+export http_proxy="<http://PROXY_SERVER:PORT>"
+export https_proxy="<https://PROXY_SERVER:PORT>"
+3
+. 
+Go to the directory you extracted the 
+offline-download.zip
+ package into.
+4
+. 
+Run the following command:
+ 
+./downloadimages.sh -u <username>  -d <image download directory> -c on|off -o <org name>
+Where:
+Replace <
+username
+> with the Docker Hub username.
+If you don't specify the credentials here, you will be prompted to specify them when you run the command.
+<
+image download directory
+>: The directory where the container images will be downloaded. The default value is
+Notes
+To follow the steps in this section, you must have installed the 
+zip
+ Linux command on the node where you
+run the 
+generate_download_bundle.sh
+ script.
+CA certificate verification is required between the registry server and its authentication server when
+downloading and uploading images. If you didn't load the registry CA certificate into the truststore of your
+download or upload machine, the download and upload process might fail.
+To add a registry CA certificate into the truststore, refer to the following example. We take CentOS as an
+example, for other OS, refer its official documentation.
+1
+. 
+Copy the registry CA certificate to the folder: 
+/etc/pki/ca-trust/source/anchors/
+2
+. 
+Run the following command to update the registry CA certificate to truststore:
+update-ca-trust extract
+
+
+Note:
+ This example contains placeholder values.
+SMAX 2022.11
+Page 
+669
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

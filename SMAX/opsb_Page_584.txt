@@ -1,0 +1,113 @@
+LimitNOFILE=65536
+KillMode=process
+KillSignal=SIGINT
+Restart=on-abnormal
+RestartSec=30s
+TimeoutSec=0
+[Install]
+WantedBy=multi-user.target
+      
+Start Patroni
+Run the following commands to start Patroni:
+systemctl daemon-reload
+systemctl start patroni
+systemctl enable patroni
+systemctl status patroni
+Install HAProxy on two hosts
+1
+. 
+Run the following command to install HAProxy
+：
+yum -y install haproxy
+2
+. 
+Back up the existing HAProxy configuration file of the HAProxy instance:
+cp -p /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bkp
+3
+. 
+Run the following command to update your HAProxy configuration file:
+vim /etc/haproxy/haproxy.cfg
+4
+. 
+Remove the content in the file and copy the following to the file. Then, update the values highlighted in 
+blue 
+according to
+your network setup:
+global
+  log 127.0.0.1 local2
+  chroot /var/lib/haproxy
+  pidfile /var/run/haproxy.pid
+  maxconn 
+6000
+  user haproxy
+  group haproxy
+  daemon
+  stats socket /var/lib/haproxy/stats
+defaults
+  mode tcp
+  log global
+  retries 3
+  timeout queue 1m
+  timeout connect 10s
+  timeout client 
+31m
+  timeout server 
+31m
+  timeout check 10s
+  maxconn 
+3000
+listen stats
+  mode http
+  bind *:
+7000
+  stats enable
+  stats uri /
+listen postgres
+  bind *:
+5000
+  option httpchk
+  http-check expect status 200
+  default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+  server pg_node1 
+<pg_node1 IP address>
+:5432 maxconn 2000 check port 8008
+  server pg_node2 
+<pg_node2 IP address>
+:5432 maxconn 2000 check port 8008
+listen postgres-readonly
+  bind *:
+6000
+  option httpchk GET /replica
+  http-check expect status 200
+  default-server inter 3s fall 3 rise 2 on-marked-down shutdown-sessions
+  server pg_node1 
+<pg_node1 IP address>
+:5432 maxconn 2000 check port 8008
+  server pg_node2 
+<pg_node2 IP address>
+:5432 maxconn 2000 check port 8008
+5
+. 
+Edit the service startup script /usr/lib/systemd/system/haproxy.service, then add LimitNOFILE=6000 to the [Service]
+section :
+[Service]
+LimitNOFILE=6000
+6
+. 
+Run the following command to reload the system daemon:
+systemctl daemon-reload
+7
+. 
+Make sure the SELinux boolean "haproxy_connect_any" is on. Run the following command:
+Note 
+If you encounter a Patroni startup issue, run the "
+journalctl -u patroni
+"command to check the log. 
+
+
+SMAX 2022.11
+Page 
+584
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

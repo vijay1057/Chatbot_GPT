@@ -1,0 +1,67 @@
+The operating system's default 
+nproc
+ values are defined in an 
+xx-nproc.conf
+ file in the 
+/etc/security/limits.d
+ directory. For
+example, it's 
+/etc/security/limits.d/20-nproc.conf
+ for CentOS 7 /RHEL 7. The soft 
+nproc
+ value defines the maximum
+allowed number of processes for each non-root user of the operating system.
+To update the default 
+nproc
+ values:
+1
+. 
+Open the 
+/etc/security/limits.d/xx-nproc.conf
+ file in a text editor.
+Note that the 
+/etc/security/limits.d/
+ directory may contain multiple 
+xx-nproc.conf
+ files, which are read in a certain
+order. The file that's the last read takes precedence. For information about the order, see your operating system
+documentation.
+2
+. 
+Make sure that this file contains the same nproc values as in the 
+/etc/security/limits.conf
+ file. See the 
+Increase OS
+resource limits
+ section for the recommended values.
+Note
+: The values defined in the 
+/etc/security/limits.d/xx-nproc.conf
+ file take precedence over those in the
+/etc/security/limits.conf
+ file. If the values are too small, there will be an insufficient number of processes allowed for
+the user with a UID of <
+SYSTEM_USER_ID
+>. As a result, when you have many tenants and try to log in to one of them,
+the login may fail with a "Static content unavailable" error.
+Check the NFS version  (CentOS only)
+If using a medium/large sizing profile and deploying your NFS service on CentOS and 
+HDD
+ (hard disk drive) storage, you need
+to pay attention to your NFS version. Based on lab benchmark testing, inappropriate combinations of CentOS and NFS versions
+have negative impact on the whole system's stability.
+The following is a list of recommended combinations for better stability:
+CentOS 7.5.1804 + nfs-utils (1.3.0, 0.54.el7)
+CentOS 7.6.1810 + nfs-utils (1.3.0, 0.54.el7)
+CentOS 7.6.1810 + nfs-utils (1.3.0, 0.65.el7)
+For other combinations, to mitigate the impact, you need to extend your storage capability by adding more hard disk drive
+space, or switch to SSD storage directly.
+Related topics
+For information about post-installation tuning, see 
+Perform post-installation tuning
+SMAX 2022.11
+Page 
+668
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

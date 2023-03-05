@@ -1,0 +1,39 @@
+Ensure localhost is resolved to 127.0.0.1
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes and worker nodes
+Root or sudo
+Flannel uses the default gateway to create packet routing on the nodes for communication. To enable network communication
+across all the cluster nodes, you must ensure localhost resolves to 127.0.0.1 on all control plane and worker nodes. To do this,
+follow these steps:  
+1
+. 
+Run the following command to check your localhost setting:
+ 
+grep -v '^\s*#' /etc/hosts 2>/dev/null | grep -E '\slocalhost$|\slocalhost\s'
+If there is no return value, run the following command to set the default route setting:
+echo "127.0.0.1 localhost" >> /etc/hosts   
+ 
+2
+. 
+Open the 
+/etc/hosts
+ file with a supported editor and check the configurations in the file. Make sure that localhost
+resolves to 127.0.0.1. 
+For example:
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+If you want to enable IPv4/IPv6 dual stack for OMT installation, make sure the localhost resolves to 
+::1
+ in 
+/etc/hosts
+ file. For
+example, 
+::1 localhost6 localhost6.localdomain6
+SMAX 2022.11
+Page 
+633
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,75 @@
+Firewall Considerations
+Vertica
+ requires multiple ports be open between nodes. You may use a firewall (IP Tables) on Redhat/CentOS and
+Ubuntu/Debian based systems. Note that firewall use is not supported on SuSE systems and that SuSE systems must disable
+the firewall. The installer reports issues found with your IP tables configuration with the identifiers 
+N0010
+ for (systems that
+use IP Tables) and 
+N011
+ (for SuSE systems).
+The installer checks the IP tables configuration and issues a warning if there are any configured rules or chains. The installer
+does not detect if the configuration may conflict with 
+Vertica
+. It is your responsibility to verify that your firewall allows traffic
+for 
+Vertica
+ as described in 
+Ensure Ports Are Available
+.
+You can modify your firewall to allow for 
+Vertica
+ network traffic, or you can disable the firewall if your network is secure. Note
+that firewalls are not supported for 
+Vertica
+ systems running on SuSE.
+Red Hat 6 and CentOS 6 Systems
+For details on how to configure iptables and allow specific ports to be open, see the platform-specific documentation for your
+platform:
+RedHat: 
+https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Security_Guide/sect-
+Security_Guide-IPTables.html
+CentOS: 
+http://wiki.centos.org/HowTos/Network/IPTables
+To disable iptables, run the following command as root or sudo:
+# service iptables save
+# service iptables stop
+# chkconfig iptables off
+To disable iptables if you are using the ipv6 versions of iptables, run the following command as root or sudo:
+# service ip6tables save
+# service ip6tables stop
+# chkconfig ip6tables off
+Red Hat 7 and CentOS 7 Systems:
+To disable the system firewall, run the following command as root or sudo:
+# systemctl mask firewalld
+# systemctl disable firewalld
+# systemctl stop firewalld
+Ubuntu and Debian Systems
+For details on how to configure iptables and allow specific ports to be open, see the platform-specific documentation for your
+platform:
+Debian: 
+https://wiki.debian.org/iptables
+Ubuntu: 
+https://help.ubuntu.com/12.04/serverguide/firewall.html
+.
+Note
+The installer does not check NAT entries in iptables.
+
+
+You may encounter the 
+N0010
+ issue even when the firewall is disabled. If this occurs, you can workaround this
+issue and install Vertica by ignoring installer WARN messages. To do this, install (or update) with a failure
+threshold of FAIL. For example,
+ /opt/vertica/sbin/install_vertica --failure-threshold FAIL <other install options...>
+.
+Note
+Ubuntu uses the ufw program to manage iptables.
+
+
+SMAX 2022.11
+Page 
+599
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

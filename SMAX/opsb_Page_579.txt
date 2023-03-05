@@ -1,0 +1,39 @@
+High Availability PostgreSQL with Patroni
+Patroni is a tool for deploying PostgreSQL servers in high-availability mode.
+Patroni architecture
+The following diagram illustrates the architecture of a highly available PostgreSQL cluster using Patroni and HAProxy.
+Patroni is a cluster manager that can customize and automate the deployment and maintenance of PostgreSQL HA (High
+Availability) clusters. It supports database automatic failover and streaming replication. 
+HAProxy or a load balancer offers load balancing and proxying for TCP and HTTP-based applications.
+Etcd is a strongly consistent, distributed key-value store that provides a reliable way to store data that a distributed system or
+cluster of machines needs to access. Use Etcd to store the state of the PostgreSQL cluster to keep the Postgres cluster up and
+running.
+To use this architecture, you must specify the HAProxy virtual IP address and port (5000 by default) as the database server
+host IP address and port.
+To connect to the read-only database server, you must specify the HAProxy virtual IP address and the read-only port (6000 by
+default) as the read-only database server host IP address and port.
+The following describes the procedure to install a highly available PostgreSQL cluster using Patroni and HAProxy (or an F5 load
+balancer) on RHEL8 in a lab environment.
+Preparation
+Before you proceed, complete the following preparation steps.
+Prepare VMs
+Prepare 4 virtual machines (VMs) or physical hosts. In this example, we use 4 VMs prepared with Red Hat Enterprise Linux 8
+Important 
+Practice guidance of any third-party products (for example, PostgreSQL HA) provided by Micro
+Focus is for reference purposes only with an intention to help customers. However, customers will remain
+responsible for ensuring that the end-to-end solution works with the underlying infrastructure, hardware/software
+dependencies, and more. Micro Focus will extend its responsibility and support for Micro Focus products only per
+contractual agreements as applicable.
+
+
+Note
+ You can deploy a hardware load balancer to replace the HAProxy in the following diagram. In our lab
+environment, we've validated the configurations and deployments with an F5 load balancer.
+
+
+SMAX 2022.11
+Page 
+579
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

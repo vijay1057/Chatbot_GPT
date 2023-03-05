@@ -1,0 +1,89 @@
+FLANNEL_IFACE
+Configuration of this parameter is mandatory if you install OMT on a node that has more than one network adapter. The
+configuration of this parameter applies to the first control plane node only. For other nodes, specify the values of this
+parameter on the installation portal while adding nodes later.
+This parameter specifies the interface for Container inter-host communication. If the first control plane node has multiple
+network adapters, set the value of the 
+FLANNEL_IFACE
+ parameter to the network adapter that you want to use for Container
+inter-host communication. If the remaining control plane nodes (in an HA configuration) or worker nodes also have multiple
+network adapters, you must also select one of these network adapters for Container inter-host communication. However, this
+information is specified later. When you add control plane and worker nodes on the installation portal, enter the network
+adapters for the additional nodes in the 
+Flannel IFace
+ text box.
+The expected value is an IPv4 address or interface name.
+Example:
+FLANNEL_IFACE="192.0.2.1"
+FLANNEL_BACKEND_TYPE
+Configuration of this parameter is mandatory if you are configuring multiple control plane nodes in multiple subnets.
+This parameter specifies the backend type of the flannel network. If you set up the OMT cluster nodes in different subnets, set
+the value of this parameter to 
+vxlan
+. If you set up the OMT cluster nodes in the same subnet, set the value of this parameter to
+host-gw
+.
+On clouds (such as, AWS and Azure), the 
+FLANNEL_BACKEND_TYPE parameter
+ can only be set to 
+vxlan
+ for a non-
+Kubernetes managed deployment. This parameter is invalid in external Kubernetes deployments.
+The expected value for this parameter is 
+host-gw
+ or 
+vxlan
+.
+The default value is 
+host-gw
+.
+Example:
+FLANNEL_BACKEND_TYPE="host-gw"
+POD_CIDR
+Configuration of this parameter is optional.
+This parameter specifies the network address range for Kubernetes pods. The address range specified in the 
+POD_CIDR
+parameter mustn't overlap with the IP range assigned for Kubernetes services (specified in the 
+SERVICE_CIDR
+ parameter).
+The expected value is a Classless Inter-Domain Routing (CIDR) format IP address. CIDR notation comprises of an IP address, a
+slash ('/') character, and a network prefix (a decimal number). The minimum useful network prefix is 
+/24
+ and the maximum
+useful network prefix is 
+/8
+.
+The default value is 
+172.16.0.0/16
+. We strongly recommend that you change the default value only when your network
+configuration requires you to do so, and to make sure that you have sufficient understanding of the Flannel network fabric
+configuration requirements before you make any changes.
+Example:
+POD_CIDR="172.16.0.0/16"
+POD_CIDR_SUBNETLEN
+Configuration of this parameter is optional.
+This parameter specifies the size of the sub-net allocated to each host for Kubernetes pod network addresses.
+The default value is dependent on the value of the 
+POD_CIDR
+ parameter, as described in the following table. We strongly
+recommend that you change the default value only when your network configuration requires you to do so. You must also
+ensure that you have a sufficient understanding of the Flannel network fabric configuration requirements before you make any
+changes.
+POD_CIDR prefix
+POD_CIDR_SUBNETLEN defaults
+POD_CIDR_SUBNETLEN allowed values
+/8 to /21
+/24
+/(POD_CIDR prefix + 3) to /27
+/22 to /24
+/(POD_CIDR prefix + 3)
+/(POD_CIDR prefix + 3) to /27
+Smaller prefix values indicate a larger number of available addresses.
+Example:
+POD_CIDR_SUBNETLEN="24"
+SMAX 2022.11
+Page 
+653
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

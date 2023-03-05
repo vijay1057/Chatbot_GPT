@@ -1,0 +1,79 @@
+Configuration of this parameter is optional.
+This parameter specifies whether to ignore some failed worker nodes for silent installation in helm mode. If this parameter is
+set to 
+true
+, silent installation will continue even some of the worker nodes failed. 
+The expected value is 
+true
+ or 
+false
+.
+The default value is 
+true
+.
+Example:
+SKIP_FAILED_WORKER_NODE="true"
+AUTO_CONFIGURE_FIREWALL
+Configuration of this parameter is optional.
+This parameter specifies whether the required firewall rules are automatically added when the node is deployed. If the value is
+set to 
+true
+, the firewall rules are configured automatically. This parameter is disabled if no firewall is configured on the node.
+The expected value is 
+true
+ or 
+false
+.
+The default value is 
+true
+.
+Example:
+AUTO_CONFIGURE_FIREWALL="true"
+HA_VIRTUAL_IP
+Configuration of this parameter is mandatory if you are configuring multiple control plane nodes in a single subnet and if you
+haven't configured the 
+LOAD_BALANCER_HOST
+ parameter.
+This parameter specifies the virtual IP address that's shared by the control plane nodes in an HA environment. OMT uses
+Keepalived to provide failover for the IP address that clients use to access the installed ITOM services. This IP address is a
+virtual IP address that's assigned to one of the three OMT cluster control plane nodes. If a control plane node fails, the virtual
+IP address is assigned to an active control plane node. This setup helps to provide high availability for the ITOM services.
+The expected value is any free IP address in the subnet that will hold the cluster control plane nodes. The IP address mustn't
+be occupied and it mustn't be changed or updated. The virtual IP address and every control plane node must exist in the same
+network subnet. If the network contains a DNS server, create a DNS entry for the virtual IP address so clients can use this
+name to find the ITOM services running in the OMT cluster.
+Example:
+HA_VIRTUAL_IP="192.0.2.0"
+KEEPALIVED_NOPREEMPT
+Configuration of this parameter is optional.
+This parameter specifies whether Keepalived runs in preempt mode. The Virtual Router Redundancy Protocol (VRRP) will
+normally preempt a lower priority machine when higher priority machines come online. "nopreempt" allows the lower priority
+machine to maintain the control plane role, even when a higher priority machine comes back online. But default, the
+parameter 
+KEEPALIVED_NOPREEMPT
+ is set to "true", which means the Keepalived is in "nopreempt" mode. If you want the cluster
+are in preempt mode, set the 
+KEEPALIVED_NOPREEMPT
+ to "false".
+The default value is 
+true
+.
+Example:
+KEEPALIVED_NOPREEMPT="true"
+KEEPALIVED_VIRTUAL_ROUTER_ID
+Configuration of this parameter is optional. This parameter is only used for multiple control plane nodes with HA via
+Keepalived.
+This parameter specifies the virtual router ID for Keepalived. This ID is unique for each cluster in the same network. However,
+all nodes in the same cluster should use the same value. When a value is occupied, the new cluster will use a different value.
+The expected value must fall in the range of 0-255.
+The default value is 
+51
+.
+Example:
+KEEPALIVED_VIRTUAL_ROUTER_ID="51"
+SMAX 2022.11
+Page 
+651
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

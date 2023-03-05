@@ -1,0 +1,69 @@
+getsebool -a|grep haproxy_connect
+If the result is like:
+haproxy_connect_any --> off
+Then, run the following command:
+setsebool -P haproxy_connect_any=1
+8
+. 
+Start the HAProxy service:
+systemctl start haproxy
+systemctl status haproxy
+9
+. 
+To enable HAProxy to run at startup:
+systemctl enable haproxy
+10
+. 
+Check the maximum number of open files:
+cat /proc/<haproxy pid>/limits|grep open
+For example:
+cat /proc/2893/limits|grep open
+Max open files 20037 20037 files
+11
+. 
+Make sure you can connect to PostgreSQL Server through HAProxy by running the following commands on a host where
+"psql" is available.
+psql -h <haproxy1 ip address> -p 5000 -d postgres -U postgres
+psql -h <haproxy2 ip address> -p 5000 -d postgres -U postgres
+Use SSL connection to the database:
+psql "host=<haproxy1 ip address> port=5000 dbname=postgres user=postgres password=<password> sslmode=verify-ca sslrootcert=<root
+ca certificate>"
+psql "host=<haproxy2 ip address> port=5000 dbname=postgres user=postgres password=<password> sslmode=verify-ca sslrootcert=<root
+ca certificate>"
+12
+. 
+Check if the connections to the different ports are in readonly or write-read mode
+​​​​​​.
+ 
+     psql -h 
+<haproxy1 ip address>
+ -U postgres -p 6000 -c "SELECT pg_is_in_recovery();"
+      pg_is_in_recovery 
+     -------------------
+      t
+     (1 row)
+     
+     psql -h <haproxy1 ip address> -U postgres -p 5000 -c "SELECT pg_is_in_recovery();"
+      pg_is_in_recovery 
+     -------------------
+      f
+     (1 row)
+Test the PostgreSQL cluster 
+1
+. 
+You can test and verify your PostgreSQL cluster by initiating a connection request to HAProxy:
+#psql -h <haproxy host address> -p 5000 -d postgres -U postgres
+2
+. 
+Open a web browser and access http://<Haproxy host ip>:7000, you will see an HAProxy dashboard like below:
+3
+. 
+To list the nodes from the command line on DB hosts, run a database failover test:
+patronictl -c /opt/app/patroni/etc/postgresql.yml list
+patronictl -c /opt/app/patroni/etc/postgresql.yml failover
+SMAX 2022.11
+Page 
+585
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

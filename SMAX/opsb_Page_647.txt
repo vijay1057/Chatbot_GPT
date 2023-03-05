@@ -1,0 +1,87 @@
+Directories
+CDF_HOME
+Configuration of this parameter is optional.
+This parameter specifies the installation directory (fully-qualified directory) for the core OMT binaries. The value of this
+parameter can't be a symbolic link directory. 
+The default value is 
+/opt/cdf
+.
+Example:
+CDF_HOME="/opt/cdf"
+RUNTIME_CDFDATA_HOME
+Configuration of this parameter is optional.
+This parameter specifies the absolute path to the directory in which the OMT runtime data is saved. The OMT runtime data
+includes data about the containerd, kubelet, etcd, and fluentd services.
+If the directories specified in the 
+CDF_HOME
+ and 
+RUNTIME_CDFDATA_HOME
+ parameters are located in different file systems
+(mount points), the available space in the directory specified by the 
+RUNTIME_CDFDATA_HOME
+ parameter must be equal to or
+larger than the size set in the 
+storage_gb
+ variable in the suite metadata JSON file, and the available space in the directory
+specified by the 
+CDF_HOME
+ parameter must be equal to or larger than 8 GB. The suite metadata JSON file is the .tgz file you
+downloaded for installation. You will need to specify the suite metadata directory while you run the 
+install -m /<
+suite metadata dire
+ctory
+>/<
+suite metadata
+>.tar.gz 
+command to install the suite. The specified directory for 
+RUNTIME_CDFDATA_HOME
+ is for running
+containerd with "overlayfs".
+Example:
+RUNTIME_CDFDATA_HOME="/opt/cdf/data"
+TMP_FOLDER
+Configuration of this parameter is optional.
+This parameter specifies the absolute path to the temporary directory. The directory specified by the 
+TMP_FOLDER
+ parameter
+must have permission 1777. You can list the permissions of a directory by running the command 
+stat <TMP_FOLDER directory>
+.
+Replace the placeholder <TMP_FOLDER directory> with the directory you specified for parameter 
+TMP_FOLDER
+. If the
+temporary directory is a mounted file system, make sure it isn't mounted with the 
+noexec
+flag, so that the user that you will use
+to add nodes on the installation portal later has the permission to run the scripts under this directory.
+The default value is 
+/tmp
+.
+Example:
+TMP_FOLDER="/tmp"
+General K8S cluster settings
+K8S_PROVIDER
+Configuration of this parameter is optional.
+This parameter specifies the Kubernetes provider.
+The expected value is 
+cdf
+, 
+cdf-azure
+, or 
+cdf-aws
+.  The value is case insensitive.
+The default value is 
+cdf
+.
+Example:
+see 
+Disable a capability
+. 
+Note: The CDF_HOME directory must be empty or mustn't yet exist.
+Note: The $RUNTIME_CDFDATA_HOME directory must be empty or non-existent.
+SMAX 2022.11
+Page 
+647
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

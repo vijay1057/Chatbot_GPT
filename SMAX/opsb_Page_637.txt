@@ -1,0 +1,80 @@
+Check the SSH configurations
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes and worker nodes
+Root or sudo
+OPTIC Management Toolkit (OMT) supports default SSH configurations. If you are using default SSH configurations, ignore the
+the steps in this topic. If you don't have SSH enabled, or aren't aware of the current SSH configurations, follow the steps in this
+topic.
+OpenSSH provides secure and encrypted connections between machines. Therefore, we recommend that you enable SSH on
+all control plane and worker nodes (cluster nodes) in your deployment.
+If your cluster nodes can't or aren't allowed to enable SSH, go to the "Silent deploy" or "Deploy cluster nodes without SSH
+access" topics for details about silent deployment.
+You can run the following command to check whether SSH is enabled and running as a root user or a sudo user who has
+related permission:
+systemctl is-active sshd
+If the output is 
+active
+, SSH is enabled on this node. However, if you have customized the SSH configurations, perform the
+following steps on all control plane nodes and worker nodes to check whether your SSH configuration meets the installation
+requirements.
+Check whether you have enabled SSH
+Check the output of the 
+systemctl is-active sshd 
+command to make sure that SSH is enabled on this node.
+ 
+An SSH server is
+installed and enabled on most operating systems, and the configuration file is 
+/etc/ssh/sshd_config
+. 
+To check whether the SSH server has been installed, run the following command:
+systemctl -t service|grep sshd
+If the SSH isn't installed on your node, run the following commands to install and start the SSH server:
+yum install openssh-server
+systemctl enable sshd
+systemctl start sshd
+Check MAC and Cipher algorithms
+For security reasons, the IT administrator may allow only limited algorithms for SSH client connection. Make sure
+the /etc/ssh/sshd_config files on all the control plane nodes and worker nodes are configured with at least one of the following
+values. If no MAC/Cipher algorithm is configured in the /etc/ssh/sshd_config file, the server uses the default MAC/Cipher
+algorithm whose default value has contains the MAC and Cipher requested by OMT. In that case, you can ignore this "Check
+MAC and Cipher algorithms" section. 
+For MAC algorithms: hmac-sha1,hmac-sha2-256,hmac-sha2-512,hmac-sha1-96
+For Cipher algorithms: 3des-cbc,aes128-cbc,aes192-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-
+ctr,arcfour128,arcfour256,blowfish-cbc
+For example, add the following lines to the 
+/etc/ssh/sshd_config
+ files on all the control plane nodes and worker nodes:
+MACs hmac-sha2-256,hmac-sha2-512 
+Ciphers aes128-cbc,aes192-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr
+Check the password or key authentication setting
+During the installation, you will use either user name and password authentication or user name and key authentication to add
+control plane nodes and worker nodes on the installation portal. To use a user name and password authentication to add
+nodes for the installation, make sure the 
+PasswordAuthentication
+ parameter in the 
+/etc/ssh/sshd_config
+ file is set to 
+yes
+.
+You can run the following command to check whether the 
+PasswordAuthentication
+ is enabled. Replace 
+<cluster node>
+ with the
+IPv4 address or FQDN of any of the cluster nodes.
+ssh root@<cluster node> echo "It\'s working\!"
+You will be prompted to enter the password of the cluster node.
+If your terminal resembles the following, the 
+PasswordAuthentication
+ parameter is set to 
+yes
+.
+SMAX 2022.11
+Page 
+637
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

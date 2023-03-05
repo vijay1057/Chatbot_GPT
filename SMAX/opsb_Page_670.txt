@@ -1,0 +1,94 @@
+/var/opt/cdf/offline.
+The 
+-c
+ option is used to verify the digital signature of the images during the download. The default setting is off,
+which doesn't verify the signature.
+<org name>
+: The organization in the image registry that contains the images for installation. By default, this is 
+hpeswit
+om.
+ This option is mandatory if you aren't using the default organization name.
+To see the full list of options for the 
+downloadimages.sh
+ command, run the following command:
+./downloadimages.sh –h
+The command also has a 
+-p
+ option to provide your password. The 
+-p
+  option doesn't support single quotes (don't include
+single quotes in the password).
+Upload the images
+Follow these steps to upload the installation images to your external image registry:
+1
+. 
+Log on to one of the control plane nodes. The node must be able to connect to the external registry.
+2
+. 
+Go to the directory you extracted the 
+offline-download.zip
+ package into.
+3
+. 
+Run the following command to upload the suite images to the external registry:
+./uploadimages.sh -r <image repository URL> -u <username>  -d <image download directory> -o <org name>
+Where:
+Replace 
+<image repository URL>
+ with the URL of the external registry where the images will be uploaded. You can
+format the URL with the HTTP or HTTPS protocol, or not specify a protocol (in this case, the protocol defaults to
+HTTPS). For example: 
+image-registry.com:443
+, 
+http://image-registry.com
+, or 
+https://image-registry.com
+.
+Replace 
+<username>
+ with the registry username.  
+If you don't specify the credentials here, you will be prompted to specify them when you run the command.
+<image download directory>
+: The directory to which you downloaded the container images. The default value is
+/var/opt/cdf/offline. Specify the 
+-d 
+option if the images aren't in the 
+/var/opt/cdf/offline/
+ directory. You can use the 
+-d
+option multiple times when the images are in different directories. The images can be the images downloaded by the
+downloadimages.sh
+ or saved by 
+docker save
+. For the images saved by 
+docker save
+, only .tar, .tgz, and .tar.gz images are
+supported. Make sure the image file type matches the file extension. 
+<org name>
+: The organization in the image registry that contains the images for installation. By default, this is 
+hpeswit
+om.
+ This option is mandatory if you aren't using the default organization name.
+To see the full list of options for the 
+uploadimages.sh
+ command, run the following command:
+./uploadimages.sh -h 
+4
+. 
+Wait until the images are successfully uploaded. Your terminal resembles the following:
+Upload-process successfully completed.
+Note: 
+Micro Focus encourages you to use some other password options, which aren't provided by Micro
+Focus. By implementing the -p option, you may expose the system to increased security risks. You understand
+and agree to assume all associated risks and hold Micro Focus harmless for the same. It remains at all times your
+sole responsibility to assess its own regulatory and business requirements. Micro Focus doesn't represent or
+warrant that its products comply with any specific legal or regulatory standards applicable to you in conducting
+your business.
+
+
+SMAX 2022.11
+Page 
+670
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,143 @@
+Configure NFS volumes
+If a container stops and is then restarted, all changes made inside the container get lost. To save information such as
+configuration files or databases, the system must store the information in a persistent volume provided by a Network File
+System (NFS). To install OPTIC Management Toolkit (OMT) and then deploy the suite on OMT, you need to export NFS volumes
+to store OMT and suite data. 
+NFS volumes required for OMT and the suite
+In the following table, the 
+NFS volume label
+ column lists the OMT core volume (itom-vol-claim) which you will need
+to specify when running the 
+install
+ script to install OMT, and the NFS volumes that you will see in the installation portal UI when
+configuring File Storage. 
+In the installation portal UI, you can either manually configure NFS volumes or use the
+ Auto-fill
+ feature to let the installer
+automatically configure them for you. Be aware that 
+Auto-fill
+ requires each NFS volume to reside in the same parent NFS
+folder (on the same NFS server) and use the exact volume display label in the installation portal UI as the subfolder name. The
+parent NFS folder is referred to below as <base directory>. For example, if <base directory> is 
+/var/vols/itom
+ and the volume
+display label  is 
+global-volume
+, then the NFS export path must be 
+/var/vols/itom/global-volume
+ to use 
+Auto-fill
+.
+Component
+NFS volume label
+Description
+Example export path
+OMT
+Always required:
+itom-vol-claim
+itom-logging-vol
+If the 
+cdfidm-db
+ database is
+internal (not recommended in
+production environments):
+db-single-vol
+If monitoring capability is
+enabled for OMT (see 
+Configure
+the install.properties file
+):
+itom-monitor-vol
+itom-vol-claim:
+OMT core
+volume
+db-single-vol:
+OMT database
+volume
+itom-logging-
+vol: OMT log
+volume
+itom-monitor-
+vol: OMT
+monitoring
+capability
+volume
+Always required:
+<base directory>/core
+<base directory>/itom-logging-vol
+If the 
+cdfidm-db
+ database is internal (not
+recommended in production environments):
+<base directory>/db-single-vol
+If the monitoring capability is enabled for OMT (note
+that monitoring is enabled by default for
+deployments using the embedded Kubernetes):
+<base directory>/itom-monitor-vol
+SMA
+global-volume
+SMA global volume
+<base directory>/global-volume
+db-volume
+A data volume for
+the suite's internal
+PostgreSQL
+<base directory>/db-volume
+rabbitmq-infra-rabbitmq-0
+rabbitmq-infra-rabbitmq-1
+rabbitmq-infra-rabbitmq-2
+SMA rabbitmq
+volumes
+<base directory>/rabbitmq-infra-rabbitmq-0
+<base directory>/rabbitmq-infra-rabbitmq-1
+<base directory>/rabbitmq-infra-rabbitmq-2
+smartanalytics-volume
+SMA Smart Analytics
+volume
+<base directory>/smartanalytics-volume
+itsma-smarta-sawarc-con-
+0
+itsma-smarta-sawarc-con-
+1
+itsma-smarta-sawarc-con-
+a-0
+itsma-smarta-sawarc-con-
+a-1
+Storage for archived
+search service data
+<base directory>/itsma-smarta-sawarc-con-0
+<base directory>/itsma-smarta-sawarc-con-1
+<base directory>/itsma-smarta-sawarc-con-a-0
+<base directory>/itsma-smarta-sawarc-con-a-1
+itsma-smarta-saw-con-0
+itsma-smarta-saw-con-1
+itsma-smarta-saw-con-2
+itsma-smarta-saw-con-3
+itsma-smarta-saw-con-4
+itsma-smarta-saw-con-5
+itsma-smarta-saw-con-a-0
+itsma-smarta-saw-con-a-1
+itsma-smarta-saw-con-a-2
+itsma-smarta-saw-con-a-3
+itsma-smarta-saw-con-a-4
+itsma-smarta-saw-con-a-5
+Storage for current
+search service data
+<base directory>/itsma-smarta-saw-con-0
+<base directory>/itsma-smarta-saw-con-1
+<base directory>/itsma-smarta-saw-con-2
+<base directory>/itsma-smarta-saw-con-3
+<base directory>/itsma-smarta-saw-con-4
+<base directory>/itsma-smarta-saw-con-5
+<base directory>/itsma-smarta-saw-con-a-0
+<base directory>/itsma-smarta-saw-con-a-1
+<base directory>/itsma-smarta-saw-con-a-2
+<base directory>/itsma-smarta-saw-con-a-3
+<base directory>/itsma-smarta-saw-con-a-4
+<base directory>/itsma-smarta-saw-con-a-5
+SMAX 2022.11
+Page 
+660
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

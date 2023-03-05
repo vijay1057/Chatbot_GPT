@@ -1,0 +1,97 @@
+Set up Patroni
+Perform the following steps on two hosts to set up Patroni.
+Install Patroni
+Run the following commands to install Patroni.
+curl https://bootstrap.pypa.io/pip/3.6/get-pip.py -o /tmp/get-pip.py -k
+python3 /tmp/get-pip.py
+pip install psycopg2-binary
+pip install patroni[etcd,consul]
+Prepare SSL certificates for PostgreSQL
+1
+. 
+Create the following directory: 
+mkdir -p /usr/patroni/conf 
+You will copy the PostgreSQL SSL certificates to this directory. 
+2
+. 
+Get or create a public/private key file pair, which you will use to turn on SSL for the PostgreSQL server. Here is an
+example of creating a self-signed certificate.
+openssl genrsa -out server.key 2048
+openssl req -new -x509 -days 3650 -key server.key -out server.crt -subj "/C=UK/ST=Massachusetts/L=Cambridge/O=Microfocus/OU=ITSMA/CN
+=*.domain.com"
+cp server.crt /usr/patroni/conf/server.crt
+cp server.key /usr/patroni/conf/server.key
+3
+. 
+Change the certificate file mode and owner.
+cd /usr/patroni/conf
+chmod 400 server.crt
+chmod 400 server.key
+chown postgres:postgres server.key
+chown postgres:postgres server.crt
+Create a configuration YAML file for Patroni
+1
+. 
+Create the following directory if you haven't created it before:
+mkdir -p /usr/patroni/conf
+2
+. 
+Run the following command to create the configuration file:
+touch /usr/patroni/conf/postgresql.yml
+3
+. 
+Run the following command to edit the newly created file:
+vi /usr/patroni/conf/postgresql.yml
+4
+. 
+Add the following configuration parameters to the file.
+Make sure you change the "namespace," "listen," and "connect_address" values to reflect your own setup.
+The <pg_node1/pg_node2> in the following text means <pg_node1> on pg_node1 and <pg_node2> on pg_node2.
+Replace <etcd1 host address>, <etcd2 host address>, and <etcd3 host address> with your host addresses.
+Replace the server.crt and server.key filenames with your own values if your PostgreSQL SSL certificate files are
+different. 
+scope: postgres
+namespace: /pg_cluster/
+name: 
+<pg_node1/pg_node2>
+restapi:
+  listen: 
+<pg_node1/pg_node2 host address>
+:8008
+  connect_address: 
+<pg_node1/pg_node2 host address>
+:8008
+etcd:
+  hosts: 
+<etcd1 host address>
+:2379, 
+<etcd2 host address>
+:2379, 
+<etcd3 host address>
+:2379
+bootstrap:
+  dcs:
+    ttl: 30
+    loop_wait: 10
+    retry_timeout: 10
+    maximum_lag_on_failover: 1048576
+    maximum_lag_on_syncnode: 15000000
+    synchronous_mode: false
+    postgresql:
+      use_pg_rewind: true
+      use_slots: true
+      parameters:
+        shared_buffers: 16GB
+Notes
+In this example, the root CA certificate is server.crt itself. You will need to upload the root CA certificate to the
+suite during the suite installation. 
+The CN in the certificate must be the virtual IP address of the HAProxy cluster or the FQDN to which this IP
+address resolves
+
+
+SMAX 2022.11
+Page 
+582
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,59 @@
+ENABLE_K8S_AUDIT_LOG
+Configuration of this parameter is optional.
+This parameter enables customers to disable or enable the Kubernetes API server audit log.
+The expected value is "true" or "false".
+The default value is "false".
+Example:
+ENABLE_K8S_AUDIT_LOG="true"
+KUBE_DNS_HOSTS
+Configuration of this parameter is mandatory in a non-DNS environment.
+This parameter specifies a hosts file that will be used for the node's host name resolution in Kubernetes cluster when no DNS
+server is available in the environment or some nodes can't be resolved by DNS server. This hosts file is a temporary file.
+During the installation, OMT will get all the related information in the hosts file and store them to the parameter 
+kube-dns
+ of a
+ConfigMap file.
+If no DNS server is available, you must create a hosts file and add the mappings for all control plane nodes, all worker nodes,
+NFS server nodes, and external database nodes in the following format.
+<NODE_IP> <Your_NODE_FQDN>
+If you specify a custom FQDN rather than a node host name's for the external access host, list the mapping for the external
+access host.
+You must also list the resolution mapping for the external load balancer host in the 
+hosts
+ file if you use FQDN of the external
+load balancer for the high availability of control plane nodes.
+For example,
+192.0.2.0 external-accesshost.mycompany.com
+192.0.2.1 control1.mycompany.com
+192.0.2.2 control2.mycompany.com
+192.0.2.3 control3.mycompany.com
+192.0.2.4 worker1.mycompany.com
+192.0.2.5 worker2.mycompany.com
+192.0.2.6 worker3.mycompany.com
+192.0.2.7 externalbalancer.mycompany.com
+192.0.2.8 externaldb.mycompany.com
+192.0.2.9 NFS.mycompany.com
+Example:
+KUBE_DNS_HOSTS="/home/admin/hosts_file"
+FAIL_SWAP_ON
+Specifies the impact of swap setting on cluster nodes to OMT installation. SMA requires swap to be enabled on all control plane
+nodes and worker nodes, and this parameter must therefore be set to "false". The default value of this parameter is "true".
+Example:
+FAIL_SWAP_ON="false"
+CRT_HTTP_PROXY
+Configuration of this parameter is mandatory if any of the following are true:
+Access to Docker hub requires a proxy (unless the upload and download of images is performed on a separate machine)
+Access to an external registry requires a proxy
+Access to the remote log location (such as Elasticsearch or OBA) requires a proxy, and you are using fluentd forwarding
+This parameter specifies the HTTP proxy URL for Container.
+The expected value is a URL.
+By default, a proxy isn't configured.
+Example:
+CRT_HTTP_PROXY=proxyserver.mycompany.com:8080
+CRT_HTTPS_PROXY
+SMAX 2022.11
+Page 
+649
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

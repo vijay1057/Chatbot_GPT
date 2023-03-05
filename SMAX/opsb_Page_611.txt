@@ -1,0 +1,75 @@
+SELinux Configuration
+Vertica
+ does not support SELinux except when SELinux is running in permissive mode. 
+If it detects that SELinux is installed and
+the mode cannot be determined the installer reports this issue with the identifier: 
+S0080
+. If the mode can be determined, and
+the mode is not permissive, then the issue is reported with the identifier: 
+S0081
+.
+Red Hat 
+and SUSE Systems
+You can either disable SELinux or change it to use permissive mode.
+To disable SELinux:
+1
+. 
+Edit 
+/etc/selinux/config
+ and change setting for SELinux to disabled (
+SELINUX=disabled
+). This disables SELinux at boot time.
+2
+. 
+As root/sudo, type 
+setenforce 0
+ to disable SELinux immediately.
+To change SELinux to use permissive mode:
+1
+. 
+Edit 
+/etc/selinux/config
+ and change setting for SELINUX to permissive 
+(
+SELINUX=Permissive
+).
+2
+. 
+As root/sudo, type 
+setenforce Permissive
+ to switch to permissive mode immediately.
+Ubuntu and Debian Systems
+You can either disable SELinux or change it to use permissive mode.
+To disable SELinux:
+1
+. 
+Edit 
+/selinux/config
+ and change setting for SELinux to disabled 
+(
+SELINUX=disabled
+). This disables SELinux at boot time.
+2
+. 
+As root/sudo, type 
+setenforce 0
+ to disable SELinux immediately.
+To change SELinux to use permissive mode:
+1
+. 
+Edit 
+/selinux/config
+ and change setting for SELinux to permissive (
+SELINUX=Permissive
+).
+2
+. 
+As root/sudo, type 
+setenforce Permissive
+ to switch to permissive mode immediately.
+SMAX 2022.11
+Page 
+611
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

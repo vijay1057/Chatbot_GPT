@@ -1,0 +1,114 @@
+  interval 2
+  fall 2
+  rise 2
+}
+vrrp_instance VI_1 {
+  interface eth0               # interface to monitor
+  nopreempt
+  state BACKUP                 # use nopreempt, so BACKUP on both of haproxy1 and haproxy2
+  virtual_router_id 91         # use a unique id shared between haproxy1 and haproxy2
+  priority 101                 # 101 on haproxy1, 100 on haproxy2
+  advert_int 1
+  
+  unicast_src_ip 
+<haproxy1 ip address>
+  unicast_peer {
+      
+<haproxy2 ip address>
+  }
+  authentication {
+    auth_type PASS
+    auth_pass 
+<specify a password> 
+# specify the same password for 
+haproxy1 and haproxy2
+  }
+  virtual_ipaddress {
+    
+<virtual ip address>
+  }
+  track_script {
+    chk_haproxy
+  }
+}
+b
+. 
+On the haproxy2 host, run the following commands:
+#yum install keepalived -y
+#cat /etc/keepalived/keepalived.conf
+global_defs { 
+  router_id gd_ha02 
+  default_interface eth0
+}
+vrrp_script chk_haproxy {
+  script "killall -0 haproxy" # check the haproxy process
+  interval 2                  # every 2 seconds
+  fall 2
+  rise 2
+}
+vrrp_instance VI_1 {
+  interface eth0              # interface to monitor
+  nopreempt
+  state BACKUP                # use nopreempt, so BACKUP on both of haproxy1 and haproxy2
+  virtual_router_id 91        # use a unique id shared between haproxy1 and haproxy2
+  priority 100                # 101 on haproxy1, 100 on haproxy2
+  advert_int 1
+  authentication {
+    auth_type PASS
+    auth_pass 
+<Specify a password>   
+# specify the same password for 
+haproxy1 and haproxy2
+  }
+  unicast_src_ip 
+<haproxy2 ip address>
+  
+  unicast_peer {
+    
+<haproxy1 ip address>
+  }
+  virtual_ipaddress {
+    
+<virtual ip address>
+  }
+  track_script {
+    chk_haproxy
+  }
+}
+5
+. 
+On both hosts, configure IP forwarding and non-local binding.
+a
+. 
+Append the following lines to the end of the /etc/sysctl.conf file.
+net.ipv4.ip_forward = 1
+net.ipv4.ip_nonlocal_bind = 1
+b
+. 
+Load the configuration:
+#sysctl -p
+6
+. 
+On both hosts, start the Keepalived service:
+#systemctl enable keepalived
+#systemctl start keepalived
+7
+. 
+Check the virtual IP by running the following commands on both HAProxy hosts.
+#ip addr show dev 
+eth0
+The virtual IP address only appears on one of the two HAProxy hosts in the command output. 
+8
+. 
+Change the bind address to the virtual IP for the HAProxy server.
+a
+. 
+Change the haproxy.cfg file.
+#vi /etc/haproxy/haproxy.cfg
+Change the "*" to the <virtual ip address> in the following lines and save it:
+SMAX 2022.11
+Page 
+587
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,28 @@
+Prepare server for Vertica
+The suite supports Vertica version 10.0.x for reporting and analytics.
+For more details on the system requirements for Vertica installation, see System requirements for Vertica.
+The following section covers the topics that will help you prepare the server for Vertica installation.
+BASH Shell Requirements
+Ensure Ports Are Available
+Recommended Storage Format Types
+Swap Space Requirements
+Firewall Considerations
+Disk Readahead
+I/O Scheduling
+Enabling or Disabling Transparent Hugepages
+Check for Swappiness
+Enabling Network Time Protocol
+Enabling chrony or ntpd for Red Hat 7/CentOS 7 Systems
+SELinux Configuration
+Configuring the Network
+Disabling Defrag for Red Hat and CentOS Systems
+TZ Environment Variable
+Support Tools
+Related topics
+System requirements for Vertica node
+SMAX 2022.11
+Page 
+594
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

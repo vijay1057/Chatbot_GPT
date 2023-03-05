@@ -1,0 +1,64 @@
+Configuration of this parameter is mandatory if any of the following are true:
+Access to Docker hub requires a proxy (unless the upload and download of images is performed on a separate machine)
+Access to an external registry requires a proxy
+Access to the remote log location (such as Elasticsearch or OBA) requires a proxy, and you are using fluentd forwarding
+This parameter specifies the HTTPS proxy URL for Container.
+The expected value is a URL.
+By default, a proxy isn't configured.
+Example:
+CRT_HTTPS_PROXY=proxyserver.mycompany.com:8080
+CRT_NO_PROXY
+Configuration of this parameter is mandatory if you have configured the 
+CRT_HTTP_PROXY
+ or 
+CRT_HTTPS_PROXY
+ parameters.
+This parameter specifies a list of domain names and servers to which direct internet access is required, or that don't require a
+proxy connection.
+The expected value is a comma-delimited list of IPv4 addresses, FQDNs, and domain names.
+Example
+:
+CRT_NO_PROXY="localhost,127.0.0.1,.mycompany1.com,host1.mycompany2.com"
+Registry settings
+REGISTRY_ORGNAME
+Configuration of this parameter is mandatory.
+This parameter specifies the name of the namespace or organization in which the suite images are located.
+The expected value is a string.
+The default value is 
+hpeswitom
+.
+Example:
+REGISTRY_ORGNAME="hpeswitom"
+Install script settings
+SKIP_PRECHECK_WARNING
+Configuration of this parameter is optional.
+This parameter specifies whether to skip the pre-check warnings during the installation of the first control plane node.  For
+other nodes, specify the values of this parameter on the installation portal while adding nodes later.
+The default value is 
+false
+.
+Example:
+SKIP_PRECHECK_WARNING="true"
+SKIP_CHECK_ON_NODE_LOST
+Configuration of this parameter is optional.
+This parameter specifies whether to skip checks on unavailable nodes during an upgrade. If this parameter is set to 
+true
+, the
+upgrade will proceed if any nodes are unavailable.
+The expected value is 
+true
+ or 
+false
+.
+The default value is 
+true
+.
+Example:
+SKIP_CHECK_ON_NODE_LOST="true"
+SKIP_FAILED_WORKER_NODE
+SMAX 2022.11
+Page 
+650
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,90 @@
+Configuring the Network
+This group of steps involve configuring the network. These steps differ depending on your installation scenario. A single node
+installation requires little network configuration, since the single instance of the 
+Vertica
+ server does not need to
+communication with other nodes in a cluster. For cluster and cloud install scenarios, you must make several decisions
+regarding your configuration.
+Vertica
+ supports server configuration with multiple network interfaces. For example, you might want to use one as a private
+network interface for internal communication among cluster hosts (the ones supplied via the 
+--hosts
+ option to 
+install_vertica
+)
+and a separate one for client connections.
+Important Notes
+Network configuration is exactly the same for single nodes as for multi-node clusters, with one special exception. If you
+install 
+Vertica
+ on a single host machine that is to remain a permanent single-node configuration (such as for development
+or Proof of Concept), you can install 
+Vertica
+ using 
+localhost
+ or the loopback IP (typically 127.0.0.1) as the value for 
+--hosts
+.
+Do not use the hostname 
+localhost
+ in a node definition if you are likely to add nodes to the configuration later.
+If you are using a host with multiple network interfaces, configure 
+Vertica
+ to use the address which is assigned to the NIC
+that is connected to the other cluster hosts.
+Use a dedicated gigabit switch. If you do not performance could be severely affected.
+Do not use DHCP dynamically-assigned IP addresses for the private network. Use only static addresses or permanently-
+leased DHCP addresses.
+Optionally Run Spread on Separate Control Network
+If your query workloads are network intensive, you can use the 
+--control-network
+ parameter with the 
+install_vertica
+ script (see
+Installing Vertica with the Installation Script
+) to allow spread communications to be configured on a subnet that is different
+from other 
+Vertica
+ data communications.
+The 
+--control-network
+ parameter accepts either the 
+default
+ value or a broadcast network IP address (for example, 
+192.168.10.255
+).
+Configure SSH
+Verify that root can use Secure Shell (SSH) to log in (ssh) to all hosts that are included in the cluster. SSH (SSH client) is a
+program for logging into a remote machine and for running commands on a remote machine.
+If you do not already have SSH installed on all hosts, log in as root on each host and install it before installing 
+Vertica
+. You
+can download a free version of the SSH connectivity tools from 
+OpenSSH
+.
+Make sure that 
+/dev/pts
+ is mounted. Installing 
+Vertica
+ on a host that is missing the mount point 
+/dev/pts
+ could result in the
+following error when you create a database:
+TIMEOUT ERROR: Could not login with SSH. Here is what SSH said:Last login: Sat Dec 15 18:05:35 2007 from v_vmart_node0001
+Allow Passwordless SSH Access for the Dbadmin User
+The dbadmin user must be authorized for passwordless ssh. In typical installs, you won't need to change anything; however, if
+you set up your system to disallow passwordless login, you'll need to enable it for the dbadmin user. See 
+Enable Secure Shell
+(SSH) Logins
+.
+Vertica
+ performs best when all nodes are on the same subnet and have the same broadcast address for one or
+more interfaces. A cluster that has nodes on more than one subnet can experience lower performance 
+due to the
+network latency associated with a multi-subnet system at high network utilization levels.
+SMAX 2022.11
+Page 
+612
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

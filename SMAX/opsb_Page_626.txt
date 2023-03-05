@@ -1,0 +1,94 @@
+Download required installation packages
+In this step, you need to download two packages from the 
+Micro Focus Software Licenses and Downloads
+ website for the suite
+installation. 
+Name
+Binary name
+Suite metadata package
+itsma-suite-metadata-2022.11-
+bxx.tgz
+OPTIC Management Toolkit for Embedded Kubernetes Installation and
+Upgrade 
+OMT2211-xxx-15001-Embedded-
+K8s.zip
+1
+. 
+Download the packages, and copy them to a temporary directory on the first control plane node.
+2
+. 
+Run the following command to unzip the OMT installation and upgrade package:
+unzip <OMT installation and upgrade package>
+The unzipped file includes the following files:
+OMT_Embedded_K8s_202x.xx-xxx.zip
+OMT_Embedded_K8s_202x.xx-xxx.zip.sig
+3
+. 
+(Optional) Verify the OMT installation and upgrade package. Skip this step if you don't want to verify the package.
+a
+. 
+Using a web browser, visit the 
+Micro Focus
+ 
+Software Licenses and Downloads
+ portal. Agree to the terms and
+conditions, and then download the 
+MF_public_keys.tar.gz
+ package to a local directory.
+b
+. 
+Run the following commands to extract the 
+public_key_Micro_Focus_Group_Limited_RSA-2048-2.pub.asc
+ public key from
+the package. Save the key to a local directory.
+gunzip MF_public_keys.tar.gz
+tar -xvf MF_public_keys.tar MF_public_keys/public_key_Micro_Focus_Group_Limited_RSA-2048-2.pub.asc
+c
+. 
+Run the following commands to import the keys for RPM:
+rpm --import MF_public_keys/public_key_Micro_Focus_Group_Limited_RSA-2048-2.pub.asc
+d
+. 
+Run the following commands to import the public key for GnuPG:
+gpg --import /<path to the pubkey>/<your pubkey>
+gpg --verify OMT_Embedded_K8s_202x.xx-xxx.zip.sig OMT_Embedded_K8s_202x.xx-xxx.zip
+For example, you run the following commands:
+gpg --import ./public_key_Micro_Focus_Group_Limited_RSA-2048-2.pub.asc
+gpg --verify OMT_Embedded_K8s_202x.xx-xxx.zip.sig OMT_Embedded_K8s_202x.xx-xxx.zip
+e
+. 
+The following messages on the terminal indicate that the files are verified successfully:
+gpg: Good signature from "public_key_Micro_Focus_Group_Limited_RSA-2048-2.pub.asc"
+gpg: WARNING: This key is not certified with a trusted signature!
+gpg:          There is no indication that the signature belongs to the owner.
+f
+. 
+(Optional) To trust the public key and remove the warning message, run the following commands in sequence:
+gpg --list-keys
+gpg --edit-key <your pubkey>
+trust
+5
+quit
+The terminal should now appear as follows:
+Your decision? 5
+Do you really want to set this key to ultimate trust? (y/N) y
+pub  2048R/6DAF72B7  created: 2020-03-28  expires: 2030-03-28  usage: SCEA
+                     trust: ultimate      validity: unknown
+sub  2048g/BDDD8F31  created: 2020-03-28  expires: 2030-03-28  usage: E
+[ unknown] (1). public_key_Micro_Focus_Group_Limited_RSA-2048-2.pub.asc
+Please note that the shown key validity is not necessarily correct
+unless you restart the program.
+gpg> quit
+4
+. 
+Run the following command to unzip the 
+OMT_Embedded_K8s_202x.xx-xxx.zip
+ file:
+unzip OMT_Embedded_K8s_202x.xx-xxx.zip
+Related topics
+SMAX 2022.11
+Page 
+626
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

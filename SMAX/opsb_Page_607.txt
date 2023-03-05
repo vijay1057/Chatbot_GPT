@@ -1,0 +1,92 @@
+Enabling Network Time Protocol (NTP)
+The network time protocol (NTP) daemon must be running on all of the hosts in the cluster so that their clocks are
+synchronized. The spread daemon relies on all of the nodes to have their clocks synchronized for timing purposes. If your
+nodes do not have NTP running, the installation can fail with a spread configuration error or other errors.
+Verify That NTP Is Running
+To verify that your hosts are configured to run the NTP daemon on startup, enter the following command:
+$ chkconfig --list ntpd 
+Debian and Ubuntu do not support 
+chkconfig
+, but they do offer an optional package. You can install this package with the
+command 
+sudo apt-get install sysv-rc-conf
+. To verify that your hosts are configured to run the NTP daemon on startup with the 
+sysv
+-rc-conf
+ utility, enter the following command:
+$ sysv-rc-conf --list ntpd 
+The 
+chkconfig
+ command can produce an error similar to 
+ntpd: unknown service
+. If you get this error, verify that 
+your Linux
+distribution refers to the NTP daemon as 
+ntpd
+ rather than 
+ntp
+. If it does not, you need to install the NTP daemon package
+before you can configure it. Consult your Linux documentation for instructions on how to locate and install packages.
+If the NTP daemon is installed, your output should resemble the following:
+ntp 0:off 1:off 2:on 3:on 4:off 5:on 6:off
+The output indicates the runlevels where the daemon runs. Verify that the current runlevel of the system (usually 3 or 5) has
+the NTP daemon set to 
+on
+. If you do not know the current runlevel, you can find it using the 
+runlevel
+ command:
+$ runlevel
+N 3
+Configure NTP for Red Hat 6/CentOS 6 and SLES
+If your system is based on Red Hat 6/CentOS 6 or SUSE Linux Enterprise Server, use the 
+service
+ and 
+chkconfig
+ utilities to start
+NTP and have it start at startup.
+/sbin/service ntpd restart
+/sbin/chkconfig ntpd on
+Red Hat 6/CentOS 6
+—NTP uses the default time servers at ntp.org. You can change the default NTP servers by editing 
+/e
+tc/ntpd.conf
+.
+SLES
+—By default, no time servers are configured. You must edit 
+/etc/ntpd.conf
+ after the install completes and add time
+servers.
+Configure NTP for Ubuntu and Debian
+By default, the 
+NTP daemon
+ is not installed on some Ubuntu and Debian systems. First, install NTP, and then start the NTP
+process. You can change the default NTP servers by editing 
+/etc/ntpd.conf
+as shown:
+sudo apt-get install ntp
+sudo /etc/init.d/ntp reload
+Verify That NTP Is Operating Correctly
+To verify that the Network Time Protocol Daemon (NTPD) is operating correctly, issue the following command on all nodes in
+the cluster.
+For Red Hat 6/CentOS 6 and SLES:
+Note
+Different Linux distributions refer to the NTP daemon in different ways. For example, SUSE and Debian/Ubuntu
+refer to it as 
+ntp
+, while CentOS and Red Hat refer to it as 
+ntpd
+. If the following commands produce 
+errors, try
+using 
+ntp
+ in place of 
+ntpd
+.
+
+
+SMAX 2022.11
+Page 
+607
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,21 @@
+Check for Swappiness
+The swappiness kernel parameter defines the amount, and how often, the kernel copies RAM contents to a swap space. 
+Vertica
+recommends a value of 1. The installer reports any swappiness issues with identifier 
+S0112
+.
+To set the swappiness value add or update the following in 
+/etc/sysctl.conf
+:
+vm.swappiness = 1
+This also ensures that the value persists after a reboot.
+You can check the swappiness value as follows:
+cat /proc/sys/vm/swappiness
+If necessary, you change the swappiness value at runtime by logging in as root and running the following:
+echo 1 > /proc/sys/vm/swappiness
+SMAX 2022.11
+Page 
+606
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

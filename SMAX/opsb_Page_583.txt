@@ -1,0 +1,97 @@
+        work_mem: 16MB
+        maintenance_work_mem: 2GB
+        max_worker_processes: 16
+        wal_buffers: 64MB
+        max_wal_size: 2GB
+        min_wal_size: 1GB
+        effective_cache_size: 64GB
+        fsync: on
+        checkpoint_completion_target: 0.9
+        log_rotation_size: 100MB
+        listen_addresses: "*"
+        max_connections: 2000
+        temp_buffers: 4MB
+        ssl: true
+        ssl_cert_file: 
+/usr/patroni/conf/server.crt
+        ssl_key_file: 
+/usr/patroni/conf/server.key
+  initdb:
+    - encoding: UTF8
+    - data-checksums
+  pg_hba:
+    - host replication replicator 127.0.0.1/32 md5
+    - host replication replicator 
+<pg_node1 host address>
+/32 md5
+    - host replication replicator 
+<pg_node2 host address>
+/32 md5
+    - host all all 0.0.0.0/0 md5
+users:
+  admin:
+    password: admin
+    options:
+      - createrole
+      - createdb
+postgresql:
+  listen: 
+<pg_node1/pg_node2 host address>
+:5432
+  connect_address: 
+<pg_node1/pg_node2 host address>
+:5432
+  data_dir: /var/lib/pgsql/12/data
+  bin_dir: /usr/pgsql-12/bin
+  pgpass: /tmp/pgpass
+  authentication:
+    replication:
+      username: replicator
+      password: replicator
+    superuser:
+      username: postgres
+      password: postgres
+    rewind:
+      username: pgrewind
+      password: pgrewind
+tags:
+  nofailover: false
+  noloadbalance: false
+  clonefrom: false
+  nosync: true
+Create a Patroni service file
+Run the following command to create a service file with the content below:
+vi /usr/lib/systemd/system/patroni.service
+[Unit]
+Description=patroni
+Documentation=https://patroni.readthedocs.io/en/latest/index.html
+After=syslog.target network.target etcd.target
+Wants=network-online.target
+[Service]
+Type=simple
+User=postgres
+Group=postgres
+PermissionsStartOnly=true
+ExecStart=/usr/local/bin/patroni /usr/patroni/conf/postgresql.yml
+ExecReload=/bin/kill -HUP $MAINPID
+Note
+ Configure parameter values such as max_connections and listen_addresses according to the
+postgresql.conf configuration section in 
+Prepare external databases
+, and configure database connection
+settings according to the pg_hba.conf configuration section on the same page.
+
+
+Tip
+ You can run the following commands to change the configuration after Patroni has started:
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+patronictl -c /usr/patroni/conf/postgresql.yml edit-config postgres
+
+
+SMAX 2022.11
+Page 
+583
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

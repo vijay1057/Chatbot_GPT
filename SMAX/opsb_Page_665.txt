@@ -1,0 +1,46 @@
+Disable on-access security scans
+OMT installation may fail if you have enabled on-access scanning by security products such as McAfee Endpoint Security,
+Microsoft Defender, or TrendMicro Deep Security Agent in your environment.
+This failure often occurs because the security product can't handle the large number of small files that are created and deleted
+during the image download and upload process. To prevent this, we recommend that you exclude certain directories on the
+first control plane node from the on-access scan during the installation. You can remove these exclusions after installation,
+although you may have to reinstate them when you upgrade OMT.
+<RUNTIME_CDFDATA_HOME>
+. The kubernetes infrastructure runtime data directory. Note that the runtime directory doesn't
+yet exist (the install command creates it), so you must create the directory in order to exclude it. The default runtime
+directory is the same as the data subdirectory of the OMT home directory (
+opt/cdf/data
+), which is specified in the 
+CDF_HOM
+E
+ parameter.  Create a directory using this default value unless you have defined a different value in the 
+CDF_HOME
+ or 
+RU
+NTIME_CDFDATA_HOME
+ parameters of the 
+install.properties
+ file, or will specify a custom directory using command options
+when you run the 
+install
+ command. Make sure that you exclude the 
+<RUNTIME_CDFDATA_HOME>
+ directory and all its
+subdirectories.
+The temporary installation directory. By default, this is 
+/tmp
+, unless you have defined a different value in the
+TMP_FOLDER
+ parameter of the 
+install.properties
+ file.
+/var/opt/cdf/offline/
+. This is the default directory to which OMT downloads images.
+For detailed information about how to exclude directories from on-access scans, refer to your security provider's
+documentation.
+SMAX 2022.11
+Page 
+665
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

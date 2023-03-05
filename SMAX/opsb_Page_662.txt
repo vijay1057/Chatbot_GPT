@@ -1,0 +1,97 @@
+1
+. 
+Log on to the NFS server as root or a sudo user. 
+2
+. 
+Run the 
+rpm -qa|grep rpcbind
+ command to make sure that the 
+rpcbind 
+package is installed on the host.
+If the package isn't already installed, run the following command to install it:
+yum install rpcbind
+3
+. 
+Run the following command to install the NFS server:
+yum install -y nfs-utils
+4
+. 
+Run the following commands to enable the rpcbind and nfs-server services:
+systemctl enable rpcbind
+systemctl start rpcbind
+systemctl enable nfs-server
+systemctl start nfs-server
+5
+. 
+Create a directory for each NFS volume that you may need to configure in the installation portal. 
+mkdir -p /var/vols/itom/core
+mkdir -p /var/vols/itom/itom-logging-vol
+mkdir -p /var/vols/itom/db-single-vol        # Required only if 
+cdfidm-db
+ database is internal
+mkdir -p /var/vols/itom/itom-monitor-vol     # Required only if Monitoring is enabled
+mkdir -p /var/vols/itom/global-volume
+mkdir -p /var/vols/itom/db-volume
+mkdir -p /var/vols/itom/smartanalytics-volume
+mkdir -p /var/vols/itom/rabbitmq-infra-rabbitmq-0
+mkdir -p /var/vols/itom/rabbitmq-infra-rabbitmq-1
+mkdir -p /var/vols/itom/rabbitmq-infra-rabbitmq-2
+mkdir -p /var/vols/itom/itsma-smarta-sawarc-con-0
+mkdir -p /var/vols/itom/itsma-smarta-sawarc-con-1
+mkdir -p /var/vols/itom/itsma-smarta-sawarc-con-a-0
+mkdir -p /var/vols/itom/itsma-smarta-sawarc-con-a-1
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-0
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-1
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-2
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-3
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-4
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-5
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-a-0
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-a-1
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-a-2
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-a-3
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-a-4
+mkdir -p /var/vols/itom/itsma-smarta-saw-con-a-5
+mkdir -p /var/vols/itom/itsma-smarta-sawmeta-con-0
+mkdir -p /var/vols/itom/itsma-smarta-sawmeta-con-1
+mkdir -p /var/vols/itom/itsma-smarta-sawmeta-con-a-0
+mkdir -p /var/vols/itom/itsma-smarta-sawmeta-con-a-1
+6
+. 
+Change the permission for each directory that you created.
+If you are using the same base directory for all NFS volumes, you can simply run the 
+chmod -R 755 <base
+directory> 
+command. For example:
+chmod -R 755 /var/vols/itom
+If you aren't using the same base directory, repeat the 
+chmod 
+command for each NFS directory. For example:
+chmod -R 755 /var/vols/itom/core
+...
+chmod -R 755 /var/vols/itom/itsma-smarta-sawmeta-con-a-1
+7
+. 
+Add a group and user:
+groupadd -g <SYSTEM_GROUP_ID> itsma
+useradd -g <SYSTEM_GROUP_ID> -u <SYSTEM_USER_ID> itsma
+For example: 
+groupadd -g 1999 itsma
+useradd -g 1999 -u 1999 itsma
+8
+. 
+Change the owner of each directory that you created by using the 
+chown -R <SYSTEM_USER_ID>:
+<SYSTEM_GROUP_ID> <NFS volume export path>
+ command.  
+If you're using the same base directory for all NFS volumes, simply run the 
+chown -R <SYSTEM_USER_ID>:
+<SYSTEM_GROUP_ID> <base directory>
+ command. For example:
+chown -R 1999:1999 /var/vols/itom
+SMAX 2022.11
+Page 
+662
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

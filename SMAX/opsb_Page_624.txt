@@ -1,0 +1,93 @@
+Set up SELinux
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes and worker nodes
+Root or sudo
+The SELinux setup is optional.
+Security Enhanced Linux (SELinux) is an advanced access control mechanism built into most modern Linux distributions.
+SELinux provides a flexible Mandatory Access Control (MAC) system built into the Linux kernel. SELinux works as a counterpart
+of the Discretionary Access Control (DAC) that ships with most Linux distributions. However, the difference between MAC and
+DAC is the means by which users and applications gain access to machines. Traditionally, under DAC, it manages the
+privileges or security via giving users the perform permissions to objects such as files, sockets, and other processes. SELinux
+adds finer granularity to access controls. SELinux defines the access and transition rights of every user, application, process,
+and file on the system. By default, SELinux denies anything that's not explicitly allowed. To explicitly allow certain behavior on
+a node, the system administrator must write policies to allow it.
+For information about how to write policies and other more information about SELinux, see the 
+SELinux documentation
+.
+SELinux modes
+SELinux has three modes: 
+Enforcing
+, 
+Permissive
+, and 
+Disabled
+:
+Enforcing
+: SELinux is enabled. SELinux enforces strict policies on the system. SELinux denies any action that's not
+explicitly allowed.
+Permissive
+: SELinux is disabled. In this mode, your system isn't protected by SELinux. Actions contrary to the policy are
+only logged in the audit log.
+Disabled
+: SELinux is disabled entirely.
+Install SELinux on the node
+Red Hat Enterprise Linux 7.x and 8.x, CentOS 7.x, and Oracle Linux 7.x and 8.x include SELinux services by default. To check
+the installed SELinux packages on the node, run the following command:
+rpm -qa | grep selinux
+You must install the following packages to install the application:
+policycoreutils
+policycoreutils-python/policycoreutils-python-utils
+checkpolicy
+Run the command: 
+yum install <SELinux package name>
+ to install more SELinux packages.
+For example:
+yum install policycoreutils policycoreutils-python checkpolicy 
+Enable SELinux
+To enable SELinux on your node, perform the following steps:
+1
+. 
+Run the following command on the node:
+sestatus
+Your terminal resembles the following:
+[root@sh ~]# sestatus SELinux status: 
+disabled 
+2
+. 
+Open the SELinux configuration file 
+/etc/sysconfig/selinux
+ with a supported editor. Then set 
+SELINUX=enforcing
+. Then save the
+configuration file.
+3
+. 
+Reboot the server to enable SELinux.
+4
+. 
+After reboot, run the following command to check the SELinux status:
+sestatus
+Disable SELinux
+To disable SELinux on your node, perform the following steps:
+1
+. 
+Run the following command on the node:
+sestatus
+Note: 
+The following operating systems have replaced the 
+policycoreutils–python
+ package with the 
+policycoreutils-pyth
+on-utils
+ package, because these operating systems have upgraded their Python 2 to Python 3.
+Oracle Linux 8.0 and higher
+Red Hat Enterprise Linux 8.0 and higher
+SMAX 2022.11
+Page 
+624
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

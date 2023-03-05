@@ -1,0 +1,113 @@
+Run a precheck on the control plane nodes and worker nodes
+Before you run the install script on the first control plane node, you can run the 
+pre-check.sh
+ script to check the environment
+settings. When you run the 
+pre-check.sh
+script, it doesn't read the install.properties file. Instead, it runs with a set of default
+parameter values.  The 
+pre-check.sh
+ 
+--help
+ command displays the list of parameters you can specify for the script to check.  It
+also displays the default values it checks if you don't override them in the command line.
+To run a precheck on a node, perform the following steps.
+1
+. 
+Log on to the node.
+2
+. 
+Navigate to the 
+OMT_Embedded_K8s_202x.xx.00xxx/scripts
+ directory. 
+For the first control plane node where you have downloaded and unzipped the OMT installation package, run the
+following command:
+cd <OMT_Embedded_K8s_202x.xx.00xxx>/scripts
+For other nodes, copy the 
+<OMT_Embedded_K8s_202x.xx.00xxx>/scripts/pre-check.sh
+ script from the first control plane node
+to a temporary directory. Then run the following command to add the execute permission:
+chmod +x pre-check.sh
+3
+. 
+Run the following command to run a preliminary check of a node:
+./pre-check.sh --node-type <node type>
+Where:
+Replace <node type> with the actual node type. The supported values are: "first", "master", and "worker". "first"
+refers to the first control plane node. "master" refers to the remaining control plane nodes except the first one. 
+You can view more options with the 
+-h
+ option. If you want to check the node settings with some custom settings, add the
+related options with the specified values. For example: if your node has 32 GB memory and  8-core CPUs, you can run the
+following command:
+./pre-check.sh --mem 32 --cpu 8
+4
+. 
+If you receive an error, troubleshoot it according to the error message and resolve the problem before you install OMT.
+5
+. 
+After resolving any errors, run the 
+pre-check.sh 
+script again until all the errors are resolved.
+Below is an example of running a preliminary check on a node.
+[root@shc scripts]# ./pre-check.sh --node-type first 
+Check node hardware configurations
+   Checking required memory 8 GB ................................. [ PASS ]
+   Checking required CPU number 2 ................................ [ PASS ]
+   Checking required free space 28 GB under /opt/kubernetes ...... [ PASS ]
+   Checking overlayfs device is used on containerd ............... [ PASS ]
+   Checking local disk I/O performance ........................... [ PASS ]
+Check operation system user permission
+   Checking installation is running with root or sudo user ....... [ PASS ]
+Check operation system network related settings
+   Checking firewall and iptables status ......................... [ WARNING ]
+(The firewalld service is enabled on this node. The required firewall
+settings will be configured automatically during the node deployment. You
+can disable the firewall auto configuration by setting the value of
+'AUTO_CONFIGURE_FIREWALL' to 'false' but then you must configure firewalld
+manually and open the required ports.)
+   Checking port 2380 ............................................ [ FAILED ]
+(Port 2380 is in use. This port must not be used by  another process. Stop
+and disable or reconfigure the process that is using this port.)
+   Checking port 4001 ............................................ [ FAILED ]
+(Port 4001 is in use. This port must not be used by  another process. Stop
+and disable or reconfigure the process that is using this port.)
+   Checking port 8443 ............................................ [ FAILED ]
+(Port 8443 is in use. This port must not be used by  another process. Stop
+and disable or reconfigure the process that is using this port.)
+   Checking port 10257 ........................................... [ FAILED ]
+(Port 10257 is in use. This port must not be used by  another process.
+Stop and disable or reconfigure the process that is using this port.)
+   Checking port 10259 ........................................... [ FAILED ]
+(Port 10259 is in use. This port must not be used by  another process.
+Stop and disable or reconfigure the process that is using this port.)
+   Checking port 3000 ............................................ [ FAILED ]
+(Port 3000 is in use. This port must not be used by  another process. Stop
+and disable or reconfigure the process that is using this port.)
+   Checking port 5000 ............................................ [ FAILED ]
+(Port 5000 is in use. This port must not be used by  another process. Stop
+and disable or reconfigure the process that is using this port.)
+   Checking port 5443 ............................................ [ FAILED ]
+(Port 5443 is in use. This port must not be used by  another process. Stop
+and disable or reconfigure the process that is using this port.)
+   Checking port 5444 ............................................ [ FAILED ]
+(Port 5444 is in use. This port must not be used by  another process. Stop
+and disable or reconfigure the process that is using this port.)
+   Checking port 10248 ........................................... [ FAILED ]
+(Port 10248 is in use. This port must not be used by  another process.
+Stop and disable or reconfigure the process that is using this port.)
+   Checking port 10249 ........................................... [ FAILED ]
+(Port 10249 is in use. This port must not be used by  another process.
+Stop and disable or reconfigure the process that is using this port.)
+   Checking port 10250 ........................................... [ FAILED ]
+(Port 10250 is in use. This port must not be used by  another process.
+Stop and disable or reconfigure the process that is using this port.)
+   Checking port 10256 ........................................... [ FAILED ]
+(Port 10256 is in use. This port must not be used by  another process.
+Stop and disable or reconfigure the process that is using this port.)
+SMAX 2022.11
+Page 
+629
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

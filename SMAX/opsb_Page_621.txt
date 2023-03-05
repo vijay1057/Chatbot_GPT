@@ -1,0 +1,15 @@
+Prepare external databases
+Related topics
+For information on SSL certificates and keys, see 
+Generating TLS Certificates and Keys
+For information on copying certificates and keys to Configuration Files, see 
+Copying Certificates and Keys to Configuration
+Files
+For information on how to manage the Vertica database, see 
+Managing database
+SMAX 2022.11
+Page 
+621
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

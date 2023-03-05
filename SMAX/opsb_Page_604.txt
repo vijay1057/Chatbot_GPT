@@ -1,0 +1,93 @@
+Enabling or Disabling Transparent Hugepages
+You can modify transparent hugepages to meet 
+Vertica
+ configuration requirements:
+For Red Hat 7/CentOS 7 and Amazon Linux 2.0, you must enable transparent hugepages. The installer reports this issue
+with the identifier: 
+S0312
+.
+For Red Hat 8/CentOS 8 and SUSE 15.1, 
+Vertica
+ provides recommended settings to optimize your system performance by
+workload.
+For all other systems, you must disable transparent hugepages or set them to 
+madvise
+. The installer reports this issue
+with the identifier: 
+S0310
+.
+Recommended Settings by Workload for Red Hat 8/CentOS 8 and SUSE 15.1
+Vertica
+ recommends transparent hugepages settings to optimize performance by workload. The following table contains
+recommendations for systems that primarily run concurrent queries (such as short-running dashboard queries), or sequential
+SELECT or load (COPY) queries:
+Operating System
+Concurrent
+Sequential
+Important Notes
+Red Hat 8.0/CentOS 8.0
+Disable
+Enable
+ 
+SUSE 15.1
+Disable
+Enable
+Additionally, 
+Vertica
+ recommends the following 
+khugepaged
+settings to optimize for each workload:
+Concurrent Workloads:
+ 
+Disable 
+khugepaged
+ with the following command:
+echo 0 > /sys/kernel/mm/transparent_hugepage/khugepaged/defrag
+Sequential Workloads:
+ 
+Enable 
+khugepaged
+ with the following command:
+echo 1 > /sys/kernel/mm/transparent_hugepage/khugepaged/defrag
+See 
+Enabling or Disabling Defrag
+ for additional settings that optimize your system performance by workload.
+Disabling Transparent Hugepages on Red Hat 6/CentOS 6 Systems
+Determine if transparent hugepages is enabled. To do so, run the following command.
+cat /sys/kernel/mm/redhat_transparent_hugepage/enabled
+[always] madvise never
+The setting returned in brackets is your current setting.
+If you are not using 
+madvise
+ or never as your transparent hugepage setting, then you can disable transparent hugepages in
+one of two ways:
+Edit your boot loader (for example 
+/etc/grub.conf
+). Typically, you add the following to the end of the kernel line. However,
+consult the documentation for your system before editing your boot loader configuration.
+transparent_hugepage=never
+Edit 
+/etc/rc.local
+ and add the following script. 
+if test -f /sys/kernel/mm/redhat_transparent_hugepage/enabled; then
+   echo never > /sys/kernel/mm/redhat_transparent_hugepage/enabled
+fi
+For systems that do not support 
+/etc/rc.local
+, use the equivalent startup script that is run after the destination runlevel has been
+reached. For example SuSE uses 
+/etc/init.d/after.local
+.
+Regardless of which approach you choose, you must reboot your system for the setting to take effect, or run the following
+echo line to proceed with the install without rebooting:
+If you are using Red Hat 7/CentOS 7, Red Hat 8/CentOS 8, SUSE 15.1, or Amazon Linux 2.0, you must enable,
+rather than disable transparent hugepages. See: 
+Enabling Transparent Hugepages on Red Hat 7/8, CentOS 7/8,
+SUSE 15.1, and Amazon Linux 2.0
+.
+SMAX 2022.11
+Page 
+604
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

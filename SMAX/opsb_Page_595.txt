@@ -1,0 +1,30 @@
+BASH Shell Requirements
+All shell scripts included in 
+Vertica
+ must run under the BASH shell. If you are on a Debian system, then the default shell can be
+DASH. DASH is not supported. Change the shell for root and for the dbadmin user to BASH with the 
+chsh
+ command.
+For example:
+# getent passwd | grep root
+root:x:0:0:root:/root:/bin/dash
+# chsh
+Changing shell for root.
+New shell [/bin/dash]: /bin/bash
+Shell changed.
+Then, as root, change the symbolic link for 
+/bin/sh
+ from 
+/bin/dash
+ to 
+/bin/bash
+:
+# rm /bin/sh
+# ln -s /bin/bash /bin/sh
+Log out and back in for the change to take effect.
+SMAX 2022.11
+Page 
+595
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,92 @@
+itsma-smarta-sawmeta-
+con-0
+itsma-smarta-sawmeta-
+con-1
+itsma-smarta-sawmeta-
+con-a-0
+itsma-smarta-sawmeta-
+con-a-1
+Storage for archived
+search service meta
+data
+<base directory>/itsma-smarta-sawmeta-con-0
+<base directory>/itsma-smarta-sawmeta-con-1
+<base directory>/itsma-smarta-sawmeta-con-a-
+0
+<base directory>/itsma-smarta-sawmeta-con-a-
+1
+Component
+NFS volume label
+Description
+Example export path
+Supported NFS settings
+The storage technology that provides NFS implementation must support the Kubernetes persistent mount option of
+ReadWriteMany. That means you can mount a storage volume to multiple nodes in read/write mode in parallel. In an on-
+premises environment, you can use one of the following storage types:
+Self-hosted NFS storage
+Managed NFS storage
+The following table describes the supported NFS settings for each storage type.
+NFS settings
+Self-
+hosted
+NFS
+storage
+Managed NFS
+storage
+rw
+sync
+The following permission configurations:
+chmod -R 755 <path to the exported volume>
+chown <SYSTEM_USER_ID>:<SYSTEM_GROUP_ID> <path to the exported volume>
+The following line in the 
+/etc/exports
+ file:
+<path to the shared folder on the NFS server> (rw,sync,anonuid=<SYSTEM_USER_ID>,anongid=<SYSTEM_GROUP_ID>,root_squash)
+Supported
+Supported
+when the NFS
+storage is
+using
+root_squash 
+rw
+sync
+The following permission configuration:
+chmod -R 755 <path to the exported volume>
+chown <SYSTEM_USER_ID>:<SYSTEM_GROUP_ID> <path to the exported volume>
+The following line in the 
+/etc/exports
+ file:
+<path to the shared folder on the NFS server> (rw,sync,no_root_squash)
+Not
+supported
+Supported
+when the NFS
+storage is
+using
+no_root_squash
+Configure NFS shares if using self-hosted NFS storage
+Note
+ For information about NFS storage sizing and management, see 
+Manage persistent storage for the suite
+.
+
+
+Notes
+The UID and GID of the exported NFS folders are configured in the install.properties file through the
+SYSTEM_USER_ID and SYSTEM_GROUP_ID parameters, both of which have a default value of 1999. You can
+use 1999 or a custom value between 100000 and 2000000000 (for example, 100001 as the UID and 100002
+as the GID). As an example,  the command lines below use 1999.  
+You can use one or more NFS servers for OMT and the suite. The following example uses the same NFS
+server for both OMT and the suite.
+If you run antivirus software, backup software, or any other software that scans the file system on the
+machine that hosts the NFS server, don't use the software to monitor the Smart Analytics NFS directory (for
+example: <base directory>/smartanalytics-volume), because this will have a significant impact on the
+performance of IDOL indexing and IDOL search. 
+
+
+SMAX 2022.11
+Page 
+661
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

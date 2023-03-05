@@ -1,0 +1,12 @@
+These links to Red Hat documentation were current as of the last publication of the 
+Vertica
+ documentation. Be aware that they
+could change between releases:
+Configuring NTP Using the chrony Suite
+Using chrony
+SMAX 2022.11
+Page 
+610
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,79 @@
+Set the system parameters
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes and worker nodes
+Root or sudo
+The 
+br_netfilter
+ module is required to enable transparent masquerading and to facilitate Virtual Extensible LAN (VxLAN) traffic
+for communication between Kubernetes pods across the cluster nodes. Therefore, you must make sure the 
+br_netfilter
+ module
+is installed on all control plane and worker nodes before you set the system parameters.
+Perform the following steps on all control plane and worker nodes to set the system parameters:
+1
+. 
+Log in to the node.
+2
+. 
+Run the following command to check whether the 
+br_netfilter 
+module is enabled:
+lsmod |grep br_netfilter
+If there is no return value, the 
+br_netfilter
+ module isn't installed. Run the following commands to install it:
+modprobe br_netfilter
+echo "br_netfilter" > /etc/modules-load.d/br_netfilter.conf
+3
+. 
+Open the 
+/etc/sysctl.conf
+ file in a supported editor.
+4
+. 
+Set the following system parameters according to the operating system that the node uses.
+For Redhat 8.1 and later versions:
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward = 1
+kernel.sem=50100 128256000 50100 2560
+For Oracle Linux 7.8 and later versions:
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward = 1
+fs.may_detach_mounts = 1
+kernel.sem=50100 128256000 50100 2560
+For other older operating systems, including supported versions of CentOS:
+net.bridge.bridge-nf-call-iptables = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+net.ipv4.ip_forward = 1
+net.ipv4.tcp_tw_recycle = 0
+fs.may_detach_mounts = 1
+kernel.sem=50100 128256000 50100 2560
+5
+. 
+Save the 
+/etc/sysctl.conf
+ file, and then run the following commands to apply the updates to the node:
+ 
+/sbin/sysctl -p
+Important:
+ The 
+sysctl.conf
+ file contains the following instructions:
+# To override a whole file, create a new file with the same in
+# /etc/sysctl.d/ and put new settings there. To override
+# only specific settings, add a file with a lexically later
+# name in /etc/sysctl.d/ and put new settings there.
+You can ignore these instructions and update the 
+sysctl.conf
+ file directly with the settings described below. 
+SMAX 2022.11
+Page 
+634
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

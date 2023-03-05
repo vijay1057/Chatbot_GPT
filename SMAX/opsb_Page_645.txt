@@ -1,0 +1,94 @@
+[INFO] 2020-07-20 20:30:03 : ** Generating the offline image download bundle with suite metadata ...
+[INFO] 2020-07-20 20:30:11 : Completed generation of offline-download.zip in /tmp
+Download the suite images
+1
+. 
+Log on to the first control plane node. If the first control plane node can't access Docker Hub, transfer the  
+offline-download.z
+ip
+  file to a Linux server that can access Docker Hub.
+2
+. 
+Extract the .zip package to a directory. If you can't access Docker Hub directly, run the following commands to set up the
+HTTP/HTTPS proxy. Replace the placeholders with your actual server and port. 
+export http_proxy="<http://PROXY_SERVER:PORT>"
+export https_proxy="<https://PROXY_SERVER:PORT>"
+3
+. 
+Go to the directory you extracted the 
+offline-download.zip
+ package into.
+4
+. 
+Run the following command:
+./downloadimages.sh -r <image repository URL> -u <username> -d <image download directory> -c on|off -o <org name>
+In this command:
+<image repository URL>
+ specifies the image repository if you aren't using Docker Hub.
+<username>
+ specifies the Docker Hub username. If you don't specify the credentials here, the
+downloadimages.sh
+ script will prompt you to enter them when you run the command.
+<image download directory>
+ specifies the directory to which the 
+downloadimages.sh 
+script saves the container images.
+The default value is 
+/var/opt/cdf/offline
+.
+The 
+-c
+ option specifies whether the 
+downloadimages.sh
+ script verifies the digital signature of the images during the
+download. The default setting is 
+off
+ (the script doesn't verify the signature).
+<org name>
+ specifies the organization in the image registry that contains the images for installation. The default
+value is 
+hpeswitom.
+ This option is mandatory if you aren't using the default organization name.
+The 
+downloadimages.sh
+ script also has a 
+-p
+ option that specifies your password. The 
+-p
+  option doesn't support single
+quotes (don't include single quotes in the password).
+Transfer the images to the control plane node
+If you downloaded the images to a location other than the first control plane node, you must transfer the images to a directory
+on the first control plane node. You will later use the 
+uploadimages.sh
+ script to upload the images from this directory on the first
+control plane node to the image registry.
+The default directory is 
+/var/opt/cdf/offline
+. If you don't save the images to this directory, you must use the 
+-d
+ option to
+specify the location when you later run the 
+uploadimages.sh
+ script.
+The image upload process requires disc capacity at least twice the size of the images. Make sure that the capacity of the
+directory where you save the images is at least twice the size of the images.
+Related topics 
+Download the container images
+Note:
+ Micro Focus encourages you to use some other password options, which aren't provided by Micro
+Focus. By implementing the 
+-p
+ option, you may expose the system to increased security risks. You
+understand and agree to assume all associated risks and hold Micro Focus harmless for the same. It always
+remains your sole responsibility to assess its own regulatory and business requirements. Micro Focus doesn't
+represent or warrant that its products comply with any specific legal or regulatory standards applicable to you
+in conducting your business.
+
+
+SMAX 2022.11
+Page 
+645
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

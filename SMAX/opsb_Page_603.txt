@@ -1,0 +1,67 @@
+Changes to the I/O scheduler made through the 
+/sys
+ directory only last until the system is rebooted, so you need to add the
+commands that change the I/O scheduler to a startup script (such as those stored in 
+/etc/init.d
+, or though a command in 
+/etc/rc.l
+ocal
+). You also need to use a separate command for each drive on the system whose scheduler you want to change.
+For example, to make the configuration take effect immediately and add it to rc.local so it is used on subsequent reboots.
+echo deadline > /sys/block/sda/queue/scheduler
+echo 'echo deadline > /sys/block/sda/queue/scheduler' >> /etc/rc.local
+You may prefer to use this method of setting the I/O scheduler over using a boot parameter if your system has a mix of solid-
+state and physical media drives, or has many drives that do not store 
+Vertica
+ catalog and data directories.
+If you are using Red Hat 7.0 or CentOS 7.0 or higher, run the following command as root or sudo:
+$ chmod +x /etc/rc.d/rc.local
+Configure the I/O Scheduler - Changing the Scheduler with a Boot Parameter
+Use the 
+elevator
+ kernel boot parameter to change the default scheduler used by all disks on your system. This is the best
+method to use if most or all of the drives on your hosts are of the same type (physical media or SSD) and will contain catalog
+or data files. You can also use the boot parameter to change the default to the scheduler the majority of the drives on the
+system need, then use the 
+/sys
+ files to change individual drives to another I/O scheduler. 
+The format of the elevator boot
+parameter is:
+elevator=
+schedulerName
+Where 
+schedulerName
+ is 
+deadline
+, 
+noop
+, or 
+cfq
+. You set the boot parameter using your bootloader (grub or grub2 on most
+recent Linux distributions). See your distribution's documentation for details on how to add a kernel boot parameter.
+Note
+For systems that do not support
+ /etc/rc.local
+, use the equivalent startup script that is run after the destination
+runlevel has been reached. For example SuSE uses 
+/etc/init.d/after.local
+.
+
+
+Note
+On some Ubuntu/Debian systems, the last line in rc.local must be "
+exit 0
+". So you must manually add the following
+line to 
+etc/rc.local
+ before the last line with 
+exit 0
+.
+
+
+SMAX 2022.11
+Page 
+603
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

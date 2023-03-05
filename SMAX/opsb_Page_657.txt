@@ -1,0 +1,103 @@
+FLUENTD_LOG_RECEIVER_USER="admin"
+FLUENTD_LOG_RECEIVER_PASSWORD
+Configuration of this parameter is mandatory if you have configured the 
+FLUENTD_LOG_RECEIVER_USER
+ parameter.
+This parameter specifies the password of the account that's used to log in to the log receiver server.
+Example:
+FLUENTD_LOG_RECEIVER_PASSWORD="******"
+FLUENTD_LOG_RECEIVER_TOKEN
+Configuration of this parameter is mandatory if the value of the 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameter is 
+splunk
+.
+This parameter specifies the token which is used to connect the Fluentd log receiver.
+Example:
+FLUENTD_LOG_RECEIVER_TOKEN="6da09a43-533b-44ba-afab-00b39e3e6022"
+FLUENTD_LOG_RECEIVER_CA
+Configuration of this parameter is mandatory if the value of the 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameter is 
+elasticsearch
+ and the 
+FLUENTD_LOG_RECEIVER_URL
+ parameter specifies an HTTPS URL.
+This parameter specifies the absolute path to the CA certificate of the log receiver server. The parameter must be configured
+to the root CA of your elastic server.
+Example:
+FLUENTD_LOG_RECEIVER_CA="/tmp/elasticsearch_ca.crt"
+FLUENTD_LOG_RECEIVER_TYPE
+Configuration of this parameter is mandatory if the 
+FLUENTD_LOG_RECEIVER_URL
+ parameter is configured. Configure this
+parameter and the 
+FLUENTD_LOG_RECEIVER_URL
+ parameter if you want to use an Elasticsearch server or Operations Bridge
+Analytics as the remote OMT logs location. If you don't configure the 
+FLUENTD_LOG_RECEIVER_URL
+ and 
+FLUENTD_LOG_RECEIVER_TYP
+E
+ parameters, the 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameter will be configured to the value 
+file
+. In this case, you must export an
+NFS persistent volume on an NFS server and configure it to the 
+itom-logging-vol
+ volume on the installation portal later.
+This parameter specifies the Fluentd log receiver type.
+The expected values are 
+elasticsearch
+, 
+oba
+, 
+file
+, or 
+splunk
+.
+Example:
+FLUENTD_LOG_RECEIVER_TYPE="file"
+FLUENTD_LOG_RECEIVER_OUTPUT_FORMAT
+This parameter is valid when the value of the 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameter is configured to "file". That means only
+when you export logs to the NFS server, the parameter is valid.
+This parameter specifies the log output format.
+The expected value is 
+csv
+ or 
+json
+.
+The default value is 
+csv
+.
+Example:
+FLUENTD_LOG_RECEIVER_OUTPUT_FORMAT="csv"
+FLUENTD_LOG_RECEIVER_OUTPUT_DELIMITER
+This parameter is valid when the value of the 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameter is configured to 
+file
+ and
+FLUENTD_LOG_RECEIVER_OUTPUT_FORMAT is configured to "csv".
+This parameter specifies the delimiter of the log files.
+The supported values are: 
+,
+, 
+:
+, 
+#
+, and 
+\t
+.
+The default value is 
+,
+.
+SMAX 2022.11
+Page 
+657
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

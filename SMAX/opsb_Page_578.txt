@@ -1,0 +1,104 @@
+host bo_user postgres 172.0.0.0/24 scram-sha-256
+host bo_config postgres 172.0.0.0/24 scram-sha-256
+host bo_license postgres 172.0.0.0/24 scram-sha-256
+host smartadb postgres  172.0.0.0/24 scram-sha-256
+host xservices_ems postgres 172.0.0.0/24 scram-sha-256
+host xservices_mng postgres 172.0.0.0/24 scram-sha-256
+host xservices_rms postgres 172.0.0.0/24 scram-sha-256
+host xie postgres 172.0.0.0/24 scram-sha-256
+host scheduler postgres 172.0.0.0/24 scram-sha-256
+host maas_admin postgres 172.0.0.0/24 scram-sha-256
+host maas_template postgres 172.0.0.0/24 scram-sha-256
+host idm postgres 172.0.0.0/24 scram-sha-256
+host autopassdb postgres 172.0.0.0/24 scram-sha-256
+host postgres postgres 172.0.0.0/24 scram-sha-256
+You can use “hostssl” instead of "host" if your PostgreSQL database server has SSL enabled, but this is optional for
+the suite installation. For information about the difference between “host” and “hostssl”, see the 
+PostgreSQL
+documentation
+. In order for the suite to connect to PostgreSQL through SSL, you only need to enable the TLS option
+and import your PostgreSQL CA certificate into the suite from the installation portal UI in a later step when
+configuring database connection settings for the suite.
+<dba_user>: replace it with the DBA user name of the PostgreSQL server. You will specify this user later on the
+installation portal UI. 
+172.0.0.0/24: this is an example value used in this step and some of the next steps. You need to replace this
+example value with the IPv4 address range of the cluster nodes or a single cluster node's hostname. 
+5
+. 
+Add the following line to the pg_hba.conf file to allow the maas_admin user to access the default 
+postgres
+ database:
+host postgres maas_admin 172.0.0.0/24 scram-sha-256 
+This configuration is needed because before creating the SMA component databases, the suite installer will check if they
+already exist, and will skip the database creation if they already exist. To check the existence of the databases, the suite
+installer will use the mass_admin user to connect to the default 
+postgres
+ database.
+6
+. 
+If you want to deploy the DND capability, add the following lines to the pg_hba.conf file:
+host dnd hcm_admin 172.0.0.0/24 scram-sha-256
+host postgres hcm_admin 172.0.0.0/24 scram-sha-256
+host dnd <dba_user> 172.0.0.0/24 scram-sha-256
+7
+. 
+If you want to deploy the SAM capability, add the following lines to the 
+pg_hba.conf
+ file:
+host sam sam
+ 172.0.0.0/24 scram-sha-256
+host sam <dba_user> 172.0.0.0/24 scram-sha-256
+8
+. 
+If you want to deploy the CGRO capability, add the following lines to the 
+pg_hba.conf
+ file:
+host cgro cgro
+ 172.0.0.0/24 scram-sha-256
+host cgro <dba_user> 172.0.0.0/24 scram-sha-256
+9
+. 
+Run the following commands on the PostgreSQL host to check the 
+DefaultTasksMax
+ value:
+systemctl show --property DefaultTasksMax
+systemctl status <postgresql.service name> | grep Task
+Where: <postgresql.service name> refers to the PostgreSQL service name in your environment, which may vary from one
+PostgreSQL installation to another (an example of the service name is 
+postgresql.service
+). If the 
+DefaultTasksMax
+value is too small (for example, the 
+DefaultTasksMax
+ property has a default value of 512 on SUSE), your connection to
+the PostgreSQL database may fail with the following error: 
+could not fork new process for connection: Resource temporarily unavaila
+ble
+. To prevent this issue from occurring, you need to add the following line to the
+/usr/lib/systemd/system/<postgresql.service name> file:
+TasksMax=1000000
+Note
+: Normally this step isn't needed if PostgreSQL is running on RHEL, CentOS, or Oracle Linux.
+10
+. 
+Restart PostgreSQL. 
+Install and configure Vertica for CGRO
+To use CGRO, in addition to the PostgreSQL configuration described above, you still need to install and configure a Vertica
+database. For details, see 
+Install and configure Vertica database
+.
+Related topics
+Next topic: 
+Configure SUDO access
+Previous topic: 
+Activate your Docker Hub account
+For instructions on OMT database configuration during installation, see 
+Select deployment configuration
+For instructions on the suite database configuration during installation, see 
+Deploy the suite
+SMAX 2022.11
+Page 
+578
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

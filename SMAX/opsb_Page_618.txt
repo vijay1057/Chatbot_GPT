@@ -1,0 +1,96 @@
+4
+. 
+Locate and run the validation scripts as per the syntax given in the Vertica website.
+Run the install_vertica script
+To install the installed Vertica package using the install_vertica script, see the 
+Installing Vertica with the Installation Script
+ on
+the Vertica website.
+In the command below, replace 
+<VerticaNode1>
+ with the hostname of the system on which you are installing Vertica and
+replace 
+<vertica-version>
+ with the vertica version dowloaded (such as 
+10.0.1-3
+). The data directory specifies where the bulk of
+the database will be stored (in the remainder of the installation, this directory will be assumed to be /opt/vertica).
+/opt/vertica/sbin/install_vertica --hosts <VerticaNode1> --rpm /tmp/vertica-<vertica-version>.x86_64.RHEL6.rpm --dba-user dbadmin --data-dir /opt/vertica
+If you are installing Vertica on a single node, use that node's local loopback address in place of 
+<VerticaNode1>
+.
+The script will create a dbadmin user and prompt you to set its password. This password will be assumed to be dbadmin in the
+remainder of the installation instructions.
+The script will also validate that all required prerequisites have been met. If the above command fails due to warnings about
+the environment, despite having implemented all of the prerequisites, then you can override the warnings by adding the 
+--failur
+e-threshold FAIL
+ option to the command.
+Apply license
+1
+. 
+After performing the above steps, Vertica should be running on the host. On the Vertica host, run 
+su - dbadmin
+ or log in as
+the 
+dbadmin
+ user. Then run the 
+/opt/vertica/bin/adminTools
+ program. The program prompts you to enter a license file. Enter
+the path to the license key that you downloaded earlier from the 
+Micro Focus
+ Software Licenses and Downloads Portal.
+2
+. 
+Select 
+Accept
+ for the End User License Agreement and exit the program.
+Create the cgro database
+Run the following command as the 
+dbadmin
+ user to create and start the cgro
+ 
+database. Replace <VerticaNode1> with the
+hostname on which Vertica has been installed. See the Vertica documentation for more information about available options.
+/opt/vertica/bin/adminTools -t create_db -d cgro -p dbadmin --hosts=<VerticaNode1> --policy=always
+Verify the license was applied
+While logged in as the dbadmin user, run the following command:
+vsql -U dbadmin -w dbadmin -c 'select display_license();'
+You should see output similar to the following, indicating a 2 TB license has been applied.
+            display_license
+---------------------------------------
+ ITOM SMAX
+<DATE>
+Perpetual
+0
+2 TB
+(1 row)
+Configure logging
+To ensure that the database is regularly cleaned out and that logs are only kept for a week, run the following command:
+/opt/vertica/bin/adminTools -t logrotate -d cgro -r daily -k7
+Next step
+Configure Vertica SSL
+Related topics
+To access the 
+Micro Focus
+ license and software downloads, visit 
+Micro Focus
+ 
+Software Licenses and Downloads Portal
+.
+For more information on Vertica sizing recommendations, see 
+Recommendations for Sizing Vertica Nodes and Clusters
+.
+For more information on Vertica system requirements, see 
+Supported Operating Systems and File System Requirements
+for Vertica Server
+.
+For more information on virtualized environment, see 
+Vertica in a Virtualized Environment
+.
+SMAX 2022.11
+Page 
+618
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

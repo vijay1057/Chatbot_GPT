@@ -1,0 +1,87 @@
+Configure Vertica SSL
+This section discusses the process of configuring Vertica with certificates and enabling SSL. This step is required to enable
+successful communication between Vertica and other components of the suite.
+Create a CA private key and certificate
+Generate a SSL certificate (
+new_serverca.crt
+) and key (
+new_servercakey.pem
+) by following the directions in 
+Generating TLS
+Certificates and Keys
+. Alternatively, log on as the Vertica database user and run the below commands.
+Use the 
+openssl gensra
+ command to create a CA private key.
+Example:
+openssl genrsa -out new_servercakey.pem 2048
+Use the 
+openssl req
+ command to create a CA public certificate.
+Example:
+openssl req -newkey rsa:2048 -x509 -days 3650 -key new_servercakey.pem -out new_serverca.crt
+Result
+: You now have a CA private key, 
+new_servercakey.pem
+. You also have a CA public certificate, 
+new_serverca.crt
+. 
+Create a server private key and certificate
+Create a server private key 
+server.key
+ and certificate 
+server.crt
+, and sign the server’s certificate using the CA private key file
+and public certificate, by executing the following commands as the dbadmin user.
+openssl genrsa -out server.key
+openssl req -new -key server.key -out server_reqout.txt
+ A list of line prompts appear. Enter the details specific to the current
+instance of the configuration. If any information isn't applicable, hit return to leave the value empty.
+openssl x509 -req -in server_reqout.txt -days 3650 -sha256 -CAcreateserial -CA new_serverca.crt -CAkey new_servercakey.pem -out server.crt
+You created the server private key file, 
+server.key
+, and then signed the server certificate using the CA private key 
+new_servercak
+ey.pem
+ and CA public certificate 
+new_serverca.crt
+, resulting in a new server certificate, 
+server.crt
+.
+Enable SSL for Vertica
+In order to enable SSL for your Vertica database, follow the steps below as the dbadmin user.
+1
+. 
+Run the following commands:
+/opt/vertica/bin/vsql -U "<cgrodbuser>" -d "<cgrodb>" -w "cgrodbuser-password>" -c "SELECT SET_CONFIG_PARAMETER('EnableSSL', '1');"
+/opt/vertica/bin/vsql -U "<cgrodbuser>" -d "<cgrodb>" -w "cgrodbuser-password>" -c "SELECT SET_CONFIG_PARAMETER('SSLCertificate', '`cat  /Path to folder/server.crt`');"
+/opt/vertica/bin/vsql -U "<cgrodbuser>" -d "<cgrodb>" -w "cgrodbuser-password>" -c "SELECT SET_CONFIG_PARAMETER('SSLPrivateKey', '`cat  /Path to folder/server.key`');"
+2
+. 
+Restart the Vertica database using the following commands.
+/opt/vertica/bin/adminTools -t stop_db -d <cgrodatabase> -p <cgrodatabase-password> -F
+/opt/vertica/bin/adminTools -t start_db -d <cgrodatabase> -p <cgrodatabase-password> -F
+Verify SSL configurations
+Run the following commands to verify SSL configuration:
+ 
+/opt/vertica/bin/vsql -U <cgrodbuser> -w <cgrodbuser-password> -c "SELECT GET_CONFIG_PARAMETER('EnableSSL');"
+/opt/vertica/bin/vsql -U <cgrodbuser> -w <cgrodbuser-password> -c "SELECT GET_CONFIG_PARAMETER('SSLPrivateKey');"
+/opt/vertica/bin/vsql -U <cgrodbuser> -w <cgrodbuser-password> -c "SELECT GET_CONFIG_PARAMETER('SSLCertificate');"
+If 
+EnableSSL
+ reports as 1 and the other responses are non-empty and display the contents of the keys and certificates
+created earlier, you have configured SSL properly for Vertica.
+Next step
+Note
+: At a later step, you will need to import the newly created CA certificate to the suite's NFS share so it's
+trusted by the suite. See 
+Enable CGRO
+. 
+
+
+SMAX 2022.11
+Page 
+620
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

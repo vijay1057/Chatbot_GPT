@@ -1,0 +1,73 @@
+Install and configure Keepalived on both HAProxy hosts
+If you use a hardware load balancer instead of Keepalived, skip this step and perform the "Configure a hardware load
+balancer" step instead. 
+1
+. 
+Turn off SELinux.
+a
+. 
+Modify the file "/etc/selinux/config", by changing "SELINUX=enforcing" to "SELINUX=disabled".
+b
+. 
+Run the following command:
+#setenforce 0
+2
+. 
+Get the network interface name. In this section, we will use "eth0" as an example. You need to replace it with yours in the
+next steps.
+ifconfig -a|grep "UP,BROADCAST,RUNNING,MULTICAST"|awk '{print $1}'
+3
+. 
+Configure the firewall on both HAProxy hosts.
+a
+. 
+Back up the file "/etc/firewalld/direct.xml" if it exists.
+b
+. 
+Add direct rules by running the following commands or by modifying 
+/etc/firewalld/direct.xml
+:
+#firewall-cmd --direct --permanent --add-rule ipv4 filter INPUT 0 --in-interface 
+eth0
+ 
+--destination 224.0.0.18 --protocol vrrp -j ACCEPT
+#firewall-cmd --direct --permanent --add-rule ipv4 filter OUTPUT 0 --out-interface 
+eth0 
+--destination 224.0.0.18 --protocol vrrp -j ACCEPT
+#firewall-cmd --reload
+Note:
+ This step will write the rules to the /etc/firewalld/direct.xml file. If you receive an error at this step, please go
+to the /etc/firewalld/direct.xml file to modify it and run "firewall-cmd --reload" to make it take effect. Here is an
+example:
+#cat 
+/etc/firewalld/direct.xml
+<?xml version="1.0" encoding="utf-8"?>
+<direct>
+  <rule ipv="ipv4" table="filter" chain="INPUT" priority="0"> --in-interface eth0 --destination 224.0.0.18 --protocol vrrp -j ACCEPT</rule>
+  <rule ipv="ipv4" table="filter" chain="OUTPUT" priority="0"> --out-interface eth0 --destination 224.0.0.18 --protocol vrrp -j ACCEPT</rule>
+</direct>
+c
+. 
+Run the following command to make sure the rules above are added:
+#firewall-cmd --direct --get-rules ipv4 filter OUTPUT
+#firewall-cmd --direct --get-rules ipv4 filter INPUT
+4
+. 
+Install and configure Keepalived on both hosts.
+a
+. 
+On the haproxy1 host, running the following commands:
+#yum install keepalived -y
+#cat /etc/keepalived/keepalived.conf
+global_defs {
+  router_id gd_ha01
+  default_interface eth0
+}
+vrrp_script chk_haproxy {
+  script "killall -0 haproxy" 
+SMAX 2022.11
+Page 
+586
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

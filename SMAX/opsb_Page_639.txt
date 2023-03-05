@@ -1,0 +1,22 @@
+Check the default gateway setting
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes and worker nodes
+Root or sudo
+To check the default gateway address on a node, run the following command on the node:
+ip route | grep default
+If your terminal resembles the following after you run the command, the default gateway address is already set:
+default via 192.0.2.1 dev ens32  proto static  metric 100
+If there is no return value, the default gateway isn't set on the node. Run the following command on the node to add a default
+gateway:
+route add default gw <IP address> <interface name>
+For example, you run the following command:
+route add default gw 192.0.2.24 eth0
+SMAX 2022.11
+Page 
+639
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,105 @@
+Prepare external databases
+You must use external databases for OPTIC Management Toolkit (OMT) and the suite in a production environment. For
+information about supported external databases, see 
+Support matrix for on-premises deployment
+. 
+General requirements for PostgreSQL databases
+To set up SMAX with PostgreSQL databases, you must meet the following requirements:
+Configurations described in this section, including parameters per profile (see the 
+Prepare external PostgreSQL for
+SMA 
+section), 
+PostgreSQL version matrix
+, and PostgreSQL encoding (utf8), must be applied.
+You must be able to create a user with the 
+create db
+ role. Then, you can create databases with this newly created user.
+The database owner must be able to perform Create, Read, Update, and Delete operations on its own database objects
+(table, index, and so on).
+As SMAX needs long and live connections with databases, the timeout of the PostgreSQL solution should be longer than
+the timeout setting of the heartbeat between SMAX and the database. The database heartbeat is determined by the
+IDLE_CONNECTION_TEST_PERIOD
+ parameter in the 
+itom-xruntime-infra-config
+ configmap.
+The PostgreSQL high availability environment needs to be accessed by a single IP or FQDN.
+Low network latency is required. We recommend a network latency lower than 0.5 ms.
+Install PostgreSQL
+1
+. 
+Install a supported version of PostgreSQL. 
+If you want to use a PostgreSQL high availability setup, see 
+High availability PostgreSQL with Patroni
+. 
+2
+. 
+Prepare a PostgreSQL admin user with "Superuser" role. In the steps below, it's referred to as "<postgres admin>."
+3
+. 
+If your database server uses SSL for connection, obtain the database CA certificate in PEM (Base64 encoded) format,
+which can have a file extension of .pem, .cer, or .crt. Later, you will need to specify this certificate when running the 
+install
+script to install OMT and when configuring databases in the installation portal UI. 
+4
+. 
+Configure PostgreSQL to use the 
+scram-sha-256
+ encryption algorithm. To do this, set the parameter in the
+postgresql.conf
+ file:
+password_encryption=scram-sha-256
+On the PostgreSQL server host, run the 
+psql
+ command to connect to your PostgreSQL instance, and then run the
+following SQL command to reload the PostgreSQL server configuration so that the change takes effect: 
+select pg_reload_conf();
+Run the following SQL command to verify that the setting is 
+scram-sha-256
+:
+show password_encryption;
+Now, you need to run the following SQL command to reset the DBA user password (the password can be either new or the
+same as before). This changes your current password to use the SCRAM-SHA-256 password encryption.
+alter user <DBA user> with password 'xxxx';
+5
+. 
+The default value of the 
+listen_addresses
+ parameter in the 
+postgresql.conf
+ file is "localhost", which means only
+localhost can connect to the PostgreSQL instance. You need to set 
+listen_addresses = '*'
+ to allow remote connections. 
+6
+. 
+In addition, we recommend that you turn off Just-in-Time Compilation (JIT) for better performance. To do this, check if the
+line 
+jit=off
+ is in the 
+postgresql.conf
+ file. If not, add it to the file. 
+7
+. 
+Restart PostgreSQL. 
+Configure external PostgreSQL databases for OMT
+OMT uses two databases:
+OMT API Server database: Specify the following database connection parameters in command-line options when you run
+Caution
+: The internal PostgreSQL services embedded in OMT and the suite are deprecated and might be
+obsoleted in a future release. Don't use the internal PostgreSQL services for new installations.
+
+
+Tip
+: The following procedures include steps to configure the pg_hba.conf file for PostgreSQL. For more
+information about how to configure the parameters in this file (connection type, database name, user name, client
+IP address range, and authentication method), refer to your specific PostgreSQL documentation (for example, the
+PostgreSQL 14 documentation
+). 
+
+
+SMAX 2022.11
+Page 
+574
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

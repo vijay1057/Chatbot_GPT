@@ -1,0 +1,16 @@
+Recommended Storage Format Types
+Choose the storage format type based on deployment requirements. Vertica recommends the following storage format types
+where applicable:
+ext3
+ext4
+NFS for backup
+XFS
+Amazon S3 Standard for communal storage and related backup tasks when running in Eon Mode
+For the Vertica I/O profile, the ext4 file system is considerably faster than ext3. The storage format type at your backup and
+temporary directory locations must support fcntl lockf (POSIX) file locking.
+SMAX 2022.11
+Page 
+597
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

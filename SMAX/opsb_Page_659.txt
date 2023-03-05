@@ -1,0 +1,136 @@
+Configure a storage driver
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes and worker nodes
+Root or sudo
+We recommend that you use overlayfs for the installation. Overlayfs uses a particular file system type (either xfs with ftype=1
+or ext4). Follow the steps on this page to check your file system of the OPTIC Management Toolkit (OMT) runtime data
+directory that you defined for the 
+RUNTIME_CDFDATA_HOME
+ parameter in the install.properties file. Otherwise, skip the whole
+section.
+Storage drivers provide on-demand allocations for storage space, which allow you to create data in writable layers of your
+containers and thus run containers on storage. The storage drivers store and manage the images and containers on your
+host. OMT supports 
+overlayfs
+ as the preferred storage driver. By default, the OMT installation uses 
+overlayfs
+ as the storage
+driver. It requires no extra configuration.
+You must choose and set up one storage driver for all control plane nodes and worker nodes for the deployment. Because a
+production environment usually has a large number of containers which requires a lot of storage space. We highly
+recommend that you use 
+overlayfs
+ as the storage driver.
+The following table provides the details of the storage driver option.
+Storage
+Driver
+Size
+Extension
+Parameter in the
+install.properties
+Supported backing
+file systems
+Device Type on the
+Installation UI
+Usage
+Recommended?
+Overlayfs
+Not
+supported
+DEVICE_TYPE
+xfs
+ with 
+ftype=1
+ or 
+ext4
+Overlayfs
+Production
+Yes
+Use overlayfs as the storage driver
+We highly recommend that you use 
+overlayfs
+ as the default storage driver for all control plane nodes and worker nodes for the
+deployment. 
+Overlayfs 
+supports the efficient storage of image layers. The containers get started or stopped faster and
+the memory usage is more efficient when you use 
+overlayfs
+ as the storage driver for the deployment.
+Overlayfs
+ requires no extra configuration and it's the recommended default Containerd storage driver for the OMT-supported
+host operating systems.
+To use 
+overlayfs
+ as the storage driver, make sure the file system of the OMT runtime data directory that you defined for the 
+RU
+NTIME_CDFDATA_HOME
+ parameter in the install.properties is 
+xfs
+ with 
+ftype=1
+ or 
+ext4
+. In addition, make sure the kernel version
+of the node is 3.10.0-514 or higher.
+Perform the following steps to use 
+overlayfs
+ as the storage driver.
+1
+. 
+Check your file system of the OMT runtime data directory to make sure that it meets the requirements of 
+overlayfs
+.
+Currently, 
+overlayfs
+ only works with 
+xfs
+ with 
+ftype=1
+ or 
+ext4
+. You can run the following command to check the file system
+of the 
+RUNTIME_CDFDATA_HOME
+ directory on the first control plane node.  For other nodes, copy
+the <Installation_package_directory>/scripts/pre-check.sh script from the first control plane node to a temporary
+directory.  Then run 
+chmod +x pre-check.sh
+ to add the execute permission:
+<Installation_package_directory>/scripts/pre-check.sh --node-type <node type> --cdf-home <CDF_HOME> --runtime-home <RUNTIME_CDFDATA_HOME>
+Replace the placeholder <Installation_package_directory> with the installation package directory. For
+example:/tmp/ITOM_Platform_Foundation_Standard_202x.xx.xxxx.
+Replace <CDF_HOME> with the directory that you will set for the OMT_HOME parameter in the install.properties file.
+Replace <RUNTIME_CDFDATA_HOME> with the directory that you will set for the RUNTIME_CDFDATA_HOME
+parameter in the install.properties file. By default, the directory defined in the RUNTIME_CDFDATA_HOME parameter
+is <CDF_HOME>/data. For other nodes rather than the first control plane node, 
+Replace <node type> with the actual node type. The supported values are: "first", "master", and "worker". "first"
+refers to the first control plane node. "master" refers to the remaining control plane nodes except the first one. 
+2
+. 
+Check the command output. If it contains the following message, the file system of the OMT runtime data directory
+supports 
+overlayfs
+.
+Checking overlayfs device is used on containerd .................... [ PASS ]
+3
+. 
+For all nodes, the installer will use 
+overlayfs
+ by default as the device type. No extra step is required.
+When you use 
+overlayfs
+ as the storage driver, the Containerd related data is stored under the directory defined in the 
+RUNTIME_
+CDFDATA_HOME 
+parameter.
+Note:
+ This example contains placeholder values.
+SMAX 2022.11
+Page 
+659
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

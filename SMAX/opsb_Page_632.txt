@@ -1,0 +1,49 @@
+To enable swap, perform the following steps on each of the control plane nodes and worker nodes:
+1
+. 
+Log in to the server as root or a sudo user.
+2
+. 
+Run the following command to check the swap status:
+free
+3
+. 
+If swap is disabled, the command returns a result that resembles the following (all swap values are zero):
+ total        used        free      shared  buff/cache   available
+Mem:       32003164     1886596    15282264       13024    14834304    29508624
+Swap:             0           0           0
+4
+. 
+Edit the /etc/fstab file:
+vi /etc/fstab
+Uncomment the swap configuration line if it is commented out.
+5
+. 
+Run the following command to enable swap:
+swapon -a
+6
+. 
+Check that swap is enabled:
+free
+The command output should resemble the following:
+              total        used        free      shared  buff/cache   available
+Mem:       32003164      322200    31441228       11532      239736    31297920
+Swap:      16383996           0    16383996
+Related topics
+Next topic: 
+Check the network settings
+Previous topic: 
+(Optional) Perform a preliminary check of the nodes
+Note: For SMA, you are recommended to use a swap size that is at least half of the RAM size of the machine.
+Caution: Once swap is enabled, you must set the
+ FAIL_SWAP_ON
+ parameter in the 
+install.properties
+ file to false
+(default: true). Failure to do so will cause the installation to fail.
+SMAX 2022.11
+Page 
+632
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

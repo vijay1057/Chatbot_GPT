@@ -1,0 +1,143 @@
+Configure the install.properties file
+The installation parameters are available in the 
+OMT_Embedded_K8s_202x.xx-xxx/install.properties
+ file. Before you run the installer,
+configure this file according to your deployment requirements. If you skip this step at this point, you will also have a chance to
+specify all parameters in the 
+install.properties
+ file later, by using command line options when you run the 
+install
+ shell script. 
+To configure the parameters:
+1
+. 
+In a text editor, open the 
+install.properties
+ file.
+2
+. 
+Change the value of the parameter based on your installation requirement. A complete list of the parameters is provided
+below.
+3
+. 
+Save the file.
+General guidelines
+When configuring the parameters, follow these guidelines.
+If any of your cluster node servers (control plane or worker nodes) are in different subnets,  or you are installing into
+supported cloud environments (such as AWS and Azure), set the 
+FLANNEL_BACKEND_TYPE
+ parameter to 
+vxlan
+;
+otherwise, you don't need to edit that parameter.
+You must configure the 
+HA_VIRTUAL_IP
+ or 
+LOAD_BALANCER_HOST
+ parameter to install a multiple-control plane node
+cluster: If all control plane node servers are in the same subnet, you must configure
+either 
+HA_VIRTUAL_IP
+ or 
+LOAD_BALANCER_HOST
+; if the control plane node servers are in different subnets, you must
+configure 
+LOAD_BALANCER_HOST
+.
+Use 
+K8S_PROVIDER="cdf"
+ (default) to use the embedded Kubernetes in OMT.
+For a non-DNS environment, configure 
+KUBE_DNS_HOSTS
+ and create a hosts file. 
+You must set 
+SET_FQDN_IN_INGRESS 
+to 
+false
+ for SMA. 
+Set 
+FAIL_SWAP_ON
+ to false for SMA. You will receive a swap-related warning message during the installation, which you
+can safely ignore.
+Make sure the folder defined in 
+TMP_FOLDER
+ has 1777 permission (default: 
+TMP_FOLDER=/tmp
+).
+Certain Fluentd parameters are used to export OMT logs to a remote server (an Elasticsearch, Operations Bridge
+Analytics, or NFS server). By default, OMT logs are exported to the NFS volume (
+itom-logging-vol
+) that you configure
+later, on the File Storage page of the installation portal. 
+SMA doesn't support FIPS mode for embedded Kubernetes deployment. You must set the 
+ENABLE_FIPS
+ parameter to
+false
+ (default), and make sure that FIPS mode is disabled on your control plane node and worker node machines (click
+here
+ for detailed steps). 
+You must use the default value for the 
+CDF_NAMESPACE
+ parameter. This release of the suite doesn't support a custom
+namespace other than 
+core
+. 
+Installation of the Monitoring capability
+The monitoring capability enables you to monitor your deployment using Prometheus and to display the results using Grafana
+dashboards. The installation of this capability is optional.
+The 
+Capabilities
+ parameter controls whether to include the Monitoring capability in the OMT installation. You have two
+options:
+Option 1 (default): Include. This is the default option. The 
+Capabilities
+ parameter enables the Monitoring capability by
+default (
+Monitoring=true
+).
+ 
+Note that the monitoring capability requires you to configure an additional NFS volume (itom-monitor-vol). See 
+Configure
+NFS volumes
+.
+Option
+ 
+2: Don't include. This option requires you to set 
+Monitoring=false
+ in the 
+Capabilities
+ parameter. After the OMT
+and suite installation, you still have a chance to enable this capability (see 
+Enable the monitoring capability
+).
+Pros
+Cons
+The monitoring capability monitors
+the following:
+Certificate expiration
+Disk space
+This capability requires additional extra hardware resources (at least 1~2 Core
+CPU, 4 GB memory, and 20 GB disk space).
+The monitoring capability provides
+the following reports:
+OMT IdM dashboards
+Alerts on overall k8s cluster
+status
+Persistent volumes stats
+Pods metrics (by namespace)
+Prometheus performs data scraping every 30 seconds by default, which has
+some impact on your system performance. 
+Note
+ The following table describes the pros and cons of enabling the monitoring capability. 
+
+
+Tip
+: After you have installed the Monitoring capability, you can still disable it if you like. For more information,
+
+
+SMAX 2022.11
+Page 
+646
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

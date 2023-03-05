@@ -1,0 +1,113 @@
+Perform pre-installation tuning
+Role
+Location
+Privileges required
+System administrator
+All hosts (Kubernetes cluster, NFS servers, external PostgreSQL servers)
+Root or sudo
+This step includes the following tasks required in production environments for optimized system performance while avoiding
+useless overhead.
+Update OS TCP socket read/write buffer size and port range
+Check the OS settings on the TCP socket read/write buffer with the 
+sysctl
+ utility. In most situations, you need to increase
+them. To do this, follow these steps:
+1
+. 
+Open the 
+/etc/sysctl.conf
+ file, and add the following settings:
+net.core.wmem_max=4194304
+net.core.rmem_max=4194304
+net.ipv4.tcp_wmem=4096 87380 4194304
+net.ipv4.tcp_rmem=4096 87380 4194304
+net.ipv4.ip_local_port_range = 32768 65535
+2
+. 
+When the deployment size is 
+medium
+ or 
+large
+, to avoid lots of 
+TIME_WAIT
+ TCP socket connections, which may produce
+502/504 errors in the front end, you may need to further tune TCP socket behaviors from the OS level to reuse the
+TIME_WAIT
+ socket. To do this, add the following line to the 
+/etc/sysctl.conf
+ file:
+net.ipv4.tcp_tw_reuse=1
+3
+. 
+Run the 
+/sbin/sysctl -p
+ command to make your settings take effect.
+Increase OS resource limits
+Perform the following steps to increase the default "open files" and "max user processes" values for the user whose user ID
+and group ID are the 
+SYSTEM_USER_ID
+ and 
+SYSTEM_GROUP_ID
+ parameter values defined in the install.properties file of
+OPTIC Management Toolkit (OMT) (both parameters have a default value of 1999).  Note that the following command lines use
+their default value of 1999 for example.
+Caution
+: this task is mandatory to ensure the suite system stability.
+To increase the OS resource limits, follow these steps:
+1
+. 
+Run the 
+ulimit -a
+ command to check the OS resources.
+2
+. 
+Open the 
+/etc/security/limits.conf
+ file:
+vi /etc/security/limits.conf
+3
+. 
+Make sure you configure the following lines:
+* hard nofile 1000000
+* soft nofile 1000000
+root hard nofile 1000000
+root soft nofile 1000000
+* soft nproc 1000000
+* hard nproc 1000000
+4
+. 
+Add a group (GID=<
+SYSTEM_GROUP_ID
+>) and user (UID=<
+SYSTEM_USER_ID
+>): 
+groupadd -g 1999 itsma
+useradd -g 1999 -u 1999 itsma
+Skip this step if the GID and UID already exist.
+5
+. 
+Add two lines for the 
+itsma
+ user (If your system uses another user name for <
+SYSTEM_USER_ID
+>, change 
+itsma
+ to
+your own user name):
+* hard nofile 1000000
+* soft nofile 1000000
+root hard nofile 1000000
+root soft nofile 1000000
+itsma hard nofile 1000000
+itsma soft nofile 1000000
+* soft nproc 1000000
+* hard nproc 1000000
+Update the operating system's default 
+nproc
+ values
+SMAX 2022.11
+Page 
+667
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

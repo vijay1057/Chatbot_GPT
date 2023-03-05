@@ -1,0 +1,236 @@
+policycoreutils
+control
+plane,
+workers
+2.5–8.el
+7
+2.5–34.
+0.1
+2.5–34.el
+7
+2.9-14.
+0.1.el8
+2.9-16.
+el8
+2.9-19.
+el8
+2.5–8.el
+7
+2.5–8.el
+7
+2.9-14.
+el8
+2.9-19.
+el8
+2.9-19.
+el8
+policycoreutils-pyt
+hon/policycoreutils
+-python-utils
+control
+plane,
+workers
+2.5–8.el
+7
+2.5–34.
+0.1
+2.5–34.el
+7
+2.9-14.
+0.1.el8
+2.9-16.
+el8
+2.9-19.
+el8
+2.5–34.
+el7
+2.5–34.
+el7
+2.9-14.
+el8
+2.9-19.
+el8
+2.9-19.
+el8
+container-selinux
+control
+plane,
+workers
+2.74
+2.74
+2.74
+2.162.0
+-1
+2.167.0
+-1
+2.179.1
+-1
+2.5–34.
+el7
+2.5–34.
+el7
+2.158.0
+-1
+2.179.1
+-1
+2.188.0
+-1
+bind-utils
+control
+plane,
+workers
+9.11.4–
+26
+9.11.4–
+16
+9.11.4–1
+6
+9.11.26
+-4
+9.11.26
+–6
+9.11.36
+-3
+9.11.4
+9.11.4
+9.11.26
+-3
+9.11.36
+-3
+9.11.36
+-3
+tar
+control
+plane,
+workers
+1.26–
+35
+1.26–3
+5
+1.26–35
+1.30-5
+1.30–5
+1.30-5
+1.26–
+35
+1.26–
+35
+1.30-5
+1.30-5
+1.30-5
+iptables
+control
+plane,
+workers
+1.4.21-3
+5
+N/A
+1.4.21-3
+5
+1.8.4-1
+7
+1.8.4-2
+0
+1.8.4-2
+2
+1.4.21-
+34
+1.4.21-
+35
+1.8.4-1
+7
+1.8.4-2
+2
+1.8.4-2
+2
+rng-tools*
+control
+plane,
+workers
+6.3.1 or 
+higher
+6.3.1 or
+higher
+6.3.1 or 
+higher
+6.3.1 or
+higher
+6.3.1 or
+higher
+6.3.1 or
+higher
+6.3.1 or
+higher
+6.3.1 or
+higher
+6.3.1 or
+higher
+6.3.1 or
+higher
+6.3.1 or
+higher
+Package
+Host
+CentOS
+7.9
+OL 7.8
+OL 7.9
+OL 8.4
+OL 8.5
+OL 8.6
+RHEL
+7.8
+RHEL
+7.9
+RHEL
+8.4
+RHEL
+8.6
+Rocky
+8.6
+*
+Note
+: This package is used to increase the host entropy. If the entropy is too small on the control plane and worker nodes,
+containers running on the hosts may not start.
+ Run the command "
+cat /proc/sys/kernel/random/entropy_avail
+" to check if the hosts have enough entropy. Typically, the output
+should be larger than 
+2000
+.
+Install the packages
+You must install the supported version of every required package on each required host server. If you receive an error
+message during the installation that warns you a package is missing, run the 
+yum install <package name-version>
+ command to
+install the package. For example, to install the 
+java-1.8.0-openjdk
+ package on OL 8.6, run the following command:
+yum install java-1.8.0-openjdk-1.8.0.332.b09
+Run the following commands to install the packages on the required nodes. However, the commands don't check the package
+versions. You must manually verify the package versions before you run these commands.
+1
+. 
+On the first control plane node, run the following command:
+yum install device-mapper-libs java-1.8.0-openjdk libgcrypt libseccomp libtool-ltdl net-tools nfs-utils rpcbind systemd-libs unzip conntrack-tools 
+curl lvm2 socat checkpolicy policycoreutils policycoreutils-python-utils container-selinux bind-utils
+2
+. 
+On the other control plane nodes, run the following command:
+yum install device-mapper-libs java-1.8.0-openjdk libgcrypt libseccomp libtool-ltdl net-tools nfs-utils rpcbind systemd-libs unzip conntrack-tools 
+curl lvm2 socat checkpolicy policycoreutils policycoreutils-python-utils container-selinux bind-utils
+3
+. 
+On all the worker nodes: run the following command:
+yum install device-mapper-libs libgcrypt libseccomp libtool-ltdl net-tools nfs-utils rpcbind systemd-libs unzip conntrack-tools curl lvm2 socat
+checkpolicy policycoreutils policycoreutils-python-utils container-selinux bind-utils
+4
+. 
+On the NFS server, run the following command:
+yum install rpcbind nfs-utils
+SMAX 2022.11
+Page 
+636
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

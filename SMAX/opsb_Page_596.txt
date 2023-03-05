@@ -1,0 +1,94 @@
+Ensure Ports Are Available
+Verify that ports required by 
+Vertica
+ are not in use by running the following command as the root user and comparing it with
+the ports required, as shown below:
+netstat -atupn
+If you are using a Red Hat 7/CentOS 7 system, use the following command instead:
+ss -atupn
+Firewall Requirements
+Vertica
+ requires several ports to be open on the local network. 
+Vertica
+ does not recommend placing a firewall between nodes
+(all nodes should be behind a firewall), but if you must use a firewall between nodes, ensure the following ports are available:
+Port
+Protocol
+Service
+Notes
+22
+TCP
+sshd
+Required by 
+Administration Tools
+ and the 
+Management Console
+ Cluster Installation
+ wizard.
+5433
+TCP
+Vertica
+Vertica
+ client (vsql, ODBC, JDBC, etc) port.
+5434
+TCP
+Vertica
+Intra- and inter-cluster communication. 
+Vertica
+ opens the 
+Vertica
+ client port +1 (5434 by
+default) for intra-cluster communication, such as during a plan. 
+If the port +1 from the
+default client port is not available, then 
+Vertica
+ opens a random port for intra-cluster
+communication.
+5433
+UDP
+Vertica
+Vertica
+ spread monitoring.
+5444
+TCP
+Vertica
+ 
+Management
+Console
+MC-to-node and node-to-node (agent) communications port. See 
+Changing MC or Agent
+Ports
+.
+5450
+TCP
+Vertica
+ 
+Management
+Console
+Port used to connect to MC from a web browser and allows communication from nodes to
+the MC application/web server. See 
+Connecting to 
+Management Console
+.
+4803
+TCP
+Spread
+Client connections.
+4803
+UDP
+Spread
+Daemon to daemon connections.
+4804
+UDP
+Spread
+Daemon to daemon connections.
+6543
+UDP
+Spread
+Monitor to daemon connection.
+SMAX 2022.11
+Page 
+596
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

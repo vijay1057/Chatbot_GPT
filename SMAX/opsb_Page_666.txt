@@ -1,0 +1,99 @@
+Export logs to a remote destination
+Role
+Location
+Privileges required
+Suite administrator
+First control plane node
+None
+If you chose to use the default location for logs (NFS will be used by default), you can skip this topic. If you chose to use log
+locations other than the NFS server, say Elasticsearch Server or Splunk, you should follow this topic.
+To accumulate, aggregate, and persist OPTIC Management Toolkit (OMT) logs, you must provide one remote log location to
+preserve the related logs.
+By default, the OMT logs will be exported to a volume on an NFS.
+To use other log locations follow the related instructions below according to the log type you choose. Following are the other
+log locations that are available:
+Elasticsearch server
+Splunk
+Export logs to Elasticsearch
+To use an Elasticsearch server as the remote destination for logs, you must set up Elasticsearch before you install OMT.
+You must also configure the 
+FLUENTD_LOG_RECEIVER_URL
+ and 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameters in the 
+install.properties
+file. The following parameters are optional:
+FLUENTD_LOG_RECEIVER_USER
+: The user name of the log receiver
+FLUENTD_LOG_RECEIVER_PASSWORD
+: The user password of the log receiver
+FLUENTD_LOG_RECEIVER_TOKEN
+: The token of the log receiver
+FLUENTD_LOG_RECEIVER_CA
+: The absolute path of CA certificate of the log receiver. It's mandatory if 
+FLUENTD_LOG_RECEIVER_T
+YPE
+ is '
+elasticsearch
+' and 
+FLUENTD_LOG_RECEIVER_URL
+ is '
+https
+' protocol.
+FLUENTD_LOG_RECEIVER_ES_CLOUDID
+: The cloud ID of 
+elasticsearch
+ which is used for connecting the log receiver
+The configuration of these parameters depends on the configuration of the Elasticsearch server. See the "Configure the
+install.properties file" topic. 
+To view the collected log data, visit 
+http://<
+your Elasticsearch host
+>:<
+Elasticsearch port
+>
+.
+Export logs to Splunk
+To use Splunk service as the remote destination for OMT logs, you must set up Splunk before you install OMT.
+You must also configure the 
+FLUENTD_LOG_RECEIVER_URL
+ and 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameters in the 
+install.properties
+ file
+before you start the installation. The following parameters are optional:
+FLUENTD_LOG_RECEIVER_USER
+: The user name of the log receiver
+FLUENTD_LOG_RECEIVER_PASSWORD
+: The user password of the log receiver. It's mandatory if 
+FLUENTD_LOG_RECEIVER_USER
+ is
+set.
+FLUENTD_LOG_RECEIVER_TOKEN
+: The token of the log receiver (Splunk token)
+FLUENTD_LOG_RECEIVER_USER
+ and 
+FLUENTD_LOG_RECEIVER_PASSWORD
+ aren't necessary if 
+FLUENTD_LOG_RECEIVER_TOKEN
+ (Splunk
+token) has value. The configuration of these parameters depends on the configuration of Splunk. See the "Configure the
+install.properties file" topic. 
+Alternatively, you can also specify the command line option 
+--fluentd-log-receiver-url
+ and 
+--fluentd-log-receiver-type
+ of
+the 
+install
+ command while you install OMT. 
+Related topics
+Configure the install.properties file
+Configure NFS volumes
+SMAX 2022.11
+Page 
+666
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

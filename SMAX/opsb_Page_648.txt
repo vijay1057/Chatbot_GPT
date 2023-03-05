@@ -1,0 +1,60 @@
+K8S_PROVIDER="cdf"
+CLUSTER_NAME
+Configuration of this parameter is optional.
+This parameter specifies the name of the cluster. The default value is 
+mfswitom
+.
+Example:
+CLUSTER_NAME="mfswitom"
+K8S_USER_ID
+Configuration of this parameter is optional.
+This parameter specifies the operating system user ID that's used to start the Kubernetes control plane. The expected value is
+1999 or between 100000 and 2000000000.
+The default value is the value of the 
+SYSTEM_USER_ID
+ parameter.
+Example:
+K8S_USER_ID="1999"
+K8S_GROUP_ID
+Configuration of this parameter is optional.
+This parameter specifies the operating system group ID that's used to start the Kubernetes control plane. The expected value
+is 1999 or between 100000 and 2000000000.
+The default value is the value of the 
+SYSTEM_GROUP_ID
+ parameter.
+Example:
+K8S_GROUP_ID="1999"
+ETCD_USER_ID
+Configuration of this parameter is optional.
+This parameter specifies the operating system user ID that's used to start etcd. The expected value is 1999 or between
+100000 and 2000000000.
+The default value is the value of the 
+SYSTEM_USER_ID
+ parameter.
+Example:
+ETCD_USER_ID
+="1999"
+ETCD_GROUP_ID
+Configuration of this parameter is optional.
+This parameter specifies the operating system group ID that's used to start etcd. The expected value is 1999 or between
+100000 and 2000000000.
+The default value is the value of the 
+SYSTEM_GROUP_ID
+ parameter.
+Example:
+ETCD_GROUP_ID
+="1999"
+MASTER_API_SSL_PORT
+Configuration of this parameter is optional.
+This parameter specifies the HTTPS port for the K8S API server. If you want to use K8S, you must dock to the K8S API server.
+The 
+kubectl
+ command-line tool communicates with the K8S server.
+Example:
+MASTER_API_SSL_PORT="8443"
+SMAX 2022.11
+Page 
+648
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

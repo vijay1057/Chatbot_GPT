@@ -1,0 +1,54 @@
+...
+bind *:7000
+...
+bind *:5000
+...
+bind *:6000
+...
+b
+. 
+Restart the HAProxy service:
+#systemctl stop haproxy
+#systemctl start haproxy
+9
+. 
+Make sure you can connect to the PostgreSQL service through the virtual IP by running the following commands on a host
+where "psql" is available:
+#psql -h <virtual ip address> -p 5000 -d postgres -U postgres
+Use SSL to connect to PostgreSQL:
+psql "host=<virtual ip address> port=5000 dbname=postgres user=postgres password=<password> sslmode=verify-full sslrootcert=<root c
+a certificate>"
+Test the Keepalived service for HAProxy
+In the following example,  haproxy1 has an IP address of16.155.194.54, haproxy2 has an IP address of 16.155.198.152, and
+the virtual IP is 16.155.194.119.
+1
+. 
+Verify the virtual IP as follows:
+a
+. 
+On haproxy1, run the following command:
+#ip addr show dev ens160
+b
+. 
+On haproxy2, run the following command:
+#ip addr show dev ens160
+2
+. 
+Check the Keepalived service log:
+a
+. 
+On haproxy1, run the following command:
+#journalctl -u keepalived -f
+The Keepalived service on this host is "Entering MASTER STATE."
+The gratuitous ARP is sent for the virtual IP (16.155.194.119).
+b
+. 
+On haproxy2, run the following command:
+#journalctl -u keepalived -f
+The Keepalived service on this host is "Entering BACKUP STATE."
+SMAX 2022.11
+Page 
+588
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

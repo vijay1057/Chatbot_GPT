@@ -1,0 +1,85 @@
+Disabling Defrag for Red Hat and CentOS Systems
+You can modify the defrag utility to meet 
+Vertica
+ configuration requirements, or to optimize your system performance by
+workload.
+On all Red Hat/CentOS systems, you must disable the defrag utility to meet 
+Vertica
+ configuration requirements.
+For 
+SUSE 15.1, 
+Vertica
+ recommends that you enable defrag for optimized performance.
+Recommended Settings by Workload for Red Hat 8/CentOS 8 and SUSE 15.1
+Vertica
+ recommends defrag settings to optimize performance by workload. The following table contains recommendations for
+systems that primarily run concurrent queries (such as short-running dashboard queries), or sequential SELECT or load (COPY)
+queries:
+Operating System
+Concurrent
+Sequential
+Red Hat 8.0/CentOS 8.0
+Disable
+Disable
+SUSE 15.1
+Enable
+Enable
+See 
+Enabling or Disabling Transparent Hugepages
+ for additional settings that optimize your system performance by workload.
+Disabling Defrag on Red Hat 6/CentOS 6 Systems
+1
+. 
+Determine if defrag is enabled by running the following command:
+cat /sys/kernel/mm/redhat_transparent_hugepage/defrag
+[always] madvise never
+The setting returned in brackets is your current setting. If you are not using 
+madvise
+ or 
+never
+ as your defrag setting, then
+you must disable defrag.
+2
+. 
+Edit 
+/etc/rc.local,
+ and add the following script:
+if test -f /sys/kernel/mm/redhat_transparent_hugepage/enabled; then
+    echo never > /sys/kernel/mm/redhat_transparent_hugepage/defrag
+fi
+You must reboot your system for the setting to take effect, or run the following echo line to proceed with the install
+without rebooting:
+# echo never > /sys/kernel/mm/redhat_transparent_hugepage/defrag
+Disabling Defrag on Red Hat 7/CentOS 7, Red Hat 8/CentOS 8, and SUSE 15.1
+1
+. 
+Determine if defrag is enabled by running the following command:
+cat /sys/kernel/mm/transparent_hugepage/defrag
+[always] madvise never
+The setting returned in brackets is your current setting. If you are not using 
+madvise
+ or 
+never
+ as your defrag setting, then
+you must disable defrag.
+2
+. 
+Edit 
+/etc/rc.local,
+ and add the following script:
+if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+    echo never > /sys/kernel/mm/transparent_hugepage/defrag
+fi
+You must reboot your system for the setting to take effect, or run the following echo line to proceed with the install
+without rebooting:
+Note
+The steps to disable defrag on Red Hat 6/CentOS 6 systems differ from those used to disable defrag on Red Hat
+7/CentOS 7 and Red Hat 8/CentOS 8.
+
+
+SMAX 2022.11
+Page 
+613
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

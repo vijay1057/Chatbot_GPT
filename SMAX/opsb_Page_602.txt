@@ -1,0 +1,98 @@
+I/O Scheduling
+This topic details how to change 
+I/O Scheduling
+ to a supported scheduler. 
+Vertica
+ requires that I/O Scheduling be set to
+deadline
+ or 
+noop
+. The installer checks what scheduler the system is using, reporting an unsupported scheduler issue with
+identifier: 
+S0150
+. If the installer cannot detect the type of scheduler in use (typically if your system is using a RAID array), it
+reports that issue with identifier: 
+S0151
+.
+If your system is not using a RAID array, then complete the following steps to change your system to a supported I/O
+Scheduler. If you are using a RAID array, then consult your RAID vendor documentation 
+for the best performing scheduler for
+your hardware.
+Configure the I/O Scheduler
+The Linux kernel can use several different I/O schedulers to prioritize disk input and output. Most Linux distributions use the
+Completely Fair Queuing (CFQ) scheme by default, which gives input and output requests equal priority. This scheduler is
+efficient on systems running multiple tasks that need equal access to I/O resources. However, it can create a bottleneck when
+used on 
+Vertica
+ drives containing the catalog and data directories, because it gives write requests equal priority to read
+requests, and its per-process I/O queues can penalize processes making more requests than other processes.
+Instead of the CFQ scheduler, configure your hosts to use either the Deadline or NOOP I/O scheduler for the drives containing
+the catalog and data directories:
+The Deadline scheduler gives priority to read requests over write requests. It also imposes a deadline on all requests.
+After reaching the deadline, such requests gain priority over all other requests. This scheduling method helps prevent
+processes from becoming starved for I/O access. The Deadline scheduler is best used on physical media drives (disks
+using spinning platters), since it attempts to group requests for adjacent sectors on a disk, lowering the time the drive
+spends seeking.
+The NOOP scheduler uses a simple FIFO approach, placing all input and output requests into a single queue. This
+scheduler is best used on solid state drives (SSDs). Because SSDs do not have a physical read head, no performance
+penalty exists when accessing non-adjacent sectors.
+Failure to use one of these schedulers for the 
+Vertica
+ drives containing the catalog and data directories can result in slower
+database performance. Other drives on the system (such as the drive containing swap space, log files, or the Linux system
+files) can still use the default CFQ scheduler (although you should always use the NOOP scheduler for SSDs).
+There are two ways for you to set the scheduler used by your disk devices:
+1
+. 
+Write the name of the scheduler to a file in the 
+/sys
+ directory.
+--or--
+2
+. 
+Use a kernel boot parameter.
+Configure the I/O Scheduler - Changing the Scheduler Through the /sys Directory
+You can view and change the scheduler Linux uses for I/O requests to a single drive using a virtual file under the 
+/sys
+ directory.
+The name of the file that controls the scheduler a block device uses is:
+/sys/block/
+deviceName
+/queue/scheduler
+Where 
+deviceName
+ is the name of the disk device, such as 
+sda
+ or 
+cciss\!c0d1
+ (the first disk on an 
+Micro Focus
+ RAID array).
+Viewing the contents of this file shows you all of the possible settings for the scheduler. The currently-selected scheduler is
+surrounded by square brackets:
+# cat /sys/block/sda/queue/scheduler
+noop deadline [cfq]
+To change the scheduler, write the name of the scheduler you want the device to use to its scheduler file. You must have root
+privileges to write to this file. For example, to set the sda drive to use the deadline scheduler, run the following command as
+root:
+# echo deadline > /sys/block/sda/queue/scheduler
+# cat /sys/block/sda/queue/scheduler
+noop [deadline] cfq
+Changing the scheduler immediately affects the I/O requests for the device. The Linux kernel starts using the new scheduler
+for all of the drive's input and output requests.
+Note
+While tests show that changing the scheduler settings while 
+Vertica
+ is running does not cause problems, 
+Vertica
+recommends shutting down. Before changing the I/O schedule, or making any other changes to the system
+configuration, consider shutting down any running 
+database.
+
+
+SMAX 2022.11
+Page 
+602
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

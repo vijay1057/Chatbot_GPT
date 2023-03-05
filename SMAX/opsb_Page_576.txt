@@ -1,0 +1,100 @@
+6
+. 
+Make sure the external database can accept the database connection from the OMT cluster. add the following lines to the 
+pg_hba.conf
+ file:
+hostssl cdfapiserverdb cdfapiserver 172.0.0.0/24 scram-sha-256
+hostssl cdfapiserverdb <postgres admin> 172.0.0.0/24 scram-sha-256
+hostssl itom-cdf-idm cdfidm 172.0.0.0/24 scram-sha-256
+hostssl itom-cdf-idm <postgres admin> 172.0.0.0/24 scram-sha-256
+hostssl postgres <postgres admin> 172.0.0.0/24 scram-sha-256
+Where:
+hostssl
+ is the network connection protocol. Better use 
+hostssl
+ rather than 
+host
+ as the protocol.
+cdfapiserverdb
+ is the database name.
+cdfapiserver
+ is the user name.
+172.0.0.0/24 is the client machine's IPv4 address that's allowed to connect to the PostgreSQL server. To allow the
+connection from OMT, replace 172.0.0.0/24  with the IPv4 address range of the cluster nodes or a single cluster
+node's hostname.
+scram-sha-256 is the authentication method.
+itom-cdf-idm
+ is the name of the OMT IdM database that the installer will automatically create during the installation. 
+cdfidm
+ is the owner of the 
+itom-cdf-idm
+ database. The installer will automatically create this user (which you mustn't
+change to another name). 
+<postgres admin>
+ is a PostgreSQL admin user with the "Superuser" role, such as 
+postgres
+.
+7
+. 
+Restart PostgreSQL.
+Prepare external PostgreSQL for SMA
+The following table lists the suite components that require database configuration during the suite installation. The suite
+supports PostgreSQL databases with or without TLS enabled.
+Component
+Notes
+Suite Administration
+Service Management and Smart Analytics
+IdM
+Autopass
+Mandatory
+DND
+Optional
+CGRO
+Optional
+SAM
+Optional
+SMA allows you to use a separate PostgreSQL instance for each component. The following steps assume that you are using
+one PostgreSQL instance for all components:
+1
+. 
+Make sure your PostgreSQL instance doesn't contain databases that have duplicate names of the suite databases.
+During the suite installation, you will need to specify a database administrator (DBA) user for each component, and the
+suite installer will automatically create the required databases and database owner for each component by using the DBA
+account that you specify. See the following table for the names of the automatically created databases and users. If these
+databases or users already exist, you need to delete them first; otherwise, your suite database configuration will fail when
+you run the suite installer.
+Component
+User name
+Databases
+Service Management
+maas_admin
+maas_admin, maas_template, xservices_ems,
+xservices_mng, xservices_rms, xie, and scheduler
+Suite Administration
+bo_db_user
+bo_ats, bo_user, bo_config, and bo_license
+Smart Analytics
+smarta
+smartadb
+Note 
+Later, during the installation, you will need to select the 
+If no database is found, create a
+database automatically
+ option, and enter 
+itom-cdf-idm
+ as the database name and the credentials
+(name and password) of the database admin user (<postgres admin>).
+
+
+Note
+ After the suite installation, you can run the following command to obtain the randomly
+generated password for the cdfidm user:
+kubectl exec -it $(kubectl get po -ncore |grep idm|head -1|awk '{print $1}') -ncore -cidm -- get_secret defaultdb_cdfidm_user_password|cut -c6-
+
+
+SMAX 2022.11
+Page 
+576
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

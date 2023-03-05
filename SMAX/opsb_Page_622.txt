@@ -1,0 +1,139 @@
+Configure SUDO access
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes and worker nodes
+Root
+If you chose to use the default root user for installation, you can skip this topic. If you chose to use a non-root user for
+installation, you should follow this topic.
+You must use credentials with root user permissions to proceed with the installation. A root user must enable a set of
+commands for the non-root users to get the privileges of installing OPTIC Management Toolkit (OMT). 
+Configure sudo access for non-root users
+This step is optional. You must perform the following steps if you will perform the installation with non-root users.
+To grant installation permissions to the non-root users, perform the following steps on all control plane nodes and worker
+nodes:
+1
+. 
+Log on to the node as the root user.
+2
+. 
+Open the 
+/etc/sudoers
+ file with a supported editor. You can either enable the 
+/etc/sudoers
+ file write permissions or use some
+editor that can edit some read-only files to edit this file. For example, 
+vim
+.  Then add the following lines to the end of the
+file.
+On the first control plane node:
+Cmnd_Alias CDFINSTALL = <OMT installation package directory>/scripts/pre-check.sh,  <OMT installation package directory>/install, <OMT installation package directory>/node_prereq, <OMT_HOME>/uninstall.sh, <OMT_HOME>/bin/cdfctl, <OMT_HOME>/scripts/cdfctl.sh, <OMT_HOME>/bin/jq, <OMT_HOME>/tools/generate-download/generate_download_bundle.sh, /usr/bin/kubectl, /usr/bin/mkdir, /usr/bin/cp, /usr/bin/helm, /bin/rm, /bin/chmod, /bin/tar, <OMT_HOME>/scripts/uploadimages.sh, /bin/chown
+<username> ALL=NOPASSWD: CDFINSTALL
+Defaults:<username> env_keep += "CDF_HOME", !requiretty
+Replace 
+<
+OMT installation package directory
+>
+ with the directory where you unzip the installation package. For example: 
+/
+tmp/OMT_Embedded_K8s_202X.XX.XXXX
+.
+Replace 
+<
+OMT_HOME
+>
+ with the path to the OMT directory (typically, this is 
+/opt/cdf
+). In a later installation step, you
+will add this value to the install.properties file.
+Replace 
+<
+username
+>
+ with the user name of the sudo user.
+Replace all the placeholders that are wrapped in the pointy brackets '<>' with the actual values. Note that
+"CDF_HOME" in the last line is not a placeholder. Don't replace it with any other value. 
+On all other control plane and worker nodes:
+Cmnd_Alias CDFINSTALL = <temp_directory>/pre-check.sh,  <temp_directory>/ITOM_Suite_Foundation_Node/install, <Path to node_prereq script>/node_prereq, <OMT_HOME>/uninstall.sh, <OMT_HOME>/bin/cdfctl, <OMT_HOME>/scripts/cdfctl.sh, <OMT_HOME>/tools/generate-download/generate_download_bundle.sh, /usr/bin/kubectl, /usr/bin/mkdir, /usr/bin/cp, /usr/bin/helm, /bin/rm, /bin/chmod, /bin/tar, <OMT_HOME>/scripts/uploadimages.sh, /bin/chown
+<username> ALL=NOPASSWD: CDFINSTALL
+Defaults:<username> env_keep += "CDF_HOME", !requiretty 
+Replace 
+<
+temp_directory
+>
+ with the path to a temporary directory for the installation. In a later installation step, you
+will add this value to the install.properties file. By default, this is 
+/tmp
+.
+Replace 
+<
+OMT_HOME
+>
+ with the path to the Kubernetes directory (typically, this is 
+/opt/cdf
+). In a later installation step,
+you will add this value to the install.properties file.
+Replace 
+<
+username
+>
+ with the user name of the sudo user.
+Replace all the placeholders that are wrapped in the pointy brackets '<>' with the actual values. Note that
+"CDF_HOME" in the last line is not a placeholder. Don't replace it with any other value. 
+3
+. 
+If you need to add additional commands, append them to the 
+Cmnd_Alias CDFINSTALL
+ line.
+4
+. 
+Locate the 
+secure_path
+ line and make sure that the 
+/sbin
+, 
+/bin
+, 
+/usr/sbin
+, and 
+/usr/bin
+ paths are present, as shown below:
+Defaults secure_path = /sbin:/bin:/usr/sbin:/usr/bin
+By doing this, the sudo user can run the: 
+showmount
+, 
+curl
+, 
+ifconfig
+, and 
+unzip
+ commands when they install the product. If
+the sudo user receives a permission error when they run a command during the installation process, verify that the
+command exists in the 
+sudoers
+ file.
+5
+. 
+The 
+sudoers
+ file might be overwritten by the configuration tools, such as Puppet, Chef, and Ansible. Make sure the 
+sudoers
+file contains all the configurations that grant the sudo user access.
+After OMT installation, you will also need some of these permissions to perform administrative tasks, such as extending nodes.
+If you aren't required to perform administrative tasks, you can remove the following commands. This is an optional step.
+<OMT installation package directory>/scripts/pre-check.sh 
+<OMT installation package directory>/install
+/bin/rm
+/usr/bin/mkdir
+/bin/chmod
+/usr/bin/cp
+/bin/tar
+/bin/chown
+Related topics
+SMAX 2022.11
+Page 
+622
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

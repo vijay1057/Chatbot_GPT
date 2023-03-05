@@ -1,0 +1,22 @@
+2
+. 
+Create the node list based on the health monitor:
+3
+. 
+Configure a pool member.
+4
+. 
+Create a TCP profile from Local Traffic Virtual Servers Profiles Protocol TCP.
+Set Idle Timeout to Indefinite.
+Set Keepalive Interval to Indefinite.
+5
+. 
+Create a new virtual server based on the pool member, the SNAT, and the TCP profile (Protocol Profile (Client) and
+Protocol Profile (Server)) created above.
+ 
+SMAX 2022.11
+Page 
+590
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

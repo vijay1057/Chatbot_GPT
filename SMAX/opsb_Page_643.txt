@@ -1,0 +1,48 @@
+Check the network settings
+Role
+Location
+Privileges required
+System administrator
+"Target server" in the table below
+Root or sudo
+Open the required ports 
+OMT and the suite can be installed in a firewalled environment. Certain ports are needed by OMT and the suite during or after
+the installation. You need to make sure these ports are open in your firewall settings and aren't in use on the host VMs. For
+details, see 
+Enable a firewall in the suite environment
+.
+Enable vrrp protocol for Keepalived in a multiple-control plane node deployment when
+a firewall is enabled
+If you want to set up a multiple-control plane node HA environment through setting the 
+HA_VIRTUAL_IP 
+parameter
+ 
+in the 
+install.pr
+operties 
+file, make sure the 
+vrrp
+ protocol is enabled when you have enabled the firewall on the node. The 
+vrrp
+ protocol is used
+by Keepalived to support virtual IP. In most default settings, the 
+vrrp
+ protocol is enabled. If you have used some custom
+settings for the server or if Keepalived doesn't work well, run the following command on the node to enable the 
+vrrp
+ protocol:
+firewall-cmd --add-protocol vrrp  --permanent
+firewall-cmd --reload
+Note
+During installation, the OMT installer performs a precheck of the OMT required ports on the control plane
+node and worker node hosts. A port passes the precheck as long as it's not in use on the host, regardless of
+whether it's open or not in your firewall. For this reason, if your suite environment is firewalled, you always need
+to check that the required ports are open in the firewall.
+
+
+SMAX 2022.11
+Page 
+643
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,85 @@
+the 
+install
+ command (see 
+Install OMT (on-premises)
+).
+Parameter
+Description
+--db-user
+External database user name.
+--db-password
+External database password.
+--db-url
+External database connection URL.
+--db-crt
+External database CA certificate (if not specified, OMT will use the database in a nonsecure way).
+OMT IdM database: this database is normally referred to as the "OMT database," which is the OMT IdM database. You will
+need to configure this database later in the installation portal UI. 
+When specifying a password for an OMT database user, make sure that the password meets the following requirements:
+Has 10 to 16 characters
+Has at least one uppercase letter (A-Z)
+Has at least one lowercase letter (a-z)
+Has at least one of these special characters: 
+,\:/. _?&%=+-[]()
+Has at least one digit (0–9)
+Follow the instructions below to prepare databases for the OMT API Server and IdM. 
+Perform the following steps to create a non-public schema external PostgreSQL databases for the OMT API Server and IdM.
+OMT doesn't support using the public schema for an external PostgreSQL database. This requires database administrator
+credentials.
+Note
+: you will need to specify the database connection settings later when running the 
+install
+ script to install OMT.
+1
+. 
+Log in to the PostgreSQL server and then run the following command to connect to the PostgreSQL instance. Replace
+<postgres admin> with your actual value. 
+psql -U <postgres admin>
+2
+. 
+Run the following commands to create an external database and a user. Be sure to wrap the password in single quotes.
+Replace the placeholders with your actual values. 
+CREATE USER <cdfapiserver> login PASSWORD '<user_password>';
+GRANT <cdfapiserver> TO <postgres admin>;
+CREATE DATABASE <cdfapiserverdb> WITH owner=<cdfapiserver>;
+3
+. 
+Run the following command to connect to the <cdfapiserverdb> database. Replace the placeholder with your actual
+value. 
+\c <cdfapiserverdb>;
+4
+. 
+Run the following commands to change the public schema and revoke the public role of the database. Replace the
+placeholders with your actual values. 
+ALTER SCHEMA public OWNER TO <cdfapiserver>;
+ALTER SCHEMA public RENAME TO <cdfapiserver>;
+REVOKE ALL ON SCHEMA <cdfapiserver> from public;
+GRANT ALL ON SCHEMA <cdfapiserver> to <cdfapiserver>;
+5
+. 
+Run the following command to set "search_path" from public to non-public. Replace the placeholders with your actual
+values.
+ALTER USER <cdfapiserver> SET search_path TO <cdfapiserver>;
+The following is an example of the commands above:
+CREATE USER cdfapiserver login PASSWORD 'mypassword';
+grant cdfapiserver to postgres;
+CREATE DATABASE cdfapiserverdb WITH owner=cdfapiserver;
+\c cdfapiserverdb;
+ALTER SCHEMA public OWNER TO cdfapiserver;
+ALTER SCHEMA public RENAME TO cdfapiserver;
+REVOKE ALL ON SCHEMA cdfapiserver from public;
+GRANT ALL ON SCHEMA cdfapiserver to cdfapiserver; 
+ALTER USER cdfapiserver SET search_path TO cdfapiserver;
+Note that if you need to reinstall OMT later, make sure the external database is empty, which means the database doesn't
+contain any database object, such as tables, procedures, and views.
+Note
+: You need to manually create the OMT API Server database, and you can let the system automatically
+create the OMT IdM database later during the installation. 
+
+
+SMAX 2022.11
+Page 
+575
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

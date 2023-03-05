@@ -1,0 +1,62 @@
+Enabling chrony or ntpd for Red Hat 7/CentOS 7 Systems
+Before you can install 
+Vertica
+, you must 
+enable one of the following on your system for clock synchronization:
+chrony
+NTPD
+You must enable and activate the Network Time Protocol (NTP) before installation. Otherwise, the installer reports this issue
+with the identifier 
+S0030
+.
+For information on installing and using chrony, see the information below. For information on NTPD see 
+Enabling Network Time
+Protocol (NTP)
+.
+Install chrony
+The chrony suite consists of:
+chronyd - the daemon for clock synchronization.
+chronyc - the command-line utility for configuring chronyd .
+chrony is installed by default on some versions of Red Hat/CentOS 7. However, if chrony is not installed on your system, you
+must download it. To download chrony, run the following command as sudo or root:
+# yum install chrony
+Verify That chrony Is Running
+To view the status of the chronyd daemon, run the following command:
+$ systemctl status chronyd
+If chrony is running, an output similar to the following appears:
+chronyd.service - NTP client/server
+    Loaded: loaded (/usr/lib/systemd/system/chronyd.service; enabled)
+    Active: active (running) since Mon 2015-07-06 16:29:54 EDT; 15s ago
+Main PID: 2530 (chronyd)
+    CGroup: /system.slice/chronyd.service
+            ââ2530 /usr/sbin/chronyd -u chrony
+If chrony is not running, execute the following command as sudo or root. This command also causes chrony to run at boot
+time:
+# systemctl enable chronyd
+Verify That chrony Is Operating Correctly
+To verify that the chrony daemon is operating correctly, issue the following command on all nodes in the cluster:
+$ chronyc tracking
+An output similar to the following appears:
+Reference ID    : 198.247.63.98 (time01.website.org)
+Stratum         : 3
+Ref time (UTC)  : Thu Jul  9 14:58:01 2015
+System time     : 0.000035685 seconds slow of NTP time
+Last offset     : -0.000151098 seconds
+RMS offset      : 0.000279871 seconds
+Frequency       : 2.085 ppm slow
+Residual freq   : -0.013 ppm
+Skew            : 0.185 ppm
+Root delay      : 0.042370 seconds
+Root dispersion : 0.022658 seconds
+Update interval : 1031.0 seconds
+Leap status     : Normal
+A stratum level of 16 indicates that chrony is not synchronizing correctly. If chrony continues to detect a stratum level of 16,
+verify that the UDP port 323 is open. This port must be open on all firewalls between the cluster and the remote machine to
+which you are attempting to synchronize.
+Red Hat Documentation Related to chrony
+SMAX 2022.11
+Page 
+609
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,88 @@
+Installation Overview and Checklist
+This page provides an overview of installation tasks. Carefully review and follow the instructions in all sections in this topic.
+Important Notes
+Vertica supports only one running database per cluster.
+Vertica supports installation on one, two, or multiple nodes. The steps for 
+Installing Vertica
+ are the same, no matter how
+many nodes are in the cluster.
+Prerequisites listed in 
+Before You Install Vertica
+ are required for all Vertica configurations.
+Only one instance of Vertica can be running on a host at any time.
+To run the 
+install_vertica
+ script, as well as adding, updating, or deleting nodes, you must be logged in as root, or sudo as a
+user with all privileges. You must run the script for all installations, including upgrades and single-node installations.
+Installation Scenarios
+The four main scenarios for installing Vertica on hosts are:
+A single node install, where Vertica is installed on a single host as a 
+localhost
+ process. This form of install cannot be
+expanded to more hosts later on and is typically used for development or evaluation purposes.
+Installing to a cluster of physical host hardware. This is the most common scenario when deploying Vertica in a testing or
+production environment.
+Installing on Amazon Web Services (AWS). You can install by creating a Vertica cluster using a CloudFormation template
+and step-by-step wizards in MC, or manually deploy using an Amazon Machine Image (AMI) where Vertica is installed
+when you create your instances. 
+Eon Mode databases
+ are currently only supported on AWS resources. For the AWS-
+specific installation procedure, see 
+Deploy AWS Instances for your Vertica Database Cluster
+.
+Installing to a local cluster of virtual host hardware. Also similar to installing on physical hosts, but with network
+configuration differences.
+Before You Install
+Before You Install Vertica
+ describes how to construct a hardware platform and prepare Linux for Vertica installation.
+These preliminary steps are broken into two categories:
+Configuring Hardware and Installing Linux
+Configuring the Network
+Install or Upgrade Vertica
+Once you have completed the steps in the 
+Before You Install Vertica
+ section, you are ready to run the install script.
+Installing Vertica
+ describes how to:
+Back up any existing databases.
+Download and install the Vertica RPM package.
+Install a 
+cluster
+ using the 
+install_vertica
+ script.
+[Optional] 
+Create a properties file
+ that lets you install Vertica silently.
+This guide provides additional 
+manual procedures
+ in case you encounter installation problems.
+Upgrading Vertica
+ describes how to upgrade to a more recent version of the software.
+If you are upgrading your Vertica license, refer to 
+Managing Licenses
+ in the Administrator's Guide.
+Post-Installation Tasks
+After You Install Vertica
+ describes subsequent steps to take after you've run the installation script. Some of the steps can be
+skipped based on your needs:
+Install the license key.
+Verify that kernel and user parameters are correctly set.
+Install the vsql client application on non-cluster hosts.
+Resolve any SLES 11.3 issues during spread configuration.
+Use the Vertica documentation online, or download and install Vertica documentation. Find the online documentation and
+documentation packages to download at 
+http://www.vertica.com/docs
+.
+Install client drivers.
+Extend your installation with Vertica packages.
+Install
+ or 
+upgrade
+ the Management Console.
+SMAX 2022.11
+Page 
+593
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

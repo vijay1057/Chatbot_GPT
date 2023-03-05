@@ -1,0 +1,80 @@
+Disk Readahead
+This topic details how to change 
+Disk Readahead
+ to a supported value. 
+Vertica
+ requires that Disk Readahead be set to at least
+2048. The installer reports this issue with the identifier: 
+S0020
+.
+RedHat/CentOS and SuSE Based Systems
+For each drive in the 
+Vertica
+ system, 
+Vertica
+ recommends that you set the readahead value to at least 2048 for most
+deployments. The command immediately changes the readahead value for the specified disk. The second line adds the
+command to 
+/etc/rc.local
+ so that the setting is applied each time the system is booted. Note that some deployments may
+require a higher value and the setting can be set as high as 8192, under guidance of support.
+/sbin/blockdev --setra 2048 /dev/sda
+echo '/sbin/blockdev --setra 2048 /dev/sda' >> /etc/rc.local
+If you are using Red Hat 7.0 or CentOS 7.0 or higher, run the following command as root or sudo:
+$ chmod +x /etc/rc.d/rc.local
+Ubuntu and Debian Systems
+For each drive in the 
+Vertica
+ system, set the readahead value to 2048. Run the command once in your shell, then add the
+command to 
+/etc/rc.local
+ so that the setting is applied each time the system is booted. Note that on Ubuntu systems, the last
+line in rc.local must be "
+exit 0
+". So you must manually add the following line to 
+etc/rc.local
+ before the last line with 
+exit 0
+.
+/sbin/blockdev --setra 2048 /dev/sda
+Note
+ 
+These commands must be executed with root privileges and assumes the blockdev program is in 
+/sbin
+.
+The blockdev program operates on whole devices, and not individual partitions. You cannot set the
+readahead value to different settings on the same device. If you run blockdev against a partition, for
+example: /dev/sda1, then the setting is still applied to the entire /dev/sda device. For instance, running 
+/sbin/bl
+ockdev --setra 2048 /dev/sda1
+ also causes /dev/sda2 
+through
+ /dev/sda
+N
+ to use a readahead value of 2048.
+
+
+Note
+For systems that do not support
+ /etc/rc.local
+, use the equivalent startup script that is run after the destination
+runlevel has been reached. For example SuSE uses 
+/etc/init.d/after.local
+.
+
+
+Note
+For systems that do not support
+ /etc/rc.local
+, use the equivalent startup script that is run after the destination
+runlevel has been reached. For example SuSE uses 
+/etc/init.d/after.local
+.
+
+
+SMAX 2022.11
+Page 
+601
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

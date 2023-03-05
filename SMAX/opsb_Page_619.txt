@@ -1,0 +1,20 @@
+For more information on pre-requisites for installing Vertica , see 
+Before You Install Vertica
+.
+For more information on Vertica validation scripts, see 
+Validation Scripts
+.
+For more information on pre-requisites for Vertica installation script, see 
+Installing Vertica with the Installation Script
+.
+Previous topic: 
+Install and configure Vertica database
+.
+Next topic: 
+Configure Vertica SSL
+SMAX 2022.11
+Page 
+619
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,67 @@
+KEEPALIVED_ADVERT_INT
+Configuration of this parameter is optional.
+This parameter specifies the VRRP advertisement interval in seconds. When the backup Keepalived doesn't receive the VRRP
+advertisement from the control plane Keepalived within three times of the defined period, the transit from the backup
+Keepalived to the control plane Keepalived is triggered. The expected values are integers.
+We don't expect any change of the default value unless you are an expert of Keepalived.
+The recommended values are from 1 to 5.
+The default value is 
+1
+.
+Example:
+KEEPALIVED_ADVERT_INT="1"
+LOAD_BALANCER_HOST
+Configuration of this parameter is mandatory if you are configuring multiple control plane and/or worker nodes in multiple
+subnets. 
+OMT provides two means to support multiple control plane nodes: the 
+HA_VIRTUAL_IP
+ and 
+LOAD_BALANCER_HOST
+ parameters.
+If you use the 
+LOAD_BALANCER_HOST 
+parameter, you must set up an internal load balancer. The internal load balancer reverse
+proxy also handles load balancing between the 
+kube-apiserver/etcd
+ services of all control plane nodes. For more information
+about how to configure an internal load balancer, refer to the "Configure load balancers" topic.
+The 
+LOAD_BALANCER_HOST
+ parameter supports control plane nodes in a single or multiple subnets. In the following examples,
+the FQDN of the load balancer is 
+mylb.lbtest.com
+.
+When all control plane nodes are in a single subnet:
+./install \
+--load-balancer-host "mylb.lbtest.com" \
+--kube-dns-hosts ~/my.hosts \
+--nfs-server <nfs-server> --nfs-folder <nfs-directory> [options...]
+When the control plane and/or worker nodes are in different subnets, you must set the value of the
+FLANNEL_BACKEND_TYPE
+ to 
+vxlan
+ to enable this parameter:
+./install \
+--load-balancer-host "mylb.lbtest.com"\
+ --kube-dns-hosts ~/my.hosts \
+--flannel-backend-type vxlan \
+--nfs-server <nfs-server> --nfs-folder <nfs-directory> [options...]
+Example:
+LOAD_BALANCER_HOST="192.0.2.0"
+Or
+LOAD_BALANCER_HOST="mylb.lbtest.com"
+CERTIFICATE_PERIOD
+Configuration of this parameter is optional.
+This parameter specifies the validity period of internal certificates, which are referred to as server.crt, kubernetes.crt, and
+client.crt. The specified validity period of these internal certificates will apply to all control plane nodes and worker nodes. The
+certificate period must be no greater than 3660 days.
+The default value is 365 days.
+Example:
+CERTIFICATE_PERIOD="365"
+Cluster networking settings - advanced
+SMAX 2022.11
+Page 
+652
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

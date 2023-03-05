@@ -1,0 +1,43 @@
+The VIP is removed.
+3
+. 
+Test Scenario 1: Simulate HAProxy Service problem.
+Test Purpose to check:
+->The virtual IP will switch to the BACKUP when the HAProxy on the MASTER is shut down.
+->The virtual IP will not switch back to haproxy1 when the HAProxy goes alive on it. Nopreempt will work. It will avoid the unnecessary connection
+switch.
+a
+. 
+On the haproxy1, run the following command:
+#systemctl stop haproxy
+#journalctl -u keepalived -f
+The Keepalived on this host is "Entering FAULT STATE."
+The Virtual IP is removed.
+b
+. 
+On the haproxy2, run command:
+#journalctl -u keepalived -f
+The Keepalived on this host is "Entering MASTER STATE."
+The gratuitous ARP is sent for the virtual IP (16.155.194.119).
+c
+. 
+On the haproxy1, run the following command:
+#systemctl start haproxy
+#journalctl -u keepalived -f
+The Keepalived on this host is "Entering BACKUP STATE."
+The gratuitous ARP is sent for the haproxy1 IP address (16.155.194.54) but not for the virtual IP (16.155.194.119).
+#ip addr show dev ens160
+Configure a hardware load balancer
+Alternatively, you can deploy a hardware load balancer to replace HAProxy. The following screenshots are a typical example
+that demonstrates how to connect to the PostgreSQL cluster:
+Before you start, assign a virtual address to the physical address of the F5 network interface. The newly added virtual address
+will be used for the virtual server later on.
+1
+. 
+Configure Secure Network Address Translation (SNAT) and create a new health monitor:
+SMAX 2022.11
+Page 
+589
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

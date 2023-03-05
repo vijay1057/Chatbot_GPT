@@ -1,0 +1,93 @@
+Configuration of this parameter is optional.
+This parameter sets the host field of all ingress resources to the external access host of the deployment. If the parameter is set
+to "false", the host field remains empty.
+The default value is "false". This release supports only the default value.
+Example:
+ 
+SET_FQDN_IN_INGRESS= false
+ENABLE_FIPS
+Configuration of this parameter is optional.
+This parameter enables suites to enable and disable FIPS.
+If you enable FIPS mode on the VMs of the cluster nodes, make sure you have set the parameter 
+ENABLE_FIPS
+ to "true".
+Likewise, if you have set the parameter 
+ENABLE_FIPS
+ to "false", make sure you have turned off the FIPS mode on the VMs of the
+cluster nodes.
+The expected value is "true" or "false".
+The default value is "false".
+Example:
+ENABLE_FIPS="true"
+FIPS_ENTROPY_THRESHOLD
+Configuration of this parameter is optional.
+This parameter configures the minimal entropy value on the cluster nodes. When OMT runs in FIPS mode, components may
+stop responding if the entropy falls below the value specified by this parameter, and may not start responding again until
+entropy has risen above this value. To check the current entropy on a node, run the 
+tail -1 /proc/sys/kernel/random/entropy_avail
+command. We recommend that you install an entropy generation tool (such as "rng-tools") to ensure that every node has
+sufficient entropy. To install rng-tools, run the 
+yum install rng-tools
+ or 
+dnf install rng-tools
+ command. 
+The expected value is a number greater than 0.
+The default value is "2000".
+Example:
+FIPS_ENTROPY_THRESHOLD="2000"
+Log collection settings
+FLUENTD_LOG_RECEIVER_URL
+Configuration of this parameter is optional.
+This parameter specifies the URL of the log receiver service on which the fluentd log output files are located. Configure this
+parameter and the 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameter if you want to use an Elasticsearch server or Operations Bridge
+Analytics as the remote OMT logs location. If you don't configure the 
+FLUENTD_LOG_RECEIVER_URL
+ and 
+FLUENTD_LOG_RECEIVER_TYP
+E
+ parameters, the 
+FLUENTD_LOG_RECEIVER_TYPE
+ parameter will be configured to the value 
+file
+. In this case, you must export an
+NFS persistent volume on an NFS server and configure it to the 
+itom-logging-vol
+ volume when you run the installation on the
+installation portal.
+If the connection to the log receiver requires a proxy, you must configure the 
+CRT_HTTP_PROXY
+, 
+CRT_HTTPS_PROXY
+, and 
+CRT_NO_P
+ROXY
+ parameters.
+Example:
+FLUENTD_LOG_RECEIVER_URL="https://www.mylogtarget.com"
+FLUENTD_LOG_RECEIVER_USER
+Configuration of this parameter is optional.
+This parameter specifies the username of the account that's used to log in to the log receiver server.
+Example:
+Note:
+ 
+The 
+rngd
+ service does not start by default. You must run the 
+systemctl enable rngd; systemctl start rngd
+command to enable it. In most cases, 
+rngd-tools
+ is sufficient to generate entropy very fast. However, we've
+observed that 
+rngd-tools
+ can't generate enough entropy quickly on some servers. In this situation, please also
+install, enable, and start the 
+havegd
+ service.
+SMAX 2022.11
+Page 
+656
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

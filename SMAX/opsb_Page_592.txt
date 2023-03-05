@@ -1,0 +1,19 @@
+Install and configure Vertica database
+SMAX uses an internal Vertica datastore component to store data related to Capacity Optimization, Budget Quota
+Management, and Showback. Storage of data other than that of SMAX within this database isn't allowed and requires a
+separate purchase of Vertica licenses.
+SMAX supports the installation of Vertica on multiple nodes. For the Vertica database version that SMAX supports, see the
+System requirements.
+Related topics
+To configure Vertica with certificates and enable SSL, see 
+Configure Vertica SSL
+.
+For terms of usage of Vertica, refer to the 
+Additional Licensing Authorizations
+ (ALA).
+SMAX 2022.11
+Page 
+592
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

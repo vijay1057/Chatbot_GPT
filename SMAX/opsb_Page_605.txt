@@ -1,0 +1,65 @@
+echo never > /sys/kernel/mm/redhat_transparent_hugepage/enabled
+Enabling Transparent Hugepages on Red Hat 7/8, CentOS 7/8, 
+SUSE 15.1, and Amazon
+Linux 2.0
+Determine if transparent hugepages is enabled. To do so, run the following command.
+cat /sys/kernel/mm/transparent_hugepage/enabled
+[always] madvise never
+The setting returned in brackets is your current setting.
+For systems that do not support 
+/etc/rc.local
+, use the equivalent startup script that is run after the destination runlevel has been
+reached. For example SuSE uses 
+/etc/init.d/after.local
+.
+You can enable transparent hugepages by editing 
+/etc/rc.local
+ and adding the following script:
+if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+    echo always > /sys/kernel/mm/transparent_hugepage/enabled
+fi
+You must reboot your system for the setting to take effect, or, as root, run the following echo line to proceed with the install
+without rebooting:
+# echo always > /sys/kernel/mm/transparent_hugepage/enabled
+If you are using Red Hat 7.0 or CentOS 7.0 or higher, run the following command as root or sudo:
+$ chmod +x /etc/rc.d/rc.local
+Disabling Transparent Hugepages on Other Systems
+To determine if transparent hugepages is enabled, run the following command.
+cat /sys/kernel/mm/transparent_hugepage/enabled
+[always] madvise never
+The setting returned in brackets is your current setting. Depending on your platform OS, the 
+madvise
+ setting may not be
+displayed.
+You can disable transparent hugepages one of two ways:
+Edit your boot loader (for example 
+/etc/grub.conf
+). Typically, you add the following to the end of the kernel line. However,
+consult the documentation for your system before editing your bootloader configuration.
+transparent_hugepage=never
+Edit 
+/etc/rc.local
+ (on systems that support rc.local) and add the following script.
+if test -f /sys/kernel/mm/transparent_hugepage/enabled; then
+   echo never > /sys/kernel/mm/transparent_hugepage/enabled
+fi
+For systems that do not support 
+/etc/rc.local
+, use the equivalent startup script that is run after the destination runlevel has been
+reached. For example SuSE uses 
+/etc/init.d/after.local
+.
+Regardless of which approach you choose, you must reboot your system for the setting to take effect, or run the following two
+echo lines to proceed with the install without rebooting:
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+Note
+SUSE did not offer transparent hugepage support in its initial 11.0 release. However, subsequent SUSE service
+packs do include support for transparent hugepages.
+
+
+SMAX 2022.11
+Page 
+605
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,19 @@
+Example:
+FLUENTD_LOG_RECEIVER_OUTPUT_DELIMITER=","
+FLUENTD_LOG_RECEIVER_ES_CLOUDID
+This parameter specifies the cloud ID of 
+elasticsearch
+ which is used for connecting Fluentd log receiver.
+Related topics 
+For more information on how to export OMT logs to an NFS server, see 
+Export logs to a remote destination
+Previous topic: 
+(Optional) Download container images beforehand
+Next topic: 
+Configure a storage driver
+SMAX 2022.11
+Page 
+658
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

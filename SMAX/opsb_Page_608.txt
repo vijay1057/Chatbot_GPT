@@ -1,0 +1,21 @@
+/usr/sbin/ntpq -c rv | grep stratum
+For Ubuntu and Debian:
+ntpq -c rv | grep stratum
+A stratum level of 16 indicates that NTP is not synchronizing correctly.
+If a stratum level of 16 is detected, wait 15 minutes and issue the command again. It may take this long for the NTP server to
+stabilize.
+If NTP continues to detect a stratum level of 16, verify that the NTP port (UDP Port 123) is open on all firewalls between the
+cluster and the remote machine to whicy you are attempting to synchronize.
+Red Hat Documentation Related to NTP
+The preceding links were current as of the last publication of the 
+Vertica
+ documentation and could change between releases.
+http://kbase.redhat.com/faq/docs/DOC-6731
+http://kbase.redhat.com/faq/docs/DOC-6902
+http://kbase.redhat.com/faq/docs/DOC-6991
+SMAX 2022.11
+Page 
+608
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

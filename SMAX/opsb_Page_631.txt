@@ -1,0 +1,89 @@
+Update some system configurations
+Role
+Location
+Privileges required
+System administrator
+All control plane nodes, all worker nodes, and all NFS nodes
+Root or sudo
+The 
+node_prereq 
+script is a tool to install packages, check or configure certain system parameters required by OPTIC
+Management Toolkit (OMT). If you run this script on all your control plane nodes, worker nodes, and NFS servers, the script will
+perform the steps described in the topics below. 
+Topics
+Ensure the localhost is resolved to 127.0.0.1
+Set the system parameters
+Install the prerequisite packages
+Check the SSH configurations
+Check the default gateway setting
+Check the host name on every node
+Synchronize time
+The 
+node_prereq 
+script automates the steps. If you get a warning message or an error message after running
+the 
+node_prereq
+ script, refer to the relevant topic to fix the issues. If you decide not to use the 
+node_prereq 
+script and configure
+the parameters manually, follow all the topics mentioned in the table above.
+Copy the script to each node
+1
+. 
+Copy the 
+<OMT_Embedded_K8s_202x.xx.00xxx>/node_prereq
+ script from the first control plane node to the 
+/tmp
+ directory on
+each of the remaining nodes (control plane nodes, worker nodes, and NFS server). 
+2
+. 
+Navigate to the directory that contains the 
+node_prereq
+ script, and then run the following command to add the executive
+permission: 
+chmod +x node_prereq
+Run the script on each node
+You can use the 
+node_prereq
+ script to complete the following configuration tasks:
+Ensure the localhost is resolved to 127.0.0.1 (using the 
+--etc-hosts
+ command option)
+Check and set the system parameters (using the 
+--sys-param
+ command option)
+Install the prerequisite packages (using 
+--install-pkg
+ command option)
+The following table lists the commands for the control plane nodes, worker nodes, and NFS server.
+Node
+Command
+Control plane node
+./node_prereq -T master --etc-hosts --sys-param --install-pkg
+Worker node
+./node_prereq -T worker --etc-hosts --sys-param --install-pkg
+NFS server
+./node_prereq -T nfs --etc-hosts --sys-param --install-pkg
+Manually enable swap
+The suite installation requires that swap be enabled on the control plane nodes and worker nodes because running the cluster
+nodes with swap on will significantly reduce the memory requirements for the small, medium and large deployment sizes.
+Comprehensive performance benchmark and reliability tests have been performed, which indicate that running SMA cluster
+nodes with swap on has no obvious impact on performance or stability.
+Note:
+ This topic contains legacy terms that aren't yet fully removed from OMT. Instances of “master” in this
+topic refer to the control plane or to the control plane nodes.
+Important:
+ Make sure a yum repository has been set up correctly on the server because the 
+node_prereq
+ script
+depends on the 
+yum 
+command to install the related packages. Contact your IT administrator for help if a yum
+repository hasn't been set up correctly on your server.
+SMAX 2022.11
+Page 
+631
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

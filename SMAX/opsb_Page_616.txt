@@ -1,0 +1,46 @@
+Support Tools
+Vertica
+ suggests that the following tools are installed so support can assist in troubleshooting your system if any issues arise:
+pstack (or gstack) package. Identified by issue 
+S0040
+ when not installed.
+On Red Hat 7 and CentOS 7 systems, the pstack package is installed as part of the gdb package.
+mcelog package. Identified by issue 
+S0041
+ when not installed.
+sysstat package. Identified by issue 
+S0045
+ when not installed.
+Red Hat 6 and CentOS 6 Systems
+To install the required tools on Red Hat 6 and CentOS 6 systems, run the following commands as sudo or root:
+yum install pstack
+yum install mcelog
+yum install sysstat
+Red Hat 7 and CentOS 7 Systems
+To install the required tools on Red Hat 7/CentOS 7 systems, run the following commands as sudo or root:
+yum install gdb
+yum install mcelog
+yum install sysstat
+Ubuntu and Debian Systems
+To install the required tools on Ubuntu and Debian systems, run the following commands as sudo or root:
+apt-get install pstack
+apt-get install mcelog
+apt-get install sysstat
+SuSE Systems
+To install the required tools on SuSE systems, run the following commands as sudo or root.
+zypper install sysstat
+zypper install mcelog
+There is no individual SuSE package for pstack/gstack. However, the gdb package contains gstack, so you could optionally
+install gdb instead, or build pstack/gstack from source. To install the gdb package:
+zypper install gdb
+For Ubuntu 19.1, do not run 
+apt-get install mcelog
+. Instead, run 
+apt-get install rasdaemon
+.
+SMAX 2022.11
+Page 
+616
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

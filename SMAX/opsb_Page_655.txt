@@ -1,0 +1,55 @@
+Example
+:
+SYSTEM_USER_ID="1999"
+SYSTEM_GROUP_ID
+Configuration of this parameter is optional.
+This parameter specifies the operating system group ID that's used to run the process in the container. The expected
+value is 1999 or between 100000 and 2000000000.
+The default value is 
+1999
+.
+Example:
+SYSTEM_GROUP_ID="1999"
+SET_APPHUB_CLUSTER_ADMIN
+Configuration of this parameter is optional.
+This parameter is used to enable cluster-admin permissions (that is god-mode) for Apphub. To enable cluster-admin
+permissions, use the 'SET_APPHUB_CLUSTER_ADMIN=true' option.
+The allowed value is "true" or "false".
+The default value is "false".
+Example:
+SET_APPHUB_CLUSTER_ADMIN="true"
+APP_HTTP_PROXY
+Configuration of this parameter is mandatory if any application inside the cluster requires a proxy to make requests outside of
+the cluster. For example, to an external Elasticsearch server.
+This parameter specifies the HTTP proxy URL used by applications in the cluster.
+The expected value is a URL.
+By default, a proxy isn't configured.
+Example:
+APP_HTTP_PROXY=proxyserver.mycompany.com:8080
+APP_HTTPS_PROXY
+Configuration of this parameter is mandatory if any application inside the cluster requires a proxy to make requests outside of
+the cluster. For example, to an external Elasticsearch server.
+This parameter specifies the HTTPS proxy URL used by applications in the cluster.
+The expected value is a URL.
+By default, a proxy isn't configured.
+Example:
+APP_HTTPS_PROXY=proxyserver.mycompany.com:8080
+APP_NO_PROXY
+Configuration of this parameter is mandatory if you have configured the 
+APP_HTTP_PROXY
+ or 
+APP_HTTPS_PROXY
+ parameters.
+This parameter specifies a list of domain names and servers to which applications in the cluster require direct internet access,
+or that don't require a proxy connection.
+The expected value is a comma-delimited list of IPv4 addresses, FQDNs, and domain names.
+Example
+:
+APP_NO_PROXY=".mycompany1.com,host1.mycompany2.com"
+SET_FQDN_IN_INGRESS
+SMAX 2022.11
+Page 
+655
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

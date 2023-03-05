@@ -1,0 +1,94 @@
+SERVICE_CIDR
+Configuration of this parameter is optional.
+This parameter specifies the network address for Kubernetes services.
+The expected value is a Classless Inter-Domain Routing (CIDR) format IP address. The minimum useful network prefix is 
+/27
+and the maximum useful network prefix is 
+/12
+.
+The default value is 
+172.17.17.0/16
+. We strongly recommend that you change the default value only when your network
+configuration requires you to do so, and to make sure that you have sufficient understanding of the Flannel network fabric
+configuration requirements before you make any changes.
+Example:
+SERVICE_CIDR="172.17.17.0/16"
+Application settings
+CAPABILITIES
+Configuration of this parameter is optional.
+Specifies the OMT capabilities.
+The expected value is comma-delimited list of strings, in which each entry is formatted as 
+<NameOfCapability>=true|false
+. You
+can configure the following capabilities: 
+ClusterManagement
+, 
+DeploymentManagement
+, 
+LogCollection
+, 
+Monitoring
+, 
+MonitoringContent
+, 
+N
+fsProvisioner
+, 
+Tools
+.
+The default value is: 
+"ClusterManagement=true,DeploymentManagement=true,LogCollection=true,Monitoring=true,MonitoringContent=true,Nfs
+Provisioner=false,Tools=true
+"
+.
+Examples:
+To deploy an application with suite metadata: ignore this parameter (use the default values)
+To deploy a chart application with the command line only: 
+CAPABILITIES
+"DeploymentManagement=false,ClusterManagement=false"
+To deploy a chart application with a UI: ignore this parameter (use the default values)
+To deploy a chart application with a UI and enable monitoring: 
+CAPABILITIES "Tools=true,Monitoring=true,LogCollection=true,Deplo
+ymentManagement=true,ClusterManagement=true"
+FEATURE_GATES
+Configuration of this parameter is optional.
+This parameter specifies additional features of OMT, which are disabled by default.
+The expected value is a comma-delimited list of features. The entry for each feature is formatted as follows: 
+NameOfFeature=tru
+e|false
+To enable an additional feature, set the value as a key-value pair: 
+NameOfFeature=true
+To enable multiple features by separating the key-value pairs by a comma: 
+NameOfFeatureA=true,NameOfFeatureB=true
+You can specify the following feature gate values:
+AppHubUI=true
+: Enables the AppHub UI. The default value is 
+true
+.
+Example:
+ 
+FEATURE_GATES="AppHubUI=true"
+CDF_NAMESPACE
+This parameter specifies the OMT namespace. The expected value is a string. Specifically, a lowercase RFC 1123 label that
+consists of lower case alphanumeric characters or '-', and starts and ends with alphanumeric characters (for example, my-
+name or 123-abc). The default value is core. 
+SYSTEM_USER_ID
+Configuration of this parameter is optional.
+This parameter specifies the operating system user ID that's used to run the process in the container. The value of this
+parameter and the ID of the NFS directory owner must be the same. The expected value is 1999 or between 100000 and
+2000000000.
+The default value is 
+1999
+.
+Note
+ This release of SMA doesn't support this parameter. You must use 
+core
+ as the namespace for OMT.
+
+
+SMAX 2022.11
+Page 
+654
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
