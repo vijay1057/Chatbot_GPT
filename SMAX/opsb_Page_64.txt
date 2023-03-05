@@ -1,0 +1,143 @@
+Mobile app
+This release introduces the following enhancements to the mobile app.
+Edit CIs from the mobile app
+CI management is now supported in the Agent mode. See the 
+mobile app documents
+ for details.
+You can now customize the 
+Mobile Device Detail
+ and 
+Mobile InfrastructurePeripheral Detail
+ forms from
+Studio. See 
+Configure the Service Portal mobile app
+.
+Receive assets
+The asset-receiving feature is now available in Agent mode. See 
+Receive Assets
+.
+You can receive the Devices and the Infrastructure & Peripheral assets from the 
+Receive Assets
+ icon in
+the 
+Apps
+ banner.
+After you received the Devices and Infrastructure & Peripheral assets, you can view the receiving history from
+the 
+Receive Reports
+ icon in the 
+Apps
+ banner.
+Enable agent mobile by default
+The default setting of 
+Enable Agent Mobile
+ is changed to 
+On
+. Newly created tenants have this setting set to 
+On 
+by default,
+and existing tenants retain their original setting after an upgrade. 
+Asset Management
+This release introduces the following new features for Asset Management.
+Red Hat content support
+You can now create license compliance reports for Red Hat products including Red Hat Enterprise Linux (RHEL) Server 7, 8, and
+9 with out-of-the-box license rules and metrics. SAM can provide a report on potential savings and suggestions on license
+purchasing based on the calculated cost optimization threshold for RHEL Server and RHEL for Virtual Datacenters. See 
+Create
+compliance reports for Red Hat products
+.
+Application-level cluster scenario support
+SAM now supports calculating license consumption for application-level clusters including SQL Server cluster, Oracle Data
+Guard, and Oracle Real Application Clusters. See 
+Enable license consumption calculation for the cluster scenario
+.
+Device exemptions from license consumption
+This feature allows you to exempt devices from license counts. The system excludes the exempted devices from licensing -
+installations on these devices don't consume licenses. See
+ Exempt devices from license consumption calculation
+.
+Customize service workflows against license usage records
+You can customize service workflows against license usage records with out-of-the-box business rules and notification
+templates. See 
+Customize service workflows against a license usage record
+.
+Added the
+ PENDING REVIEW 
+view on the 
+License Models
+ UI
+Added the enum value of 
+Rejected 
+for 
+Review status
+ to
+ Asset Model
+Added the 
+Owner
+ field to the 
+Asset Model
+ record type
+Localized the language of text strings in the 
+Reason
+ field of 
+Asset Model details
+ by changing the 
+Locale
+setting 
+in
+ Application settings
+. See 
+Application settings
+. 
+Query customization
+You can now customize queries to federate hardware, software, and licenses for compliance calculation. In some cases, you
+can use a query to federate non-OOTB attributes or filter the wanted records for compliance calculation. However, some SMAX
+data types including 
+IMAGE
+, 
+RICH_TEXT
+, 
+LARGE_TEXT
+, and 
+COMPLEX_TYPE 
+are not supported. See 
+Queries
+.
+To get more accurate compliance reports, SAM now considers both the 
+discovery_state
+ and 
+MetaPhase
+ fields in CMS when
+querying hardware information from CMS.
+Purchase order enhancements
+You can add attachments to a purchase order record. See 
+Update a purchase order
+.
+You can update Delivery information or add attachments to a purchase order line record. See 
+Update a purchase order line
+.
+Studio
+This release introduces the following new features or enhancements in Studio.  
+Hide action
+A 
+Hide action
+ business rule is introduced. When the rule runs, the
+ 
+selected action disappears from the form. See 
+Hide action
+.
+Notifications to groups
+You can now select groups in the recipient list when you add the recipients for the 
+Send notification
+ rule template. See 
+Send
+notification to groups
+.
+Data domain segmentation for custom record types
+You can add data domains to your custom record types, including Studio modules from the Marketplace.
+SMAX 2022.11
+Page 
+64
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

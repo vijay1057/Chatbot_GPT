@@ -1,0 +1,37 @@
+SMA Operation Toolkit
+SMA Support Assistant
+SMA Doctor
+SMA Monitor
+SMAX Studio Apps
+Tenancy model migration toolkit
+Cloud Management capsules and content packs
+Capsules
+The following capsules are released to the ITOM Marketplace:
+Amazon AWS Capsule (CloudSlang) 3.0.0
+This release of the capsule includes the following features:
+Amazon Relational Database Service (RDS) service design is now available.
+AWS cloudSlang service designs now use Java Script (JS) instead of JSP.
+Google GCP Capsule (CloudSlang) 2.0.0
+This release of the capsule includes the following features:
+GCP CloudSlang service designs now use Java Script (JS) instead of JSP.
+The capsule uses CloudSlang based failure handling and custom provider selection workflows from the OO DND
+Integration Content Pack.
+The capsule now supports only a single external disk.
+Microsoft Azure Capsule (CloudSlang) 3.1.0
+This release of the capsule includes the following feature:
+Microsoft Azure database service design is now available.
+OO Amazon AWS Content Pack (CloudSlang) 2.2.0
+This release of the content pack includes the following feature:
+The content pack now includes Amazon Relational Database Service (RDS) workflows to deploy and undeploy an RDS
+instance.
+OO Microsoft Azure Content Pack (CloudSlang) 2.2.3
+This release of the content pack includes the following feature:
+The content pack now includes Microsoft Azure database workflows and operations to work with an Azure SQL instance.
+Related topics
+Release log
+SMAX 2022.11
+Page 
+67
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

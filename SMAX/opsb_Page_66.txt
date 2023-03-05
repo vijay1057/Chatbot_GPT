@@ -1,0 +1,87 @@
+You can now use Microsoft Translator for in-line translation. See 
+In-line translation tool
+.
+Right-to-left layout for email notifications
+When the system sends email notifications based on predefined notification templates, if the email receiver's language is set
+as Arabic or Hebrew, the system will convert the email template to the right-to-left (RTL) layout.
+Accessibility improvements
+This release brings new accessibility improvements for both Service Portal and Agent user interface. The UI elements,
+interactive items, and error messages are enhanced, making interactive and navigation elements easily accessible by assistive
+technologies. See 
+Accessibility improvements
+.
+Installation, upgrade, and system maintenance
+This release introduces the following changes. 
+Support matrix 
+Category
+Changes
+Operating system
+This release no longer supports CentOS/RHEL/Oracle Linux 7.8. 
+Databases
+PostgreSQL 14.x, 13.x
+: added support for all components
+PostgreSQL 10
+: obsoleted. You must upgrade to a supported PostgreSQL version after
+upgrading to this release..
+Kubernetes versions
+Embedded Kubernetes: 1.25
+EKS: 1.23.x
+AKS: 1.23.x, 1.24.x
+GKE: 1.23.x
+OpenShift: 1.24
+OPB-based LDAP
+integration
+Added support for Microsoft Active Directory 2022
+On-Premises Bridge
+(OPB)
+Added support for Windows (64-bit) 2022
+Language support
+Smart virtual agent: Japanese, Korean and Simplified Chinese are added.
+New OS support for 
+OO RAS
+OO RAS now supports RHEL 9.0, SUSE Enterprise Linux 15, and Windows Server 2022.
+Password encryption for self-managed PostgreSQL
+Starting with this release, use 
+scram-sha-256
+ for new installations in an on-premises environment (using the embedded
+Kubernetes) or new installations on OpenShift. Existing customers using 
+md5
+ can continue to use 
+md5
+ after upgrading to this
+release. 
+Migration to Azure Flexible Server
+This release no longer supports self-hosted PostgreSQL on Azure VMs
+. Existing customers must migrate to Azure Flexible
+Server as needed. See 
+Migrate from self-hosted PostgreSQL to Azure Flexible Server
+.
+Extended OpenShift support
+You can now install OO Containerized and therefore the DND and CGRO capabilities as well on OpenShift. See 
+Install OO
+Containerized on OpenShift
+.
+Additional prerequisite step during upgrade
+The suite upgrade process includes an additional prerequisite step to create a 
+scheduler
+ database for use by the Integration
+Engine. For deployments using self-managed PostgreSQL, you must prepare your PostgreSQL in advance. See 
+Upgrade the
+suite (embedded Kubernetes)
+ and 
+Upgrade the suite (managed Kubernetes)
+. 
+Velero-based disaster recovery
+The disaster recovery solution based on Velero now additionally supports deployments using Kubernetes embedded in OMT.
+This release no longer supports the old disaster recovery solution. See 
+Backup and restore
+.
+SMAX Content packs released on Marketplace
+Supporting resources for this release are available to download for free from the ITOM Marketplace:
+SMA Cloud Deployment Package
+SMAX 2022.11
+Page 
+66
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

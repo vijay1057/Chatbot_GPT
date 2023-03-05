@@ -1,0 +1,85 @@
+Service Level Management
+This release introduces the following new features for Service Level Management. See 
+Service Level Management
+.
+Configurable SLM targets
+Now you can assign flexible target types.
+Out-of-the-box SLT operation rules can be modified now.
+Now you can add flexible SLT operation rules either in Studio workflows or in specific Target Sets.
+SLT history is enhanced to capture target status changes.
+SLM expansion to Change Management
+Service Level Management (SLM) is now available to Change record types.
+OData for BI integration
+As a new method for business intelligence (BI) Integration, OData provides secure access to SMAX data for reporting with the
+following advantages:
+The existing secure HTTPS/REST-based communication can be used in SaaS.
+OData is natively supported by mainstream BI tools (such as Power BI, Tableau, and Qlik Sense) and other apps (such as
+Excel).
+OData uses the existing SMAX authentication and authorization for access to SMAX data.
+Customers can scale out the integration to optimize performance.
+See 
+Use OData for BI integration
+.
+Time series report
+Analytic and Survey reports now support time series. This report type displays a sequence of data obtained by analyzing a
+group of items over a defined period of time.  See 
+Reports
+.
+Group member sync from IdM to Service Management
+If you use IdM's group rule functionality to dynamically assign members to groups for capabilities such as Cloud Management
+(DND, CGRO, and Content Store), UCMDB, and Operations Orchestration (OO), the new "group member sync" feature enables
+you to periodically pull group-member relationships from IdM to the agent interface. You can turn on this feature for tenants
+that need to take advantage of the configuration efficiency brought by IdM group rules, by using the tenant-level "Pull
+members from IdM" setting. See 
+Group member sync
+.
+Service Portal
+This release introduces the following features for Service Portal:
+Multi-language support for Smart virtual agent
+The Smart virtual agent removes the restriction that each tenant can have only one single language model.
+You can now apply multiple language models within one single tenant, so that end users can chat with the smart virtual
+agent in their preferred languages. See 
+Multi-language support in one tenant
+.
+A new 
+Virtual agent 
+tab is available in Suite Administration to control which language models need to be preloaded and
+reside constantly in memory for quick response. See 
+Virtual agent tab
+.
+The Smart virtual agent supports three new East-Asian languages (Japanese, Korean, and Simplified Chinese). See 
+Language
+support
+.
+Show/hide the lookup icon
+You can now configure whether to display the lookup icon next to the drop-down menu of entity picker. See 
+Service Portal
+feature settings
+.
+Drag and drop attachments
+You can now use the drag-and-drop method when you add attachments in Service Portal.
+User experience enhancements
+You can now configure the background color for the Agent interface header. See 
+Service Portal display theme settings
+.
+In the offering list, the first paragraph of the offering description is displayed as a single-line short description. If the short
+description is truncated due to a length limit, you can hover over the truncated text to view the full contents.
+To take advantage of this feature, 
+Catalog Administrator
+ users are encouraged to add a short description as the first
+paragraph of the Description field when defining a catalog offering.
+Note: 
+The service modeling feature requires one of the following versions of UCMDB: Containerized CMS
+2022.05 (with 2022.05.P1.HF2 applied) and 2022.11, and Classic CMS 2022.11.
+
+
+Note
+: The method of using the BI integration API for BI integration is deprecated. 
+
+
+SMAX 2022.11
+Page 
+63
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

@@ -1,0 +1,118 @@
+Home
+Service Management Automation X (SMAX) is a service management solution driven by analytics, that combines four key
+application areas: IT Service Management (ITSM), IT Asset Management (ITAM), Extended Service Management (XSM), and
+Cloud Management.
+SMAX has fully functioning out-of-the-box processes and workflows that are ready for use as of day 1. The solution allows for a
+further extension of applications via an easily extendable and fully codeless studio functionality. 
+Micro Focus
+ and its partner
+and customer community can share such extended applications via the 
+ITOM Marketplace
+.
+Cloud Management offers the following capabilities:
+Design and Deploy (DND): With DND capability, new cloud service offerings based on published service designs can be
+available to consumers, which facilitates your organization's cloud infrastructure management.
+Cost Governance and Resource Optimization (CGRO): CGRO enables you to optimize your cloud spending and simplify
+configuration with various cloud providers.
+SMAX is offered as a service (SaaS), you can also deploy SMAX on-premises or in the cloud (click 
+here
+ for a free trial).
+Additionally, the multi-tenancy of SMAX allows you to host and manage environments for multiple customers within a single
+installation. The following table includes information about the deployment platforms.
+Deployment
+type
+Deployment
+platform
+Description
+On-
+premises
+ITOM OPTIC
+Management
+Toolkit (OMT)
+Deploy on physical or virtual machines with Kubernetes provided by the ITOM OMT.
+RedHat OpenShift
+Deploy on-premises with RedHat OpenShift Kubernetes and on-premises databases
+and persistent storage.
+Cloud
+Google Cloud
+Platform (GCP)
+Deploy on GCP with Google Kubernetes Engine (GKE) and other cloud native services
+like CloudSQL and Filestore.
+Azure
+Deploy on Azure with Azure Kubernetes Service (AKS) and other cloud native services
+like Azurefile/Azure NetApp Files.
+Amazon Web
+Services (AWS) 
+Deploy on AWS with Elastic Kubernetes Service (EKS) and other cloud native services
+like Elastic File Service (EFS) and Relational Database Service (RDS).
+AWS GovCloud
+Deploy on AWS GovCloud with Elastic Kubernetes Service (EKS) and other cloud
+native services like Elastic File Service (EFS) and Relational Database Service (RDS).
+SMAX is offered in the license editions of SMAX Express and SMAX Premium. AMX is offered as an AMX edition. You need an
+HCMX license if you would like to include Cloud Management capability in SMAX. For more details, see 
+SMA suite license
+.
+The licenses can give you access to the following:
+Product
+License
+Deployment
+Documentation
+SMAX*
+Express, Premium
+Containerized
+This help center (includes
+SMAX, AMX, and HCMX
+functionalities)
+AMX
+AMX
+Containerized
+AMX help center
+HCMX
+HCMX
+Containerized
+HCMX help center
+Universal
+Discovery &
+CMDB**
+Universal Discovery Unit (which can be used for
+Express or Premium discovery)
+Can be
+containerized or
+classic CMS
+Install containerized
+CMS
+ for a converged
+solution
+Standalone containerized
+CMS
+Classic CMS
+Connect-It (CIT)
+Express, Premium, AMX, or HCMX
+A set of foundational CIT content is included in the
+licenses. Additional content needs to be acquired
+separately.
+Deployed
+externally
+CIT documentation
+Operations
+Orchestration
+(OO)***
+Express, Premium, AMX, or HCMX
+Deployed
+externally
+OO documentation
+*The new Software Asset Management (SAM) capability within SMAX requires a SAM unit license, 50 SAM units are included in
+the SMAX Premium or AMX license. 
+**50 Universal Discovery units are included in the SMAX and AMX product licenses.
+***2 concurrent OO workflows are included in the SMAX and AMX product licenses. HCMX license includes the OO licensing for
+cloud management use cases only.
+If you are a Service Manager customer and would like to use SMA Service Portal, you can deploy SMA in mixed mode. See 
+SMA-
+SM help center
+.
+SMAX 2022.11
+Page 
+61
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

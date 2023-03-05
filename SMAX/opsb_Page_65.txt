@@ -1,0 +1,97 @@
+Increased limit on non-volatile lists
+This release increases the maximum number of non-volatile lists from 50 to 200.
+Cloud Management
+This release introduces the following new features or enhancements for Cloud Management. 
+GCP reports
+The CGRO capability can generate reports that allow you to drill down and analyze your cloud spend on GCP. See 
+GCP reports
+.
+GCP cloud spend limit
+The CGRO capability allows you to define GCP cloud spend limits and send automated alerts when your spend exceeds the
+limit. See 
+Cloud cost limits
+.
+GCP cloud spend dashboard
+A Cloud Spend Summary dashboard gives you an overview of your cloud spend, such as your total cloud spend, year to date
+spend comparison of the previous year and the current year, cloud spend by provider (current year), and historical cloud
+spend by provider. See 
+GCP reports
+.
+IaC subscription-based cost reports
+You can generate IAC subscription-based reports for different providers, such as "Spend by subscription" and "Spend by user". 
+Schedule scale-in and scale-out operations
+This feature brings down the cost and saves the budget proactively by using an inbuilt auto-scaling scheduler to reduce the
+cluster size and increase it back when required.
+Transfer subscription to a new subscriber
+You can now transfer cloud subscriptions from one subscriber to another. See 
+Transfer subscriptions
+.
+The out-of-the-box fulfillment task plan for cloud offerings is refactored to support the subscription transfer feature and to
+provide more flexible customization capability. The 
+Catalog Administrator
+ user or the 
+Tenant Admin
+ user needs to
+manually update the task plan for existing cloud offerings. See 
+Update task plan
+.
+Automated service delivery
+Service design test using configuration options: This feature increases the quality of the service design and decreases
+authoring iterations before offering creation by testing all the lifecycle and user operations through the Configuration option
+model.
+Terraform Component Template Wizard: this wizard accelerates your service delivery by using templates from 3rd-party
+automation tools such as Terraform.
+Operations Orchestration (OO) Containerized
+This release introduces the following features for OO Containerized.
+Expose system-level metrics to Prometheus
+You can add monitoring support by exposing Prometheus-style metrics from the most critical OO services (OO Controller, OO
+Central, OO Scheduler, OO UI, and OO Downloader). This helps in troubleshooting various aspects inside the cluster like
+performance, scalability, and others. See 
+Configure values.yaml on-premises
+, 
+Configure values.yaml on EKS
+, 
+Configure
+values.yaml on AKS
+, or 
+Configure values.yaml on OpenShift
+. 
+Scheduler enhancements
+This release enhances the scheduler functionality to support editing recurrences and exclusion. See 
+Schedule flow runs
+.
+Application role changes to support OO roles
+You can now list and filter roles for OO Containerized by Application as OO in the IdM Admin console. See 
+Roles and
+permissions in OO Central
+.
+Audit service
+You can deploy the Audit service on the same OMT as a secondary deployment and then enable the audit feature for audit
+clients (IdM, SMAX, and CMS). The audit UI then allows authorized users to view audit data triggered by audit events in IdM,
+SMAX, and CMS. There're two types of audit data: system-level audits and tenant-level audits. See 
+Install the Audit service on-
+premises
+, 
+Install the Audit service on EKS
+, 
+Enable Audit
+, 
+Audit UI
+, and 
+Audit events
+.
+The Audit service has a resilient design: it retrieves audit data first through REST update and falls back to NFS to ensure no
+events are lost. See 
+Administer audit files on the audit client NFS server
+.
+Currently, the Audit service supports deployments in an on-premise environment (with embedded Kubernetes), on AWS, and
+on OpenShift.
+Miscellaneous
+The following are miscellaneous enhancements in this release.  
+Microsoft Translator for in-line translation
+SMAX 2022.11
+Page 
+65
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

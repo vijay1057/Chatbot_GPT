@@ -1,0 +1,64 @@
+Procurement
+Management
+N/A
+You can add attachments to a purchase order record. See 
+Update a purchase order
+.
+You can update Delivery information or add attachments to a purchase order line record. See
+Update a purchase order line
+.
+Software
+Asset
+Management
+N/A
+You can now customize queries for federating the wanted CIs from CMS and SMAX and the
+attributes from CMS to calculate the product compliance.
+Software
+Asset
+Management
+N/A
+You can now customize SMAX service workflows against license usage records with out-of-the-
+box business rules and notification templates. 
+Cloud
+Management
+Idea
+287
+292
+7
+ESM Facade API improvement.
+Cloud
+Management
+Idea
+286
+897
+4
+You can choose to scale up or scale down the number of servers by creating a scheduler while
+creating an Azure subscription. See 
+Azure Capsule (CloudSlang)
+.
+Cloud
+Management
+N/A
+Implementation of showback report for GCP.
+Cloud
+Management
+N/A
+GCP support for Cost Limits.
+Cloud
+Management
+N/A
+GCP Committed Use Discounts for reservation.
+Category
+Idea
+ID
+Description
+Related topics
+Learn about enhancements and submit more ideas on 
+SMA Idea Exchange
+.
+SMAX 2022.11
+Page 
+69
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

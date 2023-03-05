@@ -1,0 +1,148 @@
+Fixed issues
+SMAX 2022.11
+Category
+Issue
+ID
+Description
+Service
+Management
+OCT
+CR1
+9M1
+6450
+89
+The Execute Operations Orchestration (OO) flow rule can't retrieve flows with Japanese
+characters.
+Service
+Management
+OCT
+CR1
+9M1
+7313
+87
+The XDoctor.sh script does not unmount after execution.
+Service
+Management
+OCT
+CR1
+9M1
+6461
+06
+You can't restore Tenant Key Chain from Application Settings. The error message is displayed
+indicating that the passcode needs to be between 14-20 characters.
+Service
+Management
+OCT
+CR1
+9M1
+7212
+06
+After you update the display label of a record from Studio, if the record is referred to as
+ENTITY_LINK from another record type, the display label remains unchanged when you hover over
+the record to view the details.
+Service
+Management
+OCT
+CR1
+9M1
+7175
+11
+The delegated approver isn't authorized to view the attachments of the requests.
+Service
+Management
+OCT
+CR1
+9M1
+6950
+11
+If an attachment of a request is added from Service Portal, this attachment can only be viewed in
+Live Support when the current user is the tenant admin.
+Service
+Management
+OCT
+CR1
+9M1
+6603
+5
+When you use "More > Create Incident from record"  in Live Support to create an incident from a
+support request, randomly the information in the support Request won't be copied into the
+incident.  Additionally, if you use the Back button to go back to the support request, an empty
+support request is displayed.
+Service
+Management
+OCT
+CR1
+9M1
+5777
+35
+When there is a custom rule in the Request record type, which automatically sets the 
+Requested
+for
+ field to the value of 
+Requested by
+, if you click the 
+New
+ button in Live Support and then
+perform the following operations: (1) Select User A in the Requested by field; 
+Requested for
+person changed to User A. (2) Change the 
+Requested by
+ person to User B; 
+Requested for
+person changed to User B. (3) Change the 
+Requested by
+ person to User C; 
+Requested for
+person changed to User C (4) Change the 
+Requested by
+ person back to User A. Now the
+Requested for
+ person remains as User C but doen't change back to User A.
+Service
+Management
+OCT
+CR1
+9M1
+6533
+17
+If an offering is added with a section and a mandatory user option, when you request this offering
+from the agent interface, the Save button isn't available.
+Service
+Management
+OCT
+CR1
+9M1
+6142
+17
+The record type name is misspelled as ActuralService in the OOTB "Software Manager" role.
+Service
+Management
+OCT
+CR1
+9M1
+6080
+75
+Groups with special characters in their UPNs can't be updated.
+Service
+Management
+OCT
+CR1
+9M1
+4711
+00
+Inconsistent behavior when displaying Related Contracts from Devices
+Service
+Management
+OCT
+CR1
+9M1
+5197
+98
+Duplicate names for License Metric and Lms Metric exist in the record type drop-down list in
+Studio.
+SMAX 2022.11
+Page 
+70
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

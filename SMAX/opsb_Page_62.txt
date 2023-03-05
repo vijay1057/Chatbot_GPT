@@ -1,0 +1,80 @@
+Release notes
+This incremental release of Service Management Automation X (SMAX) introduces a number of new features and
+enhancements, in addition to fixing issues.
+What's new in SMAX 2022.11
+This release introduces the following new features or enhancements.
+Integration Engine enhancements
+In this release, the Integration Engine provides new triggering mechanisms for inbound integrations: listener and scheduler,
+adds support for the OAuth 2.0 authentication, adds connectors and scenario templates for Azure DevOps and Asset Manager,
+enhances the Octane connector and scenario templates, and more...
+Platform enhancements
+Listener and scheduler
+Two new triggering mechanisms are available for integrations that are based on the integration engine: 
+listener
+ and 
+scheduler
+.
+Listeners enable external systems to trigger integration scenarios when certain events (such as the creation of a defect)
+occur in the external system. This requires the external system to have a workhook mechanism that can automatically
+push messages to a URL when the events occur.
+Schedulers enable you to run integration scenarios according to a configured schedule. For example, run the "Get Jira
+ticket status" scenario at 10:00 PM everyday.
+Support for OAuth 2.0 authentication
+The integration engine now supports the OAuth 2.0 authentication (the authorization code grant type). This OAuth 2.0
+implementation complies with the standard OAuth 2.0 specification, so any external systems that also support standard OAuth
+2.0 can use integration engine endpoints to integrate with SMAX. For more information on how to use the OAuth 2.0 endpoints,
+see 
+Working with OAuth 2.0 endpoints
+.
+Miscellaneous
+New and enhanced 
+DSL functions
+ and 
+built-in objects
+Support for a new value type: array
+Better preview of JSON payload
+Ability to delete an integration
+Ability to activate or inactivate a scenario
+Ability to reference properties defined in the same "Prepare data" rule
+Ability to dynamically omit certain query parameters from the request URL
+Support for filtering, pagination, and sorting for integration engine execution logs
+Ability to retain integration engine execution logs for a user-configurable amount of time
+Content enhancements
+New connectors
+Workday, Asset Manager, Azure DevOps, and Microsoft Graph. See 
+Connectors
+.
+New scenario templates
+Azure DevOps
+ and Asset Manager
+Enhanced connectors and scenario templates
+New actions are available for these existing connectors: Jira, Service Manager, and SMAX.
+The Octane integration provides a new template "Process incoming event" to support listener-based use case and
+enhanced templates to support attachment.
+Service Management
+This release introduces the following new features for Service Management.
+Native SACM
+This release introduces the following new features for Native SACM.
+Enhanced CI lifecycle for DND provisioned CIs
+If a CI is provisioned by a Service Design through the DND integration, the CI will be created in UCMDB and then synchronized
+to SMAX. A new SMAX field called 
+Provision state
+ is introduced to monitor the CI state from the DND side. See 
+Enhanced CI
+aging solution with Native SACM
+.
+Service modeling for Native SACM
+In the CI Topology widget, for users having the 
+Service modeling
+ permission in their user roles, the 
+Related CIs
+ window is
+open for editing with the service modeling feature. See 
+Service modeling
+.
+SMAX 2022.11
+Page 
+62
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.

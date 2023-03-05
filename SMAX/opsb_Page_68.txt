@@ -1,0 +1,148 @@
+Enhancements
+Category
+Idea
+ID
+Description
+Service
+Portal
+N/A
+You can now configure whether to display the lookup button next to the drop-down menu of an
+entity picker in 
+Service Portal feature settings
+.
+Service
+Portal
+N/A
+In the offering list, the first paragraph of the offering description is displayed as a single-line short
+description. If the short description is truncated due to a length limit, you can hover over the
+truncated text to view the full contents.
+To take advantage of this feature, 
+Catalog Administrator
+ users are encouraged to add a short
+description as the first paragraph of the Description field when defining a catalog offering.
+Service
+Portal
+Idea
+287
+025
+4
+You can now configure the background color for the Agent interface header in 
+Service Portal display
+theme settings
+.
+Service
+Portal
+Idea
+282
+084
+1
+You can now use Microsoft Translator for in-line translation. See 
+In-line translation tool
+.
+Service
+Portal
+Idea 
+286
+979
+4
+Idea
+164
+683
+9
+You can now use the drag-and-drop method when you add attachments in Service Portal.
+Smart Virtual
+Agent
+Idea 
+270
+732
+7
+You can now apply multiple language models within one single tenant, see 
+Multi-language support
+,
+and three new East-Asian languages (Japanese, Korean, and Simplified Chinese) are supported, see
+Language support
+.
+Service
+Management
+Idea
+287
+210
+7
+When the system sends email notifications based on predefined notification templates, if the email
+receiver's language is set as Arabic or Hebrew, the system will convert the email template to the
+right-to-left (RTL) layout.
+Service
+Management
+Idea 
+286
+997
+8
+Idea 
+286
+997
+8
+Idea 
+286
+997
+8
+Now you can assign flexible target types. Out-of-the-box SLT operation rules can be modified now.
+Now you can add flexible SLT operation rules either in Studio workflows or in specific Target Sets.
+SLT history is enhanced to capture target status changes.
+Service
+Management
+Idea 
+276
+295
+5
+Service Level Management (SLM) is now available to Change record types.
+Service
+Management
+Idea 
+287
+433
+6
+You can add data domains to your custom record types, including Studio modules from the
+Marketplace.
+Service
+Management
+Idea
+287
+209
+5
+The maximum number of non-volatile lists has been increased from 50 to 200.
+Service
+Management
+You can generate a time series report. See 
+Reports
+.
+Studio
+Idea
+284
+483
+6
+You can now select groups in the recipient list when adding recipients for a 
+Send
+notification
+ rule. 
+See 
+Send notification to groups
+.
+Studio
+Idea 
+269
+841
+0
+A 
+Hide action
+ business rule is introduced. When the rule runs, the
+ 
+selected action disappears from
+the form. For details, see 
+Hide action
+.
+SMAX 2022.11
+Page 
+68
+This PDF was generated on 25/02/2023 02:18:34 for your convenience. For the latest documentation, always see
+https://docs.microfocus.com
+.
